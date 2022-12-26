@@ -1,0 +1,144 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+                    <h1 class="text-lg font-bold md:text-2xl">Bill - #100013 for Pro Plan</h1>
+                    <div class="pt-6">
+                        <h3 class="text-lg font-bold">Bill Details</h3>
+                        <table class="min-w-full divide-y divide-gray-200 table-auto">
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="w-1/4 py-4 whitespace-nowrap">
+                                        <p class="font-semibold">Payment Date</p>
+                                    </td>
+                                    <td class="px-4 py-4 whitespace-nowrap">
+                                        <p class="text-base text-gray-600">
+                                            Tue 15 Mar 2022 at 09:50
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="w-1/4 py-4 whitespace-nowrap">
+                                        <p class="font-semibold">Payment Id</p>
+                                    </td>
+                                    <td class="px-4 py-4 whitespace-nowrap">
+                                        <p class="text-base text-gray-600">
+                                            #100013
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="w-1/4 py-4 whitespace-nowrap">
+                                        <p class="font-semibold">Transaction Id</p>
+                                    </td>
+                                    <td class="px-4 py-4 whitespace-nowrap">
+                                        <p class="text-base text-gray-600">
+                                            14855456333
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="w-1/4 py-4 whitespace-nowrap">
+                                        <p class="font-semibold">Plan Name</p>
+                                    </td>
+                                    <td class="px-4 py-4 whitespace-nowrap">
+                                        <p class="text-base text-gray-600">
+                                            Lite Plan
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="w-1/4 py-4 whitespace-nowrap">
+                                        <p class="font-semibold">Additional User</p>
+                                    </td>
+                                    <td class="px-4 py-4 whitespace-nowrap">
+                                        <p class="text-base text-gray-600">
+                                            25
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="w-1/4 py-4 whitespace-nowrap">
+                                        <p class="font-semibold">Grant Total</p>
+                                    </td>
+                                    <td class="px-4 py-4 whitespace-nowrap">
+                                        <p class="text-base text-gray-600">
+                                            Rs.210
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="w-1/4 py-4 whitespace-nowrap">
+                                        <p class="font-semibold">Amount Detail</p>
+                                    </td>
+                                    <td class="px-4 py-4 whitespace-nowrap">
+                                        <p class="text-base font-semibold text-gray-600">
+                                            Plan Amount : <span class="font-normal">Rs. 0</span>
+                                        </p>
+                                        <p class="text-base font-semibold text-gray-600">
+                                            Additional User (12*25) : <span class="font-normal">Rs. 300</span>
+                                        </p>
+                                        <p class="text-base font-semibold text-gray-600">
+                                            Prorata : <span class="font-normal">Rs. 250</span>
+                                        </p>
+                                        <p class="text-base font-semibold text-gray-600">
+                                            Discount : <span class="font-normal">Rs. 50</span>
+                                        </p>
+                                        <p class="text-base font-semibold text-gray-600">
+                                            Sub Total : <span class="font-normal">Rs. 200</span>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="w-1/4 py-4 whitespace-nowrap">
+                                        <p class="font-semibold">Tax Details</p>
+                                    </td>
+                                    <td class="px-4 py-4 whitespace-nowrap">
+                                        <p class="text-base font-semibold text-gray-600">
+                                            Sub Total : <span class="font-normal">Rs. 200</span>
+                                        </p>
+                                        <p class="text-base font-semibold text-gray-600">
+                                            IGST 5% : <span class="font-normal">Rs. 0</span>
+                                        </p>
+                                        <p class="text-base font-semibold text-gray-600">
+                                            SGST 2.5% : <span class="font-normal">Rs. 5</span>
+                                        </p>
+                                        <p class="text-base font-semibold text-gray-600">
+                                            CGST 2.5% : <span class="font-normal">Rs. 5</span>
+                                        </p>
+                                        <p class="text-base font-semibold text-gray-600">
+                                            Grand Total : <span class="font-normal">Rs. 210</span>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+</html>

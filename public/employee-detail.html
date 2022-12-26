@@ -1,0 +1,239 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="bg-white border rounded-md">
+                     <!--Brudcrumb-->
+                     <nav class="flex p-4" aria-label="Breadcrumb">
+                        <ol class="inline-flex flex-wrap items-center space-x-1 md:space-x-3">
+                          <li class="inline-flex items-center">
+                            <a href="dashboard.html" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+                              Dashboard
+                            </a>
+                          </li>
+                          <li>
+                            <div class="flex items-center">
+                              <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                              <a href="employee-summary.html" class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">Employee Summary</a>
+                            </div>
+                          </li>                    
+                          <li aria-current="page">
+                            <div class="flex items-center">
+                              <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                              <span class="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">Employee</span>
+                            </div>
+                          </li>
+                        </ol>
+                      </nav>
+                    <div class="p-4 bg-blue-600 lg:p-8">                        
+                        <div class="flex items-start justify-between py-4">
+                            <div>
+                                <h1 class="text-2xl font-semibold text-white">Elavarasan</h1>
+                                <p class="text-white">+91 8072276922</p>
+                            </div>
+                            <div class="flex items-center gap-2">                                
+                                <div class="relative" x-data="{ isOpen: false }">
+                                    <button class="p-2 bg-white rounded" @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
+                                        class="flex items-center p-1 px-2 text-sm font-medium text-gray-600 rounded-md focus:outline-none">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-600" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                    <ul x-show="isOpen" @click.away="isOpen = false"
+                                        class="absolute right-0 z-20 w-64 py-1 mt-2 overflow-hidden font-normal bg-white border rounded shadow"
+                                        style="display: none;">
+                                        <li class="group hover:bg-blue-100">
+                                            <a href="#"
+                                                class="flex items-center gap-2 px-3 py-2 font-semibold group-hover:text-blue-600">
+                                                Share Staff App
+                                            </a>
+                                        </li>
+                                        <li class="group hover:bg-blue-100">
+                                            <a href="#"
+                                                class="flex items-center gap-2 px-3 py-2 font-semibold group-hover:text-blue-600">
+                                                Inactive
+                                            </a>
+                                        </li>
+                                        <li class="group hover:bg-blue-100" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                            <a @click="showModal = true" href="#"
+                                                class="flex items-center gap-2 px-3 py-2 font-semibold group-hover:text-blue-600">
+                                                Delete Staff
+                                            </a>
+                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                    x-show="showModal" style="display: none;">
+                                    <!-- Modal inner -->
+                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                        @click.away="showModal = false"
+                                        x-transition:enter="motion-safe:ease-out duration-300"
+                                        x-transition:enter-start="opacity-0 scale-90"
+                                        x-transition:enter-end="opacity-100 scale-100">
+                                        <!-- Title / Close-->
+                                        <div class="flex items-center justify-between">
+                                            <p class="font-bold text-gray-900">
+                                                Delete Staff
+                                            </p>
+                                            <span @click="showModal = false">
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <!-- content -->
+                                        <div class="w-full mt-4">
+                                            <div class="pb-4 space-y-2 border-b">
+                                                <p>Are you absolutely sure you want to delete <span class="font-bold">Elavarasan</span>?</p>
+                                                <p>Once you delete the employee, then all the records will be deleted, it will not be possible to recover the records ". You can change the employee status to inactive.</p>
+                                                <div class="py-6">                                                    
+                                                    <input type="text" name="date" id="date" autocomplete="title"
+                                                        placeholder="Type the name to confirm"
+                                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                        <label class="font-semibold text-gray-600 select-none" for="date">Elavarasan</label>
+                                                </div>
+                                                <div class="flex items-center gap-4">
+                                                    <button
+                                                        class="w-full p-3 font-semibold text-gray-800 bg-gray-200 rounded-md">Cancel</button>
+                                                    <button
+                                                        class="w-full p-3 font-semibold text-white bg-blue-600 rounded-md">Delete</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h1 class="text-2xl font-bold text-white">₹ 25000</h1>
+                                <p class="text-white">Projected Salary</p>
+                            </div>
+                            <div>
+                                <a class="p-2 px-4 font-semibold text-blue-600 bg-white rounded-sm" href="view-salaryslip.html">Salary
+                                    Slip</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white lg:p-8">
+                        <div class="grid grid-cols-2 gap-4 lg:grid-cols-5">                            
+                            <div class="p-4 border shadow-lg">
+                                <a href="edit-profile.html" class="flex flex-col items-center justify-center ">
+                                    <div>
+                                        <img class="w-10 h-10" src="img/profile.png" alt="deduction">
+                                    </div>
+                                    <p class="font-semibold text-center text-gray-600">Profile</p>
+                                </a>
+                            </div>
+                            <div class="p-4 border shadow-lg">
+                                <a href="employee-attendance.html" class="flex flex-col items-center justify-center ">
+                                    <div>
+                                        <img class="flex-shrink-0 w-10 h-10" src="img/attenance.png" alt="attenance">
+                                    </div>
+                                    <p class="font-semibold text-center text-gray-600">Attendance</p>
+                                </a>
+                            </div>
+                            <div class="p-4 border shadow-lg">
+                                <a href="bonus.html" class="flex flex-col items-center justify-center ">
+                                    <div>
+                                        <img class="w-10 h-10" src="img/bonus.png" alt="salary">
+                                    </div>
+                                    <p class="font-semibold text-center text-gray-600">Bonus / Incentive</p>
+                                </a>
+                            </div>
+                            <div class="p-4 border shadow-lg">
+                                <a href="deduction.html" class="flex flex-col items-center justify-center ">
+                                    <div>
+                                        <img class="w-10 h-10" src="img/deduction.png" alt="deduction">
+                                    </div>
+                                    <p class="font-semibold text-center text-gray-600">Deductions</p>
+                                </a>
+                            </div>
+                            <div class="p-4 border shadow-lg">
+                                <a href="employee-loan.html" class="flex flex-col items-center justify-center ">
+                                    <div>
+                                        <img class="w-10 h-10" src="img/loan.png" alt="deduction">
+                                    </div>
+                                    <p class="font-semibold text-center text-gray-600">Loan</p>
+                                </a>
+                            </div>
+                            <div class="p-4 border shadow-lg">
+                                <a href="employee-advance.html" class="flex flex-col items-center justify-center ">
+                                    <div>
+                                        <img class="w-10 h-10" src="img/advance.png" alt="deduction">
+                                    </div>
+                                    <p class="font-semibold text-center text-gray-600">Advance</p>
+                                </a>
+                            </div>
+                            <div class="p-4 border shadow-lg">
+                                <a href="pay-per-work-employee.html" class="flex flex-col items-center justify-center ">
+                                    <div>
+                                        <img class="w-10 h-10" src="img/work.png" alt="deduction">
+                                    </div>
+                                    <p class="font-semibold text-center text-gray-600">Work</p>
+                                </a>
+                            </div>
+                            <div class="p-4 border shadow-lg">
+                                <a href="employee-transaction-details.html" class="flex flex-col items-center justify-center ">
+                                    <div>
+                                        <img class="w-10 h-10" src="img/transaction.png" alt="deduction">
+                                    </div>
+                                    <p class="font-semibold text-center text-gray-600">Transaction</p>
+                                </a>
+                            </div>
+                            <div class="p-4 border shadow-lg">
+                                <a href="tds-deduction.html" class="flex flex-col items-center justify-center ">
+                                    <div>
+                                        <img class="w-10 h-10" src="img/tds.png" alt="deduction">
+                                    </div>
+                                    <p class="font-semibold text-center text-gray-600">TDS Deduction</p>
+                                </a>
+                            </div>
+                            <div class="p-4 border shadow-lg">
+                                <a href="payroll.html" class="flex flex-col items-center justify-center ">
+                                    <div>
+                                        <img class="w-10 h-10" src="img/payroll.png" alt="deduction">
+                                    </div>
+                                    <p class="font-semibold text-center text-gray-600">Payroll</p>
+                                </a>
+                            </div>
+                            <div class="p-4 border shadow-lg">
+                                <a href="leave-balance.html" class="flex flex-col items-center justify-center ">
+                                    <div>
+                                        <img class="w-10 h-10" src="img/leave.png" alt="deduction">
+                                    </div>
+                                    <p class="font-semibold text-center text-gray-600">Leave Balance</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+      $("#navigation").load("nav.html");
+      $("#aside").load("aside.html");
+    });
+  </script>
+</html>

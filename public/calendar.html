@@ -1,0 +1,405 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="h-full p-4 bg-white border rounded-md lg:p-8">
+                    <!--Brudcrumb-->
+                    <nav class="flex" aria-label="Breadcrumb">
+                        <ol class="inline-flex flex-wrap items-center space-x-1 md:space-x-3">
+                          <li class="inline-flex items-center">
+                            <a href="dashboard.html" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+                              Dashboard
+                            </a>
+                          </li>
+                          <li>
+                            <div class="flex items-center">
+                              <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                              <a href="settings.html" class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">Settings</a>
+                            </div>
+                          </li> 
+                          <li>
+                            <div class="flex items-center">
+                              <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                              <a href="holiday-settings.html" class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">Holiday Settings</a>
+                            </div>
+                          </li>                          
+                          <li aria-current="page">
+                            <div class="flex items-center">
+                              <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                              <span class="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">Holiday Calander</span>
+                            </div>
+                          </li>
+                        </ol>
+                      </nav> 
+                    <div class="pt-6">
+                        <p class="text-2xl font-bold">Holiday Calander</p>
+                    </div>
+                    <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                        <div class="flex items-center justify-center py-4 pt-6">
+                            <div class="w-full">
+                                <div class="bg-white rounded-t">
+                                    <div class="flex items-center justify-between">
+                                        <span tabindex="0"
+                                            class="text-base font-bold text-gray-800 focus:outline-none">October
+                                            2020</span>
+                                        <div class="flex items-center">
+                                            <button aria-label="calendar backward"
+                                                class="text-gray-800 focus:text-gray-400 hover:text-gray-400">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-chevron-left" width="24"
+                                                    height="24" viewBox="0 0 24 24" stroke-width="1.5"
+                                                    stroke="currentColor" fill="none" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <polyline points="15 6 9 12 15 18" />
+                                                </svg>
+                                            </button>
+                                            <button aria-label="calendar forward"
+                                                class="ml-3 text-gray-800 focus:text-gray-400 hover:text-gray-400">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-chevron-right" width="24"
+                                                    height="24" viewBox="0 0 24 24" stroke-width="1.5"
+                                                    stroke="currentColor" fill="none" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <polyline points="9 6 15 12 9 18" />
+                                                </svg>
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between pt-6 overflow-x-auto">
+                                        <table class="w-full">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <div class="flex justify-center w-full">
+                                                            <p class="text-base font-medium text-center text-gray-800">
+                                                                Mo</p>
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="flex justify-center w-full">
+                                                            <p class="text-base font-medium text-center text-gray-800">
+                                                                Tu</p>
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="flex justify-center w-full">
+                                                            <p class="text-base font-medium text-center text-gray-800">
+                                                                We</p>
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="flex justify-center w-full">
+                                                            <p class="text-base font-medium text-center text-gray-800">
+                                                                Th</p>
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="flex justify-center w-full">
+                                                            <p class="text-base font-medium text-center text-gray-800">
+                                                                Fr</p>
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="flex justify-center w-full">
+                                                            <p class="text-base font-medium text-center text-gray-800">
+                                                                Sa</p>
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="flex justify-center w-full">
+                                                            <p class="text-base font-medium text-center text-gray-800">
+                                                                Su</p>
+                                                        </div>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="pt-6">
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                        </div>
+                                                    </td>
+                                                    <td class="pt-6">
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                        </div>
+                                                    </td>
+                                                    <td class="pt-6">
+                                                        <div class="w-full h-full">
+                                                            <div
+                                                                class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                                <p class="text-base font-medium text-gray-500">1</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="pt-6">
+                                                        <div class="w-full h-full">
+                                                            <div
+                                                                class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                                <p class="text-base font-medium text-gray-500">2</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="pt-6">
+                                                        <div class="w-full h-full">
+                                                            <div
+                                                                class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                                <p class="text-base font-medium text-gray-500">3</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="pt-6">
+                                                        <div class="w-full h-full">
+                                                            <div
+                                                                class="flex items-center justify-center w-full rounded-full cursor-pointer">
+                                                                <a role="link" tabindex="0"
+                                                                    class="flex items-center justify-center w-8 h-8 text-base font-medium text-white bg-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 focus:bg-gray-500 hover:bg-gray-500">4</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">5</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex items-center justify-center w-full rounded-full cursor-pointer">
+                                                            <a role="link" tabindex="0"
+                                                                class="flex items-center justify-center w-8 h-8 text-base font-medium text-white bg-green-600 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 focus:bg-green-500 hover:bg-green-500">6</a>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">7</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="w-full h-full">
+                                                            <div
+                                                                class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                                <p class="text-base font-medium text-gray-500">8</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <div
+                                                                class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                                <p class="text-base font-medium text-gray-500">9</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex items-center justify-center w-full rounded-full cursor-pointer">
+                                                            <a role="link" tabindex="0"
+                                                                class="flex items-center justify-center w-8 h-8 text-base font-medium text-white bg-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 focus:bg-gray-500 hover:bg-gray-500">10</a>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex items-center justify-center w-full rounded-full cursor-pointer">
+                                                            <a role="link" tabindex="0"
+                                                                class="flex items-center justify-center w-8 h-8 text-base font-medium text-white bg-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 focus:bg-gray-500 hover:bg-gray-500">11</a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">12</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">13</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">14</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">15</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">16</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">17</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex items-center justify-center w-full rounded-full cursor-pointer">
+                                                            <a role="link" tabindex="0"
+                                                                class="flex items-center justify-center w-8 h-8 text-base font-medium text-white bg-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 focus:bg-gray-500 hover:bg-gray-500">18</a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">19</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">20</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">21</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">22</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">23</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex items-center justify-center w-full rounded-full cursor-pointer">
+                                                            <a role="link" tabindex="0"
+                                                                class="flex items-center justify-center w-8 h-8 text-base font-medium text-white bg-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 focus:bg-gray-500 hover:bg-gray-500">24</a>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex items-center justify-center w-full rounded-full cursor-pointer">
+                                                            <a role="link" tabindex="0"
+                                                                class="flex items-center justify-center w-8 h-8 text-base font-medium text-white bg-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 focus:bg-gray-500 hover:bg-gray-500">25</a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">26</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">27</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">28</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex items-center justify-center w-full rounded-full cursor-pointer">
+                                                            <a role="link" tabindex="0"
+                                                                class="flex items-center justify-center w-8 h-8 text-base font-medium text-white bg-green-600 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 focus:bg-green-500 hover:bg-green-500">29</a>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">30</p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:pl-12 lg:pt-8">
+                            <div class="flex flex-row flex-wrap gap-6 lg:flex-col">
+                                <div class="inline-flex gap-4">
+                                    <div class="w-6 h-6 bg-gray-500 rounded"></div>
+                                    <p class="font-semibold">Weekoff</p>
+                                </div>
+                                <div class="inline-flex gap-4">
+                                    <div class="w-6 h-6 bg-green-500 rounded"></div>
+                                    <p class="font-semibold">Public Holiday</p>
+                                </div>
+                            </div>
+                            <div class="pt-8 lg:pt-16">
+                                <p class="text-xl font-bold">Holidays</p>
+                                <div class="divide-y">
+                                    <div class="py-4">
+                                        <p class="text-sm text-gray-600">Oct 6, 2022 - Tue</p>
+                                        <p class="font-semibold">Ganesh Chaturti Holiday</p>
+                                    </div>
+                                    <div class="py-4">
+                                        <p class="text-sm text-gray-600">Oct 29, 2022 - Thur</p>
+                                        <p class="font-semibold">Diwali Holiday</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+</html>

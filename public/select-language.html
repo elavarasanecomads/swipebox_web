@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+                    <h1 class="text-2xl font-bold">Select Language</h1>
+                    <div class="w-full pt-6 space-y-4 ">
+                        <div>
+                            <div x-data="{
+                                openTab: 1,
+                                activeClasses: 'border-blue-600 text-blue-600',
+                                inactiveClasses: 'bg-gray-100 border-white'
+                            }">
+                                    <div class="flex py-6">
+                                        <ul class="grid w-full grid-cols-2 gap-4">
+                                            <li @click="openTab = 1">
+                                                <button class="w-full p-2 font-semibold bg-blue-100 border-2 rounded-full" :class="openTab === 1 ? activeClasses : inactiveClasses">English</button>
+                                            </li>
+                                            <li @click="openTab = 2">
+                                                <button class="w-full p-2 font-semibold bg-blue-100 border-2 rounded-full" :class="openTab === 2 ? activeClasses : inactiveClasses">தமிழ்</button>
+                                            </li>
+                                            <li @click="openTab = 3">
+                                                <button class="w-full p-2 font-semibold bg-blue-100 border-2 rounded-full" :class="openTab === 3 ? activeClasses : inactiveClasses">हिन्दी</button>
+                                            </li>
+                                            <li @click="openTab = 4">
+                                                <button class="w-full p-2 font-semibold bg-blue-100 border-2 rounded-full" :class="openTab === 4 ? activeClasses : inactiveClasses">മലയാളം</button>
+                                            </li>
+                                            <li @click="openTab = 5">
+                                                <button class="w-full p-2 font-semibold bg-blue-100 border-2 rounded-full" :class="openTab === 5 ? activeClasses : inactiveClasses">తెలుగు</button>
+                                            </li>
+                                            <li @click="openTab = 6">
+                                                <button class="w-full p-2 font-semibold bg-blue-100 border-2 rounded-full" :class="openTab === 6 ? activeClasses : inactiveClasses">ಕನ್ನಡ</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+      $("#navigation").load("nav.html");
+      $("#aside").load("aside.html");
+    });
+  </script>
+</html>

@@ -1,0 +1,335 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Roaster</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 space-y-4 bg-white border rounded-md lg:p-8">
+                    <div>
+                        <h1 class="text-2xl font-bold">Elavarasan Roaster</h1>
+                    </div>
+                    <div class="p-4 space-y-4 border rounded">
+                        <div class="flex items-center justify-between">
+                            <p class="font-bold text-gray-900"> 28-05-2022</p>
+                            <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                <button class="px-2 py-1 text-white bg-blue-600 rounded-md" @click="showModal = true">
+                                    Add Roaster
+                                </button>
+                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                    x-show="showModal" style="display: none;">
+                                    <!-- Modal inner -->
+                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                        @click.away="showModal = false"
+                                        x-transition:enter="motion-safe:ease-out duration-300"
+                                        x-transition:enter-start="opacity-0 scale-90"
+                                        x-transition:enter-end="opacity-100 scale-100">
+                                        <!-- Title / Close-->
+                                        <div class="flex items-center justify-between">
+                                            <p class="font-bold text-gray-900">
+                                                Update Roaster
+                                            </p>
+                                            <span @click="showModal = false">
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <!-- content -->
+                                        <div class="w-full mt-4">
+                                            <div class="divide-y">
+                                                <div class="flex items-center gap-4 py-2">
+                                                    <input id="push_email" name="push_notifications" type="radio"
+                                                        class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                                                    <div>
+                                                        <p class="font-bold">Morning shift</p>
+                                                        <p>09:00AM to 02:00PM</p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex items-center gap-4 py-2">
+                                                    <input id="push_email" name="push_notifications" type="radio"
+                                                        class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                                                    <div>
+                                                        <p class="font-bold">Afternoon Shift</p>
+                                                        <p>02:00PM to 08:00PM</p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex items-center gap-4 py-2">
+                                                    <input id="push_email" name="push_notifications" type="radio"
+                                                        class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                                                    <div>
+                                                        <p class="font-bold">Night Shift</p>
+                                                        <p>08:00PM to 04:00AM</p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex items-center w-full gap-4 pt-4">
+                                                    <div class="w-1/2">
+                                                        <button
+                                                            class="w-full p-2 text-blue-600 border border-blue-600 rounded-md">Cancel</button>
+                                                    </div>
+                                                    <div class="w-1/2">
+                                                        <button
+                                                            class="w-full p-2 text-white bg-blue-600 rounded-md">Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 space-y-4 border rounded">
+                        <div class="flex items-center justify-between">
+                            <p class="font-bold text-gray-900"> 29-05-2022</p>
+                            <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                <button class="px-2 py-1 text-white bg-blue-600 rounded-md" @click="showModal = true">
+                                    Add Roaster
+                                </button>
+                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                    x-show="showModal" style="display: none;">
+                                    <!-- Modal inner -->
+                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                        @click.away="showModal = false"
+                                        x-transition:enter="motion-safe:ease-out duration-300"
+                                        x-transition:enter-start="opacity-0 scale-90"
+                                        x-transition:enter-end="opacity-100 scale-100">
+                                        <!-- Title / Close-->
+                                        <div class="flex items-center justify-between">
+                                            <p class="font-bold text-gray-900">
+                                                Update Roaster
+                                            </p>
+                                            <span @click="showModal = false">
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <!-- content -->
+                                        <div class="w-full mt-4">
+                                            <div class="divide-y">
+                                                <div class="flex items-center gap-4 py-2">
+                                                    <input id="push_email" name="push_notifications" type="radio"
+                                                        class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                                                    <div>
+                                                        <p class="font-bold">Morning shift</p>
+                                                        <p>09:00AM to 02:00PM</p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex items-center gap-4 py-2">
+                                                    <input id="push_email" name="push_notifications" type="radio"
+                                                        class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                                                    <div>
+                                                        <p class="font-bold">Afternoon Shift</p>
+                                                        <p>02:00PM to 08:00PM</p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex items-center gap-4 py-2">
+                                                    <input id="push_email" name="push_notifications" type="radio"
+                                                        class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                                                    <div>
+                                                        <p class="font-bold">Night Shift</p>
+                                                        <p>08:00PM to 04:00AM</p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex items-center w-full gap-4 pt-4">
+                                                    <div class="w-1/2">
+                                                        <button
+                                                            class="w-full p-2 text-blue-600 border border-blue-600 rounded-md">Cancel</button>
+                                                    </div>
+                                                    <div class="w-1/2">
+                                                        <button
+                                                            class="w-full p-2 text-white bg-blue-600 rounded-md">Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 space-y-4 border rounded">
+                        <div class="flex items-center justify-between">
+                            <p class="font-bold text-gray-900"> 30-05-2022</p>
+                            <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                <button class="px-2 py-1 text-white bg-blue-600 rounded-md" @click="showModal = true">
+                                    Add Roaster
+                                </button>
+                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                    x-show="showModal" style="display: none;">
+                                    <!-- Modal inner -->
+                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                        @click.away="showModal = false"
+                                        x-transition:enter="motion-safe:ease-out duration-300"
+                                        x-transition:enter-start="opacity-0 scale-90"
+                                        x-transition:enter-end="opacity-100 scale-100">
+                                        <!-- Title / Close-->
+                                        <div class="flex items-center justify-between">
+                                            <p class="font-bold text-gray-900">
+                                                Update Roaster
+                                            </p>
+                                            <span @click="showModal = false">
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <!-- content -->
+                                        <div class="w-full mt-4">
+                                            <div class="divide-y">
+                                                <div class="flex items-center gap-4 py-2">
+                                                    <input id="push_email" name="push_notifications" type="radio"
+                                                        class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                                                    <div>
+                                                        <p class="font-bold">Morning shift</p>
+                                                        <p>09:00AM to 02:00PM</p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex items-center gap-4 py-2">
+                                                    <input id="push_email" name="push_notifications" type="radio"
+                                                        class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                                                    <div>
+                                                        <p class="font-bold">Afternoon Shift</p>
+                                                        <p>02:00PM to 08:00PM</p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex items-center gap-4 py-2">
+                                                    <input id="push_email" name="push_notifications" type="radio"
+                                                        class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                                                    <div>
+                                                        <p class="font-bold">Night Shift</p>
+                                                        <p>08:00PM to 04:00AM</p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex items-center w-full gap-4 pt-4">
+                                                    <div class="w-1/2">
+                                                        <button
+                                                            class="w-full p-2 text-blue-600 border border-blue-600 rounded-md">Cancel</button>
+                                                    </div>
+                                                    <div class="w-1/2">
+                                                        <button
+                                                            class="w-full p-2 text-white bg-blue-600 rounded-md">Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 space-y-4 border rounded">
+                        <div class="flex items-center justify-between">
+                            <p class="font-bold text-gray-900"> 31-05-2022</p>
+                            <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                <button class="px-2 py-1 text-white bg-blue-600 rounded-md" @click="showModal = true">
+                                    Add Roaster
+                                </button>
+                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                    x-show="showModal" style="display: none;">
+                                    <!-- Modal inner -->
+                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                        @click.away="showModal = false"
+                                        x-transition:enter="motion-safe:ease-out duration-300"
+                                        x-transition:enter-start="opacity-0 scale-90"
+                                        x-transition:enter-end="opacity-100 scale-100">
+                                        <!-- Title / Close-->
+                                        <div class="flex items-center justify-between">
+                                            <p class="font-bold text-gray-900">
+                                                Update Roaster
+                                            </p>
+                                            <span @click="showModal = false">
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <!-- content -->
+                                        <div class="w-full mt-4">
+                                            <div class="divide-y">
+                                                <div class="flex items-center gap-4 py-2">
+                                                    <input id="push_email" name="push_notifications" type="radio"
+                                                        class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                                                    <div>
+                                                        <p class="font-bold">Morning shift</p>
+                                                        <p>09:00AM to 02:00PM</p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex items-center gap-4 py-2">
+                                                    <input id="push_email" name="push_notifications" type="radio"
+                                                        class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                                                    <div>
+                                                        <p class="font-bold">Afternoon Shift</p>
+                                                        <p>02:00PM to 08:00PM</p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex items-center gap-4 py-2">
+                                                    <input id="push_email" name="push_notifications" type="radio"
+                                                        class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                                                    <div>
+                                                        <p class="font-bold">Night Shift</p>
+                                                        <p>08:00PM to 04:00AM</p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex items-center w-full gap-4 pt-4">
+                                                    <div class="w-1/2">
+                                                        <button
+                                                            class="w-full p-2 text-blue-600 border border-blue-600 rounded-md">Cancel</button>
+                                                    </div>
+                                                    <div class="w-1/2">
+                                                        <button
+                                                            class="w-full p-2 text-white bg-blue-600 rounded-md">Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="font-bold">Morning shift</p>
+                                <p>09:00AM to 02:00PM</p>
+                            </div>
+                            <div>
+                                <button class="px-2 py-1 text-white bg-red-600 rounded-md">
+                                    Remove
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("settings-aside.html");
+    });
+</script>
+
+</html>

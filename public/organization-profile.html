@@ -1,0 +1,251 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organization Profile</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="p-4 bg-white border rounded-md lg:p-8">
+                    <!--Brudcrumb-->
+                    <nav class="flex pb-4" aria-label="Breadcrumb">
+                        <ol class="inline-flex flex-wrap items-center space-x-1 md:space-x-3">
+                          <li class="inline-flex items-center">
+                            <a href="dashboard.html" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+                              Dashboard
+                            </a>
+                          </li>
+                          <li>
+                            <div class="flex items-center">
+                              <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                              <a href="my-account.html" class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">My Account</a>
+                            </div>
+                          </li>                        
+                          <li aria-current="page">
+                            <div class="flex items-center">
+                              <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                              <span class="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">Organization Profile</span>
+                            </div>
+                          </li>
+                        </ol>
+                      </nav>
+                    <h1 class="text-2xl font-bold">Organization Profile</h1>
+                    <div>
+                        <div class="mt-8 space-y-4" x-data="{ 'showContact': false }">
+                            <h2 class="text-lg font-bold">Add Company Profile</h2>
+                            <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="name">Company
+                                        Logo</label>
+                                    <div class="mt-1">
+                                        <label
+                                            class="flex items-center w-64 px-4 py-3 tracking-wide text-white uppercase bg-blue-600 border border-blue-600 rounded-lg shadow-lg cursor-pointer">
+                                            <svg class="w-6 h-6 mr-2" fill="currentColor"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                <path
+                                                    d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z">
+                                                </path>
+                                            </svg>
+                                            <span class="text-base leading-normal">Upload a file</span>
+                                            <input type="file" class="hidden">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-start-1">  
+                                    <label class="text-sm font-semibold text-gray-600" for="name">Company
+                                        Name</label>
+                                    <input type="text" name="name" id="name" autocomplete="title"
+                                        placeholder=""
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                
+                                <div class="col-start-1">
+                                    <label class="text-sm font-semibold text-gray-600"
+                                        for="name">Name</label>
+                                    <input type="text" name="name" id="name" autocomplete="title"
+                                        placeholder=""
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600"
+                                        for="mobile">Email</label>
+                                    <input type="text" name="email" id="email" autocomplete="title"
+                                        placeholder=""
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="mobile">Mobile
+                                        Number</label>
+                                    <input type="text" name="mobile" id="mobile" autocomplete="title"
+                                        value="9876567890" disabled="" placeholder=""
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md disabled:bg-gray-100 disabled:text-gray-600 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="mobile">Street
+                                        Address</label>
+                                    <textarea rows="1"
+                                        class="relative block w-full p-2 px-3 py-3 mt-1 text-gray-900 placeholder-gray-400 border border-gray-400 rounded shadow-sm appearance-none focus:outline-none focus:ring-blue-600 focus:border-blue-600 focus:z-10"
+                                        spellcheck="false"></textarea>
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600"
+                                        for="mobile">City</label>
+                                    <input type="text" name="email" id="email" autocomplete="title"
+                                        placeholder=""
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600"
+                                        for="mobile">Pincode</label>
+                                    <input type="text" name="email" id="email" autocomplete="title"
+                                        placeholder=""
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600"
+                                        for="gender">State</label>
+                                    <select id="gender" name="gender" autocomplete="gender"
+                                        class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>Select</option>
+                                        <option>Andhra Pradesh</option>
+                                        <option>Chandigarh</option>
+                                        <option>Tamilnadu</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600"
+                                        for="mobile">Country</label>
+                                    <input type="text" name="email" id="email" autocomplete="title"
+                                        placeholder=""
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="mobile">No Of
+                                        Employees</label>
+                                    <input type="text" name="email" id="email" autocomplete="title"
+                                        placeholder=""
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="remember_me" name="remember_me" type="checkbox" @click="showContact === false ? showContact = true : showContact = false"
+                                    class="w-4 h-4 text-blue-600 border-gray-300 rounded-lg focus:ring-blue-600">
+                                <label for="remember_me"
+                                    class="block ml-2 text-base font-semibold text-gray-600">If enable different
+                                    Administrative
+                                    Contact, Billing Contact, Technical Contact</label>
+                            </div>
+                            <div class="space-y-4" x-show="showContact" style="display: none;">
+                                
+                            <div>
+                                <h2 class="text-lg font-bold">Administrative
+                                    Contact</h2>
+                                    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+                                        <div class="col-start-1">
+                                            <label class="text-sm font-semibold text-gray-600"
+                                                for="name">Name</label>
+                                            <input type="text" name="name" id="name" autocomplete="title"
+                                                placeholder=""
+                                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600"
+                                                for="mobile">Email</label>
+                                            <input type="text" name="email" id="email" autocomplete="title"
+                                                placeholder=""
+                                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="mobile">Mobile
+                                                Number</label>
+                                            <input type="text" name="mobile" id="mobile" autocomplete="title"
+                                                 placeholder=""
+                                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md disabled:bg-gray-100 disabled:text-gray-600 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        </div>
+                                    </div>
+                            </div>
+                            <div>
+                                <h2 class="text-lg font-bold">Billing
+                                    Contact</h2>
+                                    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+                                        <div class="col-start-1">
+                                            <label class="text-sm font-semibold text-gray-600"
+                                                for="name">Name</label>
+                                            <input type="text" name="name" id="name" autocomplete="title"
+                                                placeholder=""
+                                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600"
+                                                for="mobile">Email</label>
+                                            <input type="text" name="email" id="email" autocomplete="title"
+                                                placeholder=""
+                                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="mobile">Mobile
+                                                Number</label>
+                                            <input type="text" name="mobile" id="mobile" autocomplete="title"
+                                                 placeholder=""
+                                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md disabled:bg-gray-100 disabled:text-gray-600 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        </div>
+                                    </div>
+                            </div>
+                            <div>
+                                <h2 class="text-lg font-bold">Technical
+                                    Contact</h2>
+                                    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+                                        <div class="col-start-1">
+                                            <label class="text-sm font-semibold text-gray-600"
+                                                for="name">Name</label>
+                                            <input type="text" name="name" id="name" autocomplete="title"
+                                                placeholder=""
+                                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600"
+                                                for="mobile">Email</label>
+                                            <input type="text" name="email" id="email" autocomplete="title"
+                                                placeholder=""
+                                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="mobile">Mobile
+                                                Number</label>
+                                            <input type="text" name="mobile" id="mobile" autocomplete="title"
+                                                placeholder=""
+                                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md disabled:bg-gray-100 disabled:text-gray-600 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        </div>
+                                    </div>
+                            </div>
+                            </div>
+                            <div class="flex items-center justify-start w-64">
+                                <button
+                                    class="w-full px-3 py-2 font-bold text-white bg-blue-600 rounded">SUBMIT</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+</html>

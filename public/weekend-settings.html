@@ -1,0 +1,111 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="p-4 bg-white border rounded-md lg:p-8">
+                    <div class="w-full lg:w-1/2">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h1 class="text-2xl font-bold">Weekend Leave Settings</h1>
+                                <p class="text-sm text-gray-600">You can view and modify Weekend Leave Settings</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="pt-4">
+                                <label class="font-semibold text-gray-600" for="businessname">Select Branch</label>
+                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                    class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                    <option>All</option>
+                                    <option>Ecomads Pvt Ltd, Covai</option>
+                                    <option>Ecomads Pvt Ltd, Tiruchencode</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="font-semibold text-gray-600" for="businessname">Select Days</label>
+
+                                <div class="grid grid-cols-4 gap-2 p-2">
+                                    <div>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" class="w-4 h-4 form-checkbox" checked="">
+                                            <span class="ml-2 font-semibold text-gray-600">Sun</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" class="w-4 h-4 form-checkbox">
+                                            <span class="ml-2 font-semibold text-gray-600">Mon</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" class="w-4 h-4 form-checkbox">
+                                            <span class="ml-2 font-semibold text-gray-600">Tue</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" class="w-4 h-4 form-checkbox">
+                                            <span class="ml-2 font-semibold text-gray-600">Wed</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" class="w-4 h-4 form-checkbox">
+                                            <span class="ml-2 font-semibold text-gray-600">Thur</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" class="w-4 h-4 form-checkbox">
+                                            <span class="ml-2 font-semibold text-gray-600">Fri</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" class="w-4 h-4 form-checkbox">
+                                            <span class="ml-2 font-semibold text-gray-600">Sat</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="inline-flex items-center">
+                                    <input class="w-5 h-5" type="checkbox" class="w-4 h-4 form-checkbox" checked="">
+                                    <span class="ml-2 font-semibold text-gray-600">Weekoff will calculate in
+                                        salary?</span>
+                                </label>
+                            </div>
+                            <div>
+                                <button
+                                    class="w-full p-2 font-semibold text-white bg-blue-600 border border-blue-600 rounded-md">
+                                    Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("settings-aside.html");
+    });
+</script>
+
+</html>

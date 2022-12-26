@@ -1,0 +1,591 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+                    <div class="flex items-center gap-4 pb-4">
+                        <h1 class="text-2xl font-bold">View Roles and Permision</h1>
+                    </div>
+                    <div class="w-full pb-4 space-y-4">
+                        <div>
+                            <label class="font-semibold text-gray-600" for="name">Name</label>
+                            <input type="text" name="name" id="name" autocomplete="title" placeholder="" disabled
+                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md lg:w-1/2 focus:outline-none focus:ring-primary-600 focus:border-primary-600 disabled:bg-gray-100">
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-4">
+                                <input class="w-4 h-4 accent-green-600" type="checkbox" checked name="" id="">
+                                <p>- User can able to access</p>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <input class="w-4 h-4" type="checkbox" disabled name="" id="">                                                            
+                                <p>- User can't able to access</p>
+                            </div>
+                        </div>
+                        <div class="pt-6">
+                            <div class="flex flex-col border-b">
+                                <div class="z-10 -my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                    <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                        <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+
+                                            <table class="min-w-full divide-y divide-gray-200 table-auto">
+                                                <thead class="bg-blue-600">
+                                                    <tr>
+                                                        <th scope="col"
+                                                            class="px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                            Access
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase w-36">
+                                                            <span>View</span> 
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase w-36">
+                                                            <span>Add</span>
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase w-36">
+                                                            <span>Edit/Update</span>
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase w-36">
+                                                            <span>Delete</span>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="bg-white divide-y divide-gray-200">
+                                                    <tr>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <p class="font-semibold">Branch Settings</p>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4 accent-green-600" type="checkbox" checked name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4 accent-green-600" type="checkbox" checked name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" disabled name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4 accent-green-600" checked type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="bg-blue-50">
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <p class="font-semibold">Shift Settings</p>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <p class="font-semibold">Attendance Settings</p>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="bg-blue-50">
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <p class="font-semibold">Face Recognition</p>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <p class="font-semibold">Field Tracking</p>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="bg-blue-50">
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <p class="font-semibold">QR Code</p>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <p class="font-semibold">Holiday Management</p>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="bg-blue-50">
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <p class="font-semibold">Weekoff Settings</p>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <p class="font-semibold">Leave Settings</p>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="bg-blue-50">
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <p class="font-semibold">Leave Type</p>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <p class="font-semibold">Leave Calender View</p>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="bg-blue-50">
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <p class="font-semibold">Policies</p>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <p class="font-semibold">Pay shedule</p>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="bg-blue-50">
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <p class="font-semibold">Salary Template</p>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <p class="font-semibold">Work Rate Settings</p>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="bg-blue-50">
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <p class="font-semibold">Pay Per Work Employer</p>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <p class="font-semibold">Departments</p>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="bg-blue-50">
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <p class="font-semibold">Employee Category</p>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <p class="font-semibold">Designation</p>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="bg-blue-50">
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <p class="font-semibold">Roles & Permission</p>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("settings-aside.html");
+    });
+</script>
+
+</html>

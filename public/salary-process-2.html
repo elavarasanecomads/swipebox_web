@@ -1,0 +1,662 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="p-4 bg-white border rounded-md">
+                    <!--Breadcrumb-->
+                    <nav class="flex" aria-label="Breadcrumb">
+                        <ol class="inline-flex flex-wrap items-center space-x-1 md:space-x-3">
+                          <li class="inline-flex items-center">
+                            <a href="dashboard.html" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+                              Dashboard
+                            </a>
+                          </li>                    
+                          <li aria-current="page">
+                            <div class="flex items-center">
+                              <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                              <span class="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">Salary Process</span>
+                            </div>
+                          </li>
+                        </ol>
+                      </nav>
+                    <h1 class="py-2 text-2xl font-bold">Salary Process</h1>
+                    <div class="py-2 border-b">
+                        <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                            <div class="relative">
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">Search
+                                    User</label>
+
+                                <span class="inline-block w-full rounded-md shadow-sm">
+                                    <button
+                                        class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded-md shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                        type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search"
+                                        aria-checked="false">
+
+                                        <input id="search" type="search"
+                                            class="w-full h-full form-control focus:outline-none">
+
+                                        <span
+                                            class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                            <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </span>
+                            </div>
+                            <div class="w-48 pt-5 space-y-4">
+                                <button
+                                    class="w-full p-3 font-semibold text-center text-white bg-blue-600 rounded-md">Search</button>
+                            </div>
+                        </div>
+                        <div x-data="{ isOpen: false }">
+                            <div class="py-2">
+                                <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
+                                    class="font-semibold text-blue-600">More Filters</button>
+                            </div>
+                            <div class="grid grid-cols-1 gap-4 lg:grid-cols-3" x-show="isOpen"
+                                @click.away="isOpen = false">
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                        Branch</label>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                        <option>All</option>
+                                        <option>Ecomads Pvt Ltd, Covai</option>
+                                        <option>Ecomads Pvt Ltd, Tiruchengode</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                        Department</label>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All</option>
+                                        <option>Sales</option>
+                                        <option>Purchase</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                        Employee
+                                        Category</label>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All</option>
+                                        <option>Permanant</option>
+                                        <option>Contract</option>
+                                        <option>Casual</option>
+                                        <option>Temporary</option>
+                                        <option>Others</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                        Designation</label>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All</option>
+                                        <option>Director</option>
+                                        <option>CTO</option>
+                                        <option>STO</option>
+                                        <option>Accountant</option>
+                                        <option>Team Lead</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 mt-4 space-y-2 bg-blue-100 rounded-md">
+                        <div class="flex items-center justify-center gap-2">
+                            <p class="font-semibold">Select Month </p>
+                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                class="block px-1 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm w-36 focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>Mar 2022</option>
+                                <option>Apr 2022</option>
+                                <option>May 2022</option>
+                            </select>
+                        </div>
+                        <p class="text-2xl font-bold text-center text-blue-600">Rs. 2,50,000 </p>
+                        <!-- <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+                            <div class="inline-block p-1 px-4 text-xs font-semibold text-center text-white bg-yellow-600 rounded-full">Projected</div>
+                            <div class="inline-block p-1 px-4 text-xs font-semibold text-center text-white bg-blue-600 rounded-full">Finalized</div>
+                            <div class="inline-block p-1 px-4 text-xs font-semibold text-center text-white bg-green-600 rounded-full">Processed</div>
+                        </div> -->
+                    </div>
+                    
+                    <div class="flex items-center gap-4 pt-8">
+                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                class="block px-1 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>Bulk Actions</option>
+                                <option>Mark As "Finalized"</option>
+                                <option>Mark As "Processed"</option>
+                            </select>
+                        <button class="px-4 py-1 mt-1 font-semibold text-center text-white bg-blue-600 rounded">Apply</button>
+                    </div>
+                    <div class="pt-4">
+                        <div class="flex flex-col border-b">
+                            <div class="z-10 -my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                    <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+
+                                        <table class="min-w-full divide-y divide-gray-200 table-auto">
+                                            <thead class="text-sm bg-blue-600">
+                                                <tr>                
+                                                    <th class="px-3 py-3 lg:px-0 whitespace-nowrap">
+                                                        <span class="text-base text-gray-900">
+                                                            <input class="w-4 h-4 border border-white" type="checkbox" name="" id="">
+                                                        </span>
+                                                    </th>                                    
+                                                    <th scope="col" class="px-3 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                        Name
+                                                    </th>
+                                                    <th scope="col" class="px-3 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                        Amount
+                                                    </th>
+                                                    <th scope="col" class="px-3 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                        Status
+                                                    </th>
+                                                    <th scope="col" class="px-3 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                        Action
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white divide-y divide-gray-200">
+                                                <tr>  
+                                                    <td class="px-3 py-3 whitespace-nowrap">
+                                                        <span class="text-base text-gray-900">
+                                                            <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                        </span>
+                                                    </td>   
+                                                    <td class="px-3 py-4 whitespace-nowrap">
+                                                        <div class="flex items-center gap-2">
+                                                            <div>
+                                                                <img class="w-10 h-10 rounded-full"
+                                                                src="https://randomuser.me/api/portraits/men/14.jpg"
+                                                                alt="">
+                                                            </div>
+                                                            <div>
+                                                                <a href="employee-detail.html"
+                                                                class="font-semibold text-blue-600">Elavarasan</a>
+                                                                <div class="flex items-center gap-4">
+                                                                    <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                                        <button @click="showModal = true" class="flex items-center text-sm text-blue-600"><span>View</span></button>
+                                                                    
+                                                                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
+                                                                            <!-- Modal inner -->
+                                                                            <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                                                <!-- Title / Close-->
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <p class="font-bold text-gray-900">
+                                                                                        Elavarasan
+                                                                                    </p>
+                                                                                    <span @click="showModal = false">
+                                                                                        <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                                        </svg>
+                                                                                    </span>
+                                                                                </div>
+                                                                                <!-- content -->
+                                                                                <div class="w-full mt-4 space-y-1">
+                                                                                    <div class="p-4 rounded bg-green-50">
+                                                                                        <ul class="space-y-2">
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Basic Salary</div>
+                                                                                                <div>₹ 15000</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Overtime</div>
+                                                                                                <div>₹ 1000</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Allowance</div>
+                                                                                                <div>₹ 2000</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Pay per work Wages</div>
+                                                                                                <div>₹ 500</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Advance</div>
+                                                                                                <div>₹ 500</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Loan</div>
+                                                                                                <div>₹ 5000</div>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                    <div class="p-4 rounded bg-red-50">
+                                                                                        <ul class="space-y-2">
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>TDS</div>
+                                                                                                <div>₹ 100</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>PF</div>
+                                                                                                <div>₹ 150</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>ESI</div>
+                                                                                                <div>₹ 75</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>PT</div>
+                                                                                                <div>₹ 205</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Deductions</div>
+                                                                                                <div>₹ 2000</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Loan</div>
+                                                                                                <div>₹ 500</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Advance</div>
+                                                                                                <div>₹ 500</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>LOP</div>
+                                                                                                <div>₹ 5000</div>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                    <div class="flex items-center justify-center w-full py-4">
+                                                                                        <a class="w-full p-2 font-semibold text-center text-white bg-blue-600 rounded-md" href="individual-salary-calculate.html">Edit</a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a href="individual-salary-calculate.html" class="flex items-center text-sm text-blue-600"><span>Calculate</span></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>   
+                                                        </div>
+                                                    </td>  
+                                                    <td class="px-3 py-4 whitespace-nowrap">
+                                                        <span class="text-red-600">
+                                                            ₹ 25,000</span>
+                                                    </td>
+                                                    <td class="px-3 py-4 whitespace-nowrap">
+                                                        <div class="inline-block p-1 px-2 text-xs font-semibold text-center text-white bg-yellow-600 rounded-full">Projected</div>
+                                                    </td>
+                                                    <td class="relative flex items-center gap-4 px-3 py-4 whitespace-nowrap">
+                                                        <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                            <button @click="showModal = true" class="p-1 px-4 font-semibold text-white bg-blue-600 rounded"><span>Finalized</span></button>
+                                                        
+                                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
+                                                                <!-- Modal inner -->
+                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                                    <!-- Title / Close-->
+                                                                    <div class="flex items-center justify-between">
+                                                                        <p class="font-bold text-gray-900">
+                                                                            
+                                                                        </p>
+                                                                        <span @click="showModal = false">
+                                                                            <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </div>
+                                                                    <!-- content -->
+                                                                    <div class="w-full mt-4 space-y-1">
+                                                                        <p class="text-lg font-bold text-center">Are you Sure?</p>
+                                                                        <p class="text-center">Are you Sure? you want to process salary to <span class="font-bold">Elavarasan?</span> </p>
+                                                                        <p class="font-bold text-center text-green-600">Salary Amount is : ₹ 25,000</p>
+                                                                        <div class="flex items-center justify-center w-full py-4">
+                                                                            <a class="w-full p-2 font-semibold text-center text-white bg-blue-600 rounded-md" href="payment-methods.html">Process Salary</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>  
+                                                    <td class="px-3 py-3 whitespace-nowrap">
+                                                        <span class="text-base text-gray-900">
+                                                            <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                        </span>
+                                                    </td>  
+                                                    <td class="px-3 py-4 whitespace-nowrap">
+                                                        <div class="flex items-center gap-2">
+                                                            <div>
+                                                                <img class="w-10 h-10 rounded-full"
+                                                                src="https://randomuser.me/api/portraits/men/14.jpg"
+                                                                alt="">
+                                                            </div>
+                                                            <div>
+                                                                <a href="employee-detail.html"
+                                                                class="font-semibold text-blue-600">Karthika</a>
+                                                                <div class="flex items-center gap-4">
+                                                                    <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                                        <button @click="showModal = true" class="flex items-center text-sm text-blue-600"><span>View</span></button>
+                                                                    
+                                                                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
+                                                                            <!-- Modal inner -->
+                                                                            <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                                                <!-- Title / Close-->
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <p class="font-bold text-gray-900">
+                                                                                        Elavarasan
+                                                                                    </p>
+                                                                                    <span @click="showModal = false">
+                                                                                        <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                                        </svg>
+                                                                                    </span>
+                                                                                </div>
+                                                                                <!-- content -->
+                                                                                <div class="w-full mt-4 space-y-1">
+                                                                                    <div class="p-4 rounded bg-green-50">
+                                                                                        <ul class="space-y-2">
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Basic Salary</div>
+                                                                                                <div>₹ 15000</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Overtime</div>
+                                                                                                <div>₹ 1000</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Allowance</div>
+                                                                                                <div>₹ 2000</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Pay per work Wages</div>
+                                                                                                <div>₹ 500</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Advance</div>
+                                                                                                <div>₹ 500</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Loan</div>
+                                                                                                <div>₹ 5000</div>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                    <div class="p-4 rounded bg-red-50">
+                                                                                        <ul class="space-y-2">
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>TDS</div>
+                                                                                                <div>₹ 100</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>PF</div>
+                                                                                                <div>₹ 150</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>ESI</div>
+                                                                                                <div>₹ 75</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>PT</div>
+                                                                                                <div>₹ 205</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Deductions</div>
+                                                                                                <div>₹ 2000</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Loan</div>
+                                                                                                <div>₹ 500</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Advance</div>
+                                                                                                <div>₹ 500</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>LOP</div>
+                                                                                                <div>₹ 5000</div>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                    <div class="flex items-center justify-center w-full py-4">
+                                                                                        <a class="w-full p-2 font-semibold text-center text-white bg-blue-600 rounded-md" href="individual-salary-calculate.html">Edit</a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a href="individual-salary-calculate.html" class="flex items-center text-sm text-blue-600"><span>Calculate</span></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>   
+                                                        </div>
+                                                    </td>  
+                                                    <td class="px-3 py-4 whitespace-nowrap">
+                                                        <span class="text-red-600">
+                                                            ₹ 12,000</span>
+                                                    </td>
+                                                    <td class="px-3 py-4 whitespace-nowrap">
+                                                        <div class="inline-block p-1 px-2 text-xs font-semibold text-center text-white bg-blue-600 rounded-full">Finalized</div>
+                                                    </td>
+                                                    <td class="relative flex items-center gap-4 px-3 py-4 whitespace-nowrap">
+                                                        <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                            <button @click="showModal = true" class="p-1 px-4 font-semibold text-white bg-green-600 rounded"><span>Process</span></button>
+                                                        
+                                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
+                                                                <!-- Modal inner -->
+                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                                    <!-- Title / Close-->
+                                                                    <div class="flex items-center justify-between">
+                                                                        <p class="font-bold text-gray-900">
+                                                                            
+                                                                        </p>
+                                                                        <span @click="showModal = false">
+                                                                            <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </div>
+                                                                    <!-- content -->
+                                                                    <div class="w-full mt-4 space-y-1">
+                                                                        <p class="text-lg font-bold text-center">Are you Sure?</p>
+                                                                        <p class="text-center">Are you Sure? you want to process salary to <span class="font-bold">Elavarasan?</span> </p>
+                                                                        <p class="font-bold text-center text-green-600">Salary Amount is : ₹ 25,000</p>
+                                                                        <div class="flex items-center justify-center w-full py-4">
+                                                                            <a class="w-full p-2 font-semibold text-center text-white bg-blue-600 rounded-md" href="payment-methods.html">Process Salary</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>  
+                                                    <td class="px-3 py-3 whitespace-nowrap">
+                                                        <span class="text-base text-gray-900">
+                                                            <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                        </span>
+                                                    </td>  
+                                                    <td class="px-3 py-4 whitespace-nowrap">
+                                                        <div class="flex items-center gap-2">
+                                                            <div>
+                                                                <img class="w-10 h-10 rounded-full"
+                                                                src="https://randomuser.me/api/portraits/men/14.jpg"
+                                                                alt="">
+                                                            </div>
+                                                            <div>
+                                                                <a href="employee-detail.html"
+                                                                class="font-semibold text-blue-600">Hemalatha</a>
+                                                                <div class="flex items-center gap-4">
+                                                                    <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                                        <button @click="showModal = true" class="flex items-center text-sm text-blue-600"><span>View</span></button>
+                                                                    
+                                                                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
+                                                                            <!-- Modal inner -->
+                                                                            <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                                                <!-- Title / Close-->
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <p class="font-bold text-gray-900">
+                                                                                        Elavarasan
+                                                                                    </p>
+                                                                                    <span @click="showModal = false">
+                                                                                        <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                                        </svg>
+                                                                                    </span>
+                                                                                </div>
+                                                                                <!-- content -->
+                                                                                <div class="w-full mt-4 space-y-1">
+                                                                                    <div class="p-4 rounded bg-green-50">
+                                                                                        <ul class="space-y-2">
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Basic Salary</div>
+                                                                                                <div>₹ 15000</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Overtime</div>
+                                                                                                <div>₹ 1000</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Allowance</div>
+                                                                                                <div>₹ 2000</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Pay per work Wages</div>
+                                                                                                <div>₹ 500</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Advance</div>
+                                                                                                <div>₹ 500</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Loan</div>
+                                                                                                <div>₹ 5000</div>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                    <div class="p-4 rounded bg-red-50">
+                                                                                        <ul class="space-y-2">
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>TDS</div>
+                                                                                                <div>₹ 100</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>PF</div>
+                                                                                                <div>₹ 150</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>ESI</div>
+                                                                                                <div>₹ 75</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>PT</div>
+                                                                                                <div>₹ 205</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Deductions</div>
+                                                                                                <div>₹ 2000</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Loan</div>
+                                                                                                <div>₹ 500</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>Advance</div>
+                                                                                                <div>₹ 500</div>
+                                                                                            </li>
+                                                                                            <li class="flex items-center justify-between font-semibold">
+                                                                                                <div>LOP</div>
+                                                                                                <div>₹ 5000</div>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                    <div class="flex items-center justify-center w-full py-4">
+                                                                                        <a class="w-full p-2 font-semibold text-center text-white bg-blue-600 rounded-md" href="individual-salary-calculate.html">Edit</a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a href="individual-salary-calculate.html" class="flex items-center text-sm text-blue-600"><span>Calculate</span></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>   
+                                                        </div>
+                                                    </td>  
+                                                    <td class="px-3 py-4 whitespace-nowrap">
+                                                        <span class="text-red-600">
+                                                            ₹ 11,000</span>
+                                                    </td>
+                                                    <td class="px-3 py-4 whitespace-nowrap">
+                                                        <div class="inline-block p-1 px-2 text-xs font-semibold text-center text-white bg-green-600 rounded-full">Processed</div>
+                                                    </td>
+                                                    <td class="relative flex items-center gap-4 px-3 py-4 whitespace-nowrap">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-center mt-4 mb-20">
+                        <nav class="relative z-0 inline-flex -space-x-px shadow-sm" aria-label="Pagination">
+                            <a href="#" class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-blue-100">
+                                <span class="sr-only">Previous</span>
+                                <!-- Heroicon name: chevron-left -->
+                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                            <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                1
+                            </a>
+                            <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                2
+                            </a>
+                            <a href="#" class="relative items-center hidden px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 md:inline-flex hover:bg-blue-100">
+                                3
+                            </a>
+                            <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                4
+                            </a>
+                            <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                5
+                            </a>
+                            <a href="#" class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-blue-100">
+                                <span class="sr-only">Next</span>
+                                <!-- Heroicon name: chevron-right -->
+                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+      $("#navigation").load("nav.html");
+      $("#aside").load("aside.html");
+    });
+  </script>
+</html>

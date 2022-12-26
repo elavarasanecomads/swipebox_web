@@ -1,0 +1,223 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+                    <!--Brudcrumb-->
+                    <nav class="flex" aria-label="Breadcrumb">
+                        <ol class="inline-flex flex-wrap items-center space-x-1 md:space-x-3">
+                          <li class="inline-flex items-center">
+                            <a href="dashboard.html" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+                              Dashboard
+                            </a>
+                          </li>
+                          <li>
+                            <div class="flex items-center">
+                              <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                              <a href="settings.html" class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">Settings</a>
+                            </div>
+                          </li>                        
+                          <li aria-current="page">
+                            <div class="flex items-center">
+                              <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                              <span class="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">Branches</span>
+                            </div>
+                          </li>
+                        </ol>
+                      </nav>
+                    <div class="flex items-center gap-4 py-4 pt-6">
+                        <h1 class="text-2xl font-bold">Branches</h1>
+                        <a class="px-3 py-2 font-semibold text-white bg-blue-600 rounded-md"
+                            href="edit-branch-details.html">Add New</a>
+                    </div>
+                    <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                        <div class="flex items-center gap-4 p-4 border rounded-md shadow">
+                            <div class="flex flex-col items-center justify-center w-16">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-green-600" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <p class="text-lg font-bold">200 M</p>
+                                <span class="text-sm text-gray-600">Radius</span>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="font-bold">Ecom Ads PVT Ltd, Tiruchengode</p>
+                                <p class="text-sm text-gray-600">20/5, Molasiyar maaligai, Old bustand, Tiruchengode</p>
+                                <div>
+                                    <p class="text-sm font-semibold">Branch Manager : <a class="font-normal text-blue-600" href="employee-detail.html"><span>Karthika</span></a></p>
+                                </div>
+                                <div class="flex items-center gap-4 pt-2" x-data="{ 'showModal': false }"
+                                    @keydown.escape="showModal = false">
+                                    <a href="edit-branch-details.html" class="flex items-center text-blue-600"><span><svg
+                                                xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                            </svg></span><span class="font-semibold">Edit</span></a>
+                                    <a @click="showModal = true" class="flex items-center text-red-600"><span><svg
+                                                xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                            </svg></span><span class="font-semibold">Delete</span></a>
+                                    <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                        x-show="showModal" style="display: none;">
+                                        <!-- Modal inner -->
+                                        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                            @click.away="showModal = false"
+                                            x-transition:enter="motion-safe:ease-out duration-300"
+                                            x-transition:enter-start="opacity-0 scale-90"
+                                            x-transition:enter-end="opacity-100 scale-100">
+                                            <!-- Title / Close-->
+                                            <div class="flex items-center justify-between">
+                                                <p class="font-bold text-gray-900">
+        
+                                                </p>
+                                                <span @click="showModal = false">
+                                                    <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                            d="M6 18L18 6M6 6l12 12"></path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <!-- content -->
+                                            <div class="w-full mt-4">
+                                                <div class="flex flex-col items-center justify-center">
+                                                    <div>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-red-500"
+                                                            viewBox="0 0 20 20" fill="currentColor">
+                                                            <path fill-rule="evenodd"
+                                                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                                clip-rule="evenodd"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <p class="font-bold">Delete This Branch</p>
+                                                    <p class="text-gray-600">Do you wish to delete this Branch?</p>
+                                                </div>
+                                                <div class="flex items-center w-full gap-4 pt-4">
+                                                    <div class="w-1/2">
+                                                        <button
+                                                            class="w-full p-2 text-blue-600 border border-blue-600 rounded-md">Cancel</button>
+                                                    </div>
+                                                    <div class="w-1/2">
+                                                        <button
+                                                            class="w-full p-2 text-white bg-blue-600 rounded-md">Delete</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 border rounded-md shadow">
+                            <div class="flex flex-col items-center justify-center w-16">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-green-600" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <p class="text-lg font-bold">100 M</p>
+                                <span class="text-sm text-gray-600">Radius</span>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="font-bold">Ecom Ads PVT Ltd, Covai</p>
+                                <p class="text-sm text-gray-600">134, STV nagar, Nava India, Coimbatore, Tamilnadu, 638779</p>
+                                <div>
+                                    <p class="text-sm font-semibold">Branch Manager : <a class="font-normal text-blue-600" href="employee-detail.html"><span>Karthika</span></a></p>
+                                </div>
+                                <div class="flex items-center gap-4 pt-2" x-data="{ 'showModal': false }"
+                                    @keydown.escape="showModal = false">
+                                    <a href="edit-branch-details.html" class="flex items-center text-blue-600"><span><svg
+                                                xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                            </svg></span><span class="font-semibold">Edit</span></a>
+                                    <a @click="showModal = true" class="flex items-center text-red-600"><span><svg
+                                                xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                            </svg></span><span class="font-semibold">Delete</span></a>
+                                    <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                        x-show="showModal" style="display: none;">
+                                        <!-- Modal inner -->
+                                        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                            @click.away="showModal = false"
+                                            x-transition:enter="motion-safe:ease-out duration-300"
+                                            x-transition:enter-start="opacity-0 scale-90"
+                                            x-transition:enter-end="opacity-100 scale-100">
+                                            <!-- Title / Close-->
+                                            <div class="flex items-center justify-between">
+                                                <p class="font-bold text-gray-900">
+        
+                                                </p>
+                                                <span @click="showModal = false">
+                                                    <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                            d="M6 18L18 6M6 6l12 12"></path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <!-- content -->
+                                            <div class="w-full mt-4">
+                                                <div class="flex flex-col items-center justify-center">
+                                                    <div>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-red-500"
+                                                            viewBox="0 0 20 20" fill="currentColor">
+                                                            <path fill-rule="evenodd"
+                                                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                                clip-rule="evenodd"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <p class="font-bold">Delete This Branch</p>
+                                                    <p class="text-gray-600">Do you wish to delete this Branch?</p>
+                                                </div>
+                                                <div class="flex items-center w-full gap-4 pt-4">
+                                                    <div class="w-1/2">
+                                                        <button
+                                                            class="w-full p-2 text-blue-600 border border-blue-600 rounded-md">Cancel</button>
+                                                    </div>
+                                                    <div class="w-1/2">
+                                                        <button
+                                                            class="w-full p-2 text-white bg-blue-600 rounded-md">Delete</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+      $("#navigation").load("nav.html");
+      $("#aside").load("settings-aside.html");
+    });
+  </script>
+</html>

@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="h-full p-4 bg-white border rounded-md lg:p-8">
+                    <div>
+                        <p class="text-2xl font-bold">Monthly Employee Settings</p>
+                        <p class="text-sm text-gray-600">You can customise monthly employee settings</p>
+                    </div>
+                    <ul class="grid grid-cols-1 gap-4 pt-8 lg:grid-cols-3">
+                        <li>
+                            <a class="text-blue-600" href="salary-template.html">Salary Template</a>
+                        </li>
+                        <li>
+                            <a class="text-blue-600" href="weekend-settings.html">Weekend Leave Settings</a>
+                        </li>
+                        <li>
+                            <a class="text-blue-600" href="holiday.html">Holiday List</a>
+                        </li>
+                        <li>
+                            <a class="text-blue-600" href="set-rules.html">Set Rules - (Late Entry, Early Exit, Over Time)</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+      $("#navigation").load("nav.html");
+      $("#aside").load("settings-aside.html");
+    });
+  </script>
+</html>

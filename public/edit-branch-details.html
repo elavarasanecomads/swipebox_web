@@ -1,0 +1,101 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="p-4 bg-white border rounded-md lg:p-8">
+                    <div class="flex items-center gap-4 pb-4">
+                        <a class="" href="branch-settings.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 " fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12"></path>
+                            </svg>
+                        </a>
+                        <h1 class="text-2xl font-bold">Edit Branches</h1>
+                        
+                    </div>
+                    <div class="w-full space-y-4 lg:w-1/2">
+                        <div>
+                            <label class="font-semibold text-gray-600" for="branchname">Branch Name <span class="text-red-600">*</span></label>
+                            <input type="text" name="branchname" id="branchname" autocomplete="title" placeholder=""
+                                class="block w-full px-3 py-3 mt-1 border border-gray-600 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                               
+                        </div>
+                        <div>
+                            <label class="font-semibold text-gray-600" for="businessname">Search Location On Map</label>
+                            <div class="relative flex">                            
+                                <input class="w-full px-4 py-3 pl-12 mt-1 leading-tight text-gray-900 border border-gray-600 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600" name="search" placeholder="Search Location On Map">
+                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 text-sm leading-5">
+                                    <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                    </svg>               
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <img class="w-full" src="https://i.stack.imgur.com/HILmr.png" alt="">
+                        </div>
+                        <div>
+                            <label class="font-semibold text-gray-600" for="branchaddress">Branch Address</label>
+                            <textarea rows="3" class="relative block w-full p-2 px-3 py-3 mt-1 text-gray-900 placeholder-gray-400 border border-gray-400 rounded shadow-sm appearance-none focus:outline-none focus:ring-blue-600 focus:border-blue-600 focus:z-10"></textarea>
+                         </div>
+                         <div>
+                            <label class="font-semibold text-gray-600" for="branchradius">Latitude </label>
+                            <input type="text" name="branchradius" id="branchradius" autocomplete="title" placeholder=""
+                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                        </div>
+                        <div>
+                            <label class="font-semibold text-gray-600" for="branchradius">Longitude</label>
+                            <input type="text" name="branchradius" id="branchradius" autocomplete="title" placeholder=""
+                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                        </div>
+                        <div class="block lg:hidden">
+                            <button class="p-2 font-semibold text-white bg-blue-600 rounded">Get My latitude and longitude</button>
+                        </div>
+                        <div>
+                            <label class="font-semibold text-gray-600" for="branchradius">Limit Attendance Taking Radius <span class="font-normal"> (in meters)</span></label>
+                            <input type="text" name="branchradius" id="branchradius" autocomplete="title" placeholder=""
+                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                        </div>
+                        <div class="relative">
+                            <label class="font-semibold text-gray-600" for="businessname">Assign Branch Head / Branch Manager</label>
+                            
+                            <span class="inline-block w-full mt-1 rounded-md shadow-sm">
+                                <button class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded-md shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600" type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search" aria-checked="false">
+                                  
+                                    <input id="search" type="search" class="w-full h-full form-control focus:outline-none">
+            
+                                    <span class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                        <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </span>
+                        </div>
+                        <div class="w-full">
+                            <button class="w-full p-3 font-semibold text-white bg-blue-600 rounded-md">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+      $("#navigation").load("nav.html");
+      $("#aside").load("settings-aside.html");
+    });
+  </script>
+</html>

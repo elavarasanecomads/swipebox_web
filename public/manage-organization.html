@@ -1,0 +1,224 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="output.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+  <div class="flex w-full">
+    <div id="aside"></div>
+    <div class="w-full">
+      <div id="navigation"></div>
+      <div class="mx-0 my-4 lg:m-4">
+        <div class="h-full p-4 bg-white border rounded-md lg:p-8">
+          <div class="flex items-center gap-4">
+            <p class="text-2xl font-bold">Manage Organization</p>
+            <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false"> 
+                <button @click="showModal = true" class="w-32 p-1 font-semibold text-white bg-blue-600 rounded-md">Add New</button>
+                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                            x-show="showModal" style="display: none;">
+                            <!-- Modal inner -->
+                            <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                @click.away="showModal = false"
+                                x-transition:enter="motion-safe:ease-out duration-300"
+                                x-transition:enter-start="opacity-0 scale-90"
+                                x-transition:enter-end="opacity-100 scale-100">
+                                <!-- Title / Close-->
+                                <div class="flex items-center justify-between">
+                                    <p class="font-bold text-gray-900">
+                                        New Organization
+                                    </p>
+                                    <span @click="showModal = false">
+                                        <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <!-- content -->
+                                <div class="w-full mt-4">
+                                    <div class="pb-4 space-y-4 border-b">
+                                        <div>   
+                                            <label class="text-sm font-semibold text-gray-600 select-none" for="date">Organization Name</label>                                                 
+                                            <input type="text" name="date" id="date" autocomplete="title"
+                                                placeholder="Type the name to confirm"
+                                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <label class="text-sm font-semibold text-gray-600" for="name">Organization
+                                                Logo</label>
+                                            <div class="inline-block px-4 py-2 tracking-wide text-gray-600 uppercase bg-gray-100 border border-gray-100 rounded-lg cursor-pointer">
+                                                <button class="flex items-center ">
+                                                    <svg class="w-6 h-6 mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                        <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z">
+                                                        </path>
+                                                    </svg>
+                                                    <span class="text-base leading-normal">Upload a file</span> 
+                                                </button>                                                
+                                                </div>
+                                        </div>
+                                        <div class="flex items-center gap-4">
+                                            <button
+                                                class="w-full p-3 font-semibold text-gray-800 bg-gray-200 rounded-md">Cancel</button>
+                                            <button
+                                                class="w-full p-3 font-semibold text-white bg-blue-600 rounded-md">Create</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+          </div>
+          <div class="pt-6 space-y-4">
+            <div class="p-4 border border-l-4 rounded-md border-l-yellow-600">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div>
+                            <input class="w-4 h-4" type="radio" name="opt" id="opt" checked>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div>
+                                <img class="w-12 h-12 rounded-full" src="https://www.adobe.com/content/dam/offers-homepage/us/en/homepage/twitter_adobe.png" alt="">
+                            </div>
+                            <div>
+                                <p class="font-medium">Adobe Corporation</p>
+                                <span class="text-xs text-gray-600">Id : 687676EB89</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false"> 
+                        <button @click="showModal = true" class="w-32 p-1 font-semibold text-white bg-red-600 rounded-md">Delete</button>
+                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                    x-show="showModal" style="display: none;">
+                                    <!-- Modal inner -->
+                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                        @click.away="showModal = false"
+                                        x-transition:enter="motion-safe:ease-out duration-300"
+                                        x-transition:enter-start="opacity-0 scale-90"
+                                        x-transition:enter-end="opacity-100 scale-100">
+                                        <!-- Title / Close-->
+                                        <div class="flex items-center justify-between">
+                                            <p class="font-bold text-gray-900">
+                                                Delete Organization
+                                            </p>
+                                            <span @click="showModal = false">
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <!-- content -->
+                                        <div class="w-full mt-4">
+                                            <div class="pb-4 space-y-2 border-b">
+                                                <p>Are you absolutely sure you want to delete <span class="font-bold">Organization</span>?</p>
+                                                <p>Once you delete the Organization, then all the records will be deleted, it will not be possible to recover the records ". </p>
+                                                <div class="py-6">                                                    
+                                                    <input type="text" name="date" id="date" autocomplete="title"
+                                                        placeholder="Type the name to confirm"
+                                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                        <label class="font-semibold text-gray-600 select-none" for="date">Google INC</label>
+                                                </div>
+                                                <div class="flex items-center gap-4">
+                                                    <button
+                                                        class="w-full p-3 font-semibold text-gray-800 bg-gray-200 rounded-md">Cancel</button>
+                                                    <button
+                                                        class="w-full p-3 font-semibold text-white bg-blue-600 rounded-md">Delete</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 border border-l-4 rounded-md border-l-yellow-600">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div>
+                            <input class="w-4 h-4" type="radio" name="opt" id="opt">
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div>
+                                <img class="w-12 h-12 rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png" alt="">
+                            </div>
+                            <div>
+                                <p class="font-medium">Google INC</p>
+                                <span class="text-xs text-gray-600">Id : 687676EB90</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false"> 
+                        <button @click="showModal = true" class="w-32 p-1 font-semibold text-white bg-red-600 rounded-md">Delete</button>
+                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                    x-show="showModal" style="display: none;">
+                                    <!-- Modal inner -->
+                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                        @click.away="showModal = false"
+                                        x-transition:enter="motion-safe:ease-out duration-300"
+                                        x-transition:enter-start="opacity-0 scale-90"
+                                        x-transition:enter-end="opacity-100 scale-100">
+                                        <!-- Title / Close-->
+                                        <div class="flex items-center justify-between">
+                                            <p class="font-bold text-gray-900">
+                                                Delete Organization
+                                            </p>
+                                            <span @click="showModal = false">
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <!-- content -->
+                                        <div class="w-full mt-4">
+                                            <div class="pb-4 space-y-2 border-b">
+                                                <p>Are you absolutely sure you want to delete <span class="font-bold">Organization</span>?</p>
+                                                <p>Once you delete the Organization, then all the records will be deleted, it will not be possible to recover the records ". </p>
+                                                <div class="py-6">                                                    
+                                                    <input type="text" name="date" id="date" autocomplete="title"
+                                                        placeholder="Type the name to confirm"
+                                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                        <label class="font-semibold text-gray-600 select-none" for="date">Google INC</label>
+                                                </div>
+                                                <div class="flex items-center gap-4">
+                                                    <button
+                                                        class="w-full p-3 font-semibold text-gray-800 bg-gray-200 rounded-md">Cancel</button>
+                                                    <button
+                                                        class="w-full p-3 font-semibold text-white bg-blue-600 rounded-md">Delete</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div class="pt-8">
+            <button class="w-32 p-1 font-semibold text-white bg-blue-600 rounded-md">Update</button>
+                        
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  $(function () {
+    $("#navigation").load("nav.html");
+    $("#aside").load("aside.html");
+  });
+</script>
+
+</html>

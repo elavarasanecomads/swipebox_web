@@ -1,0 +1,179 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="p-4 bg-white border rounded-md lg:p-8">
+                    <h1 class="text-2xl font-bold">Notifications</h1>
+                    <div class="w-full pt-6 space-y-4 ">
+                        <div class="p-4 bg-white divide-y">
+                            <div x-data="{
+                                openTab: 1,
+                                activeClasses: 'border-blue-600 text-blue-600',
+                                inactiveClasses: 'border-white'
+                            }">
+                            <div class="grid grid-cols-2 gap-4 pb-2">
+                                <button class="pb-2 font-semibold border-b-4 "  @click="openTab = 1" :class="openTab === 1 ? activeClasses : inactiveClasses">
+                                    Notification
+                                </button>
+                                <button class="pb-2 font-semibold border-b-4 " @click="openTab = 2" :class="openTab === 2 ? activeClasses : inactiveClasses">
+                                    Announcement
+                                </button>
+                            </div>
+                            <div class="bg-white divide-y"  x-show="openTab === 1">
+                                <div class="py-2 space-y-2">
+                                    <div class="flex items-center gap-4">
+                                        <div class="flex items-center justify-center w-12 h-12 text-green-600 bg-green-100 rounded-full">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                              </svg>
+                                        </div>
+                                        <div class="space-y-0">
+                                            <p class="text-sm font-semibold">Your report ready to download.</p>
+                                            <p class="text-xs text-gray-600">25-12-2021 07:28 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="py-2 space-y-2">
+                                    <div class="flex items-center gap-4">
+                                        <div class="flex items-center justify-center w-12 h-12 text-green-600 bg-green-100 rounded-full">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-6 h-6" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                                            </svg>
+                                        </div>
+                                        <div class="space-y-0">
+                                            <p class="text-sm font-semibold">Hemalatha Punched In</p>
+                                            <p class="text-xs text-gray-600">25-12-2021 07:28 PM</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-gray-600">24, Fifth cross east, Rasipuram</p>
+                                </div>
+                                <div class="py-2 space-y-2">
+                                    <div class="flex items-center gap-4">
+                                        <div class="flex items-center justify-center w-12 h-12 text-blue-600 bg-blue-100 rounded-full">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                              </svg>
+                                        </div>
+                                        <div class="space-y-0">
+                                            <p class="text-sm font-semibold">Message From Admin</p>
+                                            <p class="text-xs text-gray-600">25-12-2021 05:28 PM</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Your shift time was changed. Please check new time.</p>
+                                </div>
+                                <div class="py-2 space-y-2">
+                                    <div class="flex items-center gap-4">
+                                        <div class="flex items-center justify-center w-12 h-12 text-red-600 bg-red-100 rounded-full">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                              </svg>
+                                        </div>
+                                        <div class="space-y-0">
+                                            <p class="text-sm font-semibold">Karthika Punched Out</p>
+                                            <p class="text-xs text-gray-600">25-12-2021 05:28 PM</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-gray-600">12, Narayanapuram, Namakkal</p>
+                                </div>
+                                <div class="py-2 space-y-2">
+                                    <div class="flex items-center gap-4">
+                                        <div class="flex items-center justify-center w-12 h-12 text-blue-600 bg-blue-100 rounded-full">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                              </svg>
+                                        </div>
+                                        <div class="space-y-0">
+                                            <p class="text-sm font-semibold">Message From Admin</p>
+                                            <p class="text-xs text-gray-600">25-12-2021 05:28 PM</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Due to Diwali, Tomorrow is Holiday</p>
+                                </div>
+                                <div class="py-2 space-y-2">
+                                    <div class="flex items-center gap-4">
+                                        <div class="flex items-center justify-center w-12 h-12 text-blue-600 bg-blue-100 rounded-full">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                              </svg>
+                                        </div>
+                                        <div class="space-y-0">
+                                            <p class="text-sm font-semibold">Karthika Reqest a Paid Leave</p>
+                                            <p class="text-xs text-gray-600">25-12-2021 05:28 PM</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Due to Diwali, Im going to my native town. So i want leave.</p>
+                                </div>
+                                <div class="py-2 space-y-2">
+                                    <div class="flex items-center gap-4">
+                                        <div class="flex items-center justify-center w-12 h-12 text-red-600 bg-red-100 rounded-full">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                              </svg>
+                                        </div>
+                                        <div class="space-y-0">
+                                            <p class="text-sm font-semibold">Karthika Punched Out</p>
+                                            <p class="text-xs text-gray-600">25-12-2021 05:28 PM</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-gray-600">12, Narayanapuram, Namakkal</p>
+                                </div>
+                            </div>
+                            <div class="bg-white divide-y"  x-show="openTab === 2">
+                                <div class="py-2 space-y-2">
+                                    <div class="flex items-center gap-4">
+                                        <div class="flex items-center justify-center w-12 h-12 text-blue-600 bg-blue-100 rounded-full">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                              </svg>
+                                        </div>
+                                        <div class="space-y-0">
+                                            <p class="text-sm font-semibold">Message From Admin</p>
+                                            <p class="text-xs text-gray-600">25-12-2021 05:28 PM</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Your shift time was changed. Please check new time.</p>
+                                </div>
+                                <div class="py-2 space-y-2">
+                                    <div class="flex items-center gap-4">
+                                        <div class="flex items-center justify-center w-12 h-12 text-blue-600 bg-blue-100 rounded-full">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                              </svg>
+                                        </div>
+                                        <div class="space-y-0">
+                                            <p class="text-sm font-semibold">Message From Admin</p>
+                                            <p class="text-xs text-gray-600">25-12-2021 05:28 PM</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Your shift time was changed. Please check new time.</p>
+                                </div>
+                            </div>
+                            </div>              
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+      $("#navigation").load("nav.html");
+      $("#aside").load("aside.html");
+    });
+  </script>
+</html>

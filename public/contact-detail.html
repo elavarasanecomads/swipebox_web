@@ -1,0 +1,410 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="p-4 bg-white border rounded-md lg:p-8">
+                    <h1 class="text-2xl font-bold">Contact Details</h1>
+                    <div class="w-full pt-6 space-y-4">
+                        <div x-data="{
+                            openTab: 1,
+                            activeClasses: 'border-b-4 border-yellow-400',
+                            inactiveClasses: ''
+                        }" class="">
+                            <ul
+                                class="flex flex-row overflow-x-scroll font-semibold text-white bg-blue-600 lg:flex-row">
+                                <li class="px-4 py-2 lg:px-8 lg:py-4" @click="openTab = 1">
+                                    <a :class="openTab === 1 ? activeClasses : inactiveClasses"
+                                        class="border-b-4 border-yellow-400">Owner
+                                        Contact</a>
+                                </li>
+                                <li class="px-4 py-2 lg:px-8 lg:py-4" @click="openTab = 2">
+                                    <a :class="openTab === 2 ? activeClasses : inactiveClasses" class="">Administrative
+                                        Contact</a>
+                                </li>
+                                <li class="px-4 py-2 lg:px-8 lg:py-4" @click="openTab = 3">
+                                    <a :class="openTab === 3 ? activeClasses : inactiveClasses" class="">Billing
+                                        Contact</a>
+                                </li>
+                                <li class="px-4 py-2 lg:px-8 lg:py-4" @click="openTab = 4">
+                                    <a :class="openTab === 4 ? activeClasses : inactiveClasses" class="">Technical
+                                        Contact</a>
+                                </li>
+                            </ul>
+                            <div class="px-2 mt-8 bg-white">
+
+                                <div x-show="openTab === 1">
+                                    <div class="mt-8 space-y-4">
+                                        <h2 class="text-lg font-bold">Owner Contact</h2>
+                                        <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600" for="name">Company
+                                                    Name</label>
+                                                <input type="text" name="name" id="name" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600" for="name">Company
+                                                    Logo</label>
+                                                <div class="mt-1">
+                                                    <label
+                                                        class="flex items-center w-64 px-4 py-3 tracking-wide text-white uppercase bg-blue-600 border border-blue-600 rounded-lg shadow-lg cursor-pointer">
+                                                        <svg class="w-6 h-6 mr-2" fill="currentColor"
+                                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                            <path
+                                                                d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z">
+                                                            </path>
+                                                        </svg>
+                                                        <span class="text-base leading-normal">Upload a file</span>
+                                                        <input type="file" class="hidden">
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="name">Name</label>
+                                                <input type="text" name="name" id="name" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="mobile">Email</label>
+                                                <input type="text" name="email" id="email" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600" for="mobile">Mobile
+                                                    Number</label>
+                                                <input type="text" name="mobile" id="mobile" autocomplete="title"
+                                                    value="9876567890" disabled="" placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md disabled:bg-gray-100 disabled:text-gray-600 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600" for="mobile">Street
+                                                    Address</label>
+                                                <textarea rows="1"
+                                                    class="relative block w-full p-2 px-3 py-3 mt-1 text-gray-900 placeholder-gray-400 border border-gray-400 rounded shadow-sm appearance-none focus:outline-none focus:ring-blue-600 focus:border-blue-600 focus:z-10"
+                                                    spellcheck="false"></textarea>
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="mobile">City</label>
+                                                <input type="text" name="email" id="email" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="mobile">Pincode</label>
+                                                <input type="text" name="email" id="email" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="gender">State</label>
+                                                <select id="gender" name="gender" autocomplete="gender"
+                                                    class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                    <option>Select</option>
+                                                    <option>Andhra Pradesh</option>
+                                                    <option>Chandigarh</option>
+                                                    <option>Tamilnadu</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="mobile">Country</label>
+                                                <input type="text" name="email" id="email" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600" for="mobile">No Of
+                                                    Employees</label>
+                                                <input type="text" name="email" id="email" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input id="remember_me" name="remember_me" type="checkbox"
+                                                class="w-4 h-4 text-blue-600 border-gray-300 rounded-lg focus:ring-blue-600">
+                                            <label for="remember_me"
+                                                class="block ml-2 text-base font-semibold text-gray-600">Same as
+                                                Administrative
+                                                Contact, Billing Contact, Technical Contact</label>
+                                        </div>
+                                        <div class="flex items-center justify-start">
+                                            <button
+                                                class="w-full px-3 py-2 font-bold text-white bg-blue-600 rounded">SUBMIT</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div x-show="openTab === 2" style="display: none;">
+                                    <div class="mt-8 space-y-4">
+                                        <h2 class="text-lg font-bold">Administrative Contact</h2>
+                                        <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600" for="name">Company
+                                                    Name</label>
+                                                <input type="text" name="name" id="name" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="name">Name</label>
+                                                <input type="text" name="name" id="name" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="mobile">Email</label>
+                                                <input type="text" name="email" id="email" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600" for="mobile">Mobile
+                                                    Number</label>
+                                                <input type="text" name="mobile" id="mobile" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md disabled:bg-gray-100 disabled:text-gray-600 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600" for="mobile">Street
+                                                    Address</label>
+                                                <textarea rows="1"
+                                                    class="relative block w-full p-2 px-3 py-3 mt-1 text-gray-900 placeholder-gray-400 border border-gray-400 rounded shadow-sm appearance-none focus:outline-none focus:ring-blue-600 focus:border-blue-600 focus:z-10"
+                                                    spellcheck="false"></textarea>
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="mobile">City</label>
+                                                <input type="text" name="email" id="email" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="mobile">Pincode</label>
+                                                <input type="text" name="email" id="email" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="gender">State</label>
+                                                <select id="gender" name="gender" autocomplete="gender"
+                                                    class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                    <option>Select</option>
+                                                    <option>Andhra Pradesh</option>
+                                                    <option>Chandigarh</option>
+                                                    <option>Tamilnadu</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="mobile">Country</label>
+                                                <input type="text" name="email" id="email" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center justify-start">
+                                            <button
+                                                class="w-full px-3 py-2 font-bold text-white bg-blue-600 rounded">SUBMIT</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div x-show="openTab === 3" style="display: none;">
+                                    <div class="mt-8 space-y-4">
+                                        <h2 class="text-lg font-bold">Billing Contact</h2>
+                                        <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600" for="name">Company
+                                                    Name</label>
+                                                <input type="text" name="name" id="name" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="name">Name</label>
+                                                <input type="text" name="name" id="name" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="mobile">Email</label>
+                                                <input type="text" name="email" id="email" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600" for="mobile">Mobile
+                                                    Number</label>
+                                                <input type="text" name="mobile" id="mobile" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md disabled:bg-gray-100 disabled:text-gray-600 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600" for="mobile">Street
+                                                    Address</label>
+                                                <textarea rows="1"
+                                                    class="relative block w-full p-2 px-3 py-3 mt-1 text-gray-900 placeholder-gray-400 border border-gray-400 rounded shadow-sm appearance-none focus:outline-none focus:ring-blue-600 focus:border-blue-600 focus:z-10"
+                                                    spellcheck="false"></textarea>
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="mobile">City</label>
+                                                <input type="text" name="email" id="email" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="mobile">Pincode</label>
+                                                <input type="text" name="email" id="email" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="gender">State</label>
+                                                <select id="gender" name="gender" autocomplete="gender"
+                                                    class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                    <option>Select</option>
+                                                    <option>Andhra Pradesh</option>
+                                                    <option>Chandigarh</option>
+                                                    <option>Tamilnadu</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="mobile">Country</label>
+                                                <input type="text" name="email" id="email" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center justify-start">
+                                            <button
+                                                class="w-full px-3 py-2 font-bold text-white bg-blue-600 rounded">SUBMIT</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div x-show="openTab === 4" style="display: none;">
+                                    <div class="mt-8 space-y-4">
+                                        <h2 class="text-lg font-bold">Technical Contact</h2>
+                                        <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600" for="name">Company
+                                                    Name</label>
+                                                <input type="text" name="name" id="name" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="name">Name</label>
+                                                <input type="text" name="name" id="name" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="mobile">Email</label>
+                                                <input type="text" name="email" id="email" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600" for="mobile">Mobile
+                                                    Number</label>
+                                                <input type="text" name="mobile" id="mobile" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md disabled:bg-gray-100 disabled:text-gray-600 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600" for="mobile">Street
+                                                    Address</label>
+                                                <textarea rows="1"
+                                                    class="relative block w-full p-2 px-3 py-3 mt-1 text-gray-900 placeholder-gray-400 border border-gray-400 rounded shadow-sm appearance-none focus:outline-none focus:ring-blue-600 focus:border-blue-600 focus:z-10"
+                                                    spellcheck="false"></textarea>
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="mobile">City</label>
+                                                <input type="text" name="email" id="email" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="mobile">Pincode</label>
+                                                <input type="text" name="email" id="email" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="gender">State</label>
+                                                <select id="gender" name="gender" autocomplete="gender"
+                                                    class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                    <option>Select</option>
+                                                    <option>Andhra Pradesh</option>
+                                                    <option>Chandigarh</option>
+                                                    <option>Tamilnadu</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="mobile">Country</label>
+                                                <input type="text" name="email" id="email" autocomplete="title"
+                                                    placeholder=""
+                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center justify-start">
+                                            <button
+                                                class="w-full px-3 py-2 font-bold text-white bg-blue-600 rounded">SUBMIT</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+</html>

@@ -1,0 +1,196 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+                    <!--Brudcrumb-->
+                    <nav class="flex" aria-label="Breadcrumb">
+                        <ol class="inline-flex flex-wrap items-center space-x-1 md:space-x-3">
+                          <li class="inline-flex items-center">
+                            <a href="dashboard.html" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+                              Dashboard
+                            </a>
+                          </li>
+                          <li>
+                            <div class="flex items-center">
+                              <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                              <a href="settings.html" class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">Settings</a>
+                            </div>
+                          </li> 
+                          <li>
+                            <div class="flex items-center">
+                              <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                              <a href="attendance-settings.html" class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">Attendance</a>
+                            </div>
+                          </li>                        
+                          <li aria-current="page">
+                            <div class="flex items-center">
+                              <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                              <span class="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">Face Recognition</span>
+                            </div>
+                          </li>
+                        </ol>
+                      </nav>
+                    <div class="pt-4">                        
+                    <h1 class="text-2xl font-bold">Face Recognition Settings</h1>
+                    <p class="text-gray-600">Choose the branch and departments for Face Recognition Settings</p>
+                    </div>                    
+                    <div>
+                      <div class="pt-8 space-y-6">
+                          <div class="flex items-center gap-4">
+                              <div class="flex justify-center" x-data="{ toggle: '0' }">
+                                  <div class="relative w-12 h-6 transition duration-200 ease-linear rounded-full "
+                                      :class="[toggle === '1' ? 'bg-green-600' : 'bg-gray-400']">
+                                      <label for="toggle"
+                                          class="absolute left-0 w-6 h-6 mb-2 transition duration-100 ease-linear transform bg-white border-2 rounded-full cursor-pointer "
+                                          :class="[toggle === '1' ? 'translate-x-full border-green-600' : 'translate-x-0 border-gray-400']"></label>
+                                      <input type="checkbox" id="toggle" name="toggle"
+                                          class="w-full h-full appearance-none focus:outline-none"
+                                          @click="toggle === '0' ? toggle = '1' : toggle = '0'" />
+                                  </div>
+                              </div>
+                              <div class="flex items-center gap-4">
+                                  <p>Attendance on each other's mobile from User App</p>
+                                  <div @click.away="open = false" class="relative" x-data="{ open: false }">
+                                      <button @click="open = !open"
+                                          class="relative flex items-center overflow-hidden text-sm text-gray-600 focus:outline-none"
+                                          aria-label="share">
+                                          <svg class="w-5 h-5 text-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                              fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                  d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                                              </path>
+                                          </svg>
+                                      </button>
+                                      <div class="absolute right-0" x-show="open"
+                                          x-transition:enter="transition ease-out duration-100"
+                                          x-transition:enter-start="transform opacity-0 scale-95"
+                                          x-transition:enter-end="transform opacity-100 scale-100"
+                                          x-transition:leave="transition ease-in duration-75"
+                                          x-transition:leave-start="transform opacity-100 scale-100"
+                                          x-transition:leave-end="transform opacity-0 scale-95"
+                                          style="display: none;">
+                                          <div class="p-4 bg-white border rounded shadow-xl w-96">
+                                              <div class="space-y-2 text-sm text-gray-600">
+                                                  <p>It will let employee take attendance on other employee's mobile,
+                                                      who has Salaryapp installed. The attendance will be marked
+                                                      against the face shown. The location and the device were
+                                                      attendance is captured will also be recorded against the entry.
+                                                  </p>
+                                              </div>
+
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="pt-2">
+                              <div class="flex items-center gap-4">
+                                  <div class="flex justify-center" x-data="{ toggle: '0' }">
+                                      <div class="relative w-12 h-6 transition duration-200 ease-linear rounded-full "
+                                          :class="[toggle === '1' ? 'bg-green-600' : 'bg-gray-400']">
+                                          <label for="toggle"
+                                              class="absolute left-0 w-6 h-6 mb-2 transition duration-100 ease-linear transform bg-white border-2 rounded-full cursor-pointer "
+                                              :class="[toggle === '1' ? 'translate-x-full border-green-600' : 'translate-x-0 border-gray-400']"></label>
+                                          <input type="checkbox" id="toggle" name="toggle"
+                                              class="w-full h-full appearance-none focus:outline-none"
+                                              @click="toggle === '0' ? toggle = '1' : toggle = '0'" />
+                                      </div>
+                                  </div>
+                                  <div class="flex items-center gap-4">
+                                      <p>Out of location alert</p>
+                                      <div @click.away="open = false" class="relative" x-data="{ open: false }">
+                                          <button @click="open = !open"
+                                              class="relative flex items-center overflow-hidden text-sm text-gray-600 focus:outline-none"
+                                              aria-label="share">
+                                              <svg class="w-5 h-5 text-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                  <path stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="2"
+                                                      d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                                                  </path>
+                                              </svg>
+                                          </button>
+                                          <div class="absolute right-0" x-show="open"
+                                              x-transition:enter="transition ease-out duration-100"
+                                              x-transition:enter-start="transform opacity-0 scale-95"
+                                              x-transition:enter-end="transform opacity-100 scale-100"
+                                              x-transition:leave="transition ease-in duration-75"
+                                              x-transition:leave-start="transform opacity-100 scale-100"
+                                              x-transition:leave-end="transform opacity-0 scale-95"
+                                              style="display: none;">
+                                              <div class="p-4 bg-white border rounded shadow-xl w-96">
+                                                  <div class="space-y-2 text-sm text-gray-600">
+                                                      <p>Allow or Deny attendance if employee is outside the approved
+                                                          location radius.</p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="flex flex-col gap-3 pt-4 pl-8">
+                                  <label class="inline-flex items-center">
+                                      <input name="Attendance" type="radio" class="w-4 h-4 form-checkbox">
+                                      <span class="ml-2 text-gray-600"> Show alert when attendance out of location
+                                      </span>
+                                  </label>
+                                  <label class="inline-flex items-center">
+                                      <input name="Attendance" type="radio" class="w-4 h-4 form-checkbox">
+                                      <span class="ml-2 text-gray-600"> Admin approval required when attendance out of
+                                          location </span>
+                                  </label>                                  
+                                  <label class="inline-flex items-center">
+                                    <input name="Attendance" type="radio" class="w-4 h-4 form-checkbox">
+                                    <span class="ml-2 text-gray-600"> No admin approval required when attendance out of
+                                        location </span>
+                                </label>
+                                  <label class="inline-flex items-center">
+                                      <input name="Attendance" type="radio" class="w-4 h-4 form-checkbox">
+                                      <span class="ml-2 text-gray-600"> Deny attendance when attendance out of
+                                          location </span>
+                                  </label>
+                              </div>
+                          </div>
+                          <div>
+                              <p class="font-semibold">Liveliness Check</p>
+                              <div class="flex flex-col gap-3 pt-4 pl-8">
+                                  <label class="inline-flex items-center">
+                                      <input name="Attendance" type="radio" class="w-4 h-4 form-checkbox">
+                                      <span class="ml-2 text-gray-600">  Take attendance when user shows Face 
+                                      </span>
+                                  </label>
+                                  <label class="inline-flex items-center">
+                                      <input name="Attendance" type="radio" class="w-4 h-4 form-checkbox">
+                                      <span class="ml-2 text-gray-600">  Take attendance when user shows Face and blink eyes 
+                                       </span>
+                                  </label>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+      $("#navigation").load("nav.html");
+      $("#aside").load("settings-aside.html");
+    });
+  </script>
+</html>

@@ -1,0 +1,180 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="p-4 bg-white border rounded-md lg:p-8">
+                    <div>
+                        <p class="text-2xl font-bold">Elavarasan</p>
+                    </div>
+                    <div class="flex flex-col items-center justify-center w-full p-4 mt-4 bg-green-100">
+                        <div class="flex items-center justify-center gap-2 pb-4">
+                            <p class="font-semibold">Select Month </p>
+                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                class="block px-1 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm w-36 focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>Mar 2022</option>
+                                <option>Apr 2022</option>
+                                <option>May 2022</option>
+                            </select>
+                        </div>
+                        <p class="text-2xl font-bold text-green-600">₹ 25,000</p>
+                        <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+                            <div class="inline-block p-1 px-4 text-xs font-semibold text-center text-white bg-yellow-600 rounded-full">Projected</div>
+                            <div class="inline-block p-1 px-4 text-xs font-semibold text-center text-white bg-blue-600 rounded-full">Finalized</div>
+                            <div class="inline-block p-1 px-4 text-xs font-semibold text-center text-white bg-green-600 rounded-full">Processed</div>
+                        </div>
+                    </div>
+                    <div>
+
+                    </div>
+                    <div class="w-full pt-4 space-y-4">
+                        <div>
+                            <div class="flex items-center gap-4">
+                                <p class="text-xl font-bold text-blue-600">Attendance</p>
+                                <div>
+                                    <a href="employee-attendance.html"><button class="w-24 p-2 font-semibold text-white bg-blue-600 rounded">Edit</button></a>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 pt-6 lg:grid-cols-6">
+                                <div class="p-2 text-white bg-blue-600 border-b-2 border-blue-600 rounded-md">
+                                    <span class="text-sm font-semibold">Payable Days</span>
+                                    <p class="text-2xl font-bold">28</p>
+                                </div>                                
+                                <div class="p-2 bg-green-100 border-b-2 border-green-600 rounded-md">
+                                    <span class="text-sm font-semibold">Worked On</span>
+                                    <p class="text-2xl font-bold">20</p>
+                                </div>
+                                <div class="p-2 border-b-2 rounded-md bg-slate-100 border-slate-600">
+                                    <span class="text-sm font-semibold">Week off</span>
+                                    <p class="text-2xl font-bold">4</p>
+                                </div>
+                                <div class="p-2 bg-red-100 border-b-2 border-red-600 rounded-md">
+                                    <span class="text-sm font-semibold">Paid Leaves</span>
+                                    <p class="text-2xl font-bold">2</p>
+                                </div>
+                                <div class="p-2 bg-yellow-100 border-b-2 border-yellow-600 rounded-md">
+                                    <span class="text-sm font-semibold">Public Holiday Day</span>
+                                    <p class="text-2xl font-bold">1</p>
+                                </div>
+                                <div class="p-2 bg-pink-100 border-b-2 border-pink-600 rounded-md">
+                                    <span class="text-sm font-semibold">Un Paid Leaves</span>
+                                    <p class="text-2xl font-bold">1</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <p class="text-xl font-bold text-green-600">Earnings</p>
+                            <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-6">
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="mobile">Basic Salary</label>
+                                    <input type="text" name="email" id="email" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>  
+                                 <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="mobile">Fixed Allowance </label>
+                                    <input type="text" name="email" id="email" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="mobile">Overtime <a class="pl-3 text-sm font-normal text-blue-600" href="ot-request.html">+ Add OT</a></label>
+                                    <input type="text" name="email" id="email" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>   
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="mobile">Bonus <a class="pl-3 text-sm font-normal text-blue-600" href="bonus.html">+ Add Bonus</a></label>
+                                    <input type="text" name="email" id="email" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="mobile">Pay Per Work Wages <a class="pl-3 text-sm font-normal text-blue-600" href="pay-per-work.html">+ Add Pay Per Work</a></label>
+                                    <input type="text" name="email" id="email" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <p class="text-xl font-bold text-red-600">Deduction</p>
+                            <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-6">
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="mobile">TDS <a class="pl-3 text-sm font-normal text-blue-600" href="tds-deduction.html">+ Add TDS</a></label>
+                                    <input type="text" name="email" id="email" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="mobile">ESI</label>
+                                    <label class="text-xs text-gray-600" for="mobile">(Calculate based on the Salary)</label>
+                                    <input type="text" name="email" id="email" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="mobile">PF</label>
+                                    <label class="text-xs text-gray-600" for="mobile">(Calculate based on the Salary)</label>
+                                    <input type="text" name="email" id="email" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="mobile">PT</label>
+                                    <label class="text-xs text-gray-600" for="mobile">(Calculate based on the Salary)</label>
+                                    <input type="text" name="email" id="email" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="mobile">Deduction <a class="pl-3 text-sm font-normal text-blue-600" href="deduction.html">+ Add Deduction</a></label>
+                                    <input type="text" name="email" id="email" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="mobile">Loan <span class="font-normal text-red-600">(Unpaid Loan Amount is : ₹ 3000)</span></label>
+                                    <input type="text" name="email" id="email" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="mobile">Advance <span class="font-normal text-red-600">(Unpaid Advance Amount is : ₹ 2000)</span></label>
+                                    <input type="text" name="email" id="email" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                            </div>
+                        </div>   
+                        <div class="pt-6" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                            <button @click="showModal = true" class="w-1/2 p-3 px-4 font-semibold text-white bg-blue-600 rounded"><span>Finalize Salary</span></button>
+                        
+                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
+                                <!-- Modal inner -->
+                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                    <!-- Title / Close-->
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-bold text-gray-900">
+                                            
+                                        </p>
+                                        <span @click="showModal = false">
+                                            <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <!-- content -->
+                                    <div class="w-full mt-4 space-y-1">
+                                        <p class="text-lg font-bold text-center">Are you Sure?</p>
+                                        <p class="text-center">Are you Sure you want to Confirm? </p>
+                                        <p class="text-center">You cannot make changes to calculation after this </p>
+                                        <p class="font-bold text-center text-green-600">Salary Amount is : ₹ 25,000</p>
+                                        <div class="flex items-center justify-center w-full gap-4 py-4 ">
+                                            <button @click="showModal = false" class="w-full p-2 font-semibold text-center text-gray-600 bg-gray-100 rounded-md hover:border hover:border-gray-600">Cancel</button>
+                                            <a class="w-full p-2 font-semibold text-center text-white bg-blue-600 rounded-md hover:border hover:border-blue-600" href="individual-salary-calculate.html">Finalize Salary</a>                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+      $("#navigation").load("nav.html");
+      $("#aside").load("aside.html");
+    });
+  </script>
+</html>

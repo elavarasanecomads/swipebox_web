@@ -1,0 +1,176 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="p-4 bg-white border rounded-md lg:p-8">
+                    <!--Brudcrumb-->
+                    <nav class="flex pb-4" aria-label="Breadcrumb">
+                        <ol class="inline-flex flex-wrap items-center space-x-1 md:space-x-3">
+                          <li class="inline-flex items-center">
+                            <a href="dashboard.html" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+                              Dashboard
+                            </a>
+                          </li>
+                          <li>
+                            <div class="flex items-center">
+                              <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                              <a href="employee-summary.html" class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">Employee Summary</a>
+                            </div>
+                          </li> 
+                          <li>
+                            <div class="flex items-center">
+                              <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                              <a href="employee-detail.html" class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">Employee</a>
+                            </div>
+                          </li>                        
+                          <li aria-current="page">
+                            <div class="flex items-center">
+                              <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                              <span class="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">Salary Slip</span>
+                            </div>
+                          </li>
+                        </ol>
+                      </nav>
+                    <div>
+                        <p class="text-2xl font-bold">Salary Slip</p>
+                    </div>
+                    <div class="w-full pt-8">
+                        <div class="p-4 bg-gray-100">
+                            <div class="flex items-center justify-center">
+                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm w-36 focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                    <option>Feb 2022</option>
+                                    <option>Jan 2022</option>
+                                    <option>Dec 2021</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center py-2">
+                                <p class="w-3/6 font-semibold text-gray-600">Name</p>
+                                <p class="w-3/6 font-semibold text-gray-900">Elavarasan</p>
+                            </div>
+                            <div class="flex items-center py-2">
+                                <p class="w-3/6 font-semibold text-gray-600">Mobile</p>
+                                <p class="w-3/6 font-semibold text-gray-900">9865767678</p>
+                            </div>
+                            <div class="flex items-center py-2">
+                                <p class="w-3/6 font-semibold text-gray-600">Payment Type</p>
+                                <p class="w-3/6 font-semibold text-gray-900">Monthly</p>
+                            </div>
+                            <div class="flex items-center py-2">
+                                <p class="w-3/6 font-semibold text-gray-600">Salary Amount</p>
+                                <p class="w-3/6 font-semibold text-gray-900">10000</p>
+                            </div>                   
+                            <div class="flex items-center py-2">
+                                <p class="w-3/6 font-semibold text-gray-600">Duration</p>
+                                <p class="w-3/6 font-semibold text-gray-900">01-02-2022 to 28-02-2022</p>
+                            </div>
+                            <div class="flex items-center py-2">
+                                <p class="w-3/6 font-semibold text-gray-600">Total Payable Days</p>
+                                <p class="w-3/6 font-semibold text-gray-900">26</p>
+                            </div>
+                            <div class="flex items-center py-2">
+                                <p class="w-3/6 font-semibold text-gray-600">Amount Per Day</p>
+                                <p class="w-3/6 font-semibold text-gray-900">₹ 300</p>
+                            </div>
+                            <div class="py-4">
+                                <button class="w-full p-2 py-3 font-semibold text-center text-white bg-blue-600 rounded-md">Download Salary Slip</button></a>
+                            </div>
+                            <div>
+                                <div class="flex items-center py-2">
+                                    <p class="w-3/6 text-xl font-bold">Earnings</p>
+                                    <p class="w-3/6 pl-4 text-xl font-bold">₹ 10000</p>
+                                </div>
+                                <div class="flex items-center py-2 pl-8">
+                                    <p class="w-3/6 font-semibold text-gray-600">Basic Salary</p>
+                                    <p class="w-3/6 font-semibold text-gray-900">₹ 9000</p>
+                                </div>
+                                <div class="flex items-center py-2 pl-8">
+                                    <p class="w-3/6 font-semibold text-gray-600">Bonus</p>
+                                    <p class="w-3/6 font-semibold text-gray-900">₹ 1000</p>
+                                </div>
+                                <div class="flex items-center py-2 pl-8">
+                                    <p class="w-3/6 font-semibold text-gray-600">Allowance</p>
+                                    <p class="w-3/6 font-semibold text-gray-900">₹ 0</p>
+                                </div>
+                                <div class="flex items-center py-2 pl-8">
+                                    <p class="w-3/6 font-semibold text-gray-600">OverTime</p>
+                                    <p class="w-3/6 font-semibold text-gray-900">₹ 0</p>
+                                </div>
+        
+                            </div>
+                            <div>
+                                <div class="flex items-center py-2">
+                                    <p class="w-3/6 text-xl font-bold">Deductions</p>
+                                    <p class="w-3/6 pl-4 text-xl font-bold">₹ 1000</p>
+                                </div>
+                                <div class="flex items-center py-2 pl-8">
+                                    <p class="w-3/6 font-semibold text-gray-600">Employee ESI Contribution</p>
+                                    <p class="w-3/6 font-semibold text-gray-900">₹ 500</p>
+                                </div><div class="flex items-center py-2 pl-8">
+                                    <p class="w-3/6 font-semibold text-gray-600">Employee PF Contribution</p>
+                                    <p class="w-3/6 font-semibold text-gray-900">₹ 500</p>
+                                </div>
+                                <div class="flex items-center py-2 pl-8">
+                                    <p class="w-3/6 font-semibold text-gray-600">Advance</p>
+                                    <p class="w-3/6 font-semibold text-gray-900">₹ 0</p>
+                                </div>
+                                <div class="flex items-center py-2 pl-8">
+                                    <p class="w-3/6 font-semibold text-gray-600">Loan</p>
+                                    <p class="w-3/6 font-semibold text-gray-900">₹ 0</p>
+                                </div>
+                                <div class="flex items-center py-2 pl-8">
+                                    <p class="w-3/6 font-semibold text-gray-600">Penalties</p>
+                                    <p class="w-3/6 font-semibold text-gray-900">₹ 0</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-center py-2">
+                                    <p class="w-3/6 text-lg font-bold text-blue-600">Total Amount To Pay</p>
+                                    <p class="w-3/6 text-lg font-bold text-blue-600">₹ 9000</p>
+                                </div>
+                                <div class="flex items-center py-2">
+                                    <p class="w-3/6 text-lg font-bold text-blue-600">Salary Paid</p>
+                                    <p class="w-3/6 text-lg font-bold text-blue-600">₹ 9000</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-center py-2">
+                                    <p class="w-3/6 text-lg font-bold">Employer Contribution</p>
+                                    <p class="w-3/6 pl-4 text-xl font-bold">₹ 1000</p>
+                                </div>
+                                <div class="flex items-center py-2 pl-8">
+                                    <p class="w-3/6 font-semibold text-gray-600">Employer ESI Contribution</p>
+                                    <p class="w-3/6 font-semibold text-gray-900">₹ 500</p>
+                                </div><div class="flex items-center py-2 pl-8">
+                                    <p class="w-3/6 font-semibold text-gray-600">Employer PF Contribution</p>
+                                    <p class="w-3/6 font-semibold text-gray-900">₹ 500</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+      $("#navigation").load("nav.html");
+      $("#aside").load("aside.html");
+    });
+  </script>
+</html>

@@ -1,0 +1,1056 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="output.css" rel="stylesheet">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="p-0 bg-white border rounded-md lg:p-4">
+                    <nav class="flex" aria-label="Breadcrumb">
+                        <ol class="inline-flex flex-wrap items-center space-x-1 md:space-x-3">
+                            <li class="inline-flex items-center">
+                                <a href="dashboard.html"
+                                    class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                                        </path>
+                                    </svg>
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li>
+                                <div class="flex items-center">
+                                    <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <a href="approvals.html"
+                                        class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">Approvals</a>
+                                </div>
+                            </li>
+                            <li aria-current="page">
+                                <div class="flex items-center">
+                                    <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span
+                                        class="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">Daily
+                                        Attendance</span>
+                                </div>
+                            </li>
+                        </ol>
+                    </nav>
+
+                    <div class="py-4 space-y-4">
+                        <h1 class="text-2xl font-bold">Daily Attendance</h1>
+
+                    </div>
+
+                    <div class="p-4 border-b">
+                        <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                            <div class="relative">
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">Search
+                                    User</label>
+
+                                <span class="inline-block w-full rounded-md shadow-sm">
+                                    <button
+                                        class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded-md shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                        type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search"
+                                        aria-checked="false">
+
+                                        <input id="search" type="search"
+                                            class="w-full h-full form-control focus:outline-none">
+
+                                        <span
+                                            class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                            <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </span>
+                            </div>
+                            <div class="w-48 pt-5 space-y-4">
+                                <button
+                                    class="w-full p-3 font-semibold text-center text-white bg-blue-600 rounded-md">Search</button>
+                            </div>
+                        </div>
+                        <div x-data="{ isOpen: false }">
+                            <div class="py-2">
+                                <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
+                                    class="font-semibold text-blue-600"><span x-show="!isOpen">More Filters</span><span
+                                        x-show="isOpen">Less Filters</span></button>
+                            </div>
+                            <div class="grid grid-cols-1 gap-4 lg:grid-cols-3" x-show="isOpen"
+                                @click.away="isOpen = false">
+                                <div class="relative">
+                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                        Date</label>
+
+                                    <span class="inline-block w-full mt-1 rounded-md shadow-sm">
+                                        <button
+                                            class="relative z-0 w-full py-1 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded-md shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                            type="button" aria-haspopup="listbox" aria-expanded="true"
+                                            aria-label="search" aria-checked="false">
+
+                                            <input id="search" type="search"
+                                                class="w-full h-full form-control focus:outline-none">
+
+                                            <span
+                                                class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-600"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                    stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </span>
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                        Branch</label>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                        <option>All</option>
+                                        <option>Ecomads Pvt Ltd, Covai</option>
+                                        <option>Ecomads Pvt Ltd, Tiruchengode</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                        Department</label>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All</option>
+                                        <option>Sales</option>
+                                        <option>Purchase</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                        Employee
+                                        Category</label>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All</option>
+                                        <option>Permanant</option>
+                                        <option>Contract</option>
+                                        <option>Casual</option>
+                                        <option>Temporary</option>
+                                        <option>Others</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                        Designation</label>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All</option>
+                                        <option>Director</option>
+                                        <option>CTO</option>
+                                        <option>STO</option>
+                                        <option>Accountant</option>
+                                        <option>Team Lead</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                        Type</label>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All</option>
+                                        <option>Permission</option>
+                                        <option>Late Entry </option>
+                                        <option>Early Exit</option>
+                                        <option>Overtime</option>
+                                        <option>Forgot Out</option>
+                                        <option>Short Hours</option>
+                                        <option>Break Hours</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="py-6">
+                        <p class="text-xl font-bold">10-12-2022</p>
+
+                        <div class="grid grid-cols-2 gap-4 px-4 py-6 lg:grid-cols-6">
+                            <div class="p-2 text-white bg-blue-600 border-b-2 border-blue-600 rounded-md">
+                                <span class="text-sm font-semibold">All</span>
+                                <p class="text-2xl font-bold">34</p>
+                            </div>
+                            <div class="p-2 border-b-2 rounded-md bg-slate-100 border-slate-600">
+                                <span class="text-sm font-semibold">Not Punched</span>
+                                <p class="text-2xl font-bold">10</p>
+                            </div>
+                            <div class="p-2 bg-green-100 border-b-2 border-green-600 rounded-md">
+                                <span class="text-sm font-semibold">Present</span>
+                                <p class="text-2xl font-bold">15</p>
+                            </div>
+                            <div class="p-2 bg-red-100 border-b-2 border-red-600 rounded-md">
+                                <span class="text-sm font-semibold">Absent</span>
+                                <p class="text-2xl font-bold">2</p>
+                            </div>
+                            <div class="p-2 bg-yellow-100 border-b-2 border-yellow-600 rounded-md">
+                                <span class="text-sm font-semibold">Half Day</span>
+                                <p class="text-2xl font-bold">3</p>
+                            </div>
+                            <div class="p-2 border-b-2 rounded-md bg-lime-100 border-lime-600">
+                                <span class="text-sm font-semibold">Leave</span>
+                                <p class="text-2xl font-bold">1</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <select
+                            class="block px-4 py-2 pr-8 leading-tight text-gray-700 bg-white border border-gray-400 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+                            <option>10</option>
+                            <option>20</option>
+                            <option>50</option>                            
+                            <option>100</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col border-b">
+                        <div class="z-10 -my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
+                            <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+
+                                    <table class="min-w-full divide-y divide-gray-200 table-fixed">
+                                        <thead class="bg-blue-600">
+                                            <tr>
+                                                <th scope="col"
+                                                    class="px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase w-96">
+                                                    Name
+                                                </th>
+
+                                                <th scope="col"
+                                                    class="w-24 px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                    In Time
+                                                </th>
+                                                <th scope="col"
+                                                    class="w-24 px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                    Out Time
+                                                </th>
+                                                <th scope="col"
+                                                    class="w-24 px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                    OT
+                                                </th>
+                                                <th scope="col"
+                                                    class="w-64 px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                    Status
+                                                </th>
+                                                <th scope="col"
+                                                    class="w-24 px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                    Action
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="bg-white divide-y divide-gray-200">
+                                            <tr class="">
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="flex items-center gap-2">
+                                                        <img class="w-10 h-10 rounded-full"
+                                                            src="https://geeks-react.netlify.app/static/media/avatar-1.d2fd9642fd3628734b27.jpg"
+                                                            alt="">
+                                                        <a href="employee-detail.html"
+                                                            class="font-semibold text-blue-600">Elavarasan</a>
+                                                    </div>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <span class="text-base text-gray-900">
+                                                        10:00 AM
+                                                    </span>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <span class="text-base text-gray-900">
+                                                        05:00 PM
+                                                    </span>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <span class="text-base text-gray-900">
+                                                        02:00
+                                                    </span>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-wrap">
+                                                    <div class="space-y-2">
+                                                        <p
+                                                            class="px-2 py-0.5 text-center font-semibold text-xs text-white bg-green-600 rounded-full inline-block">
+                                                            Present</p>
+                                                        <p
+                                                            class="px-2 py-0.5 text-center font-semibold text-xs text-white bg-teal-600 rounded-full inline-block">
+                                                            Overtime</p>
+
+                                                    </div>
+                                                </td>
+
+                                                <td
+                                                    class="relative flex items-center gap-4 px-6 py-4 whitespace-nowrap">
+                                                    <div x-data="{ 'showModal': false }"
+                                                        @keydown.escape="showModal = false">
+                                                        <button @click="showModal = true" class="">
+                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                class="w-6 h-6 text-blue-600" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor"
+                                                                stroke-width="2">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                                                                </path>
+                                                            </svg></button>
+
+                                                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                            x-show="showModal" style="display: none;">
+                                                            <!-- Modal inner -->
+                                                            <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm"
+                                                                @click.away="showModal = false"
+                                                                x-transition:enter="motion-safe:ease-out duration-300"
+                                                                x-transition:enter-start="opacity-0 scale-90"
+                                                                x-transition:enter-end="opacity-100 scale-100">
+                                                                <!-- Title / Close-->
+                                                                <div class="flex items-center justify-between">
+                                                                    <p class="font-bold text-gray-900">
+                                                                        Change Status
+                                                                    </p>
+                                                                    <span @click="showModal = false">
+                                                                        <svg class="w-5 h-5 text-gray-900"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            fill="none" viewBox="0 0 24 24"
+                                                                            stroke="currentColor">
+                                                                            <path stroke-linecap="round"
+                                                                                stroke-linejoin="round" stroke-width="2"
+                                                                                d="M6 18L18 6M6 6l12 12"></path>
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                                <!-- content -->
+                                                                <div class="w-full mt-4" x-data="{openTab: 1}">
+                                                                    <div class="flex flex-wrap items-center gap-4">
+                                                                        <button @click="openTab = 1"
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-green-600 bg-green-100 rounded-md focus:bg-green-600 focus:text-white">
+                                                                            Present</button>
+                                                                        <button @click="openTab = 2"
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-green-600 bg-green-100 rounded-md focus:bg-green-600 focus:text-white">
+                                                                            Full Day</button>
+                                                                        <button @click="openTab = 3"
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-red-600 bg-red-100 rounded-md focus:bg-red-600 focus:text-white">
+                                                                            Absent</button>
+                                                                        <button @click="openTab = 4"
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-yellow-600 bg-yellow-100 rounded-md focus:bg-yellow-600 focus:text-white">
+                                                                            Half Day</button>
+                                                                        <button @click="openTab = 5"
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md focus:bg-blue-600 focus:text-white">
+                                                                            Paid Fullday Leave</button>
+                                                                        <button @click="openTab = 6"
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md focus:bg-blue-600 focus:text-white">
+                                                                            Paid Halfday Leave</button>
+                                                                        <button @click="openTab = 7"
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-teal-600 bg-teal-100 rounded-md focus:bg-teal-600 focus:text-white">
+                                                                            Unpaid Fullday Leave</button>
+                                                                            <button @click="openTab = 8"
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-teal-600 bg-teal-100 rounded-md focus:bg-teal-600 focus:text-white">
+                                                                            Unpaid Halfday Leave</button>
+                                                                            <button @click="openTab = 9"
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md focus:bg-gray-600 focus:text-white">
+                                                                            Weekoff</button>
+                                                                        <button @click="openTab = 10"
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md focus:bg-gray-600 focus:text-white">
+                                                                            Public Holiday</button>
+                                                                    </div>
+                                                                    <div class="pt-6" x-show="openTab === 5">
+                                                                        <button
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md focus:bg-blue-600 focus:text-white">
+                                                                            Casual Leave</button>
+                                                                        <button
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md focus:bg-blue-600 focus:text-white">
+                                                                            Sick Leave</button>
+                                                                        <button
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md focus:bg-blue-600 focus:text-white">
+                                                                            Comp Off</button>                                                                        
+                                                                    </div>
+                                                                    <div class="pt-6" x-show="openTab === 6">
+                                                                        <button
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md focus:bg-blue-600 focus:text-white">
+                                                                            Casual Leave</button>
+                                                                        <button
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md focus:bg-blue-600 focus:text-white">
+                                                                            Sick Leave</button>
+                                                                        <button
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md focus:bg-blue-600 focus:text-white">
+                                                                            Comp Off</button>                                                                        
+                                                                    </div>
+                                                                    <div class="pt-6" x-show="openTab === 7">
+                                                                        <button
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md focus:bg-blue-600 focus:text-white">
+                                                                            Casual Leave</button>
+                                                                        <button
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md focus:bg-blue-600 focus:text-white">
+                                                                            Sick Leave</button>
+                                                                                                                                              
+                                                                    </div>
+                                                                    <div class="pt-6" x-show="openTab === 8">
+                                                                        <button
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md focus:bg-blue-600 focus:text-white">
+                                                                            Casual Leave</button>
+                                                                        <button
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md focus:bg-blue-600 focus:text-white">
+                                                                            Sick Leave</button>
+                                                                                                                                         
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="group hover:bg-blue-100" x-data="{ 'showModal': false }"
+                                                        @keydown.escape="showModal = false">
+                                                        <button @click="showModal = true"
+                                                            class="flex items-center gap-2 px-3 py-3 font-semibold group-hover:text-blue-600">
+                                                            <span
+                                                                class="px-2 font-semibold text-white bg-blue-600 rounded-md">OT</span>
+                                                        </button>
+
+                                                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                            x-show="showModal" style="display: none;">
+                                                            <!-- Modal inner -->
+                                                            <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-2xl"
+                                                                @click.away="showModal = false"
+                                                                x-transition:enter="motion-safe:ease-out duration-300"
+                                                                x-transition:enter-start="opacity-0 scale-90"
+                                                                x-transition:enter-end="opacity-100 scale-100">
+                                                                <!-- Title / Close-->
+                                                                <div class="flex items-center justify-between">
+                                                                    <div>
+                                                                        <p class="font-bold">Over Time -
+                                                                            <span>10-02-2020</span>
+                                                                        </p>
+                                                                        <p class="text-sm text-gray-600">Karthika</p>
+                                                                    </div>
+                                                                    <span @click="showModal = false">
+                                                                        <svg class="w-5 h-5 text-gray-900"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            fill="none" viewBox="0 0 24 24"
+                                                                            stroke="currentColor">
+                                                                            <path stroke-linecap="round"
+                                                                                stroke-linejoin="round" stroke-width="2"
+                                                                                d="M6 18L18 6M6 6l12 12">
+                                                                            </path>
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                                <!-- content -->
+                                                                <div class="w-full mt-4 space-y-4">
+                                                                    <div x-data="{victim: 'Guest'}" class="space-y-4">
+                                                                        <div>
+                                                                            <p><label><input class="mr-2" name="Victim"
+                                                                                        type="radio" value="Guest"
+                                                                                        x-model="victim"
+                                                                                        checked="true">Calculate Based
+                                                                                    On Hour </label>
+                                                                            </p>
+                                                                            <div class="pt-2 ml-8" id="Guest"
+                                                                                class="desc" x-show="victim == $el.id">
+                                                                                <div class="flex items-center gap-4">
+                                                                                    <div>
+                                                                                        <p
+                                                                                            class="pb-1 text-sm font-semibold text-gray-600">
+                                                                                            Total Hours Worked (HH:MM)
+                                                                                        </p>
+                                                                                        <div>
+                                                                                            <input
+                                                                                                class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                                                type="number">
+                                                                                            <span
+                                                                                                class="font-bold">:</span>
+                                                                                            <input
+                                                                                                class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                                                type="number">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <span>X</span>
+                                                                                    <div>
+                                                                                        <label for="otwages"
+                                                                                            class="text-sm font-semibold text-gray-600">Type</label>
+                                                                                        <select id="jobtype"
+                                                                                            name="jobtype"
+                                                                                            autocomplete="jobtype"
+                                                                                            class="block px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm w-36 focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                                            <option>1X Salary</option>
+                                                                                            <option>1.5X Salary</option>
+                                                                                            <option>2X Salary</option>
+                                                                                            <option>Add Custom Salary
+                                                                                                Multiple</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                    <span>X</span>
+                                                                                    <div class="flex flex-col">
+                                                                                        <label for="otwages"
+                                                                                            class="text-sm font-semibold text-gray-600">Over
+                                                                                            Time
+                                                                                            Wages (Hourly)</label>
+                                                                                        <!--value has been changed based on user-->
+                                                                                        <input name="otwages"
+                                                                                            value="150"
+                                                                                            class="p-2 mt-1 border border-gray-400 rounded-md w-36 disabled:bg-gray-100 disabled:text-gray-600"
+                                                                                            type="text" disabled>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div>
+                                                                            <p><label><input class="mr-2" name="Victim"
+                                                                                        type="radio" value="Employee"
+                                                                                        x-model="victim">Calculate Based
+                                                                                    On Day
+                                                                                </label>
+                                                                            </p>
+                                                                            <div class="pt-2 ml-8" id="Employee"
+                                                                                class="desc" x-show="victim == $el.id">
+                                                                                <div>
+                                                                                    <label
+                                                                                        class="text-sm font-semibold text-gray-600"
+                                                                                        for="businessname">Add Over
+                                                                                        Time Salary</label>
+                                                                                    <select id="jobtype" name="jobtype"
+                                                                                        autocomplete="jobtype"
+                                                                                        class="block px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm w-44 focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                                        <option>None</option>
+                                                                                        <option>Half Day Salary</option>
+                                                                                        <option>Full Day Salary</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="pt-4 space-y-4">
+                                                                            <div class="flex flex-col">
+                                                                                <label for="otwages"
+                                                                                    class="text-sm font-semibold text-gray-600">Total
+                                                                                    Amount</label>
+                                                                                <input name="otwages"
+                                                                                    class="p-2 border border-gray-400 rounded-md w-44"
+                                                                                    type="text">
+                                                                            </div>
+                                                                            <div>
+                                                                                <button
+                                                                                    class="p-2 font-semibold text-white bg-blue-600 border border-blue-600 rounded-md w-44">
+                                                                                    Add Overtime</button>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="flex items-center gap-2">
+                                                        <img class="w-10 h-10 rounded-full"
+                                                            src="https://randomuser.me/api/portraits/women/65.jpg"
+                                                            alt="">
+                                                        <a href="employee-detail.html"
+                                                            class="font-semibold text-blue-600">Karthika</a>
+                                                    </div>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <span class="text-base text-gray-900">
+                                                        10:00 AM
+                                                    </span>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div x-data="{ 'showModal': false }"
+                                                        @keydown.escape="showModal = false">
+                                                        <button class="text-sm text-blue-600" @click="showModal = true">
+                                                            Add Punchout
+                                                        </button>
+                                                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                            x-show="showModal" style="display: none;">
+                                                            <!-- Modal inner -->
+                                                            <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-lg"
+                                                                @click.away="showModal = false"
+                                                                x-transition:enter="motion-safe:ease-out duration-300"
+                                                                x-transition:enter-start="opacity-0 scale-90"
+                                                                x-transition:enter-end="opacity-100 scale-100">
+                                                                <!-- Title / Close-->
+                                                                <div class="flex items-center justify-between">
+                                                                    <p class="font-bold text-gray-900">
+                                                                        Add Punchout
+                                                                    </p>
+                                                                    <span @click="showModal = false">
+                                                                        <svg class="w-5 h-5 text-gray-900"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            fill="none" viewBox="0 0 24 24"
+                                                                            stroke="currentColor">
+                                                                            <path stroke-linecap="round"
+                                                                                stroke-linejoin="round" stroke-width="2"
+                                                                                d="M6 18L18 6M6 6l12 12"></path>
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                                <!-- content -->
+                                                                <div class="w-full mt-4 space-y-4">
+                                                                    <div class="flex items-center gap-2">
+                                                                        <img class="w-10 h-10 rounded-full"
+                                                                            src="https://geeks-react.netlify.app/static/media/avatar-1.d2fd9642fd3628734b27.jpg"
+                                                                            alt="">
+                                                                        <div>
+                                                                            <p class="font-semibold">Karthika</p>
+                                                                            <p class="text-sm text-gray-600">04-06-2022
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="flex items-center gap-1">
+                                                                        <div>
+                                                                            <label
+                                                                                class="text-sm font-semibold text-gray-600"
+                                                                                for="businessname">hh
+                                                                            </label>
+                                                                            <select id="jobtype" name="jobtype"
+                                                                                autocomplete="jobtype"
+                                                                                class="block w-20 px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                                <option>01</option>
+                                                                                <option>02</option>
+                                                                                <option>03</option>
+                                                                                <option>04</option>
+                                                                                <option>05</option>
+                                                                                <option>06</option>
+                                                                                <option>07</option>
+                                                                                <option>08</option>
+                                                                                <option>09</option>
+                                                                                <option>10</option>
+                                                                                <option>11</option>
+                                                                                <option>12</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div>
+                                                                            <label
+                                                                                class="text-sm font-semibold text-gray-600"
+                                                                                for="businessname">mm
+                                                                            </label>
+                                                                            <select id="jobtype" name="jobtype"
+                                                                                autocomplete="jobtype"
+                                                                                class="block w-20 px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                                <option>01</option>
+                                                                                <option>02</option>
+                                                                                <option>03</option>
+                                                                                <option>04</option>
+                                                                                <option>05</option>
+                                                                                <option>06</option>
+                                                                                <option>07</option>
+                                                                                <option>08</option>
+                                                                                <option>09</option>
+                                                                                <option>10</option>
+                                                                                <option>11</option>
+                                                                                <option>12</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div>
+                                                                            <select id="jobtype" name="jobtype"
+                                                                                autocomplete="jobtype"
+                                                                                class="block w-20 px-2 py-1 mt-6 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                                <option>PM</option>
+                                                                                <option>AM</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <button
+                                                                        class="px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded-md w-36">Save
+                                                                        Punch Out</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <span class="text-base text-gray-900">
+                                                        00:00
+                                                    </span>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-wrap">
+                                                    <div class="space-y-2">
+                                                        <p
+                                                            class="px-2 py-0.5 text-center font-semibold text-xs text-white bg-green-600 rounded-full inline-block">
+                                                            Present</p>
+                                                        <p
+                                                            class="px-2 py-0.5 text-center font-semibold text-xs text-white bg-gray-600 rounded-full inline-block">
+                                                            Forgot Out</p>
+
+                                                    </div>
+                                                </td>
+
+                                                <td
+                                                    class="relative flex items-center gap-4 px-6 py-4 whitespace-nowrap">
+                                                    <div x-data="{ 'showModal': false }"
+                                                        @keydown.escape="showModal = false">
+                                                        <button @click="showModal = true" class="">
+                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                class="w-6 h-6 text-blue-600" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor"
+                                                                stroke-width="2">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                                                                </path>
+                                                            </svg></button>
+
+                                                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                            x-show="showModal" style="display: none;">
+                                                            <!-- Modal inner -->
+                                                            <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm"
+                                                                @click.away="showModal = false"
+                                                                x-transition:enter="motion-safe:ease-out duration-300"
+                                                                x-transition:enter-start="opacity-0 scale-90"
+                                                                x-transition:enter-end="opacity-100 scale-100">
+                                                                <!-- Title / Close-->
+                                                                <div class="flex items-center justify-between">
+                                                                    <p class="font-bold text-gray-900">
+                                                                        Change Status
+                                                                    </p>
+                                                                    <span @click="showModal = false">
+                                                                        <svg class="w-5 h-5 text-gray-900"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            fill="none" viewBox="0 0 24 24"
+                                                                            stroke="currentColor">
+                                                                            <path stroke-linecap="round"
+                                                                                stroke-linejoin="round" stroke-width="2"
+                                                                                d="M6 18L18 6M6 6l12 12"></path>
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                                <!-- content -->
+                                                                <div class="w-full mt-4">
+                                                                    <div class="flex flex-wrap items-center gap-4">
+                                                                        <div
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-white bg-green-600 rounded-md">
+                                                                            Present</div>
+                                                                        <div
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-white bg-green-600 rounded-md">
+                                                                            Full Day</div>
+                                                                        <div
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-red-600 bg-red-100 rounded-md">
+                                                                            Absent</div>
+                                                                        <div
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-yellow-600 bg-yellow-100 rounded-md">
+                                                                            Half Day</div>
+                                                                        <div
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md">
+                                                                            Paid Leave</div>
+                                                                        <div
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md">
+                                                                            Half Day Leave</div>
+                                                                        <div
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-teal-600 bg-teal-100 rounded-md">
+                                                                            Unpaid Leave</div>
+                                                                        <div
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md">
+                                                                            Day Off</div>
+                                                                        <div
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md">
+                                                                            Forgot Out</div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="">
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="flex items-center gap-2">
+                                                        <img class="w-10 h-10 rounded-full"
+                                                            src="https://geeks-react.netlify.app/static/media/avatar-1.d2fd9642fd3628734b27.jpg"
+                                                            alt="">
+                                                        <a href="employee-detail.html"
+                                                            class="font-semibold text-blue-600">Riyas</a>
+                                                    </div>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <span class="text-base text-gray-900">
+                                                        -
+                                                    </span>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <span class="text-base text-gray-900">
+                                                        -
+                                                    </span>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <span class="text-base text-gray-900">
+                                                        -
+                                                    </span>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-wrap">
+                                                    <div class="space-y-2">
+                                                        <p
+                                                            class="px-2 py-0.5 font-semibold text-center inline-block text-xs text-white bg-red-600 rounded-full">
+                                                            Absent</p>
+
+                                                    </div>
+                                                </td>
+
+                                                <td
+                                                    class="relative flex items-center gap-4 px-6 py-4 whitespace-nowrap">
+                                                    <div x-data="{ 'showModal': false }"
+                                                        @keydown.escape="showModal = false">
+                                                        <button @click="showModal = true" class="">
+                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                class="w-6 h-6 text-blue-600" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor"
+                                                                stroke-width="2">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                                                                </path>
+                                                            </svg></button>
+
+                                                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                            x-show="showModal" style="display: none;">
+                                                            <!-- Modal inner -->
+                                                            <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm"
+                                                                @click.away="showModal = false"
+                                                                x-transition:enter="motion-safe:ease-out duration-300"
+                                                                x-transition:enter-start="opacity-0 scale-90"
+                                                                x-transition:enter-end="opacity-100 scale-100">
+                                                                <!-- Title / Close-->
+                                                                <div class="flex items-center justify-between">
+                                                                    <p class="font-bold text-gray-900">
+                                                                        Change Status
+                                                                    </p>
+                                                                    <span @click="showModal = false">
+                                                                        <svg class="w-5 h-5 text-gray-900"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            fill="none" viewBox="0 0 24 24"
+                                                                            stroke="currentColor">
+                                                                            <path stroke-linecap="round"
+                                                                                stroke-linejoin="round" stroke-width="2"
+                                                                                d="M6 18L18 6M6 6l12 12"></path>
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                                <!-- content -->
+                                                                <div class="w-full mt-4">
+                                                                    <div class="flex flex-wrap items-center gap-4">
+                                                                        <div
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-white bg-green-600 rounded-md">
+                                                                            Present</div>
+                                                                        <div
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-white bg-green-600 rounded-md">
+                                                                            Full Day</div>
+                                                                        <div
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-red-600 bg-red-100 rounded-md">
+                                                                            Absent</div>
+                                                                        <div
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-yellow-600 bg-yellow-100 rounded-md">
+                                                                            Half Day</div>
+                                                                        <div
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md">
+                                                                            Paid Leave</div>
+                                                                        <div
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-teal-600 bg-teal-100 rounded-md">
+                                                                            Unpaid Leave</div>
+                                                                        <div
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md">
+                                                                            Day Off</div>
+                                                                        <div
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md">
+                                                                            Forgot Out</div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="flex items-center gap-2">
+                                                        <img class="w-10 h-10 rounded-full"
+                                                            src="https://randomuser.me/api/portraits/women/65.jpg"
+                                                            alt="">
+                                                        <a href="employee-detail.html"
+                                                            class="font-semibold text-blue-600">Hema</a>
+                                                    </div>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <span class="text-base text-gray-900">
+                                                        -
+                                                    </span>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <span class="text-base text-gray-900">
+                                                        -
+                                                    </span>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <span class="text-base text-gray-900">
+                                                        -
+                                                    </span>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-wrap">
+                                                    <div class="space-y-2">
+                                                        <p
+                                                            class="px-2 py-0.5 text-center inline-block font-semibold text-xs text-white bg-slate-600 rounded-full">
+                                                            Not Punched</p>
+                                                    </div>
+                                                </td>
+
+                                                <td
+                                                    class="relative flex items-center gap-4 px-6 py-4 whitespace-nowrap">
+                                                    <div x-data="{ 'showModal': false }"
+                                                        @keydown.escape="showModal = false">
+                                                        <button @click="showModal = true" class="">
+                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                class="w-6 h-6 text-blue-600" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor"
+                                                                stroke-width="2">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                                                                </path>
+                                                            </svg></button>
+
+                                                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                            x-show="showModal" style="display: none;">
+                                                            <!-- Modal inner -->
+                                                            <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm"
+                                                                @click.away="showModal = false"
+                                                                x-transition:enter="motion-safe:ease-out duration-300"
+                                                                x-transition:enter-start="opacity-0 scale-90"
+                                                                x-transition:enter-end="opacity-100 scale-100">
+                                                                <!-- Title / Close-->
+                                                                <div class="flex items-center justify-between">
+                                                                    <p class="font-bold text-gray-900">
+                                                                        Change Status
+                                                                    </p>
+                                                                    <span @click="showModal = false">
+                                                                        <svg class="w-5 h-5 text-gray-900"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            fill="none" viewBox="0 0 24 24"
+                                                                            stroke="currentColor">
+                                                                            <path stroke-linecap="round"
+                                                                                stroke-linejoin="round" stroke-width="2"
+                                                                                d="M6 18L18 6M6 6l12 12"></path>
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                                <!-- content -->
+                                                                <div class="w-full mt-4">
+                                                                    <div class="flex flex-wrap items-center gap-4">
+                                                                        <div
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-white bg-green-600 rounded-md">
+                                                                            Present</div>
+                                                                        <div
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-white bg-green-600 rounded-md">
+                                                                            Full Day</div>
+                                                                        <div
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-red-600 bg-red-100 rounded-md">
+                                                                            Absent</div>
+                                                                        <div
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-yellow-600 bg-yellow-100 rounded-md">
+                                                                            Half Day</div>
+                                                                        <div
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md">
+                                                                            Paid Leave</div>
+                                                                        <div
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-teal-600 bg-teal-100 rounded-md">
+                                                                            Unpaid Leave</div>
+                                                                        <div
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md">
+                                                                            Day Off</div>
+                                                                        <div
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md">
+                                                                            Forgot Out</div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-center mt-4">
+                            <nav class="relative z-0 inline-flex -space-x-px shadow-sm" aria-label="Pagination">
+                                <a href="#"
+                                    class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-indigo-100">
+                                    <span class="sr-only">Previous</span>
+                                    <!-- Heroicon name: chevron-left -->
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                        fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </a>
+                                <a href="#"
+                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-indigo-100">
+                                    1
+                                </a>
+                                <a href="#"
+                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-indigo-100">
+                                    2
+                                </a>
+                                <a href="#"
+                                    class="relative items-center hidden px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 md:inline-flex hover:bg-indigo-100">
+                                    3
+                                </a>
+                                <a href="#"
+                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-indigo-100">
+                                    4
+                                </a>
+                                <a href="#"
+                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-indigo-100">
+                                    5
+                                </a>
+                                <a href="#"
+                                    class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-indigo-100">
+                                    <span class="sr-only">Next</span>
+                                    <!-- Heroicon name: chevron-right -->
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                        fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+</html>

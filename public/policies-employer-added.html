@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="h-full p-4 bg-white border rounded-md lg:p-8">
+                    <!--Brudcrumb-->
+                    <nav class="flex" aria-label="Breadcrumb">
+                        <ol class="inline-flex flex-wrap items-center space-x-1 md:space-x-3">
+                            <li class="inline-flex items-center">
+                                <a href="dashboard.html"
+                                    class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                                        </path>
+                                    </svg>
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li>
+                                <div class="flex items-center">
+                                    <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <a href="settings.html"
+                                        class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">Settings</a>
+                                </div>
+                            </li>
+                            <li aria-current="page">
+                                <div class="flex items-center">
+                                    <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span
+                                        class="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">Policies</span>
+                                </div>
+                            </li>
+                        </ol>
+                    </nav>
+                    <div class="flex items-center gap-4 pt-8">
+                        <p class="text-2xl font-bold">Policies</p>
+                        <div>
+                            <a href="policies-employer.html">
+                                <button class="w-32 p-2 font-semibold text-white bg-blue-600 rounded">Add New</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="pt-8">
+                        <div class="flex flex-col border-b">
+                            <div class="z-10 -my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                <div class="inline-block max-w-xl min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                    <div class="border-b border-gray-200 shadow sm:rounded-lg">
+
+                                        <table class="min-w-full divide-y divide-gray-200 table-auto">
+                                            <thead class="bg-blue-600">
+                                                <tr>
+                                                    <th scope="col"
+                                                        class="w-20 px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                        ID
+                                                    </th>
+
+                                                    <th scope="col"
+                                                        class="px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                        Description
+                                                    </th>
+                                                    <th scope="col"
+                                                        class="px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase w-36">
+                                                        Action
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white divide-y divide-gray-200">
+                                                <tr>
+                                                    <td class="px-4 py-2 whitespace-normal">
+                                                        <p class="font-semibold">P01</p>
+                                                    </td>
+                                                    <td class="px-4 py-2 whitespace-normal">
+                                                        <span class="text-base text-gray-900">
+                                                            If employee has not been coming for consecutive 10 days,
+                                                            then
+                                                            generate an alert on next entry.
+                                                        </span>
+                                                        </br>
+                                                        <span class="text-sm font-semibold">Branch :
+                                                            <span class="font-normal text-blue-600">All</span>
+                                                        </span>
+                                                    </td>
+                                                    <td
+                                                        class="relative flex items-center gap-4 px-6 py-2 whitespace-normal w-36">
+                                                        <div x-data="{ 'showModal': false }"
+                                                            @keydown.escape="showModal = false">
+                                                            <button @click="showModal = true" class="">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                    class="w-6 h-6 text-blue-600" fill="none"
+                                                                    viewBox="0 0 24 24" stroke="currentColor"
+                                                                    stroke-width="2">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                                                                    </path>
+                                                                </svg></button>
+
+                                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                                x-show="showModal" style="display: none;">
+                                                                <!-- Modal inner -->
+                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    @click.away="showModal = false"
+                                                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                                                    x-transition:enter-start="opacity-0 scale-90"
+                                                                    x-transition:enter-end="opacity-100 scale-100">
+                                                                    <!-- Title / Close-->
+                                                                    <div class="flex items-center justify-between">
+                                                                        <p class="font-bold text-gray-900">
+                                                                            Edit policy
+                                                                        </p>
+                                                                        <span @click="showModal = false">
+                                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                fill="none" viewBox="0 0 24 24"
+                                                                                stroke="currentColor">
+                                                                                <path stroke-linecap="round"
+                                                                                    stroke-linejoin="round"
+                                                                                    stroke-width="2"
+                                                                                    d="M6 18L18 6M6 6l12 12"></path>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </div>
+                                                                    <!--P01 content -->
+                                                                    <div class="w-full mt-4 space-y-4">
+                                                                        <div class="flex flex-wrap">
+                                                                            <p>P01: If employee has not been coming for
+                                                                                consecutive X days, then generate an
+                                                                                alert on next entry.</p>
+                                                                        </div>
+                                                                        <div class="pt-6 space-y-2">
+                                                                            <div class="flex items-center gap-4">
+                                                                                <div class="w-1/2">
+                                                                                    <label
+                                                                                        class="text-sm font-semibold text-gray-600"
+                                                                                        for="branch">X Value</label>
+                                                                                    <select id="" name=""
+                                                                                        autocomplete=""
+                                                                                        class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                                                        <option>1</option>
+                                                                                        <option>2</option>
+                                                                                        <option>3</option>
+                                                                                        <option>Upto 30</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--use multi select dropdown-->
+                                                                            <div>
+                                                                                <label
+                                                                                    class="text-sm font-semibold text-gray-600"
+                                                                                    for="branch">Choose Branch</label>
+                                                                                <select id="branch" name="branch"
+                                                                                    autocomplete="branch"
+                                                                                    class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                                                    <option>All</option>
+                                                                                    <option>Ecomads Pvt Ltd, Coimbatore
+                                                                                    </option>
+                                                                                    <option>Ecomads Pvt Ltd,
+                                                                                        Tiruchengode</option>
+                                                                                </select>
+                                                                            </div>
+                                                                            <!--use multi select dropdown-->
+                                                                            <div class="pb-4">
+                                                                                <label
+                                                                                    class="text-sm font-semibold text-gray-600"
+                                                                                    for="department">Choose
+                                                                                    Department</label>
+                                                                                <select id="department"
+                                                                                    name="department"
+                                                                                    autocomplete="department"
+                                                                                    class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                                                    <option>All</option>
+                                                                                    <option>Sales</option>
+                                                                                    <option>Purchase</option>
+                                                                                    <option>Retail</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div>
+                                                                            <span class="text-xs text-gray-600">This new
+                                                                                policy will be effective from 15th Jun
+                                                                                2022 onwards.
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="w-1/2">
+                                                                            <button
+                                                                                class="w-full p-3 font-semibold text-center text-white bg-blue-600 rounded-md">SAVE</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-4 py-2 whitespace-normal">
+                                                        <p class="font-semibold">P02</p>
+                                                    </td>
+                                                    <td class="px-4 py-2 whitespace-normal">
+                                                        <span class="text-base text-gray-900">
+                                                            If OUT is not punch within 12 hours of first IN punch, then
+                                                            Mark it as Forgot Out
+                                                        </span>
+                                                        </br>
+                                                        <span class="text-sm font-semibold">Department :
+                                                            <span class="font-normal text-blue-600">Ecomads Pvt Ltd,
+                                                                Coimbatore - Sales</span>,
+                                                            <span class="font-normal text-blue-600">Ecomads Pvt Ltd,
+                                                                Namakkal - Purchase</span>
+                                                        </span>
+                                                    </td>
+                                                    <td
+                                                        class="relative flex items-center gap-4 px-6 py-2 whitespace-normal w-36">
+                                                        <div x-data="{ 'showModal': false }"
+                                                                        @keydown.escape="showModal = false">
+                                                                        <button @click="showModal = true" class="">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                class="w-6 h-6 text-blue-600"
+                                                                                fill="none" viewBox="0 0 24 24"
+                                                                                stroke="currentColor" stroke-width="2">
+                                                                                <path stroke-linecap="round"
+                                                                                    stroke-linejoin="round"
+                                                                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                                                                                </path>
+                                                                            </svg></button>
+
+                                                                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                                            x-show="showModal" style="display: none;">
+                                                                            <!-- Modal inner -->
+                                                                            <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                                @click.away="showModal = false"
+                                                                                x-transition:enter="motion-safe:ease-out duration-300"
+                                                                                x-transition:enter-start="opacity-0 scale-90"
+                                                                                x-transition:enter-end="opacity-100 scale-100">
+                                                                                <!-- Title / Close-->
+                                                                                <div
+                                                                                    class="flex items-center justify-between">
+                                                                                    <p class="font-bold text-gray-900">
+                                                                                        Edit policy
+                                                                                    </p>
+                                                                                    <span @click="showModal = false">
+                                                                                        <svg class="w-5 h-5 text-gray-900"
+                                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                                            fill="none"
+                                                                                            viewBox="0 0 24 24"
+                                                                                            stroke="currentColor">
+                                                                                            <path stroke-linecap="round"
+                                                                                                stroke-linejoin="round"
+                                                                                                stroke-width="2"
+                                                                                                d="M6 18L18 6M6 6l12 12">
+                                                                                            </path>
+                                                                                        </svg>
+                                                                                    </span>
+                                                                                </div>
+                                                                                <!--P01 content -->
+                                                                                <div class="w-full mt-4 space-y-4">
+                                                                                    <div class="flex flex-wrap">
+                                                                                        <p>P02: If OUT is not punch
+                                                                                            within X hours of first IN
+                                                                                            punch, then Mark it as
+                                                                                            Forgot Out</p>
+                                                                                    </div>
+                                                                                    <div class="pt-6 space-y-2">
+                                                                                        <div
+                                                                                            class="flex items-center gap-4">
+                                                                                            <div class="w-1/2">
+                                                                                                <label
+                                                                                                    class="text-sm font-semibold text-gray-600"
+                                                                                                    for="branch">X
+                                                                                                    Value</label>
+                                                                                                <select id="" name=""
+                                                                                                    autocomplete=""
+                                                                                                    class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                                                                    <option>10</option>
+                                                                                                    <option>11</option>
+                                                                                                    <option>12</option>
+                                                                                                    <option>Upto 50
+                                                                                                    </option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <!--use multi select dropdown-->
+                                                                                        <div>
+                                                                                            <label
+                                                                                                class="text-sm font-semibold text-gray-600"
+                                                                                                for="branch">Choose
+                                                                                                Branch</label>
+                                                                                            <select id="branch"
+                                                                                                name="branch"
+                                                                                                autocomplete="branch"
+                                                                                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                                                                <option>All</option>
+                                                                                                <option>Ecomads Pvt Ltd,
+                                                                                                    Coimbatore</option>
+                                                                                                <option>Ecomads Pvt Ltd,
+                                                                                                    Tiruchengode
+                                                                                                </option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                        <!--use multi select dropdown-->
+                                                                                        <div class="pb-4">
+                                                                                            <label
+                                                                                                class="text-sm font-semibold text-gray-600"
+                                                                                                for="department">Choose
+                                                                                                Department</label>
+                                                                                            <select id="department"
+                                                                                                name="department"
+                                                                                                autocomplete="department"
+                                                                                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                                                                <option>All</option>
+                                                                                                <option>Sales</option>
+                                                                                                <option>Purchase
+                                                                                                </option>
+                                                                                                <option>Retail</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div>
+                                                                                        <span
+                                                                                            class="text-xs text-gray-600">This
+                                                                                            new policy will be effective
+                                                                                            from 15th Jun 2022 onwards.
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <div class="w-1/2">
+                                                                                        <button
+                                                                                            class="w-full p-3 font-semibold text-center text-white bg-blue-600 rounded-md">SAVE</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-4 py-2 whitespace-normal">
+                                                        <p class="font-semibold">P02</p>
+                                                    </td>
+                                                    <td class="px-4 py-2 whitespace-normal">
+                                                        <span class="text-base text-gray-900">
+                                                            If OUT is not punch within 10 hours of first IN punch, then
+                                                            Mark it as Forgot Out
+                                                        </span>
+                                                        </br>
+                                                        <span class="text-sm font-semibold">Department :
+                                                            <span>
+                                                                <span class="font-normal text-blue-600">Ecomads Pvt Ltd -
+                                                                    Erode - Sales</span>,
+                                                                <span class="font-normal text-blue-600"> Purchase</span>,
+                                                            </span>                                                            
+                                                                <span class="font-normal text-blue-600">Ecomads Pvt Ltd -
+                                                                    Coimbatore - Purchase</span>
+                                                        </span>
+                                                    </td>
+                                                    <td
+                                                        class="relative flex items-center gap-4 px-6 py-2 whitespace-normal w-36">
+                                                        <div x-data="{ 'showModal': false }"
+                                                                        @keydown.escape="showModal = false">
+                                                                        <button @click="showModal = true" class="">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                class="w-6 h-6 text-blue-600"
+                                                                                fill="none" viewBox="0 0 24 24"
+                                                                                stroke="currentColor" stroke-width="2">
+                                                                                <path stroke-linecap="round"
+                                                                                    stroke-linejoin="round"
+                                                                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                                                                                </path>
+                                                                            </svg></button>
+
+                                                                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                                            x-show="showModal" style="display: none;">
+                                                                            <!-- Modal inner -->
+                                                                            <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                                @click.away="showModal = false"
+                                                                                x-transition:enter="motion-safe:ease-out duration-300"
+                                                                                x-transition:enter-start="opacity-0 scale-90"
+                                                                                x-transition:enter-end="opacity-100 scale-100">
+                                                                                <!-- Title / Close-->
+                                                                                <div
+                                                                                    class="flex items-center justify-between">
+                                                                                    <p class="font-bold text-gray-900">
+                                                                                        Edit policy
+                                                                                    </p>
+                                                                                    <span @click="showModal = false">
+                                                                                        <svg class="w-5 h-5 text-gray-900"
+                                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                                            fill="none"
+                                                                                            viewBox="0 0 24 24"
+                                                                                            stroke="currentColor">
+                                                                                            <path stroke-linecap="round"
+                                                                                                stroke-linejoin="round"
+                                                                                                stroke-width="2"
+                                                                                                d="M6 18L18 6M6 6l12 12">
+                                                                                            </path>
+                                                                                        </svg>
+                                                                                    </span>
+                                                                                </div>
+                                                                                <!--P01 content -->
+                                                                                <div class="w-full mt-4 space-y-4">
+                                                                                    <div class="flex flex-wrap">
+                                                                                        <p>P02: If OUT is not punch
+                                                                                            within X hours of first IN
+                                                                                            punch, then Mark it as
+                                                                                            Forgot Out</p>
+                                                                                    </div>
+                                                                                    <div class="pt-6 space-y-2">
+                                                                                        <div
+                                                                                            class="flex items-center gap-4">
+                                                                                            <div class="w-1/2">
+                                                                                                <label
+                                                                                                    class="text-sm font-semibold text-gray-600"
+                                                                                                    for="branch">X
+                                                                                                    Value</label>
+                                                                                                <select id="" name=""
+                                                                                                    autocomplete=""
+                                                                                                    class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                                                                    <option>10</option>
+                                                                                                    <option>11</option>
+                                                                                                    <option>12</option>
+                                                                                                    <option>Upto 50
+                                                                                                    </option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <!--use multi select dropdown-->
+                                                                                        <div>
+                                                                                            <label
+                                                                                                class="text-sm font-semibold text-gray-600"
+                                                                                                for="branch">Choose
+                                                                                                Branch</label>
+                                                                                            <select id="branch"
+                                                                                                name="branch"
+                                                                                                autocomplete="branch"
+                                                                                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                                                                <option>All</option>
+                                                                                                <option>Ecomads Pvt Ltd,
+                                                                                                    Coimbatore</option>
+                                                                                                <option>Ecomads Pvt Ltd,
+                                                                                                    Tiruchengode
+                                                                                                </option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                        <!--use multi select dropdown-->
+                                                                                        <div class="pb-4">
+                                                                                            <label
+                                                                                                class="text-sm font-semibold text-gray-600"
+                                                                                                for="department">Choose
+                                                                                                Department</label>
+                                                                                            <select id="department"
+                                                                                                name="department"
+                                                                                                autocomplete="department"
+                                                                                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                                                                <option>All</option>
+                                                                                                <option>Sales</option>
+                                                                                                <option>Purchase
+                                                                                                </option>
+                                                                                                <option>Retail</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div>
+                                                                                        <span
+                                                                                            class="text-xs text-gray-600">This
+                                                                                            new policy will be effective
+                                                                                            from 15th Jun 2022 onwards.
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <div class="w-1/2">
+                                                                                        <button
+                                                                                            class="w-full p-3 font-semibold text-center text-white bg-blue-600 rounded-md">SAVE</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("settings-aside.html");
+    });
+</script>
+
+</html>

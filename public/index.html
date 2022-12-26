@@ -1,0 +1,49 @@
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link href="output.css" rel="stylesheet">
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    
+    <body>
+        <div class="flex items-center justify-center max-h-screen px-4 py-12 bg-gray-50 sm:px-6 lg:px-8">
+            <div class="w-full max-w-md space-y-8">
+                <div class="w-full p-4 bg-white border rounded-lg shadow-lg lg:px-12">
+                    <div>                    
+                        <h2 class="mt-4 text-4xl font-bold text-center text-gray-900">
+                            Log in
+                        </h2>
+                        <p class="font-medium text-center text-blue-600">
+                            to use Salaryapp account
+                        </p>
+                    </div>
+                    <form class="mt-4 space-y-4" action="#" method="POST">
+                        <input type="hidden" name="remember" value="true">
+                        <div>
+                            <input id="email-address" name="email" type="email" autocomplete="email"
+                                class="relative block w-full px-3 py-3 mt-2 text-gray-900 placeholder-gray-400 border border-gray-300 rounded-lg appearance-none focus:outline-none focus:ring-blue-600 focus:border-blue-600 focus:z-10"
+                                placeholder="Enter Email address">
+                            <!--Below code for through error message-->
+                            <span class="hidden pl-2 text-sm text-red-600">* Please fill this field</span>
+                        </div>
+                        <div>
+                            <input id="password" name="password" type="password" autocomplete="current-password" 
+                                class="relative block w-full px-3 py-3 mt-2 text-gray-900 placeholder-gray-400 border border-gray-300 rounded-lg appearance-none focus:outline-none focus:ring-blue-600 focus:border-blue-600 focus:z-10"
+                                placeholder="Enter Password">
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <a class="w-full p-2 font-semibold text-center text-white bg-blue-600 rounded-md" href="dashboard.html">Submit</a>
+                        </div>
+    
+                       
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+    
+    </html>

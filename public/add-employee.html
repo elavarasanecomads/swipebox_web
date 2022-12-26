@@ -1,0 +1,161 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+                    <div x-data="{selected:null}">
+                        <div class="flex items-center gap-4">
+                            <p class="text-2xl font-bold">Add New Employee</p>
+                            <div>
+                                <button class="p-2 font-semibold text-white bg-blue-600 rounded-md"
+                                    @click="selected !== 1 ? selected = 1 : selected = null">Bulk Upload</button>
+
+                            </div>
+                        </div>
+                        <div class="relative overflow-hidden transition-all duration-700 max-h-0" style=""
+                            x-ref="container1"
+                            x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+                            <div class="p-2 space-y-3">
+
+                                <div class="w-full p-4 bg-blue-100 border border-blue-600 rounded-md">
+                                    <div class="flex items-center justify-center">
+                                        <div class="gap-2 py-4 border-b">
+                                            <h3 class="text-xl font-semibold text-center text-gray-900">Add Bulk
+                                                Upload</h3>
+                                            <div class="mt-1">
+                                                <label
+                                                    class="flex items-center w-64 px-4 py-3 tracking-wide text-white uppercase bg-blue-600 border border-blue-600 rounded-lg shadow-lg cursor-pointer">
+                                                    <svg class="w-6 h-6 mr-2" fill="currentColor"
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                        <path
+                                                            d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z">
+                                                        </path>
+                                                    </svg>
+                                                    <span class="text-base leading-normal">Upload a file</span>
+                                                    <input type="file" class="hidden">
+                                                </label>
+                                            </div>
+                                            <div class="flex items-center justify-center pt-2 text-sm text-blue-600">
+                                                <svg class="w-5 h-5 mr-1 text-blue-600"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z">
+                                                    </path>
+                                                </svg>
+                                                Download Sample Format
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="Name">Name</label>
+                                <input type="text" name="Name" id="Name" autocomplete="title" placeholder=""
+                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="Phone">Phone Number</label>
+                                <input type="text" name="Phone" id="Phone" autocomplete="title" placeholder=""
+                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
+                            </div>
+                            <div class="col-span-1 lg:col-span-2">
+                                <h2 class="text-2xl font-bold">Employee Preference</h2>
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select Branch</label>
+                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                    class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                    <option>All</option>
+                                    <option>Ecomads Pvt Ltd, Covai</option>
+                                    <option>Ecomads Pvt Ltd, Tiruchencode</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select Department</label>
+                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                    class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                    <option>All</option>
+                                    <option>HR Department</option>
+                                    <option>Sales Department</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">Shift Settings</label>
+                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                    class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                    <option>Select</option>
+                                    <option>Morning Shift</option>
+                                    <option>Afternoon Shift</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">Salary Type</label>
+                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                    <option>Monthly Salary</option>
+                                    <option>Weekly Salary</option>
+                                    <option>Daily Salary</option>
+                                    <option>Per Hour Salary</option>
+                                    <option>Pay Per Work</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">Salary</label>
+                                <input type="text" name="businessname" id="businessname" autocomplete="title"
+                                    placeholder=""
+                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">Pay Shedule</label>
+                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                    class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                    <option>Monthly</option>
+                                    <option>Weekly</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select Role</label>
+                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                    <option>Employee</option>
+                                    <option>Branch Manager</option>
+                                    <option>Department Head</option>
+                                </select>
+                            </div>
+                            <div class="col-start-1 pt-8">
+                                <a href="contact-success.html">
+                                <button class="w-1/2 p-3 font-semibold text-white bg-blue-600 rounded-md">Add Employee</button>
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+</html>

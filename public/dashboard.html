@@ -1,0 +1,136 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="output.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+  <div class="flex w-full">
+    <div id="aside"></div>
+    <div class="w-full">
+      <div id="navigation"></div>
+      <div x-data="{ 'showModal': true }" @keydown.escape="showModal = true">
+        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+          x-show="showModal" style="display: none;">
+          <!-- Modal inner -->
+          <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+            @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300"
+            x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+            <!-- Title / Close-->
+            <div class="flex items-center justify-between">
+              <p class="font-bold text-gray-900">
+                Choose Organization
+              </p>
+              <span @click="showModal = false">
+                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </span>
+            </div>
+            <!-- content -->
+            <div class="w-full mt-4">
+              <div class="pb-4 space-y-4">
+                <div>
+                  <a href="employee-detail.html">
+                    <div class="p-4 border border-l-4 rounded-md border-l-yellow-600">
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div>
+                              <img class="w-12 h-12 rounded-full"
+                                src="https://www.adobe.com/content/dam/offers-homepage/us/en/homepage/twitter_adobe.png"
+                                alt="">
+                            </div>
+                            <div>
+                              <p class="font-medium">Adobe Corporation</p>
+                              <span class="text-xs text-gray-600">Id : 687676EB89</span>
+                            </div>
+                          </div>
+                          <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                            </svg>
+                            
+                          </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div>
+                  <a href="employee-detail.html">
+                    <div class="p-4 border border-l-4 rounded-md border-l-yellow-600">
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div>
+                              <img class="w-12 h-12 rounded-full"
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png"
+                                alt="">
+                            </div>
+                            <div>
+                              <p class="font-medium">Google INC</p>
+                              <span class="text-xs text-gray-600">Id : 687676EB90</span>
+                            </div>
+                          </div>
+                          <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                            </svg>
+                            
+                          </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mx-0 my-4 lg:m-4">
+        <div class="h-full p-4 bg-white border rounded-md lg:p-8">
+          <div>
+            <p class="text-2xl font-bold">Hello Karthika!</p>
+          </div>
+          <div class="w-full pt-8">
+            <div
+              class="grid grid-cols-1 gap-4 p-4 py-8 border border-l-4 rounded-md lg:grid-cols-4 border-l-yellow-600">
+              <div>
+                <p class="">Employee's Net Pay</p>
+                <p class="text-2xl font-bold">₹ 1,05,000</p>
+              </div>
+              <div>
+                <p class="">Upcoming Payment Date</p>
+                <p class="text-2xl font-bold">30-05-2022</p>
+              </div>
+              <div>
+                <p class="">No of Employees</p>
+                <p class="text-2xl font-bold">5</p>
+              </div>
+              <div class="flex items-center justify-center w-32">
+                <a class="p-2 font-semibold text-white bg-blue-600 rounded-md" href="salary-process.html">View
+                  Details</a>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  $(function () {
+    $("#navigation").load("nav.html");
+    $("#aside").load("aside.html");
+  });
+</script>
+
+</html>
