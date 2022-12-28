@@ -16,7 +16,7 @@
         <div class="w-full">
             <div id="navigation"></div>
             <div class="mx-0 my-4 lg:m-4">
-                <div class="p-0 bg-white border rounded-md lg:p-4">
+                <div class="p-0 bg-white border rounded lg:p-4">
                     <nav class="flex" aria-label="Breadcrumb">
                         <ol class="inline-flex flex-wrap items-center space-x-1 md:space-x-3">
                             <li class="inline-flex items-center">
@@ -63,16 +63,137 @@
                         <h1 class="text-2xl font-bold">Daily Attendance</h1>
 
                     </div>
+                    <div>
+                        <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+                        <div class="relative">
+                            <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                Date</label>
 
-                    <div class="p-4 border-b">
+                            <span class="inline-block w-full mt-1 rounded shadow-sm">
+                                <button
+                                    class="relative z-0 w-full py-1 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                    type="button" aria-haspopup="listbox" aria-expanded="true"
+                                    aria-label="search" aria-checked="false">
+
+                                    <input id="search" type="search"
+                                        class="w-full h-full form-control focus:outline-none">
+
+                                    <span
+                                        class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-600"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                            stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                        </svg>
+                                    </span>
+                                </button>
+                            </span>
+                        </div>
+                        <div>
+                            <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                Branch</label>
+                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                <option>All</option>
+                                <option>Ecomads Pvt Ltd, Covai</option>
+                                <option>Ecomads Pvt Ltd, Tiruchengode</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                Department</label>
+                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>All</option>
+                                <option>Sales</option>
+                                <option>Purchase</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">Select
+                                Employee
+                                Category</label>
+                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>All</option>
+                                <option>Permanant</option>
+                                <option>Contract</option>
+                                <option>Casual</option>
+                                <option>Temporary</option>
+                                <option>Others</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                Designation</label>
+                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>All</option>
+                                <option>Director</option>
+                                <option>CTO</option>
+                                <option>STO</option>
+                                <option>Accountant</option>
+                                <option>Team Lead</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                Type</label>
+                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>All</option>
+                                <option>Permission</option>
+                                <option>Late Entry </option>
+                                <option>Early Exit</option>
+                                <option>Overtime</option>
+                                <option>Forgot Out</option>
+                                <option>Short Hours</option>
+                                <option>Break Hours</option>
+                            </select>
+                        </div>
+                        <div>
+                            <div class="relative">
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">Search
+                                    User</label>
+
+                                <span class="inline-block w-full rounded shadow-sm">
+                                    <button
+                                        class="relative z-0 w-full py-2 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                        type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search"
+                                        aria-checked="false">
+
+                                        <input id="search" type="search" placeholder="Search by name, email, mobile"
+                                            class="w-full h-full form-control focus:outline-none">
+
+                                        <span
+                                            class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                            <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </span>
+                            </div>
+                            
+                            <div class="w-48 pt-5 space-y-4">
+                                <button
+                                    class="w-full p-3 font-semibold text-center text-white bg-blue-600 rounded">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- <div class="p-4 border-b">
                         <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
                             <div class="relative">
                                 <label class="text-sm font-semibold text-gray-600" for="businessname">Search
                                     User</label>
 
-                                <span class="inline-block w-full rounded-md shadow-sm">
+                                <span class="inline-block w-full rounded shadow-sm">
                                     <button
-                                        class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded-md shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                        class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
                                         type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search"
                                         aria-checked="false">
 
@@ -92,7 +213,7 @@
                             </div>
                             <div class="w-48 pt-5 space-y-4">
                                 <button
-                                    class="w-full p-3 font-semibold text-center text-white bg-blue-600 rounded-md">Search</button>
+                                    class="w-full p-3 font-semibold text-center text-white bg-blue-600 rounded">Search</button>
                             </div>
                         </div>
                         <div x-data="{ isOpen: false }">
@@ -107,9 +228,9 @@
                                     <label class="text-sm font-semibold text-gray-600" for="businessname">Select
                                         Date</label>
 
-                                    <span class="inline-block w-full mt-1 rounded-md shadow-sm">
+                                    <span class="inline-block w-full mt-1 rounded shadow-sm">
                                         <button
-                                            class="relative z-0 w-full py-1 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded-md shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                            class="relative z-0 w-full py-1 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
                                             type="button" aria-haspopup="listbox" aria-expanded="true"
                                             aria-label="search" aria-checked="false">
 
@@ -132,7 +253,7 @@
                                     <label class="text-sm font-semibold text-gray-600" for="businessname">Select
                                         Branch</label>
                                     <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                        class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                        class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
                                         <option>All</option>
                                         <option>Ecomads Pvt Ltd, Covai</option>
                                         <option>Ecomads Pvt Ltd, Tiruchengode</option>
@@ -142,7 +263,7 @@
                                     <label class="text-sm font-semibold text-gray-600" for="businessname">Select
                                         Department</label>
                                     <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                        class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                         <option>All</option>
                                         <option>Sales</option>
                                         <option>Purchase</option>
@@ -153,7 +274,7 @@
                                         Employee
                                         Category</label>
                                     <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                        class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                         <option>All</option>
                                         <option>Permanant</option>
                                         <option>Contract</option>
@@ -166,7 +287,7 @@
                                     <label class="text-sm font-semibold text-gray-600" for="businessname">Select
                                         Designation</label>
                                     <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                        class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                         <option>All</option>
                                         <option>Director</option>
                                         <option>CTO</option>
@@ -179,7 +300,7 @@
                                     <label class="text-sm font-semibold text-gray-600" for="businessname">Select
                                         Type</label>
                                     <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                        class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                         <option>All</option>
                                         <option>Permission</option>
                                         <option>Late Entry </option>
@@ -192,45 +313,36 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="py-6">
                         <p class="text-xl font-bold">10-12-2022</p>
 
-                        <div class="grid grid-cols-2 gap-4 px-4 py-6 lg:grid-cols-6">
-                            <div class="p-2 text-white bg-blue-600 border-b-2 border-blue-600 rounded-md">
+                        <div class="grid grid-cols-2 gap-4 px-4 py-6 lg:px-0 lg:grid-cols-6">
+                            <div class="p-2 text-white bg-blue-600 border-b-2 border-blue-600 rounded">
                                 <span class="text-sm font-semibold">All</span>
                                 <p class="text-2xl font-bold">34</p>
                             </div>
-                            <div class="p-2 border-b-2 rounded-md bg-slate-100 border-slate-600">
+                            <div class="p-2 border-b-2 rounded bg-slate-100 border-slate-600">
                                 <span class="text-sm font-semibold">Not Punched</span>
                                 <p class="text-2xl font-bold">10</p>
                             </div>
-                            <div class="p-2 bg-green-100 border-b-2 border-green-600 rounded-md">
+                            <div class="p-2 bg-green-100 border-b-2 border-green-600 rounded">
                                 <span class="text-sm font-semibold">Present</span>
                                 <p class="text-2xl font-bold">15</p>
                             </div>
-                            <div class="p-2 bg-red-100 border-b-2 border-red-600 rounded-md">
+                            <div class="p-2 bg-red-100 border-b-2 border-red-600 rounded">
                                 <span class="text-sm font-semibold">Absent</span>
                                 <p class="text-2xl font-bold">2</p>
                             </div>
-                            <div class="p-2 bg-yellow-100 border-b-2 border-yellow-600 rounded-md">
+                            <div class="p-2 bg-yellow-100 border-b-2 border-yellow-600 rounded">
                                 <span class="text-sm font-semibold">Half Day</span>
                                 <p class="text-2xl font-bold">3</p>
                             </div>
-                            <div class="p-2 border-b-2 rounded-md bg-lime-100 border-lime-600">
+                            <div class="p-2 border-b-2 rounded bg-lime-100 border-lime-600">
                                 <span class="text-sm font-semibold">Leave</span>
                                 <p class="text-2xl font-bold">1</p>
                             </div>
                         </div>
-                    </div>
-                    <div>
-                        <select
-                            class="block px-4 py-2 pr-8 leading-tight text-gray-700 bg-white border border-gray-400 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
-                            <option>10</option>
-                            <option>20</option>
-                            <option>50</option>                            
-                            <option>100</option>
-                        </select>
                     </div>
                     <div class="flex flex-col border-b">
                         <div class="z-10 -my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -347,73 +459,73 @@
                                                                 <div class="w-full mt-4" x-data="{openTab: 1}">
                                                                     <div class="flex flex-wrap items-center gap-4">
                                                                         <button @click="openTab = 1"
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-green-600 bg-green-100 rounded-md focus:bg-green-600 focus:text-white">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-green-600 bg-green-100 rounded focus:bg-green-600 focus:text-white">
                                                                             Present</button>
                                                                         <button @click="openTab = 2"
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-green-600 bg-green-100 rounded-md focus:bg-green-600 focus:text-white">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-green-600 bg-green-100 rounded focus:bg-green-600 focus:text-white">
                                                                             Full Day</button>
                                                                         <button @click="openTab = 3"
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-red-600 bg-red-100 rounded-md focus:bg-red-600 focus:text-white">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-red-600 bg-red-100 rounded focus:bg-red-600 focus:text-white">
                                                                             Absent</button>
                                                                         <button @click="openTab = 4"
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-yellow-600 bg-yellow-100 rounded-md focus:bg-yellow-600 focus:text-white">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-yellow-600 bg-yellow-100 rounded focus:bg-yellow-600 focus:text-white">
                                                                             Half Day</button>
                                                                         <button @click="openTab = 5"
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md focus:bg-blue-600 focus:text-white">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded focus:bg-blue-600 focus:text-white">
                                                                             Paid Fullday Leave</button>
                                                                         <button @click="openTab = 6"
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md focus:bg-blue-600 focus:text-white">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded focus:bg-blue-600 focus:text-white">
                                                                             Paid Halfday Leave</button>
                                                                         <button @click="openTab = 7"
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-teal-600 bg-teal-100 rounded-md focus:bg-teal-600 focus:text-white">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-teal-600 bg-teal-100 rounded focus:bg-teal-600 focus:text-white">
                                                                             Unpaid Fullday Leave</button>
                                                                             <button @click="openTab = 8"
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-teal-600 bg-teal-100 rounded-md focus:bg-teal-600 focus:text-white">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-teal-600 bg-teal-100 rounded focus:bg-teal-600 focus:text-white">
                                                                             Unpaid Halfday Leave</button>
                                                                             <button @click="openTab = 9"
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md focus:bg-gray-600 focus:text-white">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded focus:bg-gray-600 focus:text-white">
                                                                             Weekoff</button>
                                                                         <button @click="openTab = 10"
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md focus:bg-gray-600 focus:text-white">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded focus:bg-gray-600 focus:text-white">
                                                                             Public Holiday</button>
                                                                     </div>
                                                                     <div class="pt-6" x-show="openTab === 5">
                                                                         <button
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md focus:bg-blue-600 focus:text-white">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded focus:bg-blue-600 focus:text-white">
                                                                             Casual Leave</button>
                                                                         <button
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md focus:bg-blue-600 focus:text-white">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded focus:bg-blue-600 focus:text-white">
                                                                             Sick Leave</button>
                                                                         <button
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md focus:bg-blue-600 focus:text-white">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded focus:bg-blue-600 focus:text-white">
                                                                             Comp Off</button>                                                                        
                                                                     </div>
                                                                     <div class="pt-6" x-show="openTab === 6">
                                                                         <button
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md focus:bg-blue-600 focus:text-white">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded focus:bg-blue-600 focus:text-white">
                                                                             Casual Leave</button>
                                                                         <button
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md focus:bg-blue-600 focus:text-white">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded focus:bg-blue-600 focus:text-white">
                                                                             Sick Leave</button>
                                                                         <button
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md focus:bg-blue-600 focus:text-white">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded focus:bg-blue-600 focus:text-white">
                                                                             Comp Off</button>                                                                        
                                                                     </div>
                                                                     <div class="pt-6" x-show="openTab === 7">
                                                                         <button
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md focus:bg-blue-600 focus:text-white">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded focus:bg-blue-600 focus:text-white">
                                                                             Casual Leave</button>
                                                                         <button
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md focus:bg-blue-600 focus:text-white">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded focus:bg-blue-600 focus:text-white">
                                                                             Sick Leave</button>
                                                                                                                                               
                                                                     </div>
                                                                     <div class="pt-6" x-show="openTab === 8">
                                                                         <button
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md focus:bg-blue-600 focus:text-white">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded focus:bg-blue-600 focus:text-white">
                                                                             Casual Leave</button>
                                                                         <button
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md focus:bg-blue-600 focus:text-white">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded focus:bg-blue-600 focus:text-white">
                                                                             Sick Leave</button>
                                                                                                                                          
                                                                     </div>
@@ -426,7 +538,7 @@
                                                         <button @click="showModal = true"
                                                             class="flex items-center gap-2 px-3 py-3 font-semibold group-hover:text-blue-600">
                                                             <span
-                                                                class="px-2 font-semibold text-white bg-blue-600 rounded-md">OT</span>
+                                                                class="px-2 font-semibold text-white bg-blue-600 rounded">OT</span>
                                                         </button>
 
                                                         <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
@@ -477,12 +589,12 @@
                                                                                         </p>
                                                                                         <div>
                                                                                             <input
-                                                                                                class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                                                class="w-16 p-2 border border-gray-400 rounded"
                                                                                                 type="number">
                                                                                             <span
                                                                                                 class="font-bold">:</span>
                                                                                             <input
-                                                                                                class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                                                class="w-16 p-2 border border-gray-400 rounded"
                                                                                                 type="number">
                                                                                         </div>
                                                                                     </div>
@@ -493,7 +605,7 @@
                                                                                         <select id="jobtype"
                                                                                             name="jobtype"
                                                                                             autocomplete="jobtype"
-                                                                                            class="block px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm w-36 focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                                            class="block px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm w-36 focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
                                                                                             <option>1X Salary</option>
                                                                                             <option>1.5X Salary</option>
                                                                                             <option>2X Salary</option>
@@ -510,7 +622,7 @@
                                                                                         <!--value has been changed based on user-->
                                                                                         <input name="otwages"
                                                                                             value="150"
-                                                                                            class="p-2 mt-1 border border-gray-400 rounded-md w-36 disabled:bg-gray-100 disabled:text-gray-600"
+                                                                                            class="p-2 mt-1 border border-gray-400 rounded w-36 disabled:bg-gray-100 disabled:text-gray-600"
                                                                                             type="text" disabled>
                                                                                     </div>
                                                                                 </div>
@@ -532,7 +644,7 @@
                                                                                         Time Salary</label>
                                                                                     <select id="jobtype" name="jobtype"
                                                                                         autocomplete="jobtype"
-                                                                                        class="block px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm w-44 focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                                        class="block px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm w-44 focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
                                                                                         <option>None</option>
                                                                                         <option>Half Day Salary</option>
                                                                                         <option>Full Day Salary</option>
@@ -546,12 +658,12 @@
                                                                                     class="text-sm font-semibold text-gray-600">Total
                                                                                     Amount</label>
                                                                                 <input name="otwages"
-                                                                                    class="p-2 border border-gray-400 rounded-md w-44"
+                                                                                    class="p-2 border border-gray-400 rounded w-44"
                                                                                     type="text">
                                                                             </div>
                                                                             <div>
                                                                                 <button
-                                                                                    class="p-2 font-semibold text-white bg-blue-600 border border-blue-600 rounded-md w-44">
+                                                                                    class="p-2 font-semibold text-white bg-blue-600 border border-blue-600 rounded w-44">
                                                                                     Add Overtime</button>
                                                                             </div>
                                                                         </div>
@@ -628,7 +740,7 @@
                                                                             </label>
                                                                             <select id="jobtype" name="jobtype"
                                                                                 autocomplete="jobtype"
-                                                                                class="block w-20 px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                                class="block w-20 px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
                                                                                 <option>01</option>
                                                                                 <option>02</option>
                                                                                 <option>03</option>
@@ -650,7 +762,7 @@
                                                                             </label>
                                                                             <select id="jobtype" name="jobtype"
                                                                                 autocomplete="jobtype"
-                                                                                class="block w-20 px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                                class="block w-20 px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
                                                                                 <option>01</option>
                                                                                 <option>02</option>
                                                                                 <option>03</option>
@@ -668,14 +780,14 @@
                                                                         <div>
                                                                             <select id="jobtype" name="jobtype"
                                                                                 autocomplete="jobtype"
-                                                                                class="block w-20 px-2 py-1 mt-6 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                                class="block w-20 px-2 py-1 mt-6 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
                                                                                 <option>PM</option>
                                                                                 <option>AM</option>
                                                                             </select>
                                                                         </div>
                                                                     </div>
                                                                     <button
-                                                                        class="px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded-md w-36">Save
+                                                                        class="px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded w-36">Save
                                                                         Punch Out</button>
                                                                 </div>
                                                             </div>
@@ -741,31 +853,31 @@
                                                                 <div class="w-full mt-4">
                                                                     <div class="flex flex-wrap items-center gap-4">
                                                                         <div
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-white bg-green-600 rounded-md">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-white bg-green-600 rounded">
                                                                             Present</div>
                                                                         <div
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-white bg-green-600 rounded-md">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-white bg-green-600 rounded">
                                                                             Full Day</div>
                                                                         <div
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-red-600 bg-red-100 rounded-md">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-red-600 bg-red-100 rounded">
                                                                             Absent</div>
                                                                         <div
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-yellow-600 bg-yellow-100 rounded-md">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-yellow-600 bg-yellow-100 rounded">
                                                                             Half Day</div>
                                                                         <div
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded">
                                                                             Paid Leave</div>
                                                                         <div
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded">
                                                                             Half Day Leave</div>
                                                                         <div
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-teal-600 bg-teal-100 rounded-md">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-teal-600 bg-teal-100 rounded">
                                                                             Unpaid Leave</div>
                                                                         <div
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded">
                                                                             Day Off</div>
                                                                         <div
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded">
                                                                             Forgot Out</div>
 
                                                                     </div>
@@ -851,28 +963,28 @@
                                                                 <div class="w-full mt-4">
                                                                     <div class="flex flex-wrap items-center gap-4">
                                                                         <div
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-white bg-green-600 rounded-md">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-white bg-green-600 rounded">
                                                                             Present</div>
                                                                         <div
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-white bg-green-600 rounded-md">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-white bg-green-600 rounded">
                                                                             Full Day</div>
                                                                         <div
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-red-600 bg-red-100 rounded-md">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-red-600 bg-red-100 rounded">
                                                                             Absent</div>
                                                                         <div
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-yellow-600 bg-yellow-100 rounded-md">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-yellow-600 bg-yellow-100 rounded">
                                                                             Half Day</div>
                                                                         <div
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded">
                                                                             Paid Leave</div>
                                                                         <div
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-teal-600 bg-teal-100 rounded-md">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-teal-600 bg-teal-100 rounded">
                                                                             Unpaid Leave</div>
                                                                         <div
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded">
                                                                             Day Off</div>
                                                                         <div
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded">
                                                                             Forgot Out</div>
 
                                                                     </div>
@@ -957,28 +1069,28 @@
                                                                 <div class="w-full mt-4">
                                                                     <div class="flex flex-wrap items-center gap-4">
                                                                         <div
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-white bg-green-600 rounded-md">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-white bg-green-600 rounded">
                                                                             Present</div>
                                                                         <div
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-white bg-green-600 rounded-md">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-white bg-green-600 rounded">
                                                                             Full Day</div>
                                                                         <div
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-red-600 bg-red-100 rounded-md">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-red-600 bg-red-100 rounded">
                                                                             Absent</div>
                                                                         <div
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-yellow-600 bg-yellow-100 rounded-md">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-yellow-600 bg-yellow-100 rounded">
                                                                             Half Day</div>
                                                                         <div
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded">
                                                                             Paid Leave</div>
                                                                         <div
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-teal-600 bg-teal-100 rounded-md">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-teal-600 bg-teal-100 rounded">
                                                                             Unpaid Leave</div>
                                                                         <div
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded">
                                                                             Day Off</div>
                                                                         <div
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md">
+                                                                            class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded">
                                                                             Forgot Out</div>
 
                                                                     </div>
