@@ -14,7 +14,7 @@
         <div class="w-full">
             <div id="navigation"></div>
             <div class="mx-0 my-4 lg:m-4">
-                <div class="p-4 bg-white border rounded-md lg:p-8">
+                <div class="p-4 bg-white border rounded lg:p-8">
                     <!--Breadcrumb-->
                     <nav class="flex" aria-label="Breadcrumb">
                         <ol class="inline-flex flex-wrap items-center space-x-1 md:space-x-3">
@@ -33,29 +33,44 @@
                         </ol>
                       </nav>
                     <h1 class="py-4 text-2xl font-bold">Reports</h1>
-                    <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
-                        <div>
-                            <label class="font-semibold text-gray-600" for="businessname">Report Type</label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+                        <div class="col-start-1">
+                            <label class="text-sm font-medium text-gray-600" for="businessname">Report Type <span class="text-red-600">*</span></label>
+                            <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>Select</option>
                                 <option>Attenance</option>
                                 <option>Payments</option>
-                                <option>ESI</option>
-                                <option>EPF</option>
-                                <option>TDS</option>
-                                <option>Advance</option>
                             </select>
                         </div>
                         <div>
-                            <label class="font-semibold text-gray-600" for="businessname">Select Branch</label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                            <label class="text-sm font-medium text-gray-600" for="businessname">Type <span class="text-red-600">*</span></label>
+                            <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>Select</option>                                
+                                <option>Attendance Detailed</option>
+                                <option>Attendance Summary</option>
+                                <option>Late Entry</option>
+                                <option>Over Time</option>
+                            </select>
+                        </div>
+                        <div class="col-start-1">
+                            <label class="text-sm font-medium text-gray-600" for="businessname">Select Branch</label>
+                            <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
                                 <option>All</option>
                                 <option>Ecomads Pvt Ltd, Covai</option>
                                 <option>Ecomads Pvt Ltd, Tiruchengode</option>
                             </select>
                         </div>
                         <div>
-                            <label class="font-semibold text-gray-600" for="businessname">Select Period</label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                            <label class="text-sm font-medium text-gray-600" for="businessname">Select Departments</label>
+                            <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                <option>All</option>
+                                <option>Ecomads Pvt Ltd, Covai</option>
+                                <option>Ecomads Pvt Ltd, Tiruchengode</option>
+                            </select>
+                        </div>
+                        <div class="col-start-1">
+                            <label class="text-sm font-medium text-gray-600" for="businessname">Select Period</label>
+                            <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                 <option>Today</option>
                                 <option>Yesterday</option>
                                 <option>Last 7 days</option>
@@ -66,36 +81,33 @@
                             </select>
                         </div>
                         <div>
-                            <label class="font-semibold text-gray-600" for="businessname">Select Format</label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                            <label class="text-sm font-medium text-gray-600" for="businessname">Select Format</label>
+                            <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                 <option>CSV</option>
-                                <option>PDF</option>
                             </select>
                         </div>
-                        <div class="relative">
-                            <label class="font-semibold text-gray-600" for="businessname">Search User</label>
+                        <div class="relative col-start-1">
+                            <label class="text-sm font-medium text-gray-600" for="businessname">Search User</label>
                             
-                            <span class="inline-block w-full rounded-md shadow-sm">
-                                <button class="relative z-0 w-full py-3 pl-3 pr-10 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded-md shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600" type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search" aria-checked="false">
+                            <span class="inline-block w-full rounded shadow-sm">
+                                <button class="relative z-0 w-full py-1 pl-3 pr-2 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600" type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search" aria-checked="false">
                                   
-                                    <input id="search" type="search" class="w-full h-full form-control focus:outline-none">
+                                    <input id="search" placeholder="Search by email / mobile" type="search" class="w-full h-full pl-6 form-control focus:outline-none">
             
-                                    <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-                                        <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <span class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
+                                        <svg class="w-5 h-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                                         </svg>
                                     </span>
                                 </button>
                             </span>
                         </div>
-                        <div class="col-start-1 py-2">
-                            <label class="inline-flex items-center">
-                                <input type="checkbox" class="form-checkbox" checked="">
-                                <span class="ml-2 font-semibold text-gray-600">Send mail to aabbccc@gmail.com</span>
-                            </label>
+                        <div class="col-start-1 space-y-4">
+                            <button class="p-3 font-semibold text-center text-white bg-blue-600 rounded w-36">Generate Report</button>
                         </div>
                         <div class="col-start-1 pb-12 space-y-4">
-                            <button class="w-full p-3 font-semibold text-center text-white bg-blue-600 rounded-md">Generate Report</button>
+                            <p class="text-sm font-medium text-gray-600">
+                                Report generation can take upto 10 min.</p>
                         </div>
                     </div>
 
@@ -186,10 +198,10 @@
                                                                 </div>
                                                                 <div class="flex items-center w-full gap-4 pt-4">
                                                                     <div class="w-1/2">
-                                                                        <button class="w-full p-2 text-blue-600 border border-blue-600 rounded-md">Cancel</button>
+                                                                        <button class="w-full p-2 text-blue-600 border border-blue-600 rounded">Cancel</button>
                                                                     </div>
                                                                     <div class="w-1/2">
-                                                                        <button class="w-full p-2 text-white bg-blue-600 rounded-md">Delete</button>
+                                                                        <button class="w-full p-2 text-white bg-blue-600 rounded">Delete</button>
                                                                     </div>
                                                                 </div>
                                                                     </div>
