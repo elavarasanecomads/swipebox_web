@@ -16,7 +16,7 @@
         <div class="w-full">
             <div id="navigation"></div>
             <div class="mx-0 my-4 lg:m-4">
-                <div class="p-0 bg-white border rounded lg:p-4">
+                <div class="p-4 bg-white border rounded lg:p-4">
                     <nav class="flex" aria-label="Breadcrumb">
                         <ol class="inline-flex flex-wrap items-center space-x-1 md:space-x-3">
                             <li class="inline-flex items-center">
@@ -63,7 +63,7 @@
                         <h1 class="text-2xl font-bold">Daily Attendance</h1>
 
                     </div>
-                    <div>
+                    <div class="pb-4">
                         <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
                         <div class="relative">
                             <label class="text-sm font-semibold text-gray-600" for="businessname">Select
@@ -153,171 +153,17 @@
                             </select>
                         </div>
                         <div>
-                            <div class="relative">
-                                <label class="text-sm font-semibold text-gray-600" for="businessname">Search
-                                    User</label>
-
-                                <span class="inline-block w-full rounded shadow-sm">
-                                    <button
-                                        class="relative z-0 w-full py-2 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
-                                        type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search"
-                                        aria-checked="false">
-
-                                        <input id="search" type="search" placeholder="Search by name, email, mobile"
-                                            class="w-full h-full form-control focus:outline-none">
-
-                                        <span
-                                            class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
-                                            <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
-                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                            </svg>
-                                        </span>
-                                    </button>
-                                </span>
-                            </div>
-                            
-                            <div class="w-48 pt-5 space-y-4">
+                            <div class="w-48 space-y-4">
                                 <button
-                                    class="w-full p-3 font-semibold text-center text-white bg-blue-600 rounded">Search</button>
+                                    class="w-full px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded">Search</button>
                             </div>
                         </div>
                     </div>
                     </div>
-                    <!-- <div class="p-4 border-b">
-                        <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
-                            <div class="relative">
-                                <label class="text-sm font-semibold text-gray-600" for="businessname">Search
-                                    User</label>
+                    <div class="py-6 border-t">
+                        <p class="text-xl font-bold">10-12-2022 - <span>Saturday</span></p>
 
-                                <span class="inline-block w-full rounded shadow-sm">
-                                    <button
-                                        class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
-                                        type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search"
-                                        aria-checked="false">
-
-                                        <input id="search" type="search"
-                                            class="w-full h-full form-control focus:outline-none">
-
-                                        <span
-                                            class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
-                                            <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
-                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                            </svg>
-                                        </span>
-                                    </button>
-                                </span>
-                            </div>
-                            <div class="w-48 pt-5 space-y-4">
-                                <button
-                                    class="w-full p-3 font-semibold text-center text-white bg-blue-600 rounded">Search</button>
-                            </div>
-                        </div>
-                        <div x-data="{ isOpen: false }">
-                            <div class="py-2">
-                                <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
-                                    class="font-semibold text-blue-600"><span x-show="!isOpen">More Filters</span><span
-                                        x-show="isOpen">Less Filters</span></button>
-                            </div>
-                            <div class="grid grid-cols-1 gap-4 lg:grid-cols-3" x-show="isOpen"
-                                @click.away="isOpen = false">
-                                <div class="relative">
-                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Select
-                                        Date</label>
-
-                                    <span class="inline-block w-full mt-1 rounded shadow-sm">
-                                        <button
-                                            class="relative z-0 w-full py-1 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
-                                            type="button" aria-haspopup="listbox" aria-expanded="true"
-                                            aria-label="search" aria-checked="false">
-
-                                            <input id="search" type="search"
-                                                class="w-full h-full form-control focus:outline-none">
-
-                                            <span
-                                                class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-600"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                                    stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </span>
-                                </div>
-                                <div>
-                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Select
-                                        Branch</label>
-                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                        class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
-                                        <option>All</option>
-                                        <option>Ecomads Pvt Ltd, Covai</option>
-                                        <option>Ecomads Pvt Ltd, Tiruchengode</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Select
-                                        Department</label>
-                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                        class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                        <option>All</option>
-                                        <option>Sales</option>
-                                        <option>Purchase</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Select
-                                        Employee
-                                        Category</label>
-                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                        class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                        <option>All</option>
-                                        <option>Permanant</option>
-                                        <option>Contract</option>
-                                        <option>Casual</option>
-                                        <option>Temporary</option>
-                                        <option>Others</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Select
-                                        Designation</label>
-                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                        class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                        <option>All</option>
-                                        <option>Director</option>
-                                        <option>CTO</option>
-                                        <option>STO</option>
-                                        <option>Accountant</option>
-                                        <option>Team Lead</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Select
-                                        Type</label>
-                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                        class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                        <option>All</option>
-                                        <option>Permission</option>
-                                        <option>Late Entry </option>
-                                        <option>Early Exit</option>
-                                        <option>Overtime</option>
-                                        <option>Forgot Out</option>
-                                        <option>Short Hours</option>
-                                        <option>Break Hours</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-                    <div class="py-6">
-                        <p class="text-xl font-bold">10-12-2022</p>
-
-                        <div class="grid grid-cols-2 gap-4 px-4 py-6 lg:px-0 lg:grid-cols-6">
+                        <div class="grid grid-cols-2 gap-4 py-6 lg:px-0 lg:grid-cols-6">
                             <div class="p-2 text-white bg-blue-600 border-b-2 border-blue-600 rounded">
                                 <span class="text-sm font-semibold">All</span>
                                 <p class="text-2xl font-bold">34</p>
@@ -342,6 +188,29 @@
                                 <span class="text-sm font-semibold">Leave</span>
                                 <p class="text-2xl font-bold">1</p>
                             </div>
+                        </div>
+                    </div>
+                    <div class="pb-4 lg:flex lg:items-end lg:justify-end ">
+                        <div>
+                            <span class="inline-block w-full rounded shadow-sm">
+                                <button
+                                    class="relative z-0 w-full py-2 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:w-72 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                    type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search"
+                                    aria-checked="false">
+    
+                                    <input id="search" type="search" placeholder="Search by name, email, mobile"
+                                        class="w-full h-full form-control focus:outline-none">
+    
+                                    <span
+                                        class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                        <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </span>
                         </div>
                     </div>
                     <div class="flex flex-col border-b">
@@ -386,8 +255,12 @@
                                                         <img class="w-10 h-10 rounded-full"
                                                             src="https://geeks-react.netlify.app/static/media/avatar-1.d2fd9642fd3628734b27.jpg"
                                                             alt="">
-                                                        <a href="employee-detail.html"
+                                                            <div>
+                                                                <a href="employee-detail.html"
                                                             class="font-semibold text-blue-600">Elavarasan</a>
+                                                            <p class="text-sm text-gray-600">67525165</p>
+                                                            </div>
+                                                        
                                                     </div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
@@ -681,8 +554,12 @@
                                                         <img class="w-10 h-10 rounded-full"
                                                             src="https://randomuser.me/api/portraits/women/65.jpg"
                                                             alt="">
-                                                        <a href="employee-detail.html"
-                                                            class="font-semibold text-blue-600">Karthika</a>
+                                                            <div>
+                                                                <a href="employee-detail.html"
+                                                                class="font-semibold text-blue-600">Karthika</a>
+                                                                <p class="text-sm text-gray-600">67525166</p>
+                                                            </div>
+                                                        
                                                     </div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
@@ -893,8 +770,12 @@
                                                         <img class="w-10 h-10 rounded-full"
                                                             src="https://geeks-react.netlify.app/static/media/avatar-1.d2fd9642fd3628734b27.jpg"
                                                             alt="">
-                                                        <a href="employee-detail.html"
-                                                            class="font-semibold text-blue-600">Riyas</a>
+                                                            <div>
+                                                                <a href="employee-detail.html"
+                                                                class="font-semibold text-blue-600">Riyas</a>
+                                                                <p class="text-sm text-gray-600">67525167</p>
+                                                            </div>
+                                                       
                                                     </div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
