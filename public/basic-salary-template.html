@@ -1,0 +1,485 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 space-y-6 bg-white border rounded-md">
+                    <nav class="flex" aria-label="Breadcrumb">
+                        <ol class="inline-flex flex-wrap items-center space-x-1 md:space-x-3">
+                          <li class="inline-flex items-center">
+                            <a href="dashboard.html" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+                              Dashboard
+                            </a>
+                          </li>
+                          <li>
+                            <div class="flex items-center">
+                              <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                              <a href="settings.html" class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">Settings</a>
+                            </div>
+                          </li> 
+                          <li>
+                            <div class="flex items-center">
+                              <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                              <a href="salary-template.html" class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">Salary Template</a>
+                            </div>
+                          </li>                        
+                          <li aria-current="page">
+                            <div class="flex items-center">
+                              <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                              <span class="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">Basic Salary Template</span>
+                            </div>
+                          </li>
+                        </ol>
+                      </nav>
+                    <div>
+                        <h1 class="text-2xl font-bold">Salary Template</h1>
+                    </div>
+                    <div>
+                        <label class="font-semibold text-gray-600" for="businessname">Template Name</label>
+                        <input type="text" name="businessname" id="businessname" autocomplete="title" placeholder="" value="Basic Salary Template"
+                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                    </div>
+                    <div>
+                        <div>
+                            <p class="text-xl font-bold">Earnings</p>                              
+                        </div>
+                        <div>
+                            <div class="overflow-x-auto md:overflow-x-hidden sm:-mx-6 lg:-mx-8">
+                                <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                    <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-sm">
+                                        <table class="min-w-full divide-y divide-gray-200 table-auto">
+                                            <thead class="bg-blue-600">
+                                                <tr>
+                                                    <th scope="col"
+                                                        class="w-full px-4 py-3 text-sm text-left text-white">
+                                                        Salary Component
+                                                    </th>
+                                                    <th scope="col"
+                                                        class="w-full px-4 py-3 text-sm text-left text-white">
+                                                        Calculation Type
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white divide-y divide-gray-200">
+                                                <tr>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <div class="text-base text-gray-900">
+                                                            <p class="font-semibold text-blue-600">
+                                                                Basic
+                                                        </p>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <button class="flex items-center">
+                                                            <input value="100" disabled type="text"
+                                                                class="block w-24 px-3 py-3 border border-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                            <span class="px-3 py-2 border border-gray-400">
+                                                                <select id="jobtype" name="jobtype" disabled
+                                                                    autocomplete="jobtype"
+                                                                    class="block px-1 py-1 text-sm bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                                    <option>% of Salary</option>
+                                                                    <option>Fixed Amount</option>
+                                                                </select>
+                                                            </span>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <div class="text-base text-gray-900">
+                                                            <p class="font-semibold text-blue-600">
+                                                                Bonus
+                                                        </p>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-4 py-4 whitespace-nowrap" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                        <div class="flex items-center justify-end">
+                                                            <button @click="showModal = true"
+                                                                class="p-2 font-medium text-gray-800 bg-gray-200 rounded w-36">Enable</button>
+                                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                                x-show="showModal" style="display: none;">
+                                                                <!-- Modal inner -->
+                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    @click.away="showModal = false"
+                                                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                                                    x-transition:enter-start="opacity-0 scale-90"
+                                                                    x-transition:enter-end="opacity-100 scale-100">
+                                                                    <!-- Title / Close-->
+                                                                    <div class="flex items-center justify-between">
+                                                                        <p class="font-bold text-gray-900">
+                                                                            Bonus
+                                                                        </p>
+                                                                        <span @click="showModal = false">
+                                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </div>
+                                                                    <!-- content -->
+                                                                    <div class="w-full">
+                                                                        <div class="flex flex-col pt-4 space-y-4 ">
+                                                                            <label class="inline-flex items-center">
+                                                                                <input name="tds" type="radio" class="w-4 h-4 form-checkbox">
+                                                                                <span class="ml-2 font-semibold text-gray-600">Disable</span>
+                                                                            </label>
+                                                                            <div>
+                                                                                <label class="inline-flex items-center">
+                                                                                    <input  name="tds" type="radio" class="w-4 h-4 form-checkbox" checked>
+                                                                                    <span class="ml-2 font-semibold text-gray-600">Enable</span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <button @click="showModal = true"
+                                                                class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <div class="text-base text-gray-900">
+                                                            <p class="font-semibold text-blue-600">
+                                                                Over Time [OT]
+                                                        </p>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-4 py-4 whitespace-nowrap" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                        <div class="flex items-center justify-end">
+                                                            <button @click="showModal = true"
+                                                                class="p-2 font-medium text-gray-800 bg-gray-200 rounded w-36">Enable</button>
+                                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                                x-show="showModal" style="display: none;">
+                                                                <!-- Modal inner -->
+                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    @click.away="showModal = false"
+                                                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                                                    x-transition:enter-start="opacity-0 scale-90"
+                                                                    x-transition:enter-end="opacity-100 scale-100">
+                                                                    <!-- Title / Close-->
+                                                                    <div class="flex items-center justify-between">
+                                                                        <p class="font-bold text-gray-900">
+                                                                            Over Time [OT]
+                                                                        </p>
+                                                                        <span @click="showModal = false">
+                                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </div>
+                                                                    <!-- content -->
+                                                                    <div class="w-full">
+                                                                        <div class="flex flex-col pt-4 space-y-4 ">
+                                                                            <label class="inline-flex items-center">
+                                                                                <input name="tds" type="radio" class="w-4 h-4 form-checkbox">
+                                                                                <span class="ml-2 font-semibold text-gray-600">Disable</span>
+                                                                            </label>
+                                                                            <div>
+                                                                                <label class="inline-flex items-center">
+                                                                                    <input  name="tds" type="radio" class="w-4 h-4 form-checkbox" checked>
+                                                                                    <span class="ml-2 font-semibold text-gray-600">Enable</span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <button @click="showModal = true"
+                                                                class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <div class="text-base text-gray-900">
+                                                            <p class="font-semibold text-blue-600">
+                                                                Pay Per Work
+                                                        </p>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-4 py-4 whitespace-nowrap" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                        <div class="flex items-center justify-end">
+                                                            <button @click="showModal = true"
+                                                                class="p-2 font-medium text-gray-800 bg-gray-200 rounded w-36">Enable</button>
+                                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                                x-show="showModal" style="display: none;">
+                                                                <!-- Modal inner -->
+                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    @click.away="showModal = false"
+                                                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                                                    x-transition:enter-start="opacity-0 scale-90"
+                                                                    x-transition:enter-end="opacity-100 scale-100">
+                                                                    <!-- Title / Close-->
+                                                                    <div class="flex items-center justify-between">
+                                                                        <p class="font-bold text-gray-900">
+                                                                            Pay Per Work
+                                                                        </p>
+                                                                        <span @click="showModal = false">
+                                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </div>
+                                                                    <!-- content -->
+                                                                    <div class="w-full">
+                                                                        <div class="flex flex-col pt-4 space-y-4 ">
+                                                                            <label class="inline-flex items-center">
+                                                                                <input name="tds" type="radio" class="w-4 h-4 form-checkbox">
+                                                                                <span class="ml-2 font-semibold text-gray-600">Disable</span>
+                                                                            </label>
+                                                                            <div>
+                                                                                <label class="inline-flex items-center">
+                                                                                    <input  name="tds" type="radio" class="w-4 h-4 form-checkbox" checked>
+                                                                                    <span class="ml-2 font-semibold text-gray-600">Enable</span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <button @click="showModal = true"
+                                                                class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <p class="text-xl font-bold">Common Deductions</p>
+                        </div>
+                        <div class="pt-2">
+                            <div class="-my-2 overflow-x-auto md:overflow-x-hidden sm:-mx-6 lg:-mx-8">
+                                <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                    <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-sm">
+                                        <table class="min-w-full divide-y divide-gray-200 table-auto">
+                                            <thead class="bg-blue-600">
+                                                <tr>
+                                                    <th scope="col"
+                                                        class="w-full px-4 py-3 text-sm text-left text-white">
+                                                        Salary Component
+                                                    </th>
+                                                    <th scope="col"
+                                                        class="w-full px-4 py-3 text-sm text-left text-white">
+                                                        Calculation Type
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white divide-y divide-gray-200">
+                                                <tr>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <div class="text-base text-gray-900">
+                                                            <p class="font-semibold text-blue-600">
+                                                                Deductions
+                                                        </p>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-4 py-4 whitespace-nowrap" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                        <div>
+                                                            <button @click="showModal = true"
+                                                                class="p-2 font-medium text-gray-800 bg-gray-200 rounded w-36">Enabled</button>
+                                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                                x-show="showModal" style="display: none;">
+                                                                <!-- Modal inner -->
+                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    @click.away="showModal = false"
+                                                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                                                    x-transition:enter-start="opacity-0 scale-90"
+                                                                    x-transition:enter-end="opacity-100 scale-100">
+                                                                    <!-- Title / Close-->
+                                                                    <div class="flex items-center justify-between">
+                                                                        <p class="font-bold text-gray-900">
+                                                                            Deductions
+                                                                        </p>
+                                                                        <span @click="showModal = false">
+                                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </div>
+                                                                    <!-- content -->
+                                                                    <div class="w-full">
+                                                                        <div class="flex flex-col pt-4 space-y-4 ">
+                                                                            <label class="inline-flex items-center">
+                                                                                <input name="tds" type="radio" class="w-4 h-4 form-checkbox">
+                                                                                <span class="ml-2 font-semibold text-gray-600">Disable</span>
+                                                                            </label>
+                                                                            <div>
+                                                                                <label class="inline-flex items-center">
+                                                                                    <input  name="tds" type="radio" class="w-4 h-4 form-checkbox" checked>
+                                                                                    <span class="ml-2 font-semibold text-gray-600">Enable</span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <button @click="showModal = true"
+                                                                class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <div class="text-base text-gray-900">
+                                                            <p class="font-semibold text-blue-600">
+                                                                Loan
+                                                        </p>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-4 py-4 whitespace-nowrap" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                        <div >
+                                                            <button @click="showModal = true"
+                                                                class="p-2 font-medium text-gray-800 bg-gray-200 rounded w-36">Enabled</button>
+                                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                                x-show="showModal" style="display: none;">
+                                                                <!-- Modal inner -->
+                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    @click.away="showModal = false"
+                                                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                                                    x-transition:enter-start="opacity-0 scale-90"
+                                                                    x-transition:enter-end="opacity-100 scale-100">
+                                                                    <!-- Title / Close-->
+                                                                    <div class="flex items-center justify-between">
+                                                                        <p class="font-bold text-gray-900">
+                                                                            Loan
+                                                                        </p>
+                                                                        <span @click="showModal = false">
+                                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </div>
+                                                                    <!-- content -->
+                                                                    <div class="w-full">
+                                                                        <div class="flex flex-col pt-4 space-y-4 ">
+                                                                            <label class="inline-flex items-center">
+                                                                                <input name="tds" type="radio" class="w-4 h-4 form-checkbox">
+                                                                                <span class="ml-2 font-semibold text-gray-600">Disable</span>
+                                                                            </label>
+                                                                            <div>
+                                                                                <label class="inline-flex items-center">
+                                                                                    <input  name="tds" type="radio" class="w-4 h-4 form-checkbox" checked>
+                                                                                    <span class="ml-2 font-semibold text-gray-600">Enable</span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <button @click="showModal = true"
+                                                                class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <div class="text-base text-gray-900">
+                                                            <p class="font-semibold text-blue-600">
+                                                                Advance
+                                                        </p>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-4 py-4 whitespace-nowrap" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                        <div >
+                                                            <button @click="showModal = true"
+                                                                class="p-2 font-medium text-gray-800 bg-gray-200 rounded w-36">Enabled</button>
+                                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                                x-show="showModal" style="display: none;">
+                                                                <!-- Modal inner -->
+                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    @click.away="showModal = false"
+                                                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                                                    x-transition:enter-start="opacity-0 scale-90"
+                                                                    x-transition:enter-end="opacity-100 scale-100">
+                                                                    <!-- Title / Close-->
+                                                                    <div class="flex items-center justify-between">
+                                                                        <p class="font-bold text-gray-900">
+                                                                            Advance
+                                                                        </p>
+                                                                        <span @click="showModal = false">
+                                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </div>
+                                                                    <!-- content -->
+                                                                    <div class="w-full">
+                                                                        <div class="flex flex-col pt-4 space-y-4 ">
+                                                                            <label class="inline-flex items-center">
+                                                                                <input name="tds" type="radio" class="w-4 h-4 form-checkbox">
+                                                                                <span class="ml-2 font-semibold text-gray-600">Disable</span>
+                                                                            </label>
+                                                                            <div>
+                                                                                <label class="inline-flex items-center">
+                                                                                    <input  name="tds" type="radio" class="w-4 h-4 form-checkbox" checked>
+                                                                                    <span class="ml-2 font-semibold text-gray-600">Enable</span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <button @click="showModal = true"
+                                                                class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("settings-aside.html");
+    });
+</script>
+
+</html>
