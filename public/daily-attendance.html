@@ -65,103 +65,122 @@
                     </div>
                     <div class="pb-4">
                         <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
-                        <div class="relative">
-                            <label class="text-sm font-semibold text-gray-600" for="businessname">Select
-                                Date</label>
+                            <div class="relative">
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                    Date</label>
 
-                            <span class="inline-block w-full mt-1 rounded shadow-sm">
-                                <button
-                                    class="relative z-0 w-full py-2 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
-                                    type="button" aria-haspopup="listbox" aria-expanded="true"
-                                    aria-label="search" aria-checked="false">
+                                <span class="inline-block w-full mt-1 rounded shadow-sm">
+                                    <button
+                                        class="relative z-0 w-full py-2 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                        type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search"
+                                        aria-checked="false">
 
-                                    <input id="search" type="search"
-                                        class="w-full h-full form-control focus:outline-none">
+                                        <input id="search" type="search"
+                                            class="w-full h-full form-control focus:outline-none">
 
-                                    <span
-                                        class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-600"
-                                            fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                            stroke-width="2">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                        </svg>
-                                    </span>
-                                </button>
-                            </span>
-                        </div>
-                        <div>
-                            <label class="text-sm font-semibold text-gray-600" for="businessname">Select
-                                Branch</label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
-                                <option>All</option>
-                                <option>Ecomads Pvt Ltd, Covai</option>
-                                <option>Ecomads Pvt Ltd, Tiruchengode</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="text-sm font-semibold text-gray-600" for="businessname">Select
-                                Department</label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                <option>All</option>
-                                <option>Sales</option>
-                                <option>Purchase</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">Select
-                                Employee
-                                Category</label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                <option>All</option>
-                                <option>Permanant</option>
-                                <option>Contract</option>
-                                <option>Casual</option>
-                                <option>Temporary</option>
-                                <option>Others</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="text-sm font-semibold text-gray-600" for="businessname">Select
-                                Designation</label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                <option>All</option>
-                                <option>Director</option>
-                                <option>CTO</option>
-                                <option>STO</option>
-                                <option>Accountant</option>
-                                <option>Team Lead</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="text-sm font-semibold text-gray-600" for="businessname">Select
-                                Type</label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                <option>All</option>
-                                <option>Permission</option>
-                                <option>Late Entry </option>
-                                <option>Early Exit</option>
-                                <option>Overtime</option>
-                                <option>Forgot Out</option>
-                                <option>Short Hours</option>
-                                <option>Break Hours</option>
-                            </select>
-                        </div>
-                        <div>
-                            <div class="w-48 space-y-4">
-                                <button
-                                    class="w-full px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded">Search</button>
+                                        <span
+                                            class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-600"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </span>
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                    Branch</label>
+                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                    class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                    <option>All</option>
+                                    <option>Ecomads Pvt Ltd, Covai</option>
+                                    <option>Ecomads Pvt Ltd, Tiruchengode</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                    Department</label>
+                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                    class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                    <option>All</option>
+                                    <option>Sales</option>
+                                    <option>Purchase</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">Select
+                                    Employee
+                                    Category</label>
+                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                    class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                    <option>All</option>
+                                    <option>Permanant</option>
+                                    <option>Contract</option>
+                                    <option>Casual</option>
+                                    <option>Temporary</option>
+                                    <option>Others</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                    Designation</label>
+                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                    class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                    <option>All</option>
+                                    <option>Director</option>
+                                    <option>CTO</option>
+                                    <option>STO</option>
+                                    <option>Accountant</option>
+                                    <option>Team Lead</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                    Type</label>
+                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                    class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                    <option>All</option>
+                                    <option>Permission</option>
+                                    <option>Late Entry </option>
+                                    <option>Early Exit</option>
+                                    <option>Overtime</option>
+                                    <option>Forgot Out</option>
+                                    <option>Short Hours</option>
+                                    <option>Break Hours</option>
+                                </select>
+                            </div>
+                            <div>
+                                <div class="w-48 space-y-4">
+                                    <button
+                                        class="w-full px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded">Search</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    </div>
                     <div class="py-6 border-t">
                         <p class="text-xl font-bold">10-12-2022 - <span>Saturday</span></p>
+                        <div class="grid grid-cols-12 gap-2">
+                            <div class="space-y-1.5 cursor-pointer">
+                                <div class="flex items-center justify-center w-full h-10 bg-blue-600 rounded ">
+                                    <p class="text-xl font-bold text-center text-white">12</p>
+                                </div>
+                                <div class="px-0.5">
+                                    <div class="text-xs text-center text-slate-500">All
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-y-1.5 cursor-pointer">
+                                <div class="flex items-center justify-center w-full h-10 bg-green-100 border border-b rounded">
+                                    <p class="text-xl font-bold text-center">12</p>
+                                </div>
+                                <div class="px-0.5">
+                                    <div class="text-xs text-center text-slate-500">Present
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="grid grid-cols-2 gap-4 py-6 lg:px-0 lg:grid-cols-6">
                             <div class="p-2 text-white bg-blue-600 border-b-2 border-blue-600 rounded">
@@ -184,8 +203,36 @@
                                 <span class="text-sm font-semibold">Half Day</span>
                                 <p class="text-2xl font-bold">3</p>
                             </div>
+                            <div class="p-2 bg-green-100 border-b-2 border-green-600 rounded">
+                                <span class="text-sm font-semibold">Paid Leave</span>
+                                <p class="text-2xl font-bold">1</p>
+                            </div>
+                            <div class="p-2 bg-red-100 border-b-2 border-red-600 rounded">
+                                <span class="text-sm font-semibold">Unpaid Leave</span>
+                                <p class="text-2xl font-bold">2</p>
+                            </div>
+                            <div class="p-2 bg-yellow-100 border-b-2 border-yellow-600 rounded">
+                                <span class="text-sm font-semibold">Forgot Out</span>
+                                <p class="text-2xl font-bold">3</p>
+                            </div>
+                            <div class="p-2 bg-gray-100 border-b-2 border-gray-600 rounded">
+                                <span class="text-sm font-semibold">Early Out</span>
+                                <p class="text-2xl font-bold">1</p>
+                            </div>
+                            <div class="p-2 bg-red-100 border-b-2 border-red-600 rounded">
+                                <span class="text-sm font-semibold">Late Entry</span>
+                                <p class="text-2xl font-bold">2</p>
+                            </div>
+                            <div class="p-2 bg-yellow-100 border-b-2 border-yellow-600 rounded">
+                                <span class="text-sm font-semibold">Holiday</span>
+                                <p class="text-2xl font-bold">3</p>
+                            </div>
                             <div class="p-2 border-b-2 rounded bg-lime-100 border-lime-600">
-                                <span class="text-sm font-semibold">Leave</span>
+                                <span class="text-sm font-semibold">Weekoff</span>
+                                <p class="text-2xl font-bold">1</p>
+                            </div>
+                            <div class="p-2 border-b-2 rounded bg-lime-100 border-lime-600">
+                                <span class="text-sm font-semibold">Short Hours</span>
                                 <p class="text-2xl font-bold">1</p>
                             </div>
                         </div>
@@ -197,12 +244,11 @@
                                     class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-72 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
                                     type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search"
                                     aria-checked="false">
-    
+
                                     <input id="search" type="search" placeholder="Search by name, email, mobile"
                                         class="w-full h-full form-control focus:outline-none">
-    
-                                    <span
-                                        class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+
+                                    <span class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
                                         <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
                                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -255,12 +301,12 @@
                                                         <img class="w-10 h-10 rounded-full"
                                                             src="https://geeks-react.netlify.app/static/media/avatar-1.d2fd9642fd3628734b27.jpg"
                                                             alt="">
-                                                            <div>
-                                                                <a href="employee-detail.html"
-                                                            class="font-semibold text-blue-600">Elavarasan</a>
+                                                        <div>
+                                                            <a href="employee-detail.html"
+                                                                class="font-semibold text-blue-600">Elavarasan</a>
                                                             <p class="text-sm text-gray-600">67525165</p>
-                                                            </div>
-                                                        
+                                                        </div>
+
                                                     </div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
@@ -352,10 +398,10 @@
                                                                         <button @click="openTab = 7"
                                                                             class="inline-block p-1 px-2 text-sm font-medium text-teal-600 bg-teal-100 rounded focus:bg-teal-600 focus:text-white">
                                                                             Unpaid Fullday Leave</button>
-                                                                            <button @click="openTab = 8"
+                                                                        <button @click="openTab = 8"
                                                                             class="inline-block p-1 px-2 text-sm font-medium text-teal-600 bg-teal-100 rounded focus:bg-teal-600 focus:text-white">
                                                                             Unpaid Halfday Leave</button>
-                                                                            <button @click="openTab = 9"
+                                                                        <button @click="openTab = 9"
                                                                             class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded focus:bg-gray-600 focus:text-white">
                                                                             Weekoff</button>
                                                                         <button @click="openTab = 10"
@@ -371,7 +417,7 @@
                                                                             Sick Leave</button>
                                                                         <button
                                                                             class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded focus:bg-blue-600 focus:text-white">
-                                                                            Comp Off</button>                                                                        
+                                                                            Comp Off</button>
                                                                     </div>
                                                                     <div class="pt-6" x-show="openTab === 6">
                                                                         <button
@@ -382,7 +428,7 @@
                                                                             Sick Leave</button>
                                                                         <button
                                                                             class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded focus:bg-blue-600 focus:text-white">
-                                                                            Comp Off</button>                                                                        
+                                                                            Comp Off</button>
                                                                     </div>
                                                                     <div class="pt-6" x-show="openTab === 7">
                                                                         <button
@@ -391,7 +437,7 @@
                                                                         <button
                                                                             class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded focus:bg-blue-600 focus:text-white">
                                                                             Sick Leave</button>
-                                                                                                                                              
+
                                                                     </div>
                                                                     <div class="pt-6" x-show="openTab === 8">
                                                                         <button
@@ -400,7 +446,7 @@
                                                                         <button
                                                                             class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded focus:bg-blue-600 focus:text-white">
                                                                             Sick Leave</button>
-                                                                                                                                         
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -554,12 +600,12 @@
                                                         <img class="w-10 h-10 rounded-full"
                                                             src="https://randomuser.me/api/portraits/women/65.jpg"
                                                             alt="">
-                                                            <div>
-                                                                <a href="employee-detail.html"
+                                                        <div>
+                                                            <a href="employee-detail.html"
                                                                 class="font-semibold text-blue-600">Karthika</a>
-                                                                <p class="text-sm text-gray-600">67525166</p>
-                                                            </div>
-                                                        
+                                                            <p class="text-sm text-gray-600">67525166</p>
+                                                        </div>
+
                                                     </div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
@@ -770,12 +816,12 @@
                                                         <img class="w-10 h-10 rounded-full"
                                                             src="https://geeks-react.netlify.app/static/media/avatar-1.d2fd9642fd3628734b27.jpg"
                                                             alt="">
-                                                            <div>
-                                                                <a href="employee-detail.html"
+                                                        <div>
+                                                            <a href="employee-detail.html"
                                                                 class="font-semibold text-blue-600">Riyas</a>
-                                                                <p class="text-sm text-gray-600">67525167</p>
-                                                            </div>
-                                                       
+                                                            <p class="text-sm text-gray-600">67525167</p>
+                                                        </div>
+
                                                     </div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">

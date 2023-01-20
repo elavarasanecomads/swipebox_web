@@ -1,0 +1,581 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="p-4 space-y-6 bg-white border rounded-md">
+                    <!--Breadcrumb-->
+                    <nav class="flex" aria-label="Breadcrumb">
+                        <ol class="inline-flex flex-wrap items-center space-x-1 md:space-x-3">
+                            <li class="inline-flex items-center">
+                                <a href="dashboard.html"
+                                    class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                                        </path>
+                                    </svg>
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li aria-current="page">
+                                <div class="flex items-center">
+                                    <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span
+                                        class="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">Face Data Manage</span>
+                                </div>
+                            </li>
+                        </ol>
+                    </nav>
+                    <div>
+                        <h1 class="text-2xl font-bold">Face Data Manage</h1>
+                    </div>
+                    <div>
+                        <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                    Branch</label>
+                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                    class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                    <option>All</option>
+                                    <option>Ecomads Pvt Ltd, Covai</option>
+                                    <option>Ecomads Pvt Ltd, Tiruchengode</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                    Department</label>
+                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                    class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                    <option>All</option>
+                                    <option>Sales</option>
+                                    <option>Purchase</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">Select
+                                    Employee
+                                    Category</label>
+                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                    class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                    <option>All</option>
+                                    <option>Permanant</option>
+                                    <option>Contract</option>
+                                    <option>Casual</option>
+                                    <option>Temporary</option>
+                                    <option>Others</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                    Designation</label>
+                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                    class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                    <option>All</option>
+                                    <option>Director</option>
+                                    <option>CTO</option>
+                                    <option>STO</option>
+                                    <option>Accountant</option>
+                                    <option>Team Lead</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                    Status</label>
+                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                    class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                    <option>All</option>
+                                    <option>Is Registered</option>
+                                    <option>Is Not Registered</option>
+                                </select>
+                            </div>
+                            <div class="col-start-1 ">
+                                <div class="w-48 space-y-4">
+                                    <button
+                                        class="w-full px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t">
+                        <h3 class="text-lg font-bold">[45] Employees</h3>
+                    </div>
+                    <div class="flex flex-col gap-4 lg:items-center lg:justify-between lg:flex-row">
+                        <!-- <div class="flex items-center order-2 gap-2 lg:order-1">
+                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                class="block px-1 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>Bulk Actions</option>
+                                <option>Mark As "Approve"</option>
+                                <option>Mark As "Reject"</option>                                
+                                <option>Mark As "Delete"</option>
+                            </select>
+                            <button
+                                class="px-4 py-1 mt-1 font-semibold text-center text-gray-900 bg-gray-300 rounded">Apply</button>
+                        </div> -->
+                        <div class="order-1 lg:order-2">
+                            <span class="inline-block w-full rounded shadow-sm">
+                                <button
+                                    class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-72 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                    type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search"
+                                    aria-checked="false">
+
+                                    <input id="search" type="search" placeholder="Search by name, email, mobile"
+                                        class="w-full h-full form-control focus:outline-none">
+
+                                    <span class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                        <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex flex-col">
+                            <div class="-my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                    <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+
+                                        <table class="min-w-full divide-y divide-gray-200 table-auto">
+                                            <thead class="bg-blue-600">
+                                                <tr>
+                                                    <th scope="col"
+                                                        class="p-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                        <div class="flex items-center h-5">
+                                                            <input id="candidates" name="candidates" type="checkbox"
+                                                                class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                                                        </div>
+                                                    </th>
+                                                    <th scope="col"
+                                                        class="p-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                        Image
+                                                    </th>
+
+                                                    <th scope="col"
+                                                        class="p-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                        Email& Mobile
+                                                    </th>
+                                                    <th scope="col"
+                                                        class="p-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                        Branch
+                                                    </th>
+                                                    <th scope="col"
+                                                        class="p-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                        status
+                                                    </th>
+                                                    <th scope="col"
+                                                        class="p-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                        Action
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white divide-y divide-gray-200">
+                                                <tr x-data="{ 'showModal1': false }" @keydown.escape="showModal1 = false">
+                                                    <td class="p-3 whitespace-nowrap">
+                                                        <div class="flex items-center h-5">
+                                                            <input id="candidates" name="candidates" type="checkbox"
+                                                                class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                                                        </div>
+                                                    </td>
+                                                    <td class="p-3 whitespace-nowrap">
+                                                        <div class="flex items-center gap-2">
+                                                            <img @click="showModal1 = true"
+                                                                class="w-20 h-20 rounded"
+                                                                src="https://geeks-react.netlify.app/static/media/avatar-1.d2fd9642fd3628734b27.jpg"
+                                                                alt="">                                                            
+                                                        </div>
+                                                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                            x-show="showModal1" style="display: none;">
+                                                            <!-- Modal inner -->
+                                                            <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
+                                                                @click.away="showModal = false"
+                                                                x-transition:enter="motion-safe:ease-out duration-300"
+                                                                x-transition:enter-start="opacity-0 scale-90"
+                                                                x-transition:enter-end="opacity-100 scale-100">
+                                                                <!-- Title / Close-->
+                                                                <div class="flex items-center justify-between">
+                                                                    <p class="font-bold text-gray-900">
+                                                                        Elavarasan Face Data
+                                                                    </p>
+                                                                    <span @click="showModal1 = false">
+                                                                        <svg class="w-5 h-5 text-gray-900"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            fill="none" viewBox="0 0 24 24"
+                                                                            stroke="currentColor">
+                                                                            <path stroke-linecap="round"
+                                                                                stroke-linejoin="round" stroke-width="2"
+                                                                                d="M6 18L18 6M6 6l12 12"></path>
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                                <!-- content -->
+                                                                <div class="w-full mt-4 space-y-4">
+                                                                    <div
+                                                                        class="flex flex-col items-center justify-center gap-4">
+                                                                        <img class="w-40 h-40 rounded"
+                                                                            src="https://geeks-react.netlify.app/static/media/avatar-1.d2fd9642fd3628734b27.jpg"
+                                                                            alt="">
+                                                                        <div
+                                                                            class="flex items-center justify-center w-full gap-4 py-4">
+                                                                            <button @click="showModal1 = false"
+                                                                                class="w-40 p-2 font-semibold text-center text-gray-900 bg-gray-200 rounded-md">Close</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="p-3 whitespace-nowrap">
+                                                        <a href="employee-detail.html"
+                                                                class="font-semibold text-blue-600">Elavarasan</a>
+                                                        <p class="text-base text-gray-900">
+                                                            elavarasan@ecomads.com
+                                                            </br>
+                                                            8072276933
+                                                        </p>
+                                                    </td>
+                                                    <td class="p-3 whitespace-nowrap">
+                                                        <span class="text-base font-semibold text-gray-900">
+                                                            Ecomads Private Limited
+                                                            </br>
+                                                            <span class="font-normal">Developer</span>
+                                                        </span>
+                                                    </td>
+                                                    <td class="p-3 whitespace-nowrap">
+                                                        <p class="inline-block p-1 px-2 text-xs font-semibold text-blue-600 bg-blue-100 rounded-full">Not Registered</p>
+                                                    </td>
+                                                    <td class="relative flex items-center gap-4 px-4 py-4 whitespace-nowrap">
+                                                        <div>
+                                                            <button class="flex items-center text-blue-600" title="approve">
+                                                                <span>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                                                                    </svg>
+                                                                </span>
+                                                            </button>
+
+                                                        </div>
+                                                        <div x-data="{ 'showModal': false }">
+                                                            <button @click="showModal = true" class="flex items-center text-red-600" title="reject"><span>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                                                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                                                    </svg></span></button>
+                                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
+                                                                <!-- Modal inner -->
+                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                                    <!-- Title / Close-->
+                                                                    <div class="flex items-center justify-between">
+                                                                        <p class="font-bold text-gray-900">
+                                                                            Add Reject Reason
+                                                                        </p>
+                                                                        <span @click="showModal = false">
+                                                                            <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </div>
+                                                                    <!-- content -->
+                                                                    <div class="w-full mt-4">
+                                                                        <div class="divide-y">
+                                                                            <div>
+                                                                                <textarea rows="3" class="relative block w-full p-2 px-3 py-3 mt-1 text-gray-900 placeholder-gray-400 border border-gray-400 rounded shadow-sm appearance-none focus:outline-none focus:ring-blue-600 focus:border-blue-600 focus:z-10" spellcheck="false"></textarea>
+                                                                            </div>
+                                                                            <div class="flex items-center justify-center w-full gap-4 py-4">
+                                                                                <button @click="showModal1 = false" class="w-1/2 p-2 font-semibold text-center text-gray-900 bg-gray-200 rounded-md">Cancel</button>
+                                                                                <button @click="showModal2 = true" class="w-1/2 p-2 font-semibold text-center text-white bg-red-600 rounded-md">Reject</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr x-data="{ 'showModal1': false }" @keydown.escape="showModal1 = false">
+                                                    <td class="p-3 whitespace-nowrap">
+                                                        <div class="flex items-center h-5">
+                                                            <input id="candidates" name="candidates" type="checkbox"
+                                                                class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                                                        </div>
+                                                    </td>
+                                                    <td class="p-3 whitespace-nowrap">
+                                                        <div class="flex items-center gap-2">
+                                                            <img @click="showModal1 = true"
+                                                                class="w-20 h-20 rounded"
+                                                                src="https://geeks-react.netlify.app/static/media/avatar-1.d2fd9642fd3628734b27.jpg"
+                                                                alt="">                                                            
+                                                        </div>
+                                                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                            x-show="showModal1" style="display: none;">
+                                                            <!-- Modal inner -->
+                                                            <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
+                                                                @click.away="showModal = false"
+                                                                x-transition:enter="motion-safe:ease-out duration-300"
+                                                                x-transition:enter-start="opacity-0 scale-90"
+                                                                x-transition:enter-end="opacity-100 scale-100">
+                                                                <!-- Title / Close-->
+                                                                <div class="flex items-center justify-between">
+                                                                    <p class="font-bold text-gray-900">
+                                                                        Elavarasan Face Data
+                                                                    </p>
+                                                                    <span @click="showModal1 = false">
+                                                                        <svg class="w-5 h-5 text-gray-900"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            fill="none" viewBox="0 0 24 24"
+                                                                            stroke="currentColor">
+                                                                            <path stroke-linecap="round"
+                                                                                stroke-linejoin="round" stroke-width="2"
+                                                                                d="M6 18L18 6M6 6l12 12"></path>
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                                <!-- content -->
+                                                                <div class="w-full mt-4 space-y-4">
+                                                                    <div
+                                                                        class="flex flex-col items-center justify-center gap-4">
+                                                                        <img class="w-40 h-40 rounded"
+                                                                            src="https://geeks-react.netlify.app/static/media/avatar-1.d2fd9642fd3628734b27.jpg"
+                                                                            alt="">
+                                                                        <div
+                                                                            class="flex items-center justify-center w-full gap-4 py-4">
+                                                                            <button @click="showModal1 = false"
+                                                                                class="w-40 p-2 font-semibold text-center text-gray-900 bg-gray-200 rounded-md">Close</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="p-3 whitespace-nowrap">
+                                                        <a href="employee-detail.html"
+                                                                class="font-semibold text-blue-600">Hemalatha</a>
+                                                        <p class="text-base text-gray-900">
+                                                            hema@ecomads.com
+                                                            </br>
+                                                            8072879908
+                                                        </p>
+                                                    </td>
+                                                    <td class="p-3 whitespace-nowrap">
+                                                        <span class="text-base font-semibold text-gray-900">
+                                                            Ecomads Private Limited
+                                                            </br>
+                                                            <span class="font-normal">Content Verification</span>
+                                                        </span>
+                                                    </td>
+                                                    <td class="p-3 whitespace-nowrap">
+                                                        <p class="inline-block p-1 px-2 text-xs font-semibold text-green-600 bg-green-100 rounded-full">Registered</p>
+                                                    </td>
+                                                    <td class="relative flex items-center gap-4 px-4 py-4 whitespace-nowrap">
+                                                        
+                                                        <div x-data="{ 'showModal': false }">
+                                                            <button @click="showModal = true" class="flex items-center font-semibold text-red-600" title="delete">
+                                                                <!-- <span>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                                    </svg></span> -->
+                                                                    Remove Face
+                                                                </button>
+                                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
+                                                                <!-- Modal inner -->
+                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                                    <!-- Title / Close-->
+                                                                    <div class="flex items-center justify-between">
+                                                                        <p class="font-bold text-gray-900">
+
+                                                                        </p>
+                                                                        <span @click="showModal = false">
+                                                                            <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </div>
+                                                                    <!-- content -->
+                                                                    <div class="w-full mt-4">
+                                                                        <div class="flex flex-col items-center justify-center space-y-2">
+                                                                            <div>
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-red-500" viewBox="0 0 20 20" fill="currentColor">
+                                                                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                                                                                </svg>
+                                                                            </div>
+                                                                            <p class="font-bold">Remove {Employee Name} Face Data?
+                                                                            </p>
+                                                                            <p class="text-gray-600">Do you wish to
+                                                                                remove {Employee Name} Face Data?</p>
+                                                                        </div>
+                                                                        <div class="flex items-center justify-center w-full gap-4 py-4">
+                                                                            <button @click="showModal1 = false" class="w-1/2 p-2 font-semibold text-center text-gray-900 bg-gray-200 rounded-md">Cancel</button>
+                                                                            <button @click="showModal2 = true" class="w-1/2 p-2 font-semibold text-center text-white bg-red-600 rounded-md">Remove</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr x-data="{ 'showModal1': false }" @keydown.escape="showModal1 = false">
+                                                    <td class="p-3 whitespace-nowrap">
+                                                        <div class="flex items-center h-5">
+                                                            <input id="candidates" name="candidates" type="checkbox"
+                                                                class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                                                        </div>
+                                                    </td>
+                                                    <td class="p-3 whitespace-nowrap">
+                                                        <div class="flex items-center gap-2">
+                                                            <img @click="showModal1 = true"
+                                                                class="w-20 h-20 rounded"
+                                                                src="https://geeks-react.netlify.app/static/media/avatar-1.d2fd9642fd3628734b27.jpg"
+                                                                alt="">                                                            
+                                                        </div>
+                                                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                            x-show="showModal1" style="display: none;">
+                                                            <!-- Modal inner -->
+                                                            <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
+                                                                @click.away="showModal = false"
+                                                                x-transition:enter="motion-safe:ease-out duration-300"
+                                                                x-transition:enter-start="opacity-0 scale-90"
+                                                                x-transition:enter-end="opacity-100 scale-100">
+                                                                <!-- Title / Close-->
+                                                                <div class="flex items-center justify-between">
+                                                                    <p class="font-bold text-gray-900">
+                                                                        Elavarasan Face Data
+                                                                    </p>
+                                                                    <span @click="showModal1 = false">
+                                                                        <svg class="w-5 h-5 text-gray-900"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            fill="none" viewBox="0 0 24 24"
+                                                                            stroke="currentColor">
+                                                                            <path stroke-linecap="round"
+                                                                                stroke-linejoin="round" stroke-width="2"
+                                                                                d="M6 18L18 6M6 6l12 12"></path>
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                                <!-- content -->
+                                                                <div class="w-full mt-4 space-y-4">
+                                                                    <div
+                                                                        class="flex flex-col items-center justify-center gap-4">
+                                                                        <img class="w-40 h-40 rounded"
+                                                                            src="https://geeks-react.netlify.app/static/media/avatar-1.d2fd9642fd3628734b27.jpg"
+                                                                            alt="">
+                                                                        <div
+                                                                            class="flex items-center justify-center w-full gap-4 py-4">
+                                                                            <button @click="showModal1 = false"
+                                                                                class="w-40 p-2 font-semibold text-center text-gray-900 bg-gray-200 rounded-md">Close</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="p-3 whitespace-nowrap">
+                                                        <a href="employee-detail.html"
+                                                                class="font-semibold text-blue-600">Karthika</a>
+                                                        <p class="text-base text-gray-900">
+                                                            hema@ecomads.com
+                                                            </br>
+                                                            8072879908
+                                                        </p>
+                                                    </td>
+                                                    <td class="p-3 whitespace-nowrap">
+                                                        <span class="text-base font-semibold text-gray-900">
+                                                            Ecomads Private Limited
+                                                            </br>
+                                                            <span class="font-normal">Content Verification</span>
+                                                        </span>
+                                                    </td>
+                                                    <td class="p-3 whitespace-nowrap">
+                                                        <p class="inline-block p-1 px-2 text-xs font-semibold text-blue-600 bg-blue-100 rounded-full">Not Registered</p>
+                                                    </td>
+                                                    <td class="relative flex items-center gap-4 px-4 py-4 whitespace-nowrap">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-center mt-4">
+                                <nav class="relative z-0 inline-flex -space-x-px shadow-sm" aria-label="Pagination">
+                                    <a href="#"
+                                        class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-indigo-100">
+                                        <span class="sr-only">Previous</span>
+                                        <!-- Heroicon name: chevron-left -->
+                                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                    </a>
+                                    <a href="#"
+                                        class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-indigo-100">
+                                        1
+                                    </a>
+                                    <a href="#"
+                                        class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-indigo-100">
+                                        2
+                                    </a>
+                                    <a href="#"
+                                        class="relative items-center hidden px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 md:inline-flex hover:bg-indigo-100">
+                                        3
+                                    </a>
+                                    <a href="#"
+                                        class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-indigo-100">
+                                        4
+                                    </a>
+                                    <a href="#"
+                                        class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-indigo-100">
+                                        5
+                                    </a>
+                                    <a href="#"
+                                        class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-indigo-100">
+                                        <span class="sr-only">Next</span>
+                                        <!-- Heroicon name: chevron-right -->
+                                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                    </a>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+</html>
