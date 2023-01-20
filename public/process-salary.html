@@ -168,20 +168,28 @@
                                 class="p-4 border-l-4 border-r border-yellow-600 rounded shadow-md bg-blue-50 border-r-gray-300 border-y-gray-300 border-y">
                                 <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
                                     <div class="space-y-1">
-                                        <p class="text-sm text-gray-600 uppercase">Gross Pay</p>
-                                        <p class="text-3xl font-bold"><span>₹ </span>100000</p>
+                                        <p class="text-sm text-gray-600 uppercase">Total Employees</p>
+                                        <p class="text-3xl font-bold">150</p>
                                     </div>
                                     <div class="space-y-1">
-                                        <p class="text-sm text-gray-600 uppercase">Employee's Net Pay</p>
-                                        <p class="text-3xl font-bold"><span>₹ </span>87000</p>
+                                        <p class="text-sm text-gray-600 uppercase">Employees Paided</p>
+                                        <p class="text-3xl font-bold">100</p>
                                     </div>
                                     <div class="space-y-1">
-                                        <p class="text-sm text-gray-600 uppercase">Taxes</p>
-                                        <p class="text-3xl font-bold"><span>₹ </span>13000</p>
+                                        <p class="text-sm text-gray-600 uppercase">Employees Not Paid</p>
+                                        <p class="text-3xl font-bold">45</p>
                                     </div>
                                     <div class="space-y-1">
-                                        <p class="text-sm text-gray-600 uppercase">No.Of Employees</p>
-                                        <p class="text-3xl font-bold">11</p>
+                                        <p class="text-sm text-gray-600 uppercase">Employees witheld</p>
+                                        <p class="text-3xl font-bold">5</p>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <p class="text-sm text-gray-600 uppercase">Salary Paided</p>
+                                        <p class="text-3xl font-bold"><span>₹ </span>1,50,0000</p>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <p class="text-sm text-gray-600 uppercase">Salary Not Paid</p>
+                                        <p class="text-3xl font-bold"><span>₹ </span>50,0000</p>
                                     </div>
                                 </div>
                                 <div class="pt-6">
@@ -308,7 +316,10 @@
                                                     </th>
                                                     <th scope="col"
                                                         class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
-                                                        Payment Staus
+                                                        Staus
+                                                    </th>
+                                                    <th scope="col"
+                                                        class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
                                                     </th>
                                                 </tr>
                                             </thead>
@@ -357,6 +368,24 @@
                                                             Not Paid
                                                         </span>
                                                     </td>
+                                                    <td class="relative px-2 py-3 whitespace-nowrap">
+                                                        <div class="px-2 text-gray-600 " x-data="{ isOpen: false }">
+                                                            <button @click="isOpen = !isOpen"
+                                                                @keydown.escape="isOpen = false"
+                                                                class="focus:outline-none">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                    viewBox="0 0 24 24" stroke-width="1.5"
+                                                                    stroke="currentColor" class="w-6 h-6">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                                        d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                                                                </svg>
+                                                            </button>
+                                                            <ul x-show="isOpen" @click.away="isOpen = false"
+                                                                class="absolute z-10 py-1 mt-2 overflow-hidden text-sm font-normal bg-white border rounded shadow right-8 top-10 w-36">
+                                                                <li class="p-2"><button>Withhold Salary</button></li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="px-2 py-3 whitespace-nowrap">
@@ -401,6 +430,24 @@
                                                         <span class="text-sm text-gray-900">
                                                             Not Paid
                                                         </span>
+                                                    </td>
+                                                    <td class="relative px-2 py-3 whitespace-nowrap">
+                                                        <div class="px-2 text-gray-600 " x-data="{ isOpen: false }">
+                                                            <button @click="isOpen = !isOpen"
+                                                                @keydown.escape="isOpen = false"
+                                                                class="focus:outline-none">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                    viewBox="0 0 24 24" stroke-width="1.5"
+                                                                    stroke="currentColor" class="w-6 h-6">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                                        d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                                                                </svg>
+                                                            </button>
+                                                            <ul x-show="isOpen" @click.away="isOpen = false"
+                                                                class="absolute z-10 py-1 mt-2 overflow-hidden text-sm font-normal bg-white border rounded shadow right-8 top-10 w-36">
+                                                                <li class="p-2"><button>Withhold Salary</button></li>
+                                                            </ul>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                                 <tr>
