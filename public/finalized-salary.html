@@ -48,8 +48,11 @@
                     </nav>
 
                     <div class="py-4 space-y-4">
-                        <div class="flex items-center justify-between">
-                            <h1 class="text-2xl font-bold">Finalized Salary</h1>
+                        <div class="flex items-center justify-between">                            
+                            <div>
+                                <h1 class="text-2xl font-bold">Finalized Salary</h1>
+                                <p class="pt-2 text-sm font-semibold text-blue-600">Dec - 25/11/2022 - 24/12/2022</p>
+                            </div>
                             <div class="flex items-center gap-1">
                                 <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
                                     <button @click="showModal = true" class="px-4 py-2 font-semibold text-white bg-blue-600 rounded"><span>Record Payment</span></button>
@@ -166,26 +169,30 @@
                         <div>
                             <div
                                 class="p-4 border-l-4 border-r border-yellow-600 rounded shadow-md bg-blue-50 border-r-gray-300 border-y-gray-300 border-y">
-                                <div class="grid grid-cols-2 gap-4 lg:grid-cols-3">
+                                <div class="grid grid-cols-2 gap-4 lg:grid-cols-3">                                    
                                     <div class="space-y-1">
-                                        <p class="text-sm text-gray-600 uppercase">Total Employees</p>
-                                        <p class="text-3xl font-bold">150</p>
+                                        <p class="text-sm text-gray-600 uppercase">No.of Employees</p>
+                                        <p class="text-2xl font-bold">11</p>
+                                    </div>                                    
+                                    <div class="space-y-1">
+                                        <p class="text-sm text-gray-600 uppercase">Employee's Net Pay</p>
+                                        <p class="text-2xl font-bold"><span>₹ </span>87000</p>
+                                    </div>                                    
+                                    <div class="space-y-1">
+                                        <p class="text-sm text-gray-600 uppercase">Gross Pay</p>
+                                        <p class="text-2xl font-bold"><span>₹ </span>103000</p>
                                     </div>
                                     <div class="space-y-1">
-                                        <p class="text-sm text-gray-600 uppercase">Employees Paided</p>
-                                        <p class="text-3xl font-bold">100</p>
+                                        <p class="text-sm text-gray-600 uppercase">Employee Taxes</p>
+                                        <p class="text-2xl font-bold"><span>₹ </span>10000</p>
                                     </div>
                                     <div class="space-y-1">
-                                        <p class="text-sm text-gray-600 uppercase">Employees Not Paid</p>
-                                        <p class="text-3xl font-bold">45</p>
+                                        <p class="text-sm text-gray-600 uppercase">Employer Taxes</p>
+                                        <p class="text-2xl font-bold"><span>₹ </span>3000</p>
                                     </div>
                                     <div class="space-y-1">
-                                        <p class="text-sm text-gray-600 uppercase">Salary Paided</p>
-                                        <p class="text-3xl font-bold"><span>₹ </span>1,50,0000</p>
-                                    </div>
-                                    <div class="space-y-1">
-                                        <p class="text-sm text-gray-600 uppercase">Salary Not Paid</p>
-                                        <p class="text-3xl font-bold"><span>₹ </span>50,0000</p>
+                                        <p class="text-sm text-gray-600 uppercase">Deductions</p>
+                                        <p class="text-2xl font-bold"><span>₹ </span>3000</p>
                                     </div>
                                 </div>
                                 <div class="pt-6">
@@ -224,8 +231,6 @@
                                                         <label class="text-sm font-semibold text-gray-600" for="businessname">Bank Statement Format</label>
                                                         <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
                                                             <option>Standard Format</option>
-                                                            <option>HDFC Bank</option>
-                                                            <option>ICICI Bank</option>
                                                         </select>
                                                     </div>
                                                     <div class="w-full">
@@ -294,14 +299,15 @@
                                                         class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
                                                         Paid Days
                                                     </th>
-                                                    <th scope="col"
-                                                        class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
-                                                        Net Pay
-                                                    </th>
-                                                    <th scope="col"
+                                                   <th scope="col"
                                                         class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
                                                         Gross Pay
                                                     </th>
+                                                    <th scope="col"
+                                                    class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                    Net Pay
+                                                </th>
+                                                
                                                     <th scope="col"
                                                         class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
                                                         Payslip
@@ -444,51 +450,6 @@
                                                                 <li class="p-2"><button>Withhold Salary</button></li>
                                                             </ul>
                                                         </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="px-2 py-3 whitespace-nowrap">
-                                                        <span class="hidden text-sm text-gray-900">
-                                                            <input class="w-4 h-4 border border-white" type="checkbox"
-                                                                name="" id="">
-                                                        </span>
-                                                    </td>
-                                                    <td class="px-2 py-3 whitespace-nowrap">
-                                                        <div>
-                                                            <p class="font-semibold text-blue-600">Hemalatha</p>
-                                                            <p class="text-sm text-gray-600">67525165</p>
-                                                        </div>
-                                                    </td>
-                                                    <td class="px-2 py-3 whitespace-nowrap">
-                                                        <span class="text-sm text-gray-900">
-                                                            28
-                                                        </span>
-                                                    </td>
-                                                    <td class="px-2 py-3 whitespace-nowrap">
-                                                        <span class="text-sm text-gray-900">
-                                                            <span>₹</span> 13500
-                                                        </span>
-                                                    </td>
-                                                    <td class="px-2 py-3 whitespace-nowrap">
-                                                        <span class="text-sm text-gray-900">
-                                                            <span>₹</span> 12000
-                                                        </span>
-                                                    </td>
-                                                    <td class="px-2 py-3 whitespace-nowrap">
-                                                        <button  x-data="{usedKeyboard: false}"
-                                                        @keydown.window.tab="usedKeyboard = true" role=button
-                                                        @click="$dispatch('open-menu', { open: true })"
-                                                        :class="{'focus:outline-none': !usedKeyboard}" class="font-semibold text-blue-600">View</button>
-                                                    </td>
-                                                    <td class="px-2 py-3 whitespace-nowrap">
-                                                        <span class="text-sm text-gray-900">
-                                                            Cash
-                                                        </span>
-                                                    </td>
-                                                    <td class="px-2 py-3 whitespace-nowrap">
-                                                        <span class="text-base text-green-600">
-                                                            Paid on 12-12-2022
-                                                        </span>
                                                     </td>
                                                 </tr>
                                             </tbody>
