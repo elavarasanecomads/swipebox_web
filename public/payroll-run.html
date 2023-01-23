@@ -40,7 +40,7 @@
                                             clip-rule="evenodd"></path>
                                     </svg>
                                     <span
-                                        class="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">Salary Paid History</span>
+                                        class="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">Payroll Run</span>
                                 </div>
                             </li>
                         </ol>
@@ -48,7 +48,6 @@
 
                     <div class="py-4 space-y-4">
                         <div class="flex flex-col">
-                            <h3 class="text-2xl font-bold">Salary Paid History</h3>
                             <div class="mt-6 -my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
                                 <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                                     <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
@@ -57,20 +56,32 @@
                                             <thead class="bg-blue-600">
                                                 <tr>
                                                     <th scope="col"
-                                                        class="px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                        class="px-4 py-3 text-sm font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                        Generated On
+                                                    </th>
+                                                    <th scope="col"
+                                                        class="px-4 py-3 text-sm font-semibold tracking-wider text-left text-gray-100 uppercase">
                                                         Batch Name
                                                     </th>
 
                                                     <th scope="col"
-                                                        class="px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
-                                                        Type
+                                                        class="px-4 py-3 text-sm font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                        Projected Salary
                                                     </th>
                                                     <th scope="col"
-                                                        class="px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
-                                                        Gross Pay
+                                                        class="px-4 py-3 text-sm font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                        Final Salary
                                                     </th>
                                                     <th scope="col"
-                                                        class="px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                    class="px-4 py-3 text-sm font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                    Withhold Salary
+                                                </th>
+                                                <th scope="col"
+                                                class="px-4 py-3 text-sm font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                History
+                                            </th>
+                                                    <th scope="col"
+                                                        class="px-4 py-3 text-sm font-semibold tracking-wider text-left text-gray-100 uppercase">
                                                         Action
                                                     </th>
                                                 </tr>
@@ -78,23 +89,91 @@
                                             <tbody class="bg-white divide-y divide-gray-200">
                                                 <tr>
                                                     <td class="px-4 py-4 whitespace-nowrap">
+                                                        <span class="text-base text-gray-900">23-01-2023 09:45 AM</span>
+                                                    </td>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
                                                         <div>
-                                                            <p class="font-semibold text-gray-900">Dec - 25/11/2022 - 24/12/2022</p>
+                                                            <a href="" class="font-semibold text-blue-600">Jan - 25/12/2022 - 23/01/2023</a>
                                                         </div>
                                                     </td>
                                                     <td class="px-4 py-4 whitespace-nowrap">
-                                                        <span class="text-base text-gray-900">
-                                                            Monthly
-                                                        </span>
+                                                        <a class="font-semibold text-blue-600" href="projected-salary.html">View</a>
                                                     </td>
                                                     <td class="px-4 py-4 whitespace-nowrap">
-                                                        <span class="text-base text-gray-900">
-                                                            <span>₹</span> 115000
-                                                        </span>
+                                                        <a class="font-semibold text-blue-600" href="final-salary.html">View</a>
+                                                    </td>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <a class="font-semibold text-blue-600" href="withhold-salary.html">View</a>
                                                     </td>
                                                     <td class="px-4 py-4 whitespace-nowrap">
                                                         <a class="font-semibold text-blue-600" href="salary-paid-history-details.html">View</a>
+                                                    </td>                                                   
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <span class="text-base text-gray-900">19-12-2023 09:45 AM</span>
                                                     </td>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <div>
+                                                            <a href="" class="font-semibold text-blue-600">Dec - 25/11/2022 - 24/12/2023</a>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <a class="font-semibold text-blue-600" href="projected-salary.html">View</a>
+                                                    </td>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <a class="font-semibold text-blue-600" href="final-salary.html">View</a>
+                                                    </td>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <a class="font-semibold text-blue-600" href="withhold-salary.html">View</a>
+                                                    </td>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <a class="font-semibold text-blue-600" href="salary-paid-history-details.html">View</a>
+                                                    </td>                                                   
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <span class="text-base text-gray-900">19-12-2023 09:45 AM</span>
+                                                    </td>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <div>
+                                                            <a href="" class="font-semibold text-blue-600">Nov - 25/10/2022 - 24/11/2023</a>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <a class="font-semibold text-blue-600" href="projected-salary.html">View</a>
+                                                    </td>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <a class="font-semibold text-blue-600" href="final-salary.html">View</a>
+                                                    </td>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <a class="font-semibold text-blue-600" href="withhold-salary.html">View</a>
+                                                    </td>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <a class="font-semibold text-blue-600" href="salary-paid-history-details.html">View</a>
+                                                    </td>                                                   
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <span class="text-base text-gray-900">19-11-2023 09:45 AM</span>
+                                                    </td>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <div>
+                                                            <a href="" class="font-semibold text-blue-600">Oct - 25/09/2022 - 24/10/2023</a>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <a class="font-semibold text-blue-600" href="projected-salary.html">View</a>
+                                                    </td>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <a class="font-semibold text-blue-600" href="final-salary.html">View</a>
+                                                    </td>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <a class="font-semibold text-blue-600" href="withhold-salary.html">View</a>
+                                                    </td>
+                                                    <td class="px-4 py-4 whitespace-nowrap">
+                                                        <a class="font-semibold text-blue-600" href="salary-paid-history-details.html">View</a>
+                                                    </td>                                                   
                                                 </tr>
                                             </tbody>
                                         </table>
