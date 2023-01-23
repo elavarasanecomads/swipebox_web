@@ -73,28 +73,376 @@
                                     </select>
                                 </div>
                                 <div>
-                                    <label class="font-semibold text-gray-600" for="businessname">Basic
+                                    <label class="font-semibold text-gray-600" for="businessname">Gross
                                         Salary</label>
                                     <input type="text" name="businessname" id="businessname" autocomplete="title"
                                         placeholder=""
                                         class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                 </div>
-                                <div class="col-span-2 col-start-1" x-data="{toggle: false}">
-                                    <label class="inline-flex items-center">
-                                        <input class="w-4 h-4" type="checkbox" id="toggle" name="toggle"
-                                            x-model="toggle">
-                                        <span class="ml-2 font-semibold text-gray-600">Choose Salary Template</span>
-                                    </label>
-                                    <div class="pt-4" id="toggleOn" x-show="toggle">
-                                        <label class="font-semibold text-gray-600" for="businessname">Salary
-                                            Template</label>
-                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                            class="block w-full px-1 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                            <option>Basic Template</option>
-                                            <option>Higher Template</option>
-                                        </select>
+                                <div id="toggleOn" x-show="toggle">
+                                    <label class="font-semibold text-gray-600" for="businessname">Salary
+                                        Template</label>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-1 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>Basic Template</option>
+                                        <option>Higher Template</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4">
+                            <div x-data="{
+                                openTab: 1,
+                                activeClasses: 'border-b-2 border-blue-600 text-blue-600',
+                                inactiveClasses: ''
+                            }">
+                                <div class="grid grid-cols-2 pt-2 bg-gray-100 border-b">
+                                    <div class="col-span-1" @click="openTab = 1">
+                                        <button class="w-full pb-2 font-semibold border-b-2 hover:border-b-2 hover:border-blue-600 hover:text-blue-600" :class="openTab === 1 ? activeClasses : inactiveClasses">Salary Calculation</button>
                                     </div>
-                                    <div class="pt-4" id="toggleOn" x-show="toggle">
+                                    <div class="col-span-1" @click="openTab = 2">
+                                        <button class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600" :class="openTab === 2 ? activeClasses : inactiveClasses">Salary Template Breakdown</button>
+                                    </div>
+                                </div>
+                                <div class="pt-6 space-y-4 bg-white" x-show="openTab === 1">
+                                    <div class="z-10 -my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                        <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                            <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+        
+                                                <table class="min-w-full divide-y divide-gray-200 table-auto">
+                                                    <thead class="text-sm bg-blue-600">
+                                                        <tr>                                                    
+                                                            <th scope="col" class="px-3 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                                Name
+                                                            </th>
+                                                            <th scope="col" class="px-3 py-3 font-bold tracking-wider text-left text-gray-100 uppercase w-44">
+                                                                Amount
+                                                            </th>
+                                                            <th scope="col" class="px-3 py-3 font-bold tracking-wider text-left text-gray-100 uppercase w-44">
+                                                                Action
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="bg-white divide-y divide-gray-200">
+                                                        <tr>
+                                                            <td class="px-3 py-4 whitespace-nowrap">
+                                                                <p class="text-lg font-bold">Salary Calculation</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>  
+                                                            <td class="py-4 pl-8 pr-3 whitespace-nowrap">
+                                                                <div>
+                                                                    <p class="font-semibold">Full Day Salary</p>
+                                                                    <p class="text-sm text-gray-600"> Calculated based on Basic salary / [ Pay cycle (number of days ) ] </p>
+                                                                </div>
+                                                            </td>  
+                                                            <td class="px-3 py-4 whitespace-nowrap">
+                                                                <span class="text-gray-600">
+                                                                    ₹ 1,000</span>
+                                                            </td>
+                                                            <td class="relative flex items-center gap-4 px-3 py-4 whitespace-nowrap">
+                                                                <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                                    <button @click="showModal = true" class="p-1 px-4 font-semibold text-white bg-blue-600 rounded"><span>Edit</span></button>
+                                                                
+                                                                    <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
+                                                                        <!-- Modal inner -->
+                                                                        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                                            <!-- Title / Close-->
+                                                                            <div class="flex items-center justify-between">
+                                                                                <p class="font-bold text-gray-900">
+                                                                                    
+                                                                                </p>
+                                                                                <span @click="showModal = false">
+                                                                                    <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                                    </svg>
+                                                                                </span>
+                                                                            </div>
+                                                                            <!-- content -->
+                                                                            <div class="w-full mt-4 space-y-2">
+                                                                                <div>                                                                                
+                                                                                    <p class="text-lg font-semibold">Full Day Salary</p>
+                                                                                    <p class="text-sm text-gray-600"> Calculated based on Basic salary / [ Pay cycle (number of days ) ] </p>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <div>
+                                                                                        <label class="text-sm font-semibold text-gray-600" for="mobile">Amount</label>
+                                                                                        <input type="text" name="email" id="email" autocomplete="title" placeholder="" class="block px-3 py-3 mt-1 border border-gray-400 rounded-md w-44 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="py-4">
+                                                                                    <button class="p-2 font-semibold text-center text-white bg-blue-600 rounded-md w-44">Update</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>  
+                                                            <td class="py-4 pl-8 pr-3 whitespace-nowrap">
+                                                                <div>
+                                                                    <p class="font-semibold">Half Day Salary</p>
+                                                                    <p class="text-sm text-gray-600">  Calculated based on Basic salary / [ Pay cycle (number of days ) ] / 2 </p>
+                                                                </div>
+                                                            </td>  
+                                                            <td class="px-3 py-4 whitespace-nowrap">
+                                                                <span class="text-gray-600">
+                                                                    ₹ 1,000</span>
+                                                            </td>
+                                                            <td class="relative flex items-center gap-4 px-3 py-4 whitespace-nowrap">
+                                                                <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                                    <button @click="showModal = true" class="p-1 px-4 font-semibold text-white bg-blue-600 rounded"><span>Edit</span></button>
+                                                                
+                                                                    <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
+                                                                        <!-- Modal inner -->
+                                                                        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                                            <!-- Title / Close-->
+                                                                            <div class="flex items-center justify-between">
+                                                                                <p class="font-bold text-gray-900">
+                                                                                    
+                                                                                </p>
+                                                                                <span @click="showModal = false">
+                                                                                    <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                                    </svg>
+                                                                                </span>
+                                                                            </div>
+                                                                            <!-- content -->
+                                                                            <div class="w-full mt-4 space-y-2">
+                                                                                <div>                                                                                
+                                                                                    <p class="text-lg font-semibold">Half Day Salary</p>
+                                                                                    <p class="text-sm text-gray-600">  Calculated based on Basic salary / [ Pay cycle (number of days ) ] / 2 </p>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <div>
+                                                                                        <label class="text-sm font-semibold text-gray-600" for="mobile">Amount</label>
+                                                                                        <input type="text" name="email" id="email" autocomplete="title" placeholder="" class="block px-3 py-3 mt-1 border border-gray-400 rounded-md w-44 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="py-4">
+                                                                                    <button class="p-2 font-semibold text-center text-white bg-blue-600 rounded-md w-44">Update</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>  
+                                                            <td class="py-4 pl-8 pr-3 whitespace-nowrap">
+                                                                <div>
+                                                                    <p class="font-semibold">Hourly Salary</p>
+                                                                    <p class="text-sm text-gray-600"> Calculated based on Basic salary / [ Pay cycle (number of days ) * Shift timing ] </p>
+                                                                </div>
+                                                            </td>  
+                                                            <td class="px-3 py-4 whitespace-nowrap">
+                                                                <span class="text-gray-600">
+                                                                    ₹ 1,000</span>
+                                                            </td>
+                                                            <td class="relative flex items-center gap-4 px-3 py-4 whitespace-nowrap">
+                                                                <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                                    <button @click="showModal = true" class="p-1 px-4 font-semibold text-white bg-blue-600 rounded"><span>Edit</span></button>
+                                                                
+                                                                    <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
+                                                                        <!-- Modal inner -->
+                                                                        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                                            <!-- Title / Close-->
+                                                                            <div class="flex items-center justify-between">
+                                                                                <p class="font-bold text-gray-900">
+                                                                                    
+                                                                                </p>
+                                                                                <span @click="showModal = false">
+                                                                                    <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                                    </svg>
+                                                                                </span>
+                                                                            </div>
+                                                                            <!-- content -->
+                                                                            <div class="w-full mt-4 space-y-2">
+                                                                                <div>                                                                                
+                                                                                    <p class="text-lg font-semibold">Hourly Salary</p>
+                                                                                    <p class="text-sm text-gray-600"> Calculated based on Basic salary / [ Pay cycle (number of days ) * Shift timing ] </p>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <div>
+                                                                                        <label class="text-sm font-semibold text-gray-600" for="mobile">Amount</label>
+                                                                                        <input type="text" name="email" id="email" autocomplete="title" placeholder="" class="block px-3 py-3 mt-1 border border-gray-400 rounded-md w-44 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="py-4">
+                                                                                    <button class="p-2 font-semibold text-center text-white bg-blue-600 rounded-md w-44">Update</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="px-3 py-4 whitespace-nowrap">
+                                                                <p class="text-lg font-bold">Penalties</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>  
+                                                            <td class="py-4 pl-8 pr-3 whitespace-nowrap">
+                                                                <div>
+                                                                    <p class="font-semibold">Late Entry Fine</p>
+                                                                    <p class="text-sm text-gray-600"> Calculated based on Basic salary / [ Pay cycle (number of days ) * Shift timing ]  </p>
+                                                                </div>
+                                                            </td>  
+                                                            <td class="px-3 py-4 whitespace-nowrap">
+                                                                <span class="text-gray-600">
+                                                                    ₹ 1,000</span>
+                                                            </td>
+                                                            <td class="relative flex items-center gap-4 px-3 py-4 whitespace-nowrap">
+                                                                <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                                    <button @click="showModal = true" class="p-1 px-4 font-semibold text-white bg-blue-600 rounded"><span>Edit</span></button>
+                                                                
+                                                                    <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
+                                                                        <!-- Modal inner -->
+                                                                        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                                            <!-- Title / Close-->
+                                                                            <div class="flex items-center justify-between">
+                                                                                <p class="font-bold text-gray-900">
+                                                                                    
+                                                                                </p>
+                                                                                <span @click="showModal = false">
+                                                                                    <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                                    </svg>
+                                                                                </span>
+                                                                            </div>
+                                                                            <!-- content -->
+                                                                            <div class="w-full mt-4 space-y-2">
+                                                                                <div>                                                                                
+                                                                                    <p class="text-lg font-semibold">Late Entry Fine</p>
+                                                                                    <p class="text-sm text-gray-600"> Calculated based on Basic salary / [ Pay cycle (number of days ) * Shift timing ]  </p>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <div>
+                                                                                        <label class="text-sm font-semibold text-gray-600" for="mobile">Amount</label>
+                                                                                        <input type="text" name="email" id="email" autocomplete="title" placeholder="" class="block px-3 py-3 mt-1 border border-gray-400 rounded-md w-44 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="py-4">
+                                                                                    <button class="p-2 font-semibold text-center text-white bg-blue-600 rounded-md w-44">Update</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>  
+                                                            <td class="py-4 pl-8 pr-3 whitespace-nowrap">
+                                                                <div>
+                                                                    <p class="font-semibold">Early Exit Fine</p>
+                                                                    <p class="text-sm text-gray-600"> Calculated based on Basic salary / [ Pay cycle (number of days ) * Shift timing ] </p>
+                                                                </div>
+                                                            </td>  
+                                                            <td class="px-3 py-4 whitespace-nowrap">
+                                                                <span class="text-gray-600">
+                                                                    ₹ 1,000</span>
+                                                            </td>
+                                                            <td class="relative flex items-center gap-4 px-3 py-4 whitespace-nowrap">
+                                                                <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                                    <button @click="showModal = true" class="p-1 px-4 font-semibold text-white bg-blue-600 rounded"><span>Edit</span></button>
+                                                                
+                                                                    <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
+                                                                        <!-- Modal inner -->
+                                                                        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                                            <!-- Title / Close-->
+                                                                            <div class="flex items-center justify-between">
+                                                                                <p class="font-bold text-gray-900">
+                                                                                    
+                                                                                </p>
+                                                                                <span @click="showModal = false">
+                                                                                    <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                                    </svg>
+                                                                                </span>
+                                                                            </div>
+                                                                            <!-- content -->
+                                                                            <div class="w-full mt-4 space-y-2">
+                                                                                <div>                                                                                
+                                                                                    <p class="text-lg font-semibold">Early Exit Fine</p>
+                                                                    <p class="text-sm text-gray-600"> Calculated based on Basic salary / [ Pay cycle (number of days ) * Shift timing ] </p>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <div>
+                                                                                        <label class="text-sm font-semibold text-gray-600" for="mobile">Amount</label>
+                                                                                        <input type="text" name="email" id="email" autocomplete="title" placeholder="" class="block px-3 py-3 mt-1 border border-gray-400 rounded-md w-44 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="py-4">
+                                                                                    <button class="p-2 font-semibold text-center text-white bg-blue-600 rounded-md w-44">Update</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>  
+                                                            <td class="py-4 pl-8 pr-3 whitespace-nowrap">
+                                                                <div>
+                                                                    <p class="font-semibold">Break hour Fine</p>
+                                                                    <p class="text-sm text-gray-600">Calculated based on Basic salary / [ Pay cycle (number of days ) * Shift timing ] </p>
+                                                                </div>
+                                                            </td>  
+                                                            <td class="px-3 py-4 whitespace-nowrap">
+                                                                <span class="text-gray-600">
+                                                                    ₹ 1,000</span>
+                                                            </td>
+                                                            <td class="relative flex items-center gap-4 px-3 py-4 whitespace-nowrap">
+                                                                <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                                    <button @click="showModal = true" class="p-1 px-4 font-semibold text-white bg-blue-600 rounded"><span>Edit</span></button>
+                                                                
+                                                                    <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
+                                                                        <!-- Modal inner -->
+                                                                        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                                            <!-- Title / Close-->
+                                                                            <div class="flex items-center justify-between">
+                                                                                <p class="font-bold text-gray-900">
+                                                                                    
+                                                                                </p>
+                                                                                <span @click="showModal = false">
+                                                                                    <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                                    </svg>
+                                                                                </span>
+                                                                            </div>
+                                                                            <!-- content -->
+                                                                            <div class="w-full mt-4 space-y-2">
+                                                                                <div>                                                                                
+                                                                                    <p class="text-lg font-semibold">Break hour Fine</p>
+                                                                                    <p class="text-sm text-gray-600">Calculated based on Basic salary / [ Pay cycle (number of days ) * Shift timing ] </p>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <div>
+                                                                                        <label class="text-sm font-semibold text-gray-600" for="mobile">Amount</label>
+                                                                                        <input type="text" name="email" id="email" autocomplete="title" placeholder="" class="block px-3 py-3 mt-1 border border-gray-400 rounded-md w-44 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="py-4">
+                                                                                    <button class="p-2 font-semibold text-center text-white bg-blue-600 rounded-md w-44">Update</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pt-6 space-y-4 bg-white" x-show="openTab === 2" style="display: none;">
+                                    <div class="pt-4">
                                         <div class="pb-4">
                                             <div class="flex items-center justify-between pb-4">
                                                 <p class="pb-4 text-xl font-bold">Earnings</p>
@@ -144,7 +492,7 @@
                                                                                         name="jobtype" disabled=""
                                                                                         autocomplete="jobtype"
                                                                                         class="block px-1 py-1 text-sm bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                                                        <option>% of Salary</option>
+                                                                                        <option>% of Gross Salary</option>
                                                                                         <option>Fixed Amount
                                                                                         </option>
                                                                                     </select>
@@ -175,13 +523,13 @@
 
                                                                                         <option>Fixed Amount
                                                                                         </option>
-                                                                                        <option>% of Salary</option>
+                                                                                        <option>% of Gross Salary</option>
                                                                                     </select>
                                                                                 </span>
                                                                             </button>
                                                                         </td>
                                                                         <td
-                                                                            class="inline-flex items-center px-4 py-4 whitespace-nowrap">
+                                                                            class="inline-flex items-center py-4 whitespace-nowrap">
                                                                             <input type="text"
                                                                                 class="block px-3 py-3 mr-2 border border-gray-400 w-36 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                                             <button><svg
@@ -952,400 +1300,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="pt-4">
-                            <div class="flex flex-col border-b">
-                                <div class="z-10 -my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
-                                    <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                                        <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
-    
-                                            <table class="min-w-full divide-y divide-gray-200 table-auto">
-                                                <thead class="text-sm bg-blue-600">
-                                                    <tr>                                                    
-                                                        <th scope="col" class="px-3 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
-                                                            Name
-                                                        </th>
-                                                        <th scope="col" class="px-3 py-3 font-bold tracking-wider text-left text-gray-100 uppercase w-44">
-                                                            Amount
-                                                        </th>
-                                                        <th scope="col" class="px-3 py-3 font-bold tracking-wider text-left text-gray-100 uppercase w-44">
-                                                            Action
-                                                        </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody class="bg-white divide-y divide-gray-200">
-                                                    <tr>
-                                                        <td class="px-3 py-4 whitespace-nowrap">
-                                                            <p class="text-lg font-bold">Salary Calculation</p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>  
-                                                        <td class="py-4 pl-8 pr-3 whitespace-nowrap">
-                                                            <div>
-                                                                <p class="font-semibold">Full Day Salary</p>
-                                                                <p class="text-sm text-gray-600"> Calculated based on Basic salary / [ Pay cycle (number of days ) ] </p>
-                                                            </div>
-                                                        </td>  
-                                                        <td class="px-3 py-4 whitespace-nowrap">
-                                                            <span class="text-gray-600">
-                                                                ₹ 1,000</span>
-                                                        </td>
-                                                        <td class="relative flex items-center gap-4 px-3 py-4 whitespace-nowrap">
-                                                            <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
-                                                                <button @click="showModal = true" class="p-1 px-4 font-semibold text-white bg-blue-600 rounded"><span>Edit</span></button>
-                                                            
-                                                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
-                                                                    <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
-                                                                        <!-- Title / Close-->
-                                                                        <div class="flex items-center justify-between">
-                                                                            <p class="font-bold text-gray-900">
-                                                                                
-                                                                            </p>
-                                                                            <span @click="showModal = false">
-                                                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                                                                                </svg>
-                                                                            </span>
-                                                                        </div>
-                                                                        <!-- content -->
-                                                                        <div class="w-full mt-4 space-y-2">
-                                                                            <div>                                                                                
-                                                                                <p class="text-lg font-semibold">Full Day Salary</p>
-                                                                                <p class="text-sm text-gray-600"> Calculated based on Basic salary / [ Pay cycle (number of days ) ] </p>
-                                                                            </div>
-                                                                            <div>
-                                                                                <div>
-                                                                                    <label class="text-sm font-semibold text-gray-600" for="mobile">Amount</label>
-                                                                                    <input type="text" name="email" id="email" autocomplete="title" placeholder="" class="block px-3 py-3 mt-1 border border-gray-400 rounded-md w-44 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="py-4">
-                                                                                <button class="p-2 font-semibold text-center text-white bg-blue-600 rounded-md w-44">Update</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>  
-                                                        <td class="py-4 pl-8 pr-3 whitespace-nowrap">
-                                                            <div>
-                                                                <p class="font-semibold">Half Day Salary</p>
-                                                                <p class="text-sm text-gray-600">  Calculated based on Basic salary / [ Pay cycle (number of days ) ] / 2 </p>
-                                                            </div>
-                                                        </td>  
-                                                        <td class="px-3 py-4 whitespace-nowrap">
-                                                            <span class="text-gray-600">
-                                                                ₹ 1,000</span>
-                                                        </td>
-                                                        <td class="relative flex items-center gap-4 px-3 py-4 whitespace-nowrap">
-                                                            <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
-                                                                <button @click="showModal = true" class="p-1 px-4 font-semibold text-white bg-blue-600 rounded"><span>Edit</span></button>
-                                                            
-                                                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
-                                                                    <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
-                                                                        <!-- Title / Close-->
-                                                                        <div class="flex items-center justify-between">
-                                                                            <p class="font-bold text-gray-900">
-                                                                                
-                                                                            </p>
-                                                                            <span @click="showModal = false">
-                                                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                                                                                </svg>
-                                                                            </span>
-                                                                        </div>
-                                                                        <!-- content -->
-                                                                        <div class="w-full mt-4 space-y-2">
-                                                                            <div>                                                                                
-                                                                                <p class="text-lg font-semibold">Half Day Salary</p>
-                                                                                <p class="text-sm text-gray-600">  Calculated based on Basic salary / [ Pay cycle (number of days ) ] / 2 </p>
-                                                                            </div>
-                                                                            <div>
-                                                                                <div>
-                                                                                    <label class="text-sm font-semibold text-gray-600" for="mobile">Amount</label>
-                                                                                    <input type="text" name="email" id="email" autocomplete="title" placeholder="" class="block px-3 py-3 mt-1 border border-gray-400 rounded-md w-44 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="py-4">
-                                                                                <button class="p-2 font-semibold text-center text-white bg-blue-600 rounded-md w-44">Update</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>  
-                                                        <td class="py-4 pl-8 pr-3 whitespace-nowrap">
-                                                            <div>
-                                                                <p class="font-semibold">Hourly Salary</p>
-                                                                <p class="text-sm text-gray-600"> Calculated based on Basic salary / [ Pay cycle (number of days ) * Shift timing ] </p>
-                                                            </div>
-                                                        </td>  
-                                                        <td class="px-3 py-4 whitespace-nowrap">
-                                                            <span class="text-gray-600">
-                                                                ₹ 1,000</span>
-                                                        </td>
-                                                        <td class="relative flex items-center gap-4 px-3 py-4 whitespace-nowrap">
-                                                            <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
-                                                                <button @click="showModal = true" class="p-1 px-4 font-semibold text-white bg-blue-600 rounded"><span>Edit</span></button>
-                                                            
-                                                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
-                                                                    <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
-                                                                        <!-- Title / Close-->
-                                                                        <div class="flex items-center justify-between">
-                                                                            <p class="font-bold text-gray-900">
-                                                                                
-                                                                            </p>
-                                                                            <span @click="showModal = false">
-                                                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                                                                                </svg>
-                                                                            </span>
-                                                                        </div>
-                                                                        <!-- content -->
-                                                                        <div class="w-full mt-4 space-y-2">
-                                                                            <div>                                                                                
-                                                                                <p class="text-lg font-semibold">Hourly Salary</p>
-                                                                                <p class="text-sm text-gray-600"> Calculated based on Basic salary / [ Pay cycle (number of days ) * Shift timing ] </p>
-                                                                            </div>
-                                                                            <div>
-                                                                                <div>
-                                                                                    <label class="text-sm font-semibold text-gray-600" for="mobile">Amount</label>
-                                                                                    <input type="text" name="email" id="email" autocomplete="title" placeholder="" class="block px-3 py-3 mt-1 border border-gray-400 rounded-md w-44 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="py-4">
-                                                                                <button class="p-2 font-semibold text-center text-white bg-blue-600 rounded-md w-44">Update</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="px-3 py-4 whitespace-nowrap">
-                                                            <p class="text-lg font-bold">Penalties</p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>  
-                                                        <td class="py-4 pl-8 pr-3 whitespace-nowrap">
-                                                            <div>
-                                                                <p class="font-semibold">Late Entry Fine</p>
-                                                                <p class="text-sm text-gray-600"> Calculated based on Basic salary / [ Pay cycle (number of days ) * Shift timing ]  </p>
-                                                            </div>
-                                                        </td>  
-                                                        <td class="px-3 py-4 whitespace-nowrap">
-                                                            <span class="text-gray-600">
-                                                                ₹ 1,000</span>
-                                                        </td>
-                                                        <td class="relative flex items-center gap-4 px-3 py-4 whitespace-nowrap">
-                                                            <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
-                                                                <button @click="showModal = true" class="p-1 px-4 font-semibold text-white bg-blue-600 rounded"><span>Edit</span></button>
-                                                            
-                                                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
-                                                                    <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
-                                                                        <!-- Title / Close-->
-                                                                        <div class="flex items-center justify-between">
-                                                                            <p class="font-bold text-gray-900">
-                                                                                
-                                                                            </p>
-                                                                            <span @click="showModal = false">
-                                                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                                                                                </svg>
-                                                                            </span>
-                                                                        </div>
-                                                                        <!-- content -->
-                                                                        <div class="w-full mt-4 space-y-2">
-                                                                            <div>                                                                                
-                                                                                <p class="text-lg font-semibold">Late Entry Fine</p>
-                                                                                <p class="text-sm text-gray-600"> Calculated based on Basic salary / [ Pay cycle (number of days ) * Shift timing ]  </p>
-                                                                            </div>
-                                                                            <div>
-                                                                                <div>
-                                                                                    <label class="text-sm font-semibold text-gray-600" for="mobile">Amount</label>
-                                                                                    <input type="text" name="email" id="email" autocomplete="title" placeholder="" class="block px-3 py-3 mt-1 border border-gray-400 rounded-md w-44 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="py-4">
-                                                                                <button class="p-2 font-semibold text-center text-white bg-blue-600 rounded-md w-44">Update</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>  
-                                                        <td class="py-4 pl-8 pr-3 whitespace-nowrap">
-                                                            <div>
-                                                                <p class="font-semibold">Early Exit Fine</p>
-                                                                <p class="text-sm text-gray-600"> Calculated based on Basic salary / [ Pay cycle (number of days ) * Shift timing ] </p>
-                                                            </div>
-                                                        </td>  
-                                                        <td class="px-3 py-4 whitespace-nowrap">
-                                                            <span class="text-gray-600">
-                                                                ₹ 1,000</span>
-                                                        </td>
-                                                        <td class="relative flex items-center gap-4 px-3 py-4 whitespace-nowrap">
-                                                            <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
-                                                                <button @click="showModal = true" class="p-1 px-4 font-semibold text-white bg-blue-600 rounded"><span>Edit</span></button>
-                                                            
-                                                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
-                                                                    <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
-                                                                        <!-- Title / Close-->
-                                                                        <div class="flex items-center justify-between">
-                                                                            <p class="font-bold text-gray-900">
-                                                                                
-                                                                            </p>
-                                                                            <span @click="showModal = false">
-                                                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                                                                                </svg>
-                                                                            </span>
-                                                                        </div>
-                                                                        <!-- content -->
-                                                                        <div class="w-full mt-4 space-y-2">
-                                                                            <div>                                                                                
-                                                                                <p class="text-lg font-semibold">Early Exit Fine</p>
-                                                                <p class="text-sm text-gray-600"> Calculated based on Basic salary / [ Pay cycle (number of days ) * Shift timing ] </p>
-                                                                            </div>
-                                                                            <div>
-                                                                                <div>
-                                                                                    <label class="text-sm font-semibold text-gray-600" for="mobile">Amount</label>
-                                                                                    <input type="text" name="email" id="email" autocomplete="title" placeholder="" class="block px-3 py-3 mt-1 border border-gray-400 rounded-md w-44 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="py-4">
-                                                                                <button class="p-2 font-semibold text-center text-white bg-blue-600 rounded-md w-44">Update</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>  
-                                                        <td class="py-4 pl-8 pr-3 whitespace-nowrap">
-                                                            <div>
-                                                                <p class="font-semibold">Break hour Fine</p>
-                                                                <p class="text-sm text-gray-600">Calculated based on Basic salary / [ Pay cycle (number of days ) * Shift timing ] </p>
-                                                            </div>
-                                                        </td>  
-                                                        <td class="px-3 py-4 whitespace-nowrap">
-                                                            <span class="text-gray-600">
-                                                                ₹ 1,000</span>
-                                                        </td>
-                                                        <td class="relative flex items-center gap-4 px-3 py-4 whitespace-nowrap">
-                                                            <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
-                                                                <button @click="showModal = true" class="p-1 px-4 font-semibold text-white bg-blue-600 rounded"><span>Edit</span></button>
-                                                            
-                                                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
-                                                                    <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
-                                                                        <!-- Title / Close-->
-                                                                        <div class="flex items-center justify-between">
-                                                                            <p class="font-bold text-gray-900">
-                                                                                
-                                                                            </p>
-                                                                            <span @click="showModal = false">
-                                                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                                                                                </svg>
-                                                                            </span>
-                                                                        </div>
-                                                                        <!-- content -->
-                                                                        <div class="w-full mt-4 space-y-2">
-                                                                            <div>                                                                                
-                                                                                <p class="text-lg font-semibold">Break hour Fine</p>
-                                                                                <p class="text-sm text-gray-600">Calculated based on Basic salary / [ Pay cycle (number of days ) * Shift timing ] </p>
-                                                                            </div>
-                                                                            <div>
-                                                                                <div>
-                                                                                    <label class="text-sm font-semibold text-gray-600" for="mobile">Amount</label>
-                                                                                    <input type="text" name="email" id="email" autocomplete="title" placeholder="" class="block px-3 py-3 mt-1 border border-gray-400 rounded-md w-44 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="py-4">
-                                                                                <button class="p-2 font-semibold text-center text-white bg-blue-600 rounded-md w-44">Update</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="px-3 py-4 whitespace-nowrap">
-                                                            <p class="text-lg font-bold">Tax</p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>  
-                                                        <td class="py-4 pl-8 pr-3 whitespace-nowrap">
-                                                            <div>
-                                                                <p class="font-semibold">Profession Tax</p>
-                                                                <p class="text-sm text-gray-600"> Direct value , each month it will be deducted  </p>
-                                                            </div>
-                                                        </td>  
-                                                        <td class="px-3 py-4 whitespace-nowrap">
-                                                            <span class="text-gray-600">
-                                                                ₹ 1,000</span>
-                                                        </td>
-                                                        <td class="relative flex items-center gap-4 px-3 py-4 whitespace-nowrap">
-                                                            <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
-                                                                <button @click="showModal = true" class="p-1 px-4 font-semibold text-white bg-blue-600 rounded"><span>Edit</span></button>
-                                                            
-                                                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
-                                                                    <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
-                                                                        <!-- Title / Close-->
-                                                                        <div class="flex items-center justify-between">
-                                                                            <p class="font-bold text-gray-900">
-                                                                                
-                                                                            </p>
-                                                                            <span @click="showModal = false">
-                                                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                                                                                </svg>
-                                                                            </span>
-                                                                        </div>
-                                                                        <!-- content -->
-                                                                        <div class="w-full mt-4 space-y-2">
-                                                                            <div>                                                                                
-                                                                                <p class="text-lg font-semibold">Profession Tax</p>
-                                                                                <p class="text-sm text-gray-600"> Direct value , each month it will be deducted  </p>
-                                                                            </div>
-                                                                            <div>
-                                                                                <div>
-                                                                                    <label class="text-sm font-semibold text-gray-600" for="mobile">Amount</label>
-                                                                                    <input type="text" name="email" id="email" autocomplete="title" placeholder="" class="block px-3 py-3 mt-1 border border-gray-400 rounded-md w-44 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="py-4">
-                                                                                <button class="p-2 font-semibold text-center text-white bg-blue-600 rounded-md w-44">Update</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
