@@ -1642,6 +1642,26 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-color: rgb(239 68 68 / var(--tw-border-opacity));
 }
 
+.border-rose-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(225 29 72 / var(--tw-border-opacity));
+}
+
+.border-emerald-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(5 150 105 / var(--tw-border-opacity));
+}
+
+.border-indigo-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(79 70 229 / var(--tw-border-opacity));
+}
+
+.border-zinc-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(82 82 91 / var(--tw-border-opacity));
+}
+
 .border-y-gray-300 {
   --tw-border-opacity: 1;
   border-top-color: rgb(209 213 219 / var(--tw-border-opacity));
@@ -1850,6 +1870,21 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-orange-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(255 247 237 / var(--tw-bg-opacity));
+}
+
+.bg-rose-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 228 230 / var(--tw-bg-opacity));
+}
+
+.bg-emerald-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(209 250 229 / var(--tw-bg-opacity));
+}
+
+.bg-zinc-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 244 245 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-50 {
