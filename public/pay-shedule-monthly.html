@@ -71,17 +71,16 @@
             </ol>
           </nav>
           <div class="pt-6">
-            <p class="text-2xl font-bold">Monthly Salary Cycle </p>
+            <p class="text-2xl font-bold">Monthly Payroll Cycle Configuration</p>
           </div>
           <div class="pt-4 space-y-6">
-
             <div>
-
               <div>
-
                 <div class="mt-2" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
                   <button @click="showModal = true"
-                    class="p-2 bg-gray-100 border border-gray-400 rounded w-44">21-20</button>
+                    class="p-2 bg-gray-100 border border-gray-400 rounded w-44">Set the payroll dates</button>
+                    <!-- If only show after selecting Set the payroll dates -->
+                    <p class="pt-2 text-sm text-gray-600">The start date of the pay cycle is the 21st of the month, and the end date is the 20th</p>
                   <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                     x-show="showModal" style="display: none;">
                     <!-- Modal inner -->
@@ -92,7 +91,7 @@
                       <div class="flex items-center justify-between">
                         <div>
                           <p class="font-bold">
-                            Title
+                            Set the payroll dates
                           </p>
                         </div>
                         <span @click="showModal = false">
@@ -105,6 +104,7 @@
                         </span>
                       </div>
                       <!-- content -->
+                      <p class="pt-1 text-sm text-gray-600">Pick the start date of the pay schedule only, and the end date will be fixed automatically</p>
                       <div class="w-full mt-4 space-y-4">
                         <ul class="grid grid-cols-6 gap-4" x-data>
                           <template x-for="i in 28">
@@ -122,29 +122,25 @@
             </div>
             <div>
               <div>
-                <h1 class="text-xl font-bold">Daily / Hourly Salary Calculation Settings</h1>
+                <h1 class="text-xl font-bold">Daily/Hourly Payroll Calculation Options</h1>
               </div>
               <div class="p-2 pt-4 space-y-4">
                 <div>
                   <label class="inline-flex items-center">
                     <input type="radio" class="w-4 h-4 form-checkbox">
-                    <span class="ml-2 font-semibold text-gray-600">Actual days in a month</span>
+                    <span class="ml-2 font-semibold text-gray-600">Number of actual days in a month</span>
                   </label>
-                  <p class="w-3/4 pt-2 text-sm text-gray-600">Eg. If Employee A salary is 30,000, then for January the
-                    per day salary will be calculated like 30,000/31 , then for February the per day salary will be
-                    calculated like 30,000/28 , then for April the per day salary will be calculated like 30,000/30 </p>
+                  <p class="w-3/4 pt-2 text-sm text-gray-600">For example, if Employee A's salary is 30,000, then the per day salary for January will be calculated as 30,000 divided by 31. The per day salary for February will be calculated as 30,000 divided by 28, and for April, it will be calculated as 30,000 divided by 30.</p>
                   </label>
                 </div>
                 <div>
                   <label class="inline-flex items-center">
                     <input type="radio" class="w-4 h-4 form-checkbox">
-                    <span class="ml-2 font-semibold text-gray-600">Organisation working days per month </span>
+                    <span class="ml-2 font-semibold text-gray-600">Monthly working days in the organization</span>
                   </label>
-                  <p class="w-3/4 pt-2 text-sm text-gray-600">Eg. If Employee A salary is 30,000, then for every month
-                    the per day salary will be calculated based on days fixed</p>
+                  <p class="w-3/4 pt-2 text-sm text-gray-600">For instance, if Employee A earns a salary of 30,000, the per day salary for each month will be calculated based on a set number of days.</p>
                   <div class="mt-2" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
-                    <button @click="showModal = true" class="p-2 bg-gray-100 border border-gray-400 rounded">Choose
-                      Days</button>
+                    <button @click="showModal = true" class="p-2 bg-gray-100 border border-gray-400 rounded">Set Working Days</button>
                     <div
                       class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                       x-show="showModal" style="display: none;">
@@ -156,8 +152,7 @@
                         <div class="flex items-center justify-between">
                           <div>
                             <p class="font-bold">
-                              Title
-                            </p>
+                              Set the no.of working days</p>
                           </div>
                           <span @click="showModal = false">
                             <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none"
