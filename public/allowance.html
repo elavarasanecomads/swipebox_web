@@ -41,7 +41,7 @@
                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                     x-show="showModal" style="display: none;">
                                     <!-- Modal inner -->
-                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-lg"
                                         @click.away="showModal = false"
                                         x-transition:enter="motion-safe:ease-out duration-300"
                                         x-transition:enter-start="opacity-0 scale-90"
@@ -70,12 +70,18 @@
                                                         class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                 </div>
                                                 <div>
-                                                    <label class="font-semibold text-gray-600" for="date">Amount</label>
+                                                    <label class="font-semibold text-gray-600" for="date">Amount<span
+                                                        class="text-red-600">*</span></label>
                                                     <input type="text" name="date" id="date" autocomplete="title"
                                                         placeholder=""
                                                         class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                 </div>
-
+                                                <div class="flex items-center gap-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-500">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"></path>
+                                                    </svg>
+                                                    <p class="text-sm text-gray-500">This will be included in the current payment cycle.</p>
+                                                </div>
                                                 <div class="flex items-center gap-4 pt-4">
                                                     <button
                                                         class="w-full p-3 font-semibold text-gray-900 bg-gray-100 rounded-md hover:bg-gray-200">Cancel</button>
@@ -169,7 +175,7 @@
                                                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                     x-show="showModal" style="display: none;">
                                                                     <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-lg"
                                                                         @click.away="showModal = false"
                                                                         x-transition:enter="motion-safe:ease-out duration-300"
                                                                         x-transition:enter-start="opacity-0 scale-90"
@@ -207,8 +213,8 @@
                                                                                 <div>
                                                                                     <label
                                                                                         class="font-semibold text-gray-600"
-                                                                                        for="date">Amount Per
-                                                                                        Month</label>
+                                                                                        for="date">Amount<span
+                                                                                        class="text-red-600">*</span></label>
                                                                                     <div
                                                                                         class="flex items-center gap-4">
                                                                                         <input type="text" name="date"
@@ -219,12 +225,18 @@
                                                                                     </div>
 
                                                                                 </div>
+                                                                                <div class="flex items-center gap-2">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-500">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"></path>
+                                                                                    </svg>
+                                                                                    <p class="text-sm text-gray-500">This will be included in the current payment cycle.</p>
+                                                                                </div>
                                                                                 <div
                                                                                     class="flex items-center gap-4 pt-4">
                                                                                     <button
                                                                                         class="w-full p-3 font-semibold text-gray-900 bg-gray-100 rounded-md hover:bg-gray-200">Cancel</button>
                                                                                     <button
-                                                                                        class="w-full p-3 font-semibold text-white bg-blue-600 rounded-md">Add
+                                                                                        class="w-full p-3 font-semibold text-white bg-blue-600 rounded-md">Update
                                                                                         Allowance</button>
                                                                                 </div>
                                                                             </div>
@@ -246,7 +258,7 @@
                                                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                     x-show="showModal" style="display: none;">
                                                                     <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-lg"
                                                                         @click.away="showModal = false"
                                                                         x-transition:enter="motion-safe:ease-out duration-300"
                                                                         x-transition:enter-start="opacity-0 scale-90"
@@ -282,11 +294,9 @@
                                                                                             clip-rule="evenodd"></path>
                                                                                     </svg>
                                                                                 </div>
-                                                                                <p class="font-bold">Delete This
-                                                                                    Allowance Entry
+                                                                                <p class="font-bold">Remove This Allowance Entry
                                                                                 </p>
-                                                                                <p class="text-gray-600">Do you wish to
-                                                                                    delete this Allowance Entry?</p>
+                                                                                <p class="text-gray-600">Do you want to remove this Allowance Entry?</p>
                                                                             </div>
                                                                             <div class="flex items-center gap-4 pt-4">
                                                                                 <button
@@ -329,7 +339,7 @@
                                                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                     x-show="showModal" style="display: none;">
                                                                     <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-lg"
                                                                         @click.away="showModal = false"
                                                                         x-transition:enter="motion-safe:ease-out duration-300"
                                                                         x-transition:enter-start="opacity-0 scale-90"
@@ -367,8 +377,8 @@
                                                                                 <div>
                                                                                     <label
                                                                                         class="font-semibold text-gray-600"
-                                                                                        for="date">Amount Per
-                                                                                        Month</label>
+                                                                                        for="date">Amount<span
+                                                                                        class="text-red-600">*</span></label>
                                                                                     <div
                                                                                         class="flex items-center gap-4">
                                                                                         <input type="text" name="date"
@@ -377,14 +387,19 @@
                                                                                             placeholder=""
                                                                                             class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                                                     </div>
-
+                                                                                </div>
+                                                                                <div class="flex items-center gap-2">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-500">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"></path>
+                                                                                    </svg>
+                                                                                    <p class="text-sm text-gray-500">This will be included in the current payment cycle.</p>
                                                                                 </div>
                                                                                 <div
                                                                                     class="flex items-center gap-4 pt-4">
                                                                                     <button
                                                                                         class="w-full p-3 font-semibold text-gray-900 bg-gray-100 rounded-md hover:bg-gray-200">Cancel</button>
                                                                                     <button
-                                                                                        class="w-full p-3 font-semibold text-white bg-blue-600 rounded-md">Add
+                                                                                        class="w-full p-3 font-semibold text-white bg-blue-600 rounded-md">Update
                                                                                         Allowance</button>
                                                                                 </div>
                                                                             </div>
@@ -406,7 +421,7 @@
                                                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                     x-show="showModal" style="display: none;">
                                                                     <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-lg"
                                                                         @click.away="showModal = false"
                                                                         x-transition:enter="motion-safe:ease-out duration-300"
                                                                         x-transition:enter-start="opacity-0 scale-90"
@@ -442,11 +457,9 @@
                                                                                             clip-rule="evenodd"></path>
                                                                                     </svg>
                                                                                 </div>
-                                                                                <p class="font-bold">Delete This
-                                                                                    Allowance Entry
+                                                                                <p class="font-bold">Remove This Allowance Entry
                                                                                 </p>
-                                                                                <p class="text-gray-600">Do you wish to
-                                                                                    delete this Allowance Entry?</p>
+                                                                                <p class="text-gray-600">Do you want to remove this Allowance Entry?</p>
                                                                             </div>
                                                                             <div class="flex items-center gap-4 pt-4">
                                                                                 <button
