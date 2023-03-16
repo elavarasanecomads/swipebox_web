@@ -8,6 +8,8 @@
     <link href="output.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <!--Flat Picker-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
@@ -101,6 +103,8 @@
                                                 <div class="w-1/2">
                                                     <label class="text-gray-600" for="businessname">Shift Start
                                                         Time</label>
+
+                                                    <!--Flat Picker-->
                                                     <div class="group">
                                                         <input
                                                             class="block w-full px-2 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600"
@@ -111,12 +115,14 @@
                                                 <div class="w-1/2">
                                                     <label class="text-gray-600" for="businessname">Shift End
                                                         Time</label>
-                                                    <div class="group">
+
+                                                    <!--Flat Picker-->
+                                                    <!-- <div class="group">
                                                         <input
                                                             class="block w-full px-2 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600"
                                                             type="text" id="time-picker">
                                                         <span class="bar"></span>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                             </div>
                                             <div class="grid grid-cols-1 gap-4 p-4 rounded bg-orange-50 lg:grid-cols-2">
@@ -131,22 +137,26 @@
                                                         <div class="w-1/2">
                                                             <label class="text-gray-600" for="businessname">Start
                                                                 Time</label>
+
+                                                            <!--Flat Picker-->
                                                             <div class="group">
-                                                                <input
+                                                                <!-- <input
                                                                     class="block w-full px-2 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600"
                                                                     type="text" id="time-picker">
                                                                 <span class="bar"></span>
-                                                            </div>
+                                                            </div> -->
                                                         </div>
                                                         <div class="w-1/2">
                                                             <label class="text-gray-600" for="businessname">End
                                                                 time</label>
-                                                            <div class="group">
+
+                                                            <!--Flat Picker-->
+                                                            <!-- <div class="group">
                                                                 <input
                                                                     class="block w-full px-2 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600"
                                                                     type="text" id="time-picker">
                                                                 <span class="bar"></span>
-                                                            </div>
+                                                            </div> -->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -156,22 +166,26 @@
                                                         <div class="w-1/2">
                                                             <label class="text-gray-600" for="businessname">Start
                                                                 Time</label>
-                                                            <div class="group">
+                                                            <!--Flat Picker-->
+                                                            <!-- <div class="group">
                                                                 <input
                                                                     class="block w-full px-2 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600"
                                                                     type="text" id="time-picker">
                                                                 <span class="bar"></span>
-                                                            </div>
+                                                            </div> -->
                                                         </div>
                                                         <div class="w-1/2">
                                                             <label class="text-gray-600" for="businessname">End
                                                                 time</label>
-                                                            <div class="group">
+                                                            
+                                                                <!--Flat Picker-->
+                                                                <!-- <div class="group">
                                                                 <input
                                                                     class="block w-full px-2 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600"
                                                                     type="text" id="time-picker">
                                                                 <span class="bar"></span>
-                                                            </div>
+
+                                                            </div> -->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -539,6 +553,8 @@
         $("#aside").load("settings-aside.html");
     });
 </script>
+
+<!--Flat Picker-->
 <script>
     flatpickr('#time-picker', {
         enableTime: true,
