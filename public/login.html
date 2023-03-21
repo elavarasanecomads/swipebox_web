@@ -1,39 +1,94 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>      
-    <link href="output.css" rel="stylesheet"> 
+    <title>Document</title>
+    <link href="output.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.css"></script>
+    <script src="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.js"></script>
 </head>
+
 <body class="min-h-screen bg-white">
     <section class="w-full">
         <div class="flex items-center justify-center">
             <div class="w-full max-w-7xl">
-                <div class="flex flex-col items-center w-full gap-4 lg:flex-row lg:px-12">
-                    <div class="hidden w-full lg:w-1/2 lg:block">
-                       <img src="img/Mobile-login.png" alt="">
+                <div class="flex items-center justify-between px-4 border-b">
+                    <div>
+                        <img class="h-12 lg:h-16" src="img/swipbox-logo-with-name.png" alt="">
                     </div>
-                    <div class="w-full lg:w-1/2">
-                        <div class="h-32 p-4 bg-blue-600 lg:hidden"></div>
-                        <div class="flex items-center justify-center -mt-16 lg:my-8">
-                            <div class="p-4 py-8 mb-8 bg-white border rounded-md shadow-md lg:p-8 w-96">
+                    <div>
+                        <ul class="flex items-center gap-4 lg:gap-8">
+                            <li class="font-semibold hover:underline hover:text-blue-600"><a href="login.html">Login</a>
+                            </li>
+                            <li><a href="login.html"
+                                    class="px-4 py-1 font-semibold text-white bg-blue-600 rounded">Register</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center w-full gap-4 p-4 lg:flex-row lg:px-12">
+                    <div class="flex items-center justify-center order-2 w-full lg:order-1 lg:w-1/2">
+                        <img class="lg:h-[480px]" src="img/bg.png" alt="">
+                    </div>
+                    <div class="order-1 w-full lg:order-2 lg:w-1/2">
+                        <div class="flex items-center justify-center lg:my-8">
+                            <div class="p-4 py-8 mb-8 bg-white border rounded-md shadow-md w-96">
                                 <div>
-                                    <div class="space-y-2">                    
-                                    <p class="text-2xl font-bold text-blue-600 uppercase">Login with Mobile Number</p>
-                                    <p class="text-sm text-gray-600">Enter your mobile number to continue
-                                    </p>
-                                    </div>                    
+                                    <div class="space-y-2">
+                                        <p class="text-2xl font-bold text-blue-600 uppercase">Login with Mobile Number
+                                        </p>
+                                        <p class="text-sm text-gray-600">Select Role and Enter your mobile number to continue
+                                        </p>
+                                    </div>
+                                    <div class="py-4 space-y-2" x-data="{ selectedRole: null }">
+                                        <p class="block font-medium text-gray-700 ">Select Role</p>
+                                        <button class="flex items-start gap-4 p-4 border rounded"
+                                        x-bind:class="{ 'border-blue-600 border-2': selectedRole === 'admin', '': selectedRole !== null && selectedRole !== 'admin' }"
+                                        x-on:click="selectedRole = 'admin'">                                        
+                                            <div>
+                                                <div class="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-600">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+                                                      </svg>                                              
+                                                </div>
+                                            </div>
+                                            <div class="space-y-1">
+                                                <p class="text-sm font-bold text-left">Business Owner </p>
+                                                <p class="text-xs text-left text-gray-600">Use your mobile number to register a new account or access your employer account.</p>
+                                            </div>
+                                        </button>
+                                        <button class="flex items-start gap-4 p-4 border rounded"
+                                        x-bind:class="{ 'border-blue-600 border-2': selectedRole === 'user', '': selectedRole !== null && selectedRole !== 'user' }"
+                                        x-on:click="selectedRole = 'user'">                                        
+                                            <div>
+                                                <div class="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-600">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                                      </svg>                                                                                               
+                                                </div>
+                                            </div>
+                                            <div class="space-y-1">
+                                                <p class="text-sm font-bold text-left">Employee / HR / Adminstrator</p>
+                                                <p class="text-xs text-left text-gray-600">To access your account, log in using the mobile number that you registered with your organization.</p>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    
                                     <div class="pt-4 space-y-4">
                                         <div>
-                                            <label for="email-address" class="block font-medium text-gray-700">Mobile Number</label>
-                                            <input type="text" placeholder="Enter Mobile Number" name="mobile-num" id="mobile-num" autocomplete="mobile-num" class="w-full px-3 py-3 mt-1 leading-tight text-gray-900 border border-gray-300 rounded shadow-inner appearance-none focus:outline-none focus:ring-blue-400 focus:border-blue-400 sm:text-sm">
+                                            <label for="email-address" class="block font-medium text-gray-700">Mobile
+                                                Number</label>
+                                            <input type="text" placeholder="Enter Mobile Number" name="mobile-num"
+                                                id="mobile-num" autocomplete="mobile-num"
+                                                class="w-full px-3 py-3 mt-1 leading-tight text-gray-900 border border-gray-300 rounded shadow-inner appearance-none focus:outline-none focus:ring-blue-400 focus:border-blue-400 sm:text-sm">
                                         </div>
                                         <div>
                                             <a href="login-otp.html">
-                                            <button class="w-full p-3 py-3 font-bold text-center text-white uppercase bg-blue-600 rounded-md">Continue</button>
+                                                <button
+                                                    class="w-full p-3 py-3 font-bold text-center text-white uppercase bg-blue-600 rounded-md">Continue</button>
                                             </a>
                                         </div>
                                     </div>
@@ -42,8 +97,17 @@
                         </div>
                     </div>
                 </div>
+                <div>
+                    <div class="w-full px-4 py-3 mx-auto mt-8 bg-gray-200 border-t lg:py-3 md:max-w-full lg:max-w-screen-full md:px-24 lg:px-8">
+                        <div class="flex flex-col items-center justify-between text-sm lg:flex-row">
+                          <p>All rights reserverd @ swipebox.in</p>
+                          <p class="text-gray-600">Made in ❤ India</p>
+                        </div>
+                      </div>
+                </div>
             </div>
         </div>
     </section>
 </body>
+
 </html>
