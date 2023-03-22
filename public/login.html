@@ -8,8 +8,6 @@
     <link href="output.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.css"></script>
-    <script src="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.js"></script>
 </head>
 
 <body class="min-h-screen bg-white">
@@ -36,18 +34,16 @@
                     <div class="order-1 w-full lg:order-2 lg:w-1/2">
                         <div class="flex items-center justify-center lg:my-8">
                             <div class="p-4 py-8 mb-8 bg-white border rounded-md shadow-md w-96">
-                                <div>
+                                <div x-data="{ showSection: false }">
                                     <div class="space-y-2">
                                         <p class="text-2xl font-bold text-blue-600 uppercase">Login with Mobile Number
                                         </p>
                                         <p class="text-sm text-gray-600">Select Role and Enter your mobile number to continue
                                         </p>
                                     </div>
-                                    <div class="py-4 space-y-2" x-data="{ selectedRole: null }">
+                                    <div class="py-4 space-y-2">
                                         <p class="block font-medium text-gray-700 ">Select Role</p>
-                                        <button class="flex items-start gap-4 p-4 border rounded"
-                                        x-bind:class="{ 'border-blue-600 border-2': selectedRole === 'admin', '': selectedRole !== null && selectedRole !== 'admin' }"
-                                        x-on:click="selectedRole = 'admin'">                                        
+                                        <button class="flex items-start gap-4 p-4 border-2 rounded active:border-blue-600 focus:border-blue-600" @click="showSection = true">                                        
                                             <div>
                                                 <div class="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full">
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-600">
@@ -60,9 +56,7 @@
                                                 <p class="text-xs text-left text-gray-600">Use your mobile number to register a new account or access your employer account.</p>
                                             </div>
                                         </button>
-                                        <button class="flex items-start gap-4 p-4 border rounded"
-                                        x-bind:class="{ 'border-blue-600 border-2': selectedRole === 'user', '': selectedRole !== null && selectedRole !== 'user' }"
-                                        x-on:click="selectedRole = 'user'">                                        
+                                        <button class="flex items-start gap-4 p-4 border-2 rounded active:border-blue-600 focus:border-blue-600" @click="showSection = true">                                        
                                             <div>
                                                 <div class="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full">
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-600">
@@ -77,7 +71,7 @@
                                         </button>
                                     </div>
                                     
-                                    <div class="pt-4 space-y-4">
+                                    <div class="pt-4 space-y-4" x-show="showSection">
                                         <div>
                                             <label for="email-address" class="block font-medium text-gray-700">Mobile
                                                 Number</label>
@@ -91,6 +85,7 @@
                                                     class="w-full p-3 py-3 font-bold text-center text-white uppercase bg-blue-600 rounded-md">Continue</button>
                                             </a>
                                         </div>
+                                        
                                     </div>
                                 </div>
                             </div>
