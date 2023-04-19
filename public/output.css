@@ -904,12 +904,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 8rem;
 }
 
-.h-40 {
-  height: 10rem;
+.h-24 {
+  height: 6rem;
 }
 
 .h-screen {
   height: 100vh;
+}
+
+.h-40 {
+  height: 10rem;
 }
 
 .h-px {
@@ -2204,16 +2208,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 0.25rem;
 }
 
-.pl-8 {
-  padding-left: 2rem;
-}
-
 .pt-32 {
   padding-top: 8rem;
 }
 
 .pb-48 {
   padding-bottom: 12rem;
+}
+
+.pl-8 {
+  padding-left: 2rem;
 }
 
 .pb-8 {
@@ -3492,6 +3496,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .lg\:h-\[480px\] {
     height: 480px;
+  }
+
+  .lg\:min-h-screen {
+    min-height: 100vh;
   }
 
   .lg\:w-1\/2 {
