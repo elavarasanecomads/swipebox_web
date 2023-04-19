@@ -137,7 +137,14 @@
                     </div>
                     
                     <div id="downloads" class="py-4 space-y-4 border-t">
-                        <h1 class="text-2xl font-bold">Downloads</h1>
+                        <div class="flex items-center justify-between">
+                            <h1 class="text-2xl font-bold">Downloads</h1>
+                            <button @click="showModal = true" class="flex items-center gap-1 px-4 py-2 font-semibold text-white bg-green-600 rounded"><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"></path>
+                            </svg>
+                        </span><span>Refresh</span></button>
+                        </div>
+                        
                         <div class="flex flex-col border-b">
                             <div class="z-10 -my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
                                 <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
