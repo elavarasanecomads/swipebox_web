@@ -20,7 +20,7 @@
         openTab: 1,
         activeClasses: 'bg-green-600 border-green-600 text-white',
         inactiveClasses: ''
-      }">           
+      }">
                     <!-- Left side container -->
                     <div class="col-span-1 p-4 bg-white rounded lg:min-h-screen lg:col-span-1">
                         <div class="flex flex-col items-center justify-center">
@@ -280,7 +280,8 @@
                                                             <td>
                                                                 <div
                                                                     class="flex items-center justify-center w-full rounded-full cursor-pointer">
-                                                                    <button role="link" tabindex="0" title="Unpaid Leave"
+                                                                    <button role="link" tabindex="0"
+                                                                        title="Unpaid Leave"
                                                                         class="flex items-center justify-center w-8 h-8 text-base font-medium text-white rounded-md bg-rose-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500 focus:bg-rose-400 hover:bg-rose-400">7</button>
                                                                 </div>
                                                             </td>
@@ -298,7 +299,8 @@
                                                                     class="flex justify-center w-full px-2 py-2 cursor-pointer">
                                                                     <div
                                                                         class="flex items-center justify-center w-full rounded-full cursor-pointer">
-                                                                        <button role="link" tabindex="0" title="Forgot Out"
+                                                                        <button role="link" tabindex="0"
+                                                                            title="Forgot Out"
                                                                             class="flex items-center justify-center w-8 h-8 text-base font-medium text-white bg-orange-600 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-600 focus:bg-orange-500 hover:bg-orange-500">9</button>
                                                                     </div>
                                                                 </div>
@@ -308,7 +310,8 @@
                                                                     class="flex justify-center w-full px-2 py-2 cursor-pointer">
                                                                     <div
                                                                         class="flex items-center justify-center w-full rounded-full cursor-pointer">
-                                                                        <button role="link" tabindex="0" title="Early Out"
+                                                                        <button role="link" tabindex="0"
+                                                                            title="Early Out"
                                                                             class="flex items-center justify-center w-8 h-8 text-base font-medium text-white rounded-md bg-slate-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-400 focus:bg-slate-400 hover:bg-slate-400">10</button>
                                                                     </div>
                                                                 </div>
@@ -330,7 +333,8 @@
                                                                     class="flex justify-center w-full px-2 py-2 cursor-pointer">
                                                                     <div
                                                                         class="flex items-center justify-center w-full rounded-full cursor-pointer">
-                                                                        <button role="link" tabindex="0" title="Late Entry"
+                                                                        <button role="link" tabindex="0"
+                                                                            title="Late Entry"
                                                                             class="flex items-center justify-center w-8 h-8 text-base font-medium text-white bg-pink-600 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-600 focus:bg-pink-500 hover:bg-pink-500">12</button>
                                                                     </div>
                                                                 </div>
@@ -351,7 +355,8 @@
                                                                     class="flex justify-center w-full px-2 py-2 cursor-pointer">
                                                                     <div
                                                                         class="flex items-center justify-center w-full rounded-full cursor-pointer">
-                                                                        <button role="link" tabindex="0" title="Short Hours"
+                                                                        <button role="link" tabindex="0"
+                                                                            title="Short Hours"
                                                                             class="flex items-center justify-center w-8 h-8 text-base font-medium text-white bg-indigo-600 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 focus:bg-indigo-500 hover:bg-indigo-500">14</button>
                                                                     </div>
                                                                 </div>
@@ -1345,7 +1350,8 @@
                                                     <div>
                                                         <img class="w-10 h-10" src="img/salary.png" alt="deduction">
                                                     </div>
-                                                    <p class="font-semibold text-center text-gray-600">Payroll Settings</p>
+                                                    <p class="font-semibold text-center text-gray-600">Payroll Settings
+                                                    </p>
                                                 </div>
                                                 <div>
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -1543,9 +1549,67 @@
                             <div class="pt-4 pb-6">
                                 <p class="text-2xl font-bold">Transactions</p>
                             </div>
+                            <div class="flex flex-col border-b">
+                                <div class="z-10 -my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                    <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                        <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+
+                                            <table class="min-w-full divide-y divide-gray-200 table-auto">
+                                                <thead class="bg-blue-600">
+                                                    <tr>
+                                                        <th scope="col"
+                                                            class="w-1/5 px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                            Paid Date
+                                                        </th>
+
+                                                        <th scope="col"
+                                                            class="w-2/5 px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                            Description
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="w-1/5 px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                            Net Pay
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="bg-white divide-y divide-gray-200">
+                                                    <tr>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <p class="">01-06-2022</p>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                02/05/2022 - 01/06/2022
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-green-600">
+                                                                ₹ 14000</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <p class="">01-07-2022</p>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                02/06/2022 - 30/06/2022
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-green-600">
+                                                                ₹ 14000</span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </ul>
                         <ul x-show="openTab === 4" style="display: none;" class="shadow-box">
-                            
+
                             <div x-data="{
                                 openSection: 1,
                                 activeClasses: 'bg-green-600 border-green-600 text-white',
@@ -1562,7 +1626,8 @@
                                                     <div class="flex items-center justify-between">
                                                         <div class="flex items-center gap-4">
                                                             <div>
-                                                                <img class="w-10 h-10" src="img/profile-2.png" alt="salary">
+                                                                <img class="w-10 h-10" src="img/profile-2.png"
+                                                                    alt="salary">
                                                             </div>
                                                             <p class="font-semibold text-center text-gray-600">Personal
                                                             </p>
@@ -1586,8 +1651,7 @@
                                                     <div class="flex items-center justify-between">
                                                         <div class="flex items-center gap-4">
                                                             <div>
-                                                                <img class="w-10 h-10" src="img/work.png"
-                                                                    alt="salary">
+                                                                <img class="w-10 h-10" src="img/work.png" alt="salary">
                                                             </div>
                                                             <p class="font-semibold text-center text-gray-600">Work</p>
                                                         </div>
@@ -1865,7 +1929,7 @@
                                                     </select>
                                                 </div>
 
-                                                
+
                                                 <div>
                                                     <label class="text-sm font-semibold text-gray-600"
                                                         for="businessname">Select Staff
@@ -1918,7 +1982,7 @@
                                                         autocomplete="title" placeholder=""
                                                         class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
                                         <div class="py-6">
@@ -3190,8 +3254,7 @@
                             </div>
                             <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
                                 <div>
-                                    <label class="text-sm font-semibold text-gray-600"
-                                        for="businessname">Shift
+                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Shift
                                         Settings</label>
                                     <select id="jobtype" name="jobtype" autocomplete="jobtype"
                                         class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
@@ -3202,19 +3265,17 @@
                                 </div>
                                 <div class="flex items-center gap-4">
                                     <div>
-                                        <label class="text-sm font-semibold text-gray-600"
-                                            for="businessname">Start
+                                        <label class="text-sm font-semibold text-gray-600" for="businessname">Start
                                             Time</label>
-                                        <input type="text" name="businessname" id="businessname"
-                                            autocomplete="title" placeholder=""
+                                        <input type="text" name="businessname" id="businessname" autocomplete="title"
+                                            placeholder=""
                                             class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
                                     </div>
                                     <div>
-                                        <label class="text-sm font-semibold text-gray-600"
-                                            for="businessname">End
+                                        <label class="text-sm font-semibold text-gray-600" for="businessname">End
                                             time</label>
-                                        <input type="text" name="businessname" id="businessname"
-                                            autocomplete="title" placeholder=""
+                                        <input type="text" name="businessname" id="businessname" autocomplete="title"
+                                            placeholder=""
                                             class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
                                     </div>
                                 </div>
@@ -3226,8 +3287,8 @@
                             </div>
                             <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
                                 <div>
-                                    <label class="text-sm font-semibold text-gray-600"
-                                        for="businessname">Select Role</label>
+                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                        Role</label>
                                     <select id="jobtype" name="jobtype" autocomplete="jobtype"
                                         class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
                                         <option>Employee</option>

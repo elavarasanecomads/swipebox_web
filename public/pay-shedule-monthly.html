@@ -74,13 +74,12 @@
             <p class="text-2xl font-bold">Monthly Payroll Cycle Configuration</p>
           </div>
           <div class="pt-4 space-y-6">
-            <div>
+            <div class="space-y-4">
               <div>
                 <div class="mt-2" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
-                  <button @click="showModal = true"
-                    class="p-2 bg-gray-100 border border-gray-400 rounded w-44">Set the payroll dates</button>
-                    <!-- If only show after selecting Set the payroll dates -->
-                    <p class="pt-2 text-sm text-gray-600">The start date of the pay cycle is the 21st of the month, and the end date is the 20th</p>
+                  <p class="font-semibold text-gray-600">Choose salary start date</p>
+                  <button @click="showModal = true" class="p-2 bg-gray-100 border border-gray-400 rounded w-44">5 of
+                    every month</button>                  
                   <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                     x-show="showModal" style="display: none;">
                     <!-- Modal inner -->
@@ -91,7 +90,7 @@
                       <div class="flex items-center justify-between">
                         <div>
                           <p class="font-bold">
-                            Set the payroll dates
+                            Choose salary start date
                           </p>
                         </div>
                         <span @click="showModal = false">
@@ -104,7 +103,8 @@
                         </span>
                       </div>
                       <!-- content -->
-                      <p class="pt-1 text-sm text-gray-600">Pick the start date of the pay schedule only, and the end date will be fixed automatically</p>
+                      <p class="pt-1 text-sm text-gray-600">Once you select the salary start date, the end date will be
+                        automatically determined.</p>
                       <div class="w-full mt-4 space-y-4">
                         <ul class="grid grid-cols-6 gap-4" x-data>
                           <template x-for="i in 28">
@@ -112,13 +112,23 @@
                               class="flex items-center justify-center w-8 h-8 bg-blue-100 border border-blue-600 rounded">
                               <span x-text="i"></span>
                             </button>
-                          </template>
+                          </template>                          
                         </ul>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <div class="w-60">
+                <label class="text-sm font-semibold text-gray-600" for="businessname">Start your payroll from</label>
+                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                    <option>May - 2023</option>
+                    <option>June - 2023</option>
+                    <option>July - 2023</option>
+                    <option>Augest - 2023</option>
+                    <option>Septemper - 2023</option>
+                </select>
+            </div>
             </div>
             <div>
               <div>
@@ -130,7 +140,10 @@
                     <input type="radio" class="w-4 h-4 form-checkbox">
                     <span class="ml-2 font-semibold text-gray-600">Number of actual days in a month</span>
                   </label>
-                  <p class="w-3/4 pt-2 text-sm text-gray-600">For example, if Employee A's salary is 30,000, then the per day salary for January will be calculated as 30,000 divided by 31. The per day salary for February will be calculated as 30,000 divided by 28, and for April, it will be calculated as 30,000 divided by 30.</p>
+                  <p class="w-3/4 pt-2 text-sm text-gray-600">For example, if Employee A's salary is 30,000, then the
+                    per day salary for January will be calculated as 30,000 divided by 31. The per day salary for
+                    February will be calculated as 30,000 divided by 28, and for April, it will be calculated as 30,000
+                    divided by 30.</p>
                   </label>
                 </div>
                 <div>
@@ -138,9 +151,11 @@
                     <input type="radio" class="w-4 h-4 form-checkbox">
                     <span class="ml-2 font-semibold text-gray-600">Monthly working days in the organization</span>
                   </label>
-                  <p class="w-3/4 pt-2 text-sm text-gray-600">For instance, if Employee A earns a salary of 30,000, the per day salary for each month will be calculated based on a set number of days.</p>
+                  <p class="w-3/4 pt-2 text-sm text-gray-600">For instance, if Employee A earns a salary of 30,000, the
+                    per day salary for each month will be calculated based on a set number of days.</p>
                   <div class="mt-2" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
-                    <button @click="showModal = true" class="p-2 bg-gray-100 border border-gray-400 rounded">Set Working Days</button>
+                    <button @click="showModal = true" class="p-2 bg-gray-100 border border-gray-400 rounded">Set Working
+                      Days</button>
                     <div
                       class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                       x-show="showModal" style="display: none;">
