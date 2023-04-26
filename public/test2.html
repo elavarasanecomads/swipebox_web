@@ -4,8 +4,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
 </head>
 <body>
+    <div x-data="{ selectedOption: 'option1' }">
+        <select x-model="selectedOption">
+          <option value="option1">Option 1</option>
+          <option value="option2">Option 2</option>
+        </select>
+      
+        <div x-show="selectedOption === 'option1'">
+          <p>Option 1</p>
+        </div>
+      
+        <div x-show="selectedOption === 'option2'">
+            <p>Option 2</p>
+        </div>
+      </div>
+      
+    
+      
+      
+</body>
+
+    
+<!-- <body>
     <label for="db">Choose type</label>
 <select name="dbType" id="dbType">
    <option>Choose Database Type</option>
@@ -40,5 +63,5 @@
     }
     
 });
-    </script>
+    </script> -->
 </html>

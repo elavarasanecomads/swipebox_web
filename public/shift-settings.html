@@ -87,93 +87,154 @@
                                         </span>
                                     </div>
                                     <!-- content -->
-                                    <div class="w-full">
-                                        <div class="pt-4 space-y-4 ">
-                                            <div>
-                                                <label class="font-semibold text-gray-600" for="businessname">Shift
-                                                    Name</label>
-                                                <input type="text" name="businessname" id="businessname"
-                                                    autocomplete="title" placeholder=""
-                                                    class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                    <div class="w-full overflow-y-scroll h-96">
+                                        <div x-data="{ selectedOption: 'option1' }">                                            
+                                            <div class="py-4 border-b">
+                                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                                    Shift Type</label>
+                                                <select x-model="selectedOption" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                    <option value="option1">Fixed Shift</option>
+                                                    <option value="option2">Open Shift</option>
+                                                </select>
                                             </div>
-                                            <div class="flex items-center gap-4">
-                                                <div class="w-1/2">
-                                                    <label class="font-semibold text-gray-600" for="businessname">Shift Start
-                                                        Time</label>
-                                                    <input type="text" name="businessname" id="businessname"
-                                                        autocomplete="title" placeholder=""
-                                                        class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                </div>
-                                                <div class="w-1/2">
-                                                    <label class="font-semibold text-gray-600" for="businessname">Shift End
-                                                        time</label>
-                                                    <input type="text" name="businessname" id="businessname"
-                                                        autocomplete="title" placeholder=""
-                                                        class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                </div>
-                                            </div>
-                                            <div class="grid grid-cols-1 gap-4 p-4 rounded bg-orange-50 lg:grid-cols-2">
-                                                <div class="col-span-1 lg:col-span-2">
-                                                    <h3 class="font-bold">Half Intervals</h3>
-                                                    <p class="text-sm text-gray-600">To fix first half and Second half for taking half day leaves.</p>
-                                                </div>
-                                                <div>
-                                                    <p class="font-semibold">First Half</p>
+
+                                            <div x-show="selectedOption === 'option1'">
+                                                <div class="pt-4 space-y-4 ">
+                                                    <div>
+                                                        <label class="font-semibold text-gray-600"
+                                                            for="businessname">Shift
+                                                            Name</label>
+                                                        <input type="text" name="businessname" id="businessname"
+                                                            autocomplete="title" placeholder=""
+                                                            class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                    </div>
                                                     <div class="flex items-center gap-4">
                                                         <div class="w-1/2">
-                                                            <label class="text-gray-600" for="businessname">Start
+                                                            <label class="font-semibold text-gray-600"
+                                                                for="businessname">Shift
+                                                                Start
                                                                 Time</label>
                                                             <input type="text" name="businessname" id="businessname"
                                                                 autocomplete="title" placeholder=""
-                                                                class="block w-full px-2 py-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                         </div>
                                                         <div class="w-1/2">
-                                                            <label class="text-gray-600" for="businessname">End
+                                                            <label class="font-semibold text-gray-600"
+                                                                for="businessname">Shift
+                                                                End
                                                                 time</label>
                                                             <input type="text" name="businessname" id="businessname"
                                                                 autocomplete="title" placeholder=""
-                                                                class="block w-full px-2 py-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div>
-                                                    <p class="font-semibold">Second Half</p>
-                                                    <div class="flex items-center gap-4">
+                                                    <div
+                                                        class="grid grid-cols-1 gap-4 p-4 rounded bg-orange-50 lg:grid-cols-2">
+                                                        <div class="col-span-1 lg:col-span-2">
+                                                            <h3 class="font-bold">Half Intervals</h3>
+                                                            <p class="text-sm text-gray-600">To fix first half and
+                                                                Second half
+                                                                for taking half day leaves.</p>
+                                                        </div>
+                                                        <div>
+                                                            <p class="font-semibold">First Half</p>
+                                                            <div class="flex items-center gap-4">
+                                                                <div class="w-1/2">
+                                                                    <label class="text-gray-600"
+                                                                        for="businessname">Start
+                                                                        Time</label>
+                                                                    <input type="text" name="businessname"
+                                                                        id="businessname" autocomplete="title"
+                                                                        placeholder=""
+                                                                        class="block w-full px-2 py-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                </div>
+                                                                <div class="w-1/2">
+                                                                    <label class="text-gray-600" for="businessname">End
+                                                                        time</label>
+                                                                    <input type="text" name="businessname"
+                                                                        id="businessname" autocomplete="title"
+                                                                        placeholder=""
+                                                                        class="block w-full px-2 py-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <p class="font-semibold">Second Half</p>
+                                                            <div class="flex items-center gap-4">
+                                                                <div class="w-1/2">
+                                                                    <label class="text-gray-600"
+                                                                        for="businessname">Start
+                                                                        Time</label>
+                                                                    <input type="text" name="businessname"
+                                                                        id="businessname" autocomplete="title"
+                                                                        placeholder=""
+                                                                        class="block w-full px-2 py-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                </div>
+                                                                <div class="w-1/2">
+                                                                    <label class="text-gray-600" for="businessname">End
+                                                                        time</label>
+                                                                    <input type="text" name="businessname"
+                                                                        id="businessname" autocomplete="title"
+                                                                        placeholder=""
+                                                                        class="block w-full px-2 py-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="w-1/2">
+                                                        <label class="font-semibold text-gray-600"
+                                                            for="businessname">Total
+                                                            Shift Hours</label>
+                                                        <input type="text" name="businessname" id="businessname"
+                                                            autocomplete="title" placeholder=""
+                                                            class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                    </div>
+                                                    <div class="flex items-center w-full gap-4 pt-4">
                                                         <div class="w-1/2">
-                                                            <label class="text-gray-600" for="businessname">Start
-                                                                Time</label>
-                                                            <input type="text" name="businessname" id="businessname"
-                                                                autocomplete="title" placeholder=""
-                                                                class="block w-full px-2 py-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                            <button
+                                                                class="w-full p-2 text-blue-600 border border-blue-600 rounded-md">Cancel</button>
                                                         </div>
                                                         <div class="w-1/2">
-                                                            <label class="text-gray-600" for="businessname">End
-                                                                time</label>
-                                                            <input type="text" name="businessname" id="businessname"
-                                                                autocomplete="title" placeholder=""
-                                                                class="block w-full px-2 py-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                            <button
+                                                                class="w-full p-2 text-white bg-blue-600 rounded-md">Save</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="w-1/2">
-                                                <label class="font-semibold text-gray-600"
-                                                    for="businessname">Total Shift Hours</label>
-                                                <input type="text" name="businessname" id="businessname"
-                                                    autocomplete="title" placeholder=""
-                                                    class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                            </div>
-                                            <div class="flex items-center w-full gap-4 pt-4">
-                                                <div class="w-1/2">
-                                                    <button
-                                                        class="w-full p-2 text-blue-600 border border-blue-600 rounded-md">Cancel</button>
-                                                </div>
-                                                <div class="w-1/2">
-                                                    <button
-                                                        class="w-full p-2 text-white bg-blue-600 rounded-md">Save</button>
+
+                                            <div x-show="selectedOption === 'option2'">
+                                                <div class="pt-4 space-y-4 ">
+                                                    <div>
+                                                        <label class="font-semibold text-gray-600"
+                                                            for="businessname">Shift
+                                                            Name</label>
+                                                        <input type="text" name="businessname" id="businessname"
+                                                            autocomplete="title" placeholder=""
+                                                            class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                    </div>
+                                                    <div class="w-1/2">
+                                                        <label class="font-semibold text-gray-600"
+                                                            for="businessname">Total
+                                                            Shift Hours</label>
+                                                        <input type="text" name="businessname" id="businessname"
+                                                            autocomplete="title" placeholder=""
+                                                            class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                    </div>
+                                                    <div class="flex items-center w-full gap-4 pt-4">
+                                                        <div class="w-1/2">
+                                                            <button
+                                                                class="w-full p-2 text-blue-600 border border-blue-600 rounded-md">Cancel</button>
+                                                        </div>
+                                                        <div class="w-1/2">
+                                                            <button
+                                                                class="w-full p-2 text-white bg-blue-600 rounded-md">Save</button>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+
+
                                     </div>
                                 </div>
                             </div>
