@@ -900,6 +900,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 9rem;
 }
 
+.h-72 {
+  height: 18rem;
+}
+
 .h-32 {
   height: 8rem;
 }
@@ -940,6 +944,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 4rem;
 }
 
+.h-60 {
+  height: 15rem;
+}
+
 .h-2\.5 {
   height: 0.625rem;
 }
@@ -956,12 +964,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 1.75rem;
 }
 
-.h-60 {
-  height: 15rem;
+.h-80 {
+  height: 20rem;
 }
 
-.h-72 {
-  height: 18rem;
+.h-96 {
+  height: 24rem;
 }
 
 .max-h-0 {
@@ -3411,12 +3419,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     max-width: 32rem;
   }
 
-  .md\:max-w-sm {
-    max-width: 24rem;
-  }
-
   .md\:max-w-md {
     max-width: 28rem;
+  }
+
+  .md\:max-w-sm {
+    max-width: 24rem;
   }
 
   .md\:max-w-full {
