@@ -1,84 +1,135 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>repl.it</title>
-    <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
-<script src="https://cdn.tailwindcss.com/3.2.4"></script>
-</head>
-
-<body class="flex items-center justify-center min-h-screen">
-	<div
-  class="relative mb-3 xl:w-96"
-  data-te-timepicker-init
-  data-te-input-wrapper-init>
-  <input
-    type="text"
-    class="peer block min-h-[auto] w-full rounded border-0 bg-transparent py-[0.32rem] px-3 leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-    id="form1" />
-  <label
-    for="form1"
-    class="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200"
-    >Select a time</label
-  >
-</div>
-
-      <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
-  </body> 
-</html>
-
-<!-- <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>    
+    <title>Document</title>
     <link href="output.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.4.2/dist/alpine.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script> -->
 </head>
+
 <body>
-
-    <input type="time" />
-    <div
-    x-data
-    x-init="flatpickr($refs.datetimewidget, {wrap: true, enableTime: true, dateFormat: 'h:i K'});"
-    x-ref="datetimewidget"
-    class="container col-span-6 mx-auto mt-5 flatpickr sm:col-span-6"
->
-    <label for="datetime" class="flex-grow block mb-1 text-sm font-medium text-gray-700">Date and Time</label>
-    <div class="flex align-middle align-content-center">
-        <input
-            x-ref="datetime"
-            type="text"
-            id="datetime"
-            data-input
-            placeholder="Select.."
-            class="block w-full px-2 border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-l-md"
-
-        >
-        
-        <a
-            class="w-10 bg-transparent border-t border-b border-r border-gray-300 cursor-pointer h-11 input-button rounded-r-md"
-            title="clear" data-clear
-        >
-            <svg xmlns="http://www.w3.org/2000/svg" class="mt-2 ml-1 h-7 w-7" viewBox="0 0 20 20" fill="#c53030">
-                <path fill-rule="evenodd"
-                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                      clip-rule="evenodd"/>
-            </svg>
-        </a>
+    <!-- <div x-data="{ hour: '00' }">
+        <div class="flex items-center justify-center space-x-2">
+            <button class="px-2 py-1 text-white bg-green-500 rounded" @click="hour = incrementHour(hour)">+</button>
+            <input type="text" x-model="hour" x-bind:maxlength="2" x-bind:max="12"
+                class="w-16 px-2 py-1 text-center border border-gray-300 rounded appearance-none" @input="handleHour"
+                onblur="if(parseInt(this.value) > 12) this.value = '12';" />
+            <button class="px-2 py-1 text-white bg-red-500 rounded" @click="hour = decrementHour(hour)">-</button>
+        </div>
     </div>
 
-</div>
+    <script>
+        function incrementHour(hour) {
+            let value = parseInt(hour);
+            value = value >= 12 ? 0 : value + 1;
+            return ('0' + value).slice(-2);
+        }
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/themes/airbnb.min.css">
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+        function decrementHour(hour) {
+            let value = parseInt(hour);
+            value = value <= 0 ? 12 : value - 1;
+            return ('0' + value).slice(-2);
+        }
+
+        function handleHour(event) {
+            let value = parseInt(event.target.value);
+            if (isNaN(value) || value > 12) {
+                event.target.value = '00';
+                value = 0;
+            } else if (value < 0) {
+                event.target.value = '12';
+                value = 12;
+            }
+            event.target.value = ('0' + value).slice(-2);
+        }
+    </script> -->
+    <div x-data="{ hour: '00' }">
+        <div class="flex items-center justify-center space-x-2">
+          <button class="px-2 py-1 text-white bg-green-500 rounded" @click="hour = incrementHour(hour)">+</button>
+          <input 
+            type="text" 
+            x-model="hour" 
+            x-bind:maxlength="2" 
+            x-bind:max="12" 
+            class="w-16 px-2 py-1 text-center border border-gray-300 rounded appearance-none" 
+            @input="handleHour" 
+            x-on:blur="if(parseInt($el.value) > 12) $el.value = '12';" 
+          />
+          <button class="px-2 py-1 text-white bg-red-500 rounded" @click="hour = decrementHour(hour)">-</button>
+        </div>
+      </div>
+      
+      <script>
+        function incrementHour(hour) {
+          let value = parseInt(hour);
+          value = value >= 12 ? 0 : value + 1;
+          return ('0' + value).slice(-2);
+        }
+      
+        function decrementHour(hour) {
+          let value = parseInt(hour);
+          value = value <= 0 ? 12 : value - 1;
+          return ('0' + value).slice(-2);
+        }
+      
+        function handleHour(event) {
+          let value = parseInt(event.target.value);
+          if (isNaN(value) || value > 12) {
+            event.target.value = '00';
+            value = 0;
+          } else if (value < 0) {
+            event.target.value = '12';
+            value = 12;
+          }
+          event.target.value = ('0' + value).slice(-2);
+        }
+      </script>
+      
+    <div x-data="{ minute: '00' }">
+        <div class="flex items-center justify-center space-x-2">
+            <button class="px-2 py-1 text-white bg-green-500 rounded"
+                @click="minute = incrementMinute(minute)">+</button>
+            <input type="text" x-model="minute" x-bind:maxlength="2" x-bind:max="59"
+                class="w-16 px-2 py-1 text-center border border-gray-300 rounded appearance-none" @input="handleMinute"
+                onblur="if(parseInt(this.value) > 59) this.value = '59';" />
+            <button class="px-2 py-1 text-white bg-red-500 rounded" @click="minute = decrementMinute(minute)">-</button>
+        </div>
+    </div>
+
+    <script>
+        function incrementMinute(minute) {
+            let value = parseInt(minute);
+            value = value >= 59 ? 0 : value + 1;
+            return ('0' + value).slice(-2);
+        }
+
+        function decrementMinute(minute) {
+            let value = parseInt(minute);
+            value = value <= 0 ? 59 : value - 1;
+            return ('0' + value).slice(-2);
+        }
+
+        function handleMinute(event) {
+            let value = parseInt(event.target.value);
+            if (isNaN(value) || value > 59) {
+                event.target.value = '00';
+                value = 0;
+            } else if (value < 0) {
+                event.target.value = '59';
+                value = 59;
+            }
+            event.target.value = ('0' + value).slice(-2);
+        }
+    </script>
+    <div x-data="{ period: 'AM' }">
+        <button @click="period = period === 'AM' ? 'PM' : 'AM'" class="px-2 py-1 text-white bg-green-500 rounded"
+            x-text="period"></button>
+    </div>
+
+
 </body>
-</html> -->
+
+</html>

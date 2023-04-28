@@ -113,52 +113,245 @@
                                     <label class="text-sm font-semibold text-gray-600" for="businessname">Start
                                         Time</label>
 
-                                    <span class="inline-block w-full rounded-md shadow-sm">
-                                        <button
-                                            class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded-md shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
-                                            type="button" aria-haspopup="listbox" aria-expanded="true"
-                                            aria-label="search" aria-checked="false">
-
-                                            <input id="search" type="search"
-                                                class="w-full h-full form-control focus:outline-none">
-
-                                            <span
-                                                class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                                    stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </span>
+                                        <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                            <button class="relative flex" @click="showModal = true">
+                                                <input
+                                                    class="w-full px-4 py-3 pl-12 mt-1 leading-tight text-gray-900 border border-gray-600 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600"
+                                                    name="search" placeholder="09:00 AM">
+                                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 text-sm leading-5">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="w-6 h-6 text-gray-600">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                    </svg>
+                                                </div>
+                                            </button>
+                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                x-show="showModal">
+                                                <!-- Modal inner -->
+                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm"
+                                                    @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300"
+                                                    x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                    <!-- Title / Close-->
+                                                    <div class="flex items-center justify-between">
+                                                        <p class="font-bold text-gray-900">
+                                                            Set Time
+                                                        </p>
+                                                        <span @click="showModal = false">
+                                                            <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                                    d="M6 18L18 6M6 6l12 12"></path>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    <!-- content -->
+                                                    <div class="w-full mt-4 space-y-1">
+                                                        <div class="flex items-center">
+                                                            <div class="relative w-20" x-data="{ hour: '00' }">
+                                                                <label class="text-sm font-semibold text-gray-600">Hour</label>
+                                                                <input
+                                                                    class="w-20 p-3 mt-1 text-2xl font-bold leading-tight text-gray-900 border border-gray-600 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600"
+                                                                    type="text" x-model="hour" x-bind:maxlength="2" x-bind:max="12" @input="handleHour"
+                                                                    onblur="if(parseInt(this.value) > 12) this.value = '12';">
+                                                                <div
+                                                                    class="absolute flex flex-col items-center justify-center gap-2 text-sm leading-5 right-2 top-7">
+                                                                    <button @click="hour = incrementHour(hour)">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                                                            class="w-5 h-5">
+                                                                            <path fill-rule="evenodd"
+                                                                                d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
+                                                                                clip-rule="evenodd" />
+                                                                        </svg>
+                                                                    </button>
+                                                                    <button @click="hour = decrementHour(hour)">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                                                            class="w-5 h-5">
+                                                                            <path fill-rule="evenodd"
+                                                                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                                                                clip-rule="evenodd" />
+                                                                        </svg>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="px-2 pt-6 text-2xl font-bold">
+                                                                :
+                                                            </div>
+                                                            <div class="relative w-20" x-data="{ minute : '00' }">
+                                                                <label class="text-sm font-semibold text-gray-600">Mins</label>
+                                                                <input
+                                                                    class="w-20 p-3 mt-1 text-2xl font-bold leading-tight text-gray-900 border border-gray-600 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600"
+                                                                    type="text" x-model="minute" x-bind:maxlength="2" x-bind:max="59"
+                                                                    @input="handleMinute" onblur="if(parseInt(this.value) > 59) this.value = '59';">
+                                                                <div
+                                                                    class="absolute flex flex-col items-center justify-center gap-2 text-sm leading-5 right-2 top-7">
+                                                                    <button @click="minute = incrementMinute(minute)">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                                                            class="w-5 h-5">
+                                                                            <path fill-rule="evenodd"
+                                                                                d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
+                                                                                clip-rule="evenodd" />
+                                                                        </svg>
+                                                                    </button>
+                                                                    <button @click="minute = decrementMinute(minute)">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                                                            class="w-5 h-5">
+                                                                            <path fill-rule="evenodd"
+                                                                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                                                                clip-rule="evenodd" />
+                                                                        </svg>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="px-4 mt-7">       
+                                                                <div class="flex items-center" x-data="{ activeButton: 'button1' }">
+                                                                    <button class="p-4 font-semibold rounded-l"
+                                                                      x-on:click="activeButton = 'button1'" 
+                                                                      :class="{ 'bg-blue-600 text-white': activeButton === 'button1', 'text-gray-800 bg-gray-200': activeButton !== 'button1' }"
+                                                                    >
+                                                                      AM
+                                                                    </button>
+                                                                    <button class="p-4 font-semibold rounded-r"
+                                                                      x-on:click="activeButton = 'button2'" 
+                                                                      :class="{ 'bg-blue-600 text-white': activeButton === 'button2', 'text-gray-800 bg-gray-200': activeButton !== 'button2' }"
+                                                                    >
+                                                                      PM
+                                                                    </button>
+                                                                  </div>
+                                                                  
+                                                                  
+                                                            </div>
+                                                        </div>
+                                                        <div class="flex items-center justify-end gap-8 pt-6">
+                                                            <button class="font-semibold text-blue-600">CANCEL</button>
+                                                            <button class="font-semibold text-blue-600">OK</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                 </div>
                                 <div class="relative">
                                     <label class="text-sm font-semibold text-gray-600" for="businessname">End
                                         Time</label>
 
-                                    <span class="inline-block w-full rounded-md shadow-sm">
-                                        <button
-                                            class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded-md shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
-                                            type="button" aria-haspopup="listbox" aria-expanded="true"
-                                            aria-label="search" aria-checked="false">
-
-                                            <input id="search" type="search"
-                                                class="w-full h-full form-control focus:outline-none">
-
-                                            <span
-                                                class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                                    stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                </svg>
-                                            </span>
-
-                                        </button>
-                                    </span>
+                                        <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                            <button class="relative flex" @click="showModal = true">
+                                                <input
+                                                    class="w-full px-4 py-3 pl-12 mt-1 leading-tight text-gray-900 border border-gray-600 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600"
+                                                    name="search" placeholder="09:00 AM">
+                                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 text-sm leading-5">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="w-6 h-6 text-gray-600">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                    </svg>
+                                                </div>
+                                            </button>
+                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                x-show="showModal">
+                                                <!-- Modal inner -->
+                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm"
+                                                    @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300"
+                                                    x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                    <!-- Title / Close-->
+                                                    <div class="flex items-center justify-between">
+                                                        <p class="font-bold text-gray-900">
+                                                            Set Time
+                                                        </p>
+                                                        <span @click="showModal = false">
+                                                            <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                                    d="M6 18L18 6M6 6l12 12"></path>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    <!-- content -->
+                                                    <div class="w-full mt-4 space-y-1">
+                                                        <div class="flex items-center">
+                                                            <div class="relative w-20" x-data="{ hour: '00' }">
+                                                                <label class="text-sm font-semibold text-gray-600">Hour</label>
+                                                                <input
+                                                                    class="w-20 p-3 mt-1 text-2xl font-bold leading-tight text-gray-900 border border-gray-600 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600"
+                                                                    type="text" x-model="hour" x-bind:maxlength="2" x-bind:max="12" @input="handleHour"
+                                                                    onblur="if(parseInt(this.value) > 12) this.value = '12';">
+                                                                <div
+                                                                    class="absolute flex flex-col items-center justify-center gap-2 text-sm leading-5 right-2 top-7">
+                                                                    <button @click="hour = incrementHour(hour)">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                                                            class="w-5 h-5">
+                                                                            <path fill-rule="evenodd"
+                                                                                d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
+                                                                                clip-rule="evenodd" />
+                                                                        </svg>
+                                                                    </button>
+                                                                    <button @click="hour = decrementHour(hour)">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                                                            class="w-5 h-5">
+                                                                            <path fill-rule="evenodd"
+                                                                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                                                                clip-rule="evenodd" />
+                                                                        </svg>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="px-2 pt-6 text-2xl font-bold">
+                                                                :
+                                                            </div>
+                                                            <div class="relative w-20" x-data="{ minute : '00' }">
+                                                                <label class="text-sm font-semibold text-gray-600">Mins</label>
+                                                                <input
+                                                                    class="w-20 p-3 mt-1 text-2xl font-bold leading-tight text-gray-900 border border-gray-600 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600"
+                                                                    type="text" x-model="minute" x-bind:maxlength="2" x-bind:max="59"
+                                                                    @input="handleMinute" onblur="if(parseInt(this.value) > 59) this.value = '59';">
+                                                                <div
+                                                                    class="absolute flex flex-col items-center justify-center gap-2 text-sm leading-5 right-2 top-7">
+                                                                    <button @click="minute = incrementMinute(minute)">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                                                            class="w-5 h-5">
+                                                                            <path fill-rule="evenodd"
+                                                                                d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
+                                                                                clip-rule="evenodd" />
+                                                                        </svg>
+                                                                    </button>
+                                                                    <button @click="minute = decrementMinute(minute)">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                                                            class="w-5 h-5">
+                                                                            <path fill-rule="evenodd"
+                                                                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                                                                clip-rule="evenodd" />
+                                                                        </svg>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="px-4 mt-7">       
+                                                                <div class="flex items-center" x-data="{ activeButton: 'button1' }">
+                                                                    <button class="p-4 font-semibold rounded-l"
+                                                                      x-on:click="activeButton = 'button1'" 
+                                                                      :class="{ 'bg-blue-600 text-white': activeButton === 'button1', 'text-gray-800 bg-gray-200': activeButton !== 'button1' }"
+                                                                    >
+                                                                      AM
+                                                                    </button>
+                                                                    <button class="p-4 font-semibold rounded-r"
+                                                                      x-on:click="activeButton = 'button2'" 
+                                                                      :class="{ 'bg-blue-600 text-white': activeButton === 'button2', 'text-gray-800 bg-gray-200': activeButton !== 'button2' }"
+                                                                    >
+                                                                      PM
+                                                                    </button>
+                                                                  </div>
+                                                                  
+                                                                  
+                                                            </div>
+                                                        </div>
+                                                        <div class="flex items-center justify-end gap-8 pt-6">
+                                                            <button class="font-semibold text-blue-600">CANCEL</button>
+                                                            <button class="font-semibold text-blue-600">OK</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                 </div>
                                 <div class="col-span-1 lg:col-span-2">
                                     <label class="font-semibold text-gray-600" for="date">Reason</label>
@@ -585,5 +778,58 @@
         $("#aside").load("aside.html");
     });
 </script>
+<script>
+    function incrementHour(hour) {
+        let value = parseInt(hour);
+        value = value >= 12 ? 0 : value + 1;
+        return ('0' + value).slice(-2);
+    }
 
+    function decrementHour(hour) {
+        let value = parseInt(hour);
+        value = value <= 0 ? 12 : value - 1;
+        return ('0' + value).slice(-2);
+    }
+
+    function handleHour(event) {
+        let value = parseInt(event.target.value);
+        if (isNaN(value) || value > 12) {
+            event.target.value = '00';
+            value = 0;
+        } else if (value < 0) {
+            event.target.value = '12';
+            value = 12;
+        }
+        event.target.value = ('0' + value).slice(-2);
+    }
+    function incrementMinute(minute) {
+        let value = parseInt(minute);
+        value = value >= 59 ? 0 : value + 1;
+        return ('0' + value).slice(-2);
+    }
+
+    function decrementMinute(minute) {
+        let value = parseInt(minute);
+        value = value <= 0 ? 59 : value - 1;
+        return ('0' + value).slice(-2);
+    }
+
+    function handleMinute(event) {
+        let value = parseInt(event.target.value);
+        if (isNaN(value) || value > 59) {
+            event.target.value = '00';
+            value = 0;
+        } else if (value < 0) {
+            event.target.value = '59';
+            value = 59;
+        }
+        event.target.value = ('0' + value).slice(-2);
+    }
+</script>
+<style>
+    /* Show the arrow icons only when the input box is focused */
+    .input-container:focus-within .arrow-icons {
+        opacity: 1;
+    }
+</style>
 </html>
