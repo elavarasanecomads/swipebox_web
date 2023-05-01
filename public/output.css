@@ -607,8 +607,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   right: 0.5rem;
 }
 
-.top-8 {
-  top: 2rem;
+.top-7 {
+  top: 1.75rem;
 }
 
 .right-12 {
@@ -619,8 +619,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   bottom: 2.5rem;
 }
 
-.top-7 {
-  top: 1.75rem;
+.top-8 {
+  top: 2rem;
 }
 
 .z-10 {
