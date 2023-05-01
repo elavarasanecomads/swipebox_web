@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="output.css" rel="stylesheet">
-    <!-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script> -->
+    <!-- Add this Alpine Js CDN Link for this page -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
@@ -110,6 +111,7 @@
                                             </button>
                                         </span>
                                     </div>
+                                    <!-- Time Picker Component -->
                                     <div class="relative col-span-1">
                                         <label class="text-sm font-semibold text-gray-600" for="businessname">Start
                                             Time</label>
@@ -780,6 +782,7 @@
         $("#aside").load("aside.html");
     });
 </script>
+<!-- Time picker script -->
 <script>
     function incrementHour(hour) {
         let value = parseInt(hour);
@@ -828,6 +831,7 @@
         event.target.value = ('0' + value).slice(-2);
     }
 </script>
+<!-- Timepicker Style -->
 <style>
     /* Show the arrow icons only when the input box is focused */
     .input-container:focus-within .arrow-icons {
