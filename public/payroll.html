@@ -47,17 +47,18 @@
                       <div>
                         <h1 class="text-2xl font-bold">Payroll</h1>
                         <div class="pt-4 space-y-4 bg-white">
-                            <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">                                
+                            <div x-data="{ selectedOption: 'option1' }" class="grid grid-cols-1 gap-4 lg:grid-cols-2">                                
                                 <div>
                                     <label class="font-semibold text-gray-600" for="businessname">Salary
                                         Type</label>
-                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                    <select x-model="selectedOption" id="type" name="type" autocomplete="type"
                                         class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
                                         <option>Select</option>
-                                        <option>Monthly</option>
-                                        <option>Weekly</option>
-                                        <option>Daily</option>
-                                        <option>Hourly</option>
+                                        <option value="option1">Monthly</option>
+                                        <option value="option2">Weekly</option>
+                                        <option value="option3">Daily</option>
+                                        <option value="option4">Hourly</option>
+                                        <option value="option5">Pay Per Work Wages</option>
                                     </select>
                                 </div>
                                 <div>
@@ -71,13 +72,17 @@
                                     </select>
                                 </div>
                                 <div>
-                                    <label class="font-semibold text-gray-600" for="businessname">Gross
-                                        Salary</label>
+                                    <div>
+                                        <label x-show="selectedOption === 'option1'" class="font-semibold text-gray-600" for="businessname">Salary Per Month</label>
+                                        <label x-show="selectedOption === 'option2'" class="font-semibold text-gray-600" for="businessname">Salary Per Week</label>
+                                        <label x-show="selectedOption === 'option3'" class="font-semibold text-gray-600" for="businessname">Salary Per Day</label>
+                                        <label x-show="selectedOption === 'option4'" class="font-semibold text-gray-600" for="businessname">Salary Per Hour</label>
+                                    </div>
                                     <input type="text" name="businessname" id="businessname" autocomplete="title"
                                         placeholder=""
                                         class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                 </div>                                
-                                <div id="toggleOn" x-show="toggle">
+                                <div>
                                     <label class="font-semibold text-gray-600" for="businessname">Payment Mode</label>
                                     <select id="jobtype" name="jobtype" autocomplete="jobtype"
                                         class="block w-full px-1 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
@@ -87,7 +92,7 @@
                                         <option>UPI</option>
                                     </select>
                                 </div>
-                                <div id="toggleOn" x-show="toggle">
+                                <div>
                                     <label class="font-semibold text-gray-600" for="businessname">Salary
                                         Template</label>
                                     <select id="jobtype" name="jobtype" autocomplete="jobtype"

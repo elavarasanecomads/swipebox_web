@@ -537,7 +537,7 @@
         @keydown.window.tab="usedKeyboard = true" @keydown.escape="open = false" x-init="init()">
         <div x-show.transition.opacity.duration.500="open" @click="open = false"
             class="fixed inset-0 bg-black bg-opacity-25"></div>
-        <div class="fixed top-0 right-0 z-50 w-full h-screen max-w-md overflow-hidden transition duration-300 transform bg-white"
+        <div class="fixed top-0 right-0 z-40 w-full h-screen max-w-md overflow-hidden transition duration-300 transform bg-white"
             :class="{'translate-x-full': !open}">
             <footer class="fixed inset-x-0 top-0 p-4 text-center text-white bg-white border-t">
                 <div>
@@ -559,8 +559,8 @@
                             <p class="text-sm text-gray-600"><span>Emp.Id </span>6547868</p>
                         </div>
                         <div>
-                            <p class="text-sm text-right text-gray-600"><span>Net Pay</p>
-                            <p class="text-xl font-semibold text-right text-red-600"><span>₹</span> 15000</p>
+                            <p class="font-bold text-right text-green-600"><span>Salary</p>
+                            <p class="text-sm text-right text-gray-900"><span class="text-xl font-semibold">₹  30000 /</span> per month</p>
                         </div>
                     </div>
                 </div>
@@ -600,15 +600,33 @@
                             </div>
 
                         </div>
+                        <div class="py-2 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <p class="font-semibold">Total Salary</p>
+                                <p class="font-semibold text-gray-600"><span>₹ </span>30000</p>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <p class="font-semibold">Loss of Pay</p>
+                                <p class="font-semibold text-gray-600"><span class="text-red-600">(-) </span><span>₹ </span>2000</p>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <p class="font-semibold">Gross Salary</p>
+                                <p class="font-semibold text-gray-600"><span>₹ </span>28000</p>
+                            </div>
+                        </div>
                         <div class="py-2">
                             <div class="flex items-center justify-between">
                                 <h3 class="font-bold text-green-600">(+) Earnings</h3>
-                                <p class="font-bold text-green-600"><span>₹ </span>27000</p>
+                                <p class="font-bold text-green-600"><span>₹ </span>30000</p>
                             </div>
                             <div class="space-y-4">
                                 <div class="flex items-center justify-between pt-4">
-                                    <p class="font-semibold">Basic Salary</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>25000</p>
+                                    <p class="font-semibold">Basic Pay </p>
+                                    <p class="font-semibold text-gray-600"><span>₹ </span>19600</p>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <p class="font-semibold">HRA</p>
+                                    <p class="font-semibold text-gray-600"><span>₹ </span>8400</p>
                                 </div>
                                 <div class="flex items-center justify-between">
                                     <p class="font-semibold">Fixed Allowance</p>
@@ -639,16 +657,16 @@
                         <div class="py-2">
                             <div class="flex items-center justify-between">
                                 <h3 class="font-bold text-red-600">(-) Tax Deductions</h3>
-                                <p class="font-bold text-red-600"><span>₹ </span>12000</p>
+                                <p class="font-bold text-red-600"><span>₹ </span>2837</p>
                             </div>
                             <div class="space-y-4">
                                 <div class="flex items-center justify-between pt-4">
                                     <p class="font-semibold">PF</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>500</p>
+                                    <p class="font-semibold text-gray-600"><span>₹ </span>1800</p>
                                 </div>
                                 <div class="flex items-center justify-between">
                                     <p class="font-semibold">ESI</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>100</p>
+                                    <p class="font-semibold text-gray-600"><span>₹ </span>637</p>
                                 </div>
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center gap-2">
@@ -670,7 +688,7 @@
                         <div class="py-2">
                             <div class="flex items-center justify-between">
                                 <h3 class="font-bold text-red-600">(-) Common Deductions</h3>
-                                <p class="font-bold text-red-600"><span>₹ </span>12000</p>
+                                <p class="font-bold text-red-600"><span>₹ </span>3200</p>
                             </div>
                             <div class="space-y-4">
                                 <div class="flex items-center justify-between pt-4">
@@ -678,7 +696,7 @@
                                         <p class="font-semibold">Deductions</p>
                                         <a class="text-sm font-medium text-blue-600" href="deduction.html">+ Add</a>
                                     </div>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>10000</p>
+                                    <p class="font-semibold text-gray-600"><span>₹ </span>1000</p>
                                 </div>
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center gap-2">
@@ -701,25 +719,29 @@
                                 </div>
                                 <div class="flex items-center justify-between">
                                     <p class="font-semibold">Early Exit Penalties <span class="font-normal font-base">[2:30 Hrs]</span></p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>1700</p>
+                                    <p class="font-semibold text-gray-600"><span>₹ </span>100</p>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <p class="font-semibold">Break Time Penalties <span class="font-normal font-base">[2:30 Hrs]</span></p>
+                                    <p class="font-semibold text-gray-600"><span>₹ </span>100</p>
                                 </div>
                             </div>
 
                         </div>
-                        <div class="py-2 pb-24">
+                        <div class="py-2">
                             <div class="flex items-center justify-between">
                                 <h3 class="font-bold text-green-600">(+) Employer Contributions</h3>
-                                <p class="font-bold text-green-600"><span>₹ </span>1000</p>
+                                <p class="font-bold text-green-600"><span>₹ </span>2347</p>
                             </div>
 
                             <div class="space-y-4">
                                 <div class="flex items-center justify-between pt-4">
                                     <p class="font-semibold">PF</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>500</p>
+                                    <p class="font-semibold text-gray-600"><span>₹ </span>1800</p>
                                 </div>
                                 <div class="flex items-center justify-between">
                                     <p class="font-semibold">ESI</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>100</p>
+                                    <p class="font-semibold text-gray-600"><span>₹ </span>147</p>
                                 </div>
                                 <div class="flex items-center justify-between">
                                     <p class="font-semibold">PT</p>
@@ -731,6 +753,13 @@
                                 </div>
                             </div>
 
+                        </div>
+                        <div class="py-2 pb-24">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-bold text-red-600">NETPAY</h3>
+                                <p class="font-bold text-red-600"><span>₹ </span>12000</p>
+                            </div>                               
+                            <p class="pt-2 text-sm text-gray-600">Netpay = Earnings - [Tax Deductions + Common Deductions]</p>
                         </div>
                     </div>
                 </div>
