@@ -22,7 +22,19 @@
                         <h1 class="text-2xl font-bold">Edit Employee Role</h1>
                         <div class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-3">
                             <div>
-                                <span class="inline-block w-full rounded shadow-sm">
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                    Role</label>
+                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                    class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                    <option>All</option>
+                                    <option>Admin</option>
+                                    <option>Branch Manager</option>
+                                    <option>Department Manager</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">Search</label>                                
+                                <span class="inline-block w-full mt-1 rounded shadow-sm">
                                     <button
                                         class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-72 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
                                         type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search"
@@ -41,7 +53,7 @@
                                     </button>
                                 </span>
                             </div>
-                            <div class="w-48 space-y-4">
+                            <div class="w-48 space-y-4 lg:pt-6">
                                 <button class="w-full px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded">Search</button>
                             </div>
                         </div>
