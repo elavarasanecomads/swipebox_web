@@ -120,9 +120,10 @@
                                                 <div class="w-full mt-4 space-y-4">
                                                     <p>Are you absolutely sure you want to delete <span class="font-bold">Elavarasan</span>?</p>
                                                     <p>Once you delete the employee, then all the records will be deleted, it will not be possible to recover the records ". You can change the employee status to inactive.</p>
-                                                    <div class="py-3">                                                    
+                                                    <div class="py-3">    
+                                                        <label class="font-semibold text-gray-600 select-none" for="date">Elavarasan</label>                                                
                                                         <input type="text" name="date" id="date" autocomplete="title" placeholder="Type the name to confirm" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                            <label class="font-semibold text-gray-600 select-none" for="date">Elavarasan</label>
+                                                        <p class="text-red-600">* Name doesn't match.</p>  
                                                     </div>
                                                             <div class="flex items-center w-full gap-4 pt-4">
                                                                 <button @click="showModal = false"
