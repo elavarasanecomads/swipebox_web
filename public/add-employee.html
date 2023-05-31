@@ -21,48 +21,8 @@
                         <div class="flex items-center gap-4">
                             <p class="text-2xl font-bold">Add New Employee</p>
                             <div>
-                                <button class="p-2 font-semibold text-white bg-blue-600 rounded-md"
-                                    @click="selected !== 1 ? selected = 1 : selected = null">Bulk Upload</button>
+                                <button class="p-2 font-semibold text-white bg-blue-600 rounded-md"><a href="bulk-employee-upload.html">Bulk Upload</a></button>
 
-                            </div>
-                        </div>
-                        <div class="relative overflow-hidden transition-all duration-700 max-h-0" style=""
-                            x-ref="container1"
-                            x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
-                            <div class="p-2 space-y-3">
-
-                                <div class="w-full p-4 bg-blue-100 border border-blue-600 rounded-md">
-                                    <div class="flex items-center justify-center">
-                                        <div class="gap-2 py-4 border-b">
-                                            <h3 class="text-xl font-semibold text-center text-gray-900">Add Bulk
-                                                Upload</h3>
-                                            <div class="mt-1">
-                                                <label
-                                                    class="flex items-center w-64 px-4 py-3 tracking-wide text-white uppercase bg-blue-600 border border-blue-600 rounded-lg shadow-lg cursor-pointer">
-                                                    <svg class="w-6 h-6 mr-2" fill="currentColor"
-                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                                        <path
-                                                            d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z">
-                                                        </path>
-                                                    </svg>
-                                                    <span class="text-base leading-normal">Upload a file</span>
-                                                    <input type="file" class="hidden">
-                                                </label>
-                                            </div>
-                                            <div class="flex items-center justify-center pt-2 text-sm text-blue-600">
-                                                <svg class="w-5 h-5 mr-1 text-blue-600"
-                                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                    stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2"
-                                                        d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z">
-                                                    </path>
-                                                </svg>
-                                                Download Sample Format
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
