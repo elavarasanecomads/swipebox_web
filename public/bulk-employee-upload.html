@@ -1,0 +1,104 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="output.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="h-full p-4 bg-white border rounded-md lg:p-8">
+                    <div>
+                        <p class="text-2xl font-bold">Employee Bulk Upload</p>
+                    </div>
+                    <div class="w-full pt-6 lg:w-1/2">
+                        <div class="flex items-center justify-center w-full">
+                            <label for="dropzone-file"
+                                class="flex flex-col items-center justify-center w-full border-2 border-blue-300 border-dashed rounded-lg cursor-pointer h-44 bg-blue-50 hover:bg-blue-100">
+                                <div class="flex flex-col items-center justify-center">
+                                    <svg aria-hidden="true" class="w-10 h-10 mb-3 text-gray-400" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12">
+                                        </path>
+                                    </svg>
+                                    <p class="mb-2 text-sm text-gray-700"><span class="font-semibold">Click to
+                                            upload</span> or drag and drop</p>
+                                    <p class="text-xs text-gray-600">XLS or CSV (MAX. 10Mb)</p>
+                                </div>
+                                <input id="dropzone-file" type="file" class="hidden" />
+                                
+                            </label>
+                          
+
+                        </div>
+                        <div class="flex items-center justify-center gap-2 pt-4">
+                            <p>inputfile.csv</p>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-red-600">
+                                    <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+                                  </svg>                                          
+                            </span>
+                        </div>
+                    </div>
+                    <div class="pt-6">
+                        <h3 class="font-bold uppercase">Keep In Mind</h3>
+                        <ul class="pt-4 space-y-2 text-gray-600 list-disc list-inside">
+                            <li>The file follows the required format. <a href="#"
+                                    class="font-semibold text-blue-600">Download Sample Format</a></li>
+                            <li>Branch and Shift should already exist in the organization.</li>
+                        </ul>
+                    </div>
+                    <div class="pt-6">
+                        <button x-data="{ isLoading: false, showMessage: false }" @click="isLoading = true; setTimeout(() => { isLoading = false; showMessage = true; }, 5000)" class="w-full px-4 py-2 font-semibold text-white bg-blue-600 rounded lg:w-44" :class="{ 'opacity-50 cursor-not-allowed': isLoading }" :disabled="isLoading">
+                            <span x-show="!isLoading">Upload</span>
+                            <span x-show="isLoading">Uploading...</span>
+                          </button>                      
+                    </div>
+
+                    <div class="pt-6 space-y-4">
+                        <div class="flex items-center gap-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-green-600">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                              </svg>
+                              
+                            <p><span class="font-semibold">55 Employees</span> Uploaded Successfully.</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-red-600">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd" />
+                              </svg>
+                                
+                            <p class="text-red-600"><span class="font-semibold">5</span> Issues Detected <span><a href="#"
+                                class="font-semibold text-blue-600 underline">Download Issues</a></span></p>
+                        </div>
+                        
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+</html>
