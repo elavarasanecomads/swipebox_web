@@ -65,6 +65,8 @@
                                 <h1 class="text-2xl font-semibold text-white">Elavarasan</h1>
                                 <p class="text-white">+91 8072276922</p>
                             </div>
+
+                            <!--this Div is Hidden
                             <div class="flex items-center gap-2">
                                 <div class="relative" x-data="{ isOpen: false }">
                                     <button class="p-2 bg-white rounded" @click="isOpen = !isOpen"
@@ -91,104 +93,21 @@
                                                 class="flex items-center gap-2 px-3 py-2 font-semibold group-hover:text-blue-600">
                                                 Inactive
                                             </a>
-                                        </li>
-                                        <li class="group hover:bg-blue-100"
-                                            x-data="{ showModal: false, showConfirmationModal: false }">
-                                            <a href="#" @click="showModal = true; showConfirmationModal = false"
-                                                class="flex items-center gap-2 px-3 py-2 font-semibold group-hover:text-blue-600">
-                                                Delete Employee
-                                            </a>
-                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
-                                                x-show="showModal" @keydown.escape="showModal = false">
-                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-lg"
-                                                    x-show="!showConfirmationModal">
-                                                    <div class="flex items-center justify-between">
-                                                        <div>
-                                                            <p class="font-bold">Delete Employee</p>
-                                                        </div>
-                                                        <span @click="showModal = false">
-                                                            <svg class="w-5 h-5 text-gray-900"
-                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                                viewBox="0 0 24 24" stroke="currentColor">
-                                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                                                                </path>
-                                                            </svg>
-                                                        </span>
-                                                    </div>
-
-                                                <div class="w-full mt-4 space-y-4">
-                                                    <p>Are you absolutely sure you want to delete <span class="font-bold">Elavarasan</span>?</p>
-                                                    <p>Once you delete the employee, then all the records will be deleted, it will not be possible to recover the records ". You can change the employee status to inactive.</p>
-                                                    <div class="py-3">    
-                                                        <label class="font-semibold text-gray-600 select-none" for="date">Elavarasan</label>                                                
-                                                        <input type="text" name="date" id="date" autocomplete="title" placeholder="Type the name to confirm" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                        <p class="text-red-600">* Name doesn't match.</p>  
-                                                    </div>
-                                                            <div class="flex items-center w-full gap-4 pt-4">
-                                                                <button @click="showModal = false"
-                                                                    class="w-full p-3 font-semibold text-gray-900 bg-gray-200 rounded-md">
-                                                                    Cancel
-                                                                </button>
-                                                                <button @click="showConfirmationModal = true"
-                                                                    class="w-full p-3 font-semibold text-white bg-red-600 rounded-md">
-                                                                    Delete
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-
-                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm"
-                                                    x-show="showConfirmationModal">
-                                                    <div class="flex items-center justify-between">
-                                                        <div class="flex items-center gap-2">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-yellow-600">
-                                                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd" />
-                                                              </svg>
-                                                              
-                                                            <p class="font-bold">
-                                                                Processing
-                                                            </p>
-                                                        </div>
-                                                        <span @click="showModal = false">
-                                                            <svg class="w-5 h-5 text-gray-900"
-                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                                viewBox="0 0 24 24" stroke="currentColor">
-                                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                                                                </path>
-                                                            </svg>
-                                                        </span>
-                                                    </div>
-
-                                                    <div class="pt-4 text-gray-600">
-                                                        <p>The process of deleting the employee is currently running in the background. We will notify you once the deletion is complete.</p>
-                                                    </div>
-
-                                                    <div class="w-full gap-4 mt-4 space-x-2 ">
-                                                        <a href="employee-summary.html"><button
-                                                            class="w-full p-2 font-semibold text-white bg-blue-600 rounded-md">
-                                                            OKAY
-                                                        </button>
-                                                    </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
+                                        </li>                                        
                                     </ul>
                                 </div>
                             </div>
+                            -->
                         </div>
                         <div class="flex items-center justify-between">
                             <div>
-                                <h1 class="text-2xl font-bold text-white">₹ 25000</h1>
-                                <p class="text-white">Projected Salary</p>
+                                <h1 class="text-2xl font-bold text-white">₹ 25000 <span class="text-base font-normal">/ per month</span></h1>
                             </div>
-                            <div>
+                            <!-- <div>
                                 <a class="p-2 px-4 font-semibold text-blue-600 bg-white rounded-sm"
                                     href="view-salaryslip.html">Salary
                                     Slip</a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="p-4 bg-white lg:p-8">
@@ -297,6 +216,95 @@
                                     </div>
                                     <p class="font-semibold text-center text-gray-600">Leave Balance</p>
                                 </a>
+                            </div>
+                            <div class="p-4 border shadow-lg">
+                                <div class="group hover:bg-blue-100"
+                                            x-data="{ showModal: false, showConfirmationModal: false }">
+                                            <a href="#" @click="showModal = true; showConfirmationModal = false"
+                                                class="flex flex-col items-center gap-2">
+                                                <div>
+                                                    <img class="w-10 h-10" src="img/delete.png" alt="deduction">
+                                                </div>
+                                                <p class="font-semibold text-center text-gray-600">Delete Employee</p>    
+                                            </a>
+                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                x-show="showModal" @keydown.escape="showModal = false">
+                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-lg"
+                                                    x-show="!showConfirmationModal">
+                                                    <div class="flex items-center justify-between">
+                                                        <div>
+                                                            <p class="font-bold">Delete Employee</p>
+                                                        </div>
+                                                        <span @click="showModal = false">
+                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                                                                </path>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+
+                                                <div class="w-full mt-4 space-y-4">
+                                                    <p>Are you absolutely sure you want to delete <span class="font-bold">Elavarasan</span>?</p>
+                                                    <p>Once you delete the employee, then all the records will be deleted, it will not be possible to recover the records ". You can change the employee status to inactive.</p>
+                                                    <div class="py-3">    
+                                                        <label class="font-semibold text-gray-600 select-none" for="date">Elavarasan</label>                                                
+                                                        <input type="text" name="date" id="date" autocomplete="title" placeholder="Type the name to confirm" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                        <p class="text-red-600">* Name doesn't match.</p>  
+                                                    </div>
+                                                            <div class="flex items-center w-full gap-4 pt-4">
+                                                                <button @click="showModal = false"
+                                                                    class="w-full p-3 font-semibold text-gray-900 bg-gray-200 rounded-md">
+                                                                    Cancel
+                                                                </button>
+                                                                <button @click="showConfirmationModal = true"
+                                                                    class="w-full p-3 font-semibold text-white bg-red-600 rounded-md">
+                                                                    Delete
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                </div>
+
+                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm"
+                                                    x-show="showConfirmationModal">
+                                                    <div class="flex items-center justify-between">
+                                                        <div class="flex items-center gap-2">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-yellow-600">
+                                                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd" />
+                                                              </svg>
+                                                              
+                                                            <p class="font-bold">
+                                                                Processing
+                                                            </p>
+                                                        </div>
+                                                        <span @click="showModal = false">
+                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                                                                </path>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+
+                                                    <div class="pt-4 text-gray-600">
+                                                        <p>The process of deleting the employee is currently running in the background. We will notify you once the deletion is complete.</p>
+                                                    </div>
+
+                                                    <div class="w-full gap-4 mt-4 space-x-2 ">
+                                                        <a href="employee-summary.html"><button
+                                                            class="w-full p-2 font-semibold text-white bg-blue-600 rounded-md">
+                                                            OKAY
+                                                        </button>
+                                                    </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                
                             </div>
                         </div>
                     </div>
