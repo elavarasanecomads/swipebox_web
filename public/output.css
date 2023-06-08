@@ -3629,6 +3629,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding: 1.5rem;
   }
 
+  .lg\:p-2 {
+    padding: 0.5rem;
+  }
+
   .lg\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
