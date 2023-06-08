@@ -15,7 +15,7 @@
     <div id="aside"></div>
     <div class="w-full">
       <div id="navigation"></div>
-      <div x-data="{ 'showModal': true }" @keydown.escape="showModal = true">
+      <div x-data="{ 'showModal': false }" @keydown.escape="showModal = true">
         <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
           x-show="showModal" style="display: none;">
           <!-- Modal inner -->
@@ -42,22 +42,23 @@
                     <div class="p-4 border border-l-4 rounded-md border-l-yellow-600">
                       <div class="flex items-center justify-between">
                         <div class="flex items-center gap-4">
-                            <div>
-                              <img class="w-12 h-12 rounded-full"
-                                src="https://www.adobe.com/content/dam/offers-homepage/us/en/homepage/twitter_adobe.png"
-                                alt="">
-                            </div>
-                            <div>
-                              <p class="font-medium">Adobe Corporation</p>
-                              <span class="text-xs text-gray-600">Id : 687676EB89</span>
-                            </div>
+                          <div>
+                            <img class="w-12 h-12 rounded-full"
+                              src="https://www.adobe.com/content/dam/offers-homepage/us/en/homepage/twitter_adobe.png"
+                              alt="">
                           </div>
                           <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                            </svg>
-                            
+                            <p class="font-medium">Adobe Corporation</p>
+                            <span class="text-xs text-gray-600">Id : 687676EB89</span>
                           </div>
+                        </div>
+                        <div>
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                          </svg>
+
+                        </div>
                       </div>
                     </div>
                   </a>
@@ -67,22 +68,23 @@
                     <div class="p-4 border border-l-4 rounded-md border-l-yellow-600">
                       <div class="flex items-center justify-between">
                         <div class="flex items-center gap-4">
-                            <div>
-                              <img class="w-12 h-12 rounded-full"
-                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png"
-                                alt="">
-                            </div>
-                            <div>
-                              <p class="font-medium">Google INC</p>
-                              <span class="text-xs text-gray-600">Id : 687676EB90</span>
-                            </div>
+                          <div>
+                            <img class="w-12 h-12 rounded-full"
+                              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png"
+                              alt="">
                           </div>
                           <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                            </svg>
-                            
+                            <p class="font-medium">Google INC</p>
+                            <span class="text-xs text-gray-600">Id : 687676EB90</span>
                           </div>
+                        </div>
+                        <div>
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                          </svg>
+
+                        </div>
                       </div>
                     </div>
                   </a>
@@ -93,15 +95,131 @@
         </div>
       </div>
       <div class="mx-0 my-4 lg:m-4">
-        <div class="h-full p-4 bg-white border rounded-md lg:p-8">
+        <div class="h-full p-4 space-y-6 bg-white border rounded-md lg:p-8">
+
+
+          <div class="bg-yellow-100 rounded">
+            <div class="px-3 py-3 mx-auto max-w-7xl ">
+              <div class="flex flex-wrap items-start justify-between">
+                <div class="flex items-start flex-1 w-0">
+                  <div class="flex flex-col ml-3">
+                    <div class="flex items-center gap-2">
+                      <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                          class="w-6 h-6 text-yellow-600">
+                          <path fill-rule="evenodd"
+                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z"
+                            clip-rule="evenodd" />
+                        </svg>
+                      </div>
+                      <p class="font-bold">Your Free Trial is Expiring Soon.</p>
+                    </div>
+                    <p class="pt-2 text-sm text-gray-600 lg:pt-1 lg:pl-8">Your free trial ends on 15-06-2023 11:26 AM. Feel free to upgrade to our premium plan to get more additional features.</p>
+                  </div>
+                </div>
+                <div class="flex-shrink-0 order-3 w-full mt-2 sm:order-2 sm:mt-0 sm:w-auto">
+                  <a href="plan-details.html"
+                    class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-yellow-600 border border-transparent rounded-md shadow-sm hover:bg-yellow-700">Upgrade
+                    Now</a>
+                </div>
+                <div class="flex-shrink-0 order-2 sm:order-3 sm:ml-3">
+                  <button type="button"
+                    class="flex p-2 -mt-2 -mr-1 rounded-md lg:mt-0 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2">
+                    <span class="sr-only">Dismiss</span>
+                    <!-- Heroicon name: outline/x-mark -->
+                    <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                      viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
           
+          <div class="bg-red-100 rounded">
+            <div class="px-3 py-3 mx-auto max-w-7xl ">
+              <div class="flex flex-wrap items-start justify-between">
+                <div class="flex items-start flex-1 w-0">
+                  <div class="flex flex-col ml-3">
+                    <div class="flex items-center gap-2">
+                      <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                          class="w-6 h-6 text-red-600">
+                          <path fill-rule="evenodd"
+                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z"
+                            clip-rule="evenodd" />
+                        </svg>
+                      </div>
+                      <p class="font-bold">Your Plan is Expired.</p>
+                    </div>
+                    <p class="pt-2 text-sm text-gray-600 lg:pt-1 lg:pl-8">Your plan is expired on 15-06-2023 11:26 AM. Feel free to upgrade to our premium plan to get more additional features.</p>
+                  </div>
+                </div>
+                <div class="flex-shrink-0 order-3 w-full mt-2 sm:order-2 sm:mt-0 sm:w-auto">
+                  <a href="plan-details.html"
+                    class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700">Upgrade
+                    Now</a>
+                </div>
+                <div class="flex-shrink-0 order-2 sm:order-3 sm:ml-3">
+                  <button type="button"
+                    class="flex p-2 -mt-2 -mr-1 rounded-md lg:mt-0 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2">
+                    <span class="sr-only">Dismiss</span>
+                    <!-- Heroicon name: outline/x-mark -->
+                    <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                      viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-blue-100 rounded">
+            <div class="px-3 py-3 mx-auto max-w-7xl ">
+              <div class="flex flex-wrap items-start justify-between">
+                <div class="flex items-start flex-1 w-0">
+                  <div class="flex flex-col ml-3">
+                    <div class="flex items-center gap-2">
+                      <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                          class="w-6 h-6 text-blue-600">
+                          <path fill-rule="evenodd"
+                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z"
+                            clip-rule="evenodd" />
+                        </svg>
+                      </div>
+                      <p class="font-bold">Payment Link is Generated.</p>
+                    </div>
+                    <p class="pt-2 text-sm text-gray-600 lg:pt-1 lg:pl-8">As per your request, We created manual payment request. You can able to pay by clicking Pay Now button.</p>
+                  </div>
+                </div>
+                <div class="flex-shrink-0 order-3 w-full mt-2 sm:order-2 sm:mt-0 sm:w-auto">
+                  <a href="plan-details.html"
+                    class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700">Pay Now</a>
+                </div>
+                <div class="flex-shrink-0 order-2 sm:order-3 sm:ml-3">
+                  <button type="button"
+                    class="flex p-2 -mt-2 -mr-1 rounded-md lg:mt-0 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2">
+                    <span class="sr-only">Dismiss</span>
+                    <!-- Heroicon name: outline/x-mark -->
+                    <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                      viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!--Back Button code-->
           <div>
             <button class="flex items-center gap-1 text-sm text-gray-600">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-                <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd" />
+                <path fill-rule="evenodd"
+                  d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                  clip-rule="evenodd" />
               </svg>
-              <span>Back</span>              
+              <span>Back</span>
             </button>
           </div>
 
