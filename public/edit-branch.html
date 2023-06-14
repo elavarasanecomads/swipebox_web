@@ -20,8 +20,25 @@
                     <!--Breadcrumb-->
                     <div>
                         <h1 class="text-2xl font-bold">Edit Employee Branch</h1>
-                        <div class="grid grid-cols-1 gap-4 py-4 pb-8 border-b lg:grid-cols-3">                            
-                            
+                        <div class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-3">
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                    Branch</label>
+                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                    <option>All</option>
+                                    <option>Ecomads Pvt Ltd, Covai</option>
+                                    <option>Ecomads Pvt Ltd, Tiruchengode</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                    Department</label>
+                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                    <option>All</option>
+                                    <option>Sales</option>
+                                    <option>Purchase</option>
+                                </select>
+                            </div>
                             <div>
                                 <label class="text-sm font-semibold text-gray-600" for="businessname">Search</label>                                
                                 <span class="inline-block w-full mt-1 rounded shadow-sm">
@@ -43,7 +60,7 @@
                                     </button>
                                 </span>
                             </div>
-                            <div class="w-48 space-y-4 lg:pt-6">
+                            <div class="w-48 space-y-4">
                                 <button class="w-full px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded">Search</button>
                             </div>
                         </div>
