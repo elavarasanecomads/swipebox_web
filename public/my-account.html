@@ -145,6 +145,92 @@
                                       </svg>
                                 </div>
                             </a>
+                            <div class="p-4 border shadow">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex">
+                                        <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2 text-blue-600">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z" />
+                                          </svg>
+                                          </span>
+                                          <div>
+                                            <p class="font-semibold">Channel Partner Id</p> 
+                                        </div>
+                                    </div>
+                                    <div>                                        
+                                        <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                            <button @click="showModal = true" class="px-4 py-1 text-sm font-semibold text-white bg-blue-600 rounded"><span>Add</span></button>
+    
+                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
+                                                <!-- Modal inner -->
+                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                    <!-- Title / Close-->
+                                                    <div class="flex items-center justify-between">
+                                                        <p class="font-bold text-gray-900">
+                                                            Add Channel Partner ID
+                                                        </p>
+                                                        <span @click="showModal = false">
+                                                            <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    <!-- content -->
+                                                    <div class="w-full mt-4 space-y-1">
+                                                        <div>
+                                                            <label class="text-sm font-semibold text-gray-600" for="Name">Channel Partner ID</label>
+                                                            <input type="text" name="Name" id="Name" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
+                                                        </div>
+                                                        <div class="flex items-center w-full gap-4 py-4">
+                                                            <a @click="showModal = false" class="w-full p-2 font-semibold text-center text-gray-900 bg-gray-200 rounded-md">Cancel</a>
+                                                            <a class="w-full p-2 font-semibold text-center text-white bg-blue-600 rounded-md" href="">Add</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2 pt-2">
+                                    <p class="font-semibold">
+                                        8768757645</p>
+                                    <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                        <button @click="showModal = true" class="">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                                                </path>
+                                            </svg></button>
+
+                                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
+                                            <!-- Modal inner -->
+                                            <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                <!-- Title / Close-->
+                                                <div class="flex items-center justify-between">
+                                                    <p class="font-bold text-gray-900">
+                                                        Edit Channel Partner ID
+                                                    </p>
+                                                    <span @click="showModal = false">
+                                                        <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <!-- content -->
+                                                <div class="w-full mt-4 space-y-1">
+                                                    <div>
+                                                        <label class="text-sm font-semibold text-gray-600" for="Name">Channel Partner ID</label>
+                                                        <input type="text" name="Name" id="Name" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
+                                                    </div>
+                                                    <div class="flex items-center w-full gap-4 py-4">
+                                                        <a @click="showModal = false" class="w-full p-2 font-semibold text-center text-gray-900 bg-gray-200 rounded-md">Cancel</a>
+                                                        <a class="w-full p-2 font-semibold text-center text-white bg-blue-600 rounded-md" href="">Update</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
