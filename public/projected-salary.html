@@ -49,53 +49,162 @@
                     <div>
                         <h1 class="text-2xl font-bold">Projected Salary</h1>
                         <div class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-2">
-                            <div class="flex flex-col items-center gap-4 lg:flex-row">                                
-                            <div class="w-full lg:w-1/3">
-                                <label class="text-sm font-semibold text-gray-600" for="businessname">Pay Cycle</label>
-                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
-                                    <option>Monthly</option>
-                                    <option>Weekly</option>
-                                </select>
-                            </div>
-                            <div class="w-full lg:w-2/3">
-                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select
-                                    Month</label>
-                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
-                                    <option>Jan - 25/12/2022 - 05/01/2023</option>
-                                    <option>Dec - 25/11/2022 - 24/12/2022</option>
-                                    <option>Nov - 25/10/2022 - 24/11/2022</option>
-                                    <option>Oct - 25/09/2022 - 24/10/2022</option>
-                                </select>
-                            </div>
+                            <div class="flex flex-col items-center gap-4 lg:flex-row">
+                                <div class="w-full lg:w-1/3">
+                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Pay
+                                        Cycle</label>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                        <option>Monthly</option>
+                                        <option>Weekly</option>
+                                    </select>
+                                </div>
+                                <div class="w-full lg:w-2/3">
+                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                        Month</label>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                        <option>Jan - 25/12/2022 - 05/01/2023</option>
+                                        <option>Dec - 25/11/2022 - 24/12/2022</option>
+                                        <option>Nov - 25/10/2022 - 24/11/2022</option>
+                                        <option>Oct - 25/09/2022 - 24/10/2022</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="w-48 space-y-4 lg:mt-6">
-                                <a href="#"><button class="w-full px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded-md">Search</button></a>
+                                <a href="#"><button
+                                        class="w-full px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded-md">Search</button></a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                    <div class="p-4 bg-white border rounded lg:p-4">
-                        <div class="py-4 space-y-4">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h3 class="text-xl font-semibold text-blue-600">Dec - 25/11/2022 - 24/12/2022</h3>
-                                </div>
+                <div class="p-4 bg-white border rounded lg:p-4">
+                    <div class="py-4 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="text-xl font-semibold text-blue-600">Dec - 25/11/2022 - 24/12/2022</h3>
+                            </div>
 
-                                <div class="flex items-center gap-4">
-                                    <button @click="showModal = true" disabled
-                                        class="flex items-center gap-1 px-4 py-2 font-semibold text-gray-100 bg-gray-600 rounded disabled:bg-opacity-50 disabled:cursor-not-allowed"><span><svg
-                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
-                                            </svg>
-                                        </span><span>Re-Run</span></button>
+                            <div class="flex items-center gap-4">
+                                <button @click="showModal = true" disabled
+                                    class="flex items-center gap-1 px-4 py-2 font-semibold text-gray-100 bg-gray-600 rounded disabled:bg-opacity-50 disabled:cursor-not-allowed"><span><svg
+                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                                        </svg>
+                                    </span><span>Re-Run</span></button>
+                                <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                    <button @click="showModal = true"
+                                        class="px-4 py-2 font-semibold text-white bg-green-600 rounded"><span>Finalize
+                                            Salary</span></button>
+
+                                    <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                        x-show="showModal" style="display: none;">
+                                        <!-- Modal inner -->
+                                        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
+                                            @click.away="showModal = false"
+                                            x-transition:enter="motion-safe:ease-out duration-300"
+                                            x-transition:enter-start="opacity-0 scale-90"
+                                            x-transition:enter-end="opacity-100 scale-100">
+                                            <!-- Title / Close-->
+                                            <div class="flex items-center justify-between">
+                                                <p class="font-bold text-gray-900">
+                                                    Finalize Salary
+                                                </p>
+                                                <span @click="showModal = false">
+                                                    <svg class="w-5 h-5 text-gray-900"
+                                                        xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <!-- content -->
+                                            <div class="w-full mt-4 space-y-1">
+                                                <p>Are you Sure you want to Confirm? You cannot make changes to
+                                                    calculation
+                                                    after this.</p>
+                                                <div class="flex items-center justify-end w-full gap-4 py-4">
+                                                    <a @click="showModal = false"
+                                                        class="p-2 font-semibold text-center text-gray-900 bg-gray-200 rounded-md w-36">Cancel</a>
+                                                    <a class="p-2 font-semibold text-center text-white bg-blue-600 rounded-md w-36"
+                                                        href="final-salary.html">Final</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="py-4">
+                            <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                                <div class="flex flex-col items-center gap-4 lg:flex-row">
+                                    <div class="w-full">
+                                        <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                            Branch</label>
+                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                            class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                            <option>All</option>
+                                            <option>Coimbatore</option>
+                                            <option>Erode</option>
+                                            <option>Namakkal</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="w-48 space-y-4 lg:mt-6">
+                                    <button
+                                        class="w-full px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded-md">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div
+                                class="p-4 border-l-4 border-r border-yellow-600 rounded shadow-md bg-blue-50 border-r-gray-300 border-y-gray-300 border-y">
+                                <div class="grid grid-cols-2 gap-4 lg:grid-cols-3">
+                                    <div class="space-y-1">
+                                        <p class="text-sm text-gray-600 uppercase">No.of Employees</p>
+                                        <p class="text-2xl font-bold">11</p>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <p class="text-sm text-gray-600 uppercase">Employee's Net Pay</p>
+                                        <p class="text-2xl font-bold"><span>₹ </span>87000</p>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <p class="text-sm text-gray-600 uppercase">Gross Pay</p>
+                                        <p class="text-2xl font-bold"><span>₹ </span>103000</p>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <p class="text-sm text-gray-600 uppercase">Employee Taxes</p>
+                                        <p class="text-2xl font-bold"><span>₹ </span>10000</p>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <p class="text-sm text-gray-600 uppercase">Employer Taxes</p>
+                                        <p class="text-2xl font-bold"><span>₹ </span>3000</p>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <p class="text-sm text-gray-600 uppercase">Deductions</p>
+                                        <p class="text-2xl font-bold"><span>₹ </span>3000</p>
+                                    </div>
+
                                     <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
                                         <button @click="showModal = true"
-                                            class="px-4 py-2 font-semibold text-white bg-green-600 rounded"><span>Finalize
-                                                Salary</span></button>
-
+                                            class="flex items-center gap-2 p-1 font-semibold text-blue-600"><span><svg
+                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                    fill="currentColor" class="w-5 h-5">
+                                                    <path
+                                                        d="M10.75 2.75a.75.75 0 00-1.5 0v8.614L6.295 8.235a.75.75 0 10-1.09 1.03l4.25 4.5a.75.75 0 001.09 0l4.25-4.5a.75.75 0 00-1.09-1.03l-2.955 3.129V2.75z">
+                                                    </path>
+                                                    <path
+                                                        d="M3.5 12.75a.75.75 0 00-1.5 0v2.5A2.75 2.75 0 004.75 18h10.5A2.75 2.75 0 0018 15.25v-2.5a.75.75 0 00-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5z">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                            <span>Download Details</span></button>
                                         <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                             x-show="showModal" style="display: none;">
                                             <!-- Modal inner -->
@@ -105,10 +214,7 @@
                                                 x-transition:enter-start="opacity-0 scale-90"
                                                 x-transition:enter-end="opacity-100 scale-100">
                                                 <!-- Title / Close-->
-                                                <div class="flex items-center justify-between">
-                                                    <p class="font-bold text-gray-900">
-                                                        Finalize Salary
-                                                    </p>
+                                                <div class="flex items-center justify-end">
                                                     <span @click="showModal = false">
                                                         <svg class="w-5 h-5 text-gray-900"
                                                             xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -118,81 +224,53 @@
                                                         </svg>
                                                     </span>
                                                 </div>
-                                                <!-- content -->
+                                                <!-- content pending -->
                                                 <div class="w-full mt-4 space-y-1">
-                                                    <p>Are you Sure you want to Confirm? You cannot make changes to
-                                                        calculation
-                                                        after this.</p>
-                                                    <div class="flex items-center justify-end w-full gap-4 py-4">
-                                                        <a @click="showModal = false"
-                                                            class="p-2 font-semibold text-center text-gray-900 bg-gray-200 rounded-md w-36">Cancel</a>
-                                                        <a class="p-2 font-semibold text-center text-white bg-blue-600 rounded-md w-36"
-                                                            href="final-salary.html">Final</a>
+                                                    <div class="flex items-center justify-center">
+                                                        <div
+                                                            class="flex items-center justify-center w-16 h-16 text-white bg-yellow-600 rounded-full">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke-width="1.5"
+                                                                stroke="currentColor" class="w-8 h-8">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    d="M16.5 3.75V16.5L12 14.25 7.5 16.5V3.75m9 0H18A2.25 2.25 0 0120.25 6v12A2.25 2.25 0 0118 20.25H6A2.25 2.25 0 013.75 18V6A2.25 2.25 0 016 3.75h1.5m9 0h-9" />
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <p class="text-xl font-bold text-center">It generally takes 3-5 mins
+                                                        to generate report</p>
+                                                    <div class="w-full py-4">
+                                                        <a href="reports.html"><button
+                                                                class="w-full p-2 font-semibold text-center text-white bg-blue-600 rounded-md">View
+                                                                Pending Report</button></a>
                                                     </div>
                                                 </div>
+
+                                                <!-- content for success -->
+                                                <div class="w-full mt-4 space-y-2">
+                                                    <div class="flex items-center justify-center">
+                                                        <div
+                                                            class="flex items-center justify-center w-16 h-16 text-white bg-green-600 rounded-full">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke-width="1.5"
+                                                                stroke="currentColor" class="w-8 h-8">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    d="M4.5 12.75l6 6 9-13.5" />
+                                                            </svg>
+
+                                                        </div>
+                                                    </div>
+                                                    <p class="text-xl font-bold text-center">Your report has been
+                                                        successfully generated</p>
+                                                    <div class="w-full py-4">
+                                                        <button
+                                                            class="w-full p-2 font-semibold text-center text-white bg-blue-600 rounded-md">Download
+                                                            Report</button>
+                                                    </div>
+
+
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="py-4">
-                                <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
-                                    <div class="flex flex-col items-center gap-4 lg:flex-row">
-                                        <div class="w-full">
-                                            <label class="text-sm font-semibold text-gray-600" for="businessname">Select
-                                                Branch</label>
-                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                                class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
-                                                <option>All</option>
-                                                <option>Coimbatore</option>
-                                                <option>Erode</option>
-                                                <option>Namakkal</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="w-48 space-y-4 lg:mt-6">
-                                        <button
-                                            class="w-full px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded-md">Search</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div
-                                    class="p-4 border-l-4 border-r border-yellow-600 rounded shadow-md bg-blue-50 border-r-gray-300 border-y-gray-300 border-y">
-                                    <div class="grid grid-cols-2 gap-4 lg:grid-cols-3">
-                                        <div class="space-y-1">
-                                            <p class="text-sm text-gray-600 uppercase">No.of Employees</p>
-                                            <p class="text-2xl font-bold">11</p>
-                                        </div>
-                                        <div class="space-y-1">
-                                            <p class="text-sm text-gray-600 uppercase">Employee's Net Pay</p>
-                                            <p class="text-2xl font-bold"><span>₹ </span>87000</p>
-                                        </div>
-                                        <div class="space-y-1">
-                                            <p class="text-sm text-gray-600 uppercase">Gross Pay</p>
-                                            <p class="text-2xl font-bold"><span>₹ </span>103000</p>
-                                        </div>
-                                        <div class="space-y-1">
-                                            <p class="text-sm text-gray-600 uppercase">Employee Taxes</p>
-                                            <p class="text-2xl font-bold"><span>₹ </span>10000</p>
-                                        </div>
-                                        <div class="space-y-1">
-                                            <p class="text-sm text-gray-600 uppercase">Employer Taxes</p>
-                                            <p class="text-2xl font-bold"><span>₹ </span>3000</p>
-                                        </div>
-                                        <div class="space-y-1">
-                                            <p class="text-sm text-gray-600 uppercase">Deductions</p>
-                                            <p class="text-2xl font-bold"><span>₹ </span>3000</p>
-                                        </div>
-                                        <div>
-                                            <button @click="showModal = true" class="flex items-center gap-2 p-1 font-semibold text-blue-600"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-                                                <path d="M10.75 2.75a.75.75 0 00-1.5 0v8.614L6.295 8.235a.75.75 0 10-1.09 1.03l4.25 4.5a.75.75 0 001.09 0l4.25-4.5a.75.75 0 00-1.09-1.03l-2.955 3.129V2.75z"></path>
-                                                <path d="M3.5 12.75a.75.75 0 00-1.5 0v2.5A2.75 2.75 0 004.75 18h10.5A2.75 2.75 0 0018 15.25v-2.5a.75.75 0 00-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5z"></path>
-                                              </svg>
-                                              </span>
-                                              <span>Download Details</span></button>
                                         </div>
                                     </div>
                                 </div>
@@ -200,13 +278,21 @@
                             <div class="pt-4 lg:flex lg:items-end lg:justify-end ">
                                 <div>
                                     <span class="inline-block w-full rounded shadow-sm">
-                                        <button class="relative w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-72 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600" type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search" aria-checked="false">
+                                        <button
+                                            class="relative w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-72 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                            type="button" aria-haspopup="listbox" aria-expanded="true"
+                                            aria-label="search" aria-checked="false">
 
-                                            <input id="search" type="search" placeholder="Search by name, email, mobile" class="w-full h-full form-control focus:outline-none">
+                                            <input id="search" type="search" placeholder="Search by name, email, mobile"
+                                                class="w-full h-full form-control focus:outline-none">
 
-                                            <span class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
-                                                <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                            <span
+                                                class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                                                 </svg>
                                             </span>
                                         </button>
@@ -528,246 +614,256 @@
                         </div>
                     </div>
 
-               
 
+
+                </div>
             </div>
         </div>
-    </div>
-    <section x-data="slideout()" x-cloak @open-menu.window="open = $event.detail.open"
-        @keydown.window.tab="usedKeyboard = true" @keydown.escape="open = false" x-init="init()">
-        <div x-show.transition.opacity.duration.500="open" @click="open = false"
-            class="fixed inset-0 bg-black bg-opacity-25"></div>
-        <div class="fixed top-0 right-0 z-40 w-full h-screen max-w-md overflow-hidden transition duration-300 transform bg-white"
-            :class="{'translate-x-full': !open}">
-            <footer class="fixed inset-x-0 top-0 p-4 text-center text-white bg-white border-t">
-                <div>
-                    <div class="flex items-end justify-between">
-                        <p class="pt-2 text-sm font-semibold text-blue-600">Dec - 25/11/2022 - 24/12/2022</p>
-                        <div>
-                            <button @click="open = false" x-ref="closeButton"
-                                :class="{'focus:outline-none': !usedKeyboard}" class="z-50 ">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-800">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="flex items-center justify-between pt-2">
-                        <div>
-                            <p class="text-xl font-bold text-blue-600">Elavarasan</p>
-                            <p class="text-sm text-gray-600"><span>Emp.Id </span>6547868</p>
-                        </div>
-                        <div>
-                            <p class="font-bold text-right text-green-600"><span>Salary</p>
-                            <p class="text-sm text-right text-gray-900"><span class="text-xl font-semibold">₹  30000 /</span> per month</p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <div class="top-0 w-full h-full p-4 pt-32 overflow-y-scroll">
-                <div>
-                    <div class="h-full space-y-4 divide-y">
-                        <div class="py-2">
-                            <div class="flex items-center justify-between">
-                                <h3 class="font-bold text-blue-600">Attendance</h3>
-                                <a class="flex items-center gap-2 text-sm font-medium text-blue-600"
-                                    href="employee-attendance.html"><span><svg xmlns="http://www.w3.org/2000/svg"
-                                            fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                            class="w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-                                        </svg>
-                                    </span>Edit</a>
+        <section x-data="slideout()" x-cloak @open-menu.window="open = $event.detail.open"
+            @keydown.window.tab="usedKeyboard = true" @keydown.escape="open = false" x-init="init()">
+            <div x-show.transition.opacity.duration.500="open" @click="open = false"
+                class="fixed inset-0 bg-black bg-opacity-25"></div>
+            <div class="fixed top-0 right-0 z-40 w-full h-screen max-w-md overflow-hidden transition duration-300 transform bg-white"
+                :class="{'translate-x-full': !open}">
+                <footer class="fixed inset-x-0 top-0 p-4 text-center text-white bg-white border-t">
+                    <div>
+                        <div class="flex items-end justify-between">
+                            <p class="pt-2 text-sm font-semibold text-blue-600">Dec - 25/11/2022 - 24/12/2022</p>
+                            <div>
+                                <button @click="open = false" x-ref="closeButton"
+                                    :class="{'focus:outline-none': !usedKeyboard}" class="z-50 ">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-800">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
                             </div>
-                            <div class="space-y-4">
-                                <div class="flex items-center justify-between pt-4">
-                                    <p class="font-semibold">Total Days</p>
-                                    <p class="font-semibold text-gray-600">30</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-2">
+                            <div>
+                                <p class="text-xl font-bold text-blue-600">Elavarasan</p>
+                                <p class="text-sm text-gray-600"><span>Emp.Id </span>6547868</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-right text-green-600"><span>Salary</p>
+                                <p class="text-sm text-right text-gray-900"><span class="text-xl font-semibold">₹ 30000
+                                        /</span> per month</p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <div class="top-0 w-full h-full p-4 pt-32 overflow-y-scroll">
+                    <div>
+                        <div class="h-full space-y-4 divide-y">
+                            <div class="py-2">
+                                <div class="flex items-center justify-between">
+                                    <h3 class="font-bold text-blue-600">Attendance</h3>
+                                    <a class="flex items-center gap-2 text-sm font-medium text-blue-600"
+                                        href="employee-attendance.html"><span><svg xmlns="http://www.w3.org/2000/svg"
+                                                fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                class="w-5 h-5">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                                            </svg>
+                                        </span>Edit</a>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between pt-4">
+                                        <p class="font-semibold">Total Days</p>
+                                        <p class="font-semibold text-gray-600">30</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">Loss of Pay</p>
+                                        <p class="font-semibold text-gray-600">2</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">Payable Days</p>
+                                        <p class="font-semibold text-gray-600">28</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">Working Hours</p>
+                                        <p class="font-semibold text-gray-600">165:00 Hrs</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="py-2 space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <p class="font-semibold">Total Salary</p>
+                                    <p class="font-semibold text-gray-600"><span>₹ </span>30000</p>
                                 </div>
                                 <div class="flex items-center justify-between">
                                     <p class="font-semibold">Loss of Pay</p>
-                                    <p class="font-semibold text-gray-600">2</p>
+                                    <p class="font-semibold text-gray-600"><span class="text-red-600">(-) </span><span>₹
+                                        </span>2000</p>
                                 </div>
                                 <div class="flex items-center justify-between">
-                                    <p class="font-semibold">Payable Days</p>
-                                    <p class="font-semibold text-gray-600">28</p>
+                                    <p class="font-semibold">Gross Salary</p>
+                                    <p class="font-semibold text-gray-600"><span>₹ </span>28000</p>
                                 </div>
+                            </div>
+                            <div class="py-2">
                                 <div class="flex items-center justify-between">
-                                    <p class="font-semibold">Working Hours</p>
-                                    <p class="font-semibold text-gray-600">165:00 Hrs</p>
+                                    <h3 class="font-bold text-green-600">(+) Earnings</h3>
+                                    <p class="font-bold text-green-600"><span>₹ </span>30000</p>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between pt-4">
+                                        <p class="font-semibold">Basic Pay </p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>19600</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">HRA</p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>8400</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">Fixed Allowance</p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>500</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">Overtime <span class="font-normal font-base">[28:00
+                                                Hrs]</span></p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>1000</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-2">
+                                            <p class="font-semibold">Bonus</p>
+                                            <a class="text-sm font-medium text-blue-600" href="bonus.html">+ Add</a>
+                                        </div>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>500</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-2">
+                                            <p class="font-semibold">Pay Per Work Wages</p>
+                                            <a class="text-sm font-medium text-blue-600"
+                                                href="pay-per-work-employee.html">+
+                                                Add</a>
+                                        </div>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>0</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="py-2">
+                                <div class="flex items-center justify-between">
+                                    <h3 class="font-bold text-red-600">(-) Tax Deductions</h3>
+                                    <p class="font-bold text-red-600"><span>₹ </span>2837</p>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between pt-4">
+                                        <p class="font-semibold">PF</p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>1800</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">ESI</p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>637</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-2">
+                                            <p class="font-semibold">PT</p>
+                                            <a class="text-sm font-medium text-blue-600" href="bonus.html">+ Add</a>
+                                        </div>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>50</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-2">
+                                            <p class="font-semibold">TDS</p>
+                                            <a class="text-sm font-medium text-blue-600" href="tds-deduction.html">+
+                                                Add</a>
+                                        </div>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>350</p>
+                                    </div>
                                 </div>
                             </div>
 
-                        </div>
-                        <div class="py-2 space-y-4">
-                            <div class="flex items-center justify-between">
-                                <p class="font-semibold">Total Salary</p>
-                                <p class="font-semibold text-gray-600"><span>₹ </span>30000</p>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <p class="font-semibold">Loss of Pay</p>
-                                <p class="font-semibold text-gray-600"><span class="text-red-600">(-) </span><span>₹ </span>2000</p>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <p class="font-semibold">Gross Salary</p>
-                                <p class="font-semibold text-gray-600"><span>₹ </span>28000</p>
-                            </div>
-                        </div>
-                        <div class="py-2">
-                            <div class="flex items-center justify-between">
-                                <h3 class="font-bold text-green-600">(+) Earnings</h3>
-                                <p class="font-bold text-green-600"><span>₹ </span>30000</p>
-                            </div>
-                            <div class="space-y-4">
-                                <div class="flex items-center justify-between pt-4">
-                                    <p class="font-semibold">Basic Pay </p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>19600</p>
-                                </div>
+                            <div class="py-2">
                                 <div class="flex items-center justify-between">
-                                    <p class="font-semibold">HRA</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>8400</p>
+                                    <h3 class="font-bold text-red-600">(-) Common Deductions</h3>
+                                    <p class="font-bold text-red-600"><span>₹ </span>3200</p>
                                 </div>
-                                <div class="flex items-center justify-between">
-                                    <p class="font-semibold">Fixed Allowance</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>500</p>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <p class="font-semibold">Overtime <span class="font-normal font-base">[28:00 Hrs]</span></p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>1000</p>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center gap-2">
-                                        <p class="font-semibold">Bonus</p>
-                                        <a class="text-sm font-medium text-blue-600" href="bonus.html">+ Add</a>
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between pt-4">
+                                        <div class="flex items-center gap-2">
+                                            <p class="font-semibold">Deductions</p>
+                                            <a class="text-sm font-medium text-blue-600" href="deduction.html">+ Add</a>
+                                        </div>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>1000</p>
                                     </div>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>500</p>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center gap-2">
-                                        <p class="font-semibold">Pay Per Work Wages</p>
-                                        <a class="text-sm font-medium text-blue-600" href="pay-per-work-employee.html">+
-                                            Add</a>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-2">
+                                            <p class="font-semibold">Loan</p>
+                                            <a class="text-sm font-medium text-blue-600" href="employee-loan.html">+
+                                                Add</a>
+                                        </div>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>500</p>
                                     </div>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>0</p>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-2">
+                                            <p class="font-semibold">Salary Advance</p>
+                                            <a class="text-sm font-medium text-blue-600" href="employee-advance.html">+
+                                                Add</a>
+                                        </div>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>500</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">Late Entry Penalties <span
+                                                class="font-normal font-base">[1:30 Hrs]</span></p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>1000</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">Early Exit Penalties <span
+                                                class="font-normal font-base">[2:30 Hrs]</span></p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>100</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">Break Time Penalties <span
+                                                class="font-normal font-base">[2:30 Hrs]</span></p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>100</p>
+                                    </div>
                                 </div>
-                            </div>
 
-                        </div>
-                        <div class="py-2">
-                            <div class="flex items-center justify-between">
-                                <h3 class="font-bold text-red-600">(-) Tax Deductions</h3>
-                                <p class="font-bold text-red-600"><span>₹ </span>2837</p>
                             </div>
-                            <div class="space-y-4">
-                                <div class="flex items-center justify-between pt-4">
-                                    <p class="font-semibold">PF</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>1800</p>
-                                </div>
+                            <div class="py-2">
                                 <div class="flex items-center justify-between">
-                                    <p class="font-semibold">ESI</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>637</p>
+                                    <h3 class="font-bold text-green-600">(+) Employer Contributions</h3>
+                                    <p class="font-bold text-green-600"><span>₹ </span>2347</p>
                                 </div>
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center gap-2">
+
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between pt-4">
+                                        <p class="font-semibold">PF</p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>1800</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">ESI</p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>147</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
                                         <p class="font-semibold">PT</p>
-                                        <a class="text-sm font-medium text-blue-600" href="bonus.html">+ Add</a>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>50</p>
                                     </div>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>50</p>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center gap-2">
-                                        <p class="font-semibold">TDS</p>
-                                        <a class="text-sm font-medium text-blue-600" href="tds-deduction.html">+ Add</a>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">TDS </p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>350</p>
                                     </div>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>350</p>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="py-2">
-                            <div class="flex items-center justify-between">
-                                <h3 class="font-bold text-red-600">(-) Common Deductions</h3>
-                                <p class="font-bold text-red-600"><span>₹ </span>3200</p>
                             </div>
-                            <div class="space-y-4">
-                                <div class="flex items-center justify-between pt-4">
-                                    <div class="flex items-center gap-2">
-                                        <p class="font-semibold">Deductions</p>
-                                        <a class="text-sm font-medium text-blue-600" href="deduction.html">+ Add</a>
-                                    </div>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>1000</p>
-                                </div>
+                            <div class="py-2 pb-24">
                                 <div class="flex items-center justify-between">
-                                    <div class="flex items-center gap-2">
-                                        <p class="font-semibold">Loan</p>
-                                        <a class="text-sm font-medium text-blue-600" href="employee-loan.html">+ Add</a>
-                                    </div>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>500</p>
+                                    <h3 class="font-bold text-red-600">NETPAY</h3>
+                                    <p class="font-bold text-red-600"><span>₹ </span>12000</p>
                                 </div>
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center gap-2">
-                                        <p class="font-semibold">Salary Advance</p>
-                                        <a class="text-sm font-medium text-blue-600" href="employee-advance.html">+
-                                            Add</a>
-                                    </div>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>500</p>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <p class="font-semibold">Late Entry Penalties <span class="font-normal font-base">[1:30 Hrs]</span></p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>1000</p>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <p class="font-semibold">Early Exit Penalties <span class="font-normal font-base">[2:30 Hrs]</span></p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>100</p>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <p class="font-semibold">Break Time Penalties <span class="font-normal font-base">[2:30 Hrs]</span></p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>100</p>
-                                </div>
+                                <p class="pt-2 text-sm text-gray-600">Netpay = Earnings - [Tax Deductions + Common
+                                    Deductions]</p>
                             </div>
-
-                        </div>
-                        <div class="py-2">
-                            <div class="flex items-center justify-between">
-                                <h3 class="font-bold text-green-600">(+) Employer Contributions</h3>
-                                <p class="font-bold text-green-600"><span>₹ </span>2347</p>
-                            </div>
-
-                            <div class="space-y-4">
-                                <div class="flex items-center justify-between pt-4">
-                                    <p class="font-semibold">PF</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>1800</p>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <p class="font-semibold">ESI</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>147</p>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <p class="font-semibold">PT</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>50</p>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <p class="font-semibold">TDS </p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>350</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="py-2 pb-24">
-                            <div class="flex items-center justify-between">
-                                <h3 class="font-bold text-red-600">NETPAY</h3>
-                                <p class="font-bold text-red-600"><span>₹ </span>12000</p>
-                            </div>                               
-                            <p class="pt-2 text-sm text-gray-600">Netpay = Earnings - [Tax Deductions + Common Deductions]</p>
                         </div>
                     </div>
                 </div>
+
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 </body>
 <style>
