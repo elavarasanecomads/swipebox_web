@@ -93,7 +93,7 @@
                                 <label class="text-sm font-semibold text-gray-600" for="businessname">Select
                                     Branch</label>
                                 <select id="jobtype" name="jobtype" autocomplete="jobtype" disabled
-                                    class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                    class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                     
                                     <option>Ecomads Pvt Ltd, Covai</option>
                                     <option>All</option>
@@ -239,7 +239,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="pb-4 lg:flex lg:items-end lg:justify-end ">
+                    <div class="flex flex-col gap-4 pb-4 lg:flex-row lg:items-end lg:justify-end ">
+                        
                         <div>
                             <span class="inline-block w-full rounded shadow-sm">
                                 <button
@@ -259,6 +260,60 @@
                                     </span>
                                 </button>
                             </span>
+                        </div>
+                        <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                            <button @click="showModal = true"
+                                class="flex items-center gap-2 px-3 py-2 font-semibold text-gray-100 bg-blue-600 rounded">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                                </svg>
+                                <span>Download</span>
+                            </button>
+                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                x-show="showModal" style="display: none;">
+                                <!-- Modal inner -->
+                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
+                                    @click.away="showModal = false"
+                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                    x-transition:enter-start="opacity-0 scale-90"
+                                    x-transition:enter-end="opacity-100 scale-100">
+                                    <!-- Title / Close-->
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-bold text-gray-900">
+
+                                        </p>
+                                        <span @click="showModal = false">
+                                            <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <!-- content -->
+                                    <div class="flex flex-col items-center w-full mt-4 space-y-4">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                fill="currentColor" class="w-12 h-12 text-yellow-600">
+                                                <path fill-rule="evenodd"
+                                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <p class="text-center text-gray-600">The process of downloading the report
+                                            might require 3 to 5 minutes. You can access your reports in the
+                                            designated download area.</p>
+                                        <div class="w-full">
+                                            <a href="dashboard.html">
+                                            <button
+                                                class="w-full p-2 font-semibold text-white bg-blue-600 rounded-md">View
+                                                Pending Downloads</button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="flex flex-col border-b">
@@ -1000,7 +1055,7 @@
                                                                             </label>
                                                                             <select id="jobtype" name="jobtype"
                                                                                 autocomplete="jobtype"
-                                                                                class="block w-20 px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                                class="block w-20 px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                                                                 <option>01</option>
                                                                                 <option>02</option>
                                                                                 <option>03</option>
@@ -1022,7 +1077,7 @@
                                                                             </label>
                                                                             <select id="jobtype" name="jobtype"
                                                                                 autocomplete="jobtype"
-                                                                                class="block w-20 px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                                class="block w-20 px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                                                                 <option>01</option>
                                                                                 <option>02</option>
                                                                                 <option>03</option>
@@ -1040,7 +1095,7 @@
                                                                         <div>
                                                                             <select id="jobtype" name="jobtype"
                                                                                 autocomplete="jobtype"
-                                                                                class="block w-20 px-2 py-1 mt-6 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                                class="block w-20 px-2 py-1 mt-6 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                                                                 <option>PM</option>
                                                                                 <option>AM</option>
                                                                             </select>
