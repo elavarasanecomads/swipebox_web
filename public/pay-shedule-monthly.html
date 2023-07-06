@@ -115,8 +115,7 @@
                           <button @click="showModal = false" class="w-full p-3 text-blue-600 border border-blue-600 rounded-md">
                             Cancel
                           </button>
-                          <button @click="showConfirmationModal = true"
-                            class="w-full p-3 font-semibold text-white bg-blue-600 rounded-md">
+                          <button class="w-full p-3 font-semibold text-white bg-blue-600 rounded-md">
                             Continue
                           </button>
                         </div>
@@ -124,39 +123,6 @@
                     </div>
                   </div>
 
-                  <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm"
-                    x-show="showConfirmationModal">
-                    <div class="flex items-center justify-between">
-                      <div>
-                        <p class="font-bold">
-                          Are You Sure?
-                        </p>
-                      </div>
-                      <span @click="showModal = false">
-                        <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none"
-                          viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M6 18L18 6M6 6l12 12">
-                          </path>
-                        </svg>
-                      </span>
-                    </div>
-
-                    <div class="pt-4 text-sm text-gray-600">
-                      <p>Are you sure you want to set your salary start date for the <span class="font-bold">5th of every month?</span> Please note that once you confirm, you won't be able to change it.</p>
-                    </div>
-
-                    <div class="flex items-center w-full gap-4 mt-4 space-x-2 ">
-                      <button @click="showConfirmationModal = false"
-                        class="w-full p-2 text-blue-600 border border-blue-600 rounded-md">
-                        Cancel
-                      </button>
-                      <button @click="showModal = false; showConfirmationModal = false"
-                        class="w-full p-3 font-semibold text-white bg-blue-600 rounded-md">
-                        Confirm
-                      </button>
-                    </div>
-                  </div>
                 </div>
               </div>
               <div class="w-60">

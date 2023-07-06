@@ -1,0 +1,293 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="h-full p-4 bg-white border rounded-md lg:p-8">
+                    <!--Brudcrumb-->
+                    <div class="flex items-center gap-4">
+                        <p class="text-2xl font-bold">Loan Management</p>
+                        <div class="flex items-center gap-4">
+                            <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                <button @click="showModal = true" class="w-32 p-2 font-semibold text-white bg-red-600 rounded">Add Loan</button>
+                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
+                                    <!-- Modal inner -->
+                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                        <!-- Title / Close-->
+                                        <div class="flex items-center justify-between">
+                                            <p class="font-bold text-gray-900">
+                                                Add Loan
+                                            </p>
+                                            <span @click="showModal = false">
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <!-- content -->
+                                        <div class="w-full mt-4">
+                                            <div class="pb-4 space-y-2 border-b">
+                                                <div>
+                                                    <label class="font-semibold text-gray-600" for="date">Date <span class="text-red-600">*</span></label>
+                                                    <input type="text" name="date" id="date" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                </div>
+                                                <div class="flex flex-col items-center">
+                                                    <div class="flex flex-col items-center w-full h-64 md:w-1/2">
+                                                        <div class="w-full px-4">
+                                                            <div x-data="selectConfigs()" x-init="fetchOptions()" class="relative flex flex-col items-center">
+                                                                <div class="w-full">
+                                                                    <div @click.away="close()" class="flex p-1 my-2 bg-white border border-gray-200 rounded">
+                                                                        <input 
+                                                                               x-model="filter"
+                                                                               x-transition:leave="transition ease-in duration-100"
+                                                                               x-transition:leave-start="opacity-100"
+                                                                               x-transition:leave-end="opacity-0"
+                                                                               @mousedown="open()"
+                                                                               @keydown.enter.stop.prevent="selectOption()"
+                                                                               @keydown.arrow-up.prevent="focusPrevOption()"
+                                                                               @keydown.arrow-down.prevent="focusNextOption()"
+                                                                               class="w-full p-1 px-2 text-gray-800 outline-none appearance-none">
+                                                                        <div class="flex items-center w-8 py-1 pl-2 pr-1 text-gray-300 border-l border-gray-200">
+                                                                            <button @click="toggle()" class="w-6 h-6 text-gray-600 outline-none cursor-pointer focus:outline-none">
+                                                                                <svg  xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                                                    <polyline x-show="!isOpen()" points="18 15 12 20 6 15"></polyline>
+                                                                                    <polyline x-show="isOpen()" points="18 15 12 9 6 15"></polyline>
+                                                                                </svg>
+                                                                              
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div x-show="isOpen()" class="absolute z-40 w-full overflow-y-auto bg-white rounded shadow top-100 lef-0 max-h-select svelte-5uyqqj">
+                                                                    <div class="flex flex-col w-full">
+                                                                      <template x-for="(option, index) in filteredOptions()" :key="index">
+                                                                        <div @click="onOptionClick(index)" :class="classOption(option.login.uuid, index)" :aria-selected="focusedOptionIndex === index">
+                                                                            <div class="relative flex items-center w-full p-2 pl-2 border-l-2 border-transparent hover:border-teal-100">
+                                                                                <div class="flex flex-col items-center w-6">
+                                                                                    <div class="relative flex items-center justify-center w-4 w-5 h-4 h-5 m-1 mt-1 mr-2 bg-orange-500 rounded-full "><img class="rounded-full" alt="A" x-bind:src="option.picture.thumbnail"> </div>
+                                                                                </div>
+                                                                                <div class="flex items-center w-full">
+                                                                                    <div class="mx-2 -mt-1"><span x-text="option.name.first + ' ' + option.name.last"></span>
+                                                                                        <div class="w-full -mt-1 text-xs font-normal text-gray-500 normal-case truncate" x-text="option.email"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                      </template>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <label class="font-semibold text-gray-600" for="amount">Amount <span class="text-red-600">*</span></label>
+                                                    <input type="text" name="amount" id="amount" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                </div>
+                                                <div>
+                                                    <label class="font-semibold text-gray-600" for="notes">Notes <span class="text-red-600">*</span></label>
+                                                    <input type="text" name="notes" id="notes" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                </div>
+                                                <div>
+                                                    <button class="w-full p-3 font-semibold text-white bg-blue-600 rounded-md">Add
+                                                        Loan</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                <button @click="showModal = true" class="w-32 p-2 font-semibold text-white bg-green-600 rounded">Deduct Loan</button>
+                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
+                                    <!-- Modal inner -->
+                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                        <!-- Title / Close-->
+                                        <div class="flex items-center justify-between">
+                                            <p class="font-bold text-gray-900">
+                                                Deduct Loan
+                                            </p>
+                                            <span @click="showModal = false">
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <!-- content -->
+                                        <div class="w-full mt-4">
+                                            <div class="pb-4 space-y-2 border-b">
+                                                <div>
+                                                    <label class="font-semibold text-gray-600" for="date">Date Of
+                                                        Payment</label>
+                                                    <input type="text" name="date" id="date" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                </div>
+                                                <div>
+                                                    <label class="font-semibold text-gray-600" for="amount">Payment
+                                                        Amount</label>
+                                                    <input type="text" name="amount" id="amount" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                </div>
+                                                <div>
+                                                    <label class="font-semibold text-gray-600" for="notes">Notes</label>
+                                                    <input type="text" name="notes" id="notes" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                </div>
+                                                <div>
+                                                    <button class="w-full p-3 font-semibold text-white bg-blue-600 rounded-md">Deduct
+                                                        Loan</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-8 pt-4 lg:grid-cols-3">
+                        <div class="relative p-4 border rounded-md shadow-md">
+                            <div>
+                                <p class="text-2xl font-bold text-green-600">₹ 7000</p>
+                                <p class="font-medium text-gray-600">Amount To Be Repaid</p>
+                            </div>
+                            <div class="absolute top-4 right-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                                </svg>
+                                <div class="absolute top-4 right-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative p-4 border rounded-md shadow-md">
+                            <div>
+                                <p class="text-xl font-bold text-red-600">₹ 20000</p>
+                                <p class="font-medium text-gray-600">Amount Given</p>
+                            </div>
+                            <div class="absolute top-4 right-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                                </svg>
+                            </div>
+
+                        </div>
+                        <div class="relative p-4 border rounded-md shadow-md">
+                            <div>
+                                <p class="text-xl font-bold text-green-600">₹ 13000</p>
+                                <p class="font-medium text-gray-600">Amount Paid</p>
+                            </div>
+                            <div class="absolute top-4 right-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-8">
+                        <div class="flex flex-col border-b">
+                            <div class="z-10 -my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                    <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+
+                                        <table class="min-w-full divide-y divide-gray-200 table-auto">
+                                            <thead class="bg-blue-600">
+                                                <tr>
+                                                    <th scope="col"
+                                                        class="px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                        Name
+                                                    </th>
+
+                                                    <th scope="col"
+                                                        class="px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                        Total Loan                                                    </th>
+                                                    <th scope="col"
+                                                        class="px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                        Paid Amount                                                    </th>
+                                                    <th scope="col"
+                                                        class="px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                        Pending Amount                                                    </th>
+                                                        <th scope="col"
+                                                        class="px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                        Action                                                  </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white divide-y divide-gray-200">
+                                                <tr>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <p class="font-bold">Elavarasan Rajan</p>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <span class="text-base text-gray-900">
+                                                            ₹ 15000
+                                                        </span>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <span class="text-base text-gray-900">
+                                                            ₹ 12000
+                                                        </span>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <span class="text-base text-red-600">
+                                                            ₹ 3000</span>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <span class="text-base text-blue-600">
+                                                            <a href="employee-loan.html">View</a>
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <p class="font-bold">Hemalatha</p>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <span class="text-base text-gray-900">
+                                                            ₹ 5000
+                                                        </span>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <span class="text-base text-gray-900">
+                                                            ₹ 1000
+                                                        </span>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <span class="text-base text-red-600">
+                                                            ₹ 4000</span>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <span class="text-base text-blue-600">
+                                                            <a href="employee-loan.html">View</a>
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+      $("#navigation").load("nav.html");
+      $("#aside").load("aside.html");
+    });
+   
+  </script>
+  
+</html>
