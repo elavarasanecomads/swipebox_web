@@ -8192,7 +8192,7 @@
                                                             </td>
                                                             <td class="px-4 py-2 whitespace-normal">
                                                                 <p class="text-base text-gray-900">
-                                                                    If OT is more than X minutes, then calculate Y.
+                                                                    If OT is more than X minutes, then calculate Y salary.
                                                                 </p>
                                                             </td>
                                                             <td
@@ -8267,7 +8267,7 @@
                                                                                         <div
                                                                                             class="w-full mt-4 space-y-4">
                                                                                             <div class="flex flex-wrap">
-                                                                                                <p>5.17: If OT is more than X minutes, then calculate Y.</p>
+                                                                                                <p>5.17: If OT is more than X minutes, then calculate Y salary.</p>
                                                                                             </div>
                                                                                             <div class="pt-6 space-y-2">
                                                                                                 <div
@@ -8304,7 +8304,7 @@
                                                                                                         <label
                                                                                                             class="text-sm font-semibold text-gray-600"
                                                                                                             for="branch">Select
-                                                                                                            X
+                                                                                                            Y
                                                                                                             Value</label>
                                                                                                         <select
                                                                                                             id="branch"
@@ -9345,7 +9345,7 @@
                                                             </td>
                                                             <td class="px-4 py-2 whitespace-normal">
                                                                 <p class="text-base text-gray-900">
-                                                                    If an employee's PUNCHED hours are less than "X" hours in a week off, then attendance will be marked as "Y".</p>
+                                                                    If working hours >= X hrs and working hours < Y hrs in weekoff then A will be allotted. If working hours >= Y hrs in weekoff then B will be allotted.</p>
                                                             </td>
                                                             <td
                                                                 class="relative flex items-center gap-4 px-6 py-2 whitespace-normal w-36">
@@ -9419,7 +9419,7 @@
                                                                                         <div
                                                                                             class="w-full mt-4 space-y-4">
                                                                                             <div class="flex flex-wrap">
-                                                                                                <p>7.1: If an employee's PUNCHED hours are less than "X" hours in a week off, then attendance will be marked as "Y".</p>
+                                                                                                <p>7.1: If working hours >= X hrs and working hours < Y hrs in weekoff then A will be allotted. If working hours >= Y hrs in weekoff then B will be allotted.</p>
                                                                                             </div>
                                                                                             <div class="pt-6 space-y-2">
                                                                                                 <div
@@ -9428,7 +9428,50 @@
                                                                                                         <label
                                                                                                             class="text-sm font-semibold text-gray-600"
                                                                                                             for="branch">Select
-                                                                                                            X
+                                                                                                            X Value</label>
+                                                                                                        <select
+                                                                                                            id="branch"
+                                                                                                            name="branch"
+                                                                                                            autocomplete="branch"
+                                                                                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                                                                            <option>
+                                                                                                                Select
+                                                                                                            </option>
+                                                                                                            <option>1</option>
+                                                                                                            <option>2</option>
+                                                                                                            <option>3</option>
+                                                                                                            <option>4</option>
+                                                                                                            <option>upto 10</option>
+                                                                                                        </select>
+                                                                                                    </div>
+                                                                                                    <div class="w-1/2">
+                                                                                                        <label
+                                                                                                            class="text-sm font-semibold text-gray-600"
+                                                                                                            for="branch">Select
+                                                                                                            Y Value</label>
+                                                                                                        <select
+                                                                                                            id="branch"
+                                                                                                            name="branch"
+                                                                                                            autocomplete="branch"
+                                                                                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                                                                            <option>
+                                                                                                                Select
+                                                                                                            </option>
+                                                                                                            <option>1</option>
+                                                                                                            <option>2</option>
+                                                                                                            <option>3</option>
+                                                                                                            <option>4</option>
+                                                                                                            <option>upto 10</option>
+                                                                                                        </select>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="flex items-center gap-4">
+                                                                                                    <div class="w-1/2">
+                                                                                                        <label
+                                                                                                            class="text-sm font-semibold text-gray-600"
+                                                                                                            for="branch">Select
+                                                                                                            A
                                                                                                             Value</label>
                                                                                                         <select
                                                                                                             id="branch"
@@ -9438,16 +9481,15 @@
                                                                                                             <option>
                                                                                                                 Select
                                                                                                             </option>
-                                                                                                            <option>0.5
+                                                                                                            <option>1X Present
                                                                                                             </option>
-                                                                                                            <option>1
+                                                                                                            <option>1.5X Present
                                                                                                             </option>
-                                                                                                            <option>1.5
+                                                                                                            <option>2X Present
                                                                                                             </option>
-                                                                                                             <option>2
+                                                                                                            <option>2.5X Present
                                                                                                             </option>
-                                                                                                            <option>upto
-                                                                                                                12
+                                                                                                            <option>3X Present
                                                                                                             </option>
                                                                                                         </select>
                                                                                                     </div>
@@ -9455,7 +9497,7 @@
                                                                                                         <label
                                                                                                             class="text-sm font-semibold text-gray-600"
                                                                                                             for="branch">Select
-                                                                                                            Y
+                                                                                                            B
                                                                                                             Value</label>
                                                                                                         <select
                                                                                                             id="branch"
@@ -9523,10 +9565,6 @@
                                                                                                             </option>
                                                                                                             <option>
                                                                                                                 Shift
-                                                                                                                Level
-                                                                                                            </option>
-                                                                                                            <option>
-                                                                                                                Employee Category
                                                                                                                 Level
                                                                                                             </option>
                                                                                                         </select>
