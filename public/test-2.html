@@ -7,55 +7,36 @@
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
 </head>
 <body>
-	<div x-data="{ isOpen: false, search: '', options: ['Option 1', 'Option 2', 'Option 3'] }">
-		<div class="relative">
-		  <button @click="isOpen = !isOpen" class="w-full py-2 pl-3 pr-8 text-left bg-white shadow-md">
-			<span x-text="search ? search : 'Select an option'"></span>
-			<span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-			  <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-			  </svg>
-			</span>
-		  </button>
-	  
-		  <div x-show="isOpen" @click.away="isOpen = false" class="absolute z-10 w-full mt-2 bg-white rounded-md shadow-lg">
-			<input x-model="search" @keydown.escape="isOpen = false" class="w-full px-4 py-2 text-gray-700" placeholder="Search..." autofocus>
-	  
-			<div class="overflow-y-auto max-h-32">
-			  <ul>
-				<template x-for="(option, index) in filteredOptions" :key="index">
-				  <li x-on:click="selectOption(option); isOpen = false" class="px-4 py-2 cursor-pointer hover:bg-gray-100" x-text="option"></li>
-				</template>
-				<template x-if="filteredOptions.length === 0">
-				  <li class="px-4 py-2 text-gray-500 cursor-default">No options found</li>
-				</template>
-			  </ul>
-			</div>
+	<div x-data="{ isOpen: false, selectedHour: '00', selectedMinute: '00' }" class="relative px-2 m-6 text-gray-600">
+		<!-- Time Input -->
+		<button @click="isOpen = !isOpen" @keydown.escape="isOpen = false" class="flex items-center w-32 p-2 border focus:outline-none">
+		  <input type="text" x-model="selectedHour + ':' + selectedMinute" class="inline-block w-20 border-none active:border-none" value="00:01">
+		  <span class="px-1 text-sm font-medium">Hrs</span>
+		</button>
+		<div x-show="isOpen" @click.away="isOpen = false" class="absolute z-20 w-32 h-48 py-1 mt-2 overflow-hidden font-normal bg-white border rounded shadow">
+		  <div class="grid h-full grid-cols-2 divide-x">
+			<!-- hours -->
+			<ul class="flex flex-col items-center justify-start h-full overflow-y-auto">
+			  <template x-for="hour in Array.from({length: 25}, (_, i) => i)">
+				<li class="w-full text-center py-0.5 hover:bg-gray-200" x-text="formatNumber(hour)" @click="selectedHour = formatNumber(hour)"></li>
+			  </template>
+			</ul>
+			<!-- minutes -->
+			<ul class="h-full pl-2 overflow-y-auto">
+			  <template x-for="minute in Array.from({length: 60}, (_, i) => i)">
+				<li class="px-2 py-0.5 hover:bg-gray-200" x-text="formatNumber(minute)" @click="selectedMinute = formatNumber(minute)"></li>
+			  </template>
+			</ul>
 		  </div>
 		</div>
 	  </div>
 	  
 	  <script>
-		document.addEventListener('alpine:init', () => {
-		  Alpine.data('dropdown', () => ({
-			isOpen: false,
-			search: '',
-			options: ['Option 1', 'Option 2', 'Option 3'],
-			selectOption(option) {
-			  this.search = option;
-			},
-			get filteredOptions() {
-			  if (!this.search) {
-				return this.options;
-			  }
-	  
-			  const searchLower = this.search.toLowerCase();
-			  return this.options.filter(option => option.toLowerCase().includes(searchLower));
-			}
-		  }));
-		});
+		function formatNumber(num) {
+		  return num.toString().padStart(2, '0');
+		}
 	  </script>
 		  
-  
+		
 </body>
 </html>
