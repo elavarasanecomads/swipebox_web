@@ -30,6 +30,42 @@
 		  </div>
 		</div>
 	  </div>
+	  <div x-data="{ isOpen: false, selectedHour: '00', selectedMinute: '00' }" class="relative px-2 m-6 text-gray-600">
+		<!-- Time Input -->
+		<button @click="isOpen = !isOpen" @keydown.escape="isOpen = false" class="flex items-center w-32 p-2 border focus:outline-none">
+		  <input type="text" x-model="selectedHour + ':' + selectedMinute" class="inline-block w-20 border-none active:border-none" value="00:01">
+		  <span class="px-1 text-sm font-medium">Hrs</span>
+		</button>
+		<div x-show="isOpen" @click.away="isOpen = false" class="absolute z-20 w-32 h-48 py-1 mt-2 overflow-hidden font-normal bg-white border rounded shadow">
+		  <div class="grid h-full grid-cols-2 divide-x">
+			<!-- hours -->
+			<ul class="flex flex-col items-center justify-start h-full overflow-y-auto">
+			  <template x-for="hour in Array.from({length: 25}, (_, i) => i)">
+				<li class="w-full text-center py-0.5 hover:bg-gray-200" x-text="formatNumber(hour)" @click="selectedHour = formatNumber(hour)"></li>
+			  </template>
+			</ul>
+			<!-- minutes -->
+			<ul class="h-full pl-2 overflow-y-auto">
+			  <template x-for="minute in Array.from({length: 60}, (_, i) => i)">
+				<li class="px-2 py-0.5 hover:bg-gray-200" x-text="formatNumber(minute)" @click="selectedMinute = formatNumber(minute)"></li>
+			  </template>
+			</ul>
+		  </div>
+		</div>
+		
+		<!-- Info Text -->
+		<p x-text="'No overtime upto ' + getTotalMinutes(selectedHour, selectedMinute) + ' minutes'" class="mt-4 text-gray-500"></p>
+	  </div>
+	  
+	  <script>
+		function formatNumber(num) {
+		  return num.toString().padStart(2, '0');
+		}
+	  
+		function getTotalMinutes(hour, minute) {
+		  return parseInt(hour) * 60 + parseInt(minute);
+		}
+	  </script>
 	  
 	  <script>
 		function formatNumber(num) {
