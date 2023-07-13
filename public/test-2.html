@@ -10,7 +10,7 @@
 	<div x-data="{ isOpen: false, selectedHour: '00', selectedMinute: '00' }" class="relative text-gray-600 w-44">
 		<!-- Time Input -->
 		<button @click="isOpen = !isOpen" @keydown.escape="isOpen = false" class="flex items-center w-full p-3 border shadow focus:outline-none">
-		  <input type="text" x-model="selectedHour + ':' + selectedMinute" class="inline-block w-2/3 border-none active:border-none" value="00:01">
+		  <input type="text" x-model="selectedHour + ':' + selectedMinute" disabled class="inline-block w-2/3 border-none active:border-none" value="00:01">
 		  <span class="w-1/3 px-1 text-sm font-medium">Hrs</span>
 		</button>
 		<div x-show="isOpen" @click.away="isOpen = false" class="absolute z-20 w-full h-48 py-1 mt-2 overflow-hidden font-normal bg-white border rounded shadow">
