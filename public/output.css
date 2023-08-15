@@ -704,12 +704,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin: 0.25rem;
 }
 
-.m-6 {
-  margin: 1.5rem;
-}
-
 .m-4 {
   margin: 1rem;
+}
+
+.m-6 {
+  margin: 1.5rem;
 }
 
 .mx-0 {
@@ -946,16 +946,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 11rem;
 }
 
-.h-32 {
-  height: 8rem;
-}
-
 .h-36 {
   height: 9rem;
 }
 
 .h-72 {
   height: 18rem;
+}
+
+.h-32 {
+  height: 8rem;
 }
 
 .h-24 {
@@ -990,6 +990,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 75%;
 }
 
+.h-60 {
+  height: 15rem;
+}
+
 .h-16 {
   height: 4rem;
 }
@@ -1004,10 +1008,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-2 {
   height: 0.5rem;
-}
-
-.h-60 {
-  height: 15rem;
 }
 
 .max-h-screen {
@@ -2332,6 +2332,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 6rem;
 }
 
+.pt-24 {
+  padding-top: 6rem;
+}
+
+.pt-20 {
+  padding-top: 5rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -3641,12 +3649,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     justify-content: flex-end;
   }
 
-  .lg\:justify-center {
-    justify-content: center;
-  }
-
   .lg\:justify-between {
     justify-content: space-between;
+  }
+
+  .lg\:gap-4 {
+    gap: 1rem;
   }
 
   .lg\:gap-8 {
