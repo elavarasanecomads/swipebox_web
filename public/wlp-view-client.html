@@ -1,0 +1,597 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+                    <div class="pb-8 space-y-4">
+                        <div class="py-4 border-b">
+                            <div class="flex items-center justify-between">
+                                <h1 class="text-lg font-bold md:text-2xl">Jai Anjaneya Weldings</h1>
+                                </div>
+                            <div class="flex flex-wrap mt-2 text-sm text-gray-600 gap-x-4 gap-y-2">
+                                <div class="font-medium">
+                                    Client ID : 1256358
+                                </div>
+                                <div class="font-medium">
+                                    Joined On : <span class="p-1 px-2 text-sm text-gray-600 rounded-full">2021-06-10
+                                        09:03:47</span>
+                                </div>
+                                <div class="font-medium">
+                                    Joined By : <span class="p-1 px-2 text-sm text-gray-600 rounded-full">APP</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                            <div x-data="{ showSection2: false }" class="p-4 border rounded shadow-md">
+                                <div class="flex items-center w-full gap-4">
+                                    <p class="text-lg font-bold">Profile Details</p>
+                                   <div x-show="!showSection2">
+                                    <button @click="showSection2 = !showSection2"
+                                    class="px-3 py-1 font-semibold text-center text-white uppercase bg-blue-600 rounded">Edit</button>
+                                   </div> 
+                                    
+                                </div>
+                                <div x-show="!showSection2" class="pt-6 space-y-3 text-sm">
+                                    <div>
+                                        <p class="font-semibold">Owner Name</p>
+                                        <p class="font-semibold text-gray-600">Srinivasan</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold">Mobile Number</p>
+                                        <p class="font-semibold text-gray-600">9876543211</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold">Email Address</p>
+                                        <p class="font-semibold text-gray-600">srini@gmail.com</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold">Street Address</p>
+                                        <p class="font-semibold text-gray-600">Raja Street, Pallipalayam</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold">City</p>
+                                        <p class="font-semibold text-gray-600">Erode</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold">Postal Code</p>
+                                        <p class="font-semibold text-gray-600">638006</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold">State</p>
+                                        <p class="font-semibold text-gray-600">Tamilnadu</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold">GST Number</p>
+                                        <p class="font-semibold text-gray-600">-</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold">GST State</p>
+                                        <p class="font-semibold text-gray-600">-</p>
+                                    </div>
+                                </div>
+                                
+                                <div x-show="showSection2" class="pt-6 space-y-3 text-sm">
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="businessname">Company Name</label>
+                                            <input id="" name="" type="" autocomplete="" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="businessname">Owner Name</label>
+                                            <input id="" name="" type="" autocomplete="" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="businessname">Mobile Number</label>
+                                            <input id="" name="" type="" autocomplete="" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="businessname">Email</label>
+                                            <input id="" name="" type="" autocomplete="" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="businessname">Street Address</label>
+                                            <input id="" name="" type="" autocomplete="" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="businessname">City</label>
+                                            <input id="" name="" type="" autocomplete="" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="businessname">Zip / Postal Code</label>
+                                            <input id="" name="" type="" autocomplete="" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="businessname">State</label>
+                                            <input id="" name="" type="" autocomplete="" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="businessname">GST Number</label>
+                                            <input id="" name="" type="" autocomplete="" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="businessname">GST State</label>
+                                            <input id="" name="" type="" autocomplete="" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        </div>
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <button @click="showSection2 = false" class="w-full px-3 py-2 font-semibold text-center text-gray-600 uppercase bg-gray-100 rounded">
+                                                Cancel
+                                            </button>
+                                           
+                                                <button class="w-full px-3 py-2 font-semibold text-center text-white uppercase bg-blue-600 rounded">Save</button>
+                                            
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="p-4 border rounded-md shadow-lg">
+                                <div class="flex items-center justify-between pb-2">
+                                    <div>
+                                        <p class="text-sm text-gray-600">Current Plan</p>
+                                        <p class="text-2xl font-bold">Attendance and Payroll Management<span
+                                                class="text-sm font-normal">/ Yearly</span>
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-blue-600">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M9 14.25l6-6m4.5-3.493V21.75l-3.75-1.5-3.75 1.5-3.75-1.5-3.75 1.5V4.757c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0c1.1.128 1.907 1.077 1.907 2.185zM9.75 9h.008v.008H9.75V9zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm4.125 4.5h.008v.008h-.008V13.5zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <p class="pt-2 text-sm text-gray-600">This plan incorporates features for both
+                                    attendance and payroll.</p>
+                                <p class="pt-2 text-sm text-gray-600">Plan expires on <span
+                                        class="font-bold">20-06-2024<!-- 12-02-2022 13:03 --></span>
+
+                                </p>
+                                <!-- <p class="pt-2 text-sm text-gray-600">Plan expires on <span class="font-bold">20-06-2024</span>
+                                </p> -->
+                                <div class="pt-4">
+                                    <p class="text-xl font-bold">User Utilization </p>
+                                    <p class="pt-2 text-sm text-gray-600">
+                                        <span class="font-bold">98</span> Users Remaining
+                                    </p>
+                                    <p class="pt-2 text-sm text-gray-600">
+                                        <span class="font-bold">111</span> Users in your plan
+                                    </p>
+                                </div>
+                                <div class="flex items-center gap-4 py-4 pt-6">
+                                    <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                        <button @click="showModal = true"
+                                            class="font-semibold text-blue-600 underline">Change Plan</button>
+                                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                            x-show="showModal" style="display: none;">
+                                            <!-- Modal inner -->
+                                            <div class="w-11/12 px-6 py-4 mx-auto overflow-y-auto text-left bg-white rounded shadow-lg h-3/4 md:max-w-xl"
+                                                @click.away="showModal = false"
+                                                x-transition:enter="motion-safe:ease-out duration-300"
+                                                x-transition:enter-start="opacity-0 scale-90"
+                                                x-transition:enter-end="opacity-100 scale-100">
+                                                <!-- Title / Close-->
+                                                <div class="flex items-center justify-between">
+                                                    <p class="font-bold text-gray-900"> Change Plan </p>
+                                                    <span @click="showModal = false">
+                                                        <svg class="w-5 h-5 text-gray-900"
+                                                            xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <!-- content -->
+                                                <div class="w-full">
+                                                    <div class="pt-4 space-y-4 ">
+                                                        <div class="space-y-4">
+
+                                                            <div class="space-y-4 monthly_toogle" x-data="{
+                                                                                openTab: 1,
+                                                                                activeClasses: 'border-blue-600 bg-blue-100',
+                                                                                inactiveClasses: ''
+                                                                            }">
+
+                                                                <div class="p-4 border rounded-md plancalcualation "
+                                                                    @click="openTab = 1" id="selectedPlan6">
+                                                                    <input type="radio" value="6" class="selectedPlan">
+                                                                    <div class="flex items-center justify-between">
+                                                                        <p class="font-bold">Attendance-only </p>
+                                                                        <p class="font-bold"> ₹ 199 <span
+                                                                                class="text-sm font-normal">/
+                                                                                Yearly</span>
+                                                                        </p>
+                                                                    </div>
+                                                                    <p class="pt-2 text-sm text-gray-600"> This plan
+                                                                        exclusively focuses on features related to
+                                                                        attendance. </p>
+                                                                    <div
+                                                                        class="flex items-center pt-2 text-sm text-gray-600 divide-x divide-gray-500 ">
+                                                                        <div class="flex items-center gap-2 pr-2">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                fill="none" viewBox="0 0 24 24"
+                                                                                stroke-width="1.5" stroke="currentColor"
+                                                                                class="w-6 h-6 text-blue-600">
+                                                                                <path stroke-linecap="round"
+                                                                                    stroke-linejoin="round"
+                                                                                    d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z">
+                                                                                </path>
+                                                                            </svg>
+                                                                            <p>Upto 1 users</p>
+                                                                        </div>
+                                                                        <div class="flex items-center gap-2 pl-2">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                viewBox="0 0 20 20" fill="currentColor"
+                                                                                class="w-5 h-5 text-blue-600">
+                                                                                <path
+                                                                                    d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z">
+                                                                                </path>
+                                                                            </svg>
+                                                                            <p>₹ 99 for additional user </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="space-y-4 monthly_toogle" x-data="{
+                                                                                openTab: 1,
+                                                                                activeClasses: 'border-blue-600 bg-blue-100',
+                                                                                inactiveClasses: ''
+                                                                            }">
+
+                                                                <div class="p-4 bg-blue-100 border border-blue-600 rounded-md plancalcualation "
+                                                                    @click="openTab = 1" id="selectedPlan2">
+                                                                    <div class="flex items-center justify-between">
+                                                                        <p class="font-bold">Attendance and Payroll
+                                                                            Management </p>
+                                                                        <p class="font-bold"> ₹ 299 <span
+                                                                                class="text-sm font-normal">/
+                                                                                Yearly</span>
+                                                                        </p>
+                                                                    </div>
+                                                                    <p class="pt-2 text-sm text-gray-600"> This plan
+                                                                        incorporates features for both attendance and
+                                                                        payroll. </p>
+                                                                    <div
+                                                                        class="flex items-center pt-2 text-sm text-gray-600 divide-x divide-gray-500 ">
+                                                                        <div class="flex items-center gap-2 pr-2">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                fill="none" viewBox="0 0 24 24"
+                                                                                stroke-width="1.5" stroke="currentColor"
+                                                                                class="w-6 h-6 text-blue-600">
+                                                                                <path stroke-linecap="round"
+                                                                                    stroke-linejoin="round"
+                                                                                    d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z">
+                                                                                </path>
+                                                                            </svg>
+                                                                            <p>Upto 1 users</p>
+                                                                        </div>
+                                                                        <div class="flex items-center gap-2 pl-2">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                viewBox="0 0 20 20" fill="currentColor"
+                                                                                class="w-5 h-5 text-blue-600">
+                                                                                <path
+                                                                                    d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z">
+                                                                                </path>
+                                                                            </svg>
+                                                                            <p>₹ 199 for additional user </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order_summary" style="display:none">
+                                                                <p class="font-semibold">Additional Staff Limit</p>
+                                                                <div x-data="{total_value:0}"
+                                                                    class="flex items-center gap-4 pr-2">
+                                                                    <div class="w-3/4">
+                                                                        <input class="w-full plan_add_user" type="range"
+                                                                            x-model="total_value" min="0" max="500"
+                                                                            step="5" id="plan_add_user_range">
+                                                                    </div>
+                                                                    <div class="flex items-center w-1/4">
+                                                                        <button
+                                                                            class="w-8 p-2 font-semibold bg-gray-100 border rounded-l">
+                                                                            - </button>
+                                                                        <input class="w-20 p-2 border plan_add_user"
+                                                                            type="input" x-model="total_value"
+                                                                            id="plan_add_user">
+                                                                        <button
+                                                                            class="w-8 p-2 font-semibold bg-gray-100 border rounded-r">
+                                                                            + </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- <div class="p-4 bg-red-100 border rounded-md">
+                                                                <p>Your current plan expires on <span class="font-bold">20-06-2024</span>
+                                                                </p>
+                                                                <p>
+                                                                    <span class="font-bold">309 </span> Days remaining
+                                                                </p>
+                                                            </div> -->
+                                                            <div class="p-4 bg-red-100 border rounded-md">
+                                                                <p>Your current plan expires on <span
+                                                                        class="font-bold">20-06-2024</span>
+                                                                </p>
+                                                                <p>
+                                                                    <span class="font-bold">309Days remaining </span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="p-4 bg-gray-100 border rounded-md order_summary"
+                                                                style="display:none;">
+                                                                <p class="font-bold">Order Summary</p>
+                                                                <div>
+                                                                    <ul class="space-y-2">
+                                                                        <li class="flex items-center justify-between">
+                                                                            <p>Plan Amount</p>
+                                                                            <p class="font-semibold planAmount">₹ 0</p>
+                                                                        </li>
+                                                                        <!--Additional User (User x Amount)-->
+                                                                        <li
+                                                                            class="flex items-center justify-between additonaluser">
+                                                                            <p>Additional User (<span
+                                                                                    class="additional_useramt">0</span>x<span
+                                                                                    class="additional_user">0</span>)
+                                                                            </p>
+                                                                            <p class="font-semibold">₹ <span
+                                                                                    class="additional_user_total">0</span>
+                                                                            </p>
+                                                                        </li>
+                                                                        <li class="flex items-center justify-between">
+                                                                            <p>Additional User Amount refund</p>
+                                                                            <p class="font-semibold ">₹ <span
+                                                                                    class="additional_user_refund"></span>
+                                                                            </p>
+                                                                        </li>
+                                                                        <li class="flex items-center justify-between">
+                                                                            <p>Old Plan refund amount [ unused days x
+                                                                                cost per day ]</p>
+                                                                            <p class="font-semibold refundamt">₹ 0</p>
+                                                                        </li>
+                                                                        <li class="flex items-center justify-between">
+                                                                            <p>Balance Amount</p>
+                                                                            <p class="font-semibold">₹ <span
+                                                                                    class="balamt"></span></p>
+                                                                        </li>
+                                                                        <li class="flex items-center justify-between">
+                                                                            <div x-data="{ open: false }">
+                                                                                <button class="text-blue-600"
+                                                                                    x-on:click="open = ! open">Apply
+                                                                                    Coupon</button>
+                                                                                <div x-show="open"
+                                                                                    class="flex items-center gap-2"
+                                                                                    style="display: none;">
+                                                                                    <input type="text" name="" id=""
+                                                                                        placeholder="Coupon code"
+                                                                                        class="block px-3 py-1 mt-1 border border-gray-400 rounded-md w-36 focus:outline-none focus:ring-blue-600 focus:border-blue-600 coupon_code">
+                                                                                    <button type="button"
+                                                                                        @click="showModal = true"
+                                                                                        class="p-1 px-4 font-semibold text-white bg-blue-600 rounded-md apply_coupon">Apply</button>
+                                                                                </div>
+                                                                            </div>
+                                                                            <p class="font-semibold ">₹ <span
+                                                                                    class="couponcodeprice">0</span></p>
+                                                                        </li>
+                                                                        <input type="hidden" value="2" id="gsttype">
+                                                                        <span class="gstcal">
+
+                                                                            <!-- <p>GST (18%)</p><p class="font-semibold">₹ 9</p> -->
+                                                                        </span>
+                                                                        <li
+                                                                            class="flex items-center justify-between font-bold">
+                                                                            <p>Grand Total</p>
+                                                                            <p>₹ <span class="grandTotal"></span></p>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <form method="POST"
+                                                                action="https://web.swipebox.in/staff/planPay">
+                                                                <input type="hidden" name="_token"
+                                                                    value="ey0GE6PTeJaDacV638hUnsdvoPdUcMZI9OaGrUxj">
+                                                                <input type="hidden" name="planIDD" id="planIDD">
+                                                                <input type="hidden" name="additionaluser"
+                                                                    id="additionaluser">
+                                                                <input type="hidden" name="additionaluserrefund"
+                                                                    id="additionaluserrefund">
+                                                                <input type="hidden" name="user_per_day"
+                                                                    id="user_per_day">
+                                                                <input type="hidden" name="planType" id="planType">
+                                                                <input type="hidden" name="additionalusertotal"
+                                                                    id="additionalusertotal">
+                                                                <input type="hidden" name="planamount" id="planamount">
+                                                                <input type="hidden" name="oldplanrefund"
+                                                                    id="oldplanrefund">
+                                                                <input type="hidden" name="totalamt" id="totalamt">
+                                                                <input type="hidden" name="cgstamt" id="cgstamt">
+                                                                <input type="hidden" name="sgstamt" id="sgstamt">
+                                                                <input type="hidden" name="igstamt" id="igstamt">
+                                                                <input type="hidden" name="planusercount"
+                                                                    id="planusercount">
+                                                                <input type="hidden" name="couponID" id="couponID"
+                                                                    value="0">
+                                                                <input type="hidden" name="couponcodepriceinput"
+                                                                    id="couponcodepriceinput" value="0">
+                                                                <input type="hidden" name="couponcodetypeinput"
+                                                                    id="couponcodetypeinput" value="0">
+                                                                <input type="hidden" name="subprice" id="subprice"
+                                                                    value="0">
+                                                                <button
+                                                                    class="w-full p-2 px-4 font-semibold text-white bg-blue-600 rounded-md order_summary"
+                                                                    style="display:none">PAY NOW</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                        <button @click="showModal = true"
+                                            class="font-semibold text-blue-600 underline">Add Additional Users</button>
+                                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                            x-show="showModal" style="display: none;">
+                                            <!-- Modal inner -->
+                                            <div class="w-11/12 px-6 py-4 mx-auto overflow-y-auto text-left bg-white rounded shadow-lg h-3/4 md:max-w-xl"
+                                                @click.away="showModal = false"
+                                                x-transition:enter="motion-safe:ease-out duration-300"
+                                                x-transition:enter-start="opacity-0 scale-90"
+                                                x-transition:enter-end="opacity-100 scale-100">
+                                                <!-- Title / Close-->
+                                                <div class="flex items-center justify-between">
+                                                    <p class="font-bold text-gray-900"> Add Additional Users </p>
+                                                    <span @click="showModal = false">
+                                                        <svg class="w-5 h-5 text-gray-900"
+                                                            xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <!-- content -->
+                                                <div class="w-full">
+                                                    <div class="pt-4 space-y-4 ">
+                                                        <div class="space-y-4">
+                                                            <div>
+                                                                <p class="font-semibold">Additional Staff Limit</p>
+                                                                <div x-data="{total_value:0}"
+                                                                    class="flex items-center gap-4 pr-2">
+                                                                    <div class="w-3/4">
+                                                                        <input class="w-full additional_user_plan"
+                                                                            type="range" x-model="total_value" min="0"
+                                                                            max="500" step="5">
+                                                                    </div>
+                                                                    <div class="flex items-center w-1/4">
+                                                                        <button
+                                                                            class="w-8 p-2 font-semibold bg-gray-100 border rounded-l">
+                                                                            - </button>
+                                                                        <input
+                                                                            class="w-20 p-2 border additional_user_plan"
+                                                                            type="input" x-model="total_value">
+                                                                        <button
+                                                                            class="w-8 p-2 font-semibold bg-gray-100 border rounded-r">
+                                                                            + </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--  <div class="p-4 bg-red-100 border rounded-md">
+                                                                <p>Your current plan expires on <span class="font-bold">20-06-2024</span>
+                                                                </p>
+                                                                <p>
+                                                                    <span class="font-bold remaining">309 </span>Days remaining
+                                                                </p>
+                                                            </div> -->
+                                                            <div class="p-4 bg-red-100 border rounded-md">
+                                                                <p>Your current plan expires on <span
+                                                                        class="font-bold">20-06-2024</span>
+                                                                    <input type="hidden" name="is_plan_expire"
+                                                                        id="is_plan_expire" value="2">
+                                                                </p>
+                                                                <p>
+                                                                    <span class="font-bold">309Days remaining </span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="p-4 bg-gray-100 border rounded-md userorder_summary"
+                                                                style="display:none;">
+                                                                <p class="font-bold">Order Summary</p>
+                                                                <p class="text-sm text-gray-600">The additional user
+                                                                    will be charged only for the remaining days in the
+                                                                    bill plan.</p>
+                                                                <div>
+                                                                    <ul class="space-y-2">
+                                                                        <!--Additional User (User x Amount)-->
+                                                                        <li class="flex items-center justify-between">
+                                                                            <p class="text-sm">Number of users x
+                                                                                Remaining days in the bill plan [ days ]
+                                                                                x <br> per day cost [ per day additional
+                                                                                user cost ] </p>
+                                                                            <p class="font-semibold">₹ <span
+                                                                                    class="additional_user_total_val">0</span>
+                                                                            </p>
+                                                                        </li>
+                                                                        <li class="flex items-center justify-between">
+                                                                            <div x-data="{ open: false }">
+                                                                                <button type="button"
+                                                                                    class="text-blue-600 "
+                                                                                    x-on:click="open = ! open">Apply
+                                                                                    Coupon</button>
+                                                                                <div x-show="open"
+                                                                                    class="flex items-center gap-2"
+                                                                                    style="display: none;">
+                                                                                    <input type="text" name="" id=""
+                                                                                        placeholder="Coupon code"
+                                                                                        class="block px-3 py-1 mt-1 border border-gray-400 rounded-md w-36 focus:outline-none focus:ring-blue-600 focus:border-blue-600 coupon_code_user">
+                                                                                    <button type="button"
+                                                                                        @click="showModal = true"
+                                                                                        class="p-1 px-4 font-semibold text-white bg-blue-600 rounded-md apply_coupon_user">Apply</button>
+                                                                                </div>
+                                                                            </div>
+                                                                            <p class="font-semibold">₹ <span
+                                                                                    class="coupon_user_amt">0</span></p>
+                                                                        </li>
+                                                                        <span class="gstcal_user"></span>
+                                                                        <li
+                                                                            class="flex items-center justify-between font-bold">
+                                                                            <p>Grand Total</p>
+                                                                            <p>₹ <span class="grandTotaluser"></span>
+                                                                            </p>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <form action="https://web.swipebox.in/staff/userplanPay"
+                                                                method="POST">
+                                                                <input type="hidden" name="_token"
+                                                                    value="ey0GE6PTeJaDacV638hUnsdvoPdUcMZI9OaGrUxj">
+                                                                <input type="hidden" name="userplanIDD" id="userplanIDD"
+                                                                    value="2">
+                                                                <input type="hidden" name="usercount" id="usercount">
+                                                                <input type="hidden" name="usercouponID"
+                                                                    id="usercouponID" value="0">
+                                                                <input type="hidden" name="usercouponcodepriceinput"
+                                                                    id="usercouponcodepriceinput" value="0">
+                                                                <button
+                                                                    class="w-full p-2 px-4 font-semibold text-white bg-blue-600 rounded-md userorder_summary"
+                                                                    style="display:none;">PAY NOW</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+<style>
+    [x-cloak] {
+        display: none;
+    }
+</style>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+</html>
