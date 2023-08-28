@@ -136,7 +136,7 @@
             </div>
           </div>
           
-          <div class="bg-red-100 rounded">
+          <div x-data="{ isOpen: true }" x-show="isOpen" class="bg-red-100 rounded">
             <div class="px-3 py-3 mx-auto max-w-7xl ">
               <div class="flex flex-wrap items-start justify-between">
                 <div class="flex items-start flex-1 w-0">
@@ -149,18 +149,18 @@
                             clip-rule="evenodd" />
                         </svg>
                       </div>
-                      <p class="font-bold">"Notice: Your Plan Has Expired – Renewal Required!"</p>
+                      <p class="font-bold">"Notice: Your Trial Plan Has Expired – Upgrade Required!"</p>
                     </div>
-                    <p class="pt-2 text-sm text-gray-600 lg:pt-1 lg:pl-8">Your Plan Has Expired! Upgrade to Our Premium Plan for More Exciting Features!</p>
+                    <p class="pt-2 text-sm text-gray-600 lg:pt-1 lg:pl-8">Your Trial Plan Has Expired! Upgrade to Our Premium Plan for More Exciting Features!</p>
                   </div>
                 </div>
                 <div class="flex-shrink-0 order-3 w-full mt-2 sm:order-2 sm:mt-0 sm:w-auto">
                   <a href="plan-details.html"
-                    class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700">Renew
+                    class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700">Upgrade
                     Now</a>
                 </div>
                 <div class="flex-shrink-0 order-2 sm:order-3 sm:ml-3">
-                  <button type="button"
+                  <button x-on:click="isOpen = false" type="button"
                     class="flex p-2 -mt-2 -mr-1 rounded-md lg:mt-0 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2">
                     <span class="sr-only">Dismiss</span>
                     <!-- Heroicon name: outline/x-mark -->
