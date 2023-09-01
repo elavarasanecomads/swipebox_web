@@ -111,43 +111,7 @@
                                     <option>Purchase</option>
                                 </select>
                             </div>
-                            <div>
-                                <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">Select
-                                    Employee
-                                    Category</label>
-                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                    class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                    <option>All</option>
-                                    <option>Permanant</option>
-                                    <option>Contract</option>
-                                    <option>Casual</option>
-                                    <option>Temporary</option>
-                                    <option>Others</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select
-                                    Designation</label>
-                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                    class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                    <option>All</option>
-                                    <option>Director</option>
-                                    <option>CTO</option>
-                                    <option>STO</option>
-                                    <option>Accountant</option>
-                                    <option>Team Lead</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select
-                                    Division</label>
-                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                    class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                    <option>All</option>
-                                    <option>Chennai</option>
-                                    <option>Coimbatore</option>
-                                </select>
-                            </div>
+                            
                             <div>
                                 <label class="text-sm font-semibold text-gray-600" for="businessname">Select
                                     Type</label>
@@ -163,6 +127,74 @@
                                     <option>Break Hours</option>
                                 </select>
                             </div>
+                            <div class="col-span-1 col-start-1 lg:col-span-3" x-data="{ open: false }">
+                                <div>
+                                    <button class="font-semibold text-blue-600" @click="open = ! open">Advanced Filter</button>
+                             
+                                <div class="pt-4" x-show="open">
+                                    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+                                        <div>
+                                            <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">Select
+                                                Employee
+                                                Category</label>
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                <option>All</option>
+                                                <option>Permanant</option>
+                                                <option>Contract</option>
+                                                <option>Casual</option>
+                                                <option>Temporary</option>
+                                                <option>Others</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                                Designation</label>
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                <option>All</option>
+                                                <option>Director</option>
+                                                <option>CTO</option>
+                                                <option>STO</option>
+                                                <option>Accountant</option>
+                                                <option>Team Lead</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                                Division</label>
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                <option>All</option>
+                                                <option>South</option>
+                                                <option>North</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                               Sub Division</label>
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                <option>All</option>
+                                                <option>Chennai</option>
+                                                <option>Coimbatore</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                                Grade</label>
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                <option>All</option>
+                                                <option>Grade 1</option>
+                                                <option>Grade 2</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                
+                            </div>
                             <div class="col-start-1">
                                 <div class="w-48 space-y-4">
                                     <button
@@ -170,6 +202,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                     <div class="py-6 border-t">
                         <p class="text-xl font-bold">10-12-2022 - <span>Saturday</span></p>
