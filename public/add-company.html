@@ -1,0 +1,151 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Company</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="p-4 bg-white border rounded-md lg:p-8">
+                    <!--Brudcrumb-->
+                    
+                    <h1 class="text-2xl font-bold">Add Company</h1>
+                    <div>
+                        <div class="mt-8 space-y-4" x-data="{ 'showContact': false }">
+                            <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="name">Company
+                                        Logo</label>
+                                        <div class="flex items-center mt-1 gap-x-3">
+                                            <!--before image upload-->
+                                            <div class="flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="text-gray-600 icon icon-tabler icon-tabler-photo" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                    <path d="M15 8h.01"></path>
+                                                    <path d="M3 6a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v12a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3v-12z"></path>
+                                                    <path d="M3 16l5 -5c.928 -.893 2.072 -.893 3 0l5 5"></path>
+                                                    <path d="M14 14l1 -1c.928 -.893 2.072 -.893 3 0l3 3"></path>
+                                                 </svg>
+                                            </div>
+                                            <!--after image upload, remove hiddedn class-->
+                                            <div class="hidden">
+                                                <img  class="w-12 h-12 rounded-full" src="https://www.adobe.com/content/dam/offers-homepage/us/en/homepage/twitter_adobe.png" alt="">
+                                            </div>
+                                            <button type="button" class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Change</button>
+                                          </div>
+                                </div>
+                                <div class="col-start-1">  
+                                    <label class="text-sm font-semibold text-gray-600" for="name">Company
+                                        Name<span class="text-red-600"> *</span></label>
+                                    <input type="text" name="name" id="name" autocomplete="title"
+                                        placeholder=""
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600"
+                                        for="">Email</label>
+                                    <input type="text" name="" id="" autocomplete="title"
+                                        placeholder=""
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="">
+                                        Mobile Number</label>
+                                    <input type="text" name="" id="" autocomplete="title"
+                                         placeholder=""
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md disabled:bg-gray-100 disabled:text-gray-600 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="">Street
+                                        Address<span class="text-red-600"> *</span></label>
+                                    <textarea rows="1"
+                                        class="relative block w-full p-2 px-3 py-3 mt-1 text-gray-900 placeholder-gray-400 border border-gray-400 rounded shadow-sm appearance-none focus:outline-none focus:ring-blue-600 focus:border-blue-600 focus:z-10"
+                                        spellcheck="false"></textarea>
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600"
+                                        for="">City<span class="text-red-600"> *</span></label>
+                                    <input type="text" name="" id="" autocomplete="title"
+                                        placeholder=""
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600"
+                                        for="">Pincode<span class="text-red-600"> *</span></label>
+                                    <input type="text" name="" id="" autocomplete="title"
+                                        placeholder=""
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600"
+                                        for="gender">State<span class="text-red-600"> *</span></label>
+                                    <select id="gender" name="gender" autocomplete="gender"
+                                        class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>Select</option>
+                                        <option>Andhra Pradesh</option>
+                                        <option>Chandigarh</option>
+                                        <option>Tamilnadu</option>
+                                    </select>
+                                </div>                                
+                            </div>
+                            <div>
+                                <h2 class="pb-4 text-lg font-bold">Tax Details
+                                    </h2>
+                                    <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">                                        
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="">GST Number</label>
+                                            <input type="text" name="" id="" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
+                                        
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="">GST State</label>
+                                            <select id="" name="" autocomplete="" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                <option>Select</option>
+                                                <option>Andhra Pradesh</option>
+                                                <option>Chandigarh</option>
+                                                <option>Tamilnadu</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="">PAN Number</label>
+                                            <input type="text" name="" id="" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="">ESI Number</label>
+                                            <input type="text" name="" id="" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="">PF Number</label>
+                                            <input type="text" name="" id="" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="flex items-center justify-start w-64">
+                                <button
+                                    class="w-full px-3 py-2 font-bold text-white bg-blue-600 rounded">SUBMIT</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+</html>
