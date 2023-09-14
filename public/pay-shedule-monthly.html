@@ -242,7 +242,7 @@
                 <div>
                   <label class="inline-flex items-center">
                     <input type="radio" class="w-4 h-4 form-checkbox">
-                    <span class="ml-2 font-semibold text-gray-600">Number of actual days in a month</span>
+                    <span class="ml-2 font-semibold">Number of actual days in a month</span>
                   </label>
                   <div class="w-3/4 pt-2 space-y-2 text-sm text-gray-600">
                     <p>For example, if Employee A's salary is 30,000, then the
@@ -259,7 +259,7 @@
                 <div>
                   <label class="inline-flex items-center">
                     <input type="radio" class="w-4 h-4 form-checkbox">
-                    <span class="ml-2 font-semibold text-gray-600">Monthly cycle of 30 days</span>
+                    <span class="ml-2 font-semibold">Monthly cycle of 30 days</span>
                   </label>
                   <div class="w-3/4 pt-2 space-y-2 text-sm text-gray-600">
                     <p>a salary of 30,000, the per day salary for each month will be calculated as 30000/30.For example,
@@ -268,9 +268,37 @@
                     </p>
                   </div>
                 </div>
+                <div>
+                  <p class="font-semibold">Exclude Weekoff</p>
+                  <p class="text-sm text-gray-600">To Exclude payment for weekoff from all employees.</p>
+                  <div class="pt-2 space-x-8">
+                    <div class="inline-flex items-center">
+                      <input name="weekoff" type="radio" class="w-4 h-4 form-checkbox">
+                      <span class="ml-2 text-gray-600">Enable</span>
+                    </div>
+                    <div class="inline-flex items-center">
+                      <input name="weekoff" type="radio" class="w-4 h-4 form-checkbox">
+                      <span class="ml-2 text-gray-600">Disable</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <p class="font-semibold">Exclude Public Holiday</p>
+                  <p class="text-sm text-gray-600">To Exclude payment for public holiday from all employees.</p>
+                  <div class="pt-2 space-x-8">
+                    <div class="inline-flex items-center">
+                      <input name="holiday" type="radio" class="w-4 h-4 form-checkbox">
+                      <span class="ml-2 text-gray-600">Enable</span>
+                    </div>
+                    <div class="inline-flex items-center">
+                      <input name="holiday" type="radio" class="w-4 h-4 form-checkbox">
+                      <span class="ml-2 text-gray-600">Disable</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <button class="w-1/2 p-2 font-semibold text-center text-white bg-blue-600 rounded-md">Save</button>
+            <button class="p-2 font-semibold text-center text-white bg-blue-600 rounded-md w-36">Save</button>
           </div>
         </div>
       </div>

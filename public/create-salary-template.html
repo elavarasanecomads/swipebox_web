@@ -118,15 +118,16 @@
                                                             autocomplete="title" placeholder=""
                                                             class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                     </div>
-                                                    <div>
+                                                    <div x-data="{ showPercentageSalaryField: false }">
                                                         <label class="font-semibold text-gray-600"
                                                             for="businessname">Calculation Type</label>
                                                         <button class="flex items-center mt-1">
-                                                            <input type="text"
+                                                            <input x-show="showPercentageSalaryField" type="text"
                                                                 class="block w-24 px-3 py-3 border border-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                             <span class="px-3 py-3 border border-gray-400 lg:py-2">
                                                                 <select id="jobtype" name="jobtype"
                                                                     autocomplete="jobtype"
+                                                                    x-on:change="showPercentageSalaryField = ($event.target.value === '% of Salary')"
                                                                     class="block px-1 py-1 text-sm text-gray-600 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
 
                                                                     <option>Fixed Amount</option>
@@ -194,19 +195,25 @@
                                                             </p>
                                                         </td>
                                                         <td class="px-4 py-4 whitespace-nowrap">
-                                                            <button class="flex items-center">
-                                                                <input type="text"
-                                                                    class="block w-24 px-3 py-3 border border-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                                <span class="px-3 py-2 border border-gray-400">
-                                                                    <select id="jobtype" name="jobtype"
-                                                                        autocomplete="jobtype"
-                                                                        class="block px-1 py-1 text-sm bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                            <div class="flex items-end justify-end"
+                                                                x-data="{ showPercentageSalaryField: false }">
+                                                                <button class="flex items-center mt-1">
+                                                                    <input x-show="showPercentageSalaryField"
+                                                                        type="text"
+                                                                        class="block w-24 px-3 py-3 border border-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                    <span
+                                                                        class="px-3 py-3 border border-gray-400 lg:py-2">
+                                                                        <select id="jobtype" name="jobtype"
+                                                                            autocomplete="jobtype"
+                                                                            x-on:change="showPercentageSalaryField = ($event.target.value === '% of Salary')"
+                                                                            class="block px-1 py-1 text-sm text-gray-600 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
 
-                                                                        <option>Fixed Amount</option>
-                                                                        <option>% of Salary</option>
-                                                                    </select>
-                                                                </span>
-                                                            </button>
+                                                                            <option>Fixed Amount</option>
+                                                                            <option>% of Salary</option>
+                                                                        </select>
+                                                                    </span>
+                                                                </button>
+                                                            </div>
                                                         </td>
                                                         <td class="px-4 py-4 whitespace-nowrap">
                                                             <button><svg xmlns="http://www.w3.org/2000/svg"
@@ -276,7 +283,7 @@
                                                                                     <span
                                                                                         class="ml-2 font-semibold text-gray-600">Disable</span>
                                                                                 </label>
-                                                                                
+
                                                                                 <button @click="showModal = true"
                                                                                     class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
                                                                             </div>
@@ -343,7 +350,7 @@
                                                                                     <span
                                                                                         class="ml-2 font-semibold text-gray-600">Disable</span>
                                                                                 </label>
-                                                                                
+
                                                                                 <button @click="showModal = true"
                                                                                     class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
                                                                             </div>
@@ -405,14 +412,14 @@
                                                                                             class="ml-2 font-semibold text-gray-600">Enable</span>
                                                                                     </label>
                                                                                 </div>
-                                                                                
+
                                                                                 <label class="inline-flex items-center">
                                                                                     <input name="tds" type="radio"
                                                                                         class="w-4 h-4 form-checkbox">
                                                                                     <span
                                                                                         class="ml-2 font-semibold text-gray-600">Disable</span>
                                                                                 </label>
-                                                                               
+
                                                                                 <button @click="showModal = true"
                                                                                     class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
                                                                             </div>
@@ -474,14 +481,14 @@
                                                                                             class="ml-2 font-semibold text-gray-600">Enable</span>
                                                                                     </label>
                                                                                 </div>
-                                                                                
+
                                                                                 <label class="inline-flex items-center">
                                                                                     <input name="tds" type="radio"
                                                                                         class="w-4 h-4 form-checkbox">
                                                                                     <span
                                                                                         class="ml-2 font-semibold text-gray-600">Disable</span>
                                                                                 </label>
-                                                                               
+
                                                                                 <button @click="showModal = true"
                                                                                     class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
                                                                             </div>
@@ -497,7 +504,8 @@
                                                                 <p class="font-semibold text-blue-600">
                                                                     Daily Wages
                                                                 </p>
-                                                                <span class="text-sm text-gray-600">This will work only for daily salary type.</span>
+                                                                <span class="text-sm text-gray-600">This will work only
+                                                                    for daily salary type.</span>
                                                             </div>
                                                         </td>
                                                         <td class="px-4 py-4 whitespace-nowrap"
@@ -544,14 +552,14 @@
                                                                                             class="ml-2 font-semibold text-gray-600">Enable</span>
                                                                                     </label>
                                                                                 </div>
-                                                                                
+
                                                                                 <label class="inline-flex items-center">
                                                                                     <input name="tds" type="radio"
                                                                                         class="w-4 h-4 form-checkbox">
                                                                                     <span
                                                                                         class="ml-2 font-semibold text-gray-600">Disable</span>
                                                                                 </label>
-                                                                               
+
                                                                                 <button @click="showModal = true"
                                                                                     class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
                                                                             </div>
@@ -567,7 +575,8 @@
                                                                 <p class="font-semibold text-blue-600">
                                                                     Hourly Wages
                                                                 </p>
-                                                                <span class="text-sm text-gray-600">This will work only for hourly salary type.</span>
+                                                                <span class="text-sm text-gray-600">This will work only
+                                                                    for hourly salary type.</span>
                                                             </div>
                                                         </td>
                                                         <td class="px-4 py-4 whitespace-nowrap"
@@ -614,14 +623,14 @@
                                                                                             class="ml-2 font-semibold text-gray-600">Enable</span>
                                                                                     </label>
                                                                                 </div>
-                                                                                
+
                                                                                 <label class="inline-flex items-center">
                                                                                     <input name="tds" type="radio"
                                                                                         class="w-4 h-4 form-checkbox">
                                                                                     <span
                                                                                         class="ml-2 font-semibold text-gray-600">Disable</span>
                                                                                 </label>
-                                                                               
+
                                                                                 <button @click="showModal = true"
                                                                                     class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
                                                                             </div>
@@ -683,14 +692,14 @@
                                                                                             class="ml-2 font-semibold text-gray-600">Enable</span>
                                                                                     </label>
                                                                                 </div>
-                                                                                
+
                                                                                 <label class="inline-flex items-center">
                                                                                     <input name="tds" type="radio"
                                                                                         class="w-4 h-4 form-checkbox">
                                                                                     <span
                                                                                         class="ml-2 font-semibold text-gray-600">Disable</span>
                                                                                 </label>
-                                                                               
+
                                                                                 <button @click="showModal = true"
                                                                                     class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
                                                                             </div>
@@ -788,7 +797,7 @@
                                                                                     <span
                                                                                         class="ml-2 font-semibold text-gray-600">Disable</span>
                                                                                 </label>
-                                                                                
+
                                                                                 <button @click="showModal = true"
                                                                                     class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
                                                                             </div>
@@ -1040,14 +1049,14 @@
                                                                                             class="ml-2 font-semibold text-gray-600">Enable</span>
                                                                                     </label>
                                                                                 </div>
-                                                                                
+
                                                                                 <label class="inline-flex items-center">
                                                                                     <input name="tds" type="radio"
                                                                                         class="w-4 h-4 form-checkbox">
                                                                                     <span
                                                                                         class="ml-2 font-semibold text-gray-600">Disable</span>
                                                                                 </label>
-                                                                                
+
                                                                                 <button @click="showModal = true"
                                                                                     class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
                                                                             </div>
@@ -1103,15 +1112,16 @@
                                                             autocomplete="title" placeholder=""
                                                             class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                     </div>
-                                                    <div>
+                                                    <div x-data="{ showPercentageSalaryField: false }">
                                                         <label class="font-semibold text-gray-600"
                                                             for="businessname">Calculation Type</label>
                                                         <button class="flex items-center mt-1">
-                                                            <input type="text"
+                                                            <input x-show="showPercentageSalaryField" type="text"
                                                                 class="block w-24 px-3 py-3 border border-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                             <span class="px-3 py-3 border border-gray-400 lg:py-2">
                                                                 <select id="jobtype" name="jobtype"
                                                                     autocomplete="jobtype"
+                                                                    x-on:change="showPercentageSalaryField = ($event.target.value === '% of Salary')"
                                                                     class="block px-1 py-1 text-sm text-gray-600 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
 
                                                                     <option>Fixed Amount</option>
@@ -1119,8 +1129,7 @@
                                                                 </select>
                                                             </span>
                                                         </button>
-                                                    </div>
-                                                    <button @click="showModal = true"
+                                                    </div>                                                    <button @click="showModal = true"
                                                         class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
                                                 </div>
                                             </div>
@@ -1153,10 +1162,12 @@
                                                             <div class="text-base text-gray-900">
                                                                 <p class="font-semibold text-blue-600">
                                                                     Deductions
-                                                            </p>
+                                                                </p>
                                                             </div>
                                                         </td>
-                                                        <td class="px-4 py-4 whitespace-nowrap" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                        <td class="px-4 py-4 whitespace-nowrap"
+                                                            x-data="{ 'showModal': false }"
+                                                            @keydown.escape="showModal = false">
                                                             <div class="flex items-center justify-end">
                                                                 <button @click="showModal = true"
                                                                     class="p-2 font-medium text-gray-800 bg-gray-200 rounded w-36">Enable</button>
@@ -1175,10 +1186,13 @@
                                                                             </p>
                                                                             <span @click="showModal = false">
                                                                                 <svg class="w-5 h-5 text-gray-900"
-                                                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                                                    viewBox="0 0 24 24" stroke="currentColor">
-                                                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                                                        stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    fill="none" viewBox="0 0 24 24"
+                                                                                    stroke="currentColor">
+                                                                                    <path stroke-linecap="round"
+                                                                                        stroke-linejoin="round"
+                                                                                        stroke-width="2"
+                                                                                        d="M6 18L18 6M6 6l12 12"></path>
                                                                                 </svg>
                                                                             </span>
                                                                         </div>
@@ -1186,18 +1200,24 @@
                                                                         <div class="w-full">
                                                                             <div class="flex flex-col pt-4 space-y-4 ">
                                                                                 <div>
-                                                                                    <label class="inline-flex items-center">
-                                                                                        <input  name="tds" type="radio" class="w-4 h-4 form-checkbox" checked>
-                                                                                        <span class="ml-2 font-semibold text-gray-600">Enable</span>
+                                                                                    <label
+                                                                                        class="inline-flex items-center">
+                                                                                        <input name="tds" type="radio"
+                                                                                            class="w-4 h-4 form-checkbox"
+                                                                                            checked>
+                                                                                        <span
+                                                                                            class="ml-2 font-semibold text-gray-600">Enable</span>
                                                                                     </label>
                                                                                 </div>
                                                                                 <label class="inline-flex items-center">
-                                                                                    <input name="tds" type="radio" class="w-4 h-4 form-checkbox">
-                                                                                    <span class="ml-2 font-semibold text-gray-600">Disable</span>
+                                                                                    <input name="tds" type="radio"
+                                                                                        class="w-4 h-4 form-checkbox">
+                                                                                    <span
+                                                                                        class="ml-2 font-semibold text-gray-600">Disable</span>
                                                                                 </label>
-                                                                                
+
                                                                                 <button @click="showModal = true"
-                                                                    class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
+                                                                                    class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1210,10 +1230,12 @@
                                                             <div class="text-base text-gray-900">
                                                                 <p class="font-semibold text-blue-600">
                                                                     Loan
-                                                            </p>
+                                                                </p>
                                                             </div>
                                                         </td>
-                                                        <td class="px-4 py-4 whitespace-nowrap" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                        <td class="px-4 py-4 whitespace-nowrap"
+                                                            x-data="{ 'showModal': false }"
+                                                            @keydown.escape="showModal = false">
                                                             <div class="flex items-center justify-end">
                                                                 <button @click="showModal = true"
                                                                     class="p-2 font-medium text-gray-800 bg-gray-200 rounded w-36">Enable</button>
@@ -1232,10 +1254,13 @@
                                                                             </p>
                                                                             <span @click="showModal = false">
                                                                                 <svg class="w-5 h-5 text-gray-900"
-                                                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                                                    viewBox="0 0 24 24" stroke="currentColor">
-                                                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                                                        stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    fill="none" viewBox="0 0 24 24"
+                                                                                    stroke="currentColor">
+                                                                                    <path stroke-linecap="round"
+                                                                                        stroke-linejoin="round"
+                                                                                        stroke-width="2"
+                                                                                        d="M6 18L18 6M6 6l12 12"></path>
                                                                                 </svg>
                                                                             </span>
                                                                         </div>
@@ -1243,18 +1268,24 @@
                                                                         <div class="w-full">
                                                                             <div class="flex flex-col pt-4 space-y-4 ">
                                                                                 <div>
-                                                                                    <label class="inline-flex items-center">
-                                                                                        <input  name="tds" type="radio" class="w-4 h-4 form-checkbox" checked>
-                                                                                        <span class="ml-2 font-semibold text-gray-600">Enable</span>
+                                                                                    <label
+                                                                                        class="inline-flex items-center">
+                                                                                        <input name="tds" type="radio"
+                                                                                            class="w-4 h-4 form-checkbox"
+                                                                                            checked>
+                                                                                        <span
+                                                                                            class="ml-2 font-semibold text-gray-600">Enable</span>
                                                                                     </label>
                                                                                 </div>
                                                                                 <label class="inline-flex items-center">
-                                                                                    <input name="tds" type="radio" class="w-4 h-4 form-checkbox">
-                                                                                    <span class="ml-2 font-semibold text-gray-600">Disable</span>
+                                                                                    <input name="tds" type="radio"
+                                                                                        class="w-4 h-4 form-checkbox">
+                                                                                    <span
+                                                                                        class="ml-2 font-semibold text-gray-600">Disable</span>
                                                                                 </label>
-                                                                                
+
                                                                                 <button @click="showModal = true"
-                                                                    class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
+                                                                                    class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1267,10 +1298,12 @@
                                                             <div class="text-base text-gray-900">
                                                                 <p class="font-semibold text-blue-600">
                                                                     Salary Advance
-                                                            </p>
+                                                                </p>
                                                             </div>
                                                         </td>
-                                                        <td class="px-4 py-4 whitespace-nowrap" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                        <td class="px-4 py-4 whitespace-nowrap"
+                                                            x-data="{ 'showModal': false }"
+                                                            @keydown.escape="showModal = false">
                                                             <div class="flex items-center justify-end">
                                                                 <button @click="showModal = true"
                                                                     class="p-2 font-medium text-gray-800 bg-gray-200 rounded w-36">Enable</button>
@@ -1289,10 +1322,13 @@
                                                                             </p>
                                                                             <span @click="showModal = false">
                                                                                 <svg class="w-5 h-5 text-gray-900"
-                                                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                                                    viewBox="0 0 24 24" stroke="currentColor">
-                                                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                                                        stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    fill="none" viewBox="0 0 24 24"
+                                                                                    stroke="currentColor">
+                                                                                    <path stroke-linecap="round"
+                                                                                        stroke-linejoin="round"
+                                                                                        stroke-width="2"
+                                                                                        d="M6 18L18 6M6 6l12 12"></path>
                                                                                 </svg>
                                                                             </span>
                                                                         </div>
@@ -1300,18 +1336,24 @@
                                                                         <div class="w-full">
                                                                             <div class="flex flex-col pt-4 space-y-4 ">
                                                                                 <div>
-                                                                                    <label class="inline-flex items-center">
-                                                                                        <input  name="tds" type="radio" class="w-4 h-4 form-checkbox" checked>
-                                                                                        <span class="ml-2 font-semibold text-gray-600">Enable</span>
+                                                                                    <label
+                                                                                        class="inline-flex items-center">
+                                                                                        <input name="tds" type="radio"
+                                                                                            class="w-4 h-4 form-checkbox"
+                                                                                            checked>
+                                                                                        <span
+                                                                                            class="ml-2 font-semibold text-gray-600">Enable</span>
                                                                                     </label>
                                                                                 </div>
                                                                                 <label class="inline-flex items-center">
-                                                                                    <input name="tds" type="radio" class="w-4 h-4 form-checkbox">
-                                                                                    <span class="ml-2 font-semibold text-gray-600">Disable</span>
+                                                                                    <input name="tds" type="radio"
+                                                                                        class="w-4 h-4 form-checkbox">
+                                                                                    <span
+                                                                                        class="ml-2 font-semibold text-gray-600">Disable</span>
                                                                                 </label>
-                                                                                
+
                                                                                 <button @click="showModal = true"
-                                                                    class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
+                                                                                    class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1324,10 +1366,12 @@
                                                             <div class="text-base text-gray-900">
                                                                 <p class="font-semibold text-blue-600">
                                                                     Late Entry Penalties
-                                                            </p>
+                                                                </p>
                                                             </div>
                                                         </td>
-                                                        <td class="px-4 py-4 whitespace-nowrap" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                        <td class="px-4 py-4 whitespace-nowrap"
+                                                            x-data="{ 'showModal': false }"
+                                                            @keydown.escape="showModal = false">
                                                             <div class="flex items-center justify-end">
                                                                 <button @click="showModal = true"
                                                                     class="p-2 font-medium text-gray-800 bg-gray-200 rounded w-36">Enable</button>
@@ -1346,10 +1390,13 @@
                                                                             </p>
                                                                             <span @click="showModal = false">
                                                                                 <svg class="w-5 h-5 text-gray-900"
-                                                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                                                    viewBox="0 0 24 24" stroke="currentColor">
-                                                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                                                        stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    fill="none" viewBox="0 0 24 24"
+                                                                                    stroke="currentColor">
+                                                                                    <path stroke-linecap="round"
+                                                                                        stroke-linejoin="round"
+                                                                                        stroke-width="2"
+                                                                                        d="M6 18L18 6M6 6l12 12"></path>
                                                                                 </svg>
                                                                             </span>
                                                                         </div>
@@ -1357,18 +1404,24 @@
                                                                         <div class="w-full">
                                                                             <div class="flex flex-col pt-4 space-y-4 ">
                                                                                 <div>
-                                                                                    <label class="inline-flex items-center">
-                                                                                        <input  name="tds" type="radio" class="w-4 h-4 form-checkbox" checked>
-                                                                                        <span class="ml-2 font-semibold text-gray-600">Enable</span>
+                                                                                    <label
+                                                                                        class="inline-flex items-center">
+                                                                                        <input name="tds" type="radio"
+                                                                                            class="w-4 h-4 form-checkbox"
+                                                                                            checked>
+                                                                                        <span
+                                                                                            class="ml-2 font-semibold text-gray-600">Enable</span>
                                                                                     </label>
                                                                                 </div>
                                                                                 <label class="inline-flex items-center">
-                                                                                    <input name="tds" type="radio" class="w-4 h-4 form-checkbox">
-                                                                                    <span class="ml-2 font-semibold text-gray-600">Disable</span>
+                                                                                    <input name="tds" type="radio"
+                                                                                        class="w-4 h-4 form-checkbox">
+                                                                                    <span
+                                                                                        class="ml-2 font-semibold text-gray-600">Disable</span>
                                                                                 </label>
-                                                                                
+
                                                                                 <button @click="showModal = true"
-                                                                    class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
+                                                                                    class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1381,10 +1434,12 @@
                                                             <div class="text-base text-gray-900">
                                                                 <p class="font-semibold text-blue-600">
                                                                     Early Exit Penalties
-                                                            </p>
+                                                                </p>
                                                             </div>
                                                         </td>
-                                                        <td class="px-4 py-4 whitespace-nowrap" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                        <td class="px-4 py-4 whitespace-nowrap"
+                                                            x-data="{ 'showModal': false }"
+                                                            @keydown.escape="showModal = false">
                                                             <div class="flex items-center justify-end">
                                                                 <button @click="showModal = true"
                                                                     class="p-2 font-medium text-gray-800 bg-gray-200 rounded w-36">Enable</button>
@@ -1403,10 +1458,13 @@
                                                                             </p>
                                                                             <span @click="showModal = false">
                                                                                 <svg class="w-5 h-5 text-gray-900"
-                                                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                                                    viewBox="0 0 24 24" stroke="currentColor">
-                                                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                                                        stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    fill="none" viewBox="0 0 24 24"
+                                                                                    stroke="currentColor">
+                                                                                    <path stroke-linecap="round"
+                                                                                        stroke-linejoin="round"
+                                                                                        stroke-width="2"
+                                                                                        d="M6 18L18 6M6 6l12 12"></path>
                                                                                 </svg>
                                                                             </span>
                                                                         </div>
@@ -1414,18 +1472,24 @@
                                                                         <div class="w-full">
                                                                             <div class="flex flex-col pt-4 space-y-4 ">
                                                                                 <div>
-                                                                                    <label class="inline-flex items-center">
-                                                                                        <input  name="tds" type="radio" class="w-4 h-4 form-checkbox" checked>
-                                                                                        <span class="ml-2 font-semibold text-gray-600">Enable</span>
+                                                                                    <label
+                                                                                        class="inline-flex items-center">
+                                                                                        <input name="tds" type="radio"
+                                                                                            class="w-4 h-4 form-checkbox"
+                                                                                            checked>
+                                                                                        <span
+                                                                                            class="ml-2 font-semibold text-gray-600">Enable</span>
                                                                                     </label>
                                                                                 </div>
                                                                                 <label class="inline-flex items-center">
-                                                                                    <input name="tds" type="radio" class="w-4 h-4 form-checkbox">
-                                                                                    <span class="ml-2 font-semibold text-gray-600">Disable</span>
+                                                                                    <input name="tds" type="radio"
+                                                                                        class="w-4 h-4 form-checkbox">
+                                                                                    <span
+                                                                                        class="ml-2 font-semibold text-gray-600">Disable</span>
                                                                                 </label>
-                                                                                
+
                                                                                 <button @click="showModal = true"
-                                                                    class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
+                                                                                    class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1438,10 +1502,12 @@
                                                             <div class="text-base text-gray-900">
                                                                 <p class="font-semibold text-blue-600">
                                                                     Break Hour Penalties
-                                                            </p>
+                                                                </p>
                                                             </div>
                                                         </td>
-                                                        <td class="px-4 py-4 whitespace-nowrap" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                        <td class="px-4 py-4 whitespace-nowrap"
+                                                            x-data="{ 'showModal': false }"
+                                                            @keydown.escape="showModal = false">
                                                             <div class="flex items-center justify-end">
                                                                 <button @click="showModal = true"
                                                                     class="p-2 font-medium text-gray-800 bg-gray-200 rounded w-36">Enable</button>
@@ -1460,10 +1526,13 @@
                                                                             </p>
                                                                             <span @click="showModal = false">
                                                                                 <svg class="w-5 h-5 text-gray-900"
-                                                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                                                    viewBox="0 0 24 24" stroke="currentColor">
-                                                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                                                        stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    fill="none" viewBox="0 0 24 24"
+                                                                                    stroke="currentColor">
+                                                                                    <path stroke-linecap="round"
+                                                                                        stroke-linejoin="round"
+                                                                                        stroke-width="2"
+                                                                                        d="M6 18L18 6M6 6l12 12"></path>
                                                                                 </svg>
                                                                             </span>
                                                                         </div>
@@ -1471,18 +1540,24 @@
                                                                         <div class="w-full">
                                                                             <div class="flex flex-col pt-4 space-y-4 ">
                                                                                 <div>
-                                                                                    <label class="inline-flex items-center">
-                                                                                        <input  name="tds" type="radio" class="w-4 h-4 form-checkbox" checked>
-                                                                                        <span class="ml-2 font-semibold text-gray-600">Enable</span>
+                                                                                    <label
+                                                                                        class="inline-flex items-center">
+                                                                                        <input name="tds" type="radio"
+                                                                                            class="w-4 h-4 form-checkbox"
+                                                                                            checked>
+                                                                                        <span
+                                                                                            class="ml-2 font-semibold text-gray-600">Enable</span>
                                                                                     </label>
                                                                                 </div>
                                                                                 <label class="inline-flex items-center">
-                                                                                    <input name="tds" type="radio" class="w-4 h-4 form-checkbox">
-                                                                                    <span class="ml-2 font-semibold text-gray-600">Disable</span>
+                                                                                    <input name="tds" type="radio"
+                                                                                        class="w-4 h-4 form-checkbox">
+                                                                                    <span
+                                                                                        class="ml-2 font-semibold text-gray-600">Disable</span>
                                                                                 </label>
-                                                                                
+
                                                                                 <button @click="showModal = true"
-                                                                    class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
+                                                                                    class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1497,19 +1572,25 @@
                                                             </p>
                                                         </td>
                                                         <td class="px-4 py-4 whitespace-nowrap">
-                                                            <button class="flex items-center">
-                                                                <input type="text"
+                                                            <div class="flex items-end justify-end"
+                                                            x-data="{ showPercentageSalaryField: false }">
+                                                            <button class="flex items-center mt-1">
+                                                                <input x-show="showPercentageSalaryField"
+                                                                    type="text"
                                                                     class="block w-24 px-3 py-3 border border-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                                <span class="px-3 py-2 border border-gray-400">
+                                                                <span
+                                                                    class="px-3 py-3 border border-gray-400 lg:py-2">
                                                                     <select id="jobtype" name="jobtype"
                                                                         autocomplete="jobtype"
-                                                                        class="block px-1 py-1 text-sm bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                                        x-on:change="showPercentageSalaryField = ($event.target.value === '% of Salary')"
+                                                                        class="block px-1 py-1 text-sm text-gray-600 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
 
                                                                         <option>Fixed Amount</option>
                                                                         <option>% of Salary</option>
                                                                     </select>
                                                                 </span>
                                                             </button>
+                                                        </div>
                                                         </td>
                                                         <td class="px-4 py-4 whitespace-nowrap">
                                                             <button><svg xmlns="http://www.w3.org/2000/svg"
