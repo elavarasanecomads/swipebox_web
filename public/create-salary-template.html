@@ -76,8 +76,8 @@
                     </div>
                     <div class="pt-4 space-y-4">
                         <div>
-                            <label class="font-semibold text-gray-600" for="businessname">Template Name</label>
-                            <input type="text" name="businessname" id="businessname" autocomplete="title" placeholder=""
+                            <label class="font-semibold text-gray-600" for="">Template Name</label>
+                            <input type="text" name="" id="" autocomplete="title" placeholder=""
                                 class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                         </div>
                         <div class="pb-4">
@@ -89,7 +89,7 @@
                                     <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                         x-show="showModal" style="display: none;">
                                         <!-- Modal inner -->
-                                        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
                                             @click.away="showModal = false"
                                             x-transition:enter="motion-safe:ease-out duration-300"
                                             x-transition:enter-start="opacity-0 scale-90"
@@ -112,15 +112,14 @@
                                             <div class="w-full">
                                                 <div class="pt-4 space-y-4">
                                                     <div>
-                                                        <label class="font-semibold text-gray-600"
-                                                            for="businessname">Name</label>
-                                                        <input type="text" name="businessname" id="businessname"
-                                                            autocomplete="title" placeholder=""
+                                                        <label class="font-semibold text-gray-600" for="">Name</label>
+                                                        <input type="text" name="" id="" autocomplete="title"
+                                                            placeholder=""
                                                             class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                     </div>
                                                     <div x-data="{ showPercentageSalaryField: false }">
-                                                        <label class="font-semibold text-gray-600"
-                                                            for="businessname">Calculation Type</label>
+                                                        <label class="font-semibold text-gray-600" for="">Calculation
+                                                            Type</label>
                                                         <button class="flex items-center mt-1">
                                                             <input x-show="showPercentageSalaryField" type="text"
                                                                 class="block w-24 px-3 py-3 border border-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
@@ -153,11 +152,11 @@
                                                     <tr>
                                                         <th scope="col"
                                                             class="w-full px-4 py-3 text-sm text-left text-white">
-                                                            Salary Component
+                                                            Component Name
                                                         </th>
                                                         <th scope="col"
                                                             class="w-full px-4 py-3 text-sm text-left text-white">
-                                                            Calculation Type
+                                                            
                                                         </th>
                                                         <th scope="col"
                                                             class="w-full px-4 py-3 text-sm text-left text-white"></th>
@@ -168,7 +167,7 @@
                                                         <td class="px-4 py-4 whitespace-nowrap">
                                                             <div class="text-base text-gray-900">
                                                                 <p class="font-semibold text-blue-600">
-                                                                    Basic Pay
+                                                                    Basic + DA
                                                                 </p>
                                                             </div>
                                                         </td>
@@ -242,7 +241,7 @@
                                                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                     x-show="showModal" style="display: none;">
                                                                     <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
                                                                         @click.away="showModal = false"
                                                                         x-transition:enter="motion-safe:ease-out duration-300"
                                                                         x-transition:enter-start="opacity-0 scale-90"
@@ -309,7 +308,7 @@
                                                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                     x-show="showModal" style="display: none;">
                                                                     <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
                                                                         @click.away="showModal = false"
                                                                         x-transition:enter="motion-safe:ease-out duration-300"
                                                                         x-transition:enter-start="opacity-0 scale-90"
@@ -377,7 +376,7 @@
                                                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                     x-show="showModal" style="display: none;">
                                                                     <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
                                                                         @click.away="showModal = false"
                                                                         x-transition:enter="motion-safe:ease-out duration-300"
                                                                         x-transition:enter-start="opacity-0 scale-90"
@@ -446,7 +445,7 @@
                                                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                     x-show="showModal" style="display: none;">
                                                                     <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
                                                                         @click.away="showModal = false"
                                                                         x-transition:enter="motion-safe:ease-out duration-300"
                                                                         x-transition:enter-start="opacity-0 scale-90"
@@ -517,7 +516,7 @@
                                                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                     x-show="showModal" style="display: none;">
                                                                     <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
                                                                         @click.away="showModal = false"
                                                                         x-transition:enter="motion-safe:ease-out duration-300"
                                                                         x-transition:enter-start="opacity-0 scale-90"
@@ -588,7 +587,7 @@
                                                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                     x-show="showModal" style="display: none;">
                                                                     <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
                                                                         @click.away="showModal = false"
                                                                         x-transition:enter="motion-safe:ease-out duration-300"
                                                                         x-transition:enter-start="opacity-0 scale-90"
@@ -657,7 +656,7 @@
                                                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                     x-show="showModal" style="display: none;">
                                                                     <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
                                                                         @click.away="showModal = false"
                                                                         x-transition:enter="motion-safe:ease-out duration-300"
                                                                         x-transition:enter-start="opacity-0 scale-90"
@@ -718,7 +717,7 @@
                         </div>
                         <div class="pb-4">
                             <div class="flex items-center justify-between pb-4">
-                                <p class="pb-4 text-xl font-bold">Tax Deductions</p>
+                                <p class="pb-4 text-xl font-bold">Statutory Deductions</p>
                             </div>
                             <div>
                                 <div class="-my-2 overflow-x-auto md:overflow-x-hidden sm:-mx-6 lg:-mx-8">
@@ -729,11 +728,11 @@
                                                     <tr>
                                                         <th scope="col"
                                                             class="w-full px-4 py-3 text-sm text-left text-white">
-                                                            Salary Component
+                                                            Component Name
                                                         </th>
                                                         <th scope="col"
                                                             class="w-full px-4 py-3 text-sm text-left text-white">
-                                                            Calculation Type
+                                                            
                                                         </th>
                                                         <th scope="col"
                                                             class="w-full px-4 py-3 text-sm text-left text-white"></th>
@@ -744,7 +743,7 @@
                                                         <td class="px-4 py-4 whitespace-nowrap">
                                                             <div class="text-base text-gray-900">
                                                                 <p class="font-semibold text-blue-600">
-                                                                    TDS
+                                                                    Tax Deducted at Source (TDS)
                                                                 </p>
                                                             </div>
                                                         </td>
@@ -757,7 +756,7 @@
                                                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                     x-show="showModal" style="display: none;">
                                                                     <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
                                                                         @click.away="showModal = false"
                                                                         x-transition:enter="motion-safe:ease-out duration-300"
                                                                         x-transition:enter-start="opacity-0 scale-90"
@@ -812,7 +811,7 @@
                                                         <td class="px-4 py-4 whitespace-nowrap">
                                                             <div class="text-base text-gray-900">
                                                                 <p class="font-semibold text-blue-600">
-                                                                    PF
+                                                                    Provident Fund (PF)
                                                                 </p>
                                                             </div>
                                                         </td>
@@ -825,7 +824,7 @@
                                                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                     x-show="showModal" style="display: none;">
                                                                     <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
                                                                         @click.away="showModal = false"
                                                                         x-transition:enter="motion-safe:ease-out duration-300"
                                                                         x-transition:enter-start="opacity-0 scale-90"
@@ -862,17 +861,14 @@
                                                                                         <input type="radio"
                                                                                             class="w-4 h-4 form-checkbox">
                                                                                         <span
-                                                                                            class="ml-2 font-semibold text-gray-600">Restrict
-                                                                                            Maximum Employee
-                                                                                            Contribution</span>
+                                                                                            class="ml-2 font-semibold text-gray-600">Fixed
+                                                                                            Amount</span>
                                                                                     </label>
 
-                                                                                    <input type="text"
-                                                                                        name="businessname"
-                                                                                        id="businessname"
+                                                                                    <input type="text" name="" id=""
                                                                                         autocomplete="title"
                                                                                         placeholder=""
-                                                                                        class="block w-20 px-3 py-2 mt-1 ml-6 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
+                                                                                        class="block w-20 px-2 py-1 mt-1 ml-6 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                                                 </div>
                                                                                 <div>
                                                                                     <label
@@ -880,15 +876,10 @@
                                                                                         <input type="radio"
                                                                                             class="w-4 h-4 form-checkbox">
                                                                                         <div
-                                                                                            class="flex items-center gap-2 ml-2 font-semibold text-gray-600">
-                                                                                            <input type="text"
-                                                                                            name=""
-                                                                                            id=""
-                                                                                            value="12"
-                                                                                            autocomplete=""
-                                                                                            placeholder=""
-                                                                                            class="block w-12 px-2 py-1 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
-                                                                                            <span>% Variable</span></div>
+                                                                                            class="ml-2 font-semibold text-gray-600">
+
+                                                                                            <span>12% Variable</span>
+                                                                                        </div>
                                                                                     </label>
                                                                                     <div class="pt-2 pl-4">
                                                                                         <label
@@ -897,7 +888,8 @@
                                                                                                 type="checkbox"
                                                                                                 checked="">
                                                                                             <span
-                                                                                                class="ml-2 font-semibold text-gray-600">Basics</span>
+                                                                                                class="ml-2 font-semibold text-gray-600">Basic
+                                                                                                + DA</span>
                                                                                         </label>
                                                                                         <label
                                                                                             class="inline-flex items-center px-2">
@@ -907,6 +899,81 @@
                                                                                             <span
                                                                                                 class="ml-2 font-semibold text-gray-600">HRA</span>
                                                                                         </label>
+                                                                                    </div>
+                                                                                    <div class="flex items-center mt-2 ml-4" x-data="{ showTextbox: false }">
+                                                                                        <div
+                                                                                            class="inline-flex items-center px-2">
+                                                                                            <span
+                                                                                                class="mr-2 text-blue-600">Set
+                                                                                                maximum ceiling
+                                                                                                limit</span>
+                                                                                            <input class="w-4 h-4"
+                                                                                                type="checkbox"
+                                                                                                x-model="showTextbox">
+                                                                                        </div>
+                                                                                        <div x-show="showTextbox"
+                                                                                            class="">
+                                                                                            <label>
+                                                                                                <input type="text"
+                                                                                                    name="" id=""
+                                                                                                    autocomplete="title"
+                                                                                                    placeholder=""
+                                                                                                    class="block w-20 px-2 py-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                                            </label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <label
+                                                                                        class="inline-flex items-center">
+                                                                                        <input type="radio"
+                                                                                            class="w-4 h-4 form-checkbox">
+                                                                                        <div
+                                                                                            class="ml-2 font-semibold text-gray-600">
+
+                                                                                            <span>10% Variable</span>
+                                                                                        </div>
+                                                                                    </label>
+                                                                                    <div class="pt-2 pl-4">
+                                                                                        <label
+                                                                                            class="inline-flex items-center px-2">
+                                                                                            <input class="w-4 h-4"
+                                                                                                type="checkbox"
+                                                                                                checked="">
+                                                                                            <span
+                                                                                                class="ml-2 font-semibold text-gray-600">Basic
+                                                                                                + DA</span>
+                                                                                        </label>
+                                                                                        <label
+                                                                                            class="inline-flex items-center px-2">
+                                                                                            <input class="w-4 h-4"
+                                                                                                type="checkbox"
+                                                                                                checked="">
+                                                                                            <span
+                                                                                                class="ml-2 font-semibold text-gray-600">HRA</span>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                    <div class="flex items-center mt-2 ml-4" x-data="{ showTextbox: false }">
+                                                                                        <div
+                                                                                            class="inline-flex items-center px-2">
+                                                                                            <span
+                                                                                                class="mr-2 text-blue-600">Set
+                                                                                                maximum ceiling
+                                                                                                limit</span>
+                                                                                            <input class="w-4 h-4"
+                                                                                                type="checkbox"
+                                                                                                x-model="showTextbox">
+                                                                                        </div>
+                                                                                        <div x-show="showTextbox"
+                                                                                            class="">
+                                                                                            <label>
+                                                                                                <input type="text"
+                                                                                                    name="" id=""
+                                                                                                    autocomplete="title"
+                                                                                                    placeholder=""
+                                                                                                    class="block w-20 px-2 py-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                                            </label>
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <button @click="showModal = true"
@@ -923,7 +990,7 @@
                                                         <td class="px-4 py-4 whitespace-nowrap">
                                                             <div class="text-base text-gray-900">
                                                                 <p class="font-semibold text-blue-600">
-                                                                    ESI
+                                                                    Employee State Insurance (ESI)
                                                                 </p>
                                                             </div>
                                                         </td>
@@ -936,7 +1003,7 @@
                                                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                     x-show="showModal" style="display: none;">
                                                                     <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
                                                                         @click.away="showModal = false"
                                                                         x-transition:enter="motion-safe:ease-out duration-300"
                                                                         x-transition:enter-start="opacity-0 scale-90"
@@ -983,7 +1050,8 @@
                                                                                                 type="checkbox"
                                                                                                 checked="">
                                                                                             <span
-                                                                                                class="ml-2 font-semibold text-gray-600">Basics</span>
+                                                                                                class="ml-2 font-semibold text-gray-600">Basic
+                                                                                                + DA</span>
                                                                                         </label>
                                                                                         <label
                                                                                             class="inline-flex items-center px-2">
@@ -1022,7 +1090,7 @@
                                                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                     x-show="showModal" style="display: none;">
                                                                     <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
                                                                         @click.away="showModal = false"
                                                                         x-transition:enter="motion-safe:ease-out duration-300"
                                                                         x-transition:enter-start="opacity-0 scale-90"
@@ -1090,7 +1158,7 @@
                                     <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                         x-show="showModal" style="display: none;">
                                         <!-- Modal inner -->
-                                        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
                                             @click.away="showModal = false"
                                             x-transition:enter="motion-safe:ease-out duration-300"
                                             x-transition:enter-start="opacity-0 scale-90"
@@ -1113,15 +1181,14 @@
                                             <div class="w-full">
                                                 <div class="pt-4 space-y-4">
                                                     <div>
-                                                        <label class="font-semibold text-gray-600"
-                                                            for="businessname">Name</label>
-                                                        <input type="text" name="businessname" id="businessname"
-                                                            autocomplete="title" placeholder=""
+                                                        <label class="font-semibold text-gray-600" for="">Name</label>
+                                                        <input type="text" name="" id="" autocomplete="title"
+                                                            placeholder=""
                                                             class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                     </div>
                                                     <div x-data="{ showPercentageSalaryField: false }">
-                                                        <label class="font-semibold text-gray-600"
-                                                            for="businessname">Calculation Type</label>
+                                                        <label class="font-semibold text-gray-600" for="">Calculation
+                                                            Type</label>
                                                         <button class="flex items-center mt-1">
                                                             <input x-show="showPercentageSalaryField" type="text"
                                                                 class="block w-24 px-3 py-3 border border-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
@@ -1136,7 +1203,7 @@
                                                                 </select>
                                                             </span>
                                                         </button>
-                                                    </div>                                                    <button @click="showModal = true"
+                                                    </div> <button @click="showModal = true"
                                                         class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
                                                 </div>
                                             </div>
@@ -1153,11 +1220,11 @@
                                                     <tr>
                                                         <th scope="col"
                                                             class="w-full px-4 py-3 text-sm text-left text-white">
-                                                            Salary Component
+                                                            Component Name
                                                         </th>
                                                         <th scope="col"
                                                             class="w-full px-4 py-3 text-sm text-left text-white">
-                                                            Calculation Type
+                                                            
                                                         </th>
                                                         <th scope="col"
                                                             class="w-full px-4 py-3 text-sm text-left text-white"></th>
@@ -1181,7 +1248,7 @@
                                                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                     x-show="showModal" style="display: none;">
                                                                     <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
                                                                         @click.away="showModal = false"
                                                                         x-transition:enter="motion-safe:ease-out duration-300"
                                                                         x-transition:enter-start="opacity-0 scale-90"
@@ -1249,7 +1316,7 @@
                                                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                     x-show="showModal" style="display: none;">
                                                                     <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
                                                                         @click.away="showModal = false"
                                                                         x-transition:enter="motion-safe:ease-out duration-300"
                                                                         x-transition:enter-start="opacity-0 scale-90"
@@ -1317,7 +1384,7 @@
                                                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                     x-show="showModal" style="display: none;">
                                                                     <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
                                                                         @click.away="showModal = false"
                                                                         x-transition:enter="motion-safe:ease-out duration-300"
                                                                         x-transition:enter-start="opacity-0 scale-90"
@@ -1385,7 +1452,7 @@
                                                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                     x-show="showModal" style="display: none;">
                                                                     <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
                                                                         @click.away="showModal = false"
                                                                         x-transition:enter="motion-safe:ease-out duration-300"
                                                                         x-transition:enter-start="opacity-0 scale-90"
@@ -1453,7 +1520,7 @@
                                                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                     x-show="showModal" style="display: none;">
                                                                     <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
                                                                         @click.away="showModal = false"
                                                                         x-transition:enter="motion-safe:ease-out duration-300"
                                                                         x-transition:enter-start="opacity-0 scale-90"
@@ -1521,7 +1588,7 @@
                                                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                     x-show="showModal" style="display: none;">
                                                                     <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
                                                                         @click.away="showModal = false"
                                                                         x-transition:enter="motion-safe:ease-out duration-300"
                                                                         x-transition:enter-start="opacity-0 scale-90"
@@ -1580,24 +1647,24 @@
                                                         </td>
                                                         <td class="px-4 py-4 whitespace-nowrap">
                                                             <div class="flex items-end justify-end"
-                                                            x-data="{ showPercentageSalaryField: false }">
-                                                            <button class="flex items-center mt-1">
-                                                                <input x-show="showPercentageSalaryField"
-                                                                    type="text"
-                                                                    class="block w-24 px-3 py-3 border border-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                                <span
-                                                                    class="px-3 py-3 border border-gray-400 lg:py-2">
-                                                                    <select id="jobtype" name="jobtype"
-                                                                        autocomplete="jobtype"
-                                                                        x-on:change="showPercentageSalaryField = ($event.target.value === '% of Salary')"
-                                                                        class="block px-1 py-1 text-sm text-gray-600 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                                x-data="{ showPercentageSalaryField: false }">
+                                                                <button class="flex items-center mt-1">
+                                                                    <input x-show="showPercentageSalaryField"
+                                                                        type="text"
+                                                                        class="block w-24 px-3 py-3 border border-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                    <span
+                                                                        class="px-3 py-3 border border-gray-400 lg:py-2">
+                                                                        <select id="jobtype" name="jobtype"
+                                                                            autocomplete="jobtype"
+                                                                            x-on:change="showPercentageSalaryField = ($event.target.value === '% of Salary')"
+                                                                            class="block px-1 py-1 text-sm text-gray-600 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
 
-                                                                        <option>Fixed Amount</option>
-                                                                        <option>% of Salary</option>
-                                                                    </select>
-                                                                </span>
-                                                            </button>
-                                                        </div>
+                                                                            <option>Fixed Amount</option>
+                                                                            <option>% of Salary</option>
+                                                                        </select>
+                                                                    </span>
+                                                                </button>
+                                                            </div>
                                                         </td>
                                                         <td class="px-4 py-4 whitespace-nowrap">
                                                             <button><svg xmlns="http://www.w3.org/2000/svg"
@@ -1618,7 +1685,7 @@
                         </div>
                         <div class="pb-4">
                             <div class="pb-4">
-                                <p class="pb-4 text-xl font-bold">Employer Contribution Rate</p>
+                                <p class="pb-4 text-xl font-bold">Employer's Contribution</p>
                             </div>
                             <div>
                                 <div class="-my-2 overflow-x-auto md:overflow-x-hidden sm:-mx-6 lg:-mx-8">
@@ -1629,11 +1696,11 @@
                                                     <tr>
                                                         <th scope="col"
                                                             class="w-full px-4 py-3 text-sm text-left text-white">
-                                                            Salary Component
+                                                            Component Name
                                                         </th>
                                                         <th scope="col"
                                                             class="w-full px-4 py-3 text-sm text-left text-white">
-                                                            Calculation Type
+                                                            
                                                         </th>
                                                         <th scope="col"
                                                             class="w-full px-4 py-3 text-sm text-left text-white"></th>
@@ -1644,7 +1711,7 @@
                                                         <td class="px-4 py-4 whitespace-nowrap">
                                                             <div class="text-base text-gray-900">
                                                                 <p class="font-semibold text-blue-600">
-                                                                    PF
+                                                                    Provident Fund (PF)
                                                                 </p>
                                                             </div>
                                                         </td>
@@ -1657,7 +1724,7 @@
                                                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                     x-show="showModal" style="display: none;">
                                                                     <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
                                                                         @click.away="showModal = false"
                                                                         x-transition:enter="motion-safe:ease-out duration-300"
                                                                         x-transition:enter-start="opacity-0 scale-90"
@@ -1694,17 +1761,14 @@
                                                                                         <input type="radio"
                                                                                             class="w-4 h-4 form-checkbox">
                                                                                         <span
-                                                                                            class="ml-2 font-semibold text-gray-600">Restrict
-                                                                                            Maximum Employee
-                                                                                            Contribution</span>
+                                                                                            class="ml-2 font-semibold text-gray-600">Fixed
+                                                                                            Amount</span>
                                                                                     </label>
 
-                                                                                    <input type="text"
-                                                                                        name="businessname"
-                                                                                        id="businessname"
+                                                                                    <input type="text" name="" id=""
                                                                                         autocomplete="title"
                                                                                         placeholder=""
-                                                                                        class="block w-20 px-3 py-2 mt-1 ml-6 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
+                                                                                        class="block w-20 px-2 py-1 mt-1 ml-6 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                                                 </div>
                                                                                 <div>
                                                                                     <label
@@ -1712,15 +1776,10 @@
                                                                                         <input type="radio"
                                                                                             class="w-4 h-4 form-checkbox">
                                                                                         <div
-                                                                                            class="flex items-center gap-2 ml-2 font-semibold text-gray-600">
-                                                                                            <input type="text"
-                                                                                            name=""
-                                                                                            id=""
-                                                                                            value="12"
-                                                                                            autocomplete=""
-                                                                                            placeholder=""
-                                                                                            class="block w-12 px-2 py-1 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
-                                                                                            <span>% Variable</span></div>
+                                                                                            class="ml-2 font-semibold text-gray-600">
+
+                                                                                            <span>12% Variable</span>
+                                                                                        </div>
                                                                                     </label>
                                                                                     <div class="pt-2 pl-4">
                                                                                         <label
@@ -1729,7 +1788,8 @@
                                                                                                 type="checkbox"
                                                                                                 checked="">
                                                                                             <span
-                                                                                                class="ml-2 font-semibold text-gray-600">Basics</span>
+                                                                                                class="ml-2 font-semibold text-gray-600">Basic
+                                                                                                + DA</span>
                                                                                         </label>
                                                                                         <label
                                                                                             class="inline-flex items-center px-2">
@@ -1739,6 +1799,81 @@
                                                                                             <span
                                                                                                 class="ml-2 font-semibold text-gray-600">HRA</span>
                                                                                         </label>
+                                                                                    </div>
+                                                                                    <div class="flex items-center mt-2 ml-4" x-data="{ showTextbox: false }">
+                                                                                        <div
+                                                                                            class="inline-flex items-center px-2">
+                                                                                            <span
+                                                                                                class="mr-2 text-blue-600">Set
+                                                                                                maximum ceiling
+                                                                                                limit</span>
+                                                                                            <input class="w-4 h-4"
+                                                                                                type="checkbox"
+                                                                                                x-model="showTextbox">
+                                                                                        </div>
+                                                                                        <div x-show="showTextbox"
+                                                                                            class="">
+                                                                                            <label>
+                                                                                                <input type="text"
+                                                                                                    name="" id=""
+                                                                                                    autocomplete="title"
+                                                                                                    placeholder=""
+                                                                                                    class="block w-20 px-2 py-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                                            </label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <label
+                                                                                        class="inline-flex items-center">
+                                                                                        <input type="radio"
+                                                                                            class="w-4 h-4 form-checkbox">
+                                                                                        <div
+                                                                                            class="ml-2 font-semibold text-gray-600">
+
+                                                                                            <span>10% Variable</span>
+                                                                                        </div>
+                                                                                    </label>
+                                                                                    <div class="pt-2 pl-4">
+                                                                                        <label
+                                                                                            class="inline-flex items-center px-2">
+                                                                                            <input class="w-4 h-4"
+                                                                                                type="checkbox"
+                                                                                                checked="">
+                                                                                            <span
+                                                                                                class="ml-2 font-semibold text-gray-600">Basic
+                                                                                                + DA</span>
+                                                                                        </label>
+                                                                                        <label
+                                                                                            class="inline-flex items-center px-2">
+                                                                                            <input class="w-4 h-4"
+                                                                                                type="checkbox"
+                                                                                                checked="">
+                                                                                            <span
+                                                                                                class="ml-2 font-semibold text-gray-600">HRA</span>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                    <div class="flex items-center mt-2 ml-4" x-data="{ showTextbox: false }">
+                                                                                        <div
+                                                                                            class="inline-flex items-center px-2">
+                                                                                            <span
+                                                                                                class="mr-2 text-blue-600">Set
+                                                                                                maximum ceiling
+                                                                                                limit</span>
+                                                                                            <input class="w-4 h-4"
+                                                                                                type="checkbox"
+                                                                                                x-model="showTextbox">
+                                                                                        </div>
+                                                                                        <div x-show="showTextbox"
+                                                                                            class="">
+                                                                                            <label>
+                                                                                                <input type="text"
+                                                                                                    name="" id=""
+                                                                                                    autocomplete="title"
+                                                                                                    placeholder=""
+                                                                                                    class="block w-20 px-2 py-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                                            </label>
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <button @click="showModal = true"
@@ -1755,7 +1890,8 @@
                                                         <td class="px-4 py-4 whitespace-nowrap">
                                                             <div class="text-base text-gray-900">
                                                                 <p class="font-semibold text-blue-600">
-                                                                    ESI
+                                                                    Employee State Insurance (ESI)
+
                                                                 </p>
                                                             </div>
                                                         </td>
@@ -1768,7 +1904,7 @@
                                                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                     x-show="showModal" style="display: none;">
                                                                     <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
                                                                         @click.away="showModal = false"
                                                                         x-transition:enter="motion-safe:ease-out duration-300"
                                                                         x-transition:enter-start="opacity-0 scale-90"
@@ -1805,7 +1941,7 @@
                                                                                         <input name="esi" type="radio"
                                                                                             class="w-4 h-4 form-checkbox">
                                                                                         <span
-                                                                                            class="ml-2 font-semibold text-gray-600">0.75%
+                                                                                            class="ml-2 font-semibold text-gray-600">3.25%
                                                                                             Variable</span>
                                                                                     </label>
                                                                                     <div class="pt-2 pl-4">
@@ -1815,7 +1951,8 @@
                                                                                                 type="checkbox"
                                                                                                 checked="">
                                                                                             <span
-                                                                                                class="ml-2 font-semibold text-gray-600">Basics</span>
+                                                                                                class="ml-2 font-semibold text-gray-600">Basic
+                                                                                                + DA</span>
                                                                                         </label>
                                                                                         <label
                                                                                             class="inline-flex items-center px-2">
