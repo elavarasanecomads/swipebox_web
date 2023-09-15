@@ -78,11 +78,6 @@
                                         <option>Higher Template</option>
                                     </select>
                                 </div>
-                                <div class="col-start-1">
-                                    <button
-                                        class="p-3 font-semibold text-center text-white bg-blue-600 border border-blue-600 rounded-md w-36">NEXT
-                                    </button>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -90,14 +85,37 @@
                     <div class="pt-8">
                         <h1 class="text-2xl font-bold">Salary Structure</h1>
                         <div>
-                            <div class="pt-4">
-                                <div class="pb-4">
-                                    <div class="flex items-center justify-between pb-4">
-                                        <p class="pb-4 text-xl font-bold">Earnings</p>
+                            <div class="">
+                                <div class="py-4 border-b" x-data="{selected:null}">
+                                    <div class="flex items-center gap-4">
+                                        <p class="text-xl font-bold">Earnings</p>
+                                        <div>
 
+                                            <button @click="selected !== 1 ? selected = 1 : selected = null">
+                                                <!-- Down -->
+                                                <svg x-show="selected == null" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                                    <path fill-rule="evenodd"
+                                                        d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+    
+                                                <!-- UP -->
+                                                <svg x-show="selected == 1" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"
+                                                    style="display: none;">
+                                                    <path fill-rule="evenodd"
+                                                        d="M11.47 7.72a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 01-1.06-1.06l7.5-7.5z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+    
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <div class="-my-2 overflow-x-auto md:overflow-x-hidden sm:-mx-6 lg:-mx-8">
+                                    <div class="relative overflow-hidden transition-all duration-700 max-h-0" style=""
+                                    x-ref="container1"
+                                    x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+                                        <div class="pt-4 -my-2 overflow-x-auto md:overflow-x-hidden sm:-mx-6 lg:-mx-8">
                                             <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                                                 <div
                                                     class="overflow-hidden border-b border-gray-200 shadow sm:rounded-sm">
@@ -179,12 +197,36 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="pb-4">
-                                    <div class="pb-4">
-                                        <p class="pb-4 text-xl font-bold">Tax Deductions</p>
+                                <div class="py-4 border-b" x-data="{selected:null}">
+                                    <div class="flex items-center gap-4">
+                                        <p class="text-xl font-bold">Tax Deduction</p>
+                                        <div>
+
+                                            <button @click="selected !== 1 ? selected = 1 : selected = null">
+                                                <!-- Down -->
+                                                <svg x-show="selected == null" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                                    <path fill-rule="evenodd"
+                                                        d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+    
+                                                <!-- UP -->
+                                                <svg x-show="selected == 1" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"
+                                                    style="display: none;">
+                                                    <path fill-rule="evenodd"
+                                                        d="M11.47 7.72a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 01-1.06-1.06l7.5-7.5z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+    
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <div class="-my-2 overflow-x-auto md:overflow-x-hidden sm:-mx-6 lg:-mx-8">
+                                    <div class="relative overflow-hidden transition-all duration-700 max-h-0" style=""
+                                    x-ref="container1"
+                                    x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+                                        <div class="pt-4 -my-2 overflow-x-auto md:overflow-x-hidden sm:-mx-6 lg:-mx-8">
                                             <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                                                 <div
                                                     class="overflow-hidden border-b border-gray-200 shadow sm:rounded-sm">
@@ -239,12 +281,36 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="pb-4">
-                                    <div class="pb-4">
-                                        <p class="pb-4 text-xl font-bold">Common Deductions</p>
+                                <div class="py-4 border-b" x-data="{selected:null}">
+                                    <div class="flex items-center gap-4 ">
+                                        <p class="text-xl font-bold">Common Deduction</p>
+                                        <div>
+
+                                            <button @click="selected !== 1 ? selected = 1 : selected = null">
+                                                <!-- Down -->
+                                                <svg x-show="selected == null" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                                    <path fill-rule="evenodd"
+                                                        d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+    
+                                                <!-- UP -->
+                                                <svg x-show="selected == 1" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"
+                                                    style="display: none;">
+                                                    <path fill-rule="evenodd"
+                                                        d="M11.47 7.72a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 01-1.06-1.06l7.5-7.5z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+    
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <div class="-my-2 overflow-x-auto md:overflow-x-hidden sm:-mx-6 lg:-mx-8">
+                                    <div class="relative overflow-hidden transition-all duration-700 max-h-0" style=""
+                                    x-ref="container1"
+                                    x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+                                        <div class="pt-4 -my-2 overflow-x-auto md:overflow-x-hidden sm:-mx-6 lg:-mx-8">
                                             <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                                                 <div
                                                     class="overflow-hidden border-b border-gray-200 shadow sm:rounded-sm">
@@ -283,12 +349,37 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="pb-4">
-                                    <div class="pb-4">
-                                        <p class="pb-4 text-xl font-bold">Employer Contribution Rate</p>
+                                <div class="py-4 border-b" x-data="{selected:null}">
+                                    <div class="flex items-center gap-4">
+                                        <p class="text-xl font-bold">Employer Contribution Rate</p>
+                                        <div>
+
+                                            <button @click="selected !== 1 ? selected = 1 : selected = null">
+                                                <!-- Down -->
+                                                <svg x-show="selected == null" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                                    <path fill-rule="evenodd"
+                                                        d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+    
+                                                <!-- UP -->
+                                                <svg x-show="selected == 1" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"
+                                                    style="display: none;">
+                                                    <path fill-rule="evenodd"
+                                                        d="M11.47 7.72a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 01-1.06-1.06l7.5-7.5z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+    
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <div class="-my-2 overflow-x-auto md:overflow-x-hidden sm:-mx-6 lg:-mx-8">
+                                
+                                    <div class="relative overflow-hidden transition-all duration-700 max-h-0" style=""
+                                    x-ref="container1"
+                                    x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+                                        <div class="pt-4 -my-2 overflow-x-auto md:overflow-x-hidden sm:-mx-6 lg:-mx-8">
                                             <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                                                 <div
                                                     class="overflow-hidden border-b border-gray-200 shadow sm:rounded-sm">
@@ -342,11 +433,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="py-4">
-                                        <button
-                                            class="w-full p-3 font-semibold text-center text-white bg-blue-600 rounded-md lg:w-36">Save
-                                            </button>
-                                    </div>
+                                    
+                                </div>
+                                <div class="pt-8">
+                                    <button
+                                        class="w-full p-3 font-semibold text-center text-white bg-blue-600 rounded-md lg:w-36">Save
+                                    </button>
                                 </div>
                             </div>
                         </div>
