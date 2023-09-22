@@ -26,17 +26,6 @@
                             <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
                                 <div class="w-full">
                                     <label class="text-sm font-semibold text-gray-600" for="businessname">Select
-                                        Branch</label>
-                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
-                                        <option>All</option>
-                                        <option>Coimbatore</option>
-                                        <option>Erode</option>
-                                        <option>Namakkal</option>
-                                    </select>
-                                </div>
-                                <div class="w-full">
-                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Select
                                         Batch</label>
                                     <select id="jobtype" name="jobtype" autocomplete="jobtype"
                                         class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
@@ -386,16 +375,18 @@
         </div>
     </div>
     <section x-data="slideout()" x-cloak @open-menu.window="open = $event.detail.open"
-        @keydown.window.tab="usedKeyboard = true" @keydown.escape="open = false" x-init="init()">
-        <div x-show.transition.opacity.duration.500="open" @click="open = false"
-            class="fixed inset-0 bg-black bg-opacity-25"></div>
-        <div class="fixed top-0 right-0 w-full h-screen max-w-md overflow-hidden transition duration-300 transform bg-white"
-            :class="{'translate-x-full': !open}">
-            <header class="fixed inset-x-0 top-0 p-4 text-center text-white bg-white border-t">                
+            @keydown.window.tab="usedKeyboard = true" @keydown.escape="open = false" x-init="init()">
+            <div x-show.transition.opacity.duration.500="open" @click="open = false"
+                class="fixed inset-0 bg-black bg-opacity-25"></div>
+            <div class="fixed top-0 right-0 z-40 w-full h-screen max-w-md overflow-hidden transition duration-300 transform bg-white"
+                :class="{'translate-x-full': !open}">
+                <footer class="fixed inset-x-0 top-0 p-4 text-center text-white bg-white border-t">
                     <div>
                         <div class="flex items-end justify-between">
-                            <div>
-                                <div class="inline-block p-1 text-xs font-medium text-gray-900 bg-gray-200 rounded">Withhold</div>
+                            <div class="flex items-center gap-4">
+                                <p class="px-2 py-1 text-sm font-semibold bg-yellow-600 rounded">Withhold</p>
+                            <p class="text-sm font-semibold text-blue-600">Dec - 25/11/2022 - 24/12/2022</p>
+                            
                             </div>
                             <div>
                                 <button @click="open = false" x-ref="closeButton"
@@ -413,130 +404,229 @@
                                 <p class="text-sm text-gray-600"><span>Emp.Id </span>6547868</p>
                             </div>
                             <div>
-                                <p class="text-sm text-right text-gray-600"><span>Net Pay</p>
-                                <p class="text-xl font-semibold text-right text-red-600"><span>₹</span> 15000</p>
+                                <p class="font-bold text-right text-green-600"><span>Salary</p>
+                                <p class="text-sm text-right text-gray-900"><span class="text-xl font-semibold">₹ 30000
+                                        /</span> per month</p>
                             </div>
                         </div>
                     </div>
-            </header>
-            <div class="top-0 w-full h-full p-4 pt-32 pb-48 overflow-y-scroll">
-                <div>
-                    <div class="h-full space-y-4 divide-y">
-                        <div class="py-2">
-                            <h3 class="font-bold text-yellow-600">Attendance</h3>
-                            <div class="space-y-4">
-                                <div class="flex items-center justify-between pt-4">
-                                    <p class="font-semibold">Payable Days</p>
-                                    <p class="font-semibold text-gray-600">30</p>
+                </footer>
+                <div class="top-0 w-full h-full p-4 pt-32 overflow-y-scroll">
+                    <div>
+                        <div class="h-full space-y-4 divide-y">
+                            <div class="py-2">
+                                <div class="flex items-center justify-between">
+                                    <h3 class="font-bold text-blue-600">Attendance</h3>
+                                    <a class="flex items-center gap-2 text-sm font-medium text-blue-600"
+                                        href="employee-attendance.html"><span><svg xmlns="http://www.w3.org/2000/svg"
+                                                fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                class="w-5 h-5">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                                            </svg>
+                                        </span>Edit</a>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between pt-4">
+                                        <p class="font-semibold">Total Days</p>
+                                        <p class="font-semibold text-gray-600">30</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">Loss of Pay</p>
+                                        <p class="font-semibold text-gray-600">2</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">Payable Days</p>
+                                        <p class="font-semibold text-gray-600">28</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">Working Hours</p>
+                                        <p class="font-semibold text-gray-600">165:00 Hrs</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="py-2 space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <p class="font-semibold">Total Salary</p>
+                                    <p class="font-semibold text-gray-600"><span>₹ </span>30000</p>
                                 </div>
                                 <div class="flex items-center justify-between">
                                     <p class="font-semibold">Loss of Pay</p>
-                                    <p class="font-semibold text-gray-600">2</p>
+                                    <p class="font-semibold text-gray-600"><span class="text-red-600">(-) </span><span>₹
+                                        </span>2000</p>
                                 </div>
                                 <div class="flex items-center justify-between">
-                                    <p class="font-semibold">Actual Payable Days</p>
-                                    <p class="font-semibold text-gray-600">28</p>
+                                    <p class="font-semibold">Gross Salary</p>
+                                    <p class="font-semibold text-gray-600"><span>₹ </span>28000</p>
+                                </div>
+                            </div>
+                            <div class="py-2">
+                                <div class="flex items-center justify-between">
+                                    <h3 class="font-bold text-green-600">(+) Earnings</h3>
+                                    <p class="font-bold text-green-600"><span>₹ </span>30000</p>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between pt-4">
+                                        <p class="font-semibold">Basic Pay </p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>19600</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">HRA</p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>8400</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">Fixed Allowance</p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>500</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">Overtime <span class="font-normal font-base">[28:00
+                                                Hrs]</span></p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>1000</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-2">
+                                            <p class="font-semibold">Bonus</p>
+                                            <a class="text-sm font-medium text-blue-600" href="bonus.html">+ Add</a>
+                                        </div>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>500</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-2">
+                                            <p class="font-semibold">Pay Per Work Wages</p>
+                                            <a class="text-sm font-medium text-blue-600"
+                                                href="pay-per-work-employee.html">+
+                                                Add</a>
+                                        </div>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>0</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="py-2">
+                                <div class="flex items-center justify-between">
+                                    <h3 class="font-bold text-red-600">(-) Tax Deductions</h3>
+                                    <p class="font-bold text-red-600"><span>₹ </span>2837</p>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between pt-4">
+                                        <p class="font-semibold">PF</p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>1800</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">ESI</p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>637</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-2">
+                                            <p class="font-semibold">PT</p>
+                                            <a class="text-sm font-medium text-blue-600" href="bonus.html">+ Add</a>
+                                        </div>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>50</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-2">
+                                            <p class="font-semibold">TDS</p>
+                                            <a class="text-sm font-medium text-blue-600" href="tds-deduction.html">+
+                                                Add</a>
+                                        </div>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>350</p>
+                                    </div>
                                 </div>
                             </div>
 
-                        </div>
-                        <div class="py-2">
-                            <div class="flex items-center justify-between">
-                                <h3 class="font-bold text-green-600">(+) Earnings</h3>
-                                <p class="font-bold text-green-600"><span>₹ </span>27000</p>
-                            </div>
-                            <div class="space-y-4">
-                                <div class="flex items-center justify-between pt-4">
-                                    <p class="font-semibold">Basic Salary</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>25000</p>
-                                </div>
+                            <div class="py-2">
                                 <div class="flex items-center justify-between">
-                                    <p class="font-semibold">Fixed Allowance</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>500</p>
+                                    <h3 class="font-bold text-red-600">(-) Common Deductions</h3>
+                                    <p class="font-bold text-red-600"><span>₹ </span>3200</p>
                                 </div>
-                                <div class="flex items-center justify-between">
-                                    <p class="font-semibold">Overtime</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>1000</p>
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between pt-4">
+                                        <div class="flex items-center gap-2">
+                                            <p class="font-semibold">Deductions</p>
+                                            <a class="text-sm font-medium text-blue-600" href="deduction.html">+ Add</a>
+                                        </div>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>1000</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-2">
+                                            <p class="font-semibold">Loan</p>
+                                            <a class="text-sm font-medium text-blue-600" href="employee-loan.html">+
+                                                Add</a>
+                                        </div>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>500</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-2">
+                                            <p class="font-semibold">Salary Advance</p>
+                                            <a class="text-sm font-medium text-blue-600" href="employee-advance.html">+
+                                                Add</a>
+                                        </div>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>500</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">Late Entry Penalties <span
+                                                class="font-normal font-base">[1:30 Hrs]</span></p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>1000</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">Early Exit Penalties <span
+                                                class="font-normal font-base">[2:30 Hrs]</span></p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>100</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">Break Time Penalties <span
+                                                class="font-normal font-base">[2:30 Hrs]</span></p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>100</p>
+                                    </div>
                                 </div>
-                                <div class="flex items-center justify-between">
-                                    <p class="font-semibold">Bonus</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>500</p>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <p class="font-semibold">Pay Per Work Wages</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>0</p>
-                                </div>
-                            </div>
 
-                        </div>
-                        <div class="py-2">
-                            <div class="flex items-center justify-between">
-                                <h3 class="font-bold text-red-600">(-) Tax Deductions</h3>
-                                <p class="font-bold text-red-600"><span>₹ </span>1000</p>
                             </div>
-                            <div class="space-y-4">
-                                <div class="flex items-center justify-between pt-4">
-                                    <p class="font-semibold">PF</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>500</p>
-                                </div>
+                            <div class="py-2">
                                 <div class="flex items-center justify-between">
-                                    <p class="font-semibold">ESI</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>100</p>
+                                    <h3 class="font-bold text-green-600">(+) Employer Contributions</h3>
+                                    <p class="font-bold text-green-600"><span>₹ </span>2347</p>
                                 </div>
-                                <div class="flex items-center justify-between">
-                                    <p class="font-semibold">PT</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>50</p>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <p class="font-semibold">TDS </p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>350</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="py-2 pb-8">
-                            <div class="flex items-center justify-between">
-                                <h3 class="font-bold text-red-600">(-) Common Deductions</h3>
-                                <p class="font-bold text-red-600"><span>₹ </span>11000</p>
-                            </div>
-                            <div class="pt-4 space-y-4">
-                                <div class="flex items-center justify-between">
-                                    <p class="font-semibold">Deductions</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>10000</p>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <p class="font-semibold">Loan</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>500</p>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <p class="font-semibold">Advance</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>500</p>
-                                </div>
-                            </div>
 
-                        </div>
-                        <div class="py-2 pb-8">
-                            <h3 class="font-bold">Transaction History</h3>
-                            <div>
-                                <div class="flex items-center justify-between py-2">
-                                    <p class="font-semibold">02-01-2023</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>500</p>
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between pt-4">
+                                        <p class="font-semibold">PF</p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>1800</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">ESI</p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>147</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">PT</p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>50</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">TDS </p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>350</p>
+                                    </div>
                                 </div>
-                                <div class="flex items-center justify-between py-2">
-                                    <p class="font-semibold">04-01-2023</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>1500</p>
+
+                            </div>
+                            <div class="py-2">
+                                <div class="flex items-center justify-between">
+                                    <h3 class="font-bold text-red-600">NETPAY</h3>
+                                    <p class="font-bold text-red-600"><span>₹ </span>12000</p>
                                 </div>
-                                <div class="flex items-center justify-between py-2">
-                                    <p class="font-semibold">06-01-2023</p>
-                                    <p class="font-semibold text-gray-600"><span>₹ </span>2500</p>
-                                </div>
+                                <p class="pt-2 text-sm text-gray-600">Netpay = Earnings - [Tax Deductions + Common
+                                    Deductions]</p>
+                            </div>
+                            <div class="py-2 pb-24">
+                               <p>Employee is long absent so salary is onhold</p>
+                                <p class="pt-2 text-sm text-gray-600">updated on 20-09-2023 by Elavarasan</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-    </section>
+            </div>
+
+        </section>
 
 </body>
 <style>
