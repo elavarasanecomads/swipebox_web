@@ -18,11 +18,12 @@
             <div class="mx-0 my-4 lg:m-4">
                 <div class="p-4 bg-white border rounded-md lg:p-8">
                     <h1 class="text-2xl font-bold">Plan Popup</h1>
+
+                    <!-- If Plan Trial is expired means, show the below popup -->
                     <div class="flex items-center gap-4 py-4 pt-6" x-data="{ 'showModal': false }"
                         @keydown.escape="showModal = false">
                         <button @click="showModal = true"
-                            class="px-3 py-2 font-semibold text-white bg-blue-600 rounded-md">Plan Expired Owner/
-                            Admin</button>
+                            class="px-3 py-2 font-semibold text-white bg-blue-600 rounded-md">Plan Trial Expired</button>
                         <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                             x-show="showModal" style="display: none;">
                             <!-- Modal inner -->
@@ -46,20 +47,64 @@
                                                         d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
                                                 </svg>
                                             </div>
-                                            <h3 class="text-lg font-bold">Your Free Trial has Ended</h3>
-                                            <p class="text-center text-gray-600">Thankyou for trying Swipebox. We let you know that free trial has expired. To continue enjoying your benefits  select a plan and become a premium member.</p>
+                                            <h3 class="text-lg font-bold">Your Plan Trial Has Expired</h3>
+                                            <p class="text-center text-gray-600">Your ' Plan Name ' plan trial expired on 'date'. To keep enjoying all the benefits of Plan Name, please upgrade your plan today!
+                                            </p>
                                         </div>
                                         <div>
                                             <a href="plan-details.html">
                                                 <button
-                                                    class="w-full p-3 font-semibold text-center text-white uppercase bg-blue-600 rounded-md">Choose
-                                                    Plan</button></a>
+                                                    class="w-full p-3 font-semibold text-center text-white uppercase bg-blue-600 rounded-md">Upgrade Now</button></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- If Plan is expired means, show the below popup -->
+                    <div class="flex items-center gap-4 py-4 pt-6" x-data="{ 'showModal': false }"
+                        @keydown.escape="showModal = false">
+                        <button @click="showModal = true"
+                            class="px-3 py-2 font-semibold text-white bg-blue-600 rounded-md">Plan Expired</button>
+                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                            x-show="showModal" style="display: none;">
+                            <!-- Modal inner -->
+                            <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
+                                x-transition:enter="motion-safe:ease-out duration-300"
+                                x-transition:enter-start="opacity-0 scale-90"
+                                x-transition:enter-end="opacity-100 scale-100">
+                                <!-- Title / Close-->
+                                <div class="flex items-center justify-between">
+
+                                </div>
+                                <!-- content -->
+                                <div class="w-full">
+                                    <div class="pt-4 space-y-4 ">
+                                        <div class="flex flex-col items-center justify-center gap-4">
+                                            <div>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke-width="2" stroke="currentColor"
+                                                    class="w-12 h-12 text-red-600">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                                                </svg>
+                                            </div>
+                                            <h3 class="text-lg font-bold">Your Plan Has Expired</h3>
+                                            <p class="text-center text-gray-600">Your ' Plan Name ' plan expired on 'date'. To keep enjoying all the benefits of 'Plan Name', please renew your plan today!
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <a href="plan-details.html">
+                                                <button
+                                                    class="w-full p-3 font-semibold text-center text-white uppercase bg-blue-600 rounded-md">Renew Now</button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="flex items-center gap-4 py-4 pt-6" x-data="{ 'showModal': false }"
                         @keydown.escape="showModal = false">
                         <button @click="showModal = true"
