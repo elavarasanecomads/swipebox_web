@@ -26,7 +26,8 @@
             x-transition:leave-end="opacity-0 transform -translate-x-20" @click.away="isSideMenuOpen=false"
             @keydown.escape="isSideMenuOpen=false" style="display: none;">
             <div class="mt-2 mb-4">
-                <p class="px-6 py-3 text-2xl font-bold">SALARY APP</p>
+                <!-- <p class="px-6 py-3 text-2xl font-bold">SALARY APP</p> -->
+                <img src="img/nithra-logo.jpg" alt="nithra logo" class="h-12">
                 <nav class="space-y-4 text-base">
                     <ul>
                         <li class="group hover:bg-blue-100">
@@ -134,7 +135,7 @@
             </div>
         </aside>
         <div
-            class="w-full px-4 py-3 mx-auto bg-white border-b shadow lg:py-3 md:max-w-full lg:max-w-screen-full md:px-24 lg:px-8">
+            class="w-full px-4 py-3 mx-auto bg-white border-b shadow lg:py-4 md:max-w-full lg:max-w-screen-full md:px-24 lg:px-8">
             
             <!--Desktop Nav-->
             <nav class="relative flex items-center justify-between">
@@ -251,6 +252,8 @@
                 </div>
             </nav>
         </div>
+
+        <!-- Trial Period is going on means show the below banner. -->
         <!-- <div x-data="{ isOpen: true }" x-show="isOpen" class="bg-yellow-100 rounded">
             <div class="px-3 py-3 mx-auto max-w-7xl ">
               <div class="flex flex-wrap items-start justify-between lg:gap-4">
@@ -264,14 +267,14 @@
                             clip-rule="evenodd" />
                         </svg>
                       </div>
-                      <p class="font-bold">Choose Your Plan Now</p>
+                      <p class="font-bold">Upgrade Your Plan</p>
                     </div>
-                    <p class="pt-2 text-sm text-gray-600 lg:pt-1 lg:pl-8">"Don't Miss Out! Grab the Perfect Plan for Your Business Before Your Trial Period Expires!"</p>
+                    <p class="pt-2 text-sm text-gray-600 lg:pt-1 lg:pl-8">"Your ' Plan Name ' plan trial expires on 'date'. To keep enjoying all the benefits of 'Plan Name', please upgrade your plan today!"</p>
                   </div>
                 </div>
                 <div class="flex-shrink-0 order-3 w-full mt-2 sm:order-2 sm:mt-0 sm:w-auto">
                   <a href="plan-details.html"
-                    class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-yellow-600 border border-transparent rounded-md shadow-sm hover:bg-yellow-700">Choose
+                    class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-yellow-600 border border-transparent rounded-md shadow-sm hover:bg-yellow-700">Upgrade
                     Now</a>
                 </div>
                 <div class="flex-shrink-0 order-2 sm:order-3 sm:ml-3">
@@ -287,7 +290,86 @@
                 </div>
               </div>
             </div>
+        </div> -->
+
+        <!-- The trial period is expired means, show the below banner. -->
+        <!-- <div x-data="{ isOpen: true }" x-show="isOpen" class="bg-red-100 rounded">
+            <div class="px-3 py-3 mx-auto max-w-7xl ">
+              <div class="flex flex-wrap items-start justify-between">
+                <div class="flex items-start flex-1 w-0">
+                  <div class="flex flex-col ml-3">
+                    <div class="flex items-center gap-2">
+                      <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                          class="w-6 h-6 text-red-600">
+                          <path fill-rule="evenodd"
+                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z"
+                            clip-rule="evenodd" />
+                        </svg>
+                      </div>
+                      <p class="font-bold">"Notice: Your Plan Trial Has Expired – Upgrade Required!"</p>
+                    </div>
+                    <p class="pt-2 text-sm text-gray-600 lg:pt-1 lg:pl-8">Your ' Plan Name ' plan trial expired on 'date'. To keep enjoying all the benefits of Plan Name, please upgrade your plan today!</p>
+                  </div>
+                </div>
+                <div class="flex-shrink-0 order-3 w-full mt-2 sm:order-2 sm:mt-0 sm:w-auto">
+                  <a href="plan-details.html"
+                    class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700">Upgrade
+                    Now</a>
+                </div>
+                <div class="flex-shrink-0 order-2 sm:order-3 sm:ml-3">
+                  <button x-on:click="isOpen = false" type="button"
+                    class="flex p-2 -mt-2 -mr-1 rounded-md lg:mt-0 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2">
+                    <span class="sr-only">Dismiss</span>
+                    <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                      viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div> -->
+
+          <!-- Trial Period is going on means show the below banner. -->
+         <!-- <div x-data="{ isOpen: true }" x-show="isOpen" class="bg-yellow-100 rounded">
+            <div class="px-3 py-3 mx-auto max-w-7xl ">
+              <div class="flex flex-wrap items-start justify-between lg:gap-4">
+                <div class="flex items-start flex-1 w-0">
+                  <div class="flex flex-col ml-3">
+                    <div class="flex items-center gap-2">
+                      <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                          class="w-6 h-6 text-yellow-600">
+                          <path fill-rule="evenodd"
+                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z"
+                            clip-rule="evenodd" />
+                        </svg>
+                      </div>
+                      <p class="font-bold">Renew Your Plan</p>
+                    </div>
+                    <p class="pt-2 text-sm text-gray-600 lg:pt-1 lg:pl-8">"Your ' Plan Name ' plan expires on 'date'. To keep enjoying all the benefits of 'Plan Name', please renew your plan today!"</p>
+                  </div>
+                </div>
+                <div class="flex-shrink-0 order-3 w-full mt-2 sm:order-2 sm:mt-0 sm:w-auto">
+                  <a href="plan-details.html"
+                    class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-yellow-600 border border-transparent rounded-md shadow-sm hover:bg-yellow-700">Renew
+                    Now</a>
+                </div>
+                <div class="flex-shrink-0 order-2 sm:order-3 sm:ml-3">
+                  <button x-on:click="isOpen = false" type="button"
+                    class="flex p-2 -mt-2 -mr-1 rounded-md lg:mt-0 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2">
+                    <span class="sr-only">Dismiss</span>
+                    
+                    <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                      viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+        </div> -->
+
+        <!-- if the Plan is expired means, show the below banner. -->
           <div x-data="{ isOpen: true }" x-show="isOpen" class="bg-red-100 rounded">
             <div class="px-3 py-3 mx-auto max-w-7xl ">
               <div class="flex flex-wrap items-start justify-between">
@@ -301,21 +383,21 @@
                             clip-rule="evenodd" />
                         </svg>
                       </div>
-                      <p class="font-bold">"Notice: Your Trial Plan Has Expired – Upgrade Required!"</p>
+                      <p class="font-bold">"Notice: Your Plan Has Expired – Renewal Required!"</p>
                     </div>
-                    <p class="pt-2 text-sm text-gray-600 lg:pt-1 lg:pl-8">Your Trial Plan Has Expired! Upgrade to Our Premium Plan for More Exciting Features!</p>
+                    <p class="pt-2 text-sm text-gray-600 lg:pt-1 lg:pl-8">"Your ' Plan Name ' plan expired on 'date'. To keep enjoying all the benefits of 'Plan Name', please renew your plan today!
+                        "</p>
                   </div>
                 </div>
                 <div class="flex-shrink-0 order-3 w-full mt-2 sm:order-2 sm:mt-0 sm:w-auto">
                   <a href="plan-details.html"
-                    class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700">Upgrade
+                    class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700">Renew
                     Now</a>
                 </div>
                 <div class="flex-shrink-0 order-2 sm:order-3 sm:ml-3">
                   <button x-on:click="isOpen = false" type="button"
                     class="flex p-2 -mt-2 -mr-1 rounded-md lg:mt-0 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2">
                     <span class="sr-only">Dismiss</span>
-                    <!-- Heroicon name: outline/x-mark -->
                     <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
                       viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />

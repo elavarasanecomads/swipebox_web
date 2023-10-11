@@ -986,6 +986,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 1px;
 }
 
+.h-4\/6 {
+  height: 66.666667%;
+}
+
 .h-64 {
   height: 16rem;
 }
@@ -1022,12 +1026,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 0.5rem;
 }
 
-.h-5\/6 {
-  height: 83.333333%;
-}
-
-.h-4\/6 {
-  height: 66.666667%;
+.h-14 {
+  height: 3.5rem;
 }
 
 .max-h-screen {
@@ -1914,6 +1914,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-blue-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
+  /* background-color: #00AFEF; */
 }
 
 .bg-black {
@@ -1994,6 +1995,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-green-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(220 252 231 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#00AFEF\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 175 239 / var(--tw-bg-opacity));
 }
 
 .bg-slate-100 {
@@ -2150,6 +2156,31 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(255 247 237 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#FBAD30\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 173 48 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#ED3237\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(237 50 55 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#594C9C\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(89 76 156 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#12A354\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(18 163 84 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#B87630\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(184 118 48 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -2290,6 +2321,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .py-12 {
   padding-top: 3rem;
   padding-bottom: 3rem;
+}
+
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 
 .pb-4 {
@@ -3819,6 +3855,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   .lg\:px-12 {
     padding-left: 3rem;
     padding-right: 3rem;
+  }
+
+  .lg\:py-6 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 
   .lg\:pt-6 {
