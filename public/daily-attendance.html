@@ -228,27 +228,27 @@
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-4 py-6 lg:px-0 lg:grid-cols-6">
-                            <div class="p-2 text-white bg-blue-600 border-b-2 border-blue-600 rounded">
+                            <div class="p-2 text-white bg-[#00AFEF] border-b-2 text-white border-blue-600 rounded">
                                 <span class="text-sm font-semibold">All</span>
                                 <p class="text-2xl font-bold">34</p>
                             </div>
-                            <div class="p-2 border-b-2 rounded bg-slate-100 border-slate-600">
+                            <div class="p-2 border-b-2 rounded text-white bg-[#FBAD30] border-slate-600">
                                 <span class="text-sm font-semibold">Not Punched</span>
                                 <p class="text-2xl font-bold">10</p>
                             </div>
-                            <div class="p-2 bg-green-100 border-b-2 border-green-600 rounded">
+                            <div class="p-2 bg-[#ED3237] text-white border-b-2 border-green-600 rounded">
                                 <span class="text-sm font-semibold">Present</span>
                                 <p class="text-2xl font-bold">15</p>
                             </div>
-                            <div class="p-2 bg-red-100 border-b-2 border-red-600 rounded">
+                            <div class="p-2 bg-[#594C9C] text-white border-b-2 border-red-600 rounded">
                                 <span class="text-sm font-semibold">Absent</span>
                                 <p class="text-2xl font-bold">2</p>
                             </div>
-                            <div class="p-2 bg-yellow-100 border-b-2 border-yellow-600 rounded">
+                            <div class="p-2 bg-[#12A354] text-white border-b-2 border-yellow-600 rounded">
                                 <span class="text-sm font-semibold">Half Day</span>
                                 <p class="text-2xl font-bold">3</p>
                             </div>
-                            <div class="p-2 bg-green-100 border-b-2 border-green-600 rounded">
+                            <div class="p-2 bg-[#B87630] text-white border-b-2 border-green-600 rounded">
                                 <span class="text-sm font-semibold">Paid Leave</span>
                                 <p class="text-2xl font-bold">1</p>
                             </div>
@@ -1171,7 +1171,7 @@
                                                             <a href="employee-detail.html"
                                                                 class="font-semibold text-blue-600">Karthika</a>
                                                             <p class="text-sm text-gray-600">67525166</p>
-                                                            <div x-data="{ 'showModal': true }"
+                                                            <div x-data="{ 'showModal': false }"
                                                             @keydown.escape="showModal = false">
                                                             <button @click="showModal = true"
                                                                 class="text-sm text-blue-600">View Logs
@@ -1455,6 +1455,31 @@
                                                                                 <p
                                                                                     class="text-sm font-bold text-gray-900">
                                                                                     From 05:00 PM To 05:15 PM</p>
+                                                                                <p class="text-xs text-gray-600">
+                                                                                    04-10-2023 15:03 | Elavarasan 
+                                                                                </p>
+                                                                            </div>
+                                                                            <div>
+                                                                                <div
+                                                                                    class="flex items-center gap-2">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                        fill="none"
+                                                                                        viewBox="0 0 24 24"
+                                                                                        stroke-width="1.5"
+                                                                                        stroke="currentColor"
+                                                                                        class="w-5 h-5 text-blue-600">
+                                                                                        <path stroke-linecap="round"
+                                                                                            stroke-linejoin="round"
+                                                                                            d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                                                                    </svg>
+
+                                                                                    <span
+                                                                                        class="text-sm font-semibold text-gray-600">Approved Leave Request Canceled
+                                                                                    </span>
+                                                                                </div>
+                                                                                <p
+                                                                                    class="text-sm font-bold text-gray-900">
+                                                                                    From CL-Paid Leave To Present</p>
                                                                                 <p class="text-xs text-gray-600">
                                                                                     04-10-2023 15:03 | Elavarasan 
                                                                                 </p>
