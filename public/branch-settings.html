@@ -38,18 +38,20 @@
                           </li>
                         </ol>
                       </nav>
-                    <div class="flex items-center gap-4 py-4 pt-6">
-                        <h1 class="text-2xl font-bold">Branches</h1>
-                        <a class="px-3 py-2 font-semibold text-white bg-blue-600 rounded-md"
-                            href="edit-branch-details.html">Add New</a>
-                    </div>
-                    <div class="grid grid-cols-1 gap-4 pb-6 lg:grid-cols-3">
-                        <div class="pb-4">
-                            <label class="text-sm font-semibold text-gray-600" for="branch">Search Branch</label>
-                            <input class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base" type="text" name="" id="">
+
+                      
+                      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                        <div class="flex items-center gap-4 py-4 pt-6">
+                            <h1 class="text-2xl font-bold">Branches</h1>
+                            <a class="px-3 py-2 font-semibold text-white bg-blue-600 rounded-md"
+                                href="edit-branch-details.html">Add New</a>
                         </div>
-                    </div>
-                    <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                        <div>
+                            <input placeholder="Search by branch name" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm lg:py-2 focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base" type="text" name="" id="">
+                        </div>
+                      </div>
+                   
+                    <div class="grid grid-cols-1 gap-4 pt-6 lg:grid-cols-2">
                         <div class="flex items-center gap-4 p-4 border rounded-md shadow">
                             <div class="flex flex-col items-center justify-center w-16">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-green-600" viewBox="0 0 20 20"
