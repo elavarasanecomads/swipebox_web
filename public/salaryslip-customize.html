@@ -7,6 +7,7 @@
     <title>Document</title>
     <link href="output.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         /* Add some custom styles for the dragged element */
@@ -38,53 +39,107 @@
                             <h1 class="text-2xl font-bold">Salary Slip Customization</h1>
                             <p class="text-gray-600">The chosen field will be displayed on the salary slip, and you have the flexibility to rearrange these selected fields.</p>
                         </div>
-                        <div x-data="fieldsManager()" x-init="init()">
-                            <div class="flex justify-center space-x-4">
-                                <!-- Available Fields -->
-                                <div class="w-1/3 p-4 bg-white border">
-                                    <h2 class="text-lg font-semibold">Available Fields</h2>
-                                    <ul id="availableFields" class="mt-4 space-y-2">
-                                        <template x-for="field in availableFields" :key="field.id">
-                                            <li class="p-2 border rounded shadow-md cursor-pointer"
-                                                @click="moveToSelected(field)">
-                                                <p x-text="field.name"></p>
-                                            </li>
-                                        </template>
-                                    </ul>
+                        <div>
+                            <div x-data="{
+                                openTab: 1,
+                                activeClasses: 'border-b-2 border-blue-600 text-blue-600',
+                                inactiveClasses: ''
+                            }">
+                            <div class="grid grid-cols-2 gap-4 pt-4 bg-gray-100 border-b lg:grid-cols-3">
+                                <div class="col-span-1" @click="openTab = 1">
+                                    <button
+                                        class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
+                                        :class="openTab === 1 ? activeClasses : inactiveClasses">Templates</button>
                                 </div>
-
-                                <!-- Selected Fields -->
-                                <div class="w-2/3 p-4 bg-white border">
-                                    <h2 class="text-lg font-semibold">Selected Fields</h2>
-                                    <ul id="selectedFields" class="mt-4 space-y-2">
-                                        <template x-for="(field, fieldIndex) in selectedFields" :key="field.id">
-                                            <li class="p-2 border rounded shadow-md cursor-move" draggable="true"
-                                                @dragstart="handleDragStart(fieldIndex)"
-                                                @dragover="handleDragOver(fieldIndex)" @drop="handleDrop(fieldIndex)"
-                                                :class="{ 'dragged': fieldIndex == draggingFieldIndex, 'drop-zone': fieldIndex == dropZoneIndex }">
-                                                <div class="flex items-center justify-between">
-                                                    <p x-text="field.name"></p>
-                                                    <button @click="moveToAvailable(field)">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                                            class="w-5 h-5 text-red-600">
-                                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                                d="M6 18L18 6M6 6l12 12" />
-                                                        </svg>
-                                                    </button>
+                                <div class="col-span-1" @click="openTab = 2">
+                                    <button
+                                        class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
+                                        :class="openTab === 2 ? activeClasses : inactiveClasses">Customize Fields</button>
+                                </div>
+                            </div>
+                                <div class="pt-6 bg-white" x-show="openTab === 1" style="display: none;">
+                                    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+                                        <div class="border-2 border-blue-600 rounded-lg shadow-lg" x-data="{ showModal: false, currentImage: '' }">
+                                                <div 
+                                                    @click="showModal = true; currentImage = 'img/salaryslip-sample-1.png';"
+                                                    class="relative w-full cursor-pointer group "
+                                                >
+                                                    <img src="img/salaryslip-sample-1.png" alt="Image 1" class="rounded-lg">
+                                                </div>                                               
+                                            <div
+                                                x-show="showModal"
+                                                class="fixed inset-0 z-50 flex items-center justify-center p-4 transition-opacity bg-black bg-opacity-50"
+                                            >
+                                                <div class="p-4" class="modal-container" @click.away="showModal = false">
+                                                    <img :src="currentImage" class="max-w-screen-lg max-h-screen" alt="Modal Image">
                                                 </div>
-                                            </li>
-                                        </template>
-                                    </ul>
-                                    <div class="pt-6">
-                                        <div class="w-36">
-                                            <button
-                                                class="w-full p-2 font-semibold text-white bg-blue-600 rounded-md">Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                <div class="pt-6 bg-white" x-show="openTab === 2">
+                                    <!-- <div  x-data="fieldsManager()" x-init="init()">
+                                        <ul id="availableFields" class="grid grid-cols-1 gap-4 mt-4 space-y-2 lg:grid-cols-3">
+                                            <template x-for="field in availableFields" :key="field.id">
+                                                <li class="flex items-center gap-2">
+                                                    <input class="w-4 h-4" type="checkbox">
+                                                    <p x-text="field.name"></p>
+                                                </li>
+                                            </template>
+                                        </ul>
+                                    </div> -->
+                                    <div x-data="fieldsManager()" x-init="init()">
+                                        <div class="flex justify-center space-x-4">
+                                            <!-- Available Fields -->
+                                            <div class="w-2/5 p-4 bg-white border lg:w-1/3">
+                                                <h2 class="text-lg font-semibold">Available Fields</h2>
+                                                <ul id="availableFields" class="mt-4 space-y-2">
+                                                    <template x-for="field in availableFields" :key="field.id">
+                                                        <li class="p-2 border rounded shadow-md cursor-pointer"
+                                                            @click="moveToSelected(field)">
+                                                            <p x-text="field.name"></p>
+                                                        </li>
+                                                    </template>
+                                                </ul>
+                                            </div>
+            
+                                            <!-- Selected Fields -->
+                                            <div class="w-3/5 p-4 bg-white border lg:w-2/3">
+                                                <h2 class="text-lg font-semibold">Selected Fields</h2>
+                                                <ul id="selectedFields" class="mt-4 space-y-2">
+                                                    <template x-for="(field, fieldIndex) in selectedFields" :key="field.id">
+                                                        <li class="p-2 border rounded shadow-md cursor-move" draggable="true"
+                                                            @dragstart="handleDragStart(fieldIndex)"
+                                                            @dragover="handleDragOver(fieldIndex)" @drop="handleDrop(fieldIndex)"
+                                                            :class="{ 'dragged': fieldIndex == draggingFieldIndex, 'drop-zone': fieldIndex == dropZoneIndex }">
+                                                            <div class="flex items-center justify-between">
+                                                                <p x-text="field.name"></p>
+                                                                <button @click="moveToAvailable(field)">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                                        class="w-5 h-5 text-red-600">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                                            d="M6 18L18 6M6 6l12 12" />
+                                                                    </svg>
+                                                                </button>
+                                                            </div>
+                                                        </li>
+                                                    </template>
+                                                </ul>
+                                                <div class="pt-6">
+                                                    <div class="w-36">
+                                                        <button
+                                                            class="w-full p-2 font-semibold text-white bg-blue-600 rounded-md">Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
 
                 </div>
@@ -105,6 +160,78 @@
         $("#aside").load("aside.html");
     });
 </script>
+
+<script>
+    function fieldsManager() {
+        return {
+            availableFields: [
+            { id: 1, name: 'Name' },
+                { id: 2, name: 'Phone Number' },
+                { id: 3, name: 'Email Id' },
+                { id: 4, name: 'Postal Address' },
+                { id: 5, name: 'State' },
+                { id: 6, name: 'Date of Birth' },
+                { id: 7, name: 'Gender' },
+                { id: 8, name: 'Aadhar Number' },
+                { id: 9, name: 'PAN Number' },
+                { id: 10, name: 'UAN Number' },
+                { id: 11, name: 'ESI Number' },
+                { id: 12, name: 'Branch' },
+                { id: 13, name: 'Department' },
+                { id: 14, name: 'Staff Category' },
+                { id: 15, name: 'Designation' },
+                { id: 16, name: 'Employee Id' },
+                { id: 17, name: 'Date of Joining' },
+                { id: 18, name: 'Role' },
+                { id: 19, name: 'Account Number' },
+                { id: 20, name: 'IFSC Code' },
+                { id: 21, name: 'UPI ID' },
+            ],
+            selectedFields: [],
+            draggingFieldIndex: null,
+            dropZoneIndex: null,
+
+            moveToSelected(field) {
+                this.availableFields = this.availableFields.filter(availableField => availableField.id !== field.id);
+                this.selectedFields.push(field);
+            },
+
+            moveToAvailable(field) {
+                this.selectedFields = this.selectedFields.filter(selectedField => selectedField.id !== field.id);
+                this.availableFields.push(field);
+
+                // Sort availableFields by ID
+                this.availableFields.sort((a, b) => a.id - b.id);
+            },
+
+            handleDragStart(index) {
+                this.draggingFieldIndex = index;
+            },
+
+            handleDragOver(index) {
+                this.dropZoneIndex = index;
+            },
+
+            handleDrop(index) {
+                if (this.draggingFieldIndex === null || this.dropZoneIndex === null) {
+                    return;
+                }
+                // Reorder the selectedFields to maintain the original order
+                const [draggedField] = this.selectedFields.splice(this.draggingFieldIndex, 1);
+                this.selectedFields.splice(index, 0, draggedField);
+                this.draggingFieldIndex = null;
+                this.dropZoneIndex = null;
+            },
+
+            init() {
+                // Initialization code
+            },
+        };
+    }
+</script>
+
+
+<!--
 <script>
     function fieldsManager() {
         return {
@@ -181,5 +308,5 @@
         };
     }
 </script>
-
+-->
 </html>
