@@ -1,0 +1,288 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md">
+                    <div>
+                        <h1 class="pb-6 text-2xl font-bold">Set Amount</h1>
+                        <table class="min-w-full divide-y divide-gray-200 table-auto">
+                            <thead class="text-sm bg-blue-600">
+                                <tr>
+                                    <th scope="col"
+                                        class="px-3 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                        Name
+                                    </th>
+                                    <th scope="col"
+                                        class="px-3 py-3 font-bold tracking-wider text-left text-gray-100 uppercase w-44">
+                                        Amount
+                                    </th>
+                                    <th scope="col"
+                                        class="px-3 py-3 font-bold tracking-wider text-left text-gray-100 uppercase w-44">
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="py-4 pl-8 pr-3 whitespace-nowrap">
+                                        <div>
+                                            <p class="font-semibold">Overtime Amount</p>
+                                            <p class="text-sm text-gray-600">Fixed amount per hour </p>
+                                        </div>
+                                    </td>
+                                    <td class="px-3 py-4 whitespace-nowrap">
+                                        <span class="text-gray-600">
+                                            ₹ 100</span>
+                                    </td>
+                                    <td class="relative flex items-center gap-4 px-3 py-4 whitespace-nowrap">
+                                        <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                            <button @click="showModal = true"
+                                                class="p-1 px-4 font-semibold text-white bg-blue-600 rounded"><span>Edit</span></button>
+
+                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                x-show="showModal" style="display: none;">
+                                                <!-- Modal inner -->
+                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm"
+                                                    @click.away="showModal = false"
+                                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                                    x-transition:enter-start="opacity-0 scale-90"
+                                                    x-transition:enter-end="opacity-100 scale-100">
+                                                    <!-- Title / Close-->
+                                                    <div class="flex items-center justify-between">
+                                                        <p class="text-lg font-semibold">Overtime</p>
+                                                        <span @click="showModal = false">
+                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    <!-- content -->
+                                                    <div class="w-full mt-4 space-y-2">
+                                                        <div>
+                                                            <div>
+                                                                <label class="text-sm font-semibold text-gray-600"
+                                                                    for="mobile">Fixed amount per hour</label>
+                                                                <input type="text" name="email" id="email"
+                                                                    autocomplete="title" placeholder=""
+                                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                            </div>
+                                                        </div>
+                                                        <div class="py-4">
+                                                            <button
+                                                                class="p-2 font-semibold text-center text-white bg-blue-600 rounded-md w-44">Update</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-3 py-4 whitespace-nowrap">
+                                        <p class="text-lg font-bold">Penalties</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 pl-8 pr-3 whitespace-nowrap">
+                                        <div>
+                                            <p class="font-semibold">Late Entry Fine</p>
+                                            <p class="text-sm text-gray-600">Fixed amount per hour </p>
+                                        </div>
+                                    </td>
+                                    <td class="px-3 py-4 whitespace-nowrap">
+                                        <span class="text-gray-600">
+                                            ₹ 100</span>
+                                    </td>
+                                    <td class="relative flex items-center gap-4 px-3 py-4 whitespace-nowrap">
+                                        <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                            <button @click="showModal = true"
+                                                class="p-1 px-4 font-semibold text-white bg-blue-600 rounded"><span>Edit</span></button>
+
+                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                x-show="showModal" style="display: none;">
+                                                <!-- Modal inner -->
+                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm"
+                                                    @click.away="showModal = false"
+                                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                                    x-transition:enter-start="opacity-0 scale-90"
+                                                    x-transition:enter-end="opacity-100 scale-100">
+                                                    <!-- Title / Close-->
+                                                    <div class="flex items-center justify-between">
+                                                        <p class="text-lg font-semibold">Late Entry Fine</p>
+                                                        <span @click="showModal = false">
+                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    <!-- content -->
+                                                    <div class="w-full mt-4 space-y-2">
+                                                        <div>
+                                                            <div>
+                                                                <label class="text-sm font-semibold text-gray-600"
+                                                                    for="mobile">Fixed amount per hour</label>
+                                                                <input type="text" name="email" id="email"
+                                                                    autocomplete="title" placeholder=""
+                                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                            </div>
+                                                        </div>
+                                                        <div class="py-4">
+                                                            <button
+                                                                class="p-2 font-semibold text-center text-white bg-blue-600 rounded-md w-44">Update</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 pl-8 pr-3 whitespace-nowrap">
+                                        <div>
+                                            <p class="font-semibold">Early Exit Fine</p>
+                                            <p class="text-sm text-gray-600">Fixed amount per hour </p>
+                                        </div>
+                                    </td>
+                                    <td class="px-3 py-4 whitespace-nowrap">
+                                        <span class="text-gray-600">
+                                            ₹ 100</span>
+                                    </td>
+                                    <td class="relative flex items-center gap-4 px-3 py-4 whitespace-nowrap">
+                                        <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                            <button @click="showModal = true"
+                                                class="p-1 px-4 font-semibold text-white bg-blue-600 rounded"><span>Edit</span></button>
+
+                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                x-show="showModal" style="display: none;">
+                                                <!-- Modal inner -->
+                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm"
+                                                    @click.away="showModal = false"
+                                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                                    x-transition:enter-start="opacity-0 scale-90"
+                                                    x-transition:enter-end="opacity-100 scale-100">
+                                                    <!-- Title / Close-->
+                                                    <div class="flex items-center justify-between">
+                                                        <p class="text-lg font-semibold">Early Exit Fine</p>
+                                                        <span @click="showModal = false">
+                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    <!-- content -->
+                                                    <div class="w-full mt-4 space-y-2">
+                                                        <div>
+                                                            <div>
+                                                                <label class="text-sm font-semibold text-gray-600"
+                                                                    for="mobile">Fixed amount per hour</label>
+                                                                <input type="text" name="email" id="email"
+                                                                    autocomplete="title" placeholder=""
+                                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                            </div>
+                                                        </div>
+                                                        <div class="py-4">
+                                                            <button
+                                                                class="p-2 font-semibold text-center text-white bg-blue-600 rounded-md w-44">Update</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 pl-8 pr-3 whitespace-nowrap">
+                                        <div>
+                                            <p class="font-semibold">Break Hours</p>
+                                            <p class="text-sm text-gray-600">Fixed amount per hour </p>
+                                        </div>
+                                    </td>
+                                    <td class="px-3 py-4 whitespace-nowrap">
+                                        <span class="text-gray-600">
+                                            ₹ 100</span>
+                                    </td>
+                                    <td class="relative flex items-center gap-4 px-3 py-4 whitespace-nowrap">
+                                        <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                            <button @click="showModal = true"
+                                                class="p-1 px-4 font-semibold text-white bg-blue-600 rounded"><span>Edit</span></button>
+
+                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                x-show="showModal" style="display: none;">
+                                                <!-- Modal inner -->
+                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm"
+                                                    @click.away="showModal = false"
+                                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                                    x-transition:enter-start="opacity-0 scale-90"
+                                                    x-transition:enter-end="opacity-100 scale-100">
+                                                    <!-- Title / Close-->
+                                                    <div class="flex items-center justify-between">
+                                                        <p class="text-lg font-semibold">Break Hours Fine</p>
+                                                        <span @click="showModal = false">
+                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    <!-- content -->
+                                                    <div class="w-full mt-4 space-y-2">
+                                                        <div>
+                                                            <div>
+                                                                <label class="text-sm font-semibold text-gray-600"
+                                                                    for="mobile">Fixed amount per hour</label>
+                                                                <input type="text" name="email" id="email"
+                                                                    autocomplete="title" placeholder=""
+                                                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                            </div>
+                                                        </div>
+                                                        <div class="py-4">
+                                                            <button
+                                                                class="p-2 font-semibold text-center text-white bg-blue-600 rounded-md w-44">Update</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+</html>
