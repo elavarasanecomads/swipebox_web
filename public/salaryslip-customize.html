@@ -51,15 +51,15 @@
                                         class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
                                         :class="openTab === 1 ? activeClasses : inactiveClasses">Templates</button>
                                 </div>
-                                <div class="col-span-1" @click="openTab = 2">
+                                <!-- <div class="col-span-1" @click="openTab = 2">
                                     <button
                                         class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
                                         :class="openTab === 2 ? activeClasses : inactiveClasses">Customize Fields</button>
-                                </div>
+                                </div> -->
                                 <div class="col-span-1" @click="openTab = 3">
                                     <button
                                         class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
-                                        :class="openTab === 3 ? activeClasses : inactiveClasses">Customize Fields New</button>
+                                        :class="openTab === 3 ? activeClasses : inactiveClasses">Customize Fields</button>
                                 </div>
                             </div>
                                 <div class="pt-6 bg-white" x-show="openTab === 1" style="display: none;">
@@ -278,9 +278,9 @@
             headerFields: [
             { id: 1, name: 'Company Logo' },
             { id: 1, name: 'Company Name' },
+            { id: 1, name: 'Company Address' },
             { id: 1, name: 'Email' },
-            { id: 1, name: 'Mobile Number' },
-            { id: 1, name: 'Address' },
+            { id: 1, name: 'Mobile Number' },           
             { id: 1, name: 'GST Number' },
             { id: 1, name: 'PAN Number' },
             { id: 1, name: 'ESI Number' },
@@ -288,22 +288,22 @@
             ],
             employeeFields: [
             { id: 1, name: 'Name' },
+            { id: 16, name: 'Employee Id' },
                 { id: 2, name: 'Phone Number' },
                 { id: 3, name: 'Email Id' },
+                { id: 15, name: 'Designation' },
+                { id: 12, name: 'Branch' },
+                { id: 13, name: 'Department' },
+                { id: 17, name: 'Date of Joining' },
+                { id: 10, name: 'UAN Number' },
+                { id: 11, name: 'ESI Number' },                
                 { id: 4, name: 'Postal Address' },
                 { id: 5, name: 'State' },
                 { id: 6, name: 'Date of Birth' },
                 { id: 7, name: 'Gender' },
                 { id: 8, name: 'Aadhar Number' },
-                { id: 9, name: 'PAN Number' },
-                { id: 10, name: 'UAN Number' },
-                { id: 11, name: 'ESI Number' },
-                { id: 12, name: 'Branch' },
-                { id: 13, name: 'Department' },
+                { id: 9, name: 'PAN Number' },               
                 { id: 14, name: 'Staff Category' },
-                { id: 15, name: 'Designation' },
-                { id: 16, name: 'Employee Id' },
-                { id: 17, name: 'Date of Joining' },
                 { id: 18, name: 'Role' },
                 { id: 19, name: 'Account Number' },
                 { id: 20, name: 'IFSC Code' },
