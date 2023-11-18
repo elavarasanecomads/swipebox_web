@@ -31,7 +31,72 @@
                     <div class="flex items-center gap-4 pt-4">
                         <h1 class="text-2xl font-bold">Selfie Attendance Settings</h1>
                     </div>
-                    <div class="pt-8 space-y-8">
+                    <div>
+                        <div x-data="{ selectedOption: null }" class="p-2 pt-4 space-y-4">
+                            <div>
+                              <label class="inline-flex items-center">
+                                <input x-model="selectedOption" name="selfie" type="radio" class="w-4 h-4 form-checkbox">
+                                <span class="ml-2 font-semibold">Selfie with Geo-location</span>
+                              </label>
+                            </div>
+                            <!--show section-->
+                            <div class="space-y-4" x-show="selectedOption" x-cloak>
+                              <div>
+                                <label class="inline-flex items-center ml-8">
+                                    <input name="" type="checkbox" class="w-4 h-4 form-checkbox">
+                                    <span class="ml-2">Enable Geo-fencing</span>
+                                  </label>
+                              </div>
+                              <div>
+                                <label class="inline-flex items-center ml-8">
+                                    <input name="" type="checkbox" class="w-4 h-4 form-checkbox">
+                                    <span class="ml-2">Allow Out of Location</span>
+                                    <span><a class="ml-2 font-semibold text-blue-600" href="out-of-location.html">Setup</a></span>
+                                  </label>
+                              </div>
+                            </div>
+                            
+                          </div>
+                          <div x-data="{ selectedOption: null }" class="p-2 pt-4 space-y-4">
+                            <div>
+                              <label class="inline-flex items-center">
+                                <input x-model="selectedOption" name="selfie" type="radio" class="w-4 h-4 form-checkbox">
+                                <span class="ml-2 font-semibold">Selfie with Geo-location and Photo compare</span>
+                              </label>
+                            </div>
+                            <!--show section-->
+                            <div class="space-y-4" x-show="selectedOption" x-cloak>
+                              <div>
+                                <label class="inline-flex items-center ml-8">
+                                    <input name="" type="checkbox" class="w-4 h-4 form-checkbox">
+                                    <span class="ml-2">Enable Geo-fencing</span>
+                                  </label>
+                              </div>
+                              <div>
+                                <label class="inline-flex items-center ml-8">
+                                    <input name="" type="checkbox" class="w-4 h-4 form-checkbox">
+                                    <span class="ml-2">Allow Out of Location</span>
+                                  </label>
+                              </div>
+                            </div>
+                            
+                          </div>
+                    </div>
+                    <!-- <div class="pt-8 space-y-8">
+                        <div class="flex items-center gap-4">
+                            <input class="w-4 h-4" type="radio" name="geofence" id="">
+                            <p>Selfie Attendance with Geo-Location</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <input class="w-4 h-4" type="radio" name="geofence" id="">
+                            <p>Selfie Attendance with Geo-Fencing</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <input class="w-4 h-4" type="radio" name="geofence" id="">
+                            <p>Selfie Attendance Compare with Geo-Fencing</p>
+                        </div>
+                    </div> -->
+                    <!-- <div class="pt-8 space-y-8">
                         <div x-data="{toggle: false}">
                             <div class="flex items-center gap-4">
                                 <div class="relative w-12 h-6 transition duration-200 ease-linear bg-green-600 rounded-full"
@@ -43,10 +108,14 @@
                                         <input type="checkbox" id="toggle" name="toggle" x-model="toggle"
                                             class="w-full h-full appearance-none active:outline-none focus:outline-none">
                                 </div>
-                                <p>Selfie Attendance</p>
+                                <p>Selfie Attendance With Geo-Location</p>
                             </div>
                              <div class="pt-4 pl-16" :class="[toggle ? 'block' : 'hidden']">
                                 <div class="space-y-4">
+                                    <div class="flex items-center gap-4">
+                                        <input class="w-4 h-4" type="checkbox" name="geofence" id="">
+                                        <p>Enable Geo Fencing.</p>
+                                    </div>
                                     <div class="flex items-center gap-4">
                                         <input class="w-4 h-4" type="checkbox" name="geofence" id="">
                                         <p>Enable Auto Approval.</p>
@@ -54,7 +123,7 @@
                                     
                                 </div>
                                 
-                                <!-- <div class="space-y-4" x-data="{ geofenceChecked: false }">
+                                 <div class="space-y-4" x-data="{ geofenceChecked: false }">
                                     <div class="flex items-center gap-4">
                                         <input class="w-4 h-4" type="checkbox" x-model="geofenceChecked">
                                         <label>Geo-Fencing Mandatory for Selfie Attendance</label>
@@ -66,7 +135,7 @@
                                             <a class="font-semibold text-blue-600" href="out-of-location.html">Settings</a>
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
                              </div>
                         </div>
                         <div x-data="{toggle: false}">
@@ -95,7 +164,7 @@
                                 </div>
                              </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
