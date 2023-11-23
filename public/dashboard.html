@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link href="output.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
@@ -96,157 +97,114 @@
       </div>
       <div class="mx-0 my-4 lg:m-4">
         <div class="h-full p-4 space-y-6 bg-white border rounded-md lg:p-8">
-
-          <!-- <div>
-            
-          <div class="bg-yellow-100 rounded">
-            <div class="px-3 py-3 mx-auto max-w-7xl ">
-              <div class="flex flex-wrap items-start justify-between lg:gap-4">
-                <div class="flex items-start flex-1 w-0">
-                  <div class="flex flex-col ml-3">
-                    <div class="flex items-center gap-2">
-                      <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                          class="w-6 h-6 text-yellow-600">
-                          <path fill-rule="evenodd"
-                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z"
-                            clip-rule="evenodd" />
-                        </svg>
-                      </div>
-                      <p class="font-bold">Choose Your Plan Now</p>
-                    </div>
-                    <p class="pt-2 text-sm text-gray-600 lg:pt-1 lg:pl-8">"Don't Miss Out! Grab the Perfect Plan for Your Business Before Your Trial Period Expires!"</p>
-                  </div>
-                </div>
-                <div class="flex-shrink-0 order-3 w-full mt-2 sm:order-2 sm:mt-0 sm:w-auto">
-                  <a href="plan-details.html"
-                    class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-yellow-600 border border-transparent rounded-md shadow-sm hover:bg-yellow-700">Choose
-                    Now</a>
-                </div>
-                <div class="flex-shrink-0 order-2 sm:order-3 sm:ml-3">
-                  <button type="button"
-                    class="flex p-2 -mt-2 -mr-1 rounded-md lg:mt-0 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2">
-                    <span class="sr-only">Dismiss</span>
-                    <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                      viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div x-data="{ isOpen: true }" x-show="isOpen" class="bg-red-100 rounded">
-            <div class="px-3 py-3 mx-auto max-w-7xl ">
-              <div class="flex flex-wrap items-start justify-between">
-                <div class="flex items-start flex-1 w-0">
-                  <div class="flex flex-col ml-3">
-                    <div class="flex items-center gap-2">
-                      <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                          class="w-6 h-6 text-red-600">
-                          <path fill-rule="evenodd"
-                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z"
-                            clip-rule="evenodd" />
-                        </svg>
-                      </div>
-                      <p class="font-bold">"Notice: Your Trial Plan Has Expired – Upgrade Required!"</p>
-                    </div>
-                    <p class="pt-2 text-sm text-gray-600 lg:pt-1 lg:pl-8">Your Trial Plan Has Expired! Upgrade to Our Premium Plan for More Exciting Features!</p>
-                  </div>
-                </div>
-                <div class="flex-shrink-0 order-3 w-full mt-2 sm:order-2 sm:mt-0 sm:w-auto">
-                  <a href="plan-details.html"
-                    class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700">Upgrade
-                    Now</a>
-                </div>
-                <div class="flex-shrink-0 order-2 sm:order-3 sm:ml-3">
-                  <button x-on:click="isOpen = false" type="button"
-                    class="flex p-2 -mt-2 -mr-1 rounded-md lg:mt-0 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2">
-                    <span class="sr-only">Dismiss</span>
-                    <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                      viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-blue-100 rounded">
-            <div class="px-3 py-3 mx-auto max-w-7xl ">
-              <div class="flex flex-wrap items-start justify-between">
-                <div class="flex items-start flex-1 w-0">
-                  <div class="flex flex-col ml-3">
-                    <div class="flex items-center gap-2">
-                      <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                          class="w-6 h-6 text-blue-600">
-                          <path fill-rule="evenodd"
-                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z"
-                            clip-rule="evenodd" />
-                        </svg>
-                      </div>
-                      <p class="font-bold">Payment Link is Generated.</p>
-                    </div>
-                    <p class="pt-2 text-sm text-gray-600 lg:pt-1 lg:pl-8">As per your request, We created manual payment request. You can able to pay by clicking Pay Now button.</p>
-                  </div>
-                </div>
-                <div class="flex-shrink-0 order-3 w-full mt-2 sm:order-2 sm:mt-0 sm:w-auto">
-                  <a href="plan-details.html"
-                    class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700">Pay Now</a>
-                </div>
-                <div class="flex-shrink-0 order-2 sm:order-3 sm:ml-3">
-                  <button type="button"
-                    class="flex p-2 -mt-2 -mr-1 rounded-md lg:mt-0 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2">
-                    <span class="sr-only">Dismiss</span>
-                    <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                      viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          </div> -->
-
-          <!--Back Button code-->
-          <div>
-            <button class="flex items-center gap-1 text-sm text-gray-600">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-                <path fill-rule="evenodd"
-                  d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
-                  clip-rule="evenodd" />
-              </svg>
-              <span>Back</span>
-            </button>
-          </div>
-
           <div class="mt-4">
-            <p class="text-2xl font-bold">Hello Karthika!</p>
+            <p class="text-2xl font-bold">Dashboard</p>
           </div>
-          <div class="w-full pt-8">
-            <div
-              class="grid grid-cols-1 gap-4 p-4 py-8 border border-l-4 rounded-md lg:grid-cols-4 border-l-yellow-600">
-              <div>
-                <p class="">Employee's Net Pay</p>
-                <p class="text-2xl font-bold">₹ 1,05,000</p>
+          <div class="w-full">
+            <div class="p-4 border rounded-md">
+              <div x-data="datePicker()" x-init="init()">
+                <div class="flex items-center gap-4">
+                  <!-- Previous -->
+                  <button class="p-2 text-blue-600 bg-blue-100 rounded" @click="prevDay">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                      stroke="currentColor" class="w-5 h-5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                  </button>
+                  <!-- Open calendar when clicking above the date -->
+                  <div @click="openCalendar" class="cursor-pointer">
+                    <p class="text-lg font-semibold" x-text="formattedDate"></p>
+                  </div>
+                  <!-- Next -->
+                  <button class="p-2 text-blue-600 bg-blue-100 rounded" @click="nextDay" :disabled="isFutureDate">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                      stroke="currentColor" class="w-5 h-5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                  </button>
+                </div>
               </div>
-              <div>
-                <p class="">Upcoming Payment Date</p>
-                <p class="text-2xl font-bold">30-05-2022</p>
+              <div class="grid grid-cols-1 gap-4 pt-6 lg:grid-cols-6 gap-y-6">
+                <div>
+                  <p class="text-gray-600">All</p>
+                  <p class="text-2xl font-bold">320</p>
+                </div>
+                <div>
+                  <p class="text-gray-600">Present</p>
+                  <p class="text-2xl font-bold">245</p>
+                </div>
+                <div>
+                  <p class="text-gray-600">Absent</p>
+                  <p class="text-2xl font-bold">20</p>
+                </div>
+                <div>
+                  <p class="text-gray-600">Half Day</p>
+                  <p class="text-2xl font-bold">10</p>
+                </div>
+                <div>
+                  <p class="text-gray-600">Late Entry</p>
+                  <p class="text-2xl font-bold">5</p>
+                </div>
+                <div>
+                  <p class="text-gray-600">Not Punched</p>
+                  <p class="text-2xl font-bold">7</p>
+                </div>
+                <div>
+                  <p class="text-gray-600">Paid Leave</p>
+                  <p class="text-2xl font-bold">2</p>
+                </div>
+                <div>
+                  <p class="text-gray-600 truncate">Paid Halfday Leave</p>
+                  <p class="text-2xl font-bold">0</p>
+                </div>
+                <div>
+                  <p class="text-gray-600">Unpaid Leave</p>
+                  <p class="text-2xl font-bold">5</p>
+                </div>
+                <div>
+                  <p class="text-gray-600 truncate" title="Unpaid Halfday Leave">Unpaid Halfday Leave</p>
+                  <p class="text-2xl font-bold">1</p>
+                </div>
+                <div>
+                  <p class="text-gray-600">Early Out</p>
+                  <p class="text-2xl font-bold">0</p>
+                </div>
+                <div>
+                  <p class="text-gray-600">Forgot Out</p>
+                  <p class="text-2xl font-bold">0</p>
+                </div>
+                <div>
+                  <p class="text-gray-600">Short Hours</p>
+                  <p class="text-2xl font-bold">0</p>
+                </div>
+                <div>
+                  <p class="text-gray-600">Weekoff</p>
+                  <p class="text-2xl font-bold">0</p>
+                </div>
+                <div>
+                  <p class="text-gray-600 truncate">Public Holiday</p>
+                  <p class="text-2xl font-bold">0</p>
+                </div>
+                <div>
+                  <p class="text-gray-600">1.5X Present</p>
+                  <p class="text-2xl font-bold">0</p>
+                </div>
+                <div>
+                  <p class="text-gray-600">2X Present</p>
+                  <p class="text-2xl font-bold">0</p>
+                </div>
               </div>
-              <div>
-                <p class="">No of Employees</p>
-                <p class="text-2xl font-bold">5</p>
-              </div>
-              <div class="flex items-center justify-center w-32">
-                <a class="p-2 font-semibold text-white bg-blue-600 rounded-md" href="salary-process.html">View
-                  Details</a>
+              
+            
+              <div class="flex items-center gap-4 pt-6 text-blue-600 hover:text-blue-700">
+                <a href="branch-summary.html">Branchwise Summary</a>
+                <a href="">Departmentwise Summary</a>
+                <a href="">Shiftwise Summary</a>
               </div>
             </div>
           </div>
 
+          
 
 
         </div>
@@ -260,5 +218,64 @@
     $("#aside").load("aside.html");
   });
 </script>
+<script>
+  function datePicker() {
+    return {
+      currentDate: new Date(),
+      formattedDate: '',
+
+      init() {
+        this.updateFormattedDate();
+      },
+
+      updateFormattedDate() {
+        const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+        this.formattedDate = this.currentDate.toLocaleDateString('en-GB', options);
+      },
+
+      updateDate() {
+        const selectedDate = new Date(this.formattedDate);
+        if (!isNaN(selectedDate.getTime())) {
+          this.currentDate = selectedDate;
+        }
+      },
+
+      openCalendar() {
+        // Make the input visible temporarily
+        this.$refs.dateInput.classList.remove('hidden');
+        // Trigger input click to open the calendar
+        this.$refs.dateInput.click();
+        // Hide the input again after a short delay
+        setTimeout(() => {
+          this.$refs.dateInput.classList.add('hidden');
+        }, 100);
+      },
+
+      prevDay() {
+        this.currentDate.setDate(this.currentDate.getDate() - 1);
+        this.updateFormattedDate();
+      },
+
+      nextDay() {
+        const tomorrow = new Date(this.currentDate);
+        tomorrow.setDate(this.currentDate.getDate() + 1);
+
+        // Check if tomorrow is not in the future
+        if (tomorrow <= new Date()) {
+          this.currentDate = tomorrow;
+          this.updateFormattedDate();
+        }
+      },
+
+      get isFutureDate() {
+        const tomorrow = new Date(this.currentDate);
+        tomorrow.setDate(this.currentDate.getDate() + 1);
+        return tomorrow > new Date();
+      },
+    };
+  }
+</script>
+
+
 
 </html>
