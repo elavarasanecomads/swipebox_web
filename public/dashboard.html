@@ -98,115 +98,154 @@
       <div class="mx-0 my-4 lg:m-4">
         <div class="h-full p-4 space-y-6 bg-white border rounded-md lg:p-8">
           <div class="mt-4">
-            <p class="text-2xl font-bold">Dashboard</p>
           </div>
           <div class="w-full">
             <div class="p-4 border rounded-md">
-              <div x-data="datePicker()" x-init="init()">
-                <div class="flex items-center gap-4">
-                  <!-- Previous -->
-                  <button class="p-2 text-blue-600 bg-blue-100 rounded" @click="prevDay">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                      stroke="currentColor" class="w-5 h-5">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                    </svg>
-                  </button>
-                  <!-- Open calendar when clicking above the date -->
-                  <div @click="openCalendar" class="cursor-pointer">
-                    <p class="text-lg font-semibold" x-text="formattedDate"></p>
+              <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                <div>
+                  <p class="pb-4 text-2xl font-bold">Attendance</p>
+                </div>
+                <div>
+                  <ul class="flex items-center gap-4">
+                    <li><a class="font-medium text-blue-600 hover:text-blue-700" href="branch-summary.html">Branch</a>
+                    </li>
+                    <li><a class="font-medium text-blue-600 hover:text-blue-700"
+                        href="branch-summary.html">Department</a></li>
+                    <li><a class="font-medium text-blue-600 hover:text-blue-700" href="branch-summary.html">Shift</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                <div x-data="datePicker()" x-init="init()">
+                  <div class="flex items-center gap-4">
+                    <!-- Previous -->
+                    <button class="p-2 text-blue-600 bg-blue-100 rounded" @click="prevDay">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                      </svg>
+                    </button>
+                    <!-- Open calendar when clicking above the date -->
+                    <div @click="openCalendar" class="cursor-pointer">
+                      <p class="text-lg font-semibold" x-text="formattedDate"></p>
+                    </div>
+                    <!-- Next -->
+                    <button class="p-2 text-blue-600 bg-blue-100 rounded" @click="nextDay" :disabled="isFutureDate">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                      </svg>
+                    </button>
                   </div>
-                  <!-- Next -->
-                  <button class="p-2 text-blue-600 bg-blue-100 rounded" @click="nextDay" :disabled="isFutureDate">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                      stroke="currentColor" class="w-5 h-5">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                    </svg>
-                  </button>
+                </div>
+                <div>
+                  <div class="relative text-gray-600" x-data="{ isOpen: false }">
+                    <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
+                      class="flex items-center gap-2 font-semibold text-blue-600 rounded">
+                      <span>Customize Fields</span>
+                    </button>
+                    <ul x-show="isOpen" @click.away="isOpen = false"
+                      class="absolute z-20 max-w-md py-1 mt-2 overflow-hidden text-sm font-normal bg-white border divide-y rounded shadow"
+                      style="display: none;">
+                      <li>
+                        <button class="p-2">Download as CSV</button>
+                      </li>
+                      <li>
+                        <button class="p-2">Download as PDF</button>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-              <div class="grid grid-cols-3 gap-4 pt-6 lg:grid-cols-6 gap-y-6">
-                <div>
-                  <p class="text-gray-600">All</p>
-                  <p class="text-2xl font-bold">320</p>
+              <div class="grid grid-cols-1 gap-4 pt-6 divide-gray-600 lg:divide-x lg:grid-cols-3">
+                <div class="lg:pr-4">
+                  <h3 class="pb-4 text-lg font-bold">General</h3>
+                  <div class="grid grid-cols-3 gap-4 lg:grid-cols-2">
+                    <div>
+                      <p class="text-gray-600 truncate">All</p>
+                      <p class="text-2xl font-bold">320</p>
+                    </div>
+                    <div>
+                      <p class="text-gray-600 truncate">Present</p>
+                      <p class="text-2xl font-bold">245</p>
+                    </div>
+                    <div>
+                      <p class="text-gray-600 truncate">Absent</p>
+                      <p class="text-2xl font-bold">20</p>
+                    </div>
+                    <div>
+                      <p class="text-gray-600 truncate">Half Day</p>
+                      <p class="text-2xl font-bold">10</p>
+                    </div>
+                    <div>
+                      <p class="text-gray-600 truncate">Late Entry</p>
+                      <p class="text-2xl font-bold">5</p>
+                    </div>
+                    <div>
+                      <p class="text-gray-600 truncate">Not Punched</p>
+                      <p class="text-2xl font-bold">7</p>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <p class="text-gray-600">Present</p>
-                  <p class="text-2xl font-bold">245</p>
+                <div class="lg:px-4">
+                  <h3 class="pb-4 text-lg font-bold">Leave</h3>
+                  <div class="grid grid-cols-3 gap-4 lg:grid-cols-2">
+                    <div>
+                      <p class="text-gray-600 truncate">Paid Leave</p>
+                      <p class="text-2xl font-bold">2</p>
+                    </div>
+                    <div>
+                      <p class="text-gray-600 truncate">Paid Halfday Leave</p>
+                      <p class="text-2xl font-bold">0</p>
+                    </div>
+                    <div>
+                      <p class="text-gray-600 truncate">Unpaid Leave</p>
+                      <p class="text-2xl font-bold">5</p>
+                    </div>
+                    <div>
+                      <p class="text-gray-600 truncate" title="Unpaid Halfday Leave">Unpaid Halfday Leave</p>
+                      <p class="text-2xl font-bold">1</p>
+                    </div>
+                    <div>
+                      <p class="text-gray-600 truncate">Weekoff</p>
+                      <p class="text-2xl font-bold">0</p>
+                    </div>
+                    <div>
+                      <p class="text-gray-600 truncate">Public Holiday</p>
+                      <p class="text-2xl font-bold">0</p>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <p class="text-gray-600">Absent</p>
-                  <p class="text-2xl font-bold">20</p>
+                <div class="lg:pl-4">
+                  <h3 class="pb-4 text-lg font-bold">Others</h3>
+                  <div class="grid grid-cols-3 gap-4 lg:grid-cols-2">
+                    <div>
+                      <p class="text-gray-600 truncate">Early Out</p>
+                      <p class="text-2xl font-bold">0</p>
+                    </div>
+                    <div>
+                      <p class="text-gray-600 truncate">Forgot Out</p>
+                      <p class="text-2xl font-bold">0</p>
+                    </div>
+                    <div>
+                      <p class="text-gray-600 truncate">Short Hours</p>
+                      <p class="text-2xl font-bold">0</p>
+                    </div>
+
+                    <div>
+                      <p class="text-gray-600 truncate">1.5X Present</p>
+                      <p class="text-2xl font-bold">0</p>
+                    </div>
+                    <div>
+                      <p class="text-gray-600 truncate">2X Present</p>
+                      <p class="text-2xl font-bold">0</p>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <p class="text-gray-600">Half Day</p>
-                  <p class="text-2xl font-bold">10</p>
-                </div>
-                <div>
-                  <p class="text-gray-600">Late Entry</p>
-                  <p class="text-2xl font-bold">5</p>
-                </div>
-                <div>
-                  <p class="text-gray-600">Not Punched</p>
-                  <p class="text-2xl font-bold">7</p>
-                </div>
-                <div>
-                  <p class="text-gray-600">Paid Leave</p>
-                  <p class="text-2xl font-bold">2</p>
-                </div>
-                <div>
-                  <p class="text-gray-600 truncate">Paid Halfday Leave</p>
-                  <p class="text-2xl font-bold">0</p>
-                </div>
-                <div>
-                  <p class="text-gray-600">Unpaid Leave</p>
-                  <p class="text-2xl font-bold">5</p>
-                </div>
-                <div>
-                  <p class="text-gray-600 truncate" title="Unpaid Halfday Leave">Unpaid Halfday Leave</p>
-                  <p class="text-2xl font-bold">1</p>
-                </div>
-                <div>
-                  <p class="text-gray-600">Early Out</p>
-                  <p class="text-2xl font-bold">0</p>
-                </div>
-                <div>
-                  <p class="text-gray-600">Forgot Out</p>
-                  <p class="text-2xl font-bold">0</p>
-                </div>
-                <div>
-                  <p class="text-gray-600">Short Hours</p>
-                  <p class="text-2xl font-bold">0</p>
-                </div>
-                <div>
-                  <p class="text-gray-600">Weekoff</p>
-                  <p class="text-2xl font-bold">0</p>
-                </div>
-                <div>
-                  <p class="text-gray-600 truncate">Public Holiday</p>
-                  <p class="text-2xl font-bold">0</p>
-                </div>
-                <div>
-                  <p class="text-gray-600">1.5X Present</p>
-                  <p class="text-2xl font-bold">0</p>
-                </div>
-                <div>
-                  <p class="text-gray-600">2X Present</p>
-                  <p class="text-2xl font-bold">0</p>
-                </div>
-              </div>
-              
-            
-              <div class="flex items-center gap-4 pt-6 text-blue-600 hover:text-blue-700">
-                <a href="branch-summary.html">Branchwise Summary</a>
-                <a href="">Departmentwise Summary</a>
-                <a href="">Shiftwise Summary</a>
               </div>
             </div>
           </div>
-
-          
-
-
         </div>
       </div>
     </div>
