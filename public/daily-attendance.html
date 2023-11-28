@@ -8,6 +8,7 @@
     <link href="output.css" rel="stylesheet">
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 
 <body class="bg-gray-100">
@@ -111,7 +112,7 @@
                                     <option>Purchase</option>
                                 </select>
                             </div>
-                            
+
                             <div>
                                 <label class="text-sm font-semibold text-gray-600" for="businessname">Select
                                     Type</label>
@@ -129,71 +130,77 @@
                             </div>
                             <div class="col-span-1 col-start-1 lg:col-span-3" x-data="{ open: false }">
                                 <div>
-                                    <button class="font-semibold text-blue-600" @click="open = ! open">Advanced Filter</button>
-                             
-                                <div class="pt-4" x-show="open">
-                                    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
-                                        <div>
-                                            <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">Select
-                                                Employee
-                                                Category</label>
-                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                                class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                <option>All</option>
-                                                <option>Permanant</option>
-                                                <option>Contract</option>
-                                                <option>Casual</option>
-                                                <option>Temporary</option>
-                                                <option>Others</option>
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <label class="text-sm font-semibold text-gray-600" for="businessname">Select
-                                                Designation</label>
-                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                                class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                <option>All</option>
-                                                <option>Director</option>
-                                                <option>CTO</option>
-                                                <option>STO</option>
-                                                <option>Accountant</option>
-                                                <option>Team Lead</option>
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <label class="text-sm font-semibold text-gray-600" for="businessname">Select
-                                                Division</label>
-                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                                class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                <option>All</option>
-                                                <option>South</option>
-                                                <option>North</option>
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <label class="text-sm font-semibold text-gray-600" for="businessname">Select
-                                               Sub Division</label>
-                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                                class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                <option>All</option>
-                                                <option>Chennai</option>
-                                                <option>Coimbatore</option>
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <label class="text-sm font-semibold text-gray-600" for="businessname">Select
-                                                Grade</label>
-                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                                class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                <option>All</option>
-                                                <option>Grade 1</option>
-                                                <option>Grade 2</option>
-                                            </select>
+                                    <button class="font-semibold text-blue-600" @click="open = ! open">Advanced
+                                        Filter</button>
+
+                                    <div class="pt-4" x-show="open">
+                                        <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+                                            <div>
+                                                <label class="col-start-1 text-sm font-semibold text-gray-600"
+                                                    for="businessname">Select
+                                                    Employee
+                                                    Category</label>
+                                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                    class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                    <option>All</option>
+                                                    <option>Permanant</option>
+                                                    <option>Contract</option>
+                                                    <option>Casual</option>
+                                                    <option>Temporary</option>
+                                                    <option>Others</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="businessname">Select
+                                                    Designation</label>
+                                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                    class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                    <option>All</option>
+                                                    <option>Director</option>
+                                                    <option>CTO</option>
+                                                    <option>STO</option>
+                                                    <option>Accountant</option>
+                                                    <option>Team Lead</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="businessname">Select
+                                                    Division</label>
+                                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                    class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                    <option>All</option>
+                                                    <option>South</option>
+                                                    <option>North</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="businessname">Select
+                                                    Sub Division</label>
+                                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                    class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                    <option>All</option>
+                                                    <option>Chennai</option>
+                                                    <option>Coimbatore</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label class="text-sm font-semibold text-gray-600"
+                                                    for="businessname">Select
+                                                    Grade</label>
+                                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                    class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                    <option>All</option>
+                                                    <option>Grade 1</option>
+                                                    <option>Grade 2</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                </div>
-                                
+
                             </div>
                             <div class="col-start-1">
                                 <div class="w-48 space-y-4">
@@ -202,7 +209,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                     <div class="py-6 border-t">
                         <p class="text-xl font-bold">10-12-2022 - <span>Saturday</span></p>
@@ -228,7 +235,7 @@
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-4 py-6 lg:px-0 lg:grid-cols-6">
-                            <div class="p-2 text-white bg-[#00AFEF] border-b-2 text-white border-blue-600 rounded">
+                            <div class="p-2 text-white bg-[#00AFEF] border-b-2  border-blue-600 rounded">
                                 <span class="text-sm font-semibold">All</span>
                                 <p class="text-2xl font-bold">34</p>
                             </div>
@@ -314,7 +321,9 @@
                                 </svg>
                                 <span>Download</span>
                             </button>
-                            <ul x-show="isOpen" @click.away="isOpen = false" class="absolute z-20 py-1 mt-2 overflow-hidden text-sm font-normal bg-white border divide-y rounded shadow w-36" style="display: none;">
+                            <ul x-show="isOpen" @click.away="isOpen = false"
+                                class="absolute z-20 py-1 mt-2 overflow-hidden text-sm font-normal bg-white border divide-y rounded shadow w-36"
+                                style="display: none;">
                                 <li>
                                     <button class="p-2">Download as CSV</button>
                                 </li>
@@ -378,246 +387,407 @@
                                                             <a href="employee-detail.html"
                                                                 class="font-semibold text-blue-600">Elavarasan</a>
                                                             <p class="text-sm text-gray-600">67525165</p>
-                                                            <div x-data="{ 'showModal': false }"
-                                                                @keydown.escape="showModal = false">
-                                                                <button @click="showModal = true"
-                                                                    class="text-sm text-blue-600">View Logs
-                                                                </button>
+                                                            <div class="flex items-center gap-4">
+                                                                <div x-data="{ 'showModal': false }"
+                                                                    @keydown.escape="showModal = false">
+                                                                    <button @click="showModal = true"
+                                                                        class="text-sm text-blue-600">View Logs
+                                                                    </button>
 
-                                                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
-                                                                    x-show="showModal" style="display: none;">
-                                                                    <!-- Modal inner -->
-                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
-                                                                        @click.away="showModal = false"
-                                                                        x-transition:enter="motion-safe:ease-out duration-300"
-                                                                        x-transition:enter-start="opacity-0 scale-90"
-                                                                        x-transition:enter-end="opacity-100 scale-100">
-                                                                        <!-- Title / Close-->
-                                                                        <div class="flex items-center justify-between">
-                                                                            <p class="font-bold text-gray-900">
-                                                                                Attendance Log
-                                                                            </p>
-                                                                            <span @click="showModal = false">
-                                                                                <svg class="w-5 h-5 text-gray-900"
-                                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                                    fill="none" viewBox="0 0 24 24"
-                                                                                    stroke="currentColor">
-                                                                                    <path stroke-linecap="round"
-                                                                                        stroke-linejoin="round"
-                                                                                        stroke-width="2"
-                                                                                        d="M6 18L18 6M6 6l12 12"></path>
-                                                                                </svg>
-                                                                            </span>
-                                                                        </div>
-                                                                        <!-- content -->
-                                                                        <div>
-                                                                            <p><span>Elavarasan</span> |
-                                                                                <span>25-04-2022</span>
-                                                                            </p>
-                                                                        </div>
-                                                                        <div class="pt-6 overflow-y-scroll h-72">
-                                                                            <div class="space-y-4">
-                                                                                <div>
-                                                                                    <div
-                                                                                        class="flex items-center gap-2">
-                                                                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                            fill="none"
-                                                                                            viewBox="0 0 24 24"
-                                                                                            stroke-width="1.5"
-                                                                                            stroke="currentColor"
-                                                                                            class="w-5 h-5 text-blue-600">
-                                                                                            <path stroke-linecap="round"
-                                                                                                stroke-linejoin="round"
-                                                                                                d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z" />
-                                                                                            <path stroke-linecap="round"
-                                                                                                stroke-linejoin="round"
-                                                                                                d="M6.75 6.75h.75v.75h-.75v-.75zM6.75 16.5h.75v.75h-.75v-.75zM16.5 6.75h.75v.75h-.75v-.75zM13.5 13.5h.75v.75h-.75v-.75zM13.5 19.5h.75v.75h-.75v-.75zM19.5 13.5h.75v.75h-.75v-.75zM19.5 19.5h.75v.75h-.75v-.75zM16.5 16.5h.75v.75h-.75v-.75z" />
-                                                                                        </svg>
-                                                                                        <span
-                                                                                            class="text-sm font-semibold text-gray-600">Punched
-                                                                                            via QR
-                                                                                            Code</span>
+                                                                    <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                                        x-show="showModal" style="display: none;">
+                                                                        <!-- Modal inner -->
+                                                                        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
+                                                                            @click.away="showModal = false"
+                                                                            x-transition:enter="motion-safe:ease-out duration-300"
+                                                                            x-transition:enter-start="opacity-0 scale-90"
+                                                                            x-transition:enter-end="opacity-100 scale-100">
+                                                                            <!-- Title / Close-->
+                                                                            <div
+                                                                                class="flex items-center justify-between">
+                                                                                <p class="font-bold text-gray-900">
+                                                                                    Attendance Log
+                                                                                </p>
+                                                                                <span @click="showModal = false">
+                                                                                    <svg class="w-5 h-5 text-gray-900"
+                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                        fill="none" viewBox="0 0 24 24"
+                                                                                        stroke="currentColor">
+                                                                                        <path stroke-linecap="round"
+                                                                                            stroke-linejoin="round"
+                                                                                            stroke-width="2"
+                                                                                            d="M6 18L18 6M6 6l12 12">
+                                                                                        </path>
+                                                                                    </svg>
+                                                                                </span>
+                                                                            </div>
+                                                                            <!-- content -->
+                                                                            <div>
+                                                                                <p><span>Elavarasan</span> |
+                                                                                    <span>25-04-2022</span>
+                                                                                </p>
+                                                                            </div>
+                                                                            <div class="pt-6 overflow-y-scroll h-72">
+                                                                                <div class="space-y-4">
+                                                                                    <div>
+                                                                                        <div
+                                                                                            class="flex items-center gap-2">
+                                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                fill="none"
+                                                                                                viewBox="0 0 24 24"
+                                                                                                stroke-width="1.5"
+                                                                                                stroke="currentColor"
+                                                                                                class="w-5 h-5 text-blue-600">
+                                                                                                <path
+                                                                                                    stroke-linecap="round"
+                                                                                                    stroke-linejoin="round"
+                                                                                                    d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z" />
+                                                                                                <path
+                                                                                                    stroke-linecap="round"
+                                                                                                    stroke-linejoin="round"
+                                                                                                    d="M6.75 6.75h.75v.75h-.75v-.75zM6.75 16.5h.75v.75h-.75v-.75zM16.5 6.75h.75v.75h-.75v-.75zM13.5 13.5h.75v.75h-.75v-.75zM13.5 19.5h.75v.75h-.75v-.75zM19.5 13.5h.75v.75h-.75v-.75zM19.5 19.5h.75v.75h-.75v-.75zM16.5 16.5h.75v.75h-.75v-.75z" />
+                                                                                            </svg>
+                                                                                            <span
+                                                                                                class="text-sm font-semibold text-gray-600">Punched
+                                                                                                via QR
+                                                                                                Code</span>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="flex items-center gap-2">
+                                                                                            <p
+                                                                                                class="text-sm font-bold text-gray-900">
+                                                                                                In Time : 25-04-2023
+                                                                                                10:00:00
+                                                                                            </p>
+
+                                                                                        </div>
+
+                                                                                        <p
+                                                                                            class="text-xs text-gray-600">
+                                                                                            20/5, Thondikaradu,
+                                                                                            Tiruchengode, Namakkal
+                                                                                        </p>
                                                                                     </div>
-                                                                                    <div
-                                                                                        class="flex items-center gap-2">
+                                                                                    <div>
+                                                                                        <div
+                                                                                            class="flex items-center gap-2">
+                                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                fill="none"
+                                                                                                viewBox="0 0 24 24"
+                                                                                                stroke-width="1.5"
+                                                                                                stroke="currentColor"
+                                                                                                class="w-5 h-5 text-blue-600">
+                                                                                                <path
+                                                                                                    stroke-linecap="round"
+                                                                                                    stroke-linejoin="round"
+                                                                                                    d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                                                                                            </svg>
+
+                                                                                            <span
+                                                                                                class="text-sm font-semibold text-gray-600">Punched
+                                                                                                via Individual</span>
+                                                                                        </div>
+                                                                                        <p
+                                                                                            class="text-sm font-bold text-gray-900">
+                                                                                            Out Time : 25-04-2023
+                                                                                            11:02:00
+                                                                                        </p>
+                                                                                        <p
+                                                                                            class="text-xs text-gray-600">
+                                                                                            20/5, Thondikaradu,
+                                                                                            Tiruchengode, Namakkal
+                                                                                        </p>
+                                                                                    </div>
+                                                                                    <div>
+                                                                                        <div
+                                                                                            class="flex items-center gap-2">
+                                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                fill="none"
+                                                                                                viewBox="0 0 24 24"
+                                                                                                stroke-width="1.5"
+                                                                                                stroke="currentColor"
+                                                                                                class="w-5 h-5 text-blue-600">
+                                                                                                <path
+                                                                                                    stroke-linecap="round"
+                                                                                                    stroke-linejoin="round"
+                                                                                                    d="M10.5 19.5h3m-6.75 2.25h10.5a2.25 2.25 0 002.25-2.25v-15a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 4.5v15a2.25 2.25 0 002.25 2.25z" />
+                                                                                            </svg>
+
+                                                                                            <span
+                                                                                                class="text-sm font-semibold text-gray-600">Punched
+                                                                                                via Swipebox Face</span>
+                                                                                        </div>
                                                                                         <p
                                                                                             class="text-sm font-bold text-gray-900">
                                                                                             In Time : 25-04-2023
-                                                                                            10:00:00
+                                                                                            11:15:00
                                                                                         </p>
-
+                                                                                        <p
+                                                                                            class="text-xs text-gray-600">
+                                                                                            20/5, Thondikaradu,
+                                                                                            Tiruchengode, Namakkal
+                                                                                        </p>
                                                                                     </div>
+                                                                                    <div>
+                                                                                        <div
+                                                                                            class="flex items-center gap-2">
+                                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                fill="none"
+                                                                                                viewBox="0 0 24 24"
+                                                                                                stroke-width="1.5"
+                                                                                                stroke="currentColor"
+                                                                                                class="w-5 h-5 text-blue-600">
+                                                                                                <path
+                                                                                                    stroke-linecap="round"
+                                                                                                    stroke-linejoin="round"
+                                                                                                    d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                                                                            </svg>
 
-                                                                                    <p class="text-xs text-gray-600">
-                                                                                        20/5, Thondikaradu,
-                                                                                        Tiruchengode, Namakkal
-                                                                                    </p>
-                                                                                </div>
-                                                                                <div>
-                                                                                    <div
-                                                                                        class="flex items-center gap-2">
-                                                                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                            fill="none"
-                                                                                            viewBox="0 0 24 24"
-                                                                                            stroke-width="1.5"
-                                                                                            stroke="currentColor"
-                                                                                            class="w-5 h-5 text-blue-600">
-                                                                                            <path stroke-linecap="round"
-                                                                                                stroke-linejoin="round"
-                                                                                                d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
-                                                                                        </svg>
-
-                                                                                        <span
-                                                                                            class="text-sm font-semibold text-gray-600">Punched
-                                                                                            via Individual</span>
+                                                                                            <span
+                                                                                                class="text-sm font-semibold text-gray-600">Added
+                                                                                                by Owner / Admin</span>
+                                                                                        </div>
+                                                                                        <p
+                                                                                            class="text-sm font-bold text-gray-900">
+                                                                                            Out Time : 25-04-2023
+                                                                                            13:00:00
+                                                                                        </p>
+                                                                                        <p
+                                                                                            class="text-xs text-gray-600">
+                                                                                            20/5, Thondikaradu,
+                                                                                            Tiruchengode, Namakkal
+                                                                                        </p>
                                                                                     </div>
-                                                                                    <p
-                                                                                        class="text-sm font-bold text-gray-900">
-                                                                                        Out Time : 25-04-2023 11:02:00
-                                                                                    </p>
-                                                                                    <p class="text-xs text-gray-600">
-                                                                                        20/5, Thondikaradu,
-                                                                                        Tiruchengode, Namakkal
-                                                                                    </p>
-                                                                                </div>
-                                                                                <div>
-                                                                                    <div
-                                                                                        class="flex items-center gap-2">
-                                                                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                            fill="none"
-                                                                                            viewBox="0 0 24 24"
-                                                                                            stroke-width="1.5"
-                                                                                            stroke="currentColor"
-                                                                                            class="w-5 h-5 text-blue-600">
-                                                                                            <path stroke-linecap="round"
-                                                                                                stroke-linejoin="round"
-                                                                                                d="M10.5 19.5h3m-6.75 2.25h10.5a2.25 2.25 0 002.25-2.25v-15a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 4.5v15a2.25 2.25 0 002.25 2.25z" />
-                                                                                        </svg>
-
-                                                                                        <span
-                                                                                            class="text-sm font-semibold text-gray-600">Punched
-                                                                                            via Swipebox Face</span>
+                                                                                    <div>
+                                                                                        <div
+                                                                                            class="flex items-center gap-2">
+                                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                class="w-5 h-5 text-blue-600 icon icon-tabler icon-tabler-device-landline-phone"
+                                                                                                viewBox="0 0 24 24"
+                                                                                                stroke-width="2"
+                                                                                                stroke="currentColor"
+                                                                                                fill="none"
+                                                                                                stroke-linecap="round"
+                                                                                                stroke-linejoin="round">
+                                                                                                <path stroke="none"
+                                                                                                    d="M0 0h24v24H0z"
+                                                                                                    fill="none"></path>
+                                                                                                <path
+                                                                                                    d="M20 3h-2a2 2 0 0 0 -2 2v14a2 2 0 0 0 2 2h2a2 2 0 0 0 2 -2v-14a2 2 0 0 0 -2 -2z">
+                                                                                                </path>
+                                                                                                <path
+                                                                                                    d="M16 4h-11a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h11">
+                                                                                                </path>
+                                                                                                <path d="M12 8h-6v3h6z">
+                                                                                                </path>
+                                                                                                <path d="M12 14v.01">
+                                                                                                </path>
+                                                                                                <path d="M9 14v.01">
+                                                                                                </path>
+                                                                                                <path d="M6 14v.01">
+                                                                                                </path>
+                                                                                                <path d="M12 17v.01">
+                                                                                                </path>
+                                                                                                <path d="M9 17v.01">
+                                                                                                </path>
+                                                                                                <path d="M6 17v.01">
+                                                                                                </path>
+                                                                                            </svg>
+                                                                                            <span
+                                                                                                class="text-sm font-semibold text-gray-600">Punched
+                                                                                                via Biometric, ESSL
+                                                                                                1</span>
+                                                                                        </div>
+                                                                                        <p
+                                                                                            class="text-sm font-bold text-gray-900">
+                                                                                            In Time : 25-04-2023
+                                                                                            13:30:00
+                                                                                        </p>
+                                                                                        <p
+                                                                                            class="text-xs text-gray-600">
+                                                                                            20/5, Thondikaradu,
+                                                                                            Tiruchengode, Namakkal
+                                                                                        </p>
                                                                                     </div>
-                                                                                    <p
-                                                                                        class="text-sm font-bold text-gray-900">
-                                                                                        In Time : 25-04-2023 11:15:00
-                                                                                    </p>
-                                                                                    <p class="text-xs text-gray-600">
-                                                                                        20/5, Thondikaradu,
-                                                                                        Tiruchengode, Namakkal
-                                                                                    </p>
-                                                                                </div>
-                                                                                <div>
-                                                                                    <div
-                                                                                        class="flex items-center gap-2">
-                                                                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                            fill="none"
-                                                                                            viewBox="0 0 24 24"
-                                                                                            stroke-width="1.5"
-                                                                                            stroke="currentColor"
-                                                                                            class="w-5 h-5 text-blue-600">
-                                                                                            <path stroke-linecap="round"
-                                                                                                stroke-linejoin="round"
-                                                                                                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                                                                                        </svg>
-
-                                                                                        <span
-                                                                                            class="text-sm font-semibold text-gray-600">Added
-                                                                                            by Owner / Admin</span>
-                                                                                    </div>
-                                                                                    <p
-                                                                                        class="text-sm font-bold text-gray-900">
-                                                                                        Out Time : 25-04-2023 13:00:00
-                                                                                    </p>
-                                                                                    <p class="text-xs text-gray-600">
-                                                                                        20/5, Thondikaradu,
-                                                                                        Tiruchengode, Namakkal
-                                                                                    </p>
-                                                                                </div>
-                                                                                <div>
-                                                                                    <div
-                                                                                        class="flex items-center gap-2">
-                                                                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                            class="w-5 h-5 text-blue-600 icon icon-tabler icon-tabler-device-landline-phone"
-                                                                                            viewBox="0 0 24 24"
-                                                                                            stroke-width="2"
-                                                                                            stroke="currentColor"
-                                                                                            fill="none"
-                                                                                            stroke-linecap="round"
-                                                                                            stroke-linejoin="round">
-                                                                                            <path stroke="none"
-                                                                                                d="M0 0h24v24H0z"
-                                                                                                fill="none"></path>
-                                                                                            <path
-                                                                                                d="M20 3h-2a2 2 0 0 0 -2 2v14a2 2 0 0 0 2 2h2a2 2 0 0 0 2 -2v-14a2 2 0 0 0 -2 -2z">
-                                                                                            </path>
-                                                                                            <path
-                                                                                                d="M16 4h-11a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h11">
-                                                                                            </path>
-                                                                                            <path d="M12 8h-6v3h6z">
-                                                                                            </path>
-                                                                                            <path d="M12 14v.01"></path>
-                                                                                            <path d="M9 14v.01"></path>
-                                                                                            <path d="M6 14v.01"></path>
-                                                                                            <path d="M12 17v.01"></path>
-                                                                                            <path d="M9 17v.01"></path>
-                                                                                            <path d="M6 17v.01"></path>
-                                                                                        </svg>
-                                                                                        <span
-                                                                                            class="text-sm font-semibold text-gray-600">Punched
-                                                                                            via Biometric, ESSL 1</span>
-                                                                                    </div>
-                                                                                    <p
-                                                                                        class="text-sm font-bold text-gray-900">
-                                                                                        In Time : 25-04-2023 13:30:00
-                                                                                    </p>
-                                                                                    <p class="text-xs text-gray-600">
-                                                                                        20/5, Thondikaradu,
-                                                                                        Tiruchengode, Namakkal
-                                                                                    </p>
-                                                                                </div>
-                                                                                <div>
-                                                                                    <p
-                                                                                        class="text-sm font-bold text-gray-900">
-                                                                                        Out Time : 25-04-2023 15:00:00
-                                                                                    </p>
-                                                                                    <p class="text-xs text-gray-600">
-                                                                                        20/5, Thondikaradu,
-                                                                                        Tiruchengode, Namakkal
-                                                                                    </p>
-                                                                                </div>
-                                                                                <div>
-                                                                                    <p
-                                                                                        class="text-sm font-bold text-gray-900">
-                                                                                        In Time : 25-04-2023 15:30:00
-                                                                                    </p>
-                                                                                    <p class="text-xs text-gray-600">
-                                                                                        20/5, Thondikaradu,
-                                                                                        Tiruchengode, Namakkal
-                                                                                    </p>
-                                                                                </div>
-                                                                                <div>
                                                                                     <div>
                                                                                         <p
                                                                                             class="text-sm font-bold text-gray-900">
                                                                                             Out Time : 25-04-2023
-                                                                                            17:00:00
+                                                                                            15:00:00
                                                                                         </p>
-
+                                                                                        <p
+                                                                                            class="text-xs text-gray-600">
+                                                                                            20/5, Thondikaradu,
+                                                                                            Tiruchengode, Namakkal
+                                                                                        </p>
                                                                                     </div>
-                                                                                    <p class="text-xs text-gray-600">
-                                                                                        20/5, Thondikaradu,
-                                                                                        Tiruchengode, Namakkal
+                                                                                    <div>
+                                                                                        <p
+                                                                                            class="text-sm font-bold text-gray-900">
+                                                                                            In Time : 25-04-2023
+                                                                                            15:30:00
+                                                                                        </p>
+                                                                                        <p
+                                                                                            class="text-xs text-gray-600">
+                                                                                            20/5, Thondikaradu,
+                                                                                            Tiruchengode, Namakkal
+                                                                                        </p>
+                                                                                    </div>
+                                                                                    <div>
+                                                                                        <div>
+                                                                                            <p
+                                                                                                class="text-sm font-bold text-gray-900">
+                                                                                                Out Time : 25-04-2023
+                                                                                                17:00:00
+                                                                                            </p>
+
+                                                                                        </div>
+                                                                                        <p
+                                                                                            class="text-xs text-gray-600">
+                                                                                            20/5, Thondikaradu,
+                                                                                            Tiruchengode, Namakkal
+                                                                                        </p>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div x-data="{ 'showModal': false }">
+                                                                    <button @click="showModal = true"
+                                                                        class="text-sm text-blue-600">
+                                                                        Add Note</button>
+                                                                    <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                                        x-show="showModal" style="display: none;">
+                                                                        <!-- Modal inner -->
+                                                                        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
+                                                                            @click.away="showModal = false"
+                                                                            x-transition:enter="motion-safe:ease-out duration-300"
+                                                                            x-transition:enter-start="opacity-0 scale-90"
+                                                                            x-transition:enter-end="opacity-100 scale-100">
+                                                                            <!-- Title / Close-->
+                                                                            <div
+                                                                                class="flex items-center justify-between">
+                                                                                <div>
+                                                                                    <p class="font-bold text-gray-900">
+                                                                                        Add Note
                                                                                     </p>
+                                                                                    <p
+                                                                                        class="text-sm font-semibold text-gray-600">
+                                                                                        Elavarasan | 27-11-2023
+                                                                                    </p>
+                                                                                </div>
+
+                                                                                <span @click="showModal = false">
+                                                                                    <svg class="w-5 h-5 text-gray-900"
+                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                        fill="none" viewBox="0 0 24 24"
+                                                                                        stroke="currentColor">
+                                                                                        <path stroke-linecap="round"
+                                                                                            stroke-linejoin="round"
+                                                                                            stroke-width="2"
+                                                                                            d="M6 18L18 6M6 6l12 12">
+                                                                                        </path>
+                                                                                    </svg>
+                                                                                </span>
+                                                                            </div>
+                                                                            <!-- content -->
+                                                                            <div class="w-full mt-4">
+                                                                                <div>
+                                                                                    <label class="text-sm text-gray-600"
+                                                                                        for="">Add Notes</label>
+                                                                                    <textarea rows="3"
+                                                                                        class="relative block w-full p-2 px-3 py-3 mt-1 text-gray-900 placeholder-gray-400 border border-gray-400 rounded shadow-sm appearance-none focus:outline-none focus:ring-blue-600 focus:border-blue-600 focus:z-10"
+                                                                                        spellcheck="false"></textarea>
+                                                                                </div>
+                                                                                <div
+                                                                                    class="flex items-center gap-4 pt-6">
+                                                                                    <button
+                                                                                        class="w-full p-2 font-semibold text-gray-900 bg-gray-100 rounded">Cancel</button>
+                                                                                    <button
+                                                                                        class="w-full p-2 font-semibold text-white bg-blue-600 rounded">Save</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div x-data="{ 'showModal': false }">
+                                                                    <button @click="showModal = true"
+                                                                        class="text-sm text-blue-600">
+                                                                        Edit Note</button>
+                                                                    <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                                        x-show="showModal" style="display: none;">
+                                                                        <!-- Modal inner -->
+                                                                        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
+                                                                            @click.away="showModal = false"
+                                                                            x-transition:enter="motion-safe:ease-out duration-300"
+                                                                            x-transition:enter-start="opacity-0 scale-90"
+                                                                            x-transition:enter-end="opacity-100 scale-100">
+                                                                            <!-- Title / Close-->
+                                                                            <div
+                                                                                class="flex items-center justify-between">
+                                                                                <div>
+                                                                                    <p class="font-bold text-gray-900">
+                                                                                        Edit Note
+                                                                                    </p>
+                                                                                    <p
+                                                                                        class="text-sm font-semibold text-gray-600">
+                                                                                        Elavarasan | 27-11-2023
+                                                                                    </p>
+                                                                                </div>
+
+                                                                                <span @click="showModal = false">
+                                                                                    <svg class="w-5 h-5 text-gray-900"
+                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                        fill="none" viewBox="0 0 24 24"
+                                                                                        stroke="currentColor">
+                                                                                        <path stroke-linecap="round"
+                                                                                            stroke-linejoin="round"
+                                                                                            stroke-width="2"
+                                                                                            d="M6 18L18 6M6 6l12 12">
+                                                                                        </path>
+                                                                                    </svg>
+                                                                                </span>
+                                                                            </div>
+                                                                            <!-- content -->
+                                                                            <div class="w-full mt-4">
+                                                                                <div>
+                                                                                    <label class="text-sm text-gray-600"
+                                                                                        for="">Edit Note</label>
+                                                                                    <textarea rows="3"
+                                                                                        class="relative block w-full p-2 px-3 py-3 mt-1 text-gray-900 placeholder-gray-400 border border-gray-400 rounded shadow-sm appearance-none focus:outline-none focus:ring-blue-600 focus:border-blue-600 focus:z-10"
+                                                                                        spellcheck="false"></textarea>
+                                                                                </div>
+                                                                                <div
+                                                                                    class="flex items-center gap-4 pt-6">
+                                                                                    <button
+                                                                                        class="w-full p-2 font-semibold text-gray-900 bg-gray-100 rounded">Cancel</button>
+                                                                                    <button
+                                                                                        class="w-full p-2 font-semibold text-white bg-blue-600 rounded">Update</button>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <div x-data="{ showTooltip: false }"
+                                                                    class="relative inline-block">
+                                                                    <div class="pt-4 text-xs cursor-pointer truncate-10"
+                                                                        @mouseover="showTooltip = true"
+                                                                        @mouseout="showTooltip = false">
+                                                                        <span>Note: </span>Lorem ipsum dolor sit amet,
+                                                                        consectetur adipiscing elit.
+                                                                    </div>
+                                                                    <div x-show="showTooltip"
+                                                                        class="absolute p-4 mt-2 text-xs text-white whitespace-normal bg-gray-700 rounded w-60 tooltip">
+                                                                        <p class="text-left">
+                                                                            Lorem ipsum dolor sit amet, consectetur
+                                                                            adipiscing elit. Sed do eiusmod tempor
+                                                                            incididunt ut labore et dolore magna aliqua.
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
                                                         </div>
-
-                                                    </div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <div class="flex items-center gap-2">
@@ -848,8 +1018,12 @@
                                                                                 class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
                                                                         </div>
                                                                         <div class="flex flex-col items-start">
-                                                                            <label class="text-sm font-semibold text-gray-600" for="yValue">Type</label>
-                                                                            <select id="yValue" name="yValue" autocomplete="yValue" class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
+                                                                            <label
+                                                                                class="text-sm font-semibold text-gray-600"
+                                                                                for="yValue">Type</label>
+                                                                            <select id="yValue" name="yValue"
+                                                                                autocomplete="yValue"
+                                                                                class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
                                                                                 <option>1X Salary</option>
                                                                                 <option>1.5X Salary</option>
                                                                                 <option>2X Salary</option>
@@ -913,7 +1087,8 @@
                                                                 </div>
                                                                 <div class="pt-6">
                                                                     <div class="space-y-4">
-                                                                        <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+                                                                        <div
+                                                                            class="grid grid-cols-1 gap-4 lg:grid-cols-3">
                                                                             <div class="flex flex-col items-start">
                                                                                 <label
                                                                                     class="text-sm font-medium text-gray-600">
@@ -922,33 +1097,12 @@
                                                                                     class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
                                                                             </div>
                                                                             <div class="flex flex-col items-start">
-                                                                                <label class="text-sm font-semibold text-gray-600" for="yValue">Type</label>
-                                                                                <select id="yValue" name="yValue" autocomplete="yValue" class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
-                                                                                    <option>1X Salary</option>
-                                                                                    <option>1.5X Salary</option>
-                                                                                    <option>2X Salary</option>
-                                                                                    <option>2.5X Salary</option>
-                                                                                    </select>
-                                                                            </div>
-                                                                            <div class="flex flex-col items-start">
                                                                                 <label
-                                                                                    class="text-sm font-medium text-gray-600">
-                                                                                    Total Hours</label>
-                                                                                <input id="search" value="100"
+                                                                                    class="text-sm font-semibold text-gray-600"
+                                                                                    for="yValue">Type</label>
+                                                                                <select id="yValue" name="yValue"
+                                                                                    autocomplete="yValue"
                                                                                     class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
-                                                                            </div>
-                                                                        </div>   
-                                                                        <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
-                                                                            <div class="flex flex-col items-start">
-                                                                                <label
-                                                                                    class="text-sm font-medium text-gray-600">
-                                                                                    Early out Hours</label>
-                                                                                <input id="search" value="01:00"
-                                                                                    class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
-                                                                            </div>
-                                                                            <div class="flex flex-col items-start">
-                                                                                <label class="text-sm font-semibold text-gray-600" for="yValue">Type</label>
-                                                                                <select id="yValue" name="yValue" autocomplete="yValue" class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
                                                                                     <option>1X Salary</option>
                                                                                     <option>1.5X Salary</option>
                                                                                     <option>2X Salary</option>
@@ -962,23 +1116,28 @@
                                                                                 <input id="search" value="100"
                                                                                     class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
                                                                             </div>
-                                                                        </div>  
-                                                                        <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+                                                                        </div>
+                                                                        <div
+                                                                            class="grid grid-cols-1 gap-4 lg:grid-cols-3">
                                                                             <div class="flex flex-col items-start">
                                                                                 <label
                                                                                     class="text-sm font-medium text-gray-600">
-                                                                                    Break Hours</label>
+                                                                                    Early out Hours</label>
                                                                                 <input id="search" value="01:00"
                                                                                     class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
                                                                             </div>
                                                                             <div class="flex flex-col items-start">
-                                                                                <label class="text-sm font-semibold text-gray-600" for="yValue">Type</label>
-                                                                                <select id="yValue" name="yValue" autocomplete="yValue" class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
+                                                                                <label
+                                                                                    class="text-sm font-semibold text-gray-600"
+                                                                                    for="yValue">Type</label>
+                                                                                <select id="yValue" name="yValue"
+                                                                                    autocomplete="yValue"
+                                                                                    class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
                                                                                     <option>1X Salary</option>
                                                                                     <option>1.5X Salary</option>
                                                                                     <option>2X Salary</option>
                                                                                     <option>2.5X Salary</option>
-                                                                                    </select>
+                                                                                </select>
                                                                             </div>
                                                                             <div class="flex flex-col items-start">
                                                                                 <label
@@ -987,7 +1146,38 @@
                                                                                 <input id="search" value="100"
                                                                                     class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
                                                                             </div>
-                                                                        </div>                                                               </div>
+                                                                        </div>
+                                                                        <div
+                                                                            class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+                                                                            <div class="flex flex-col items-start">
+                                                                                <label
+                                                                                    class="text-sm font-medium text-gray-600">
+                                                                                    Break Hours</label>
+                                                                                <input id="search" value="01:00"
+                                                                                    class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
+                                                                            </div>
+                                                                            <div class="flex flex-col items-start">
+                                                                                <label
+                                                                                    class="text-sm font-semibold text-gray-600"
+                                                                                    for="yValue">Type</label>
+                                                                                <select id="yValue" name="yValue"
+                                                                                    autocomplete="yValue"
+                                                                                    class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
+                                                                                    <option>1X Salary</option>
+                                                                                    <option>1.5X Salary</option>
+                                                                                    <option>2X Salary</option>
+                                                                                    <option>2.5X Salary</option>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="flex flex-col items-start">
+                                                                                <label
+                                                                                    class="text-sm font-medium text-gray-600">
+                                                                                    Total Hours</label>
+                                                                                <input id="search" value="100"
+                                                                                    class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1044,94 +1234,123 @@
                                                                     <div class="w-full mt-4" x-data="{openTab: 1}">
                                                                         <div class="flex flex-wrap items-center gap-4">
                                                                             <div x-data="{ 'showModal1': false }"
-                                                                            @keydown.escape="showModal1 = false">
-                                                                            
-                                                                            <button  @click="showModal1 = true"
-                                                                            class="inline-block p-1 px-2 text-sm font-medium text-green-600 bg-green-100 rounded focus:bg-green-600 focus:text-white">
-                                                                            Present</button>
-                    
-                                                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
-                                                                                x-show="showModal1" style="display: none;">
-                                                                                <!-- Modal inner -->
-                                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
-                                                                                    @click.away="showModal1 = false"
-                                                                                    x-transition:enter="motion-safe:ease-out duration-300"
-                                                                                    x-transition:enter-start="opacity-0 scale-90"
-                                                                                    x-transition:enter-end="opacity-100 scale-100">
-                                                                                    <!-- Title / Close-->
-                                                                                    <div class="flex items-center justify-between">
-                                                                                        <div>
-                                                                                            <p class="font-bold text-gray-900">
-                                                                                                Elavarasan
-                                                                                            </p>
-                                                                                            <p class="text-sm font-semibold text-gray-600">
-                                                                                                Present | 27-11-2023
-                                                                                            </p>
-                                                                                        </div>
-                                                                                        <span @click="showModal1 = false">
-                                                                                            <svg class="w-5 h-5 text-gray-900"
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                fill="none" viewBox="0 0 24 24"
-                                                                                                stroke="currentColor">
-                                                                                                <path stroke-linecap="round"
-                                                                                                    stroke-linejoin="round" stroke-width="2"
-                                                                                                    d="M6 18L18 6M6 6l12 12"></path>
-                                                                                            </svg>
-                                                                                        </span>
-                                                                                    </div>
-                                                                                    <!-- content -->
-                                                                                    <div class="pt-4 space-y-4">
-                                                                                        <div>
-                                                                                            <label class="text-sm font-semibold"
-                                                                                                for="">In Time <span class="text-red-600">*</span></label>
-                                                                                            <div>
-                                                                                                <input
-                                                                                                    class="w-16 p-2 border border-gray-400 rounded-md"
-                                                                                                    type="number" placeholder="HH">
-                                                                                                <span class="font-bold">:</span>
-                                                                                                <input
-                                                                                                    class="w-16 p-2 border border-gray-400 rounded-md"
-                                                                                                    type="number" placeholder="MM">
-                                                                                                <span class="font-bold">:</span>
-                                                                                                <select
-                                                                                                    class="w-16 p-2 border border-gray-400 rounded-md">
-                                                                                                    <option value="">AM</option>
-                                                                                                    <option value="">PM</option>
-                                                                                                </select>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div>
-                                                                                            <label class="text-sm font-semibold"
-                                                                                                for="">Out Time</label>
-                                                                                            <div>
-                                                                                                <input
-                                                                                                    class="w-16 p-2 border border-gray-400 rounded-md"
-                                                                                                    type="number" placeholder="HH">
-                                                                                                <span class="font-bold">:</span>
-                                                                                                <input
-                                                                                                    class="w-16 p-2 border border-gray-400 rounded-md"
-                                                                                                    type="number" placeholder="MM">
-                                                                                                <span class="font-bold">:</span>
-                                                                                                <select
-                                                                                                    class="w-16 p-2 border border-gray-400 rounded-md">
-                                                                                                    <option value="">AM</option>
-                                                                                                    <option value="">PM</option>
-                                                                                                </select>
-                                                                                            </div>
-                                                                                        </div>
+                                                                                @keydown.escape="showModal1 = false">
+
+                                                                                <button @click="showModal1 = true"
+                                                                                    class="inline-block p-1 px-2 text-sm font-medium text-green-600 bg-green-100 rounded focus:bg-green-600 focus:text-white">
+                                                                                    Present</button>
+
+                                                                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                                                    x-show="showModal1"
+                                                                                    style="display: none;">
+                                                                                    <!-- Modal inner -->
+                                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
+                                                                                        @click.away="showModal1 = false"
+                                                                                        x-transition:enter="motion-safe:ease-out duration-300"
+                                                                                        x-transition:enter-start="opacity-0 scale-90"
+                                                                                        x-transition:enter-end="opacity-100 scale-100">
+                                                                                        <!-- Title / Close-->
                                                                                         <div
-                                                                                        class="flex items-center gap-4 pt-6 mt-4 border-t">
-                                                                                        <button
-                                                                                            class="w-full p-2 font-semibold text-gray-900 bg-gray-100 rounded">Cancel</button>
-                                                                                        <button
-                                                                                            class="w-full p-2 font-semibold text-white bg-blue-600 rounded">Save</button>
+                                                                                            class="flex items-center justify-between">
+                                                                                            <div>
+                                                                                                <p
+                                                                                                    class="font-bold text-gray-900">
+                                                                                                    Elavarasan
+                                                                                                </p>
+                                                                                                <p
+                                                                                                    class="text-sm font-semibold text-gray-600">
+                                                                                                    Present | 27-11-2023
+                                                                                                </p>
+                                                                                            </div>
+                                                                                            <span
+                                                                                                @click="showModal1 = false">
+                                                                                                <svg class="w-5 h-5 text-gray-900"
+                                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                                    fill="none"
+                                                                                                    viewBox="0 0 24 24"
+                                                                                                    stroke="currentColor">
+                                                                                                    <path
+                                                                                                        stroke-linecap="round"
+                                                                                                        stroke-linejoin="round"
+                                                                                                        stroke-width="2"
+                                                                                                        d="M6 18L18 6M6 6l12 12">
+                                                                                                    </path>
+                                                                                                </svg>
+                                                                                            </span>
+                                                                                        </div>
+                                                                                        <!-- content -->
+                                                                                        <div class="pt-4 space-y-4">
+                                                                                            <div>
+                                                                                                <label
+                                                                                                    class="text-sm font-semibold"
+                                                                                                    for="">In Time <span
+                                                                                                        class="text-red-600">*</span></label>
+                                                                                                <div>
+                                                                                                    <input
+                                                                                                        class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                                                        type="number"
+                                                                                                        placeholder="HH">
+                                                                                                    <span
+                                                                                                        class="font-bold">:</span>
+                                                                                                    <input
+                                                                                                        class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                                                        type="number"
+                                                                                                        placeholder="MM">
+                                                                                                    <span
+                                                                                                        class="font-bold">:</span>
+                                                                                                    <select
+                                                                                                        class="w-16 p-2 border border-gray-400 rounded-md">
+                                                                                                        <option
+                                                                                                            value="">AM
+                                                                                                        </option>
+                                                                                                        <option
+                                                                                                            value="">PM
+                                                                                                        </option>
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div>
+                                                                                                <label
+                                                                                                    class="text-sm font-semibold"
+                                                                                                    for="">Out
+                                                                                                    Time</label>
+                                                                                                <div>
+                                                                                                    <input
+                                                                                                        class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                                                        type="number"
+                                                                                                        placeholder="HH">
+                                                                                                    <span
+                                                                                                        class="font-bold">:</span>
+                                                                                                    <input
+                                                                                                        class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                                                        type="number"
+                                                                                                        placeholder="MM">
+                                                                                                    <span
+                                                                                                        class="font-bold">:</span>
+                                                                                                    <select
+                                                                                                        class="w-16 p-2 border border-gray-400 rounded-md">
+                                                                                                        <option
+                                                                                                            value="">AM
+                                                                                                        </option>
+                                                                                                        <option
+                                                                                                            value="">PM
+                                                                                                        </option>
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="flex items-center gap-4 pt-6 mt-4 border-t">
+                                                                                                <button
+                                                                                                    class="w-full p-2 font-semibold text-gray-900 bg-gray-100 rounded">Cancel</button>
+                                                                                                <button
+                                                                                                    class="w-full p-2 font-semibold text-white bg-blue-600 rounded">Save</button>
+                                                                                            </div>
+                                                                                        </div>
+
                                                                                     </div>
-                                                                                    </div>
-                                                                                    
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
-                                                                            
+
                                                                             <button @click="openTab = 2"
                                                                                 class="inline-block p-1 px-2 text-sm font-medium text-green-600 bg-green-100 rounded focus:bg-green-600 focus:text-white">
                                                                                 Full Day</button>
@@ -1258,82 +1477,45 @@
                                                                 class="font-semibold text-blue-600">Karthika</a>
                                                             <p class="text-sm text-gray-600">67525166</p>
                                                             <div x-data="{ 'showModal': false }"
-                                                            @keydown.escape="showModal = false">
-                                                            <button @click="showModal = true"
-                                                                class="text-sm text-blue-600">View Logs
-                                                            </button>
+                                                                @keydown.escape="showModal = false">
+                                                                <button @click="showModal = true"
+                                                                    class="text-sm text-blue-600">View Logs
+                                                                </button>
 
-                                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
-                                                                x-show="showModal" style="display: none;">
-                                                                <!-- Modal inner -->
-                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
-                                                                    @click.away="showModal = false"
-                                                                    x-transition:enter="motion-safe:ease-out duration-300"
-                                                                    x-transition:enter-start="opacity-0 scale-90"
-                                                                    x-transition:enter-end="opacity-100 scale-100">
-                                                                    <!-- Title / Close-->
-                                                                    <div class="flex items-center justify-between">
-                                                                        <p class="font-bold text-gray-900">
-                                                                            Attendance Log
-                                                                        </p>
-                                                                        <span @click="showModal = false">
-                                                                            <svg class="w-5 h-5 text-gray-900"
-                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                fill="none" viewBox="0 0 24 24"
-                                                                                stroke="currentColor">
-                                                                                <path stroke-linecap="round"
-                                                                                    stroke-linejoin="round"
-                                                                                    stroke-width="2"
-                                                                                    d="M6 18L18 6M6 6l12 12"></path>
-                                                                            </svg>
-                                                                        </span>
-                                                                    </div>
-                                                                    <!-- content -->
-                                                                    <div>
-                                                                        <p><span>Elavarasan</span> |
-                                                                            <span>25-04-2022</span>
-                                                                        </p>
-                                                                    </div>
-                                                                    <div class="pt-6 overflow-y-scroll h-72">
-                                                                        <div class="space-y-4">
-                                                                            <div>
-                                                                                <div
-                                                                                    class="flex items-center gap-2">
-                                                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                        fill="none"
-                                                                                        viewBox="0 0 24 24"
-                                                                                        stroke-width="1.5"
-                                                                                        stroke="currentColor"
-                                                                                        class="w-5 h-5 text-blue-600">
-                                                                                        <path stroke-linecap="round"
-                                                                                            stroke-linejoin="round"
-                                                                                            d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z" />
-                                                                                        <path stroke-linecap="round"
-                                                                                            stroke-linejoin="round"
-                                                                                            d="M6.75 6.75h.75v.75h-.75v-.75zM6.75 16.5h.75v.75h-.75v-.75zM16.5 6.75h.75v.75h-.75v-.75zM13.5 13.5h.75v.75h-.75v-.75zM13.5 19.5h.75v.75h-.75v-.75zM19.5 13.5h.75v.75h-.75v-.75zM19.5 19.5h.75v.75h-.75v-.75zM16.5 16.5h.75v.75h-.75v-.75z" />
-                                                                                    </svg>
-                                                                                    <span
-                                                                                        class="text-sm font-semibold text-gray-600">Punched
-                                                                                        via QR
-                                                                                        Code</span>
-                                                                                </div>
-                                                                                <div
-                                                                                    class="flex items-center gap-2">
-                                                                                    <p
-                                                                                        class="text-sm font-bold text-gray-900">
-                                                                                        In Time : 25-04-2023
-                                                                                        10:00:00
-                                                                                    </p>
-
-                                                                                </div>
-
-                                                                                <p class="text-xs text-gray-600">
-                                                                                    20/5, Thondikaradu,
-                                                                                    Tiruchengode, Namakkal
-                                                                                </p>
-                                                                            </div>
-                                                                            <div class="flex items-center justify-between gap-8">
-                                                                                <div class="w-3/4">
+                                                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                                    x-show="showModal" style="display: none;">
+                                                                    <!-- Modal inner -->
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
+                                                                        @click.away="showModal = false"
+                                                                        x-transition:enter="motion-safe:ease-out duration-300"
+                                                                        x-transition:enter-start="opacity-0 scale-90"
+                                                                        x-transition:enter-end="opacity-100 scale-100">
+                                                                        <!-- Title / Close-->
+                                                                        <div class="flex items-center justify-between">
+                                                                            <p class="font-bold text-gray-900">
+                                                                                Attendance Log
+                                                                            </p>
+                                                                            <span @click="showModal = false">
+                                                                                <svg class="w-5 h-5 text-gray-900"
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    fill="none" viewBox="0 0 24 24"
+                                                                                    stroke="currentColor">
+                                                                                    <path stroke-linecap="round"
+                                                                                        stroke-linejoin="round"
+                                                                                        stroke-width="2"
+                                                                                        d="M6 18L18 6M6 6l12 12"></path>
+                                                                                </svg>
+                                                                            </span>
+                                                                        </div>
+                                                                        <!-- content -->
+                                                                        <div>
+                                                                            <p><span>Elavarasan</span> |
+                                                                                <span>25-04-2022</span>
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="pt-6 overflow-y-scroll h-72">
+                                                                            <div class="space-y-4">
+                                                                                <div>
                                                                                     <div
                                                                                         class="flex items-center gap-2">
                                                                                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -1344,243 +1526,295 @@
                                                                                             class="w-5 h-5 text-blue-600">
                                                                                             <path stroke-linecap="round"
                                                                                                 stroke-linejoin="round"
-                                                                                                d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                                                                                                d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z" />
+                                                                                            <path stroke-linecap="round"
+                                                                                                stroke-linejoin="round"
+                                                                                                d="M6.75 6.75h.75v.75h-.75v-.75zM6.75 16.5h.75v.75h-.75v-.75zM16.5 6.75h.75v.75h-.75v-.75zM13.5 13.5h.75v.75h-.75v-.75zM13.5 19.5h.75v.75h-.75v-.75zM19.5 13.5h.75v.75h-.75v-.75zM19.5 19.5h.75v.75h-.75v-.75zM16.5 16.5h.75v.75h-.75v-.75z" />
                                                                                         </svg>
-    
                                                                                         <span
                                                                                             class="text-sm font-semibold text-gray-600">Punched
-                                                                                            via Selfie</span>
+                                                                                            via QR
+                                                                                            Code</span>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="flex items-center gap-2">
+                                                                                        <p
+                                                                                            class="text-sm font-bold text-gray-900">
+                                                                                            In Time : 25-04-2023
+                                                                                            10:00:00
+                                                                                        </p>
+
+                                                                                    </div>
+
+                                                                                    <p class="text-xs text-gray-600">
+                                                                                        20/5, Thondikaradu,
+                                                                                        Tiruchengode, Namakkal
+                                                                                    </p>
+                                                                                </div>
+                                                                                <div
+                                                                                    class="flex items-center justify-between gap-8">
+                                                                                    <div class="w-3/4">
+                                                                                        <div
+                                                                                            class="flex items-center gap-2">
+                                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                fill="none"
+                                                                                                viewBox="0 0 24 24"
+                                                                                                stroke-width="1.5"
+                                                                                                stroke="currentColor"
+                                                                                                class="w-5 h-5 text-blue-600">
+                                                                                                <path
+                                                                                                    stroke-linecap="round"
+                                                                                                    stroke-linejoin="round"
+                                                                                                    d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                                                                                            </svg>
+
+                                                                                            <span
+                                                                                                class="text-sm font-semibold text-gray-600">Punched
+                                                                                                via Selfie</span>
+                                                                                        </div>
+                                                                                        <p
+                                                                                            class="text-sm font-bold text-gray-900">
+                                                                                            Out Time : 25-04-2023
+                                                                                            11:02:00
+                                                                                        </p>
+                                                                                        <p
+                                                                                            class="text-xs text-gray-600">
+                                                                                            20/5, Thondikaradu,
+                                                                                            Tiruchengode, Namakkal,
+                                                                                            Tamilnadu
+                                                                                        </p>
+                                                                                    </div>
+                                                                                    <div class="w-1/4">
+                                                                                        <img class="w-full h-full rounded-full"
+                                                                                            src="https://randomuser.me/api/portraits/women/65.jpg"
+                                                                                            alt="">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <div
+                                                                                        class="flex items-center gap-2">
+                                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                            fill="none"
+                                                                                            viewBox="0 0 24 24"
+                                                                                            stroke-width="1.5"
+                                                                                            stroke="currentColor"
+                                                                                            class="w-5 h-5 text-blue-600">
+                                                                                            <path stroke-linecap="round"
+                                                                                                stroke-linejoin="round"
+                                                                                                d="M10.5 19.5h3m-6.75 2.25h10.5a2.25 2.25 0 002.25-2.25v-15a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 4.5v15a2.25 2.25 0 002.25 2.25z" />
+                                                                                        </svg>
+
+                                                                                        <span
+                                                                                            class="text-sm font-semibold text-gray-600">Punched
+                                                                                            via Mirror App</span>
                                                                                     </div>
                                                                                     <p
                                                                                         class="text-sm font-bold text-gray-900">
-                                                                                        Out Time : 25-04-2023 11:02:00
+                                                                                        In Time : 25-04-2023 11:15:00
+                                                                                    </p>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <div
+                                                                                        class="flex items-center gap-2">
+                                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                            class="w-5 h-5 text-blue-600 icon icon-tabler icon-tabler-device-landline-phone"
+                                                                                            viewBox="0 0 24 24"
+                                                                                            stroke-width="2"
+                                                                                            stroke="currentColor"
+                                                                                            fill="none"
+                                                                                            stroke-linecap="round"
+                                                                                            stroke-linejoin="round">
+                                                                                            <path stroke="none"
+                                                                                                d="M0 0h24v24H0z"
+                                                                                                fill="none"></path>
+                                                                                            <path
+                                                                                                d="M20 3h-2a2 2 0 0 0 -2 2v14a2 2 0 0 0 2 2h2a2 2 0 0 0 2 -2v-14a2 2 0 0 0 -2 -2z">
+                                                                                            </path>
+                                                                                            <path
+                                                                                                d="M16 4h-11a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h11">
+                                                                                            </path>
+                                                                                            <path d="M12 8h-6v3h6z">
+                                                                                            </path>
+                                                                                            <path d="M12 14v.01"></path>
+                                                                                            <path d="M9 14v.01"></path>
+                                                                                            <path d="M6 14v.01"></path>
+                                                                                            <path d="M12 17v.01"></path>
+                                                                                            <path d="M9 17v.01"></path>
+                                                                                            <path d="M6 17v.01"></path>
+                                                                                        </svg>
+                                                                                        <span
+                                                                                            class="text-sm font-semibold text-gray-600">Punched
+                                                                                            via Biometric, ESSL 1</span>
+                                                                                    </div>
+                                                                                    <p
+                                                                                        class="text-sm font-bold text-gray-900">
+                                                                                        In Time : 25-04-2023 13:30:00
+                                                                                    </p>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <div
+                                                                                        class="flex items-center gap-2">
+                                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                            fill="none"
+                                                                                            viewBox="0 0 24 24"
+                                                                                            stroke-width="1.5"
+                                                                                            stroke="currentColor"
+                                                                                            class="w-5 h-5 text-blue-600">
+                                                                                            <path stroke-linecap="round"
+                                                                                                stroke-linejoin="round"
+                                                                                                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                                                                        </svg>
+
+                                                                                        <span
+                                                                                            class="text-sm font-semibold text-gray-600">Punchout
+                                                                                            Added
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <p
+                                                                                        class="text-sm font-bold text-gray-900">
+                                                                                        Out Time : 25-04-2023 13:00:00
                                                                                     </p>
                                                                                     <p class="text-xs text-gray-600">
-                                                                                        20/5, Thondikaradu,
-                                                                                        Tiruchengode, Namakkal, Tamilnadu
+                                                                                        04-10-2023 15:03 | Elavarasan
                                                                                     </p>
                                                                                 </div>
-                                                                                <div class="w-1/4">
-                                                                                    <img class="w-full h-full rounded-full" src="https://randomuser.me/api/portraits/women/65.jpg" alt="">
-                                                                                </div>    
-                                                                            </div>
-                                                                            <div>
-                                                                                <div
-                                                                                    class="flex items-center gap-2">
-                                                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                        fill="none"
-                                                                                        viewBox="0 0 24 24"
-                                                                                        stroke-width="1.5"
-                                                                                        stroke="currentColor"
-                                                                                        class="w-5 h-5 text-blue-600">
-                                                                                        <path stroke-linecap="round"
-                                                                                            stroke-linejoin="round"
-                                                                                            d="M10.5 19.5h3m-6.75 2.25h10.5a2.25 2.25 0 002.25-2.25v-15a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 4.5v15a2.25 2.25 0 002.25 2.25z" />
-                                                                                    </svg>
+                                                                                <div>
+                                                                                    <div
+                                                                                        class="flex items-center gap-2">
+                                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                            fill="none"
+                                                                                            viewBox="0 0 24 24"
+                                                                                            stroke-width="1.5"
+                                                                                            stroke="currentColor"
+                                                                                            class="w-5 h-5 text-blue-600">
+                                                                                            <path stroke-linecap="round"
+                                                                                                stroke-linejoin="round"
+                                                                                                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                                                                        </svg>
 
-                                                                                    <span
-                                                                                        class="text-sm font-semibold text-gray-600">Punched
-                                                                                        via Mirror App</span>
+                                                                                        <span
+                                                                                            class="text-sm font-semibold text-gray-600">Status
+                                                                                            Updated
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <p
+                                                                                        class="text-sm font-bold text-gray-900">
+                                                                                        Forgot Out -> Present</p>
+                                                                                    <p class="text-xs text-gray-600">
+                                                                                        04-10-2023 15:03 | Elavarasan
+                                                                                    </p>
                                                                                 </div>
-                                                                                <p
-                                                                                    class="text-sm font-bold text-gray-900">
-                                                                                    In Time : 25-04-2023 11:15:00
-                                                                                </p>
-                                                                            </div>                                                                            <div>
-                                                                                <div
-                                                                                    class="flex items-center gap-2">
-                                                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                        class="w-5 h-5 text-blue-600 icon icon-tabler icon-tabler-device-landline-phone"
-                                                                                        viewBox="0 0 24 24"
-                                                                                        stroke-width="2"
-                                                                                        stroke="currentColor"
-                                                                                        fill="none"
-                                                                                        stroke-linecap="round"
-                                                                                        stroke-linejoin="round">
-                                                                                        <path stroke="none"
-                                                                                            d="M0 0h24v24H0z"
-                                                                                            fill="none"></path>
-                                                                                        <path
-                                                                                            d="M20 3h-2a2 2 0 0 0 -2 2v14a2 2 0 0 0 2 2h2a2 2 0 0 0 2 -2v-14a2 2 0 0 0 -2 -2z">
-                                                                                        </path>
-                                                                                        <path
-                                                                                            d="M16 4h-11a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h11">
-                                                                                        </path>
-                                                                                        <path d="M12 8h-6v3h6z">
-                                                                                        </path>
-                                                                                        <path d="M12 14v.01"></path>
-                                                                                        <path d="M9 14v.01"></path>
-                                                                                        <path d="M6 14v.01"></path>
-                                                                                        <path d="M12 17v.01"></path>
-                                                                                        <path d="M9 17v.01"></path>
-                                                                                        <path d="M6 17v.01"></path>
-                                                                                    </svg>
-                                                                                    <span
-                                                                                        class="text-sm font-semibold text-gray-600">Punched
-                                                                                        via Biometric, ESSL 1</span>
-                                                                                </div>
-                                                                                <p
-                                                                                    class="text-sm font-bold text-gray-900">
-                                                                                    In Time : 25-04-2023 13:30:00
-                                                                                </p>                                                                                
-                                                                            </div>
-                                                                            <div>
-                                                                                <div
-                                                                                    class="flex items-center gap-2">
-                                                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                        fill="none"
-                                                                                        viewBox="0 0 24 24"
-                                                                                        stroke-width="1.5"
-                                                                                        stroke="currentColor"
-                                                                                        class="w-5 h-5 text-blue-600">
-                                                                                        <path stroke-linecap="round"
-                                                                                            stroke-linejoin="round"
-                                                                                            d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                                                                                    </svg>
+                                                                                <div>
+                                                                                    <div
+                                                                                        class="flex items-center gap-2">
+                                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                            fill="none"
+                                                                                            viewBox="0 0 24 24"
+                                                                                            stroke-width="1.5"
+                                                                                            stroke="currentColor"
+                                                                                            class="w-5 h-5 text-blue-600">
+                                                                                            <path stroke-linecap="round"
+                                                                                                stroke-linejoin="round"
+                                                                                                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                                                                        </svg>
 
-                                                                                    <span
-                                                                                        class="text-sm font-semibold text-gray-600">Punchout Added 
-                                                                                    </span>
+                                                                                        <span
+                                                                                            class="text-sm font-semibold text-gray-600">Changed
+                                                                                            Punch In Time
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <p
+                                                                                        class="text-sm font-bold text-gray-900">
+                                                                                        From 10:00 AM To 10:15 AM</p>
+                                                                                    <p class="text-xs text-gray-600">
+                                                                                        04-10-2023 15:03 | Elavarasan
+                                                                                    </p>
                                                                                 </div>
-                                                                                <p
-                                                                                    class="text-sm font-bold text-gray-900">
-                                                                                    Out Time : 25-04-2023 13:00:00
-                                                                                </p>
-                                                                                <p class="text-xs text-gray-600">
-                                                                                    04-10-2023 15:03 | Elavarasan 
-                                                                                </p>
-                                                                            </div>
-                                                                            <div>
-                                                                                <div
-                                                                                    class="flex items-center gap-2">
-                                                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                        fill="none"
-                                                                                        viewBox="0 0 24 24"
-                                                                                        stroke-width="1.5"
-                                                                                        stroke="currentColor"
-                                                                                        class="w-5 h-5 text-blue-600">
-                                                                                        <path stroke-linecap="round"
-                                                                                            stroke-linejoin="round"
-                                                                                            d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                                                                                    </svg>
+                                                                                <div>
+                                                                                    <div
+                                                                                        class="flex items-center gap-2">
+                                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                            fill="none"
+                                                                                            viewBox="0 0 24 24"
+                                                                                            stroke-width="1.5"
+                                                                                            stroke="currentColor"
+                                                                                            class="w-5 h-5 text-blue-600">
+                                                                                            <path stroke-linecap="round"
+                                                                                                stroke-linejoin="round"
+                                                                                                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                                                                        </svg>
 
-                                                                                    <span
-                                                                                        class="text-sm font-semibold text-gray-600">Status Updated  
-                                                                                    </span>
+                                                                                        <span
+                                                                                            class="text-sm font-semibold text-gray-600">Changed
+                                                                                            Punch Out Time
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <p
+                                                                                        class="text-sm font-bold text-gray-900">
+                                                                                        From 05:00 PM To 05:15 PM</p>
+                                                                                    <p class="text-xs text-gray-600">
+                                                                                        04-10-2023 15:03 | Elavarasan
+                                                                                    </p>
                                                                                 </div>
-                                                                                <p
-                                                                                    class="text-sm font-bold text-gray-900">
-                                                                                    Forgot Out -> Present</p>
-                                                                                <p class="text-xs text-gray-600">
-                                                                                    04-10-2023 15:03 | Elavarasan 
-                                                                                </p>
-                                                                            </div>
-                                                                            <div>
-                                                                                <div
-                                                                                    class="flex items-center gap-2">
-                                                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                        fill="none"
-                                                                                        viewBox="0 0 24 24"
-                                                                                        stroke-width="1.5"
-                                                                                        stroke="currentColor"
-                                                                                        class="w-5 h-5 text-blue-600">
-                                                                                        <path stroke-linecap="round"
-                                                                                            stroke-linejoin="round"
-                                                                                            d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                                                                                    </svg>
+                                                                                <div>
+                                                                                    <div
+                                                                                        class="flex items-center gap-2">
+                                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                            fill="none"
+                                                                                            viewBox="0 0 24 24"
+                                                                                            stroke-width="1.5"
+                                                                                            stroke="currentColor"
+                                                                                            class="w-5 h-5 text-blue-600">
+                                                                                            <path stroke-linecap="round"
+                                                                                                stroke-linejoin="round"
+                                                                                                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                                                                        </svg>
 
-                                                                                    <span
-                                                                                        class="text-sm font-semibold text-gray-600">Changed Punch In Time   
-                                                                                    </span>
+                                                                                        <span
+                                                                                            class="text-sm font-semibold text-gray-600">Time
+                                                                                            Correction Request Approved
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <p
+                                                                                        class="text-sm font-bold text-gray-900">
+                                                                                        From 05:00 PM To 05:15 PM</p>
+                                                                                    <p class="text-xs text-gray-600">
+                                                                                        04-10-2023 15:03 | Elavarasan
+                                                                                    </p>
                                                                                 </div>
-                                                                                <p
-                                                                                    class="text-sm font-bold text-gray-900">
-                                                                                    From 10:00 AM To 10:15 AM</p>
-                                                                                <p class="text-xs text-gray-600">
-                                                                                    04-10-2023 15:03 | Elavarasan 
-                                                                                </p>
-                                                                            </div>
-                                                                            <div>
-                                                                                <div
-                                                                                    class="flex items-center gap-2">
-                                                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                        fill="none"
-                                                                                        viewBox="0 0 24 24"
-                                                                                        stroke-width="1.5"
-                                                                                        stroke="currentColor"
-                                                                                        class="w-5 h-5 text-blue-600">
-                                                                                        <path stroke-linecap="round"
-                                                                                            stroke-linejoin="round"
-                                                                                            d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                                                                                    </svg>
+                                                                                <div>
+                                                                                    <div
+                                                                                        class="flex items-center gap-2">
+                                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                            fill="none"
+                                                                                            viewBox="0 0 24 24"
+                                                                                            stroke-width="1.5"
+                                                                                            stroke="currentColor"
+                                                                                            class="w-5 h-5 text-blue-600">
+                                                                                            <path stroke-linecap="round"
+                                                                                                stroke-linejoin="round"
+                                                                                                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                                                                        </svg>
 
-                                                                                    <span
-                                                                                        class="text-sm font-semibold text-gray-600">Changed Punch Out Time
-                                                                                    </span>
+                                                                                        <span
+                                                                                            class="text-sm font-semibold text-gray-600">Approved
+                                                                                            Leave Request Canceled
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <p
+                                                                                        class="text-sm font-bold text-gray-900">
+                                                                                        From CL-Paid Leave To Present
+                                                                                    </p>
+                                                                                    <p class="text-xs text-gray-600">
+                                                                                        04-10-2023 15:03 | Elavarasan
+                                                                                    </p>
                                                                                 </div>
-                                                                                <p
-                                                                                    class="text-sm font-bold text-gray-900">
-                                                                                    From 05:00 PM To 05:15 PM</p>
-                                                                                <p class="text-xs text-gray-600">
-                                                                                    04-10-2023 15:03 | Elavarasan 
-                                                                                </p>
-                                                                            </div>
-                                                                            <div>
-                                                                                <div
-                                                                                    class="flex items-center gap-2">
-                                                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                        fill="none"
-                                                                                        viewBox="0 0 24 24"
-                                                                                        stroke-width="1.5"
-                                                                                        stroke="currentColor"
-                                                                                        class="w-5 h-5 text-blue-600">
-                                                                                        <path stroke-linecap="round"
-                                                                                            stroke-linejoin="round"
-                                                                                            d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                                                                                    </svg>
 
-                                                                                    <span
-                                                                                        class="text-sm font-semibold text-gray-600">Time Correction Request Approved
-                                                                                    </span>
-                                                                                </div>
-                                                                                <p
-                                                                                    class="text-sm font-bold text-gray-900">
-                                                                                    From 05:00 PM To 05:15 PM</p>
-                                                                                <p class="text-xs text-gray-600">
-                                                                                    04-10-2023 15:03 | Elavarasan 
-                                                                                </p>
                                                                             </div>
-                                                                            <div>
-                                                                                <div
-                                                                                    class="flex items-center gap-2">
-                                                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                        fill="none"
-                                                                                        viewBox="0 0 24 24"
-                                                                                        stroke-width="1.5"
-                                                                                        stroke="currentColor"
-                                                                                        class="w-5 h-5 text-blue-600">
-                                                                                        <path stroke-linecap="round"
-                                                                                            stroke-linejoin="round"
-                                                                                            d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                                                                                    </svg>
-
-                                                                                    <span
-                                                                                        class="text-sm font-semibold text-gray-600">Approved Leave Request Canceled
-                                                                                    </span>
-                                                                                </div>
-                                                                                <p
-                                                                                    class="text-sm font-bold text-gray-900">
-                                                                                    From CL-Paid Leave To Present</p>
-                                                                                <p class="text-xs text-gray-600">
-                                                                                    04-10-2023 15:03 | Elavarasan 
-                                                                                </p>
-                                                                            </div>
-                                                                            
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
                                                         </div>
 
                                                     </div>

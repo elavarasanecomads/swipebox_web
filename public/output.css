@@ -708,6 +708,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin: 1rem;
 }
 
+.m-12 {
+  margin: 3rem;
+}
+
 .m-1 {
   margin: 0.25rem;
 }
@@ -1154,12 +1158,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 80%;
 }
 
-.w-44 {
-  width: 11rem;
-}
-
 .w-60 {
   width: 15rem;
+}
+
+.w-44 {
+  width: 11rem;
 }
 
 .w-40 {
@@ -2076,6 +2080,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(236 252 203 / var(--tw-bg-opacity));
 }
 
+.bg-gray-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+}
+
 .bg-teal-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(204 251 241 / var(--tw-bg-opacity));
@@ -2931,6 +2940,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .ease-in {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+
+.truncate-10 {
+  max-width: 6rem;
+  /* 10 characters at default font size */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .hover\:border:hover {
