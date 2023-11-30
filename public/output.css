@@ -1146,6 +1146,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 4rem;
 }
 
+.w-44 {
+  width: 11rem;
+}
+
+.w-96 {
+  width: 24rem;
+}
+
+.w-max {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
 .w-36 {
   width: 9rem;
 }
@@ -1162,16 +1176,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 15rem;
 }
 
-.w-44 {
-  width: 11rem;
-}
-
 .w-40 {
   width: 10rem;
-}
-
-.w-96 {
-  width: 24rem;
 }
 
 .w-14 {
@@ -1226,12 +1232,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   min-width: 100%;
 }
 
-.max-w-5xl {
-  max-width: 64rem;
+.min-w-min {
+  min-width: -webkit-min-content;
+  min-width: -moz-min-content;
+  min-width: min-content;
 }
 
 .max-w-xl {
   max-width: 36rem;
+}
+
+.max-w-5xl {
+  max-width: 64rem;
 }
 
 .max-w-md {
@@ -1260,6 +1272,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .max-w-4xl {
   max-width: 56rem;
+}
+
+.max-w-lg {
+  max-width: 32rem;
+}
+
+.max-w-2xl {
+  max-width: 42rem;
 }
 
 .flex-auto {
@@ -3107,6 +3127,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 
+.hover\:text-blue-600:hover {
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity));
+}
+
 .hover\:text-gray-400:hover {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
@@ -3115,11 +3140,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hover\:text-blue-700:hover {
   --tw-text-opacity: 1;
   color: rgb(29 78 216 / var(--tw-text-opacity));
-}
-
-.hover\:text-blue-600:hover {
-  --tw-text-opacity: 1;
-  color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 
 .hover\:text-white:hover {
@@ -3779,6 +3799,14 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 18rem;
   }
 
+  .lg\:w-60 {
+    width: 15rem;
+  }
+
+  .lg\:w-96 {
+    width: 24rem;
+  }
+
   .lg\:w-44 {
     width: 11rem;
   }
@@ -3807,6 +3835,20 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 8rem;
   }
 
+  .lg\:max-w-min {
+    max-width: -webkit-min-content;
+    max-width: -moz-min-content;
+    max-width: min-content;
+  }
+
+  .lg\:max-w-7xl {
+    max-width: 80rem;
+  }
+
+  .lg\:max-w-4xl {
+    max-width: 56rem;
+  }
+
   .lg\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -3815,12 +3857,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .lg\:grid-cols-6 {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-  }
-
   .lg\:grid-cols-5 {
     grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
   .lg\:grid-cols-4 {
@@ -3972,5 +4014,23 @@ Ensure the default browser behavior of the `hidden` attribute.
 @media (min-width: 1280px) {
   .xl\:hidden {
     display: none;
+  }
+
+  .xl\:w-full {
+    width: 100%;
+  }
+
+  .xl\:max-w-full {
+    max-width: 100%;
+  }
+
+  .xl\:max-w-6xl {
+    max-width: 72rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .\32xl\:max-w-full {
+    max-width: 100%;
   }
 }

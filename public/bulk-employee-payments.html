@@ -1,0 +1,1280 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk Employee Payments</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="h-full p-4 bg-white border rounded-md lg:p-8" x-data="{ isOpen: false }">
+                    <!--Brudcrumb-->
+                    <div class="flex items-center justify-between pt-6">
+                        <div class="pb-6">
+                            <p class="text-2xl font-bold"></p>
+                        </div>
+                    </div>
+
+
+
+                    <div x-data="{
+                        openTab: 1,
+                        activeClasses: 'border-b-2 border-blue-600 text-blue-600',
+                        inactiveClasses: ''
+                    }">
+                        <div class="grid grid-cols-2 pt-2 border-b lg:grid-cols-6">
+                            <div class="col-span-1" @click="openTab = 1">
+                                <button
+                                    class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
+                                    :class="openTab === 1 ? activeClasses : inactiveClasses">Bonus / Insentive</button>
+                            </div>
+                            <div class="col-span-1" @click="openTab = 2">
+                                <button
+                                    class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
+                                    :class="openTab === 2 ? activeClasses : inactiveClasses">Allowance</button>
+                            </div>
+                            <div class="col-span-1" @click="openTab = 3">
+                                <button
+                                    class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
+                                    :class="openTab === 3 ? activeClasses : inactiveClasses">Deductions</button>
+                            </div>
+                            <div class="col-span-1" @click="openTab = 4">
+                                <button
+                                    class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
+                                    :class="openTab === 4 ? activeClasses : inactiveClasses">Loan</button>
+                            </div>
+                            <div class="col-span-1" @click="openTab = 5">
+                                <button
+                                    class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
+                                    :class="openTab === 5 ? activeClasses : inactiveClasses">Advance</button>
+                            </div>
+                            <div class="col-span-1" @click="openTab = 6">
+                                <button
+                                    class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
+                                    :class="openTab === 6 ? activeClasses : inactiveClasses">TDS Deductions
+                                </button>
+                            </div>
+                            <div class="col-span-1" @click="openTab = 7">
+                                <button
+                                    class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
+                                    :class="openTab === 7 ? activeClasses : inactiveClasses">PT Deductions
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 1" style="display: none;">
+                            <div>
+                                <div>
+                                    <div class="flex items-center gap-4 pb-8">
+                                        <div>
+                                            <span class="inline-block w-full rounded shadow-sm">
+                                                <button
+                                                    class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-60 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                                    type="button" aria-haspopup="listbox" aria-expanded="true"
+                                                    aria-label="search" aria-checked="false">
+
+                                                    <input id="search" type="search"
+                                                        placeholder="Search by name, email, mobile"
+                                                        class="w-full h-full form-control focus:outline-none">
+
+                                                    <span
+                                                        class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                        <svg class="w-6 h-6 text-gray-600"
+                                                            xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                                        </svg>
+                                                    </span>
+                                                </button>
+                                            </span>
+                                        </div>
+                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                            class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>All Branches</option>
+                                            <option>Ecomads Pvt Ltd, Covai</option>
+                                            <option>Ecomads Pvt Ltd, Tiruchengode</option>
+                                        </select>
+                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                            class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>All Departments</option>
+                                            <option>Sales</option>
+                                            <option>Purchase</option>
+                                        </select>
+                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                            class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>Nov 2023</option>
+                                            <option>Oct 2023</option>
+                                            <option>Sep 2023</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div>
+                                    <div class="relative">
+                                        <div class="w-full overflow-x-scroll lg:max-w-4xl 2xl:max-w-full">
+                                            <table class="divide-y divide-gray-200 table-auto">
+                                                <thead
+                                                    class="text-xs font-medium tracking-wider text-left text-white uppercase bg-blue-600 whitespace-nowrap">
+                                                    <tr class="py-4 divide-x">
+                                                        <th scope="col" class="sticky left-0 z-10 p-4 bg-blue-600">
+                                                            Name</th>
+                                                        <th scope="col" class="p-4">
+                                                            Mobile Number</th>
+                                                        <th scope="col" class="p-4">
+                                                            Employee Id</th>
+                                                        <th scope="col" class="p-4">
+                                                            Bonus Amount</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody
+                                                    class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
+                                                    <tr>
+                                                        <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                                            <div class="flex items-center gap-2 w-max">
+                                                                <img class="w-8 h-8 rounded-full"
+                                                                    src="https://randomuser.me/api/portraits/men/11.jpg"
+                                                                    alt="">
+                                                                <a href="" class="font-medium text-blue-600">John
+                                                                    Doe</a>
+                                                            </div>
+                                                        </td>
+                                                        <td class="p-4">9192939494</td>
+                                                        <td class="p-4">NA-1362</td>
+                                                        <td class="p-4">₹ 2000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                                            <div class="flex items-center gap-2 w-max">
+                                                                <img class="w-8 h-8 rounded-full"
+                                                                    src="https://randomuser.me/api/portraits/men/12.jpg"
+                                                                    alt="">
+                                                                <a href="" class="font-medium text-blue-600">Thomsan
+                                                                    Edward</a>
+                                                            </div>
+                                                        </td>
+                                                        <td class="p-4">8907896789</td>
+                                                        <td class="p-4">NA-1363</td>
+                                                        <td class="p-4">₹ 1000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                                            <p class="font-semibold">Total</p>
+                                                        </td>
+                                                        <td class="p-4"></td>
+                                                        <td class="p-4"></td>
+                                                        <td class="p-4 font-semibold">₹ 3000</td>
+                                                    </tr>
+                                                    <!-- Add more rows as needed -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="flex flex-col items-center justify-center gap-4 pt-6 lg:flex-row lg:justify-between">
+                                        <div class="flex items-center">
+                                            <p class="pr-2 text-sm font-medium">Rows per page</p>
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                <option>10</option>
+                                                <option>25</option>
+                                                <option>50</option>
+                                                <option>100</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <nav class="relative z-0 inline-flex -space-x-px shadow-sm"
+                                                aria-label="Pagination">
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-blue-100">
+                                                    <span class="sr-only">Previous</span>
+                                                    <!-- Heroicon name: chevron-left -->
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                        <path fill-rule="evenodd"
+                                                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    1
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    2
+                                                </a>
+                                                <a href="#"
+                                                    class="relative items-center hidden px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 md:inline-flex hover:bg-blue-100">
+                                                    3
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    4
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    5
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-blue-100">
+                                                    <span class="sr-only">Next</span>
+                                                    <!-- Heroicon name: chevron-right -->
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                        <path fill-rule="evenodd"
+                                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </a>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 2" style="display: none;">
+                            <div>
+                                <div class="flex items-center gap-4 pb-8">
+                                    <div>
+                                        <span class="inline-block w-full rounded shadow-sm">
+                                            <button
+                                                class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-60 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                                type="button" aria-haspopup="listbox" aria-expanded="true"
+                                                aria-label="search" aria-checked="false">
+
+                                                <input id="search" type="search"
+                                                    placeholder="Search by name, email, mobile"
+                                                    class="w-full h-full form-control focus:outline-none">
+
+                                                <span
+                                                    class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                    <svg class="w-6 h-6 text-gray-600"
+                                                        xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All Branches</option>
+                                        <option>Ecomads Pvt Ltd, Covai</option>
+                                        <option>Ecomads Pvt Ltd, Tiruchengode</option>
+                                    </select>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All Departments</option>
+                                        <option>Sales</option>
+                                        <option>Purchase</option>
+                                    </select>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>Nov 2023</option>
+                                        <option>Oct 2023</option>
+                                        <option>Sep 2023</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <div class="relative">
+                                        <div class="w-full overflow-x-scroll lg:max-w-4xl 2xl:max-w-full">
+                                            <table class="divide-y divide-gray-200 table-auto">
+                                                <thead
+                                                    class="text-xs font-medium tracking-wider text-left text-white uppercase bg-blue-600 whitespace-nowrap">
+                                                    <tr class="py-4 divide-x">
+                                                        <th scope="col" class="sticky left-0 z-10 p-4 bg-blue-600">
+                                                            Name</th>
+                                                        <th scope="col" class="p-4">
+                                                            Mobile Number</th>
+                                                        <th scope="col" class="p-4">
+                                                            Employee Id</th>
+                                                        <th scope="col" class="p-4">
+                                                            Allowance Amount</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody
+                                                    class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
+                                                    <tr>
+                                                        <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                                            <div class="flex items-center gap-2 w-max">
+                                                                <img class="w-8 h-8 rounded-full"
+                                                                    src="https://randomuser.me/api/portraits/men/11.jpg"
+                                                                    alt="">
+                                                                <a href="" class="font-medium text-blue-600">John
+                                                                    Doe</a>
+                                                            </div>
+                                                        </td>
+                                                        <td class="p-4">9192939494</td>
+                                                        <td class="p-4">NA-1362</td>
+                                                        <td class="p-4">₹ 2000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                                            <div class="flex items-center gap-2 w-max">
+                                                                <img class="w-8 h-8 rounded-full"
+                                                                    src="https://randomuser.me/api/portraits/men/12.jpg"
+                                                                    alt="">
+                                                                <a href="" class="font-medium text-blue-600">Thomsan
+                                                                    Edward</a>
+                                                            </div>
+                                                        </td>
+                                                        <td class="p-4">8907896789</td>
+                                                        <td class="p-4">NA-1363</td>
+                                                        <td class="p-4">₹ 1000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                                            <p class="font-semibold">Total</p>
+                                                        </td>
+                                                        <td class="p-4"></td>
+                                                        <td class="p-4"></td>
+                                                        <td class="p-4 font-semibold">₹ 3000</td>
+                                                    </tr>
+                                                    <!-- Add more rows as needed -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="flex flex-col items-center justify-center gap-4 pt-6 lg:flex-row lg:justify-between">
+                                        <div class="flex items-center">
+                                            <p class="pr-2 text-sm font-medium">Rows per page</p>
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                <option>10</option>
+                                                <option>25</option>
+                                                <option>50</option>
+                                                <option>100</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <nav class="relative z-0 inline-flex -space-x-px shadow-sm"
+                                                aria-label="Pagination">
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-blue-100">
+                                                    <span class="sr-only">Previous</span>
+                                                    <!-- Heroicon name: chevron-left -->
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                        <path fill-rule="evenodd"
+                                                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    1
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    2
+                                                </a>
+                                                <a href="#"
+                                                    class="relative items-center hidden px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 md:inline-flex hover:bg-blue-100">
+                                                    3
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    4
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    5
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-blue-100">
+                                                    <span class="sr-only">Next</span>
+                                                    <!-- Heroicon name: chevron-right -->
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                        <path fill-rule="evenodd"
+                                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </a>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 3" style="display: none;">
+                            <div>
+                                <div class="flex items-center gap-4 pb-8">
+                                    <div>
+                                        <span class="inline-block w-full rounded shadow-sm">
+                                            <button
+                                                class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-60 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                                type="button" aria-haspopup="listbox" aria-expanded="true"
+                                                aria-label="search" aria-checked="false">
+
+                                                <input id="search" type="search"
+                                                    placeholder="Search by name, email, mobile"
+                                                    class="w-full h-full form-control focus:outline-none">
+
+                                                <span
+                                                    class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                    <svg class="w-6 h-6 text-gray-600"
+                                                        xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All Branches</option>
+                                        <option>Ecomads Pvt Ltd, Covai</option>
+                                        <option>Ecomads Pvt Ltd, Tiruchengode</option>
+                                    </select>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All Departments</option>
+                                        <option>Sales</option>
+                                        <option>Purchase</option>
+                                    </select>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>Nov 2023</option>
+                                        <option>Oct 2023</option>
+                                        <option>Sep 2023</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <div class="relative">
+                                        <div class="w-full overflow-x-scroll lg:max-w-4xl 2xl:max-w-full">
+                                            <table class="divide-y divide-gray-200 table-auto">
+                                                <thead
+                                                    class="text-xs font-medium tracking-wider text-left text-white uppercase bg-blue-600 whitespace-nowrap">
+                                                    <tr class="py-4 divide-x">
+                                                        <th scope="col" class="sticky left-0 z-10 p-4 bg-blue-600">
+                                                            Name</th>
+                                                        <th scope="col" class="p-4">
+                                                            Mobile Number</th>
+                                                        <th scope="col" class="p-4">
+                                                            Employee Id</th>
+                                                        <th scope="col" class="p-4">
+                                                            Deduction Amount</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody
+                                                    class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
+                                                    <tr>
+                                                        <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                                            <div class="flex items-center gap-2 w-max">
+                                                                <img class="w-8 h-8 rounded-full"
+                                                                    src="https://randomuser.me/api/portraits/men/11.jpg"
+                                                                    alt="">
+                                                                <a href="" class="font-medium text-blue-600">John
+                                                                    Doe</a>
+                                                            </div>
+                                                        </td>
+                                                        <td class="p-4">9192939494</td>
+                                                        <td class="p-4">NA-1362</td>
+                                                        <td class="p-4">₹ 2000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                                            <div class="flex items-center gap-2 w-max">
+                                                                <img class="w-8 h-8 rounded-full"
+                                                                    src="https://randomuser.me/api/portraits/men/12.jpg"
+                                                                    alt="">
+                                                                <a href="" class="font-medium text-blue-600">Thomsan
+                                                                    Edward</a>
+                                                            </div>
+                                                        </td>
+                                                        <td class="p-4">8907896789</td>
+                                                        <td class="p-4">NA-1363</td>
+                                                        <td class="p-4">₹ 1000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                                            <p class="font-semibold">Total</p>
+                                                        </td>
+                                                        <td class="p-4"></td>
+                                                        <td class="p-4"></td>
+                                                        <td class="p-4 font-semibold">₹ 3000</td>
+                                                    </tr>
+                                                    <!-- Add more rows as needed -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="flex flex-col items-center justify-center gap-4 pt-6 lg:flex-row lg:justify-between">
+                                        <div class="flex items-center">
+                                            <p class="pr-2 text-sm font-medium">Rows per page</p>
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                <option>10</option>
+                                                <option>25</option>
+                                                <option>50</option>
+                                                <option>100</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <nav class="relative z-0 inline-flex -space-x-px shadow-sm"
+                                                aria-label="Pagination">
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-blue-100">
+                                                    <span class="sr-only">Previous</span>
+                                                    <!-- Heroicon name: chevron-left -->
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                        <path fill-rule="evenodd"
+                                                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    1
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    2
+                                                </a>
+                                                <a href="#"
+                                                    class="relative items-center hidden px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 md:inline-flex hover:bg-blue-100">
+                                                    3
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    4
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    5
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-blue-100">
+                                                    <span class="sr-only">Next</span>
+                                                    <!-- Heroicon name: chevron-right -->
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                        <path fill-rule="evenodd"
+                                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </a>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 4" style="display: none;">
+                            <div>
+                                <div class="flex items-center gap-4 pb-8">
+                                    <div>
+                                        <span class="inline-block w-full rounded shadow-sm">
+                                            <button
+                                                class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-60 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                                type="button" aria-haspopup="listbox" aria-expanded="true"
+                                                aria-label="search" aria-checked="false">
+
+                                                <input id="search" type="search"
+                                                    placeholder="Search by name, email, mobile"
+                                                    class="w-full h-full form-control focus:outline-none">
+
+                                                <span
+                                                    class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                    <svg class="w-6 h-6 text-gray-600"
+                                                        xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All Branches</option>
+                                        <option>Ecomads Pvt Ltd, Covai</option>
+                                        <option>Ecomads Pvt Ltd, Tiruchengode</option>
+                                    </select>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All Departments</option>
+                                        <option>Sales</option>
+                                        <option>Purchase</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <div class="relative">
+                                        <div class="w-full overflow-x-scroll lg:max-w-4xl 2xl:max-w-full">
+                                            <table class="divide-y divide-gray-200 table-auto">
+                                                <thead
+                                                    class="text-xs font-medium tracking-wider text-left text-white uppercase bg-blue-600 whitespace-nowrap">
+                                                    <tr class="py-4 divide-x">
+                                                        <th scope="col" class="sticky left-0 z-10 p-4 bg-blue-600">
+                                                            Name</th>
+                                                        <th scope="col" class="p-4">
+                                                            Mobile Number</th>
+                                                        <th scope="col" class="p-4">
+                                                            Employee Id</th>
+                                                        <th scope="col" class="p-4">
+                                                            Loan Given</th>
+                                                        <th scope="col" class="p-4">
+                                                            Loan Paid</th>
+                                                        <th scope="col" class="p-4">
+                                                            Balance</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody
+                                                    class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
+                                                    <tr>
+                                                        <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                                            <div class="flex items-center gap-2 w-max">
+                                                                <img class="w-8 h-8 rounded-full"
+                                                                    src="https://randomuser.me/api/portraits/men/11.jpg"
+                                                                    alt="">
+                                                                <a href="" class="font-medium text-blue-600">John
+                                                                    Doe</a>
+                                                            </div>
+                                                        </td>
+                                                        <td class="p-4">9192939494</td>
+                                                        <td class="p-4">NA-1362</td>
+                                                        <td class="p-4">₹ 5000</td>
+                                                        <td class="p-4">₹ 2000</td>
+                                                        <td class="p-4">₹ 3000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                                            <div class="flex items-center gap-2 w-max">
+                                                                <img class="w-8 h-8 rounded-full"
+                                                                    src="https://randomuser.me/api/portraits/men/12.jpg"
+                                                                    alt="">
+                                                                <a href="" class="font-medium text-blue-600">Thomsan
+                                                                    Edward</a>
+                                                            </div>
+                                                        </td>
+                                                        <td class="p-4">8907896789</td>
+                                                        <td class="p-4">NA-1363</td>
+                                                        <td class="p-4">₹ 10000</td>
+                                                        <td class="p-4">₹ 2000</td>
+                                                        <td class="p-4">₹ 8000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                                            <p class="font-semibold">Total</p>
+                                                        </td>
+                                                        <td class="p-4"></td>
+                                                        <td class="p-4"></td>
+                                                        <td class="p-4 font-semibold">₹ 15000</td>
+                                                        <td class="p-4 font-semibold">₹ 4000</td>
+                                                        <td class="p-4 font-semibold">₹ 11000</td>
+                                                    </tr>
+                                                    <!-- Add more rows as needed -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="flex flex-col items-center justify-center gap-4 pt-6 lg:flex-row lg:justify-between">
+                                        <div class="flex items-center">
+                                            <p class="pr-2 text-sm font-medium">Rows per page</p>
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                <option>10</option>
+                                                <option>25</option>
+                                                <option>50</option>
+                                                <option>100</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <nav class="relative z-0 inline-flex -space-x-px shadow-sm"
+                                                aria-label="Pagination">
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-blue-100">
+                                                    <span class="sr-only">Previous</span>
+                                                    <!-- Heroicon name: chevron-left -->
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                        <path fill-rule="evenodd"
+                                                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    1
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    2
+                                                </a>
+                                                <a href="#"
+                                                    class="relative items-center hidden px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 md:inline-flex hover:bg-blue-100">
+                                                    3
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    4
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    5
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-blue-100">
+                                                    <span class="sr-only">Next</span>
+                                                    <!-- Heroicon name: chevron-right -->
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                        <path fill-rule="evenodd"
+                                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </a>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 5" style="display: none;">
+                            <div>
+                                <div class="flex items-center gap-4 pb-8">
+                                    <div>
+                                        <span class="inline-block w-full rounded shadow-sm">
+                                            <button
+                                                class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-60 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                                type="button" aria-haspopup="listbox" aria-expanded="true"
+                                                aria-label="search" aria-checked="false">
+
+                                                <input id="search" type="search"
+                                                    placeholder="Search by name, email, mobile"
+                                                    class="w-full h-full form-control focus:outline-none">
+
+                                                <span
+                                                    class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                    <svg class="w-6 h-6 text-gray-600"
+                                                        xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All Branches</option>
+                                        <option>Ecomads Pvt Ltd, Covai</option>
+                                        <option>Ecomads Pvt Ltd, Tiruchengode</option>
+                                    </select>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All Departments</option>
+                                        <option>Sales</option>
+                                        <option>Purchase</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <div class="relative">
+                                        <div class="w-full overflow-x-scroll lg:max-w-4xl 2xl:max-w-full">
+                                            <table class="divide-y divide-gray-200 table-auto">
+                                                <thead
+                                                    class="text-xs font-medium tracking-wider text-left text-white uppercase bg-blue-600 whitespace-nowrap">
+                                                    <tr class="py-4 divide-x">
+                                                        <th scope="col" class="sticky left-0 z-10 p-4 bg-blue-600">
+                                                            Name</th>
+                                                        <th scope="col" class="p-4">
+                                                            Mobile Number</th>
+                                                        <th scope="col" class="p-4">
+                                                            Employee Id</th>
+                                                        <th scope="col" class="p-4">
+                                                            Advance Given</th>
+                                                        <th scope="col" class="p-4">
+                                                            Advance Paid</th>
+                                                        <th scope="col" class="p-4">
+                                                            Balance</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody
+                                                    class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
+                                                    <tr>
+                                                        <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                                            <div class="flex items-center gap-2 w-max">
+                                                                <img class="w-8 h-8 rounded-full"
+                                                                    src="https://randomuser.me/api/portraits/men/11.jpg"
+                                                                    alt="">
+                                                                <a href="" class="font-medium text-blue-600">John
+                                                                    Doe</a>
+                                                            </div>
+                                                        </td>
+                                                        <td class="p-4">9192939494</td>
+                                                        <td class="p-4">NA-1362</td>
+                                                        <td class="p-4">₹ 5000</td>
+                                                        <td class="p-4">₹ 2000</td>
+                                                        <td class="p-4">₹ 3000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                                            <div class="flex items-center gap-2 w-max">
+                                                                <img class="w-8 h-8 rounded-full"
+                                                                    src="https://randomuser.me/api/portraits/men/12.jpg"
+                                                                    alt="">
+                                                                <a href="" class="font-medium text-blue-600">Thomsan
+                                                                    Edward</a>
+                                                            </div>
+                                                        </td>
+                                                        <td class="p-4">8907896789</td>
+                                                        <td class="p-4">NA-1363</td>
+                                                        <td class="p-4">₹ 10000</td>
+                                                        <td class="p-4">₹ 2000</td>
+                                                        <td class="p-4">₹ 8000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                                            <p class="font-semibold">Total</p>
+                                                        </td>
+                                                        <td class="p-4"></td>
+                                                        <td class="p-4"></td>
+                                                        <td class="p-4 font-semibold">₹ 15000</td>
+                                                        <td class="p-4 font-semibold">₹ 4000</td>
+                                                        <td class="p-4 font-semibold">₹ 11000</td>
+                                                    </tr>
+                                                    <!-- Add more rows as needed -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="flex flex-col items-center justify-center gap-4 pt-6 lg:flex-row lg:justify-between">
+                                        <div class="flex items-center">
+                                            <p class="pr-2 text-sm font-medium">Rows per page</p>
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                <option>10</option>
+                                                <option>25</option>
+                                                <option>50</option>
+                                                <option>100</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <nav class="relative z-0 inline-flex -space-x-px shadow-sm"
+                                                aria-label="Pagination">
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-blue-100">
+                                                    <span class="sr-only">Previous</span>
+                                                    <!-- Heroicon name: chevron-left -->
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                        <path fill-rule="evenodd"
+                                                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    1
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    2
+                                                </a>
+                                                <a href="#"
+                                                    class="relative items-center hidden px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 md:inline-flex hover:bg-blue-100">
+                                                    3
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    4
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    5
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-blue-100">
+                                                    <span class="sr-only">Next</span>
+                                                    <!-- Heroicon name: chevron-right -->
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                        <path fill-rule="evenodd"
+                                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </a>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 6" style="display: none;">
+                            <div>
+                                <div class="flex items-center gap-4 pb-8">
+                                    <div>
+                                        <span class="inline-block w-full rounded shadow-sm">
+                                            <button
+                                                class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-60 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                                type="button" aria-haspopup="listbox" aria-expanded="true"
+                                                aria-label="search" aria-checked="false">
+
+                                                <input id="search" type="search"
+                                                    placeholder="Search by name, email, mobile"
+                                                    class="w-full h-full form-control focus:outline-none">
+
+                                                <span
+                                                    class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                    <svg class="w-6 h-6 text-gray-600"
+                                                        xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All Branches</option>
+                                        <option>Ecomads Pvt Ltd, Covai</option>
+                                        <option>Ecomads Pvt Ltd, Tiruchengode</option>
+                                    </select>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All Departments</option>
+                                        <option>Sales</option>
+                                        <option>Purchase</option>
+                                    </select>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>Nov 2023</option>
+                                        <option>Oct 2023</option>
+                                        <option>Sep 2023</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <div class="relative">
+                                        <div class="w-full overflow-x-scroll lg:max-w-4xl 2xl:max-w-full">
+                                            <table class="divide-y divide-gray-200 table-auto">
+                                                <thead
+                                                    class="text-xs font-medium tracking-wider text-left text-white uppercase bg-blue-600 whitespace-nowrap">
+                                                    <tr class="py-4 divide-x">
+                                                        <th scope="col" class="sticky left-0 z-10 p-4 bg-blue-600">
+                                                            Name</th>
+                                                        <th scope="col" class="p-4">
+                                                            Mobile Number</th>
+                                                        <th scope="col" class="p-4">
+                                                            Employee Id</th>
+                                                        <th scope="col" class="p-4">
+                                                            TDS Deduction Amount</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody
+                                                    class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
+                                                    <tr>
+                                                        <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                                            <div class="flex items-center gap-2 w-max">
+                                                                <img class="w-8 h-8 rounded-full"
+                                                                    src="https://randomuser.me/api/portraits/men/11.jpg"
+                                                                    alt="">
+                                                                <a href="" class="font-medium text-blue-600">John
+                                                                    Doe</a>
+                                                            </div>
+                                                        </td>
+                                                        <td class="p-4">9192939494</td>
+                                                        <td class="p-4">NA-1362</td>
+                                                        <td class="p-4">₹ 2000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                                            <div class="flex items-center gap-2 w-max">
+                                                                <img class="w-8 h-8 rounded-full"
+                                                                    src="https://randomuser.me/api/portraits/men/12.jpg"
+                                                                    alt="">
+                                                                <a href="" class="font-medium text-blue-600">Thomsan
+                                                                    Edward</a>
+                                                            </div>
+                                                        </td>
+                                                        <td class="p-4">8907896789</td>
+                                                        <td class="p-4">NA-1363</td>
+                                                        <td class="p-4">₹ 1000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                                            <p class="font-semibold">Total</p>
+                                                        </td>
+                                                        <td class="p-4"></td>
+                                                        <td class="p-4"></td>
+                                                        <td class="p-4 font-semibold">₹ 3000</td>
+                                                    </tr>
+                                                    <!-- Add more rows as needed -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="flex flex-col items-center justify-center gap-4 pt-6 lg:flex-row lg:justify-between">
+                                        <div class="flex items-center">
+                                            <p class="pr-2 text-sm font-medium">Rows per page</p>
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                <option>10</option>
+                                                <option>25</option>
+                                                <option>50</option>
+                                                <option>100</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <nav class="relative z-0 inline-flex -space-x-px shadow-sm"
+                                                aria-label="Pagination">
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-blue-100">
+                                                    <span class="sr-only">Previous</span>
+                                                    <!-- Heroicon name: chevron-left -->
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                        <path fill-rule="evenodd"
+                                                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    1
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    2
+                                                </a>
+                                                <a href="#"
+                                                    class="relative items-center hidden px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 md:inline-flex hover:bg-blue-100">
+                                                    3
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    4
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    5
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-blue-100">
+                                                    <span class="sr-only">Next</span>
+                                                    <!-- Heroicon name: chevron-right -->
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                        <path fill-rule="evenodd"
+                                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </a>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 7" style="display: none;">
+                            <div>
+                                <div class="flex items-center gap-4 pb-8">
+                                    <div>
+                                        <span class="inline-block w-full rounded shadow-sm">
+                                            <button
+                                                class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-60 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                                type="button" aria-haspopup="listbox" aria-expanded="true"
+                                                aria-label="search" aria-checked="false">
+
+                                                <input id="search" type="search"
+                                                    placeholder="Search by name, email, mobile"
+                                                    class="w-full h-full form-control focus:outline-none">
+
+                                                <span
+                                                    class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                    <svg class="w-6 h-6 text-gray-600"
+                                                        xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All Branches</option>
+                                        <option>Ecomads Pvt Ltd, Covai</option>
+                                        <option>Ecomads Pvt Ltd, Tiruchengode</option>
+                                    </select>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All Departments</option>
+                                        <option>Sales</option>
+                                        <option>Purchase</option>
+                                    </select>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>Nov 2023</option>
+                                        <option>Oct 2023</option>
+                                        <option>Sep 2023</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <div class="relative">
+                                        <div class="w-full overflow-x-scroll lg:max-w-4xl 2xl:max-w-full">
+                                            <table class="divide-y divide-gray-200 table-auto">
+                                                <thead
+                                                    class="text-xs font-medium tracking-wider text-left text-white uppercase bg-blue-600 whitespace-nowrap">
+                                                    <tr class="py-4 divide-x">
+                                                        <th scope="col" class="sticky left-0 z-10 p-4 bg-blue-600">
+                                                            Name</th>
+                                                        <th scope="col" class="p-4">
+                                                            Mobile Number</th>
+                                                        <th scope="col" class="p-4">
+                                                            Employee Id</th>
+                                                        <th scope="col" class="p-4">
+                                                            PT Deduction Amount</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody
+                                                    class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
+                                                    <tr>
+                                                        <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                                            <div class="flex items-center gap-2 w-max">
+                                                                <img class="w-8 h-8 rounded-full"
+                                                                    src="https://randomuser.me/api/portraits/men/11.jpg"
+                                                                    alt="">
+                                                                <a href="" class="font-medium text-blue-600">John
+                                                                    Doe</a>
+                                                            </div>
+                                                        </td>
+                                                        <td class="p-4">9192939494</td>
+                                                        <td class="p-4">NA-1362</td>
+                                                        <td class="p-4">₹ 2000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                                            <div class="flex items-center gap-2 w-max">
+                                                                <img class="w-8 h-8 rounded-full"
+                                                                    src="https://randomuser.me/api/portraits/men/12.jpg"
+                                                                    alt="">
+                                                                <a href="" class="font-medium text-blue-600">Thomsan
+                                                                    Edward</a>
+                                                            </div>
+                                                        </td>
+                                                        <td class="p-4">8907896789</td>
+                                                        <td class="p-4">NA-1363</td>
+                                                        <td class="p-4">₹ 1000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                                            <p class="font-semibold">Total</p>
+                                                        </td>
+                                                        <td class="p-4"></td>
+                                                        <td class="p-4"></td>
+                                                        <td class="p-4 font-semibold">₹ 3000</td>
+                                                    </tr>
+                                                    <!-- Add more rows as needed -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="flex flex-col items-center justify-center gap-4 pt-6 lg:flex-row lg:justify-between">
+                                        <div class="flex items-center">
+                                            <p class="pr-2 text-sm font-medium">Rows per page</p>
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                <option>10</option>
+                                                <option>25</option>
+                                                <option>50</option>
+                                                <option>100</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <nav class="relative z-0 inline-flex -space-x-px shadow-sm"
+                                                aria-label="Pagination">
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-blue-100">
+                                                    <span class="sr-only">Previous</span>
+                                                    <!-- Heroicon name: chevron-left -->
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                        <path fill-rule="evenodd"
+                                                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    1
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    2
+                                                </a>
+                                                <a href="#"
+                                                    class="relative items-center hidden px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 md:inline-flex hover:bg-blue-100">
+                                                    3
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    4
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    5
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-blue-100">
+                                                    <span class="sr-only">Next</span>
+                                                    <!-- Heroicon name: chevron-right -->
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                        <path fill-rule="evenodd"
+                                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </a>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+</html>

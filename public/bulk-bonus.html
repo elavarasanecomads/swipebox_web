@@ -1,0 +1,112 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk Bonus</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="h-full p-4 bg-white border rounded-md lg:p-8" x-data="{ isOpen: false }">
+                     <!--Brudcrumb-->
+                     <div class="flex items-center justify-between pt-6">
+                        <div>
+                            <p class="text-2xl font-bold">Bulk Bonus</p>
+                        </div>
+                        <div>
+                            <a href="bulk-bonus-csv.html" class="w-full p-2 font-semibold text-white bg-blue-600 rounded-md" id="AddBtn">Bulk CSV Upload</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="w-full pt-6 space-y-4 lg:w-1/2">
+                            <div>
+                                <label class="font-semibold text-gray-600" for="date">Bonus Date<span class="text-red-600">*</span></label>
+                                <input type="date" name="bonus_month" id="bonus_month" autocomplete="bonus_month" placeholder="Add bonus amount" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+
+                            </div>
+                            <div>
+                                <label class="font-semibold text-gray-600" for="date">Bonus Description<span class="text-red-600">*</span></label>
+                                <input type="text" name="bonus_description" id="bonus_description" autocomplete="bonus_description" placeholder="Add Bonus description" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                            </div>                            
+                        </div>
+                        <div class="py-8">
+                            <div class="flex flex-col border-b">
+                                <div class="z-10 -my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                    <div class="inline-block max-w-xl min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                        <div class="border-b border-gray-200 shadow sm:rounded-lg">
+    
+                                            <table class="min-w-full divide-y divide-gray-200 table-auto">
+                                                <thead class="bg-blue-600">
+                                                    <tr>
+                                                        <th scope="col"
+                                                            class="w-32 px-3 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                            Employee Name
+                                                        </th>
+                                                    <th scope="col"
+                                                    class="px-3 py-3 font-bold tracking-wider text-left text-gray-100 uppercase w-44">
+                                                    
+                                                </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="bg-white divide-y divide-gray-200">
+                                                    <tr>
+                                                        <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                                                            <p class="font-semibold">Elavarasan Rajan</p>
+                                                            <p class="text-sm text-gray-900"><span>NA-1311</span> | <span>8072276922</span></p>
+                                                        </td>
+                                                        <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                                                            <input type="text" name="name" id="Name" autocomplete="title" placeholder="Enter Amount" class="block px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600 w-44" value="">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                                                            <p class="font-semibold">Hemalatha</p>
+                                                            <p class="text-sm text-gray-900"><span>NA-1313</span> | <span>98765456789</span></p>
+                                                        </td>
+                                                        <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                                                            <input type="text" name="name" id="Name" autocomplete="title" placeholder="Enter Amount" class="block px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600 w-44" value="">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                                                            <p class="font-semibold">Bindhu</p>
+                                                            <p class="text-sm text-gray-900"><span>NA-1316</span> | <span>7338090909</span></p>
+                                                        </td>
+                                                        <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                                                            <input type="text" name="name" id="Name" autocomplete="title" placeholder="Enter Amount" class="block px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600 w-44" value="">
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="w-full p-3 font-semibold text-white bg-blue-600 rounded-md lg:w-60" id="AddBtn">Add Bonus</button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+</html>
