@@ -31,7 +31,39 @@
                         activeClasses: 'border-b-2 border-blue-600 text-blue-600',
                         inactiveClasses: ''
                     }">
-                        <div class="grid grid-cols-2 pt-2 border-b lg:grid-cols-6">
+                    <div class="flex flex-row items-center gap-8 pt-2 overflow-x-auto border-b whitespace-nowrap">
+                        <div class="col-span-1" @click="openTab = 1">
+                            <button
+                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
+                                :class="openTab === 1 ? activeClasses : inactiveClasses">Personal Details</button>
+                        </div>
+                        <div class="col-span-1" @click="openTab = 2">
+                            <button
+                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
+                                :class="openTab === 2 ? activeClasses : inactiveClasses">Work Details</button>
+                        </div>
+                        <div class="col-span-1" @click="openTab = 3">
+                            <button
+                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
+                                :class="openTab === 3 ? activeClasses : inactiveClasses">Bank Details</button>
+                        </div>
+                        <div class="col-span-1" @click="openTab = 4">
+                            <button
+                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
+                                :class="openTab === 4 ? activeClasses : inactiveClasses">Salary Detail</button>
+                        </div>
+                        <div class="col-span-1" @click="openTab = 5">
+                            <button
+                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
+                                :class="openTab === 5 ? activeClasses : inactiveClasses">Leave Balance</button>
+                        </div>
+                        <div class="col-span-1" @click="openTab = 6">
+                            <button
+                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
+                                :class="openTab === 6 ? activeClasses : inactiveClasses">Biometric Details</button>
+                        </div>
+                    </div>                    
+                        <!-- <div class="grid grid-cols-2 pt-2 border-b lg:grid-cols-6"> 
                             <div class="col-span-1" @click="openTab = 1">
                                 <button
                                     class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
@@ -63,36 +95,47 @@
                                     :class="openTab === 6 ? activeClasses : inactiveClasses">Biometric Details</button>
                             </div>
                         </div>
+                        -->
+
                         <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 1" style="display: none;">
                             <div>
                                 <div>
-                                    <div class="flex items-center gap-4 pb-8">
-                                        <div>
+                                    <div class="flex flex-wrap items-center gap-4 pb-8">
+                                        <div class="w-full lg:w-60">
                                             <span class="inline-block w-full rounded shadow-sm">
-                                                <button class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-60 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600" type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search" aria-checked="false">
-                
-                                                    <input id="search" type="search" placeholder="Search by name, email, mobile" class="w-full h-full form-control focus:outline-none">
-                
-                                                    <span class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
-                                                        <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                                <button
+                                                    class="relative z-0 w-full py-2 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                                    type="button" aria-haspopup="listbox" aria-expanded="true"
+                                                    aria-label="search" aria-checked="false">
+        
+                                                    <input id="search" type="search" placeholder="Search by name, email, mobile"
+                                                        class="w-full h-full form-control focus:outline-none">
+        
+                                                    <span
+                                                        class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                        <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                                                         </svg>
                                                     </span>
                                                 </button>
                                             </span>
                                         </div>
-                                    <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                        <option>All Branches</option>
+                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                            class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>All Branches</option>
                                             <option>Ecomads Pvt Ltd, Covai</option>
                                             <option>Ecomads Pvt Ltd, Tiruchengode</option>
                                         </select>
-                                        <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                            class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                             <option>All Departments</option>
-                                                <option>Sales</option>
-                                                <option>Purchase</option>
-                                            </select>
+                                            <option>Sales</option>
+                                            <option>Purchase</option>
+                                        </select>
                                     </div>
-                                    
                                 </div>
                                 <div>
                                     <div class="relative">
@@ -217,32 +260,42 @@
                         <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 2" style="display: none;">
                             <div>
                                 <div>
-                                    <div class="flex items-center gap-4 pb-8">
-                                        <div>
-                                            <span class="inline-block w-full rounded shadow-sm">
-                                                <button class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-60 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600" type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search" aria-checked="false">
-                
-                                                    <input id="search" type="search" placeholder="Search by name, email, mobile" class="w-full h-full form-control focus:outline-none">
-                
-                                                    <span class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
-                                                        <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                                        </svg>
-                                                    </span>
-                                                </button>
-                                            </span>
-                                        </div>
-                                    <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                        <option>All Branches</option>
-                                            <option>Ecomads Pvt Ltd, Covai</option>
-                                            <option>Ecomads Pvt Ltd, Tiruchengode</option>
-                                        </select>
-                                        <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                            <option>All Departments</option>
-                                                <option>Sales</option>
-                                                <option>Purchase</option>
-                                            </select>
+                                    <div class="flex flex-wrap items-center gap-4 pb-8">
+                                    <div class="w-full lg:w-60">
+                                        <span class="inline-block w-full rounded shadow-sm">
+                                            <button
+                                                class="relative z-0 w-full py-2 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                                type="button" aria-haspopup="listbox" aria-expanded="true"
+                                                aria-label="search" aria-checked="false">
+    
+                                                <input id="search" type="search" placeholder="Search by name, email, mobile"
+                                                    class="w-full h-full form-control focus:outline-none">
+    
+                                                <span
+                                                    class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                    <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                        </span>
                                     </div>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All Branches</option>
+                                        <option>Ecomads Pvt Ltd, Covai</option>
+                                        <option>Ecomads Pvt Ltd, Tiruchengode</option>
+                                    </select>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All Departments</option>
+                                        <option>Sales</option>
+                                        <option>Purchase</option>
+                                    </select>
+                                </div>
                                 </div>
                                 <div>
                                     <div class="relative">
@@ -367,31 +420,41 @@
                         <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 3" style="display: none;">
                             <div>
                                 <div>
-                                    <div class="flex items-center gap-4 pb-8">
-                                        <div>
+                                    <div class="flex flex-wrap items-center gap-4 pb-8">
+                                        <div class="w-full lg:w-60">
                                             <span class="inline-block w-full rounded shadow-sm">
-                                                <button class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-60 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600" type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search" aria-checked="false">
-                
-                                                    <input id="search" type="search" placeholder="Search by name, email, mobile" class="w-full h-full form-control focus:outline-none">
-                
-                                                    <span class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
-                                                        <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                                <button
+                                                    class="relative z-0 w-full py-2 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                                    type="button" aria-haspopup="listbox" aria-expanded="true"
+                                                    aria-label="search" aria-checked="false">
+        
+                                                    <input id="search" type="search" placeholder="Search by name, email, mobile"
+                                                        class="w-full h-full form-control focus:outline-none">
+        
+                                                    <span
+                                                        class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                        <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                                                         </svg>
                                                     </span>
                                                 </button>
                                             </span>
                                         </div>
-                                    <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                        <option>All Branches</option>
+                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                            class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>All Branches</option>
                                             <option>Ecomads Pvt Ltd, Covai</option>
                                             <option>Ecomads Pvt Ltd, Tiruchengode</option>
                                         </select>
-                                        <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                            class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                             <option>All Departments</option>
-                                                <option>Sales</option>
-                                                <option>Purchase</option>
-                                            </select>
+                                            <option>Sales</option>
+                                            <option>Purchase</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div>
@@ -504,31 +567,41 @@
                         <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 4" style="display: none;">
                             <div>
                                 <div>
-                                    <div class="flex items-center gap-4 pb-8">
-                                        <div>
+                                    <div class="flex flex-wrap items-center gap-4 pb-8">
+                                        <div class="w-full lg:w-60">
                                             <span class="inline-block w-full rounded shadow-sm">
-                                                <button class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-60 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600" type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search" aria-checked="false">
-                
-                                                    <input id="search" type="search" placeholder="Search by name, email, mobile" class="w-full h-full form-control focus:outline-none">
-                
-                                                    <span class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
-                                                        <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                                <button
+                                                    class="relative z-0 w-full py-2 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                                    type="button" aria-haspopup="listbox" aria-expanded="true"
+                                                    aria-label="search" aria-checked="false">
+        
+                                                    <input id="search" type="search" placeholder="Search by name, email, mobile"
+                                                        class="w-full h-full form-control focus:outline-none">
+        
+                                                    <span
+                                                        class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                        <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                                                         </svg>
                                                     </span>
                                                 </button>
                                             </span>
                                         </div>
-                                    <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                        <option>All Branches</option>
+                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                            class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>All Branches</option>
                                             <option>Ecomads Pvt Ltd, Covai</option>
                                             <option>Ecomads Pvt Ltd, Tiruchengode</option>
                                         </select>
-                                        <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                            class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                             <option>All Departments</option>
-                                                <option>Sales</option>
-                                                <option>Purchase</option>
-                                            </select>
+                                            <option>Sales</option>
+                                            <option>Purchase</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div>
@@ -642,31 +715,46 @@
                         <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 5" style="display: none;">
                             <div>
                                 <div>
-                                    <div class="flex items-center gap-4 pb-8">
-                                        <div>
+                                    <div class="flex flex-wrap items-center gap-4 pb-8">
+                                        <div class="w-full lg:w-60">
                                             <span class="inline-block w-full rounded shadow-sm">
-                                                <button class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-60 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600" type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search" aria-checked="false">
-                
-                                                    <input id="search" type="search" placeholder="Search by name, email, mobile" class="w-full h-full form-control focus:outline-none">
-                
-                                                    <span class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
-                                                        <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                                <button
+                                                    class="relative z-0 w-full py-2 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                                    type="button" aria-haspopup="listbox" aria-expanded="true"
+                                                    aria-label="search" aria-checked="false">
+        
+                                                    <input id="search" type="search" placeholder="Search by name, email, mobile"
+                                                        class="w-full h-full form-control focus:outline-none">
+        
+                                                    <span
+                                                        class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                        <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                                                         </svg>
                                                     </span>
                                                 </button>
                                             </span>
                                         </div>
-                                    <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                        <option>All Branches</option>
+                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                            class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>All Branches</option>
                                             <option>Ecomads Pvt Ltd, Covai</option>
                                             <option>Ecomads Pvt Ltd, Tiruchengode</option>
                                         </select>
-                                        <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                            class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                             <option>All Departments</option>
-                                                <option>Sales</option>
-                                                <option>Purchase</option>
-                                            </select>
+                                            <option>Sales</option>
+                                            <option>Purchase</option>
+                                        </select>
+                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                            class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>Casual Leave</option>
+                                            <option>Unpaid Casual Leave</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div>
@@ -683,11 +771,8 @@
                                                         <th scope="col" class="p-4">
                                                             Employee Id</th>
                                                         <th scope="col" class="p-4">
-                                                            Leave Name 1 Balance</th>
-                                                        <th scope="col" class="p-4">
-                                                            Leave Name 2 Balance</th>
-                                                        <th scope="col" class="p-4">
-                                                            Leave Name 3 Balance</th>
+                                                            Casual Leave Balance</th>
+                                                        
                                                     </tr>
                                                 </thead>
                                                 <tbody class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
@@ -702,8 +787,6 @@
                                                         <td class="p-4">9192939494</td>
                                                         <td class="p-4">NA-1362</td>
                                                         <td class="p-4">3</td>
-                                                        <td class="p-4">2</td>
-                                                        <td class="p-4">0</td>
                                                     </tr>
                                                     </template>
                                                     <!-- Add more rows as needed -->
@@ -774,31 +857,46 @@
                         <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 6" style="display: none;">
                             <div>
                                 <div>
-                                    <div class="flex items-center gap-4 pb-8">
-                                        <div>
+                                    <div class="flex flex-wrap items-center gap-4 pb-8">
+                                        <div class="w-full lg:w-60">
                                             <span class="inline-block w-full rounded shadow-sm">
-                                                <button class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-60 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600" type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search" aria-checked="false">
-                
-                                                    <input id="search" type="search" placeholder="Search by name, email, mobile" class="w-full h-full form-control focus:outline-none">
-                
-                                                    <span class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
-                                                        <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                                <button
+                                                    class="relative z-0 w-full py-2 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                                    type="button" aria-haspopup="listbox" aria-expanded="true"
+                                                    aria-label="search" aria-checked="false">
+        
+                                                    <input id="search" type="search" placeholder="Search by name, email, mobile"
+                                                        class="w-full h-full form-control focus:outline-none">
+        
+                                                    <span
+                                                        class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                        <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                                                         </svg>
                                                     </span>
                                                 </button>
                                             </span>
                                         </div>
-                                    <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                        <option>All Branches</option>
+                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                            class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>All Branches</option>
                                             <option>Ecomads Pvt Ltd, Covai</option>
                                             <option>Ecomads Pvt Ltd, Tiruchengode</option>
                                         </select>
-                                        <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                            class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                             <option>All Departments</option>
-                                                <option>Sales</option>
-                                                <option>Purchase</option>
-                                            </select>
+                                            <option>Sales</option>
+                                            <option>Purchase</option>
+                                        </select>
+                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                            class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>ESSL Ground Floor</option>
+                                            <option>ESSL First Floor</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div>
@@ -815,9 +913,7 @@
                                                         <th scope="col" class="p-4">
                                                             Employee Id</th>
                                                         <th scope="col" class="p-4">
-                                                            Device Name 1</th>
-                                                        <th scope="col" class="p-4">
-                                                            Device Name 2</th>
+                                                            ESSL Ground Floor</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
@@ -831,7 +927,6 @@
                                                         </td>
                                                         <td class="p-4">9192939494</td>
                                                         <td class="p-4">NA-1362</td>
-                                                        <td class="p-4">1362</td>
                                                         <td class="p-4">1362</td>
                                                     </tr>
                                                     </template>
