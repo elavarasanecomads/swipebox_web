@@ -1,0 +1,607 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Muster Roll</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="h-full p-4 space-y-6 bg-white border rounded-md lg:p-8">
+                    <div>
+                        <a href="dashboard.html" class="flex items-center gap-1 text-sm text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5">
+                                <path fill-rule="evenodd"
+                                    d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Back</span>
+                        </a>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-2xl font-bold">Attendance Muster Roll</p>
+                    </div>
+                    <div class="w-full">
+                        <div>
+                            <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+
+                                <div class="flex items-center gap-4">
+                                    <div>
+                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                            class="block w-full px-2 py-2 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            <option>Dec 2023</option>
+                                            <option>Nov 2023</option>
+                                            <option>Oct 2023</option>
+                                        </select>
+                                    </div>
+                                    <div class="relative text-gray-600" x-data="{ isOpen: false }">
+                                        <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
+                                            class="flex items-center gap-2 px-3 py-2 font-semibold text-gray-100 bg-blue-600 rounded">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
+                                            </svg>
+                                            <span class="hidden text-sm lg:block">Filter</span>
+                                        </button>
+                                        <div x-show="isOpen" @click.away="isOpen = false"
+                                            class="absolute right-0 z-20 w-64 p-4 mt-2 space-y-4 overflow-hidden text-sm font-normal bg-white border rounded shadow"
+                                            style="display: none;">
+                                            <div>
+                                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                    class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                    <option>All Branches</option>
+                                                    <option>Ecomads Pvt Ltd, Covai</option>
+                                                    <option>Ecomads Pvt Ltd, Tiruchengode</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                    class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                    <option>All Departments</option>
+                                                    <option>Sales</option>
+                                                    <option>Purchase</option>
+                                                </select>
+                                            </div>
+                                            <div class="w-32 space-y-4">
+                                                <button
+                                                    class="w-full px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded searchFilter">Apply
+                                                    Filters</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="relative text-gray-600" x-data="{ isOpen: false }">
+                                        <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
+                                            class="flex items-center gap-2 px-3 py-2 font-semibold text-gray-100 bg-blue-600 rounded">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                                            </svg>
+                                            <span class="hidden text-sm lg:block">Download</span>
+                                        </button>
+                                        <ul x-show="isOpen" @click.away="isOpen = false"
+                                            class="absolute right-0 z-20 py-1 mt-2 overflow-hidden text-sm font-normal bg-white border divide-y rounded shadow w-36"
+                                            style="display: none;">
+                                            <li>
+                                                <button class="p-2">Download as CSV</button>
+                                            </li>
+                                            <li>
+                                                <button class="p-2">Download as PDF</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span class="inline-block w-full rounded shadow-sm">
+                                        <button
+                                            class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-72 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                            type="button" aria-haspopup="listbox" aria-expanded="true"
+                                            aria-label="search" aria-checked="false">
+                                            <input id="search" type="text" placeholder="Search by name"
+                                                class="w-full h-full form-control focus:outline-none searchdata">
+                                            <span
+                                                class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex flex-col pt-8">
+                                <div class="-my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                    <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                        <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+                                            <table class="min-w-full divide-y divide-gray-200 table-fixed ">
+                                                <thead class="bg-blue-600">
+                                                    <tr class="text-sm">
+                                                        <th scope="col"
+                                                            class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                            Name
+                                                        </th>
+
+                                                        <th scope="col"
+                                                            class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                            P
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                            A
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                            HF
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                            LE
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                            NP
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                            PL
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                            PHL
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                            UPL
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                            UPHL
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                            FO
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                            EO
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                            SH
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                            WO
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                            HO
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                            1.5P
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                            2P
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody x-data="{ isOpen: false }"
+                                                    class="bg-white divide-y divide-gray-200">
+                                                    <tr>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <div>
+                                                                <p @click="isOpen = !isOpen"
+                                                                    @keydown.escape="isOpen = false"
+                                                                    class="text-sm font-semibold text-blue-600">
+                                                                    Elavarasan</p>
+                                                            </div>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                18
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                5
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                1
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                2
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                3
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                1
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                0
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                0
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                1
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                0
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                0
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                0
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                0
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                0
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                0
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                0
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr x-show="isOpen">
+                                                        <td class="py-2" colspan="17">
+                                                            <div
+                                                                class="-my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                                                <div
+                                                                    class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                                                    <div
+                                                                        class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+                                                                        <table
+                                                                            class="min-w-full divide-y divide-gray-200 table-fixed ">
+                                                                            <thead>
+                                                                                <tr class="bg-gray-200">
+                                                                                    <script>
+                                                                                        for (let day = 1; day <= 31; day++) {
+                                                                                            const date = day.toString().padStart(2, '0'); // Format day as two digits
+                                                                                            const dayOfWeek = new Date(`2023-01-${date}`).toLocaleDateString('en-US', { weekday: 'short' });
+
+                                                                                            document.write(`
+                                                                                                <th scope="col" class="p-1">
+                                                                                                    <p class="text-2xs">${date}</p>
+                                                                                                    <p class="font-normal text-gray-600 uppercase text-3xs">${dayOfWeek}</p>
+                                                                                                </th>
+                                                                                            `);
+                                                                                        }
+                                                                                    </script>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody
+                                                                                class="bg-white divide-y divide-gray-200">
+                                                                                <tr>
+                                                                                    <script>
+                                                                                        for (let day = 1; day <= 5; day++) {
+                                                                                            document.write(`
+                                                                                                <td>
+                                                                                                    <div class="flex flex-col items-center p-1 bg-green-100 rounded">
+                                                                                                        <p class="font-semibold text-2xs">PHL</p>
+                                                                                                        <p class="text-3xs">00:25</p>
+                                                                                                    </div>
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                    <div class="flex flex-col items-center p-1 bg-green-100 rounded">
+                                                                                                        <p class="font-semibold text-2xs">PHL</p>
+                                                                                                        <p class="text-3xs">00:25</p>
+                                                                                                    </div>
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                    <div class="flex flex-col items-center p-1 bg-green-100 rounded">
+                                                                                                        <p class="font-semibold text-2xs">PH</p>
+                                                                                                        <p class="text-3xs">00:25</p>
+                                                                                                    </div>
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                    <div class="flex flex-col items-center p-1 bg-green-100 rounded">
+                                                                                                        <p class="font-semibold text-2xs">A</p>
+                                                                                                        <p class="text-3xs">--:--</p>
+                                                                                                    </div>
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                    <div class="flex flex-col items-center p-1 bg-red-100 rounded">
+                                                                                                        <p class="font-semibold text-2xs">UPHL</p>
+                                                                                                        <p class="text-3xs">--:--</p>
+                                                                                                    </div>
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                    <div class="flex flex-col items-center p-1 bg-gray-100 rounded">
+                                                                                                        <p class="font-semibold text-2xs">WO</p>
+                                                                                                        <p class="text-3xs">--:--</p>
+                                                                                                    </div>
+                                                                                                </td>
+                                                                                            `);
+                                                                                        }
+                                                                                    </script>
+                                                                                    <td>
+                                                                                        <div
+                                                                                            class="flex flex-col items-center p-1 bg-green-100 rounded">
+                                                                                            <p
+                                                                                                class="font-semibold text-2xs">
+                                                                                                P</p>
+                                                                                            <p class="text-3xs">00:25
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-2 py-3">
+                                                            <div>
+                                                                <p @click="isOpen = !isOpen"
+                                                                    @keydown.escape="isOpen = false"
+                                                                    class="text-sm font-semibold text-blue-600 truncate">
+                                                                    Hemalatha</p>
+                                                            </div>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                20
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                3
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                2
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                2
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                1
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                1
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                1
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                1
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                1
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                0
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                0
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                0 </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                0
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                0
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                0
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                0
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-center mt-4">
+                                    <nav class="relative z-0 inline-flex -space-x-px shadow-sm" aria-label="Pagination">
+                                        <a href="#"
+                                            class="relative inline-flex items-center px-2 py-2 text-gray-500 bg-white border border-gray-300 text-smfont-medium rounded-l-md hover:bg-indigo-100">
+                                            <span class="sr-only">Previous</span>
+                                            <!-- Heroicon name: chevron-left -->
+                                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                fill="currentColor" aria-hidden="true">
+                                                <path fill-rule="evenodd"
+                                                    d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>
+                                        </a>
+                                        <a href="#"
+                                            class="relative inline-flex items-center px-4 py-2 text-gray-700 bg-white border border-gray-300 text-smfont-medium hover:bg-indigo-100">
+                                            1
+                                        </a>
+                                        <a href="#"
+                                            class="relative inline-flex items-center px-4 py-2 text-gray-700 bg-white border border-gray-300 text-smfont-medium hover:bg-indigo-100">
+                                            2
+                                        </a>
+                                        <a href="#"
+                                            class="relative items-center hidden px-4 py-2 text-gray-700 bg-white border border-gray-300 text-smfont-medium md:inline-flex hover:bg-indigo-100">
+                                            3
+                                        </a>
+                                        <a href="#"
+                                            class="relative inline-flex items-center px-4 py-2 text-gray-700 bg-white border border-gray-300 text-smfont-medium hover:bg-indigo-100">
+                                            4
+                                        </a>
+                                        <a href="#"
+                                            class="relative inline-flex items-center px-4 py-2 text-gray-700 bg-white border border-gray-300 text-smfont-medium hover:bg-indigo-100">
+                                            5
+                                        </a>
+                                        <a href="#"
+                                            class="relative inline-flex items-center px-2 py-2 text-gray-500 bg-white border border-gray-300 text-smfont-medium rounded-r-md hover:bg-indigo-100">
+                                            <span class="sr-only">Next</span>
+                                            <!-- Heroicon name: chevron-right -->
+                                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                fill="currentColor" aria-hidden="true">
+                                                <path fill-rule="evenodd"
+                                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+<script>
+    function datePicker() {
+        return {
+            currentDate: new Date(),
+            formattedDate: '',
+
+            init() {
+                this.updateFormattedDate();
+            },
+
+            updateFormattedDate() {
+                const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+                this.formattedDate = this.currentDate.toLocaleDateString('en-GB', options);
+            },
+
+            updateDate() {
+                const selectedDate = new Date(this.formattedDate);
+                if (!isNaN(selectedDate.getTime())) {
+                    this.currentDate = selectedDate;
+                }
+            },
+
+            openCalendar() {
+                // Make the input visible temporarily
+                this.$refs.dateInput.classList.remove('hidden');
+                // Trigger input click to open the calendar
+                this.$refs.dateInput.click();
+                // Hide the input again after a short delay
+                setTimeout(() => {
+                    this.$refs.dateInput.classList.add('hidden');
+                }, 100);
+            },
+
+            prevDay() {
+                this.currentDate.setDate(this.currentDate.getDate() - 1);
+                this.updateFormattedDate();
+            },
+
+            nextDay() {
+                const tomorrow = new Date(this.currentDate);
+                tomorrow.setDate(this.currentDate.getDate() + 1);
+
+                // Check if tomorrow is not in the future
+                if (tomorrow <= new Date()) {
+                    this.currentDate = tomorrow;
+                    this.updateFormattedDate();
+                }
+            },
+
+            get isFutureDate() {
+                const tomorrow = new Date(this.currentDate);
+                tomorrow.setDate(this.currentDate.getDate() + 1);
+                return tomorrow > new Date();
+            },
+        };
+    }
+</script>
+
+
+
+</html>
