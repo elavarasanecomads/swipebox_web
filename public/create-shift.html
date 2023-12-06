@@ -1,0 +1,194 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Shift</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+                    <div x-data="{ selectedOption: 'option1' }">
+                        <div class="p-4 space-y-4 border rounded shadow-md">
+                            <h1 class="text-xl font-bold">Create New shift</h1>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="">Shift Name</label>
+
+                                <input type="text" name="" id="" autocomplete="" placeholder="Shift Name"
+                                    class="block w-full px-3 py-2 border border-gray-400 rounded-md lg:w-1/2 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="">Shift Type</label>
+                                <select x-model="selectedOption"
+                                    class="block w-full px-3 py-2 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-1/2 focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                    <option value="option1">Fixed Shift</option>
+                                    <option value="option2">Open Shift</option>
+                                    <option value="option3">Multiple Shift</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="p-4 mt-4 border rounded shadow-md">
+                            <div x-show="selectedOption === 'option1'">
+                                <p class="text-lg font-bold">Add Fixed Shift</p>
+                                <div class="w-full pt-4 space-y-4 lg:w-1/2">
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-1/2">
+                                            <label class="text-sm font-semibold text-gray-600" for="">Shift
+                                                Start
+                                                Time</label>
+                                            <input type="text" name="" id="" autocomplete="title" placeholder=""
+                                                class="block w-full px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        </div>
+                                        <div class="w-1/2">
+                                            <label class="text-sm font-semibold text-gray-600" for="">Shift
+                                                End
+                                                time</label>
+                                            <input type="text" name="" id="" autocomplete="title" placeholder=""
+                                                class="block w-full px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        </div>
+                                    </div>
+                                    <div class="p-4 bg-green-100 rounded">
+                                        <p class="font-semibold text-gray-900">This shift ends next day. This is the
+                                            night
+                                            shift.
+                                        </p>
+                                    </div>
+                                    <div class="grid grid-cols-1 gap-4 p-4 rounded bg-orange-50 lg:grid-cols-2">
+                                        <div class="col-span-1 lg:col-span-2">
+                                            <h3 class="font-bold">Half Intervals</h3>
+                                            <p class="text-sm text-gray-600">To fix first half and
+                                                Second half
+                                                for taking half day leaves.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold">First Half</p>
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-1/2">
+                                                    <label class="text-gray-600" for="businessname">Start
+                                                        Time</label>
+                                                    <input type="text" name="businessname" id="businessname"
+                                                        autocomplete="title" placeholder=""
+                                                        class="block w-full px-2 py-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                </div>
+                                                <div class="w-1/2">
+                                                    <label class="text-gray-600" for="businessname">End
+                                                        time</label>
+                                                    <input type="text" name="businessname" id="businessname"
+                                                        autocomplete="title" placeholder=""
+                                                        class="block w-full px-2 py-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold">Second Half</p>
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-1/2">
+                                                    <label class="text-gray-600" for="businessname">Start
+                                                        Time</label>
+                                                    <input type="text" name="businessname" id="businessname"
+                                                        autocomplete="title" placeholder=""
+                                                        class="block w-full px-2 py-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                </div>
+                                                <div class="w-1/2">
+                                                    <label class="text-gray-600" for="businessname">End
+                                                        time</label>
+                                                    <input type="text" name="businessname" id="businessname"
+                                                        autocomplete="title" placeholder=""
+                                                        class="block w-full px-2 py-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center w-full gap-4 pt-4">
+                                        <div class="w-1/2">
+                                            <label class="text-sm font-semibold text-gray-600" for="">Total
+                                                Shift Hours</label>
+                                            <input type="text" name="" id="" autocomplete="title" placeholder=""
+                                                class="block w-full px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        </div>
+                                        <div class="w-1/2">
+                                            <label class="text-sm font-semibold text-gray-600" for="">Grace
+                                                Mins</label>
+                                            <input type="text" name="" id="" autocomplete="title" placeholder=""
+                                                class="block w-full px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div x-show="selectedOption === 'option2'">
+                                <p class="text-lg font-bold">Add Open Shift</p>
+                                <div class="w-full pt-4 space-y-4 lg:1/2">
+                                    <p class="text-sm text-gray-600">Late entry and early exit policies are not
+                                        applicable for open shifts.</p>
+                                    <div class="w-full lg:w-1/4">
+                                        <label class="text-sm font-semibold text-gray-600" for="">Total
+                                            Shift Hours</label>
+                                        <input type="text" name="" id="" autocomplete="title" placeholder=""
+                                            class="block w-full px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div x-show="selectedOption === 'option3'">
+                                <p class="text-lg font-bold">Add Multiple Shift</p>
+                                <p class="text-gray-600">After setting up a fixed shift, you can create multiple shifts.</p>
+                                <div>
+                                    <div x-data="{ conditions: [{}] }" class="space-y-4">
+                                        <template x-for="(condition, index) in conditions" :key="index">
+                                            <div class="flex items-center w-full gap-8 lg:w-1/2">
+                                                <div class="w-4/5">
+                                                    <label class="text-sm font-semibold text-gray-600" for="">Choose Shift</label>
+                                                    <select
+                                                        class="block w-full px-3 py-2 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                                        <option value="">Regular Shift</option>
+                                                        <option value="">Morning Shift</option>
+                                                        <option value="">Evening Shift</option>
+                                                        <option value="">Night Shift</option>
+                                                    </select>
+                                                </div>
+                                                <button class="pt-5 text-red-600"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                        class="w-6 h-6">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M6 18L18 6M6 6l12 12" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+
+                                        </template>
+
+                                        <button @click="conditions.push({})" class="font-semibold text-blue-600">Add More Shift</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-1/4 pt-6">
+                            <button
+                                class="w-full p-2 font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-700">Save</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+</html>
