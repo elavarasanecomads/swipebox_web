@@ -1,0 +1,63 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="min-h-screen bg-white">
+    <section class="w-full">
+        <div class="flex items-center justify-center">
+            <div class="w-full max-w-7xl">
+                <div class="flex items-center justify-center min-h-screen bg-blue-50">
+                            <div class="p-4 py-8 m-4 bg-white border rounded-md shadow-md lg:p-8 w-96">
+                                <div>
+                                    <div>
+                                        <img class="h-12" src="img/pep_logo_1.png" alt="">
+                                    </div>
+                                    <div class="pt-6 space-y-2">
+                                        <p class="text-2xl font-bold text-blue-600">OTP VERIFY</p>
+                                        <div>
+                                            <p class="text-sm text-gray-600">OTP sent to 8072276922
+                                                
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="pt-4 space-y-4">
+                                        <div>
+                                            <label for="email-address" class="block font-medium text-gray-700">Enter
+                                                OTP</label>
+                                            <input type="text" placeholder="Enter OTP" name="otp" id="otp"
+                                                autocomplete="otp"
+                                                class="w-full px-3 py-3 mt-1 leading-tight text-gray-900 border border-gray-300 rounded shadow-inner appearance-none focus:outline-none focus:ring-blue-400 focus:border-blue-400 sm:text-sm">
+                                        </div>
+                                        
+                                        <div>
+                                            <a href="verify-otp.html">
+                                            <button
+                                                class="w-full p-3 py-3 font-bold text-center text-white uppercase bg-blue-600 rounded-md">Verify</button>
+                                            </a>
+                                            </div>
+                                        <div class="pt-4 space-y-4">
+                                            <p class="text-sm font-semibold text-orange-600">You are allowed to request an OTP after 01:55. </p>
+                                            <p class="text-sm text-gray-600">Didn't receive OTP?
+                                                <span class="ml-2"><a href="#"
+                                                        class="text-sm font-semibold text-blue-600">Resend</a></span>
+                                            </p>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
