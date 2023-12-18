@@ -18,63 +18,70 @@
             <div class="mx-0 my-4 lg:m-4">
                 <div class="h-full p-4 bg-white border rounded-md lg:p-8" x-data="{ isOpen: false }">
                     <!--Brudcrumb-->
-                    <div class="flex items-center justify-between pt-6">
-                        <div class="pb-6">
-                            <p class="text-2xl font-bold"></p>
-                        </div>
+                    <div>
+                        <a href="dashboard.html" class="flex items-center gap-1 text-sm text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5">
+                                <path fill-rule="evenodd"
+                                    d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Back</span>
+                        </a>
                     </div>
-
-
 
                     <div x-data="{
                         openTab: 1,
                         activeClasses: 'border-b-2 border-blue-600 text-blue-600',
                         inactiveClasses: ''
                     }">
-                        <div class="grid grid-cols-2 pt-2 border-b lg:grid-cols-6">
-                            <div class="col-span-1" @click="openTab = 1">
-                                <button
-                                    class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
-                                    :class="openTab === 1 ? activeClasses : inactiveClasses">Bonus / Insentive</button>
-                            </div>
-                            <div class="col-span-1" @click="openTab = 2">
-                                <button
-                                    class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
-                                    :class="openTab === 2 ? activeClasses : inactiveClasses">Allowance</button>
-                            </div>
-                            <div class="col-span-1" @click="openTab = 3">
-                                <button
-                                    class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
-                                    :class="openTab === 3 ? activeClasses : inactiveClasses">Deductions</button>
-                            </div>
-                            <div class="col-span-1" @click="openTab = 4">
-                                <button
-                                    class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
-                                    :class="openTab === 4 ? activeClasses : inactiveClasses">Loan</button>
-                            </div>
-                            <div class="col-span-1" @click="openTab = 5">
-                                <button
-                                    class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
-                                    :class="openTab === 5 ? activeClasses : inactiveClasses">Advance</button>
-                            </div>
-                            <div class="col-span-1" @click="openTab = 6">
-                                <button
-                                    class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
-                                    :class="openTab === 6 ? activeClasses : inactiveClasses">TDS Deductions
-                                </button>
-                            </div>
-                            <div class="col-span-1" @click="openTab = 7">
-                                <button
-                                    class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
-                                    :class="openTab === 7 ? activeClasses : inactiveClasses">PT Deductions
-                                </button>
-                            </div>
+                    <div class="flex flex-row items-center gap-8 pt-6 overflow-x-auto border-b whitespace-nowrap">
+                        <div class="col-span-1" @click="openTab = 1">
+                            <button
+                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
+                                :class="openTab === 1 ? activeClasses : inactiveClasses">Bonus / Insentive</button>
                         </div>
-                        <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 1" style="display: none;">
+                        <div class="col-span-1" @click="openTab = 2">
+                            <button
+                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
+                                :class="openTab === 2 ? activeClasses : inactiveClasses">Allowance</button>
+                        </div>
+                        <div class="col-span-1" @click="openTab = 3">
+                            <button
+                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
+                                :class="openTab === 3 ? activeClasses : inactiveClasses">Deductions</button>
+                        </div>
+                        <div class="col-span-1" @click="openTab = 4">
+                            <button
+                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
+                                :class="openTab === 4 ? activeClasses : inactiveClasses">Loan</button>
+                        </div>
+                        <div class="col-span-1" @click="openTab = 5">
+                            <button
+                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
+                                :class="openTab === 5 ? activeClasses : inactiveClasses">Advance</button>
+                        </div>
+                        <div class="col-span-1" @click="openTab = 6">
+                            <button
+                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
+                                :class="openTab === 6 ? activeClasses : inactiveClasses">TDS Deductions</button>
+                        </div>
+                        <div class="col-span-1" @click="openTab = 7">
+                            <button
+                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
+                                :class="openTab === 7 ? activeClasses : inactiveClasses">PT Deductions</button>
+                        </div>
+                    </div>
+                        <div class="pt-6 space-y-4 bg-white" x-show="openTab === 1" style="display: none;">
                             <div>
+                                <div class="flex items-center">
+                                    <div class="pb-6">
+                                        <p class="text-xl font-bold lg:text-2xl">Employees Bonus/Insentive</p>
+                                    </div>
+                                </div>
                                 <div>
-                                    <div class="flex items-center gap-4 pb-8">
-                                        <div>
+                                    <div class="flex flex-wrap items-center gap-4 pb-8">
+                                        <div class="w-full lg:w-60">
                                             <span class="inline-block w-full rounded shadow-sm">
                                                 <button
                                                     class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-60 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
@@ -116,6 +123,14 @@
                                             <option>Oct 2023</option>
                                             <option>Sep 2023</option>
                                         </select>
+                                        <div>
+                                            <button class="flex items-center gap-2 px-3 py-2 font-semibold text-gray-100 bg-blue-600 rounded">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path>
+                                                </svg>
+                                                <span class="text-sm">Download</span>
+                                            </button>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -242,11 +257,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 2" style="display: none;">
+                        <div class="pt-6 space-y-4 bg-white" x-show="openTab === 2" style="display: none;">
                             <div>
-                                <div class="flex items-center gap-4 pb-8">
-                                    <div>
-                                        <span class="inline-block w-full rounded shadow-sm">
+                                <div class="flex items-center">
+                                    <div class="pb-6">
+                                        <p class="text-xl font-bold lg:text-2xl">Employees Allowance</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-wrap items-center gap-4 pb-8">
+                                    <div class="w-full lg:w-60">
+                                            <span class="inline-block w-full rounded shadow-sm">
                                             <button
                                                 class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-60 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
                                                 type="button" aria-haspopup="listbox" aria-expanded="true"
@@ -287,6 +307,14 @@
                                         <option>Oct 2023</option>
                                         <option>Sep 2023</option>
                                     </select>
+                                    <div>
+                                        <button class="flex items-center gap-2 px-3 py-2 font-semibold text-gray-100 bg-blue-600 rounded">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path>
+                                            </svg>
+                                            <span class="text-sm">Download</span>
+                                        </button>
+                                    </div>
                                 </div>
                                 <div>
                                     <div class="relative">
@@ -411,11 +439,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 3" style="display: none;">
+                        <div class="pt-6 space-y-4 bg-white" x-show="openTab === 3" style="display: none;">
                             <div>
-                                <div class="flex items-center gap-4 pb-8">
-                                    <div>
-                                        <span class="inline-block w-full rounded shadow-sm">
+                                <div class="flex items-center">
+                                    <div class="pb-6">
+                                        <p class="text-xl font-bold lg:text-2xl">Employees Deductions</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-wrap items-center gap-4 pb-8">
+                                    <div class="w-full lg:w-60">
+                                            <span class="inline-block w-full rounded shadow-sm">
                                             <button
                                                 class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-60 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
                                                 type="button" aria-haspopup="listbox" aria-expanded="true"
@@ -456,6 +489,14 @@
                                         <option>Oct 2023</option>
                                         <option>Sep 2023</option>
                                     </select>
+                                    <div>
+                                        <button class="flex items-center gap-2 px-3 py-2 font-semibold text-gray-100 bg-blue-600 rounded">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path>
+                                            </svg>
+                                            <span class="text-sm">Download</span>
+                                        </button>
+                                    </div>
                                 </div>
                                 <div>
                                     <div class="relative">
@@ -580,11 +621,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 4" style="display: none;">
+                        <div class="pt-6 space-y-4 bg-white" x-show="openTab === 4" style="display: none;">
                             <div>
-                                <div class="flex items-center gap-4 pb-8">
-                                    <div>
-                                        <span class="inline-block w-full rounded shadow-sm">
+                                <div class="flex items-center">
+                                    <div class="pb-6">
+                                        <p class="text-xl font-bold lg:text-2xl">Employees Loan</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-wrap items-center gap-4 pb-8">
+                                    <div class="w-full lg:w-60">
+                                            <span class="inline-block w-full rounded shadow-sm">
                                             <button
                                                 class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-60 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
                                                 type="button" aria-haspopup="listbox" aria-expanded="true"
@@ -619,6 +665,14 @@
                                         <option>Sales</option>
                                         <option>Purchase</option>
                                     </select>
+                                    <div>
+                                        <button class="flex items-center gap-2 px-3 py-2 font-semibold text-gray-100 bg-blue-600 rounded">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path>
+                                            </svg>
+                                            <span class="text-sm">Download</span>
+                                        </button>
+                                    </div>
                                 </div>
                                 <div>
                                     <div class="relative">
@@ -753,11 +807,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 5" style="display: none;">
+                        <div class="pt-6 space-y-4 bg-white" x-show="openTab === 5" style="display: none;">
                             <div>
-                                <div class="flex items-center gap-4 pb-8">
-                                    <div>
-                                        <span class="inline-block w-full rounded shadow-sm">
+                                <div class="flex items-center">
+                                    <div class="pb-6">
+                                        <p class="text-xl font-bold lg:text-2xl">Employees Advance</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-wrap items-center gap-4 pb-8">
+                                    <div class="w-full lg:w-60">
+                                            <span class="inline-block w-full rounded shadow-sm">
                                             <button
                                                 class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-60 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
                                                 type="button" aria-haspopup="listbox" aria-expanded="true"
@@ -792,6 +851,14 @@
                                         <option>Sales</option>
                                         <option>Purchase</option>
                                     </select>
+                                    <div>
+                                        <button class="flex items-center gap-2 px-3 py-2 font-semibold text-gray-100 bg-blue-600 rounded">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path>
+                                            </svg>
+                                            <span class="text-sm">Download</span>
+                                        </button>
+                                    </div>
                                 </div>
                                 <div>
                                     <div class="relative">
@@ -926,11 +993,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 6" style="display: none;">
+                        <div class="pt-6 space-y-4 bg-white" x-show="openTab === 6" style="display: none;">
                             <div>
-                                <div class="flex items-center gap-4 pb-8">
-                                    <div>
-                                        <span class="inline-block w-full rounded shadow-sm">
+                                <div class="flex items-center">
+                                    <div class="pb-6">
+                                        <p class="text-xl font-bold lg:text-2xl">TDS Deductions</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-wrap items-center gap-4 pb-8">
+                                    <div class="w-full lg:w-60">
+                                            <span class="inline-block w-full rounded shadow-sm">
                                             <button
                                                 class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-60 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
                                                 type="button" aria-haspopup="listbox" aria-expanded="true"
@@ -971,6 +1043,14 @@
                                         <option>Oct 2023</option>
                                         <option>Sep 2023</option>
                                     </select>
+                                    <div>
+                                        <button class="flex items-center gap-2 px-3 py-2 font-semibold text-gray-100 bg-blue-600 rounded">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path>
+                                            </svg>
+                                            <span class="text-sm">Download</span>
+                                        </button>
+                                    </div>
                                 </div>
                                 <div>
                                     <div class="relative">
@@ -1095,11 +1175,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 7" style="display: none;">
+                        <div class="pt-6 space-y-4 bg-white" x-show="openTab === 7" style="display: none;">
                             <div>
-                                <div class="flex items-center gap-4 pb-8">
-                                    <div>
-                                        <span class="inline-block w-full rounded shadow-sm">
+                                <div class="flex items-center">
+                                    <div class="pb-6">
+                                        <p class="text-xl font-bold lg:text-2xl">PT Deductions</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-wrap items-center gap-4 pb-8">
+                                    <div class="w-full lg:w-60">
+                                            <span class="inline-block w-full rounded shadow-sm">
                                             <button
                                                 class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-60 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
                                                 type="button" aria-haspopup="listbox" aria-expanded="true"
@@ -1140,6 +1225,14 @@
                                         <option>Oct 2023</option>
                                         <option>Sep 2023</option>
                                     </select>
+                                    <div>
+                                        <button class="flex items-center gap-2 px-3 py-2 font-semibold text-gray-100 bg-blue-600 rounded">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path>
+                                            </svg>
+                                            <span class="text-sm">Download</span>
+                                        </button>
+                                    </div>
                                 </div>
                                 <div>
                                     <div class="relative">

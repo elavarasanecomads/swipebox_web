@@ -18,52 +18,24 @@
             <div class="mx-0 my-4 lg:m-4">
                 <div class="h-full p-4 bg-white border rounded-md lg:p-8" x-data="{ isOpen: false }">
                     <!--Brudcrumb-->
-                    <div class="flex items-center justify-between pt-6">
-                        <div class="pb-6">
-                            <p class="text-2xl font-bold">Bulk Employee Profile</p>
-                        </div>
+                    <div>
+                        <a href="dashboard.html" class="flex items-center gap-1 text-sm text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5">
+                                <path fill-rule="evenodd"
+                                    d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Back</span>
+                        </a>
                     </div>
-
-
 
                     <div x-data="{
                         openTab: 1,
                         activeClasses: 'border-b-2 border-blue-600 text-blue-600',
                         inactiveClasses: ''
                     }">
-                    <div class="flex flex-row items-center gap-8 pt-2 overflow-x-auto border-b whitespace-nowrap">
-                        <div class="col-span-1" @click="openTab = 1">
-                            <button
-                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
-                                :class="openTab === 1 ? activeClasses : inactiveClasses">Personal Details</button>
-                        </div>
-                        <div class="col-span-1" @click="openTab = 2">
-                            <button
-                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
-                                :class="openTab === 2 ? activeClasses : inactiveClasses">Work Details</button>
-                        </div>
-                        <div class="col-span-1" @click="openTab = 3">
-                            <button
-                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
-                                :class="openTab === 3 ? activeClasses : inactiveClasses">Bank Details</button>
-                        </div>
-                        <div class="col-span-1" @click="openTab = 4">
-                            <button
-                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
-                                :class="openTab === 4 ? activeClasses : inactiveClasses">Salary Detail</button>
-                        </div>
-                        <div class="col-span-1" @click="openTab = 5">
-                            <button
-                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
-                                :class="openTab === 5 ? activeClasses : inactiveClasses">Leave Balance</button>
-                        </div>
-                        <div class="col-span-1" @click="openTab = 6">
-                            <button
-                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
-                                :class="openTab === 6 ? activeClasses : inactiveClasses">Biometric Details</button>
-                        </div>
-                    </div>                    
-                        <!-- <div class="grid grid-cols-2 pt-2 border-b lg:grid-cols-6"> 
+                        <div class="flex flex-row items-center gap-8 pt-6 overflow-x-auto border-b whitespace-nowrap">
                             <div class="col-span-1" @click="openTab = 1">
                                 <button
                                     class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
@@ -95,10 +67,14 @@
                                     :class="openTab === 6 ? activeClasses : inactiveClasses">Biometric Details</button>
                             </div>
                         </div>
-                        -->
 
-                        <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 1" style="display: none;">
+                        <div class="pt-6 space-y-4 bg-white" x-show="openTab === 1" style="display: none;">
                             <div>
+                                <div class="flex items-center">
+                                    <div class="pb-6">
+                                        <p class="text-xl font-bold lg:text-2xl">Employees Personal Details</p>
+                                    </div>
+                                </div>
                                 <div>
                                     <div class="flex flex-wrap items-center gap-4 pb-8">
                                         <div class="w-full lg:w-60">
@@ -107,14 +83,16 @@
                                                     class="relative z-0 w-full py-2 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
                                                     type="button" aria-haspopup="listbox" aria-expanded="true"
                                                     aria-label="search" aria-checked="false">
-        
-                                                    <input id="search" type="search" placeholder="Search by name, email, mobile"
+
+                                                    <input id="search" type="search"
+                                                        placeholder="Search by name, email, mobile"
                                                         class="w-full h-full form-control focus:outline-none">
-        
+
                                                     <span
                                                         class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
-                                                        <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
-                                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <svg class="w-6 h-6 text-gray-600"
+                                                            xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke="currentColor">
                                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                                 stroke-width="2"
                                                                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
@@ -135,6 +113,14 @@
                                             <option>Sales</option>
                                             <option>Purchase</option>
                                         </select>
+                                        <div>
+                                            <button class="flex items-center gap-2 px-3 py-2 font-semibold text-gray-100 bg-blue-600 rounded">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path>
+                                                </svg>
+                                                <span class="text-sm">Download</span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div>
@@ -170,13 +156,16 @@
                                                             ESI Number</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
+                                                <tbody
+                                                    class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
                                                     <tr>
                                                         <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
                                                             <div class="flex items-center gap-2 w-max">
                                                                 <img class="w-8 h-8 rounded-full"
-                                                                    src="https://randomuser.me/api/portraits/men/11.jpg" alt="">
-                                                                <a href="" class="font-medium text-blue-600">John Doe</a>
+                                                                    src="https://randomuser.me/api/portraits/men/11.jpg"
+                                                                    alt="">
+                                                                <a href="" class="font-medium text-blue-600">John
+                                                                    Doe</a>
                                                             </div>
                                                         </td>
                                                         <td class="p-4">9192939494</td>
@@ -197,24 +186,27 @@
                                             </table>
                                         </div>
                                     </div>
-                                    <div class="flex flex-col items-center justify-center gap-4 pt-6 lg:flex-row lg:justify-between">
+                                    <div
+                                        class="flex flex-col items-center justify-center gap-4 pt-6 lg:flex-row lg:justify-between">
                                         <div class="flex items-center">
                                             <p class="pr-2 text-sm font-medium">Rows per page</p>
-                                            <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                                 <option>10</option>
-                                                    <option>25</option>
-                                                    <option>50</option>
-                                                    <option>100</option>
-                                                </select>
+                                                <option>25</option>
+                                                <option>50</option>
+                                                <option>100</option>
+                                            </select>
                                         </div>
                                         <div>
-                                            <nav class="relative z-0 inline-flex -space-x-px shadow-sm" aria-label="Pagination">
+                                            <nav class="relative z-0 inline-flex -space-x-px shadow-sm"
+                                                aria-label="Pagination">
                                                 <a href="#"
                                                     class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-blue-100">
                                                     <span class="sr-only">Previous</span>
                                                     <!-- Heroicon name: chevron-left -->
-                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                        fill="currentColor" aria-hidden="true">
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                         <path fill-rule="evenodd"
                                                             d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
                                                             clip-rule="evenodd"></path>
@@ -244,8 +236,8 @@
                                                     class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-blue-100">
                                                     <span class="sr-only">Next</span>
                                                     <!-- Heroicon name: chevron-right -->
-                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                        fill="currentColor" aria-hidden="true">
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                         <path fill-rule="evenodd"
                                                             d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                                                             clip-rule="evenodd"></path>
@@ -257,45 +249,60 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 2" style="display: none;">
+                        <div class="pt-6 space-y-4 bg-white" x-show="openTab === 2" style="display: none;">
                             <div>
+                                <div class="flex items-center">
+                                    <div class="pb-6">
+                                        <p class="text-xl font-bold lg:text-2xl">Employees Work Details</p>
+                                    </div>
+                                </div>
                                 <div>
                                     <div class="flex flex-wrap items-center gap-4 pb-8">
-                                    <div class="w-full lg:w-60">
-                                        <span class="inline-block w-full rounded shadow-sm">
-                                            <button
-                                                class="relative z-0 w-full py-2 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
-                                                type="button" aria-haspopup="listbox" aria-expanded="true"
-                                                aria-label="search" aria-checked="false">
-    
-                                                <input id="search" type="search" placeholder="Search by name, email, mobile"
-                                                    class="w-full h-full form-control focus:outline-none">
-    
-                                                <span
-                                                    class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
-                                                    <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
-                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2"
-                                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                                    </svg>
-                                                </span>
+                                        <div class="w-full lg:w-60">
+                                            <span class="inline-block w-full rounded shadow-sm">
+                                                <button
+                                                    class="relative z-0 w-full py-2 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                                    type="button" aria-haspopup="listbox" aria-expanded="true"
+                                                    aria-label="search" aria-checked="false">
+
+                                                    <input id="search" type="search"
+                                                        placeholder="Search by name, email, mobile"
+                                                        class="w-full h-full form-control focus:outline-none">
+
+                                                    <span
+                                                        class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                        <svg class="w-6 h-6 text-gray-600"
+                                                            xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                                        </svg>
+                                                    </span>
+                                                </button>
+                                            </span>
+                                        </div>
+                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                            class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>All Branches</option>
+                                            <option>Ecomads Pvt Ltd, Covai</option>
+                                            <option>Ecomads Pvt Ltd, Tiruchengode</option>
+                                        </select>
+                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                            class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>All Departments</option>
+                                            <option>Sales</option>
+                                            <option>Purchase</option>
+                                        </select>
+                                        <div>
+                                            <button class="flex items-center gap-2 px-3 py-2 font-semibold text-gray-100 bg-blue-600 rounded">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path>
+                                                </svg>
+                                                <span class="text-sm">Download</span>
                                             </button>
-                                        </span>
+                                        </div>
                                     </div>
-                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                        <option>All Branches</option>
-                                        <option>Ecomads Pvt Ltd, Covai</option>
-                                        <option>Ecomads Pvt Ltd, Tiruchengode</option>
-                                    </select>
-                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                        <option>All Departments</option>
-                                        <option>Sales</option>
-                                        <option>Purchase</option>
-                                    </select>
-                                </div>
                                 </div>
                                 <div>
                                     <div class="relative">
@@ -330,13 +337,16 @@
                                                             Company</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
+                                                <tbody
+                                                    class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
                                                     <tr>
                                                         <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
                                                             <div class="flex items-center gap-2 w-max">
                                                                 <img class="w-8 h-8 rounded-full"
-                                                                    src="https://randomuser.me/api/portraits/men/11.jpg" alt="">
-                                                                <a href="" class="font-medium text-blue-600">John Doe</a>
+                                                                    src="https://randomuser.me/api/portraits/men/11.jpg"
+                                                                    alt="">
+                                                                <a href="" class="font-medium text-blue-600">John
+                                                                    Doe</a>
                                                             </div>
                                                         </td>
                                                         <td class="p-4">9192939494</td>
@@ -357,24 +367,27 @@
                                             </table>
                                         </div>
                                     </div>
-                                    <div class="flex flex-col items-center justify-center gap-4 pt-6 lg:flex-row lg:justify-between">
+                                    <div
+                                        class="flex flex-col items-center justify-center gap-4 pt-6 lg:flex-row lg:justify-between">
                                         <div class="flex items-center">
                                             <p class="pr-2 text-sm font-medium">Rows per page</p>
-                                            <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                                 <option>10</option>
-                                                    <option>25</option>
-                                                    <option>50</option>
-                                                    <option>100</option>
-                                                </select>
+                                                <option>25</option>
+                                                <option>50</option>
+                                                <option>100</option>
+                                            </select>
                                         </div>
                                         <div>
-                                            <nav class="relative z-0 inline-flex -space-x-px shadow-sm" aria-label="Pagination">
+                                            <nav class="relative z-0 inline-flex -space-x-px shadow-sm"
+                                                aria-label="Pagination">
                                                 <a href="#"
                                                     class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-blue-100">
                                                     <span class="sr-only">Previous</span>
                                                     <!-- Heroicon name: chevron-left -->
-                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                        fill="currentColor" aria-hidden="true">
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                         <path fill-rule="evenodd"
                                                             d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
                                                             clip-rule="evenodd"></path>
@@ -404,8 +417,8 @@
                                                     class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-blue-100">
                                                     <span class="sr-only">Next</span>
                                                     <!-- Heroicon name: chevron-right -->
-                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                        fill="currentColor" aria-hidden="true">
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                         <path fill-rule="evenodd"
                                                             d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                                                             clip-rule="evenodd"></path>
@@ -417,8 +430,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 3" style="display: none;">
+                        <div class="pt-6 space-y-4 bg-white" x-show="openTab === 3" style="display: none;">
                             <div>
+                                <div class="flex items-center">
+                                    <div class="pb-6">
+                                        <p class="text-xl font-bold lg:text-2xl">Employees Bank Details</p>
+                                    </div>
+                                </div>
                                 <div>
                                     <div class="flex flex-wrap items-center gap-4 pb-8">
                                         <div class="w-full lg:w-60">
@@ -427,14 +445,16 @@
                                                     class="relative z-0 w-full py-2 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
                                                     type="button" aria-haspopup="listbox" aria-expanded="true"
                                                     aria-label="search" aria-checked="false">
-        
-                                                    <input id="search" type="search" placeholder="Search by name, email, mobile"
+
+                                                    <input id="search" type="search"
+                                                        placeholder="Search by name, email, mobile"
                                                         class="w-full h-full form-control focus:outline-none">
-        
+
                                                     <span
                                                         class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
-                                                        <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
-                                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <svg class="w-6 h-6 text-gray-600"
+                                                            xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke="currentColor">
                                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                                 stroke-width="2"
                                                                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
@@ -455,6 +475,14 @@
                                             <option>Sales</option>
                                             <option>Purchase</option>
                                         </select>
+                                        <div>
+                                            <button class="flex items-center gap-2 px-3 py-2 font-semibold text-gray-100 bg-blue-600 rounded">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path>
+                                                </svg>
+                                                <span class="text-sm">Download</span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div>
@@ -478,16 +506,19 @@
                                                             IFSC Code</th>
                                                         <th scope="col" class="p-4">
                                                             UPI Id</th>
-                                                        
+
                                                     </tr>
                                                 </thead>
-                                                <tbody class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
+                                                <tbody
+                                                    class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
                                                     <tr>
                                                         <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
                                                             <div class="flex items-center gap-2 w-max">
                                                                 <img class="w-8 h-8 rounded-full"
-                                                                    src="https://randomuser.me/api/portraits/men/11.jpg" alt="">
-                                                                <a href="" class="font-medium text-blue-600">John Doe</a>
+                                                                    src="https://randomuser.me/api/portraits/men/11.jpg"
+                                                                    alt="">
+                                                                <a href="" class="font-medium text-blue-600">John
+                                                                    Doe</a>
                                                             </div>
                                                         </td>
                                                         <td class="p-4">9192939494</td>
@@ -496,7 +527,7 @@
                                                         <td class="p-4">9876543210987654</td>
                                                         <td class="p-4">EFGH9876543</td>
                                                         <td class="p-4">jane.smith@upi</td>
-                                                        
+
                                                     </tr>
                                                     </template>
                                                     <!-- Add more rows as needed -->
@@ -504,24 +535,27 @@
                                             </table>
                                         </div>
                                     </div>
-                                    <div class="flex flex-col items-center justify-center gap-4 pt-6 lg:flex-row lg:justify-between">
+                                    <div
+                                        class="flex flex-col items-center justify-center gap-4 pt-6 lg:flex-row lg:justify-between">
                                         <div class="flex items-center">
                                             <p class="pr-2 text-sm font-medium">Rows per page</p>
-                                            <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                                 <option>10</option>
-                                                    <option>25</option>
-                                                    <option>50</option>
-                                                    <option>100</option>
-                                                </select>
+                                                <option>25</option>
+                                                <option>50</option>
+                                                <option>100</option>
+                                            </select>
                                         </div>
                                         <div>
-                                            <nav class="relative z-0 inline-flex -space-x-px shadow-sm" aria-label="Pagination">
+                                            <nav class="relative z-0 inline-flex -space-x-px shadow-sm"
+                                                aria-label="Pagination">
                                                 <a href="#"
                                                     class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-blue-100">
                                                     <span class="sr-only">Previous</span>
                                                     <!-- Heroicon name: chevron-left -->
-                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                        fill="currentColor" aria-hidden="true">
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                         <path fill-rule="evenodd"
                                                             d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
                                                             clip-rule="evenodd"></path>
@@ -551,8 +585,8 @@
                                                     class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-blue-100">
                                                     <span class="sr-only">Next</span>
                                                     <!-- Heroicon name: chevron-right -->
-                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                        fill="currentColor" aria-hidden="true">
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                         <path fill-rule="evenodd"
                                                             d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                                                             clip-rule="evenodd"></path>
@@ -564,8 +598,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 4" style="display: none;">
+                        <div class="pt-6 space-y-4 bg-white" x-show="openTab === 4" style="display: none;">
                             <div>
+                                <div class="flex items-center">
+                                    <div class="pb-6">
+                                        <p class="text-xl font-bold lg:text-2xl">Employees Salary Details</p>
+                                    </div>
+                                </div>
                                 <div>
                                     <div class="flex flex-wrap items-center gap-4 pb-8">
                                         <div class="w-full lg:w-60">
@@ -574,14 +613,16 @@
                                                     class="relative z-0 w-full py-2 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
                                                     type="button" aria-haspopup="listbox" aria-expanded="true"
                                                     aria-label="search" aria-checked="false">
-        
-                                                    <input id="search" type="search" placeholder="Search by name, email, mobile"
+
+                                                    <input id="search" type="search"
+                                                        placeholder="Search by name, email, mobile"
                                                         class="w-full h-full form-control focus:outline-none">
-        
+
                                                     <span
                                                         class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
-                                                        <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
-                                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <svg class="w-6 h-6 text-gray-600"
+                                                            xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke="currentColor">
                                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                                 stroke-width="2"
                                                                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
@@ -602,6 +643,14 @@
                                             <option>Sales</option>
                                             <option>Purchase</option>
                                         </select>
+                                        <div>
+                                            <button class="flex items-center gap-2 px-3 py-2 font-semibold text-gray-100 bg-blue-600 rounded">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path>
+                                                </svg>
+                                                <span class="text-sm">Download</span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div>
@@ -625,17 +674,20 @@
                                                             Salary</th>
                                                         <th scope="col" class="p-4">
                                                             Payment Mode</th>
-                                                            <th scope="col" class="p-4">
-                                                                Salary Template</th>
+                                                        <th scope="col" class="p-4">
+                                                            Salary Template</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
+                                                <tbody
+                                                    class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
                                                     <tr>
                                                         <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
                                                             <div class="flex items-center gap-2 w-max">
                                                                 <img class="w-8 h-8 rounded-full"
-                                                                    src="https://randomuser.me/api/portraits/men/11.jpg" alt="">
-                                                                <a href="" class="font-medium text-blue-600">John Doe</a>
+                                                                    src="https://randomuser.me/api/portraits/men/11.jpg"
+                                                                    alt="">
+                                                                <a href="" class="font-medium text-blue-600">John
+                                                                    Doe</a>
                                                             </div>
                                                         </td>
                                                         <td class="p-4">9192939494</td>
@@ -644,7 +696,7 @@
                                                         <td class="p-4">Monthly</td>
                                                         <td class="p-4">₹ 90000</td>
                                                         <td class="p-4">Bank Transfer</td>
-                                                        <td class="p-4">12% PF ESI Template</td>                                                        
+                                                        <td class="p-4">12% PF ESI Template</td>
                                                     </tr>
                                                     </template>
                                                     <!-- Add more rows as needed -->
@@ -652,24 +704,27 @@
                                             </table>
                                         </div>
                                     </div>
-                                    <div class="flex flex-col items-center justify-center gap-4 pt-6 lg:flex-row lg:justify-between">
+                                    <div
+                                        class="flex flex-col items-center justify-center gap-4 pt-6 lg:flex-row lg:justify-between">
                                         <div class="flex items-center">
                                             <p class="pr-2 text-sm font-medium">Rows per page</p>
-                                            <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                                 <option>10</option>
-                                                    <option>25</option>
-                                                    <option>50</option>
-                                                    <option>100</option>
-                                                </select>
+                                                <option>25</option>
+                                                <option>50</option>
+                                                <option>100</option>
+                                            </select>
                                         </div>
                                         <div>
-                                            <nav class="relative z-0 inline-flex -space-x-px shadow-sm" aria-label="Pagination">
+                                            <nav class="relative z-0 inline-flex -space-x-px shadow-sm"
+                                                aria-label="Pagination">
                                                 <a href="#"
                                                     class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-blue-100">
                                                     <span class="sr-only">Previous</span>
                                                     <!-- Heroicon name: chevron-left -->
-                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                        fill="currentColor" aria-hidden="true">
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                         <path fill-rule="evenodd"
                                                             d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
                                                             clip-rule="evenodd"></path>
@@ -699,8 +754,8 @@
                                                     class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-blue-100">
                                                     <span class="sr-only">Next</span>
                                                     <!-- Heroicon name: chevron-right -->
-                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                        fill="currentColor" aria-hidden="true">
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                         <path fill-rule="evenodd"
                                                             d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                                                             clip-rule="evenodd"></path>
@@ -712,8 +767,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 5" style="display: none;">
+                        <div class="pt-6 space-y-4 bg-white" x-show="openTab === 5" style="display: none;">
                             <div>
+                                <div class="flex items-center">
+                                    <div class="pb-6">
+                                        <p class="text-xl font-bold lg:text-2xl">Employees Leave Balance</p>
+                                    </div>
+                                </div>
                                 <div>
                                     <div class="flex flex-wrap items-center gap-4 pb-8">
                                         <div class="w-full lg:w-60">
@@ -722,14 +782,16 @@
                                                     class="relative z-0 w-full py-2 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
                                                     type="button" aria-haspopup="listbox" aria-expanded="true"
                                                     aria-label="search" aria-checked="false">
-        
-                                                    <input id="search" type="search" placeholder="Search by name, email, mobile"
+
+                                                    <input id="search" type="search"
+                                                        placeholder="Search by name, email, mobile"
                                                         class="w-full h-full form-control focus:outline-none">
-        
+
                                                     <span
                                                         class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
-                                                        <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
-                                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <svg class="w-6 h-6 text-gray-600"
+                                                            xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke="currentColor">
                                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                                 stroke-width="2"
                                                                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
@@ -755,6 +817,14 @@
                                             <option>Casual Leave</option>
                                             <option>Unpaid Casual Leave</option>
                                         </select>
+                                        <div>
+                                            <button class="flex items-center gap-2 px-3 py-2 font-semibold text-gray-100 bg-blue-600 rounded">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path>
+                                                </svg>
+                                                <span class="text-sm">Download</span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div>
@@ -772,16 +842,19 @@
                                                             Employee Id</th>
                                                         <th scope="col" class="p-4">
                                                             Casual Leave Balance</th>
-                                                        
+
                                                     </tr>
                                                 </thead>
-                                                <tbody class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
+                                                <tbody
+                                                    class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
                                                     <tr>
                                                         <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
                                                             <div class="flex items-center gap-2 w-max">
                                                                 <img class="w-8 h-8 rounded-full"
-                                                                    src="https://randomuser.me/api/portraits/men/11.jpg" alt="">
-                                                                <a href="" class="font-medium text-blue-600">John Doe</a>
+                                                                    src="https://randomuser.me/api/portraits/men/11.jpg"
+                                                                    alt="">
+                                                                <a href="" class="font-medium text-blue-600">John
+                                                                    Doe</a>
                                                             </div>
                                                         </td>
                                                         <td class="p-4">9192939494</td>
@@ -794,24 +867,27 @@
                                             </table>
                                         </div>
                                     </div>
-                                    <div class="flex flex-col items-center justify-center gap-4 pt-6 lg:flex-row lg:justify-between">
+                                    <div
+                                        class="flex flex-col items-center justify-center gap-4 pt-6 lg:flex-row lg:justify-between">
                                         <div class="flex items-center">
                                             <p class="pr-2 text-sm font-medium">Rows per page</p>
-                                            <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                                 <option>10</option>
-                                                    <option>25</option>
-                                                    <option>50</option>
-                                                    <option>100</option>
-                                                </select>
+                                                <option>25</option>
+                                                <option>50</option>
+                                                <option>100</option>
+                                            </select>
                                         </div>
                                         <div>
-                                            <nav class="relative z-0 inline-flex -space-x-px shadow-sm" aria-label="Pagination">
+                                            <nav class="relative z-0 inline-flex -space-x-px shadow-sm"
+                                                aria-label="Pagination">
                                                 <a href="#"
                                                     class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-blue-100">
                                                     <span class="sr-only">Previous</span>
                                                     <!-- Heroicon name: chevron-left -->
-                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                        fill="currentColor" aria-hidden="true">
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                         <path fill-rule="evenodd"
                                                             d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
                                                             clip-rule="evenodd"></path>
@@ -841,8 +917,8 @@
                                                     class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-blue-100">
                                                     <span class="sr-only">Next</span>
                                                     <!-- Heroicon name: chevron-right -->
-                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                        fill="currentColor" aria-hidden="true">
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                         <path fill-rule="evenodd"
                                                             d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                                                             clip-rule="evenodd"></path>
@@ -854,8 +930,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 6" style="display: none;">
+                        <div class="pt-6 space-y-4 bg-white" x-show="openTab === 6" style="display: none;">
                             <div>
+                                <div class="flex items-center">
+                                    <div class="pb-6">
+                                        <p class="text-xl font-bold lg:text-2xl">Employees Biometric Details</p>
+                                    </div>
+                                </div>
                                 <div>
                                     <div class="flex flex-wrap items-center gap-4 pb-8">
                                         <div class="w-full lg:w-60">
@@ -864,14 +945,16 @@
                                                     class="relative z-0 w-full py-2 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
                                                     type="button" aria-haspopup="listbox" aria-expanded="true"
                                                     aria-label="search" aria-checked="false">
-        
-                                                    <input id="search" type="search" placeholder="Search by name, email, mobile"
+
+                                                    <input id="search" type="search"
+                                                        placeholder="Search by name, email, mobile"
                                                         class="w-full h-full form-control focus:outline-none">
-        
+
                                                     <span
                                                         class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
-                                                        <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
-                                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <svg class="w-6 h-6 text-gray-600"
+                                                            xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke="currentColor">
                                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                                 stroke-width="2"
                                                                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
@@ -897,6 +980,15 @@
                                             <option>ESSL Ground Floor</option>
                                             <option>ESSL First Floor</option>
                                         </select>
+                                        <div>
+                                            <button class="flex items-center gap-2 px-3 py-2 font-semibold text-gray-100 bg-blue-600 rounded">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path>
+                                                </svg>
+                                                <span class="text-sm">Download</span>
+                                            </button>
+                                        </div>
+                                        
                                     </div>
                                 </div>
                                 <div>
@@ -916,13 +1008,16 @@
                                                             ESSL Ground Floor</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
+                                                <tbody
+                                                    class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
                                                     <tr>
                                                         <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
                                                             <div class="flex items-center gap-2 w-max">
                                                                 <img class="w-8 h-8 rounded-full"
-                                                                    src="https://randomuser.me/api/portraits/men/11.jpg" alt="">
-                                                                <a href="" class="font-medium text-blue-600">John Doe</a>
+                                                                    src="https://randomuser.me/api/portraits/men/11.jpg"
+                                                                    alt="">
+                                                                <a href="" class="font-medium text-blue-600">John
+                                                                    Doe</a>
                                                             </div>
                                                         </td>
                                                         <td class="p-4">9192939494</td>
@@ -935,24 +1030,27 @@
                                             </table>
                                         </div>
                                     </div>
-                                    <div class="flex flex-col items-center justify-center gap-4 pt-6 lg:flex-row lg:justify-between">
+                                    <div
+                                        class="flex flex-col items-center justify-center gap-4 pt-6 lg:flex-row lg:justify-between">
                                         <div class="flex items-center">
                                             <p class="pr-2 text-sm font-medium">Rows per page</p>
-                                            <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                                 <option>10</option>
-                                                    <option>25</option>
-                                                    <option>50</option>
-                                                    <option>100</option>
-                                                </select>
+                                                <option>25</option>
+                                                <option>50</option>
+                                                <option>100</option>
+                                            </select>
                                         </div>
                                         <div>
-                                            <nav class="relative z-0 inline-flex -space-x-px shadow-sm" aria-label="Pagination">
+                                            <nav class="relative z-0 inline-flex -space-x-px shadow-sm"
+                                                aria-label="Pagination">
                                                 <a href="#"
                                                     class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-blue-100">
                                                     <span class="sr-only">Previous</span>
                                                     <!-- Heroicon name: chevron-left -->
-                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                        fill="currentColor" aria-hidden="true">
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                         <path fill-rule="evenodd"
                                                             d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
                                                             clip-rule="evenodd"></path>
@@ -982,8 +1080,8 @@
                                                     class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-blue-100">
                                                     <span class="sr-only">Next</span>
                                                     <!-- Heroicon name: chevron-right -->
-                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                        fill="currentColor" aria-hidden="true">
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                         <path fill-rule="evenodd"
                                                             d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                                                             clip-rule="evenodd"></path>
