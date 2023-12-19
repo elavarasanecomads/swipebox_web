@@ -17,13 +17,145 @@
             <div id="navigation"></div>
             <div class="mx-0 my-4 lg:m-4">
                 <div class="h-full p-4 bg-white border rounded-md lg:p-8" x-data="{ isOpen: false }">
-                     <!--Brudcrumb-->
-                     <div class="flex items-center justify-between pt-6">
+                    <!--Brudcrumb-->
+                    <div class="flex items-center justify-between pt-6">
                         <div>
-                            <p class="text-2xl font-bold">Bulk Bonus</p>
+                            <p class="text-2xl font-bold">Upload Bonus/Incentive From Excel</p>
                         </div>
                     </div>
-                    
+                    <div>
+                        <div x-data="{ step: 1 }">
+                            <!-- Step 1 -->
+                            <div x-show="step === 1">
+                                <div>
+                                    <h1 class="my-4 mt-6 text-xl font-semibold">Download Sample File</h1>
+                                    <ul class="space-y-4">
+                                        <li class="flex items-center gap-2">
+                                            <div
+                                                class="flex items-center justify-center w-6 h-6 text-sm font-semibold text-white bg-green-600 rounded-full">
+                                                1</div>
+                                            <p>Download the sample file from below</p>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <div
+                                                class="flex items-center justify-center w-6 h-6 text-sm font-semibold text-white bg-green-600 rounded-full">
+                                                2</div>
+                                            <p>Add your amount into the sample file.</p>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <div
+                                                class="flex items-center justify-center w-6 h-6 text-sm font-semibold text-white bg-green-600 rounded-full">
+                                                3</div>
+                                            <p>Start uploading in the next
+                                                step.</p>
+                                        </li>
+                                    </ul>
+                                    <div class="pt-6">
+                                        <button
+                                            class="flex items-center gap-2 px-6 py-2 font-semibold text-white bg-blue-600 rounded">
+                                            <img src="img/Excel-icon.c6a3b19b.svg" alt="">
+                                            <p>Download Sample File</p>
+                                        </button>
+                                    </div>
+                                </div>
+
+
+                                <div class="flex items-center pt-12">
+                                    <button @click="step = 2"
+                                        class="px-4 py-2 font-semibold text-white bg-green-600 rounded">Next</button>
+                                </div>
+
+                            </div>
+
+                            <!-- Step 2 -->
+                            <div x-show="step === 2">
+                                <div>
+                                    <h1 class="my-4 mt-6 text-xl font-semibold">Upload File</h1>
+                                    <div class="w-full space-y-4 lg:w-1/2">
+                                        <div>
+                                            <label class="font-semibold text-gray-600" for="date">Bonus Date<span
+                                                    class="text-red-600">*</span></label>
+                                            <input type="date" name="bonus_month" id="bonus_month"
+                                                autocomplete="bonus_month" placeholder="Add bonus amount"
+                                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+
+                                        </div>
+                                        <div>
+                                            <label class="font-semibold text-gray-600" for="date">Bonus Description<span
+                                                    class="text-red-600">*</span></label>
+                                            <input type="text" name="bonus_description" id="bonus_description"
+                                                autocomplete="bonus_description" placeholder="Add Bonus description"
+                                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        </div>
+                                        <div>
+                                            <label class="font-semibold text-gray-600" for="date">Upload File<span
+                                                    class="text-red-600">*</span></label>
+
+                                            <button
+                                                class="flex items-center gap-2 px-6 py-2 font-semibold text-gray-600 bg-gray-200 rounded">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                                                </svg>
+
+                                                <p>Upload File</p>
+                                            </button>
+                                            <div class="flex items-center gap-2 pt-4">
+                                                <p>inputfile.csv</p>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                        fill="currentColor" class="w-5 h-5 text-red-600">
+                                                        <path
+                                                            d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="pt-6">
+                                            <button
+                                            class="px-6 py-2 font-semibold text-white bg-blue-600 rounded">
+                                            Upload Bulk
+                                        </button>
+                                        </div>
+                                    </div>
+                                    <div class="pt-6">
+
+                                        <div class="pt-6 space-y-4">
+                                            <div class="flex items-center gap-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                    fill="currentColor" class="w-5 h-5 text-green-600">
+                                                    <path fill-rule="evenodd"
+                                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+
+                                                <p><span class="font-semibold">55 Employees</span> Uploaded
+                                                    Successfully.</p>
+                                            </div>
+                                            <div class="flex items-center gap-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                    fill="currentColor" class="w-5 h-5 text-red-600">
+                                                    <path fill-rule="evenodd"
+                                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+
+                                                <p class="text-red-600"><span class="font-semibold">5</span> Issues
+                                                    Detected <span><a href="#"
+                                                            class="font-semibold text-blue-600 underline">Download
+                                                            Issues</a></span></p>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
