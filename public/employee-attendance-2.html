@@ -1,0 +1,2286 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Attendance</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="relative min-h-screen bg-gray-100 scroll-smooth">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="p-4 bg-white border rounded-md lg:p-8">
+                    <!--Brudcrumb-->
+                    <nav class="flex" aria-label="Breadcrumb">
+                        <ol class="inline-flex flex-wrap items-center space-x-1 md:space-x-3">
+                            <li class="inline-flex items-center">
+                                <a href="dashboard.html"
+                                    class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                                        </path>
+                                    </svg>
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li>
+                                <div class="flex items-center">
+                                    <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <a href="employee-summary.html"
+                                        class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">Employee
+                                        Summary</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="flex items-center">
+                                    <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <a href="employee-detail.html"
+                                        class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">Employee</a>
+                                </div>
+                            </li>
+                            <li aria-current="page">
+                                <div class="flex items-center">
+                                    <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span
+                                        class="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">Attendance</span>
+                                </div>
+                            </li>
+                        </ol>
+                    </nav>
+
+                    <div id="top" class="pt-4">
+                        <p class="text-2xl font-bold">Staff Attendance Report - <span>Elavarasan</span></p>
+                    </div>
+                    <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                        <div class="flex items-center justify-center py-4 pt-6">
+                            <div class="w-full">
+                                <div class="bg-white rounded-t">
+                                    <div class="flex items-center justify-between">
+                                        <span tabindex="0"
+                                            class="text-base font-bold text-gray-800 focus:outline-none">October
+                                            2020</span>
+                                        <div class="flex items-center">
+                                            <button aria-label="calendar backward"
+                                                class="text-gray-800 focus:text-gray-400 hover:text-gray-400">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-chevron-left" width="24"
+                                                    height="24" viewBox="0 0 24 24" stroke-width="1.5"
+                                                    stroke="currentColor" fill="none" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <polyline points="15 6 9 12 15 18" />
+                                                </svg>
+                                            </button>
+                                            <button aria-label="calendar forward"
+                                                class="ml-3 text-gray-800 focus:text-gray-400 hover:text-gray-400">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-chevron-right" width="24"
+                                                    height="24" viewBox="0 0 24 24" stroke-width="1.5"
+                                                    stroke="currentColor" fill="none" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <polyline points="9 6 15 12 9 18" />
+                                                </svg>
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between pt-6 overflow-x-auto">
+                                        <table class="w-full">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <div class="flex justify-center w-full">
+                                                            <p class="text-base font-medium text-center text-gray-800">
+                                                                Mo</p>
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="flex justify-center w-full">
+                                                            <p class="text-base font-medium text-center text-gray-800">
+                                                                Tu</p>
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="flex justify-center w-full">
+                                                            <p class="text-base font-medium text-center text-gray-800">
+                                                                We</p>
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="flex justify-center w-full">
+                                                            <p class="text-base font-medium text-center text-gray-800">
+                                                                Th</p>
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="flex justify-center w-full">
+                                                            <p class="text-base font-medium text-center text-gray-800">
+                                                                Fr</p>
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="flex justify-center w-full">
+                                                            <p class="text-base font-medium text-center text-gray-800">
+                                                                Sa</p>
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="flex justify-center w-full">
+                                                            <p class="text-base font-medium text-center text-gray-800">
+                                                                Su</p>
+                                                        </div>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="pt-6">
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                        </div>
+                                                    </td>
+                                                    <td class="pt-6">
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                        </div>
+                                                    </td>
+                                                    <td class="pt-6">
+                                                        <div class="w-full h-full">
+                                                            <div
+                                                                class="flex items-center justify-center w-full rounded-full cursor-pointer">
+                                                                <a href="#1" role="link" tabindex="0"
+                                                                    class="flex items-center justify-center w-8 h-8 text-base font-medium text-white bg-green-600 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 focus:bg-green-500 hover:bg-green-500">1</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="pt-6">
+                                                        <div class="w-full h-full">
+                                                            <div
+                                                                class="flex items-center justify-center w-full rounded-full cursor-pointer">
+                                                                <a href="#2" role="link" tabindex="0"
+                                                                    class="flex items-center justify-center w-8 h-8 text-base font-medium text-white bg-green-600 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 focus:bg-green-500 hover:bg-green-500">2</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="pt-6">
+                                                        <div class="w-full h-full">
+                                                            <div
+                                                                class="flex items-center justify-center w-full rounded-full cursor-pointer">
+                                                                <a role="link" tabindex="0"
+                                                                    class="flex items-center justify-center w-8 h-8 text-base font-medium text-white bg-red-600 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600 focus:bg-red-500 hover:bg-red-500">3</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="pt-6">
+                                                        <div class="w-full h-full">
+                                                            <div
+                                                                class="flex items-center justify-center w-full rounded-full cursor-pointer">
+                                                                <a role="link" tabindex="0"
+                                                                    class="flex items-center justify-center w-8 h-8 text-base font-medium text-white rounded-md bg-zinc-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-600 focus:bg-zinc-500 hover:bg-zinc-500">4</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div
+                                                            class="flex items-center justify-center w-full rounded-full cursor-pointer">
+                                                            <a role="link" tabindex="0"
+                                                                class="flex items-center justify-center w-8 h-8 text-base font-medium text-white bg-yellow-600 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-600 focus:bg-yellow-500 hover:bg-yellow-500">5</a>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex items-center justify-center w-full rounded-full cursor-pointer">
+                                                            <a role="link" tabindex="0"
+                                                                class="flex items-center justify-center w-8 h-8 text-base font-medium text-white bg-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:bg-blue-500 hover:bg-blue-500">6</a>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex items-center justify-center w-full rounded-full cursor-pointer">
+                                                            <a role="link" tabindex="0"
+                                                                class="flex items-center justify-center w-8 h-8 text-base font-medium text-white rounded-md bg-rose-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500 focus:bg-rose-400 hover:bg-rose-400">7</a>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="w-full h-full">
+                                                            <div
+                                                                class="flex items-center justify-center w-full rounded-full cursor-pointer">
+                                                                <a role="link" tabindex="0"
+                                                                    class="flex items-center justify-center w-8 h-8 text-base font-medium text-white bg-green-600 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 focus:bg-green-500 hover:bg-green-500">8</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <div
+                                                                class="flex items-center justify-center w-full rounded-full cursor-pointer">
+                                                                <a role="link" tabindex="0"
+                                                                    class="flex items-center justify-center w-8 h-8 text-base font-medium text-white bg-orange-600 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-600 focus:bg-orange-500 hover:bg-orange-500">9</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <div
+                                                                class="flex items-center justify-center w-full rounded-full cursor-pointer">
+                                                                <a role="link" tabindex="0"
+                                                                    class="flex items-center justify-center w-8 h-8 text-base font-medium text-white rounded-md bg-slate-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-400 focus:bg-slate-400 hover:bg-slate-400">10</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <div
+                                                                class="flex items-center justify-center w-full rounded-full cursor-pointer">
+                                                                <a role="link" tabindex="0"
+                                                                    class="flex items-center justify-center w-8 h-8 text-base font-medium text-white rounded-md bg-zinc-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-600 focus:bg-zinc-500 hover:bg-zinc-500">11</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <div
+                                                                class="flex items-center justify-center w-full rounded-full cursor-pointer">
+                                                                <a role="link" tabindex="0"
+                                                                    class="flex items-center justify-center w-8 h-8 text-base font-medium text-white bg-pink-600 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-600 focus:bg-pink-500 hover:bg-pink-500">12</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <div
+                                                                class="flex items-center justify-center w-full rounded-full cursor-pointer">
+                                                                <a role="link" tabindex="0"
+                                                                    class="flex items-center justify-center w-8 h-8 text-base font-medium text-white rounded-md bg-emerald-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 focus:bg-emerald-400 hover:bg-emerald-400">13</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <div
+                                                                class="flex items-center justify-center w-full rounded-full cursor-pointer">
+                                                                <a role="link" tabindex="0"
+                                                                    class="flex items-center justify-center w-8 h-8 text-base font-medium text-white bg-indigo-600 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 focus:bg-indigo-500 hover:bg-indigo-500">14</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <div
+                                                                class="flex items-center justify-center w-full rounded-full cursor-pointer">
+                                                                <a role="link" tabindex="0"
+                                                                    class="flex items-center justify-center w-8 h-8 text-base font-medium text-white bg-green-600 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 focus:bg-green-500 hover:bg-green-500">15</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">16</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base text-gray-500">17</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base text-gray-500">18</p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">19</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">20</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">21</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">22</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">23</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base text-gray-500">24</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base text-gray-500">25</p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">26</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">27</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">28</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">29</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="flex justify-center w-full px-2 py-2 cursor-pointer">
+                                                            <p class="text-base font-medium text-gray-500">30</p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="px-4 py-2 font-semibold text-white bg-green-600 rounded">View Summary</button>
+                            <div class="grid grid-cols-2 gap-4 pt-6 lg:grid-cols-4">
+                                <div class="p-2 border-b-2 rounded-md bg-slate-100 border-slate-600">
+                                    <span class="text-sm font-semibold">Not Punched</span>
+                                    <p class="text-2xl font-bold">2</p>
+                                </div>
+                                <div class="p-2 bg-green-100 border-b-2 border-green-600 rounded-md">
+                                    <span class="text-sm font-semibold">Present</span>
+                                    <p class="text-2xl font-bold">15</p>
+                                </div>
+                                <div class="p-2 bg-red-100 border-b-2 border-red-600 rounded-md">
+                                    <span class="text-sm font-semibold">Absent</span>
+                                    <p class="text-2xl font-bold">2</p>
+                                </div>
+                                <div class="p-2 bg-yellow-100 border-b-2 border-yellow-600 rounded-md">
+                                    <span class="text-sm font-semibold">Half Day</span>
+                                    <p class="text-2xl font-bold">3</p>
+                                </div>
+                                <div class="p-2 bg-blue-100 border-b-2 border-blue-600 rounded-md">
+                                    <span class="text-sm font-semibold">Paid Leave</span>
+                                    <p class="text-2xl font-bold">1</p>
+                                </div>
+                                <div class="p-2 border-b-2 rounded-md bg-rose-100 border-rose-600">
+                                    <span class="text-sm font-semibold">Unpaid Leave</span>
+                                    <p class="text-2xl font-bold">1</p>
+                                </div>
+                                <div class="p-2 bg-orange-100 border-b-2 border-orange-600 rounded-md">
+                                    <span class="text-sm font-semibold">Forgot Out</span>
+                                    <p class="text-2xl font-bold">1</p>
+                                </div>
+                                <div class="p-2 border-b-2 rounded-md bg-slate-100 border-slate-600">
+                                    <span class="text-sm font-semibold">Earlyout</span>
+                                    <p class="text-2xl font-bold">1</p>
+                                </div>
+                                <div class="p-2 bg-pink-100 border-b-2 border-pink-600 rounded-md">
+                                    <span class="text-sm font-semibold">Late</span>
+                                    <p class="text-2xl font-bold">1</p>
+                                </div>
+                                <div class="p-2 border-b-2 rounded-md bg-emerald-100 border-emerald-600">
+                                    <span class="text-sm font-semibold">Public Holiday</span>
+                                    <p class="text-2xl font-bold">1</p>
+                                </div>
+                                <div class="p-2 border-b-2 rounded-md bg-zinc-100 border-zinc-600">
+                                    <span class="text-sm font-semibold">Weekoff</span>
+                                    <p class="text-2xl font-bold">1</p>
+                                </div>
+                                <div class="p-2 bg-indigo-100 border-b-2 border-indigo-600 rounded-md">
+                                    <span class="text-sm font-semibold">Short Hours</span>
+                                    <p class="text-2xl font-bold">1</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="py-8 space-y-4 ">
+                        <div id="1" class="p-4 space-y-4 border rounded-md shadow-md">
+                            <div class="flex items-center justify-between">
+                                <p class="font-bold">01-October-2020</p>
+                                <div class="relative " x-data="{ isOpen: false }">
+                                    <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
+                                        class="flex items-center p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md focus:outline-none">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-600"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
+                                        </svg>
+                                    </button>
+                                    <ul x-show="isOpen" @click.away="isOpen = false"
+                                        class="absolute right-0 z-20 w-64 py-1 mt-2 overflow-hidden font-normal bg-white border rounded shadow">
+                                        <li class="group hover:bg-blue-100" x-data="{ 'showModal': false }"
+                                            @keydown.escape="showModal = false">
+                                            <a @click="showModal = true" href="#"
+                                                class="flex items-center gap-2 px-3 py-3 font-semibold group-hover:text-blue-600">
+                                                <span
+                                                    class="px-2 font-semibold text-white bg-blue-600 rounded-md">OT</span>
+                                                Overtime
+                                            </a>
+
+                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                x-show="showModal" style="display: none;">
+                                                <!-- Modal inner -->
+                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                    @click.away="showModal = false"
+                                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                                    x-transition:enter-start="opacity-0 scale-90"
+                                                    x-transition:enter-end="opacity-100 scale-100">
+                                                    <!-- Title / Close-->
+                                                    <div class="flex items-center justify-between">
+                                                        <div>
+                                                            <p class="font-bold">
+
+                                                            </p>
+                                                        </div>
+                                                        <span @click="showModal = false">
+                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                                                                </path>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    <!-- content -->
+                                                    <div class="w-full mt-4 space-y-4">
+                                                        <div x-data="{victim: 'Guest'}" class="space-y-4">
+                                                            <div>
+                                                                <p><label><input class="mr-2" name="Victim" type="radio"
+                                                                            value="Guest" x-model="victim"
+                                                                            checked="true">Calculate Based On Hour
+                                                                    </label>
+                                                                </p>
+                                                                <div class="pt-2 ml-8" id="Guest" class="desc"
+                                                                    x-show="victim == $el.id">
+                                                                    <div class="flex items-center gap-4">
+                                                                        <div>
+                                                                            <p
+                                                                                class="pb-1 text-sm font-semibold text-gray-600">
+                                                                                Total Hours Worked (HH:MM)</p>
+                                                                            <div>
+                                                                                <input
+                                                                                    class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                                    type="number">
+                                                                                <span class="font-bold">:</span>
+                                                                                <input
+                                                                                    class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                                    type="number">
+                                                                            </div>
+                                                                        </div>
+                                                                        <span>X</span>
+                                                                        <div>
+                                                                            <label for="otwages"
+                                                                                class="text-sm font-semibold text-gray-600">Type</label>
+                                                                            <select id="jobtype" name="jobtype"
+                                                                                autocomplete="jobtype"
+                                                                                class="block px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm w-36 focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                                <option>1X Salary</option>
+                                                                                <option>1.5X Salary</option>
+                                                                                <option>2X Salary</option>
+                                                                                <option>Add Custom Salary Multiple
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <span>X</span>
+                                                                        <div class="flex flex-col">
+                                                                            <label for="otwages"
+                                                                                class="text-sm font-semibold text-gray-600">Over
+                                                                                Time
+                                                                                Wages (Hourly)</label>
+                                                                            <!--value has been changed based on user-->
+                                                                            <input name="otwages" value="150"
+                                                                                class="p-2 mt-1 border border-gray-400 rounded-md w-36 disabled:bg-gray-100 disabled:text-gray-600"
+                                                                                type="text" disabled>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <p><label><input class="mr-2" name="Victim" type="radio"
+                                                                            value="Employee" x-model="victim">Calculate
+                                                                        Based On Day
+                                                                    </label>
+                                                                </p>
+                                                                <div class="pt-2 ml-8" id="Employee" class="desc"
+                                                                    x-show="victim == $el.id">
+                                                                    <div>
+                                                                        <label
+                                                                            class="text-sm font-semibold text-gray-600"
+                                                                            for="businessname">Add Over
+                                                                            Time Salary</label>
+                                                                        <select id="jobtype" name="jobtype"
+                                                                            autocomplete="jobtype"
+                                                                            class="block px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm w-44 focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                            <option>None</option>
+                                                                            <option>Half Day Salary</option>
+                                                                            <option>Full Day Salary</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="pt-4 space-y-4">
+                                                                <div class="flex flex-col">
+                                                                    <label for="otwages"
+                                                                        class="text-sm font-semibold text-gray-600">Total
+                                                                        Amount</label>
+                                                                    <input name="otwages"
+                                                                        class="p-2 border border-gray-400 rounded-md w-44"
+                                                                        type="text">
+                                                                </div>
+                                                                <div>
+                                                                    <button
+                                                                        class="p-2 font-semibold text-white bg-blue-600 border border-blue-600 rounded-md w-44">
+                                                                        Add Overtime</button>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="group hover:bg-blue-100" x-data="{ 'showModal': false }"
+                                            @keydown.escape="showModal = false">
+                                            <a @click="showModal = true" href="#"
+                                                class="flex items-center gap-2 px-3 py-3 font-semibold group-hover:text-blue-600">
+                                                <span
+                                                    class="px-2 font-semibold text-white bg-blue-600 rounded-md">LF</span>
+                                                Late Fine
+                                            </a>
+
+                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                x-show="showModal" style="display: none;">
+                                                <!-- Modal inner -->
+                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                    @click.away="showModal = false"
+                                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                                    x-transition:enter-start="opacity-0 scale-90"
+                                                    x-transition:enter-end="opacity-100 scale-100">
+                                                    <!-- Title / Close-->
+                                                    <div class="flex items-center justify-between">
+                                                        <div>
+                                                            <p class="font-bold">Late Fine - <span>10-02-2020</span></p>
+                                                            <p class="text-sm text-gray-600">Karthika</p>
+                                                        </div>
+                                                        <span @click="showModal = false">
+                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    <!-- content -->
+                                                    <div class="w-full mt-4 space-y-4">
+                                                        <div class="flex flex-col items-center justify-center">
+                                                            <div>
+                                                                <input
+                                                                    class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                    type="number">
+                                                                <span class="font-bold">:</span>
+                                                                <input
+                                                                    class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                    type="number">
+                                                            </div>
+                                                            <div>
+                                                                <p class="text-sm font-semibold text-gray-600">Hours :
+                                                                    Minutes</p>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <p class="text-sm font-semibold text-gray-600">Fine Amount
+                                                            </p>
+                                                            <div x-data="{
+                                                                openTab: 0,
+                                                                activeClasses: 'border-blue-600 text-blue-600',
+                                                                inactiveClasses: 'bg-gray-100 border-white'
+                                                            }">
+                                                                <div class="flex">
+                                                                    <ul class="grid w-full grid-cols-2 gap-4">
+                                                                        <li @click="openTab = 1">
+                                                                            <button
+                                                                                class="w-full p-2 text-xs bg-blue-100 border-2 rounded-md"
+                                                                                :class="openTab === 1 ? activeClasses : inactiveClasses">Fixed
+                                                                                Amount</button>
+                                                                        </li>
+                                                                        <li @click="openTab = 2">
+                                                                            <button
+                                                                                class="w-full p-2 text-xs bg-blue-100 border-2 rounded-md"
+                                                                                :class="openTab === 2 ? activeClasses : inactiveClasses">Half
+                                                                                Day (04:00 Hours)</button>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="">
+                                                            <label for="otwages" class="text-sm text-gray-600">Late Fine
+                                                                Amount (Hourly)</label>
+                                                            <input name="otwages"
+                                                                class="w-full p-2 border border-gray-400 rounded-md"
+                                                                type="text">
+                                                            <span class="text-xs text-gray-600">Calculated based on
+                                                                staff
+                                                                salary</span>
+                                                        </div>
+                                                        <div class="p-2 bg-red-100 border border-red-600 rounded-md">
+                                                            <span class="text-sm text-gray-600">Total Amount</span>
+                                                            <p class="font-bold"><span>₹ 50</span> x <span>8:00
+                                                                    Hrs</span> =
+                                                                <span>₹ 400</span>
+                                                            </p>
+                                                        </div>
+                                                        <div>
+                                                            <button
+                                                                class="w-full p-2 font-semibold text-white bg-blue-600 border border-blue-600 rounded-md">
+                                                                Save</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap items-center gap-4">
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-white bg-green-600 rounded-md">
+                                    Present</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-white bg-green-600 rounded-md">
+                                    Full Day</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-red-600 bg-red-100 rounded-md">
+                                    Absent</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-yellow-600 bg-yellow-100 rounded-md">
+                                    Half Day</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md">
+                                    Paid Leave</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-teal-600 bg-teal-100 rounded-md">
+                                    Unpaid Leave</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md">
+                                    Day Off</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md">
+                                    Forgot Out</div>
+
+                            </div>
+                            
+                            <div x-data="{ open: false }">
+                                <div class="flex items-center gap-4">
+                                    <div>
+                                        <button class="text-sm font-semibold text-blue-600" x-on:click="open = ! open">View
+                                            Details</button>                                        
+                                    </div>
+                                    <div x-data="{ 'showModal': false }">
+                                        <button @click="showModal = true" class="flex items-center text-sm font-semibold text-blue-600">
+                                            Add Note</button>
+                                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                            x-show="showModal" style="display: none;">
+                                            <!-- Modal inner -->
+                                            <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
+                                                @click.away="showModal = false"
+                                                x-transition:enter="motion-safe:ease-out duration-300"
+                                                x-transition:enter-start="opacity-0 scale-90"
+                                                x-transition:enter-end="opacity-100 scale-100">
+                                                <!-- Title / Close-->
+                                                <div class="flex items-center justify-between">
+                                                    <div>
+                                                        <p class="font-bold text-gray-900">
+                                                            Add Note
+                                                        </p>
+                                                        <p class="text-sm font-semibold text-gray-600">
+                                                            Elavarasan | 27-11-2023
+                                                        </p>
+                                                    </div>
+                                                    
+                                                    <span @click="showModal = false">
+                                                        <svg class="w-5 h-5 text-gray-900"
+                                                            xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <!-- content -->
+                                                <div class="w-full mt-4">
+                                                    <div>
+                                                        <label class="text-sm text-gray-600" for="">Add Notes</label>
+                                                        <textarea rows="3"
+                                                            class="relative block w-full p-2 px-3 py-3 mt-1 text-gray-900 placeholder-gray-400 border border-gray-400 rounded shadow-sm appearance-none focus:outline-none focus:ring-blue-600 focus:border-blue-600 focus:z-10"
+                                                            spellcheck="false"></textarea>
+                                                    </div>
+                                                    <div class="flex items-center gap-4 pt-6">
+                                                        <button
+                                                            class="w-full p-2 font-semibold text-gray-900 bg-gray-100 rounded">Cancel</button>
+                                                        <button
+                                                            class="w-full p-2 font-semibold text-white bg-blue-600 rounded">Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div x-data="{ 'showModal': false }">
+                                        <button @click="showModal = true" class="text-sm font-semibold text-blue-600">
+                                            Edit Note</button>
+                                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                            x-show="showModal" style="display: none;">
+                                            <!-- Modal inner -->
+                                            <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
+                                                @click.away="showModal = false"
+                                                x-transition:enter="motion-safe:ease-out duration-300"
+                                                x-transition:enter-start="opacity-0 scale-90"
+                                                x-transition:enter-end="opacity-100 scale-100">
+                                                <!-- Title / Close-->
+                                                <div class="flex items-center justify-between">
+                                                    <div>
+                                                        <p class="font-bold text-gray-900">
+                                                            Edit Note
+                                                        </p>
+                                                        <p class="text-sm font-semibold text-gray-600">
+                                                            Elavarasan | 27-11-2023
+                                                        </p>
+                                                    </div>
+                                                    
+                                                    <span @click="showModal = false">
+                                                        <svg class="w-5 h-5 text-gray-900"
+                                                            xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <!-- content -->
+                                                <div class="w-full mt-4">
+                                                    <div>
+                                                        <label class="text-sm text-gray-600" for="">Edit Note</label>
+                                                        <textarea rows="3"
+                                                            class="relative block w-full p-2 px-3 py-3 mt-1 text-gray-900 placeholder-gray-400 border border-gray-400 rounded shadow-sm appearance-none focus:outline-none focus:ring-blue-600 focus:border-blue-600 focus:z-10"
+                                                            spellcheck="false"></textarea>
+                                                    </div>
+                                                    <div class="flex items-center gap-4 pt-6">
+                                                        <button
+                                                            class="w-full p-2 font-semibold text-gray-900 bg-gray-100 rounded">Cancel</button>
+                                                        <button
+                                                            class="w-full p-2 font-semibold text-white bg-blue-600 rounded">Update</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div x-data="{ showTooltip: false }"
+                                                                    class="relative inline-block">
+                                                                    <div class="pt-2 text-xs cursor-pointer truncate-10"
+                                                                        @mouseover="showTooltip = true"
+                                                                        @mouseout="showTooltip = false">
+                                                                        <span>Note: </span>Lorem ipsum dolor sit amet,
+                                                                        consectetur adipiscing elit.
+                                                                    </div>
+                                                                    <div x-show="showTooltip"
+                                                                        class="absolute p-4 mt-2 text-xs text-white whitespace-normal bg-gray-700 rounded w-60 tooltip">
+                                                                        <p class="text-left">
+                                                                            Lorem ipsum dolor sit amet, consectetur
+                                                                            adipiscing elit. Sed do eiusmod tempor
+                                                                            incididunt ut labore et dolore magna aliqua.
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                <div x-show="open" class="pt-4">
+                                    <div class="pb-4 ">
+                                        <img class="w-32 h-32" src="https://randomuser.me/api/portraits/men/11.jpg"
+                                            alt="">
+                                    </div>
+                                    <div class="flex items-start pb-4 space-x-2">
+                                        <div
+                                            class="flex items-center justify-center w-10 h-10 bg-blue-100 border-2 border-blue-600 rounded-full">
+                                            <div class="text-xl font-bold text-blue-600"> V
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-bold text-gray-900"> In Time : 12-11-2020 09:00:00
+                                            </p>
+                                            <p class="text-xs text-gray-600"> 20/5, Thondikaradu, Tiruchengode, Namakkal
+                                            </p>
+                                        </div>
+                                        <div x-data="{ 'showModal': false }">
+                                            <button @click="showModal = true"
+                                                class="flex items-center text-blue-600"><span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1"
+                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                        stroke-width="2">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                                    </svg></span></button>
+                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                x-show="showModal" style="display: none;">
+                                                <!-- Modal inner -->
+                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                    @click.away="showModal = false"
+                                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                                    x-transition:enter-start="opacity-0 scale-90"
+                                                    x-transition:enter-end="opacity-100 scale-100">
+                                                    <!-- Title / Close-->
+                                                    <div class="flex items-center justify-between">
+                                                        <p class="font-bold text-gray-900">
+                                                            Request Time Correction
+                                                        </p>
+                                                        <span @click="showModal = false">
+                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    <!-- content -->
+                                                    <div class="w-full mt-4">
+                                                        <div class="space-y-2 divide-y">
+                                                            <div>
+                                                                <label class="text-sm text-gray-600" for="">Time</label>
+                                                                <div>
+                                                                    <input
+                                                                        class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                        type="number">
+                                                                    <span class="font-bold">:</span>
+                                                                    <input
+                                                                        class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                        type="number">
+                                                                    <span class="font-bold">:</span>
+                                                                    <select
+                                                                        class="w-16 p-2 border border-gray-400 rounded-md">
+                                                                        <option value="">AM</option>
+                                                                        <option value="">PM</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <label class="text-sm text-gray-600"
+                                                                    for="">Reason</label>
+                                                                <textarea rows="3"
+                                                                    class="relative block w-full p-2 px-3 py-3 mt-1 text-gray-900 placeholder-gray-400 border border-gray-400 rounded shadow-sm appearance-none focus:outline-none focus:ring-blue-600 focus:border-blue-600 focus:z-10"
+                                                                    spellcheck="false"></textarea>
+                                                            </div>
+                                                            <div
+                                                                class="flex items-center justify-center w-full gap-4 pt-4">
+                                                                <div class="w-1/2">
+                                                                    <button
+                                                                        class="w-full p-2 font-semibold text-white bg-blue-600 rounded-md">Request</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start pb-4 space-x-2">
+                                        <div
+                                            class="flex items-center justify-center w-10 h-10 bg-blue-100 border-2 border-blue-600 rounded-full">
+                                            <div class="text-xl font-bold text-blue-600"> V
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-bold text-gray-900"> Out Time : 12-11-2020 17:00:00
+                                            </p>
+                                            <p class="text-xs text-gray-600"> 20/5, Thondikaradu, Tiruchengode, Namakkal
+                                            </p>
+                                        </div>
+                                        <div class="flex items-center gap-4">
+                                            <div x-data="{ 'showModal': false }">
+                                                <button @click="showModal = true"
+                                                    class="flex items-center text-blue-600"><span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-1"
+                                                            fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                            stroke-width="2">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                                                            </path>
+                                                        </svg></span></button>
+                                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                    x-show="showModal" style="display: none;">
+                                                    <!-- Modal inner -->
+                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                        @click.away="showModal = false"
+                                                        x-transition:enter="motion-safe:ease-out duration-300"
+                                                        x-transition:enter-start="opacity-0 scale-90"
+                                                        x-transition:enter-end="opacity-100 scale-100">
+                                                        <!-- Title / Close-->
+                                                        <div class="flex items-center justify-between">
+                                                            <div class="flex items-center gap-2">
+                                                                <img class="w-10 h-10 rounded-full"
+                                                                    src="https://geeks-react.netlify.app/static/media/avatar-1.d2fd9642fd3628734b27.jpg"
+                                                                    alt="">
+                                                                <div>
+                                                                    <a href="employee-detail.html"
+                                                                        class="font-semibold text-blue-600">Elavarasan</a>
+                                                                    <p class="text-sm text-gray-600">22-03-2022</p>
+                                                                </div>
+                                                            </div>
+                                                            <span @click="showModal = false">
+                                                                <svg class="w-5 h-5 text-gray-900"
+                                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                                        stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                                                                    </path>
+                                                                </svg>
+                                                            </span>
+                                                        </div>
+                                                        <!-- content -->
+                                                        <div class="w-full mt-4">
+                                                            <div class="grid grid-cols-2 gap-4 lg:grid-cols-2">
+                                                                <div class="col-span-2 lg:col-span-1">
+                                                                    <p class="text-sm font-semibold">Captured Time</p>
+                                                                    <p>In : 02-06-2022 09:05 AM</p>
+                                                                </div>
+                                                                <div class="col-span-1">
+                                                                    <p class="text-sm font-semibold">Requested Time</p>
+                                                                    <p>In : 02-06-2022 09:00 AM</p>
+                                                                </div>
+                                                                <div class="col-span-2 lg:col-span-3">
+                                                                    <p class="text-sm font-semibold">Captured Location
+                                                                    </p>
+                                                                    <p>9WQ2+37 Weavers Colony, Thiruchengodu, Tamil
+                                                                        Nadu, India
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-span-2 lg:col-span-3">
+                                                                    <p class="text-sm font-semibold">Reason</p>
+                                                                    <p>-</p>
+                                                                </div>
+                                                                <div class="col-span-2 lg:col-span-3">
+                                                                    <p class="text-sm font-semibold">Comment</p>
+                                                                    <p>-</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="inline-block p-1 px-2 text-xs font-semibold text-center text-white bg-yellow-600 rounded-full">
+                                                Pending</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div id="2" class="p-4 space-y-4 border rounded-md shadow-md">
+                            <div class="flex items-center justify-between">
+                                <p class="font-bold">02-October-2020</p>
+                                <div class="relative " x-data="{ isOpen: false }">
+                                    <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
+                                        class="flex items-center p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md focus:outline-none">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-600"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
+                                        </svg>
+                                    </button>
+                                    <ul x-show="isOpen" @click.away="isOpen = false"
+                                        class="absolute right-0 z-20 w-64 py-1 mt-2 overflow-hidden font-normal bg-white border rounded shadow">
+                                        <li class="group hover:bg-blue-100" x-data="{ 'showModal': false }"
+                                            @keydown.escape="showModal = false">
+                                            <a @click="showModal = true" href="#"
+                                                class="flex items-center gap-2 px-3 py-3 font-semibold group-hover:text-blue-600">
+                                                <span
+                                                    class="px-2 font-semibold text-white bg-blue-600 rounded-md">OT</span>
+                                                Overtime
+                                            </a>
+
+                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                x-show="showModal" style="display: none;">
+                                                <!-- Modal inner -->
+                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                    @click.away="showModal = false"
+                                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                                    x-transition:enter-start="opacity-0 scale-90"
+                                                    x-transition:enter-end="opacity-100 scale-100">
+                                                    <!-- Title / Close-->
+                                                    <div class="flex items-center justify-between">
+                                                        <div>
+                                                            <p class="font-bold">
+
+                                                            </p>
+                                                        </div>
+                                                        <span @click="showModal = false">
+                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                                                                </path>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    <!-- content -->
+                                                    <div class="w-full mt-4 space-y-4">
+                                                        <div x-data="{victim: 'Guest'}" class="space-y-4">
+                                                            <div>
+                                                                <p><label><input class="mr-2" name="Victim" type="radio"
+                                                                            value="Guest" x-model="victim"
+                                                                            checked="true">Calculate Based On Hour
+                                                                    </label>
+                                                                </p>
+                                                                <div class="pt-2 ml-8" id="Guest" class="desc"
+                                                                    x-show="victim == $el.id">
+                                                                    <div class="flex items-center gap-4">
+                                                                        <div>
+                                                                            <p
+                                                                                class="pb-1 text-sm font-semibold text-gray-600">
+                                                                                Total Hours Worked (HH:MM)</p>
+                                                                            <div>
+                                                                                <input
+                                                                                    class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                                    type="number">
+                                                                                <span class="font-bold">:</span>
+                                                                                <input
+                                                                                    class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                                    type="number">
+                                                                            </div>
+                                                                        </div>
+                                                                        <span>X</span>
+                                                                        <div>
+                                                                            <label for="otwages"
+                                                                                class="text-sm font-semibold text-gray-600">Type</label>
+                                                                            <select id="jobtype" name="jobtype"
+                                                                                autocomplete="jobtype"
+                                                                                class="block px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm w-36 focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                                <option>1X Salary</option>
+                                                                                <option>1.5X Salary</option>
+                                                                                <option>2X Salary</option>
+                                                                                <option>Add Custom Salary Multiple
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <span>X</span>
+                                                                        <div class="flex flex-col">
+                                                                            <label for="otwages"
+                                                                                class="text-sm font-semibold text-gray-600">Over
+                                                                                Time
+                                                                                Wages (Hourly)</label>
+                                                                            <!--value has been changed based on user-->
+                                                                            <input name="otwages" value="150"
+                                                                                class="p-2 mt-1 border border-gray-400 rounded-md w-36 disabled:bg-gray-100 disabled:text-gray-600"
+                                                                                type="text" disabled>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <p><label><input class="mr-2" name="Victim" type="radio"
+                                                                            value="Employee" x-model="victim">Calculate
+                                                                        Based On Day
+                                                                    </label>
+                                                                </p>
+                                                                <div class="pt-2 ml-8" id="Employee" class="desc"
+                                                                    x-show="victim == $el.id">
+                                                                    <div>
+                                                                        <label
+                                                                            class="text-sm font-semibold text-gray-600"
+                                                                            for="businessname">Add Over
+                                                                            Time Salary</label>
+                                                                        <select id="jobtype" name="jobtype"
+                                                                            autocomplete="jobtype"
+                                                                            class="block px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm w-44 focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                            <option>None</option>
+                                                                            <option>Half Day Salary</option>
+                                                                            <option>Full Day Salary</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="pt-4 space-y-4">
+                                                                <div class="flex flex-col">
+                                                                    <label for="otwages"
+                                                                        class="text-sm font-semibold text-gray-600">Total
+                                                                        Amount</label>
+                                                                    <input name="otwages"
+                                                                        class="p-2 border border-gray-400 rounded-md w-44"
+                                                                        type="text">
+                                                                </div>
+                                                                <div>
+                                                                    <button
+                                                                        class="p-2 font-semibold text-white bg-blue-600 border border-blue-600 rounded-md w-44">
+                                                                        Add Overtime</button>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="group hover:bg-blue-100" x-data="{ 'showModal': false }"
+                                            @keydown.escape="showModal = false">
+                                            <a @click="showModal = true" href="#"
+                                                class="flex items-center gap-2 px-3 py-3 font-semibold group-hover:text-blue-600">
+                                                <span
+                                                    class="px-2 font-semibold text-white bg-blue-600 rounded-md">LF</span>
+                                                Late Fine
+                                            </a>
+
+                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                x-show="showModal" style="display: none;">
+                                                <!-- Modal inner -->
+                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                    @click.away="showModal = false"
+                                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                                    x-transition:enter-start="opacity-0 scale-90"
+                                                    x-transition:enter-end="opacity-100 scale-100">
+                                                    <!-- Title / Close-->
+                                                    <div class="flex items-center justify-between">
+                                                        <div>
+                                                            <p class="font-bold">Late Fine - <span>10-02-2020</span></p>
+                                                            <p class="text-sm text-gray-600">Karthika</p>
+                                                        </div>
+                                                        <span @click="showModal = false">
+                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    <!-- content -->
+                                                    <div class="w-full mt-4 space-y-4">
+                                                        <div class="flex flex-col items-center justify-center">
+                                                            <div>
+                                                                <input
+                                                                    class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                    type="number">
+                                                                <span class="font-bold">:</span>
+                                                                <input
+                                                                    class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                    type="number">
+                                                            </div>
+                                                            <div>
+                                                                <p class="text-sm font-semibold text-gray-600">Hours :
+                                                                    Minutes</p>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <p class="text-sm font-semibold text-gray-600">Fine Amount
+                                                            </p>
+                                                            <div x-data="{
+                                                                openTab: 0,
+                                                                activeClasses: 'border-blue-600 text-blue-600',
+                                                                inactiveClasses: 'bg-gray-100 border-white'
+                                                            }">
+                                                                <div class="flex">
+                                                                    <ul class="grid w-full grid-cols-2 gap-4">
+                                                                        <li @click="openTab = 1">
+                                                                            <button
+                                                                                class="w-full p-2 text-xs bg-blue-100 border-2 rounded-md"
+                                                                                :class="openTab === 1 ? activeClasses : inactiveClasses">Fixed
+                                                                                Amount</button>
+                                                                        </li>
+                                                                        <li @click="openTab = 2">
+                                                                            <button
+                                                                                class="w-full p-2 text-xs bg-blue-100 border-2 rounded-md"
+                                                                                :class="openTab === 2 ? activeClasses : inactiveClasses">Half
+                                                                                Day (04:00 Hours)</button>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="">
+                                                            <label for="otwages" class="text-sm text-gray-600">Late Fine
+                                                                Amount (Hourly)</label>
+                                                            <input name="otwages"
+                                                                class="w-full p-2 border border-gray-400 rounded-md"
+                                                                type="text">
+                                                            <span class="text-xs text-gray-600">Calculated based on
+                                                                staff
+                                                                salary</span>
+                                                        </div>
+                                                        <div class="p-2 bg-red-100 border border-red-600 rounded-md">
+                                                            <span class="text-sm text-gray-600">Total Amount</span>
+                                                            <p class="font-bold"><span>₹ 50</span> x <span>8:00
+                                                                    Hrs</span> =
+                                                                <span>₹ 400</span>
+                                                            </p>
+                                                        </div>
+                                                        <div>
+                                                            <button
+                                                                class="w-full p-2 font-semibold text-white bg-blue-600 border border-blue-600 rounded-md">
+                                                                Save</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap items-center gap-4">
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-white bg-green-600 rounded-md">
+                                    Present</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-green-600 bg-green-100 rounded-md">
+                                    Full Day</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-red-600 bg-red-100 rounded-md">
+                                    Absent</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-white bg-yellow-600 rounded-md">
+                                    Half Day</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md">
+                                    Paid Leave</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-teal-600 bg-teal-100 rounded-md">
+                                    Unpaid Leave</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md">
+                                    Day Off</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md">
+                                    Forgot Out</div>
+
+                            </div>
+                            <div x-data="{ open: false }">
+                                <button class="text-sm font-semibold text-blue-600" x-on:click="open = ! open">View
+                                    Details</button>
+                                <div x-show="open" class="pt-4">
+                                    <div class="pb-4 ">
+                                        <img class="w-32 h-32" src="https://randomuser.me/api/portraits/men/11.jpg"
+                                            alt="">
+                                    </div>
+                                    <div class="flex items-center pb-4 space-x-2">
+                                        <div
+                                            class="flex items-center justify-center w-10 h-10 bg-blue-100 border-2 border-blue-600 rounded-full">
+                                            <div class="text-xl font-bold text-blue-600"> V
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-bold text-gray-900"> In Time : 12-11-2020 09:00:00
+                                            </p>
+                                            <p class="text-xs text-gray-600"> 20/5, Thondikaradu, Tiruchengode, Namakkal
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                    <div class="flex items-center pb-4 space-x-2">
+                                        <div
+                                            class="flex items-center justify-center w-10 h-10 bg-blue-100 border-2 border-blue-600 rounded-full">
+                                            <div class="text-xl font-bold text-blue-600"> V
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-bold text-gray-900"> Out Time : <span></span>
+                                            </p>
+                                        </div>
+                                        <div x-data="{ 'showModal': false }">
+                                            <button @click="showModal = true"
+                                                class="flex items-center text-blue-600"><span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1"
+                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                        stroke-width="2">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                                    </svg></span></button>
+                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                x-show="showModal" style="display: none;">
+                                                <!-- Modal inner -->
+                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                    @click.away="showModal = false"
+                                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                                    x-transition:enter-start="opacity-0 scale-90"
+                                                    x-transition:enter-end="opacity-100 scale-100">
+                                                    <!-- Title / Close-->
+                                                    <div class="flex items-center justify-between">
+                                                        <p class="font-bold text-gray-900">
+                                                            Request Time Correction
+                                                        </p>
+                                                        <span @click="showModal = false">
+                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    <!-- content -->
+                                                    <div class="w-full mt-4">
+                                                        <div class="space-y-2 divide-y">
+                                                            <div>
+                                                                <label class="text-sm text-gray-600" for="">Time</label>
+                                                                <div>
+                                                                    <input
+                                                                        class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                        type="number">
+                                                                    <span class="font-bold">:</span>
+                                                                    <input
+                                                                        class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                        type="number">
+                                                                    <span class="font-bold">:</span>
+                                                                    <select
+                                                                        class="w-16 p-2 border border-gray-400 rounded-md">
+                                                                        <option value="">AM</option>
+                                                                        <option value="">PM</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <label class="text-sm text-gray-600"
+                                                                    for="">Reason</label>
+                                                                <textarea rows="3"
+                                                                    class="relative block w-full p-2 px-3 py-3 mt-1 text-gray-900 placeholder-gray-400 border border-gray-400 rounded shadow-sm appearance-none focus:outline-none focus:ring-blue-600 focus:border-blue-600 focus:z-10"
+                                                                    spellcheck="false"></textarea>
+                                                            </div>
+                                                            <div
+                                                                class="flex items-center justify-center w-full gap-4 pt-4">
+                                                                <div class="w-1/2">
+                                                                    <button
+                                                                        class="w-full p-2 font-semibold text-white bg-blue-600 rounded-md">Request</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 space-y-4 border rounded-md shadow-md">
+                            <div class="flex items-center justify-between">
+                                <p class="font-bold">03-October-2020</p>
+                                <div class="relative " x-data="{ isOpen: false }">
+                                    <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
+                                        class="flex items-center p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md focus:outline-none">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-600"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
+                                        </svg>
+                                    </button>
+                                    <ul x-show="isOpen" @click.away="isOpen = false"
+                                        class="absolute right-0 z-20 w-64 py-1 mt-2 overflow-hidden font-normal bg-white border rounded shadow">
+                                        <li class="group hover:bg-blue-100" x-data="{ 'showModal': false }"
+                                            @keydown.escape="showModal = false">
+                                            <a @click="showModal = true" href="#"
+                                                class="flex items-center gap-2 px-3 py-3 font-semibold group-hover:text-blue-600">
+                                                <span
+                                                    class="px-2 font-semibold text-white bg-blue-600 rounded-md">OT</span>
+                                                Overtime
+                                            </a>
+
+                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                x-show="showModal" style="display: none;">
+                                                <!-- Modal inner -->
+                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                    @click.away="showModal = false"
+                                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                                    x-transition:enter-start="opacity-0 scale-90"
+                                                    x-transition:enter-end="opacity-100 scale-100">
+                                                    <!-- Title / Close-->
+                                                    <div class="flex items-center justify-between">
+                                                        <div>
+                                                            <p class="font-bold">
+
+                                                            </p>
+                                                        </div>
+                                                        <span @click="showModal = false">
+                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                                                                </path>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    <!-- content -->
+                                                    <div class="w-full mt-4 space-y-4">
+                                                        <div x-data="{victim: 'Guest'}" class="space-y-4">
+                                                            <div>
+                                                                <p><label><input class="mr-2" name="Victim" type="radio"
+                                                                            value="Guest" x-model="victim"
+                                                                            checked="true">Calculate Based On Hour
+                                                                    </label>
+                                                                </p>
+                                                                <div class="pt-2 ml-8" id="Guest" class="desc"
+                                                                    x-show="victim == $el.id">
+                                                                    <div class="flex items-center gap-4">
+                                                                        <div>
+                                                                            <p
+                                                                                class="pb-1 text-sm font-semibold text-gray-600">
+                                                                                Total Hours Worked (HH:MM)</p>
+                                                                            <div>
+                                                                                <input
+                                                                                    class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                                    type="number">
+                                                                                <span class="font-bold">:</span>
+                                                                                <input
+                                                                                    class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                                    type="number">
+                                                                            </div>
+                                                                        </div>
+                                                                        <span>X</span>
+                                                                        <div>
+                                                                            <label for="otwages"
+                                                                                class="text-sm font-semibold text-gray-600">Type</label>
+                                                                            <select id="jobtype" name="jobtype"
+                                                                                autocomplete="jobtype"
+                                                                                class="block px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm w-36 focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                                <option>1X Salary</option>
+                                                                                <option>1.5X Salary</option>
+                                                                                <option>2X Salary</option>
+                                                                                <option>Add Custom Salary Multiple
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <span>X</span>
+                                                                        <div class="flex flex-col">
+                                                                            <label for="otwages"
+                                                                                class="text-sm font-semibold text-gray-600">Over
+                                                                                Time
+                                                                                Wages (Hourly)</label>
+                                                                            <!--value has been changed based on user-->
+                                                                            <input name="otwages" value="150"
+                                                                                class="p-2 mt-1 border border-gray-400 rounded-md w-36 disabled:bg-gray-100 disabled:text-gray-600"
+                                                                                type="text" disabled>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <p><label><input class="mr-2" name="Victim" type="radio"
+                                                                            value="Employee" x-model="victim">Calculate
+                                                                        Based On Day
+                                                                    </label>
+                                                                </p>
+                                                                <div class="pt-2 ml-8" id="Employee" class="desc"
+                                                                    x-show="victim == $el.id">
+                                                                    <div>
+                                                                        <label
+                                                                            class="text-sm font-semibold text-gray-600"
+                                                                            for="businessname">Add Over
+                                                                            Time Salary</label>
+                                                                        <select id="jobtype" name="jobtype"
+                                                                            autocomplete="jobtype"
+                                                                            class="block px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm w-44 focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                            <option>None</option>
+                                                                            <option>Half Day Salary</option>
+                                                                            <option>Full Day Salary</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="pt-4 space-y-4">
+                                                                <div class="flex flex-col">
+                                                                    <label for="otwages"
+                                                                        class="text-sm font-semibold text-gray-600">Total
+                                                                        Amount</label>
+                                                                    <input name="otwages"
+                                                                        class="p-2 border border-gray-400 rounded-md w-44"
+                                                                        type="text">
+                                                                </div>
+                                                                <div>
+                                                                    <button
+                                                                        class="p-2 font-semibold text-white bg-blue-600 border border-blue-600 rounded-md w-44">
+                                                                        Add Overtime</button>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="group hover:bg-blue-100" x-data="{ 'showModal': false }"
+                                            @keydown.escape="showModal = false">
+                                            <a @click="showModal = true" href="#"
+                                                class="flex items-center gap-2 px-3 py-3 font-semibold group-hover:text-blue-600">
+                                                <span
+                                                    class="px-2 font-semibold text-white bg-blue-600 rounded-md">LF</span>
+                                                Late Fine
+                                            </a>
+
+                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                x-show="showModal" style="display: none;">
+                                                <!-- Modal inner -->
+                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                    @click.away="showModal = false"
+                                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                                    x-transition:enter-start="opacity-0 scale-90"
+                                                    x-transition:enter-end="opacity-100 scale-100">
+                                                    <!-- Title / Close-->
+                                                    <div class="flex items-center justify-between">
+                                                        <div>
+                                                            <p class="font-bold">Late Fine - <span>10-02-2020</span></p>
+                                                            <p class="text-sm text-gray-600">Karthika</p>
+                                                        </div>
+                                                        <span @click="showModal = false">
+                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    <!-- content -->
+                                                    <div class="w-full mt-4 space-y-4">
+                                                        <div class="flex flex-col items-center justify-center">
+                                                            <div>
+                                                                <input
+                                                                    class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                    type="number">
+                                                                <span class="font-bold">:</span>
+                                                                <input
+                                                                    class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                    type="number">
+                                                            </div>
+                                                            <div>
+                                                                <p class="text-sm font-semibold text-gray-600">Hours :
+                                                                    Minutes</p>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <p class="text-sm font-semibold text-gray-600">Fine Amount
+                                                            </p>
+                                                            <div x-data="{
+                                                                openTab: 0,
+                                                                activeClasses: 'border-blue-600 text-blue-600',
+                                                                inactiveClasses: 'bg-gray-100 border-white'
+                                                            }">
+                                                                <div class="flex">
+                                                                    <ul class="grid w-full grid-cols-2 gap-4">
+                                                                        <li @click="openTab = 1">
+                                                                            <button
+                                                                                class="w-full p-2 text-xs bg-blue-100 border-2 rounded-md"
+                                                                                :class="openTab === 1 ? activeClasses : inactiveClasses">Fixed
+                                                                                Amount</button>
+                                                                        </li>
+                                                                        <li @click="openTab = 2">
+                                                                            <button
+                                                                                class="w-full p-2 text-xs bg-blue-100 border-2 rounded-md"
+                                                                                :class="openTab === 2 ? activeClasses : inactiveClasses">Half
+                                                                                Day (04:00 Hours)</button>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="">
+                                                            <label for="otwages" class="text-sm text-gray-600">Late Fine
+                                                                Amount (Hourly)</label>
+                                                            <input name="otwages"
+                                                                class="w-full p-2 border border-gray-400 rounded-md"
+                                                                type="text">
+                                                            <span class="text-xs text-gray-600">Calculated based on
+                                                                staff
+                                                                salary</span>
+                                                        </div>
+                                                        <div class="p-2 bg-red-100 border border-red-600 rounded-md">
+                                                            <span class="text-sm text-gray-600">Total Amount</span>
+                                                            <p class="font-bold"><span>₹ 50</span> x <span>8:00
+                                                                    Hrs</span> =
+                                                                <span>₹ 400</span>
+                                                            </p>
+                                                        </div>
+                                                        <div>
+                                                            <button
+                                                                class="w-full p-2 font-semibold text-white bg-blue-600 border border-blue-600 rounded-md">
+                                                                Save</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap items-center gap-4">
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-green-600 bg-green-100 rounded-md">
+                                    Present</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-green-600 bg-green-100 rounded-md">
+                                    Full Day</div>
+                                <div class="inline-block p-1 px-2 text-sm font-medium text-white bg-red-600 rounded-md">
+                                    Absent</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-yellow-600 bg-yellow-100 rounded-md">
+                                    Half Day</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-white bg-blue-600 rounded-md">
+                                    Paid Leave</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-teal-600 bg-teal-100 rounded-md">
+                                    Unpaid Leave</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md">
+                                    Day Off</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md">
+                                    Forgot Out</div>
+
+                            </div>
+                        </div>
+                        <div class="p-4 space-y-4 border rounded-md shadow-md">
+                            <div class="flex items-center justify-between">
+                                <p class="font-bold">04-October-2020</p>
+                                <div class="relative " x-data="{ isOpen: false }">
+                                    <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
+                                        class="flex items-center p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md focus:outline-none">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-600"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
+                                        </svg>
+                                    </button>
+                                    <ul x-show="isOpen" @click.away="isOpen = false"
+                                        class="absolute right-0 z-20 w-64 py-1 mt-2 overflow-hidden font-normal bg-white border rounded shadow">
+                                        <li class="group hover:bg-blue-100" x-data="{ 'showModal': false }"
+                                            @keydown.escape="showModal = false">
+                                            <a @click="showModal = true" href="#"
+                                                class="flex items-center gap-2 px-3 py-3 font-semibold group-hover:text-blue-600">
+                                                <span
+                                                    class="px-2 font-semibold text-white bg-blue-600 rounded-md">OT</span>
+                                                Overtime
+                                            </a>
+
+                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                x-show="showModal" style="display: none;">
+                                                <!-- Modal inner -->
+                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                    @click.away="showModal = false"
+                                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                                    x-transition:enter-start="opacity-0 scale-90"
+                                                    x-transition:enter-end="opacity-100 scale-100">
+                                                    <!-- Title / Close-->
+                                                    <div class="flex items-center justify-between">
+                                                        <div>
+                                                            <p class="font-bold">
+
+                                                            </p>
+                                                        </div>
+                                                        <span @click="showModal = false">
+                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                                                                </path>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    <!-- content -->
+                                                    <div class="w-full mt-4 space-y-4">
+                                                        <div x-data="{victim: 'Guest'}" class="space-y-4">
+                                                            <div>
+                                                                <p><label><input class="mr-2" name="Victim" type="radio"
+                                                                            value="Guest" x-model="victim"
+                                                                            checked="true">Calculate Based On Hour
+                                                                    </label>
+                                                                </p>
+                                                                <div class="pt-2 ml-8" id="Guest" class="desc"
+                                                                    x-show="victim == $el.id">
+                                                                    <div class="flex items-center gap-4">
+                                                                        <div>
+                                                                            <p
+                                                                                class="pb-1 text-sm font-semibold text-gray-600">
+                                                                                Total Hours Worked (HH:MM)</p>
+                                                                            <div>
+                                                                                <input
+                                                                                    class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                                    type="number">
+                                                                                <span class="font-bold">:</span>
+                                                                                <input
+                                                                                    class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                                    type="number">
+                                                                            </div>
+                                                                        </div>
+                                                                        <span>X</span>
+                                                                        <div>
+                                                                            <label for="otwages"
+                                                                                class="text-sm font-semibold text-gray-600">Type</label>
+                                                                            <select id="jobtype" name="jobtype"
+                                                                                autocomplete="jobtype"
+                                                                                class="block px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm w-36 focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                                <option>1X Salary</option>
+                                                                                <option>1.5X Salary</option>
+                                                                                <option>2X Salary</option>
+                                                                                <option>Add Custom Salary Multiple
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <span>X</span>
+                                                                        <div class="flex flex-col">
+                                                                            <label for="otwages"
+                                                                                class="text-sm font-semibold text-gray-600">Over
+                                                                                Time
+                                                                                Wages (Hourly)</label>
+                                                                            <!--value has been changed based on user-->
+                                                                            <input name="otwages" value="150"
+                                                                                class="p-2 mt-1 border border-gray-400 rounded-md w-36 disabled:bg-gray-100 disabled:text-gray-600"
+                                                                                type="text" disabled>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <p><label><input class="mr-2" name="Victim" type="radio"
+                                                                            value="Employee" x-model="victim">Calculate
+                                                                        Based On Day
+                                                                    </label>
+                                                                </p>
+                                                                <div class="pt-2 ml-8" id="Employee" class="desc"
+                                                                    x-show="victim == $el.id">
+                                                                    <div>
+                                                                        <label
+                                                                            class="text-sm font-semibold text-gray-600"
+                                                                            for="businessname">Add Over
+                                                                            Time Salary</label>
+                                                                        <select id="jobtype" name="jobtype"
+                                                                            autocomplete="jobtype"
+                                                                            class="block px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm w-44 focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                            <option>None</option>
+                                                                            <option>Half Day Salary</option>
+                                                                            <option>Full Day Salary</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="pt-4 space-y-4">
+                                                                <div class="flex flex-col">
+                                                                    <label for="otwages"
+                                                                        class="text-sm font-semibold text-gray-600">Total
+                                                                        Amount</label>
+                                                                    <input name="otwages"
+                                                                        class="p-2 border border-gray-400 rounded-md w-44"
+                                                                        type="text">
+                                                                </div>
+                                                                <div>
+                                                                    <button
+                                                                        class="p-2 font-semibold text-white bg-blue-600 border border-blue-600 rounded-md w-44">
+                                                                        Add Overtime</button>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="group hover:bg-blue-100" x-data="{ 'showModal': false }"
+                                            @keydown.escape="showModal = false">
+                                            <a @click="showModal = true" href="#"
+                                                class="flex items-center gap-2 px-3 py-3 font-semibold group-hover:text-blue-600">
+                                                <span
+                                                    class="px-2 font-semibold text-white bg-blue-600 rounded-md">LF</span>
+                                                Late Fine
+                                            </a>
+
+                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                x-show="showModal" style="display: none;">
+                                                <!-- Modal inner -->
+                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                    @click.away="showModal = false"
+                                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                                    x-transition:enter-start="opacity-0 scale-90"
+                                                    x-transition:enter-end="opacity-100 scale-100">
+                                                    <!-- Title / Close-->
+                                                    <div class="flex items-center justify-between">
+                                                        <div>
+                                                            <p class="font-bold">Late Fine - <span>10-02-2020</span></p>
+                                                            <p class="text-sm text-gray-600">Karthika</p>
+                                                        </div>
+                                                        <span @click="showModal = false">
+                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    <!-- content -->
+                                                    <div class="w-full mt-4 space-y-4">
+                                                        <div class="flex flex-col items-center justify-center">
+                                                            <div>
+                                                                <input
+                                                                    class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                    type="number">
+                                                                <span class="font-bold">:</span>
+                                                                <input
+                                                                    class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                    type="number">
+                                                            </div>
+                                                            <div>
+                                                                <p class="text-sm font-semibold text-gray-600">Hours :
+                                                                    Minutes</p>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <p class="text-sm font-semibold text-gray-600">Fine Amount
+                                                            </p>
+                                                            <div x-data="{
+                                                                openTab: 0,
+                                                                activeClasses: 'border-blue-600 text-blue-600',
+                                                                inactiveClasses: 'bg-gray-100 border-white'
+                                                            }">
+                                                                <div class="flex">
+                                                                    <ul class="grid w-full grid-cols-2 gap-4">
+                                                                        <li @click="openTab = 1">
+                                                                            <button
+                                                                                class="w-full p-2 text-xs bg-blue-100 border-2 rounded-md"
+                                                                                :class="openTab === 1 ? activeClasses : inactiveClasses">Fixed
+                                                                                Amount</button>
+                                                                        </li>
+                                                                        <li @click="openTab = 2">
+                                                                            <button
+                                                                                class="w-full p-2 text-xs bg-blue-100 border-2 rounded-md"
+                                                                                :class="openTab === 2 ? activeClasses : inactiveClasses">Half
+                                                                                Day (04:00 Hours)</button>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="">
+                                                            <label for="otwages" class="text-sm text-gray-600">Late Fine
+                                                                Amount (Hourly)</label>
+                                                            <input name="otwages"
+                                                                class="w-full p-2 border border-gray-400 rounded-md"
+                                                                type="text">
+                                                            <span class="text-xs text-gray-600">Calculated based on
+                                                                staff
+                                                                salary</span>
+                                                        </div>
+                                                        <div class="p-2 bg-red-100 border border-red-600 rounded-md">
+                                                            <span class="text-sm text-gray-600">Total Amount</span>
+                                                            <p class="font-bold"><span>₹ 50</span> x <span>8:00
+                                                                    Hrs</span> =
+                                                                <span>₹ 400</span>
+                                                            </p>
+                                                        </div>
+                                                        <div>
+                                                            <button
+                                                                class="w-full p-2 font-semibold text-white bg-blue-600 border border-blue-600 rounded-md">
+                                                                Save</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap items-center gap-4">
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-green-600 bg-green-100 rounded-md">
+                                    Present</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-green-600 bg-green-100 rounded-md">
+                                    Full Day</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-red-600 bg-red-100 rounded-md">
+                                    Absent</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-yellow-600 bg-yellow-100 rounded-md">
+                                    Half Day</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md">
+                                    Paid Leave</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-teal-600 bg-teal-100 rounded-md">
+                                    Unpaid Leave</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-white bg-gray-600 rounded-md">
+                                    Day Off</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md">
+                                    Forgot Out</div>
+
+                            </div>
+                        </div>
+                        <div class="p-4 space-y-4 border rounded-md shadow-md">
+                            <div class="flex items-center justify-between">
+                                <p class="font-bold">05-October-2020</p>
+                                <div class="relative " x-data="{ isOpen: false }">
+                                    <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
+                                        class="flex items-center p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md focus:outline-none">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-600"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
+                                        </svg>
+                                    </button>
+                                    <ul x-show="isOpen" @click.away="isOpen = false"
+                                        class="absolute right-0 z-20 w-64 py-1 mt-2 overflow-hidden font-normal bg-white border rounded shadow">
+                                        <li class="group hover:bg-blue-100" x-data="{ 'showModal': false }"
+                                            @keydown.escape="showModal = false">
+                                            <a @click="showModal = true" href="#"
+                                                class="flex items-center gap-2 px-3 py-3 font-semibold group-hover:text-blue-600">
+                                                <span
+                                                    class="px-2 font-semibold text-white bg-blue-600 rounded-md">OT</span>
+                                                Overtime
+                                            </a>
+
+                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                x-show="showModal" style="display: none;">
+                                                <!-- Modal inner -->
+                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                    @click.away="showModal = false"
+                                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                                    x-transition:enter-start="opacity-0 scale-90"
+                                                    x-transition:enter-end="opacity-100 scale-100">
+                                                    <!-- Title / Close-->
+                                                    <div class="flex items-center justify-between">
+                                                        <div>
+                                                            <p class="font-bold">
+
+                                                            </p>
+                                                        </div>
+                                                        <span @click="showModal = false">
+                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                                                                </path>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    <!-- content -->
+                                                    <div class="w-full mt-4 space-y-4">
+                                                        <div x-data="{victim: 'Guest'}" class="space-y-4">
+                                                            <div>
+                                                                <p><label><input class="mr-2" name="Victim" type="radio"
+                                                                            value="Guest" x-model="victim"
+                                                                            checked="true">Calculate Based On Hour
+                                                                    </label>
+                                                                </p>
+                                                                <div class="pt-2 ml-8" id="Guest" class="desc"
+                                                                    x-show="victim == $el.id">
+                                                                    <div class="flex items-center gap-4">
+                                                                        <div>
+                                                                            <p
+                                                                                class="pb-1 text-sm font-semibold text-gray-600">
+                                                                                Total Hours Worked (HH:MM)</p>
+                                                                            <div>
+                                                                                <input
+                                                                                    class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                                    type="number">
+                                                                                <span class="font-bold">:</span>
+                                                                                <input
+                                                                                    class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                                    type="number">
+                                                                            </div>
+                                                                        </div>
+                                                                        <span>X</span>
+                                                                        <div>
+                                                                            <label for="otwages"
+                                                                                class="text-sm font-semibold text-gray-600">Type</label>
+                                                                            <select id="jobtype" name="jobtype"
+                                                                                autocomplete="jobtype"
+                                                                                class="block px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm w-36 focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                                <option>1X Salary</option>
+                                                                                <option>1.5X Salary</option>
+                                                                                <option>2X Salary</option>
+                                                                                <option>Add Custom Salary Multiple
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <span>X</span>
+                                                                        <div class="flex flex-col">
+                                                                            <label for="otwages"
+                                                                                class="text-sm font-semibold text-gray-600">Over
+                                                                                Time
+                                                                                Wages (Hourly)</label>
+                                                                            <!--value has been changed based on user-->
+                                                                            <input name="otwages" value="150"
+                                                                                class="p-2 mt-1 border border-gray-400 rounded-md w-36 disabled:bg-gray-100 disabled:text-gray-600"
+                                                                                type="text" disabled>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <p><label><input class="mr-2" name="Victim" type="radio"
+                                                                            value="Employee" x-model="victim">Calculate
+                                                                        Based On Day
+                                                                    </label>
+                                                                </p>
+                                                                <div class="pt-2 ml-8" id="Employee" class="desc"
+                                                                    x-show="victim == $el.id">
+                                                                    <div>
+                                                                        <label
+                                                                            class="text-sm font-semibold text-gray-600"
+                                                                            for="businessname">Add Over
+                                                                            Time Salary</label>
+                                                                        <select id="jobtype" name="jobtype"
+                                                                            autocomplete="jobtype"
+                                                                            class="block px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm w-44 focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                            <option>None</option>
+                                                                            <option>Half Day Salary</option>
+                                                                            <option>Full Day Salary</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="pt-4 space-y-4">
+                                                                <div class="flex flex-col">
+                                                                    <label for="otwages"
+                                                                        class="text-sm font-semibold text-gray-600">Total
+                                                                        Amount</label>
+                                                                    <input name="otwages"
+                                                                        class="p-2 border border-gray-400 rounded-md w-44"
+                                                                        type="text">
+                                                                </div>
+                                                                <div>
+                                                                    <button
+                                                                        class="p-2 font-semibold text-white bg-blue-600 border border-blue-600 rounded-md w-44">
+                                                                        Add Overtime</button>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="group hover:bg-blue-100" x-data="{ 'showModal': false }"
+                                            @keydown.escape="showModal = false">
+                                            <a @click="showModal = true" href="#"
+                                                class="flex items-center gap-2 px-3 py-3 font-semibold group-hover:text-blue-600">
+                                                <span
+                                                    class="px-2 font-semibold text-white bg-blue-600 rounded-md">LF</span>
+                                                Late Fine
+                                            </a>
+
+                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                x-show="showModal" style="display: none;">
+                                                <!-- Modal inner -->
+                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                    @click.away="showModal = false"
+                                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                                    x-transition:enter-start="opacity-0 scale-90"
+                                                    x-transition:enter-end="opacity-100 scale-100">
+                                                    <!-- Title / Close-->
+                                                    <div class="flex items-center justify-between">
+                                                        <div>
+                                                            <p class="font-bold">Late Fine - <span>10-02-2020</span></p>
+                                                            <p class="text-sm text-gray-600">Karthika</p>
+                                                        </div>
+                                                        <span @click="showModal = false">
+                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    <!-- content -->
+                                                    <div class="w-full mt-4 space-y-4">
+                                                        <div class="flex flex-col items-center justify-center">
+                                                            <div>
+                                                                <input
+                                                                    class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                    type="number">
+                                                                <span class="font-bold">:</span>
+                                                                <input
+                                                                    class="w-16 p-2 border border-gray-400 rounded-md"
+                                                                    type="number">
+                                                            </div>
+                                                            <div>
+                                                                <p class="text-sm font-semibold text-gray-600">Hours :
+                                                                    Minutes</p>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <p class="text-sm font-semibold text-gray-600">Fine Amount
+                                                            </p>
+                                                            <div x-data="{
+                                                                openTab: 0,
+                                                                activeClasses: 'border-blue-600 text-blue-600',
+                                                                inactiveClasses: 'bg-gray-100 border-white'
+                                                            }">
+                                                                <div class="flex">
+                                                                    <ul class="grid w-full grid-cols-2 gap-4">
+                                                                        <li @click="openTab = 1">
+                                                                            <button
+                                                                                class="w-full p-2 text-xs bg-blue-100 border-2 rounded-md"
+                                                                                :class="openTab === 1 ? activeClasses : inactiveClasses">Fixed
+                                                                                Amount</button>
+                                                                        </li>
+                                                                        <li @click="openTab = 2">
+                                                                            <button
+                                                                                class="w-full p-2 text-xs bg-blue-100 border-2 rounded-md"
+                                                                                :class="openTab === 2 ? activeClasses : inactiveClasses">Half
+                                                                                Day (04:00 Hours)</button>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="">
+                                                            <label for="otwages" class="text-sm text-gray-600">Late Fine
+                                                                Amount (Hourly)</label>
+                                                            <input name="otwages"
+                                                                class="w-full p-2 border border-gray-400 rounded-md"
+                                                                type="text">
+                                                            <span class="text-xs text-gray-600">Calculated based on
+                                                                staff
+                                                                salary</span>
+                                                        </div>
+                                                        <div class="p-2 bg-red-100 border border-red-600 rounded-md">
+                                                            <span class="text-sm text-gray-600">Total Amount</span>
+                                                            <p class="font-bold"><span>₹ 50</span> x <span>8:00
+                                                                    Hrs</span> =
+                                                                <span>₹ 400</span>
+                                                            </p>
+                                                        </div>
+                                                        <div>
+                                                            <button
+                                                                class="w-full p-2 font-semibold text-white bg-blue-600 border border-blue-600 rounded-md">
+                                                                Save</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap items-center gap-4">
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-green-600 bg-green-100 rounded-md">
+                                    Present</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-green-600 bg-green-100 rounded-md">
+                                    Full Day</div>
+                                <div class="inline-block p-1 px-2 text-sm font-medium text-white bg-red-600 rounded-md">
+                                    Absent</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-yellow-600 bg-yellow-100 rounded-md">
+                                    Half Day</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md">
+                                    Paid Leave</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-white bg-teal-600 rounded-md">
+                                    Unpaid Leave</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md">
+                                    Day Off</div>
+                                <div
+                                    class="inline-block p-1 px-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md">
+                                    Forgot Out</div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+</html>
