@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+  <title>Your Page Title</title>
+</head>
+<body class="p-8 bg-gray-200">
+  <div x-data="{ showCards: false, statusCounts: { present: 0, absent: 0, late: 0, leave: 0 } }">
+    <button @click="showCards = !showCards" class="px-4 py-2 mb-4 text-white bg-blue-500">
+      {{ showCards ? 'Hide Cards' : 'Show Cards' }}
+    </button>
+
+    <div x-show="showCards" class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <!-- Card 1: Present -->
+      <div class="card" x-bind:class="{ 'opacity-75': !showCards }">
+        <!-- Your card content goes here -->
+        Present Card
+        <div class="text-sm text-gray-500">Count: {{ statusCounts.present }}</div>
+      </div>
+
+      <!-- Card 2: Absent -->
+      <div class="card" x-bind:class="{ 'opacity-75': !showCards }">
+        <!-- Your card content goes here -->
+        Absent Card
+        <div class="text-sm text-gray-500">Count: {{ statusCounts.absent }}</div>
+      </div>
+
+      <!-- Card 3: Late -->
+      <div class="card" x-bind:class="{ 'opacity-75': !showCards }">
+        <!-- Your card content goes here -->
+        Late Card
+        <div class="text-sm text-gray-500">Count: {{ statusCounts.late }}</div>
+      </div>
+
+      <!-- Card 4: Leave -->
+      <div class="card" x-bind:class="{ 'opacity-75': !showCards }">
+        <!-- Your card content goes here -->
+        Leave Card
+        <div class="text-sm text-gray-500">Count: {{ statusCounts.leave }}</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function incrementCount(status) {
+      const statusCounts = Alpine.store('statusCounts');
+      statusCounts[status]++;
+    }
+
+    Alpine.store('statusCounts', {
+      present: 0,
+      absent: 0,
+      late: 0,
+      leave: 0,
+    });
+
+    Alpine.data('countUpdater', () => ({
+      incrementCount,
+    }));
+  </script>
+</body>
+</html>
