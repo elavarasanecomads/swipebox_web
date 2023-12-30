@@ -34,60 +34,82 @@
                     <div class="order-1 w-full lg:order-2 lg:w-1/2">
                         <div class="flex items-center justify-center lg:my-8">
                             <div class="p-4 py-8 mb-8 bg-white border rounded-md shadow-md w-96">
-                                <div x-data="{ showSection: false }">
+                                
+                                <div x-data="{ showSection: false, selectedRole: '' }">
                                     <div class="space-y-2">
-                                        <p class="text-2xl font-bold text-blue-600 uppercase">Login with Mobile Number
-                                        </p>
-                                        <p class="text-sm text-gray-600">Select Role and Enter your mobile number to continue
-                                        </p>
+                                        <p class="text-2xl font-bold text-blue-600 uppercase">Login with Mobile Number</p>
+                                        <p class="text-sm text-gray-600">Select Role and Enter your mobile number to continue</p>
                                     </div>
-                                    <div class="py-4 space-y-2">
+                                
+                                    <div x-show="!showSection" class="py-4 space-y-2">
                                         <p class="block font-medium text-gray-700 ">Select Role</p>
-                                        <button class="flex items-start gap-4 p-4 border-2 rounded active:border-blue-600 focus:border-blue-600" @click="showSection = true">                                        
+                                        <button @click="selectedRole = 'Business Owner'; showSection = true"
+                                            class="flex items-start gap-4 p-4 border-2 rounded active:border-blue-600 focus:border-blue-600">
                                             <div>
                                                 <div class="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-600">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
-                                                      </svg>                                              
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="w-6 h-6 text-blue-600">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+                                                    </svg>
                                                 </div>
                                             </div>
                                             <div class="space-y-1">
                                                 <p class="text-sm font-bold text-left">Business Owner </p>
-                                                <p class="text-xs text-left text-gray-600">Use your mobile number to register a new account or access your employer account.</p>
+                                                <p class="text-xs text-left text-gray-600">Use your mobile number to register a new account or access
+                                                    your employer account.</p>
                                             </div>
                                         </button>
-                                        <button class="flex items-start gap-4 p-4 border-2 rounded active:border-blue-600 focus:border-blue-600" @click="showSection = true">                                        
+                                        <button @click="selectedRole = 'Employee / HR / Adminstrator'; showSection = true"
+                                            class="flex items-start gap-4 p-4 border-2 rounded active:border-blue-600 focus:border-blue-600">
                                             <div>
                                                 <div class="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-600">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                                                      </svg>                                                                                               
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="w-6 h-6 text-blue-600">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                                    </svg>
                                                 </div>
                                             </div>
                                             <div class="space-y-1">
                                                 <p class="text-sm font-bold text-left">Employee / HR / Adminstrator</p>
-                                                <p class="text-xs text-left text-gray-600">To access your account, log in using the mobile number that you registered with your organization.</p>
+                                                <p class="text-xs text-left text-gray-600">To access your account, log in using the mobile number that
+                                                    you registered with your organization.</p>
                                             </div>
+                                
                                         </button>
                                     </div>
-                                    
-                                    <div class="pt-4 space-y-4" x-show="showSection">
+                                
+                                    <div x-show="showSection" class="pt-4 space-y-4">
+                                        <!-- Back button to return to role selection -->
+                                        <button @click="showSection = false"
+                                            class="flex items-center gap-2 text-sm font-medium text-gray-600">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                stroke="currentColor" class="w-5 h-5">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                                            </svg>
+                                            Go Back
+                                        </button>
+                                        <div class="p-2 font-semibold text-blue-600 bg-blue-100 rounded-md">
+                                            Role Chosen: <span x-text="selectedRole"></span>
+                                        </div>
                                         <div>
-                                            <label for="email-address" class="block font-medium text-gray-700">Mobile
-                                                Number</label>
-                                            <input type="text" placeholder="Enter Mobile Number" name="mobile-num"
-                                                id="mobile-num" autocomplete="mobile-num"
+                                            <label for="email-address" class="block font-medium text-gray-700">Mobile Number</label>
+                                            <input type="text" placeholder="Enter Mobile Number" name="mobile-num" id="mobile-num"
+                                                autocomplete="mobile-num"
                                                 class="w-full px-3 py-3 mt-1 leading-tight text-gray-900 border border-gray-300 rounded shadow-inner appearance-none focus:outline-none focus:ring-blue-400 focus:border-blue-400 sm:text-sm">
                                         </div>
+                                
                                         <div>
                                             <a href="login-otp.html">
                                                 <button
                                                     class="w-full p-3 py-3 font-bold text-center text-white uppercase bg-blue-600 rounded-md">Continue</button>
                                             </a>
                                         </div>
-                                        
                                     </div>
                                 </div>
+                                
+                                
                             </div>
                         </div>
                     </div>
