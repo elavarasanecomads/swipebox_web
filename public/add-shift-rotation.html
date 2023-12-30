@@ -1,0 +1,414 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Shift Rotation</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8"><div>
+                    <a href="shift-rotation.html" class="flex items-center gap-1 text-sm text-gray-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                            <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>Back</span>
+                    </a>
+                </div>
+
+                    <div class="pt-6 space-y-6" x-data="{ selectedOption: 'option1' }">
+                        <div class="p-4 space-y-4 border rounded shadow-md">
+                            <h1 class="text-xl font-bold">Create New shift Rotation</h1>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="">Shift Rotation Name</label>
+
+                                <input type="text" name="" id="" autocomplete="" placeholder="Shift Rotation Name"
+                                    class="block w-full px-3 py-2 border border-gray-400 rounded-md lg:w-1/2 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="">Rotation Type</label>
+                                <select x-model="selectedOption"
+                                    class="block w-full px-3 py-2 bg-white border border-gray-400 rounded shadow-sm lg:w-1/2 focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                    <option>Select</option>
+                                    <option value="option1">Daily Shift Rotation</option>
+                                    <option value="option2">Weekly Shift Rotation</option>
+                                    <option value="option3">Hybrid Shift Rotation</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="">Effective From</label>
+
+                                <input type="date" name="" id="" autocomplete="" placeholder="Shift Name"
+                                    class="block w-full px-3 py-2 border border-gray-400 rounded-md lg:w-1/2 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                            </div>
+                        </div>
+
+                        <div class="p-4 border rounded shadow-md">
+                            <div x-show="selectedOption === 'option1'">
+                                <p class="text-lg font-bold">Daily Shift Rotation</p>
+                                <p class="text-sm text-gray-600">In a Day Wise rotation, employees switch shifts on a
+                                    daily basis. This means that each worker experiences a different shift each day of
+                                    the week.</p>
+                                <div class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-4">
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600 uppercase"
+                                            for="">Monday</label>
+                                        <select
+                                            class="block w-full px-2 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                            <option>Select</option>
+                                            <option>Shift Name 1</option>
+                                            <option>Shift Name 2</option>
+                                            <option>Shift Name 3</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600 uppercase"
+                                            for="">Tuesday</label>
+                                        <select
+                                            class="block w-full px-3 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                            <option>Select</option>
+                                            <option>Shift Name 1</option>
+                                            <option>Shift Name 2</option>
+                                            <option>Shift Name 3</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600 uppercase"
+                                            for="">Wednesday</label>
+                                        <select
+                                            class="block w-full px-3 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                            <option>Select</option>
+                                            <option>Shift Name 1</option>
+                                            <option>Shift Name 2</option>
+                                            <option>Shift Name 3</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600 uppercase"
+                                            for="">Thursday</label>
+                                        <select
+                                            class="block w-full px-3 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                            <option>Select</option>
+                                            <option>Shift Name 1</option>
+                                            <option>Shift Name 2</option>
+                                            <option>Shift Name 3</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600 uppercase"
+                                            for="">Friday</label>
+                                        <select
+                                            class="block w-full px-3 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                            <option>Select</option>
+                                            <option>Shift Name 1</option>
+                                            <option>Shift Name 2</option>
+                                            <option>Shift Name 3</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600 uppercase"
+                                            for="">Saturday</label>
+                                        <select
+                                            class="block w-full px-3 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                            <option>Select</option>
+                                            <option>Shift Name 1</option>
+                                            <option>Shift Name 2</option>
+                                            <option>Shift Name 3</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600 uppercase"
+                                            for="">Sunday</label>
+                                        <select
+                                            class="block w-full px-3 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                            <option>Select</option>
+                                            <option>Shift Name 1</option>
+                                            <option>Shift Name 2</option>
+                                            <option>Shift Name 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div x-show="selectedOption === 'option2'">
+                                <p class="text-lg font-bold">Weekly Shift Rotation</p>
+                                <p class="text-sm text-gray-600">Week Wise rotation involves employees changing shifts
+                                    on a weekly basis. Each worker would have a consistent shift for an entire week
+                                    before transitioning to a different one the following week.</p>
+                                <div class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-4">
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600 uppercase" for="">Week
+                                            1</label>
+                                        <select
+                                            class="block w-full px-2 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                            <option>Select</option>
+                                            <option>Shift Name 1</option>
+                                            <option>Shift Name 2</option>
+                                            <option>Shift Name 3</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600 uppercase" for="">Week
+                                            2</label>
+                                        <select
+                                            class="block w-full px-3 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                            <option>Select</option>
+                                            <option>Shift Name 1</option>
+                                            <option>Shift Name 2</option>
+                                            <option>Shift Name 3</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600 uppercase" for="">Week
+                                            3</label>
+                                        <select
+                                            class="block w-full px-3 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                            <option>Select</option>
+                                            <option>Shift Name 1</option>
+                                            <option>Shift Name 2</option>
+                                            <option>Shift Name 3</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600 uppercase" for="">Week
+                                            4</label>
+                                        <select
+                                            class="block w-full px-3 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                            <option>Select</option>
+                                            <option>Shift Name 1</option>
+                                            <option>Shift Name 2</option>
+                                            <option>Shift Name 3</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600 uppercase" for="">Week
+                                            5</label>
+                                        <select
+                                            class="block w-full px-3 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                            <option>Select</option>
+                                            <option>Shift Name 1</option>
+                                            <option>Shift Name 2</option>
+                                            <option>Shift Name 3</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600 uppercase" for="">Week
+                                            6</label>
+                                        <select
+                                            class="block w-full px-3 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                            <option>Select</option>
+                                            <option>Shift Name 1</option>
+                                            <option>Shift Name 2</option>
+                                            <option>Shift Name 3</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600 uppercase" for="">Week
+                                            7</label>
+                                        <select
+                                            class="block w-full px-3 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                            <option>Select</option>
+                                            <option>Shift Name 1</option>
+                                            <option>Shift Name 2</option>
+                                            <option>Shift Name 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div x-show="selectedOption === 'option3'">
+                                <p class="text-lg font-bold">Hybrid Shift Rotation</p>
+                                <p class="text-gray-600">In a Hybrid Shift Rotation, there is a combination of both
+                                    daily and weekly rotations. This type of rotation offers a balance between the
+                                    frequency of shift changes, providing variety on a daily basis and consistency on a
+                                    weekly basis.
+                                </p>
+                                <div class="space-y-4" x-data="{ sections: [{ id: 1 }], counter: 2 }">
+                                    <template x-for="(section, index) in sections" :key="section.id">
+                                        <div class="border rounded-md">
+                                            <div class="flex items-center justify-between p-2 bg-blue-600 rounded-t-md">
+                                                <p class="font-semibold text-white" x-text="'Week ' + (index + 1)"></p>
+                                                <button class="flex items-center text-white"
+                                                    @click="sections.length > 1 ? sections.splice(index, 1) : ''"
+                                                    :disabled="sections.length === 1"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                        class="w-6 h-6">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M6 18L18 6M6 6l12 12" />
+                                                    </svg>
+                                                    <span>Remove</span>
+                                                </button>
+                                            </div>
+                                            <div class="grid grid-cols-1 gap-4 p-4 lg:grid-cols-4">
+                                                <div>
+                                                    <label class="text-sm font-semibold text-gray-600 uppercase"
+                                                        for="">Monday</label>
+                                                    <select
+                                                        class="block w-full px-2 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                                        <option>Select</option>
+                                                        <option>Shift Name 1</option>
+                                                        <option>Shift Name 2</option>
+                                                        <option>Shift Name 3</option>
+                                                    </select>
+                                                </div>
+                                                <div>
+                                                    <label class="text-sm font-semibold text-gray-600 uppercase"
+                                                        for="">Tuesday</label>
+                                                    <select
+                                                        class="block w-full px-3 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                                        <option>Select</option>
+                                                        <option>Shift Name 1</option>
+                                                        <option>Shift Name 2</option>
+                                                        <option>Shift Name 3</option>
+                                                    </select>
+                                                </div>
+                                                <div>
+                                                    <label class="text-sm font-semibold text-gray-600 uppercase"
+                                                        for="">Wednesday</label>
+                                                    <select
+                                                        class="block w-full px-3 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                                        <option>Select</option>
+                                                        <option>Shift Name 1</option>
+                                                        <option>Shift Name 2</option>
+                                                        <option>Shift Name 3</option>
+                                                    </select>
+                                                </div>
+                                                <div>
+                                                    <label class="text-sm font-semibold text-gray-600 uppercase"
+                                                        for="">Thursday</label>
+                                                    <select
+                                                        class="block w-full px-3 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                                        <option>Select</option>
+                                                        <option>Shift Name 1</option>
+                                                        <option>Shift Name 2</option>
+                                                        <option>Shift Name 3</option>
+                                                    </select>
+                                                </div>
+                                                <div>
+                                                    <label class="text-sm font-semibold text-gray-600 uppercase"
+                                                        for="">Friday</label>
+                                                    <select
+                                                        class="block w-full px-3 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                                        <option>Select</option>
+                                                        <option>Shift Name 1</option>
+                                                        <option>Shift Name 2</option>
+                                                        <option>Shift Name 3</option>
+                                                    </select>
+                                                </div>
+                                                <div>
+                                                    <label class="text-sm font-semibold text-gray-600 uppercase"
+                                                        for="">Saturday</label>
+                                                    <select
+                                                        class="block w-full px-3 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                                        <option>Select</option>
+                                                        <option>Shift Name 1</option>
+                                                        <option>Shift Name 2</option>
+                                                        <option>Shift Name 3</option>
+                                                    </select>
+                                                </div>
+                                                <div>
+                                                    <label class="text-sm font-semibold text-gray-600 uppercase"
+                                                        for="">Sunday</label>
+                                                    <select
+                                                        class="block w-full px-3 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                                        <option>Select</option>
+                                                        <option>Shift Name 1</option>
+                                                        <option>Shift Name 2</option>
+                                                        <option>Shift Name 3</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </template>
+                                    <button @click="sections.push({ id: counter++ })"
+                                        class="font-semibold text-blue-600">Add Week</button>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 space-y-4 border rounded shadow-md">
+                            <p class="text-lg font-bold">Apply To</p>
+                            <div class="w-full space-y-4 lg:w-1/2">
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="branch">Choose
+                                        Branch</label>
+                                    <select id="branch" name="branch" autocomplete="branch" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All
+                                        </option>
+                                        <option>Ecomads
+                                            Pvt Ltd,
+                                            Coimbatore
+                                        </option>
+                                        <option>Ecomads
+                                            Pvt Ltd,
+                                            Tiruchengode
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <!--use multi select dropdown-->
+                                    <div class="w-1/2">
+                                        <label class="text-sm font-semibold text-gray-600" for="department">Apply
+                                            Policy
+                                            On</label>
+                                        <select id="department" name="department" autocomplete="department" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>
+                                                Select
+                                            </option>
+                                            <option>
+                                                Department
+                                                Level
+                                            </option>
+                                            <option>
+                                                Shift
+                                                Level
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <!--use multi select dropdown / Based on apply policy level value was change and also label was change-->
+                                    <div class="w-1/2">
+                                        <label class="text-sm font-semibold text-gray-600" for="department">Shift
+                                            Level</label>
+                                        <select id="department" name="department" autocomplete="department" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>All
+                                            </option>
+                                            <option>
+                                                Morning
+                                                Shift
+                                            </option>
+                                            <option>
+                                                Evening
+                                                Shift
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-1/4 pt-6">
+                            <button
+                                class="w-full p-2 font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-700">Save</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+</html>
