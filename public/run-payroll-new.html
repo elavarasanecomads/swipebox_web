@@ -1,0 +1,1522 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div x-data="{
+                    openTab: 2,
+                    activeClasses: 'bg-[#00AFEF]',
+                    inactiveClasses: 'bg-white',
+                }">
+                    <div class="grid grid-cols-5 divide-x">
+                        <div @click="openTab = 1" :class="{ 'bg-[#00AFEF] text-white': openTab === 1, 'bg-white': openTab !== 1 }" class="p-4 rounded-l-lg">
+                            <p class="font-semibold">Run Payroll</p>
+                            <p class="text-lg font-bold">--/--</p>
+                        </div>
+                        <div @click="openTab = 2" :class="{ 'bg-[#FBAD30] text-white': openTab === 2, 'bg-white': openTab !== 2 }" class="p-4">
+                            <p class="font-semibold">Projected Salary</p>
+                            <p class="text-lg font-bold">200/300</p>
+                        </div>
+                        <div @click="openTab = 3" :class="{ 'bg-[#594C9C] text-white': openTab === 3, 'bg-white': openTab !== 3 }" class="p-4">
+                            <p class="font-semibold">Final Salary</p>
+                            <p class="text-lg font-bold">50/300</p>
+                        </div>
+                        <div @click="openTab = 4" :class="{ 'bg-[#ED3237] text-white': openTab === 4, 'bg-white': openTab !== 4 }" class="p-4">
+                            <p class="font-semibold">Withhold Salary</p>
+                            <p class="text-lg font-bold">5/300</p>
+                        </div>
+                        <div @click="openTab = 5" :class="{ 'bg-[#12A354] text-white': openTab === 5, 'bg-white': openTab !== 5 }" class="p-4 rounded-r-lg">
+                            <p class="font-semibold">Salary Paid</p>
+                            <p class="text-lg font-bold">45/300</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="p-4 mt-4 bg-white rounded-md" x-show="openTab === 1" style="display: none;">
+
+                        </div>
+                        <div class="p-4 mt-4 bg-white rounded-md" x-show="openTab === 2" style="display: none;">
+                            <div class="py-4 space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <h3 class="text-2xl font-bold">Projected Salary</h3>
+                                    </div>
+        
+                                    <div class="flex items-center gap-4">
+                                        <button @click="showModal = true" disabled
+                                            class="flex items-center gap-1 px-4 py-2 font-semibold text-gray-100 bg-gray-600 rounded disabled:bg-opacity-50 disabled:cursor-not-allowed"><span><svg
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                                                </svg>
+                                            </span><span>Re-Run</span></button>
+                                        <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                            <button @click="showModal = true"
+                                                class="px-4 py-2 font-semibold text-white bg-green-600 rounded"><span>Finalize
+                                                    Salary</span></button>
+        
+                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                x-show="showModal" style="display: none;">
+                                                <!-- Modal inner -->
+                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm"
+                                                    @click.away="showModal = false"
+                                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                                    x-transition:enter-start="opacity-0 scale-90"
+                                                    x-transition:enter-end="opacity-100 scale-100">
+                                                    <!-- Title / Close-->
+                                                    <div class="flex items-center justify-between">
+                                                        <p class="font-bold text-gray-900">
+                                                            Finalize Salary
+                                                        </p>
+                                                        <span @click="showModal = false">
+                                                            <svg class="w-5 h-5 text-gray-900"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    <!-- content -->
+                                                    <div class="w-full mt-4 space-y-1">
+                                                        <p>Are you Sure you want to Confirm? You cannot make changes to
+                                                            calculation
+                                                            after this.</p>
+                                                        <div class="flex items-center justify-end w-full gap-4 py-4">
+                                                            <a @click="showModal = false"
+                                                                class="w-1/2 p-2 font-semibold text-center text-gray-900 bg-gray-200 rounded-md">Cancel</a>
+                                                            <a class="w-1/2 p-2 font-semibold text-center text-white bg-blue-600 rounded-md"
+                                                                href="final-salary.html">Finalize</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+        
+                                </div>
+        
+                                <div class="py-4">
+                                    <div class="grid grid-cols-1 gap-4 lg:grid-cols-4">
+                                        <div class="flex flex-col items-center gap-4 lg:flex-row">
+                                            <div class="w-full">
+                                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                                    Branch</label>
+                                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                    class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                    <option>All</option>
+                                                    <option>Coimbatore</option>
+                                                    <option>Erode</option>
+                                                    <option>Namakkal</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="w-20 space-y-4 lg:mt-6">
+                                            <button
+                                                class="w-full px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded-md">Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div
+                                        class="p-4 border-l-4 border-r border-yellow-600 rounded shadow-md bg-blue-50 border-r-gray-300 border-y-gray-300 border-y">
+                                        <div class="grid grid-cols-2 gap-4 lg:grid-cols-3">
+                                            <div class="space-y-1">
+                                                <p class="text-sm text-gray-600 uppercase">No.of Employees</p>
+                                                <p class="text-2xl font-bold">200</p>
+                                            </div>
+                                            <div class="space-y-1">
+                                                <p class="text-sm text-gray-600 uppercase">Employee's Net Pay</p>
+                                                <p class="text-2xl font-bold"><span>₹ </span>87000</p>
+                                            </div>
+                                            <div class="space-y-1">
+                                                <p class="text-sm text-gray-600 uppercase">Gross Pay</p>
+                                                <p class="text-2xl font-bold"><span>₹ </span>103000</p>
+                                            </div>
+                                            <div class="space-y-1">
+                                                <p class="text-sm text-gray-600 uppercase">Employee Taxes</p>
+                                                <p class="text-2xl font-bold"><span>₹ </span>10000</p>
+                                            </div>
+                                            <div class="space-y-1">
+                                                <p class="text-sm text-gray-600 uppercase">Employer Taxes</p>
+                                                <p class="text-2xl font-bold"><span>₹ </span>3000</p>
+                                            </div>
+                                            <div class="space-y-1">
+                                                <p class="text-sm text-gray-600 uppercase">Deductions</p>
+                                                <p class="text-2xl font-bold"><span>₹ </span>3000</p>
+                                            </div>
+        
+                                            <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                <button @click="showModal = true"
+                                                    class="flex items-center gap-2 p-1 font-semibold text-blue-600"><span><svg
+                                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                            fill="currentColor" class="w-5 h-5">
+                                                            <path
+                                                                d="M10.75 2.75a.75.75 0 00-1.5 0v8.614L6.295 8.235a.75.75 0 10-1.09 1.03l4.25 4.5a.75.75 0 001.09 0l4.25-4.5a.75.75 0 00-1.09-1.03l-2.955 3.129V2.75z">
+                                                            </path>
+                                                            <path
+                                                                d="M3.5 12.75a.75.75 0 00-1.5 0v2.5A2.75 2.75 0 004.75 18h10.5A2.75 2.75 0 0018 15.25v-2.5a.75.75 0 00-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5z">
+                                                            </path>
+                                                        </svg>
+                                                    </span>
+                                                    <span>Download Details</span></button>
+                                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                    x-show="showModal" style="display: none;">
+                                                    <!-- Modal inner -->
+                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
+                                                        @click.away="showModal = false"
+                                                        x-transition:enter="motion-safe:ease-out duration-300"
+                                                        x-transition:enter-start="opacity-0 scale-90"
+                                                        x-transition:enter-end="opacity-100 scale-100">
+                                                        <!-- Title / Close-->
+                                                        <div class="flex items-center justify-end">
+                                                            <span @click="showModal = false">
+                                                                <svg class="w-5 h-5 text-gray-900"
+                                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                                        stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                </svg>
+                                                            </span>
+                                                        </div>
+                                                        <!-- content pending -->
+                                                        <div class="w-full mt-4 space-y-1">
+                                                            <div class="flex items-center justify-center">
+                                                                <div
+                                                                    class="flex items-center justify-center w-16 h-16 text-white bg-yellow-600 rounded-full">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                        viewBox="0 0 24 24" stroke-width="1.5"
+                                                                        stroke="currentColor" class="w-8 h-8">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                                            d="M16.5 3.75V16.5L12 14.25 7.5 16.5V3.75m9 0H18A2.25 2.25 0 0120.25 6v12A2.25 2.25 0 0118 20.25H6A2.25 2.25 0 013.75 18V6A2.25 2.25 0 016 3.75h1.5m9 0h-9" />
+                                                                    </svg>
+                                                                </div>
+                                                            </div>
+                                                            <p class="text-xl font-bold text-center">It generally takes 3-5 mins
+                                                                to generate report</p>
+                                                            <div class="w-full py-4">
+                                                                <a href="reports.html"><button
+                                                                        class="w-full p-2 font-semibold text-center text-white bg-blue-600 rounded-md">View
+                                                                        Pending Report</button></a>
+                                                            </div>
+                                                        </div>
+        
+                                                        <!-- content for success -->
+                                                        <div class="w-full mt-4 space-y-2">
+                                                            <div class="flex items-center justify-center">
+                                                                <div
+                                                                    class="flex items-center justify-center w-16 h-16 text-white bg-green-600 rounded-full">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                        viewBox="0 0 24 24" stroke-width="1.5"
+                                                                        stroke="currentColor" class="w-8 h-8">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                                            d="M4.5 12.75l6 6 9-13.5" />
+                                                                    </svg>
+        
+                                                                </div>
+                                                            </div>
+                                                            <p class="text-xl font-bold text-center">Your report has been
+                                                                successfully generated</p>
+                                                            <div class="w-full py-4">
+                                                                <button
+                                                                    class="w-full p-2 font-semibold text-center text-white bg-blue-600 rounded-md">Download
+                                                                    Report</button>
+                                                            </div>
+        
+        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="py-4 lg:flex lg:items-end lg:justify-end ">
+                                        <div>
+                                            <span class="inline-block w-full rounded shadow-sm">
+                                                <button
+                                                    class="relative w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-72 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                                    type="button" aria-haspopup="listbox" aria-expanded="true"
+                                                    aria-label="search" aria-checked="false">
+        
+                                                    <input id="search" type="search" placeholder="Search by name, email, mobile"
+                                                        class="w-full h-full form-control focus:outline-none">
+        
+                                                    <span
+                                                        class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                        <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                                        </svg>
+                                                    </span>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col ">
+                                        <div class="-my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                            <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                                <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+        
+                                                    <table class="min-w-full divide-y divide-gray-200 table-fixed ">
+                                                        <thead class="bg-blue-600">
+                                                            <tr class="text-sm">
+                                                                <th scope="col"
+                                                                    class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+        
+                                                                    <span class="text-sm text-gray-900">
+                                                                        <input class="w-4 h-4 border border-white"
+                                                                            type="checkbox" name="" id="">
+                                                                    </span>
+                                                                </th>
+                                                                <th scope="col"
+                                                                    class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                                    Name
+                                                                </th>
+        
+                                                                <th scope="col"
+                                                                    class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                                    Paid Days
+                                                                </th>
+                                                                <th scope="col"
+                                                                    class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                                    Gross Pay
+                                                                </th>
+                                                                <th scope="col"
+                                                                    class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                                    Taxes
+                                                                </th>
+                                                                <th scope="col"
+                                                                    class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                                    Deductions
+                                                                </th>
+                                                                <th scope="col"
+                                                                    class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                                    Net Pay
+                                                                </th>
+                                                                <th scope="col"
+                                                                    class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                                    Action
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="bg-white divide-y divide-gray-200">
+                                                            <tr>
+                                                                <td class="px-2 py-3 whitespace-nowrap">
+                                                                    <span class="text-sm text-gray-900">
+                                                                        <input class="w-4 h-4 border border-white"
+                                                                            type="checkbox" name="" id="">
+                                                                    </span>
+                                                                </td>
+                                                                <td class="px-2 py-3 whitespace-nowrap">
+                                                                    <div>
+                                                                        <button x-data="{usedKeyboard: false}"
+                                                                            @keydown.window.tab="usedKeyboard = true"
+                                                                            role=button
+                                                                            @click="$dispatch('open-menu', { open: true })"
+                                                                            :class="{'focus:outline-none': !usedKeyboard}"
+                                                                            class="font-semibold text-blue-600">Elavarasan Rajan
+                                                                        </button>
+                                                                        <p class="text-sm text-gray-600">67525165</p>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-2 py-3 whitespace-nowrap">
+                                                                    <span class="text-sm text-gray-900">
+                                                                        30
+                                                                    </span>
+                                                                </td>
+                                                                <td class="px-2 py-3 whitespace-nowrap">
+                                                                    <span class="text-sm text-gray-900">
+                                                                        <span>₹</span> 17000
+                                                                    </span>
+                                                                </td>
+                                                                <td class="px-2 py-3 whitespace-nowrap">
+                                                                    <span class="text-sm text-gray-900">
+                                                                        <span>₹</span> 3000
+                                                                    </span>
+                                                                </td>
+                                                                <td class="px-2 py-3 whitespace-nowrap">
+                                                                    <span class="text-sm text-gray-900">
+                                                                        <span>₹</span> 1000
+                                                                    </span>
+                                                                </td>
+                                                                <td class="px-2 py-3 whitespace-nowrap">
+                                                                    <span class="text-sm text-gray-900">
+                                                                        <span>₹</span> 15000
+                                                                    </span>
+                                                                </td>
+                                                                <td class="relative px-2 py-3 whitespace-nowrap">
+                                                                    <div class="px-2 text-gray-600 " x-data="{ isOpen: false }">
+                                                                        <button @click="isOpen = !isOpen"
+                                                                            @keydown.escape="isOpen = false"
+                                                                            class="focus:outline-none">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                                viewBox="0 0 24 24" stroke-width="1.5"
+                                                                                stroke="currentColor" class="w-6 h-6">
+                                                                                <path stroke-linecap="round"
+                                                                                    stroke-linejoin="round"
+                                                                                    d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                                                                            </svg>
+                                                                        </button>
+                                                                        <ul x-show="isOpen" @click.away="isOpen = false"
+                                                                            class="absolute z-10 py-1 mt-2 overflow-hidden text-sm font-normal bg-white border rounded shadow top-10 right-12 w-36">
+                                                                            <li class="p-2"><button
+                                                                                    x-data="{usedKeyboard: false}"
+                                                                                    @keydown.window.tab="usedKeyboard = true"
+                                                                                    role=button
+                                                                                    @click="$dispatch('open-menu', { open: true })"
+                                                                                    :class="{'focus:outline-none': !usedKeyboard}">Edit</button>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="px-2 py-3 whitespace-nowrap">
+                                                                    <span class="text-sm text-gray-900">
+                                                                        <input class="w-4 h-4 border border-white"
+                                                                            type="checkbox" name="" id="">
+                                                                    </span>
+                                                                </td>
+                                                                <td class="px-2 py-3 whitespace-nowrap">
+                                                                    <div>
+                                                                        <button x-data="{usedKeyboard: false}"
+                                                                            @keydown.window.tab="usedKeyboard = true"
+                                                                            role=button
+                                                                            @click="$dispatch('open-menu', { open: true })"
+                                                                            :class="{'focus:outline-none': !usedKeyboard}"
+                                                                            class="font-semibold text-blue-600">Karthika</button>
+        
+                                                                        <p class="text-sm text-gray-600">3435632</p>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-2 py-3 whitespace-nowrap">
+                                                                    <span class="text-sm text-gray-900">
+                                                                        30
+                                                                    </span>
+                                                                </td>
+                                                                <td class="px-2 py-3 whitespace-nowrap">
+                                                                    <span class="text-sm text-gray-900">
+                                                                        <span>₹</span> 10000
+                                                                    </span>
+                                                                </td>
+                                                                <td class="px-2 py-3 whitespace-nowrap">
+                                                                    <span class="text-sm text-gray-900">
+                                                                        <span>₹</span> 2000
+                                                                    </span>
+                                                                </td>
+                                                                <td class="px-2 py-3 whitespace-nowrap">
+                                                                    <span class="text-sm text-gray-900">
+                                                                        <span>₹</span> 1000
+                                                                    </span>
+                                                                </td>
+                                                                <td class="px-2 py-3 whitespace-nowrap">
+                                                                    <span class="text-sm text-gray-900">
+                                                                        <span>₹</span> 9000
+                                                                    </span>
+                                                                </td>
+                                                                <td class="relative px-2 py-3 whitespace-nowrap">
+                                                                    <div class="px-2 text-gray-600 " x-data="{ isOpen: false }">
+                                                                        <button @click="isOpen = !isOpen"
+                                                                            @keydown.escape="isOpen = false"
+                                                                            class="focus:outline-none">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                                viewBox="0 0 24 24" stroke-width="1.5"
+                                                                                stroke="currentColor" class="w-6 h-6">
+                                                                                <path stroke-linecap="round"
+                                                                                    stroke-linejoin="round"
+                                                                                    d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                                                                            </svg>
+                                                                        </button>
+                                                                        <ul x-show="isOpen" @click.away="isOpen = false"
+                                                                            class="absolute z-10 py-1 mt-2 overflow-hidden text-sm font-normal bg-white border rounded shadow bottom-10 right-12 w-36">
+                                                                            <li class="p-2"><button
+                                                                                    x-data="{usedKeyboard: false}"
+                                                                                    @keydown.window.tab="usedKeyboard = true"
+                                                                                    role=button
+                                                                                    @click="$dispatch('open-menu', { open: true })"
+                                                                                    :class="{'focus:outline-none': !usedKeyboard}">Edit</button>
+                                                                            </li>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="px-2 py-3 whitespace-nowrap">
+                                                                    <span class="text-sm text-gray-900">
+                                                                        <input class="w-4 h-4 border border-white"
+                                                                            type="checkbox" name="" id="">
+                                                                    </span>
+                                                                </td>
+                                                                <td class="px-2 py-3 whitespace-nowrap">
+                                                                    <div>
+                                                                        <button x-data="{usedKeyboard: false}"
+                                                                            @keydown.window.tab="usedKeyboard = true"
+                                                                            role=button
+                                                                            @click="$dispatch('open-menu', { open: true })"
+                                                                            :class="{'focus:outline-none': !usedKeyboard}"
+                                                                            class="font-semibold text-blue-600">Hemalatha</button>
+        
+                                                                        <p class="text-sm text-gray-600">3487862</p>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-2 py-3 whitespace-nowrap">
+                                                                    <span class="text-sm text-gray-900">
+                                                                        30
+                                                                    </span>
+                                                                </td>
+                                                                <td class="px-2 py-3 whitespace-nowrap">
+                                                                    <span class="text-sm text-gray-900">
+                                                                        <span>₹</span> 13500
+                                                                    </span>
+                                                                </td>
+                                                                <td class="px-2 py-3 whitespace-nowrap">
+                                                                    <span class="text-sm text-gray-900">
+                                                                        <span>₹</span> 2000
+                                                                    </span>
+                                                                </td>
+                                                                <td class="px-2 py-3 whitespace-nowrap">
+                                                                    <span class="text-sm text-gray-900">
+                                                                        <span>₹</span> 500
+                                                                    </span>
+                                                                </td>
+                                                                <td class="px-2 py-3 whitespace-nowrap">
+                                                                    <span class="text-sm text-gray-900">
+                                                                        <span>₹</span> 12000
+                                                                    </span>
+                                                                </td>
+                                                                <td class="relative px-2 py-3 whitespace-nowrap">
+                                                                    <div class="px-2 text-gray-600 " x-data="{ isOpen: false }">
+                                                                        <button @click="isOpen = !isOpen"
+                                                                            @keydown.escape="isOpen = false"
+                                                                            class="focus:outline-none">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                                viewBox="0 0 24 24" stroke-width="1.5"
+                                                                                stroke="currentColor" class="w-6 h-6">
+                                                                                <path stroke-linecap="round"
+                                                                                    stroke-linejoin="round"
+                                                                                    d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                                                                            </svg>
+                                                                        </button>
+                                                                        <ul x-show="isOpen" @click.away="isOpen = false"
+                                                                            class="absolute z-10 py-1 mt-2 overflow-hidden text-sm font-normal bg-white border rounded shadow bottom-10 right-12 w-36">
+                                                                            <li class="p-2"><button
+                                                                                    x-data="{usedKeyboard: false}"
+                                                                                    @keydown.window.tab="usedKeyboard = true"
+                                                                                    role=button
+                                                                                    @click="$dispatch('open-menu', { open: true })"
+                                                                                    :class="{'focus:outline-none': !usedKeyboard}">Edit</button>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex justify-center mt-4">
+                                            <nav class="relative z-0 inline-flex -space-x-px shadow-sm" aria-label="Pagination">
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-2 py-2 text-gray-500 bg-white border border-gray-300 text-smfont-medium rounded-l-md hover:bg-indigo-100">
+                                                    <span class="sr-only">Previous</span>
+                                                    <!-- Heroicon name: chevron-left -->
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                        fill="currentColor" aria-hidden="true">
+                                                        <path fill-rule="evenodd"
+                                                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-gray-700 bg-white border border-gray-300 text-smfont-medium hover:bg-indigo-100">
+                                                    1
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-gray-700 bg-white border border-gray-300 text-smfont-medium hover:bg-indigo-100">
+                                                    2
+                                                </a>
+                                                <a href="#"
+                                                    class="relative items-center hidden px-4 py-2 text-gray-700 bg-white border border-gray-300 text-smfont-medium md:inline-flex hover:bg-indigo-100">
+                                                    3
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-gray-700 bg-white border border-gray-300 text-smfont-medium hover:bg-indigo-100">
+                                                    4
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-gray-700 bg-white border border-gray-300 text-smfont-medium hover:bg-indigo-100">
+                                                    5
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-2 py-2 text-gray-500 bg-white border border-gray-300 text-smfont-medium rounded-r-md hover:bg-indigo-100">
+                                                    <span class="sr-only">Next</span>
+                                                    <!-- Heroicon name: chevron-right -->
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                        fill="currentColor" aria-hidden="true">
+                                                        <path fill-rule="evenodd"
+                                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </a>
+                                            </nav>
+                                        </div>
+                                    </div>
+        
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 mt-4 bg-white rounded-md" x-show="openTab === 3" style="display: none;">                    
+                            <div class="py-4 space-y-4">
+                                <div class="flex items-center justify-between">                            
+                                    <div>
+                                        <h1 class="text-2xl font-bold">Final Salary</h1>
+                                         </div>
+                                    <div class="flex items-center gap-1">
+                                        <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                            <button @click="showModal = true" class="px-4 py-2 font-semibold text-white bg-blue-600 rounded"><span>Record Payment</span></button>
+                                        
+                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
+                                                <!-- Modal inner -->
+                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                    <!-- Title / Close-->
+                                                    <div class="flex items-center justify-between">
+                                                        <p class="font-bold text-gray-900">
+                                                            Record Payment
+                                                        </p>
+                                                        <span @click="showModal = false">
+                                                            <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    <!-- content -->
+                                                    <div class="w-full mt-4 space-y-4">
+                                                        <p>Are you Sure you want to update the payment status for this payrun.</p>
+                                                        <div>
+                                                            <div class="flex items-center gap-6">
+                                                                <label class="text-sm font-semibold text-gray-600" for="businessname">Employee's paid on</label>
+                                                                <div>
+                                                                    <span class="inline-block w-full rounded shadow-sm">
+                                                                        <button class="relative py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600" type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search" aria-checked="false">
+                                    
+                                                                            <input id="search" type="date" placeholder="28-12-2022" class="w-full h-full form-control focus:outline-none">
+                                    
+                                                                            <span class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">                                                                   
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-600">
+                                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z"></path>
+                                                                                  </svg>
+                                                                                  
+                                                                            </span>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="space-y-2">
+                                                            <p class="font-semibold">Payment Mode and No.of Employees</p>
+                                                            <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
+                                                                <div class="space-y-1">
+                                                                    <p class="text-sm text-gray-600 uppercase">Cash</p>
+                                                                    <p class="text-xl font-bold">15</p>
+                                                                </div>
+                                                                <div class="space-y-1">
+                                                                    <p class="text-sm text-gray-600 uppercase">Bank Transfer</p>
+                                                                    <p class="text-xl font-bold">8</p>
+                                                                </div>
+                                                                <div class="space-y-1">
+                                                                    <p class="text-sm text-gray-600 uppercase">Cheque</p>
+                                                                    <p class="text-xl font-bold">25</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flex items-center justify-end w-full gap-4 py-4">
+                                                            <a class="p-2 font-semibold text-center text-gray-900 bg-gray-200 rounded-md w-36" href="#">Cancel</a>
+                                                            <a class="p-2 font-semibold text-center text-white bg-blue-600 rounded-md w-36" href="#">Confirm</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="relative px-2 text-gray-600" x-data="{ isOpen: false }">
+                                            <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false" class="flex items-center p-2 bg-gray-200 rounded focus:outline-none">                                        
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
+                                                  </svg>
+                                                  
+                                            </button>
+                                            <ul x-show="isOpen" @click.away="isOpen = false" class="absolute right-0 z-20 py-1 mt-2 overflow-hidden font-normal bg-white border rounded shadow w-44" style="display: none;">
+                                                <li class="px-4 py-2"><button class="font-semibold">Reject Approval</button></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="py-4">
+                                    <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                                        <div class="flex flex-col items-center gap-4 lg:flex-row">
+                                            <div class="w-full lg:w-2/3">
+                                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                                    Branch</label>
+                                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                    <option>All</option>
+                                                    <option>Coimbatore</option>
+                                                    <option>Erode</option>
+                                                    <option>Namakkal</option>
+                                                </select>
+                                            </div>
+                                            <div class="w-full lg:w-1/3">
+                                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select Status</label>
+                                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                    <option>All</option>
+                                                    <option>Paid</option>
+                                                    <option>Not paid</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="w-48 space-y-4 lg:mt-6">
+                                            <button class="w-full px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded-md">Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="p-4 border-l-4 border-r border-yellow-600 rounded shadow-md bg-blue-50 border-r-gray-300 border-y-gray-300 border-y">
+                                        <div class="grid grid-cols-2 gap-4 lg:grid-cols-3">                                    
+                                            <div class="space-y-1">
+                                                <p class="text-sm text-gray-600 uppercase">No.of Employees</p>
+                                                <p class="text-2xl font-bold">11</p>
+                                            </div>                                    
+                                            <div class="space-y-1">
+                                                <p class="text-sm text-gray-600 uppercase">Employee's Net Pay</p>
+                                                <p class="text-2xl font-bold"><span>₹ </span>87000</p>
+                                            </div>                                    
+                                            <div class="space-y-1">
+                                                <p class="text-sm text-gray-600 uppercase">Gross Pay</p>
+                                                <p class="text-2xl font-bold"><span>₹ </span>103000</p>
+                                            </div>
+                                            <div class="space-y-1">
+                                                <p class="text-sm text-gray-600 uppercase">Employee Taxes</p>
+                                                <p class="text-2xl font-bold"><span>₹ </span>10000</p>
+                                            </div>
+                                            <div class="space-y-1">
+                                                <p class="text-sm text-gray-600 uppercase">Employer Taxes</p>
+                                                <p class="text-2xl font-bold"><span>₹ </span>3000</p>
+                                            </div>
+                                            <div class="space-y-1">
+                                                <p class="text-sm text-gray-600 uppercase">Deductions</p>
+                                                <p class="text-2xl font-bold"><span>₹ </span>3000</p>
+                                            </div>
+                                        </div>
+                                        <div class="pt-6">
+                                            <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                <button @click="showModal = true" class="flex items-center gap-2 p-1 font-semibold text-blue-600"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                                    <path d="M10.75 2.75a.75.75 0 00-1.5 0v8.614L6.295 8.235a.75.75 0 10-1.09 1.03l4.25 4.5a.75.75 0 001.09 0l4.25-4.5a.75.75 0 00-1.09-1.03l-2.955 3.129V2.75z"></path>
+                                                    <path d="M3.5 12.75a.75.75 0 00-1.5 0v2.5A2.75 2.75 0 004.75 18h10.5A2.75 2.75 0 0018 15.25v-2.5a.75.75 0 00-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5z"></path>
+                                                  </svg>
+                                                  </span>
+                                                  <span>Download Bank Format</span></button>
+                                            
+                                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
+                                                    <!-- Modal inner -->
+                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                        <!-- Title / Close-->
+                                                        <div class="flex items-center justify-between">
+                                                            <p class="font-bold text-gray-900">
+                                                                Download Bank Format
+                                                            </p>
+                                                            <span @click="showModal = false">
+                                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                </svg>
+                                                            </span>
+                                                        </div>
+                                                        <!-- content -->
+                                                        <div class="w-full mt-4 space-y-4">
+                                                            <div class="w-full">
+                                                                <label class="text-sm font-semibold text-gray-600" for="businessname">Generate Bank Report For</label>
+                                                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                    <option>Un Paid Bank Transfer Employees</option>
+                                                                    <option>Bank Transfer Employes (Paid &amp; Unpaid)</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="w-full">
+                                                                <label class="text-sm font-semibold text-gray-600" for="businessname">Bank Statement Format</label>
+                                                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                    <option>Standard Format</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="w-full">
+                                                                <label class="text-sm font-semibold text-gray-600" for="businessname">Download As</label>
+                                                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                                    <option>XLS</option>
+                                                                    <option>CSV</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="flex items-center justify-end w-full gap-4 py-4">
+                                                                <a class="p-2 font-semibold text-center text-gray-900 bg-gray-200 rounded-md w-36" href="payment-methods.html">Cancel</a>
+                                                                <a class="p-2 font-semibold text-center text-white bg-blue-600 rounded-md w-36" href="payment-methods.html">Download</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pt-4 lg:flex lg:items-end lg:justify-end ">
+                                    <div>
+                                        <span class="inline-block w-full rounded shadow-sm">
+                                            <button class="relative w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-72 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600" type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search" aria-checked="false">
+        
+                                                <input id="search" type="search" placeholder="Search by name, email, mobile" class="w-full h-full form-control focus:outline-none">
+        
+                                                <span class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                    <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col">
+                                    <div class="-my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                        <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                            <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+        
+                                                <table class="relative min-w-full divide-y divide-gray-200 table-fixed">
+                                                    <thead class="bg-blue-600">
+                                                        <tr class="text-sm">
+                                                            <th scope="col" class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+        
+                                                                <span class="text-sm text-gray-900">
+                                                                    <input class="w-4 h-4 border border-white" type="checkbox" name="" id="">
+                                                                </span>
+                                                            </th>
+                                                            <th scope="col" class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                                Name
+                                                            </th>
+        
+                                                            <th scope="col" class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                                Paid Days
+                                                            </th>
+                                                           <th scope="col" class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                                Gross Pay
+                                                            </th>
+                                                            <th scope="col" class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                            Net Pay
+                                                        </th>
+                                                        
+                                                            <th scope="col" class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                                Payslip
+                                                            </th>
+                                                            <th scope="col" class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                                Payment Mode
+                                                            </th>
+                                                            <th scope="col" class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                                Staus
+                                                            </th>
+                                                            <th scope="col" class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="bg-white divide-y divide-gray-200">
+                                                        <tr>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    <input class="w-4 h-4 border border-white" type="checkbox" name="" id="">
+                                                                </span>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <div>
+                                                                    <p class="font-semibold text-blue-600">Elavarasan</p>
+                                                                    <p class="text-sm text-gray-600">67525165</p>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    30
+                                                                </span>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    <span>₹</span> 17000
+                                                                </span>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    <span>₹</span> 15000
+                                                                </span>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <button x-data="{usedKeyboard: false}" @keydown.window.tab="usedKeyboard = true" role="button" @click="$dispatch('open-menu', { open: true })" :class="{'focus:outline-none': !usedKeyboard}" class="font-semibold text-blue-600 focus:outline-none">View</button>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    Bank Transfer
+                                                                </span>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    Not Paid
+                                                                </span>
+                                                            </td>
+                                                            <td class="relative px-2 py-3 whitespace-nowrap">
+                                                                <div class="px-2 text-gray-600 " x-data="{ isOpen: false }">
+                                                                    <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false" class="focus:outline-none">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
+                                                                        </svg>
+                                                                    </button>
+                                                                    <ul x-show="isOpen" @click.away="isOpen = false" class="absolute z-10 py-1 mt-2 overflow-hidden text-sm font-normal bg-white border rounded shadow right-8 top-10 w-36" style="display: none;">
+                                                                        <li class="p-2"><button>Withhold Salary</button></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    <input class="w-4 h-4 border border-white" type="checkbox" name="" id="">
+                                                                </span>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <div>
+                                                                    <p class="font-semibold text-blue-600">Karthika</p>
+                                                                    <p class="text-sm text-gray-600">67525165</p>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    30
+                                                                </span>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    <span>₹</span> 10000
+                                                                </span>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    <span>₹</span> 9000
+                                                                </span>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <button x-data="{usedKeyboard: false}" @keydown.window.tab="usedKeyboard = true" role="button" @click="$dispatch('open-menu', { open: true })" :class="{'focus:outline-none': !usedKeyboard}" class="font-semibold text-blue-600 focus:outline-none">View</button>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    Bank Transfer
+                                                                </span>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    Not Paid
+                                                                </span>
+                                                            </td>
+                                                            <td class="relative px-2 py-3 whitespace-nowrap">
+                                                                <div class="px-2 text-gray-600 " x-data="{ isOpen: false }">
+                                                                    <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false" class="focus:outline-none">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
+                                                                        </svg>
+                                                                    </button>
+                                                                    <ul x-show="isOpen" @click.away="isOpen = false" class="absolute z-10 py-1 mt-2 overflow-hidden text-sm font-normal bg-white border rounded shadow right-8 top-10 w-36" style="display: none;">
+                                                                        <li class="p-2"><button>Withhold Salary</button></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-center mt-4">
+                                        <nav class="relative z-0 inline-flex -space-x-px shadow-sm" aria-label="Pagination">
+                                            <a href="#" class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-indigo-100">
+                                                <span class="sr-only">Previous</span>
+                                                <!-- Heroicon name: chevron-left -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                            </a>
+                                            <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-indigo-100">
+                                                1
+                                            </a>
+                                            <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-indigo-100">
+                                                2
+                                            </a>
+                                            <a href="#" class="relative items-center hidden px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 md:inline-flex hover:bg-indigo-100">
+                                                3
+                                            </a>
+                                            <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-indigo-100">
+                                                4
+                                            </a>
+                                            <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-indigo-100">
+                                                5
+                                            </a>
+                                            <a href="#" class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-indigo-100">
+                                                <span class="sr-only">Next</span>
+                                                <!-- Heroicon name: chevron-right -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                            </a>
+                                        </nav>
+                                    </div>
+                                </div>
+        
+                            </div>
+        
+                        </div>
+                        <div class="p-4 mt-4 bg-white rounded-md" x-show="openTab === 4" style="display: none;">
+                   
+                            <div class="py-4 space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <h1 class="text-2xl font-bold">Withhold Salary</h1>                            
+                                </div>
+                                <div class="pt-4 lg:flex lg:items-end lg:justify-end ">
+                                    <div>
+                                        <span class="inline-block w-full rounded shadow-sm">
+                                            <button class="relative w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-72 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600" type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search" aria-checked="false">
+        
+                                                <input id="search" type="search" placeholder="Search by name, email, mobile" class="w-full h-full form-control focus:outline-none">
+        
+                                                <span class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                    <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col">
+                                    <div class="-my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                        <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                            <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+                                                <table class="relative min-w-full divide-y divide-gray-200 table-fixed">
+                                                    <thead class="bg-blue-600">
+                                                        <tr class="text-sm">                                                   
+                                                            
+                                                            <th scope="col" class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                                Name
+                                                            </th>
+                                                            <th scope="col" class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                            Batch Name
+                                                        </th>
+                                                            
+                                                            <th scope="col" class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                                Net Pay
+                                                            </th>
+                                                            
+                                                            <th scope="col" class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                                Staus
+                                                            </th>
+                                                            <th scope="col" class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="bg-white divide-y divide-gray-200">
+                                                        <tr>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <div>
+                                                                    <p class="font-semibold text-blue-600">Elavarasan</p>
+                                                                    <p class="text-sm text-gray-600">EMP01</p>
+                                                                </div>
+                                                            </td>                                                    
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    25/11/2022 - 24/12/2022
+                                                                </span>
+                                                            </td>
+                                                            
+                                                            
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    <span>₹</span> 17000
+                                                                </span>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    Withhold
+                                                                </span>
+                                                            </td>
+                                                            <td class="relative px-2 py-3 whitespace-nowrap">
+                                                                <div class="px-2 text-gray-600 " x-data="{ isOpen: false }">
+                                                                    <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false" class="focus:outline-none">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
+                                                                        </svg>
+                                                                    </button>
+                                                                    <ul x-show="isOpen" @click.away="isOpen = false" class="absolute z-0 py-1 mt-2 overflow-hidden text-sm font-normal bg-white border rounded shadow right-8 bottom-10 w-36" style="display: none;">
+                                                                        <li class="p-2"><button x-data="{usedKeyboard: false}" @keydown.window.tab="usedKeyboard = true" role="button" @click="$dispatch('open-menu', { open: true })" :class="{'focus:outline-none': !usedKeyboard}" class="focus:outline-none">View</button></li>
+                                                                        <li class="p-2">
+                                                                            <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                                                <button @click="showModal = true"><span>Record Payment</span></button>
+                                                                            
+                                                                                <div class="fixed inset-0 z-50 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
+                                                                                    <!-- Modal inner -->
+                                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                                                        <!-- Title / Close-->
+                                                                                        <div class="flex items-center justify-between">
+                                                                                            <p class="font-bold text-gray-900">
+                                                                                                Record Payment
+                                                                                            </p>
+                                                                                            <span @click="showModal = false">
+                                                                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                                                </svg>
+                                                                                            </span>
+                                                                                        </div>
+                                                                                        <!-- content -->
+                                                                                        <div class="w-full mt-4 space-y-4">
+                                                                                            <p>Are you Sure you want to update the payment status for this payrun.</p>
+                                                                                            <div class="space-y-4">
+                                                                                                <div class="flex items-center gap-6">
+                                                                                                    <p class="text-sm font-semibold text-gray-600" for="businessname">Netpay Amount :</p>
+                                                                                                    <p class="font-semibold text-red-600">₹ 17000</p>
+                                                                                                </div>
+                                                                                                <div class="flex items-center gap-6">
+                                                                                                    <p class="text-sm font-semibold text-gray-600" for="businessname">Payment Mode :</p>
+                                                                                                    <p class="font-semibold text-gray-600">Bank Transfer</p>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Employee's paid on</label>
+                                                                                                    <div>
+                                                                                                        <span class="inline-block w-full mt-1 rounded shadow-sm">
+                                                                                                            <button class="relative w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600" type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search" aria-checked="false">
+                                                                        
+                                                                                                                <input id="search" type="date" placeholder="28-12-2022" class="w-full h-full form-control focus:outline-none">
+                                                                        
+                                                                                                                <span class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">                                                                   
+                                                                                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-600">
+                                                                                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z"></path>
+                                                                                                                      </svg>
+                                                                                                                      
+                                                                                                                </span>
+                                                                                                            </button>
+                                                                                                        </span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="flex items-center justify-end w-full gap-4 py-4">
+                                                                                                <a class="p-2 font-semibold text-center text-gray-900 bg-gray-200 rounded-md w-36" href="#">Cancel</a>
+                                                                                                <a class="p-2 font-semibold text-center text-white bg-blue-600 rounded-md w-36" href="#">Confirm</a>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>  
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <div>
+                                                                    <p class="font-semibold text-blue-600">Hemalatha</p>
+                                                                    <p class="text-sm text-gray-600">EMP02</p>
+                                                                </div>
+                                                            </td>                                                 
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    25/11/2022 - 24/12/2022
+                                                                </span>
+                                                            </td>                                                    
+                                                            
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    <span>₹</span> 17000
+                                                                </span>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    Withhold 
+                                                                </span>
+                                                            </td>
+                                                            <td class="relative px-2 py-3 whitespace-nowrap">
+                                                                <div class="px-2 text-gray-600 " x-data="{ isOpen: false }">
+                                                                    <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false" class="focus:outline-none">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
+                                                                        </svg>
+                                                                    </button>
+                                                                    <ul x-show="isOpen" @click.away="isOpen = false" class="absolute z-0 py-1 mt-2 overflow-hidden text-sm font-normal bg-white border rounded shadow right-8 bottom-10 w-36" style="display: none;">
+                                                                        <li class="p-2"><button x-data="{usedKeyboard: false}" @keydown.window.tab="usedKeyboard = true" role="button" @click="$dispatch('open-menu', { open: true })" :class="{'focus:outline-none': !usedKeyboard}" class="focus:outline-none">View</button></li>
+                                                                            <li class="p-2">
+                                                                                <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                                                    <button @click="showModal = true"><span>Record Payment</span></button>
+                                                                                
+                                                                                    <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
+                                                                                        <!-- Modal inner -->
+                                                                                        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                                                            <!-- Title / Close-->
+                                                                                            <div class="flex items-center justify-between">
+                                                                                                <p class="font-bold text-gray-900">
+                                                                                                    Record Payment
+                                                                                                </p>
+                                                                                                <span @click="showModal = false">
+                                                                                                    <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                                                    </svg>
+                                                                                                </span>
+                                                                                            </div>
+                                                                                            <!-- content -->
+                                                                                            <div class="w-full mt-4 space-y-4">
+                                                                                                <p>Are you Sure you want to update the payment status for this payrun.</p>
+                                                                                                <div class="space-y-4">
+                                                                                                    <div class="flex items-center gap-6">
+                                                                                                        <p class="text-sm font-semibold text-gray-600" for="businessname">Netpay Amount :</p>
+                                                                                                        <p class="font-semibold text-red-600">₹ 17000</p>
+                                                                                                    </div>
+                                                                                                    <div class="flex items-center gap-6">
+                                                                                                        <p class="text-sm font-semibold text-gray-600" for="businessname">Payment Mode :</p>
+                                                                                                        <p class="font-semibold text-gray-600">Bank Transfer</p>
+                                                                                                    </div>
+                                                                                                    <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">                                                                                               
+                                                                                                        <div>
+                                                                                                            <label class="text-sm font-semibold text-gray-600" for="businessname">Employee's paid on</label>
+                                                                                                            <div>
+                                                                                                                <span class="inline-block w-full mt-1 rounded shadow-sm">
+                                                                                                                    <button class="relative w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600" type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search" aria-checked="false">
+                                                                                
+                                                                                                                        <input id="search" type="date" placeholder="28-12-2022" class="w-full h-full form-control focus:outline-none">
+                                                                                
+                                                                                                                        <span class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">                                                                   
+                                                                                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-600">
+                                                                                                                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z"></path>
+                                                                                                                              </svg>
+                                                                                                                              
+                                                                                                                        </span>
+                                                                                                                    </button>
+                                                                                                                </span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="flex items-center justify-end w-full gap-4 py-4">
+                                                                                                    <a class="p-2 font-semibold text-center text-gray-900 bg-gray-200 rounded-md w-36" href="#">Cancel</a>
+                                                                                                    <a class="p-2 font-semibold text-center text-white bg-blue-600 rounded-md w-36" href="#">Confirm</a>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-center mt-4">
+                                        <nav class="relative z-0 inline-flex -space-x-px shadow-sm" aria-label="Pagination">
+                                            <a href="#" class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-indigo-100">
+                                                <span class="sr-only">Previous</span>
+                                                <!-- Heroicon name: chevron-left -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                            </a>
+                                            <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-indigo-100">
+                                                1
+                                            </a>
+                                            <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-indigo-100">
+                                                2
+                                            </a>
+                                            <a href="#" class="relative items-center hidden px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 md:inline-flex hover:bg-indigo-100">
+                                                3
+                                            </a>
+                                            <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-indigo-100">
+                                                4
+                                            </a>
+                                            <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-indigo-100">
+                                                5
+                                            </a>
+                                            <a href="#" class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-indigo-100">
+                                                <span class="sr-only">Next</span>
+                                                <!-- Heroicon name: chevron-right -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                            </a>
+                                        </nav>
+                                    </div>
+                                </div>
+        
+                            </div>
+        
+                        </div>
+                        <div class="p-4 mt-4 bg-white rounded-md" x-show="openTab === 5" style="display: none;">
+                           
+                            <div class="py-4 space-y-4">
+                                <div>
+                                    <h1 class="text-2xl font-bold">Salary Paid History Details</h1>
+                                    <p class="pt-2 text-sm font-semibold text-blue-600">Dec - 25/11/2022 - 24/12/2022</p>
+                                </div>
+                                <div class="py-4">
+                                    <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                                        <div class="flex flex-col items-center gap-4 lg:flex-row">
+                                            <div class="w-full">
+                                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                                    Branch</label>
+                                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                    <option>All</option>
+                                                    <option>Coimbatore</option>
+                                                    <option>Erode</option>
+                                                    <option>Namakkal</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="w-48 space-y-4 lg:mt-6">
+                                            <button class="w-full px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded-md">Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="p-4 border-l-4 border-r border-yellow-600 rounded shadow-md bg-blue-50 border-r-gray-300 border-y-gray-300 border-y">
+                                        <div class="grid grid-cols-2 gap-4 lg:grid-cols-3">                                    
+                                            <div class="space-y-1">
+                                                <p class="text-sm text-gray-600 uppercase">No.of Employees</p>
+                                                <p class="text-2xl font-bold">11</p>
+                                            </div>                                    
+                                            <div class="space-y-1">
+                                                <p class="text-sm text-gray-600 uppercase">Employee's Net Pay</p>
+                                                <p class="text-2xl font-bold"><span>₹ </span>87000</p>
+                                            </div>                                    
+                                            <div class="space-y-1">
+                                                <p class="text-sm text-gray-600 uppercase">Gross Pay</p>
+                                                <p class="text-2xl font-bold"><span>₹ </span>103000</p>
+                                            </div>
+                                            <div class="space-y-1">
+                                                <p class="text-sm text-gray-600 uppercase">Employee Taxes</p>
+                                                <p class="text-2xl font-bold"><span>₹ </span>10000</p>
+                                            </div>
+                                            <div class="space-y-1">
+                                                <p class="text-sm text-gray-600 uppercase">Employer Taxes</p>
+                                                <p class="text-2xl font-bold"><span>₹ </span>3000</p>
+                                            </div>
+                                            <div class="space-y-1">
+                                                <p class="text-sm text-gray-600 uppercase">Deductions</p>
+                                                <p class="text-2xl font-bold"><span>₹ </span>3000</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pt-4 lg:flex lg:items-end lg:justify-end ">
+                                    <div>
+                                        <span class="inline-block w-full rounded shadow-sm">
+                                            <button class="relative w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-72 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600" type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search" aria-checked="false">
+        
+                                                <input id="search" type="search" placeholder="Search by name, email, mobile" class="w-full h-full form-control focus:outline-none">
+        
+                                                <span class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                    <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col">
+                                    <div class="-my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                        <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                            <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+                                                <table class="relative min-w-full divide-y divide-gray-200 table-fixed">
+                                                    <thead class="bg-blue-600">
+                                                        <tr class="text-sm">
+                                                            <th scope="col" class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                                Name
+                                                            </th>
+        
+                                                            <th scope="col" class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                                Paid Days
+                                                            </th>
+                                                            <th scope="col" class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                                Gross Pay
+                                                            </th>
+                                                            <th scope="col" class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                                Deductions
+                                                            </th>
+                                                            <th scope="col" class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                                Net Pay
+                                                            </th>
+                                                            
+                                                            <th scope="col" class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                                Staus
+                                                            </th>
+                                                            <th scope="col" class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="bg-white divide-y divide-gray-200">
+                                                        <tr>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <div>
+                                                                    <p class="font-semibold text-blue-600">Elavarasan</p>
+                                                                    <p class="text-sm text-gray-600">67525165</p>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    30
+                                                                </span>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    <span>₹</span> 17000
+                                                                </span>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    <span>₹</span> 1000
+                                                                </span>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    <span>₹</span> 16000
+                                                                </span>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-green-600">
+                                                                    Paid on 12-12-2022
+                                                                </span>
+                                                            </td>
+                                                            <td class="relative px-2 py-3 whitespace-nowrap">
+                                                                <div class="px-2 text-gray-600 " x-data="{ isOpen: false }">
+                                                                    <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false" class="focus:outline-none">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
+                                                                        </svg>
+                                                                    </button>
+                                                                    <ul x-show="isOpen" @click.away="isOpen = false" class="absolute z-0 py-1 mt-2 overflow-hidden text-sm font-normal bg-white border rounded shadow right-8 bottom-10 w-36" style="display: none;">
+                                                                        <li class="p-2"><button x-data="{usedKeyboard: false}" @keydown.window.tab="usedKeyboard = true" role="button" @click="$dispatch('open-menu', { open: true })" :class="{'focus:outline-none': !usedKeyboard}" class="focus:outline-none">View</button></li>
+                                                                       
+                                                                    </ul>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>                                                    
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <div>
+                                                                    <p class="font-semibold text-blue-600">Hemalatha</p>
+                                                                    <p class="text-sm text-gray-600">67525186</p>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    30
+                                                                </span>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    <span>₹</span> 10000
+                                                                </span>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    <span>₹</span> 600
+                                                                </span>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-gray-900">
+                                                                    <span>₹</span> 9400
+                                                                </span>
+                                                            </td>
+                                                            <td class="px-2 py-3 whitespace-nowrap">
+                                                                <span class="text-sm text-green-600">
+                                                                    Paid on 12-12-2022
+                                                                </span>
+                                                            </td>
+                                                            <td class="relative px-2 py-3 whitespace-nowrap">
+                                                                <div class="px-2 text-gray-600 " x-data="{ isOpen: false }">
+                                                                    <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false" class="focus:outline-none">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
+                                                                        </svg>
+                                                                    </button>
+                                                                    <ul x-show="isOpen" @click.away="isOpen = false" class="absolute z-0 py-1 mt-2 overflow-hidden text-sm font-normal bg-white border rounded shadow right-8 bottom-10 w-36" style="display: none;">
+                                                                        <li class="p-2"><button x-data="{usedKeyboard: false}" @keydown.window.tab="usedKeyboard = true" role="button" @click="$dispatch('open-menu', { open: true })" :class="{'focus:outline-none': !usedKeyboard}" class="focus:outline-none">View</button></li>
+                                                                        
+                                                                    </ul>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-center mt-4">
+                                        <nav class="relative z-0 inline-flex -space-x-px shadow-sm" aria-label="Pagination">
+                                            <a href="#" class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-indigo-100">
+                                                <span class="sr-only">Previous</span>
+                                                <!-- Heroicon name: chevron-left -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                            </a>
+                                            <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-indigo-100">
+                                                1
+                                            </a>
+                                            <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-indigo-100">
+                                                2
+                                            </a>
+                                            <a href="#" class="relative items-center hidden px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 md:inline-flex hover:bg-indigo-100">
+                                                3
+                                            </a>
+                                            <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-indigo-100">
+                                                4
+                                            </a>
+                                            <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-indigo-100">
+                                                5
+                                            </a>
+                                            <a href="#" class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-indigo-100">
+                                                <span class="sr-only">Next</span>
+                                                <!-- Heroicon name: chevron-right -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                            </a>
+                                        </nav>
+                                    </div>
+                                </div>
+        
+                            </div>
+        
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+      $("#navigation").load("nav.html");
+      $("#aside").load("aside.html");
+    });
+  </script>
+</html>

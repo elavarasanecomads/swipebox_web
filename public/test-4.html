@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Sections</title>
+    <!-- Include Alpine.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+</head>
+<body>
+
+<div x-data="{ sections: [{ id: 1 }], counter: 2 }" class="space-y-4">
+    <template x-for="(section, index) in sections" :key="section.id">
+        <div>
+            <div class="flex items-center gap-2">
+                <p x-text="'Week ' + (index + 1)"></p>
+                <!-- Remove button is disabled if there is only one section -->
+                <button @click="sections.length > 1 ? sections.splice(index, 1) : ''" :disabled="sections.length === 1" class="text-red-600">X</button>
+            </div>
+            Description
+        </div>
+    </template>
+
+    <button @click="sections.push({ id: counter++ })" class="font-semibold text-blue-600">Add More</button>
+</div>
+
+</body>
+</html>

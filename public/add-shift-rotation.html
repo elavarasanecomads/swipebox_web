@@ -16,16 +16,20 @@
         <div class="w-full">
             <div id="navigation"></div>
             <div class="mx-0 my-4 lg:m-4">
-                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8"><div>
-                    <a href="shift-rotation.html" class="flex items-center gap-1 text-sm text-gray-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-                            <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd"></path>
-                        </svg>
-                        <span>Back</span>
-                    </a>
-                </div>
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+                    <div>
+                        <a href="shift-rotation.html" class="flex items-center gap-1 text-sm text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5">
+                                <path fill-rule="evenodd"
+                                    d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Back</span>
+                        </a>
+                    </div>
 
-                    <div class="pt-6 space-y-6" x-data="{ selectedOption: 'option1' }">
+                    <div class="pt-6 space-y-6" x-data="{ selectedOption: 'option2' }">
                         <div class="p-4 space-y-4 border rounded shadow-md">
                             <h1 class="text-xl font-bold">Create New shift Rotation</h1>
                             <div>
@@ -41,15 +45,154 @@
                                     <option>Select</option>
                                     <option value="option1">Daily Shift Rotation</option>
                                     <option value="option2">Weekly Shift Rotation</option>
-                                    <option value="option3">Hybrid Shift Rotation</option>
+                                    <option value="option3">Bi-Weekly Shift Rotation</option>
+                                    <option value="option4">Monthly Shift Rotation</option>
                                 </select>
                             </div>
                             <div>
-                                <label class="text-sm font-semibold text-gray-600" for="">Effective From</label>
+                                <div x-show="selectedOption === 'option1'">
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600" for="">Schedule Time</label>
 
-                                <input type="date" name="" id="" autocomplete="" placeholder="Shift Name"
-                                    class="block w-full px-3 py-2 border border-gray-400 rounded-md lg:w-1/2 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        <input type="time" name="" id="" autocomplete="" placeholder="Shift Name"
+                                            class="block w-full px-3 py-2 border border-gray-400 rounded-md lg:w-1/2 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                    </div>
+                                </div>
+                                <div class="space-y-4" x-show="selectedOption === 'option2'">
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600" for="">Schedule Day</label>
+                                        <select
+                                            class="block w-full px-3 py-2 border border-gray-400 rounded-md lg:w-1/2 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            <option value="">Sunday</option>
+                                            <option value="">Monday</option>
+                                            <option value="">Tuesday</option>
+                                            <option value="">Wednesday</option>
+                                            <option value="">Thursday</option>
+                                            <option value="">Friday</option>
+                                            <option value="">Saturday</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600" for="">Schedule Time</label>
+
+                                        <input type="time" name="" id="" autocomplete="" placeholder="Shift Name"
+                                            class="block w-full px-3 py-2 border border-gray-400 rounded-md lg:w-1/2 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                    </div>
+                                    <p class="text-green-600">Every <span class="font-semibold">Sunday 05:00 PM</span>
+                                        scheduler will run</p>
+                                        <div>
+                                            <p class="font-bold">Applicable From</p>
+                                        </div>
+                                        <div class="grid items-center grid-cols-2 gap-4 lg:grid-cols-4">
+                                            <div class="">
+                                                <label class="text-sm font-semibold text-gray-600" for="">From</label>
+                                                <select
+                                                    class="block w-full px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                    <option value="">Sunday</option>
+                                                    <option value="">Monday</option>
+                                                    <option value="">Tuesday</option>
+                                                    <option value="">Wednesday</option>
+                                                    <option value="">Thursday</option>
+                                                    <option value="">Friday</option>
+                                                    <option value="">Saturday</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <p>- <span class="font-semibold">Saturday</span> of every week</p>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="space-y-4" x-show="selectedOption === 'option3'">
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600" for="">Schedule Day</label>
+                                        <select
+                                            class="block w-full px-3 py-2 border border-gray-400 rounded-md lg:w-1/2 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            <option value="">Sunday</option>
+                                            <option value="">Monday</option>
+                                            <option value="">Tuesday</option>
+                                            <option value="">Wednesday</option>
+                                            <option value="">Thursday</option>
+                                            <option value="">Friday</option>
+                                            <option value="">Saturday</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600" for="">Schedule Time</label>
+
+                                        <input type="time" name="" id="" autocomplete="" placeholder="Shift Name"
+                                            class="block w-full px-3 py-2 border border-gray-400 rounded-md lg:w-1/2 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                    </div>
+                                    <p class="text-green-600">Every <span class="font-semibold">Sunday 05:00 PM</span>
+                                        scheduler will run</p>
+                                        <div>
+                                            <p class="font-bold">Applicable From</p>
+                                        </div>
+                                        <div class="grid items-center grid-cols-2 gap-4 lg:grid-cols-4">
+                                            <div class="">
+                                                <label class="text-sm font-semibold text-gray-600" for="">From</label>
+                                                <select
+                                                    class="block w-full px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                    <option value="">Sunday</option>
+                                                    <option value="">Monday</option>
+                                                    <option value="">Tuesday</option>
+                                                    <option value="">Wednesday</option>
+                                                    <option value="">Thursday</option>
+                                                    <option value="">Friday</option>
+                                                    <option value="">Saturday</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <p>- <span class="font-semibold">Saturday</span> of every week</p>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="space-y-4" x-show="selectedOption === 'option4'">
+                                    <div x-data="{ selectedDay: '' }">
+                                        <label class="text-sm font-semibold text-gray-600" for="">Schedule Day</label>
+
+                                        <select x-model="selectedDay" class="block w-full px-3 py-2 border border-gray-400 rounded-md lg:w-1/2 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                          <option value="" disabled>Select a day</option>
+                                          <template x-for="day in 28">
+                                            <option x-text="day"></option>
+                                          </template>
+                                        </select>
+                                      
+                                        <p x-show="selectedDay">You selected day: <span x-text="selectedDay"></span></p>
+                                      </div>
+                                      
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600" for="">Schedule Time</label>
+
+                                        <input type="time" name="" id="" autocomplete="" placeholder="Shift Name"
+                                            class="block w-full px-3 py-2 border border-gray-400 rounded-md lg:w-1/2 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                    </div>
+                                    <p class="text-green-600">Every <span class="font-semibold">Sunday 05:00 PM</span>
+                                        scheduler will run</p>
+                                        <div>
+                                            <p class="font-bold">Applicable From</p>
+                                        </div>
+                                        <div class="grid items-center grid-cols-2 gap-4 lg:grid-cols-4">
+                                            <div class="">
+                                                <label class="text-sm font-semibold text-gray-600" for="">From</label>
+                                                <select
+                                                    class="block w-full px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                    <option value="">Sunday</option>
+                                                    <option value="">Monday</option>
+                                                    <option value="">Tuesday</option>
+                                                    <option value="">Wednesday</option>
+                                                    <option value="">Thursday</option>
+                                                    <option value="">Friday</option>
+                                                    <option value="">Saturday</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <p>- <span class="font-semibold">Saturday</span> of every week</p>
+                                            </div>
+                                        </div>
+                                </div>
                             </div>
+                            
+
                         </div>
 
                         <div class="p-4 border rounded shadow-md">
@@ -143,7 +286,35 @@
                                 <p class="text-sm text-gray-600">Week Wise rotation involves employees changing shifts
                                     on a weekly basis. Each worker would have a consistent shift for an entire week
                                     before transitioning to a different one the following week.</p>
-                                <div class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-4">
+                                <div class="space-y-4" x-data="{ sections: [{ id: 1 }], counter: 2 }">
+                                    <template x-for="(section, index) in sections" :key="section.id">
+                                        <div class="flex items-center gap-4">
+                                            <div class="flex items-center gap-4">
+                                                <select class="block w-full px-2 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                                    <option>Select</option>
+                                                    <option>Morning Shift</option>
+                                                    <option>Afternoon Shift</option>
+                                                    <option>Night Shift</option>
+                                                </select>
+                                                <span>-</span>
+                                                <select class="block w-full px-2 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                                    <option>Select</option>
+                                                    <option>Morning Shift</option>
+                                                    <option>Afternoon Shift</option>
+                                                    <option>Night Shift</option>
+                                                </select>
+                                            </div>
+                                            <button class="flex items-center text-red-600" @click="sections.length > 2 ? sections.splice(index, 1) : ''" :disabled="sections.length === 2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </template>
+                                    <button @click="sections.push({ id: counter++ })" class="font-semibold text-blue-600">Add</button>
+                                </div>
+                                
+                                <!-- <div class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-4">
                                     <div>
                                         <label class="text-sm font-semibold text-gray-600 uppercase" for="">Week
                                             1</label>
@@ -221,9 +392,73 @@
                                             <option>Shift Name 3</option>
                                         </select>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div x-show="selectedOption === 'option3'">
+                                <p class="text-lg font-bold">Bi-Weekly Shift Rotation</p>
+                                <p class="text-sm text-gray-600">Week Wise rotation involves employees changing shifts
+                                    on a weekly basis. Each worker would have a consistent shift for an entire week
+                                    before transitioning to a different one the following week.</p>
+                                <div class="space-y-4" x-data="{ sections: [{ id: 1 }], counter: 2 }">
+                                    <template x-for="(section, index) in sections" :key="section.id">
+                                        <div class="flex items-center gap-4">
+                                            <div class="flex items-center gap-4">
+                                                <select class="block w-full px-2 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                                    <option>Select</option>
+                                                    <option>Morning Shift</option>
+                                                    <option>Afternoon Shift</option>
+                                                    <option>Night Shift</option>
+                                                </select>
+                                                <span>-</span>
+                                                <select class="block w-full px-2 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                                    <option>Select</option>
+                                                    <option>Morning Shift</option>
+                                                    <option>Afternoon Shift</option>
+                                                    <option>Night Shift</option>
+                                                </select>
+                                            </div>
+                                            <button class="flex items-center text-red-600" @click="sections.length > 2 ? sections.splice(index, 1) : ''" :disabled="sections.length === 2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </template>
+                                    <button @click="sections.push({ id: counter++ })" class="font-semibold text-blue-600">Add</button>
+                                </div>
+                            </div>
+                            <div x-show="selectedOption === 'option4'">
+                                <p class="text-lg font-bold">Monthly Shift Rotation</p>
+                                <p class="text-sm text-gray-600">In Month Wise rotation, employees switch shifts monthly, ensuring that each worker maintains a steady schedule for an entire month before transitioning to a different one in the subsequent month.m</p>
+                                <div class="space-y-4" x-data="{ sections: [{ id: 1 }], counter: 2 }">
+                                    <template x-for="(section, index) in sections" :key="section.id">
+                                        <div class="flex items-center gap-4">
+                                            <div class="flex items-center gap-4">
+                                                <select class="block w-full px-2 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                                    <option>Select</option>
+                                                    <option>Morning Shift</option>
+                                                    <option>Afternoon Shift</option>
+                                                    <option>Night Shift</option>
+                                                </select>
+                                                <span>-</span>
+                                                <select class="block w-full px-2 py-2 bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 ">
+                                                    <option>Select</option>
+                                                    <option>Morning Shift</option>
+                                                    <option>Afternoon Shift</option>
+                                                    <option>Night Shift</option>
+                                                </select>
+                                            </div>
+                                            <button class="flex items-center text-red-600" @click="sections.length > 2 ? sections.splice(index, 1) : ''" :disabled="sections.length === 2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </template>
+                                    <button @click="sections.push({ id: counter++ })" class="font-semibold text-blue-600">Add</button>
+                                </div>
+                            </div>
+                            <div x-show="selectedOption === 'option5'">
                                 <p class="text-lg font-bold">Hybrid Shift Rotation</p>
                                 <p class="text-gray-600">In a Hybrid Shift Rotation, there is a combination of both
                                     daily and weekly rotations. This type of rotation offers a balance between the
@@ -330,7 +565,6 @@
                                     </template>
                                     <button @click="sections.push({ id: counter++ })"
                                         class="font-semibold text-blue-600">Add Week</button>
-
                                 </div>
                             </div>
                         </div>
@@ -340,7 +574,8 @@
                                 <div>
                                     <label class="text-sm font-semibold text-gray-600" for="branch">Choose
                                         Branch</label>
-                                    <select id="branch" name="branch" autocomplete="branch" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                    <select id="branch" name="branch" autocomplete="branch"
+                                        class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                         <option>All
                                         </option>
                                         <option>Ecomads
@@ -359,7 +594,8 @@
                                         <label class="text-sm font-semibold text-gray-600" for="department">Apply
                                             Policy
                                             On</label>
-                                        <select id="department" name="department" autocomplete="department" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <select id="department" name="department" autocomplete="department"
+                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                             <option>
                                                 Select
                                             </option>
@@ -377,7 +613,8 @@
                                     <div class="w-1/2">
                                         <label class="text-sm font-semibold text-gray-600" for="department">Shift
                                             Level</label>
-                                        <select id="department" name="department" autocomplete="department" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <select id="department" name="department" autocomplete="department"
+                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                             <option>All
                                             </option>
                                             <option>
