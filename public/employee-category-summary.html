@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Category Summary</title>
     <link href="output.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
 
@@ -135,47 +135,48 @@
                     <div class="flex flex-row items-center gap-8 pt-2 overflow-x-auto border-b whitespace-nowrap">
                         <div class="col-span-1">
                             <a href="daily-attendance-detail.html">
-                            <button
-                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600">Summary</button></a>
+                                <button
+                                    class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600">Summary</button></a>
                         </div>
                         <div class="col-span-1">
                             <a href="branch-summary.html">
-                            <button
-                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600">Branch</button></a>
+                                <button
+                                    class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600">Branch</button></a>
                         </div>
                         <div class="col-span-1">
-                            <a href="#">
-                            <button
-                                class="w-full pb-2 font-semibold text-blue-600 border-b-2 border-blue-600">Department</button></a>
+                            <a href="department-summary.html">
+                                <button
+                                    class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600">Department</button></a>
                         </div>
                         <div class="col-span-1">
                             <a href="shift-summary.html">
-                            <button
-                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600">Shift</button></a>
+                                <button
+                                    class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600">Shift</button></a>
                         </div>
                         <div class="col-span-1">
-                            <a href="employee-category-summary.html">
-                            <button
-                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600">Category</button></a>
+                            <a href="#">
+                                <button
+                                    class="w-full pb-2 font-semibold text-blue-600 border-b-2 border-blue-600">Category</button></a>
                         </div>
+
                         <div class="col-span-1">
                             <a href="employee-designation-summary.html">
-                            <button
-                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600">Designation</button></a>
+                                <button
+                                    class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600">Designation</button></a>
                         </div>
                         <div class="col-span-1">
                             <a href="attendance-muster.html">
-                            <button
-                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600">Muster</button></a>
+                                <button
+                                    class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600">Muster</button></a>
                         </div>
                     </div>
                     <div class="mt-4">
-                        <p class="text-2xl font-bold">Department Summary</p>
+                        <p class="text-2xl font-bold">Category Summary</p>
                     </div>
                     <div class="w-full">
                         <div>
-                            <div class="flex flex-wrap items-center gap-4">
-                                <div class="order-1" x-data="datePicker()" x-init="init()">
+                            <div class="flex items-center gap-4">
+                                <div x-data="datePicker()" x-init="init()">
                                     <div class="flex items-center gap-4">
                                         <!-- Previous -->
                                         <button class="p-2 text-blue-600 bg-blue-100 rounded" @click="prevDay">
@@ -200,15 +201,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="order-3 w-full lg:w-60 lg:order-2">
-                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                        class="block w-full px-2 py-2 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                        <option>All Branches</option>
-                                        <option>Ecomads Pvt Ltd, Covai</option>
-                                        <option>Ecomads Pvt Ltd, Tiruchengode</option>
-                                    </select>
-                                </div>
-                                <div class="relative order-2 px-2 text-gray-600 lg:order-3" x-data="{ isOpen: false }">
+                                <div class="relative px-2 text-gray-600" x-data="{ isOpen: false }">
                                     <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
                                         class="flex items-center gap-2 px-3 py-2 font-semibold text-gray-100 bg-blue-600 rounded">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -240,8 +233,8 @@
                                                     <thead class="bg-blue-600">
                                                         <tr class="text-sm">
                                                             <th scope="col"
-                                                                class="sticky left-0 px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
-                                                                Department Name
+                                                                class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                                Category Name
                                                             </th>
 
                                                             <th scope="col"
@@ -314,8 +307,8 @@
                                                         <tr>
                                                             <td class="px-2 py-3 whitespace-nowrap">
                                                                 <div>
-                                                                    <p class="text-sm font-semibold text-blue-600">Sales
-                                                                    </p>
+                                                                    <p class="text-sm font-semibold text-blue-600">
+                                                                        Permanent</p>
                                                                 </div>
                                                             </td>
                                                             <td class="px-2 py-3 whitespace-nowrap">
@@ -404,7 +397,7 @@
                                                                 <div>
                                                                     <p
                                                                         class="text-sm font-semibold text-blue-600 truncate">
-                                                                        Software Development</p>
+                                                                        Contract</p>
                                                                 </div>
                                                             </td>
                                                             <td class="px-2 py-3 whitespace-nowrap">
