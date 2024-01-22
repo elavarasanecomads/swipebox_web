@@ -1,0 +1,120 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Status Preference</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+                    <!--Brudcrumb-->
+                    <div>
+                        <a href="dashboard.html" class="flex items-center gap-1 text-sm text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5">
+                                <path fill-rule="evenodd"
+                                    d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Back</span>
+                        </a>
+
+                    </div>
+                    <div class="flex flex-col gap-4 py-4 pt-6 lg:flex-row lg:items-center">
+                        <p class="text-2xl font-bold">Attendance Status Preference</p>
+                    </div>
+                    <div class="pt-6">
+                        <div class="container mx-auto" x-data="{myForData: sourceData}">
+                            <ul class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+                                <li class="flex items-center gap-2">
+                                    <input class="w-4 h-4" checked disabled type="checkbox">
+                                    <p>Not Punched</p>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <input class="w-4 h-4" checked disabled type="checkbox">
+                                    <p>Present</p>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <input class="w-4 h-4" checked type="checkbox">
+                                    <p>Absent</p>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <input class="w-4 h-4" checked type="checkbox">
+                                    <p>Halfday</p>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <input class="w-4 h-4" checked type="checkbox">
+                                    <p>Late Entry</p>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <input class="w-4 h-4" checked type="checkbox">
+                                    <p>Paid Leave</p>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <input class="w-4 h-4" checked type="checkbox">
+                                    <p>Paid Halfday Leave</p>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <input class="w-4 h-4" checked type="checkbox">
+                                    <p>Unpaid Leave</p>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <input class="w-4 h-4" checked type="checkbox">
+                                    <p>Unpaid Halfday Leave</p>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <input class="w-4 h-4" checked disabled type="checkbox">
+                                    <p>Public Holiday</p>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <input class="w-4 h-4" checked disabled type="checkbox">
+                                    <p>Weekoff</p>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <input class="w-4 h-4" checked type="checkbox">
+                                    <p>Forgot Out</p>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <input class="w-4 h-4" checked type="checkbox">
+                                    <p>Earlyout</p>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <input class="w-4 h-4 checked type="checkbox">
+                                    <p>Short Hours</p>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <input class="w-4 h-4" checked type="checkbox">
+                                    <p>1.5X Present</p>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <input class="w-4 h-4" checked type="checkbox">
+                                    <p>2X Present</p>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+
+</html>
