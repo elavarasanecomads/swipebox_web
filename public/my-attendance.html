@@ -1,0 +1,897 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="relative min-h-screen bg-gray-100 scroll-smooth">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full min-w-0 grow">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+                    <!--Brudcrumb-->
+                    <button class="flex items-center gap-1 text-sm text-gray-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                            <path fill-rule="evenodd"
+                                d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <span>Back</span>
+                    </button>
+                    <div class="p-4 mt-6 space-y-4 overflow-hidden border rounded-md shadow-md">
+                        <p class="text-xl font-bold">Employee Attendance - Elavarasan</p>
+                        <div>
+                            <div class="flex items-center gap-4" id="monthContainer">
+                                <!-- Prev Button -->
+                                <button class="p-2 text-blue-600 bg-blue-100 rounded" onclick="changeMonth(-1)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"></path>
+                                    </svg>
+                                  </button>
+
+                                <p class="text-lg font-semibold text-center w-36" id="displayedMonth">January 2024</p>
+                                <!-- Next Button -->
+                                <button class="p-2 text-blue-600 bg-blue-100 rounded" onclick="changeMonth(1)" id="nextButton">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                      <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
+                                    </svg>
+                                  </button>
+                            </div>
+                            
+                            <script>
+                                // Get the current date
+                                const currentDate = new Date();
+                            
+                                // Set the initial month
+                                let currentMonth = currentDate.getMonth();
+                                let currentYear = currentDate.getFullYear();
+                            
+                                // Function to update the displayed month
+                                function updateDisplayedMonth() {
+                                    const monthContainer = document.getElementById('displayedMonth');
+                                    monthContainer.innerText = new Date(currentYear, currentMonth).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+                            
+                                    // Disable/Enable Next button based on whether it's the current month
+                                    const nextButton = document.getElementById('nextButton');
+                                    nextButton.disabled = currentMonth === currentDate.getMonth() && currentYear === currentDate.getFullYear();
+                                }
+                            
+                                // Function to change the month
+                                function changeMonth(offset) {
+                                    currentMonth += offset;
+                            
+                                    // Adjust year if needed
+                                    if (currentMonth < 0) {
+                                        currentMonth = 11;
+                                        currentYear--;
+                                    } else if (currentMonth > 11) {
+                                        currentMonth = 0;
+                                        currentYear++;
+                                    }
+                            
+                                    // Update the displayed month
+                                    updateDisplayedMonth();
+                                }
+                            
+                                // Initial update
+                                updateDisplayedMonth();
+                            </script>
+                            
+                        </div>
+                        
+                        <div class="flex items-center gap-8 pb-4 overflow-x-scroll scrollbar-hide">
+                            <div class="flex-1 whitespace-nowrap">
+                                <p class="text-xl font-bold">01</p>
+                                <p class="text-sm text-gray-600">All</p>
+                            </div>
+                            <div class="flex-1 whitespace-nowrap">
+                                <p class="text-xl font-bold">01</p>
+                                <p class="text-sm text-gray-600">Present</p>
+                            </div>
+                            <div class="flex-1 whitespace-nowrap">
+                                <p class="text-xl font-bold">01</p>
+                                <p class="text-sm text-gray-600">Absent</p>
+                            </div>                            
+                            <div class="flex-1 whitespace-nowrap">
+                                <p class="text-xl font-bold">01</p>
+                                <p class="text-sm text-gray-600">Halfday</p>
+                            </div>
+                            <div class="flex-1 whitespace-nowrap">
+                                <p class="text-xl font-bold">01</p>
+                                <p class="text-sm text-gray-600">Late Entry</p>
+                            </div>
+                            <div class="flex-1 whitespace-nowrap">
+                                <p class="text-xl font-bold">01</p>
+                                <p class="text-sm text-gray-600">Not Punched</p>
+                            </div>
+                            <div class="flex-1 whitespace-nowrap">
+                                <p class="text-xl font-bold">01</p>
+                                <p class="text-sm text-gray-600">Paid Leave</p>
+                            </div>
+                            <div class="flex-1 whitespace-nowrap">
+                                <p class="text-xl font-bold">01</p>
+                                <p class="text-sm text-gray-600">Paid Halfday Leave</p>
+                            </div>
+                            <div class="flex-1 whitespace-nowrap">
+                                <p class="text-xl font-bold">01</p>
+                                <p class="text-sm text-gray-600">Unpaid Leave</p>
+                            </div>
+                            <div class="flex-1 whitespace-nowrap">
+                                <p class="text-xl font-bold">01</p>
+                                <p class="text-sm text-gray-600">Unpaid Halfday Leave</p>
+                            </div>
+                            <div class="flex-1 whitespace-nowrap">
+                                <p class="text-xl font-bold">01</p>
+                                <p class="text-sm text-gray-600">Weekoff</p>
+                            </div>
+                            <div class="flex-1 whitespace-nowrap">
+                                <p class="text-xl font-bold">01</p>
+                                <p class="text-sm text-gray-600">Public Holiday</p>
+                            </div>
+                            <div class="flex-1 whitespace-nowrap">
+                                <p class="text-xl font-bold">01</p>
+                                <p class="text-sm text-gray-600">Early Out</p>
+                            </div>
+                            <div class="flex-1 whitespace-nowrap">
+                                <p class="text-xl font-bold">01</p>
+                                <p class="text-sm text-gray-600">Forgot Out</p>
+                            </div>
+                            <div class="flex-1 whitespace-nowrap">
+                                <p class="text-xl font-bold">01</p>
+                                <p class="text-sm text-gray-600">Short Hours</p>
+                            </div>
+                            <div class="flex-1 whitespace-nowrap">
+                                <p class="text-xl font-bold">01</p>
+                                <p class="text-sm text-gray-600">1.5X Present</p>
+                            </div>
+                            <div class="flex-1 whitespace-nowrap">
+                                <p class="text-xl font-bold">01</p>
+                                <p class="text-sm text-gray-600">2X Present</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-4 " x-data="{myForData: sourceData}">
+                        <template x-for="item in myForData" :key="item">
+
+                        <div class="p-4 border rounded-md shadow-md">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-bold" x-text="item.date"
+                                    ></p>
+                                    <p class="text-sm text-gray-600" x-text="item.day"></p>                                    
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-right" x-text="item.status"></p>
+                                    <p class="text-sm text-right text-gray-600" x-text="item.timing"></p>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-4 pt-1">
+                                    <div>
+                                        <button x-data="{usedKeyboard: false}" @keydown.window.tab="usedKeyboard = true"
+                                            role=button @click="$dispatch('open-menu', { open: true })"
+                                            :class="{'focus:outline-none': !usedKeyboard}"
+                                            class="text-sm font-semibold text-blue-600">View
+                                            Details</button>
+                                    </div>
+                                    <div x-data="{ 'showModal': false }">
+                                        <button @click="showModal = true"
+                                            class="flex items-center text-sm font-semibold text-blue-600">
+                                            Add Note</button>
+                                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                            x-show="showModal" style="display: none;">
+                                            <!-- Modal inner -->
+                                            <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
+                                                @click.away="showModal = false"
+                                                x-transition:enter="motion-safe:ease-out duration-300"
+                                                x-transition:enter-start="opacity-0 scale-90"
+                                                x-transition:enter-end="opacity-100 scale-100">
+                                                <!-- Title / Close-->
+                                                <div class="flex items-center justify-between">
+                                                    <div>
+                                                        <p class="font-bold text-gray-900">
+                                                            Add Note
+                                                        </p>
+                                                        <p class="text-sm font-semibold text-gray-600">
+                                                            Elavarasan | 27-11-2023
+                                                        </p>
+                                                    </div>
+
+                                                    <span @click="showModal = false">
+                                                        <svg class="w-5 h-5 text-gray-900"
+                                                            xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <!-- content -->
+                                                <div class="w-full mt-4">
+                                                    <div>
+                                                        <label class="text-sm text-gray-600" for="">Add Notes</label>
+                                                        <textarea rows="3"
+                                                            class="relative block w-full p-2 px-3 py-3 mt-1 text-gray-900 placeholder-gray-400 border border-gray-400 rounded shadow-sm appearance-none focus:outline-none focus:ring-blue-600 focus:border-blue-600 focus:z-10"
+                                                            spellcheck="false"></textarea>
+                                                    </div>
+                                                    <div class="flex items-center gap-4 pt-6">
+                                                        <button
+                                                            class="w-full p-2 font-semibold text-gray-900 bg-gray-100 rounded">Cancel</button>
+                                                        <button
+                                                            class="w-full p-2 font-semibold text-white bg-blue-600 rounded">Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div x-data="{ 'showModal': false }">
+                                        <button @click="showModal = true" class="text-sm font-semibold text-blue-600">
+                                            Edit Note</button>
+                                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                            x-show="showModal" style="display: none;">
+                                            <!-- Modal inner -->
+                                            <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
+                                                @click.away="showModal = false"
+                                                x-transition:enter="motion-safe:ease-out duration-300"
+                                                x-transition:enter-start="opacity-0 scale-90"
+                                                x-transition:enter-end="opacity-100 scale-100">
+                                                <!-- Title / Close-->
+                                                <div class="flex items-center justify-between">
+                                                    <div>
+                                                        <p class="font-bold text-gray-900">
+                                                            Edit Note
+                                                        </p>
+                                                        <p class="text-sm font-semibold text-gray-600">
+                                                            Elavarasan | 27-11-2023
+                                                        </p>
+                                                    </div>
+
+                                                    <span @click="showModal = false">
+                                                        <svg class="w-5 h-5 text-gray-900"
+                                                            xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <!-- content -->
+                                                <div class="w-full mt-4">
+                                                    <div>
+                                                        <label class="text-sm text-gray-600" for="">Edit Note</label>
+                                                        <textarea rows="3"
+                                                            class="relative block w-full p-2 px-3 py-3 mt-1 text-gray-900 placeholder-gray-400 border border-gray-400 rounded shadow-sm appearance-none focus:outline-none focus:ring-blue-600 focus:border-blue-600 focus:z-10"
+                                                            spellcheck="false"></textarea>
+                                                    </div>
+                                                    <div class="flex items-center gap-4 pt-6">
+                                                        <button
+                                                            class="w-full p-2 font-semibold text-gray-900 bg-gray-100 rounded">Cancel</button>
+                                                        <button
+                                                            class="w-full p-2 font-semibold text-white bg-blue-600 rounded">Update</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-right text-gray-600" x-text="item.workinghours"></p>
+
+                            </div>
+                           
+                            <div x-data="{ open: false }">
+                                
+                                <div class="relative inline-block">
+                                    <div class="pt-2 text-xs cursor-pointer truncate-10" x-on:click="open = ! open">
+                                        <span>Note: </span>Lorem ipsum dolor sit amet,
+                                        consectetur adipiscing elit.
+                                    </div>
+
+                                </div>
+                                <div x-show="open" class="pt-4">
+                                    <p class="text-left text-gray-600">
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit. Sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                        </template>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <section x-data="slideout()" x-cloak @open-menu.window="open = $event.detail.open"
+            @keydown.window.tab="usedKeyboard = true" @keydown.escape="open = false" x-init="init()">
+            <div x-show.transition.opacity.duration.500="open" @click="open = false"
+                class="fixed inset-0 bg-black bg-opacity-25"></div>
+            <div class="fixed top-0 right-0 w-full h-screen max-w-md overflow-hidden transition duration-300 transform bg-white"
+                :class="{'translate-x-full': !open}">
+                <header class="fixed inset-x-0 top-0 p-4 text-center bg-white border-t">
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <div class="text-left">
+                                <p class="font-bold text-blue-600">Elavarasan</p>
+                                <p class="text-sm text-left text-gray-600"><span class="font-semibold">01-02-2023</span>
+                                    | NA-1012</p>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <p
+                                    class="px-2 py-0.5 font-semibold text-xs text-white bg-green-600 rounded-full inline-block">
+                                    Present</p>
+                                <button @click="open = false" x-ref="closeButton"
+                                    :class="{'focus:outline-none': !usedKeyboard}" class="z-50 ">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-800">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </header>
+                <div class="top-0 w-full h-full p-4 pt-16 pb-48 overflow-y-scroll">
+                    <div>
+                        <div class="pt-4 space-y-4">
+                            <h3 class="font-bold text-left">Attendance Logs</h3>
+                            <div class="text-left">
+                                <div>
+                                    <div class="flex items-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-blue-600">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z">
+                                            </path>
+                                        </svg>
+
+                                        <span class="text-sm font-semibold text-gray-600">Status
+                                            Updated</span>
+                                    </div>
+                                    <p class="text-sm font-bold text-gray-900">Lateentry -&gt; Present
+                                    </p>
+                                    <p class="text-xs text-gray-600">06-01-2024 04:21 | Karthikaa
+                                        Premkumar</p>
+                                </div>
+                            </div>
+                            <div class="text-left">
+                                <!-- punch out add by company -->
+                                <div>
+                                    <div class="flex items-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-blue-600">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z">
+                                            </path>
+                                        </svg>
+
+                                        <span class="text-sm font-semibold text-gray-600">Punchout
+                                            Added</span>
+                                    </div>
+                                    <p class="text-sm font-bold text-gray-900">
+                                        Out Time : 05-01-2024 07:00:00 PM
+                                    </p>
+                                    <p class="text-xs text-gray-600">06-01-2024 04:20 | Karthikaa
+                                        Premkumar</p>
+                                </div>
+                            </div>
+                            <div class="text-left">
+                                <div class="flex items-center justify-between gap-4">
+                                    <div>
+                                        <div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg"
+                                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                class="w-5 h-5 text-blue-600">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3">
+                                                </path>
+                                            </svg>
+                                            <span class="text-sm font-semibold text-gray-600">Punched via
+                                                Selfie</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <p class="text-sm font-bold text-gray-900"> Out Time :
+                                                01-02-2023 08:45:56 pm
+                                            </p>
+                                            <div x-data="{ 'showModal': false }" class="intimemodel">
+                                                <button @click="showModal = true"
+                                                    class="flex items-center text-blue-600">
+                                                    <span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1"
+                                                            fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                            stroke-width="2">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                                                            </path>
+                                                        </svg>
+                                                    </span>
+                                                </button>
+
+                                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                    x-show="showModal" style="display: none;">
+                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                        @click.away="showModal = false"
+                                                        x-transition:enter="motion-safe:ease-out duration-300"
+                                                        x-transition:enter-start="opacity-0 scale-90"
+                                                        x-transition:enter-end="opacity-100 scale-100">
+                                                        <div class="flex items-center justify-between">
+                                                            <p class="font-bold text-gray-900">
+                                                                Request Time Correction
+                                                            </p>
+                                                            <span @click="showModal = false">
+                                                                <svg class="w-5 h-5 text-gray-900"
+                                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                                        stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                                                                    </path>
+                                                                </svg>
+                                                            </span>
+                                                        </div>
+                                                        <form action="https://test.swipebox.in/staff/time-correction"
+                                                            method="post" id="requestform01_02_2023">
+                                                            <input type="hidden" name="_token"
+                                                                value="ZPI4sqw7zJbPZUxAcww4c2MtHdCcQap6i7PaSKJ4">
+                                                            <input type="hidden" name="status" value="1">
+                                                            <input type="hidden" name="employee_id" value="888">
+                                                            <input type="hidden" name="actualTime" value="18:45:18">
+                                                            <input type="hidden" name="oldTime"
+                                                                value="01-02-2023 10:10:26 am">
+                                                            <input type="hidden" name="location"
+                                                                value="9M7R+V3H , 9M7R+V3H 638004 India">
+                                                            <input type="hidden" name="date" value="2023-02-01">
+                                                            <div class="w-full mt-4">
+                                                                <div class="space-y-2 divide-y">
+                                                                    <div>
+                                                                        <label class="text-sm text-gray-600"
+                                                                            for="">Time</label>
+                                                                        <div>
+                                                                            <select
+                                                                                class="w-16 p-2 text-gray-600 border border-gray-400 rounded-md"
+                                                                                name="hours" id="hours01_02_2023"
+                                                                                required="">
+                                                                                <option value="00">00</option>
+                                                                                <option value="01">01</option>
+                                                                                <option value="02">02</option>
+                                                                                <option value="03">03</option>
+                                                                                <option value="04">04</option>
+                                                                                <option value="05">05</option>
+                                                                                <option value="06">06</option>
+                                                                                <option value="07">07</option>
+                                                                                <option value="08">08</option>
+                                                                                <option value="09">09</option>
+                                                                                <option value="10">10</option>
+                                                                                <option value="11">11</option>
+                                                                                <option value="12">12</option>
+                                                                            </select>
+                                                                            <span class="font-bold">:</span>
+                                                                            <select
+                                                                                class="w-16 p-2 text-gray-600 border border-gray-400 rounded-md"
+                                                                                name="mint" id="mint01_02_2023"
+                                                                                required="">
+                                                                                <option value="00">00</option>
+                                                                                <option value="01">01</option>
+                                                                                <option value="02">02</option>
+                                                                                <option value="03">03</option>
+                                                                                <option value="04">04</option>
+                                                                                <option value="05">05</option>
+                                                                                <option value="06">06</option>
+                                                                                <option value="07">07</option>
+                                                                                <option value="08">08</option>
+                                                                                <option value="09">09</option>
+                                                                                <option value="10">10</option>
+                                                                                <option value="11">11</option>
+                                                                                <option value="12">12</option>
+                                                                                <option value="13">13</option>
+                                                                                <option value="14">14</option>
+                                                                                <option value="15">15</option>
+                                                                                <option value="16">16</option>
+                                                                                <option value="17">17</option>
+                                                                                <option value="18">18</option>
+                                                                                <option value="19">19</option>
+                                                                                <option value="20">20</option>
+                                                                                <option value="21">21</option>
+                                                                                <option value="22">22</option>
+                                                                                <option value="23">23</option>
+                                                                                <option value="24">24</option>
+                                                                                <option value="25">25</option>
+                                                                                <option value="26">26</option>
+                                                                                <option value="27">27</option>
+                                                                                <option value="28">28</option>
+                                                                                <option value="29">29</option>
+                                                                                <option value="30">30</option>
+                                                                                <option value="31">31</option>
+                                                                                <option value="32">32</option>
+                                                                                <option value="33">33</option>
+                                                                                <option value="34">34</option>
+                                                                                <option value="35">35</option>
+                                                                                <option value="36">36</option>
+                                                                                <option value="37">37</option>
+                                                                                <option value="38">38</option>
+                                                                                <option value="39">39</option>
+                                                                                <option value="40">40</option>
+                                                                                <option value="41">41</option>
+                                                                                <option value="42">42</option>
+                                                                                <option value="43">43</option>
+                                                                                <option value="44">44</option>
+                                                                                <option value="45">45</option>
+                                                                                <option value="46">46</option>
+                                                                                <option value="47">47</option>
+                                                                                <option value="48">48</option>
+                                                                                <option value="49">49</option>
+                                                                                <option value="50">50</option>
+                                                                                <option value="51">51</option>
+                                                                                <option value="52">52</option>
+                                                                                <option value="53">53</option>
+                                                                                <option value="54">54</option>
+                                                                                <option value="55">55</option>
+                                                                                <option value="56">56</option>
+                                                                                <option value="57">57</option>
+                                                                                <option value="58">58</option>
+                                                                                <option value="59">59</option>
+                                                                                <option value="60">60</option>
+                                                                            </select>
+                                                                            <select
+                                                                                class="w-16 p-2 text-gray-600 border border-gray-400 rounded-md"
+                                                                                name="formate" id="formate01_02_2023"
+                                                                                required="">
+                                                                                <option value="am">AM</option>
+                                                                                <option value="pm">PM</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div>
+                                                                        <label class="text-sm text-gray-600"
+                                                                            for="">Reason</label>
+                                                                        <textarea rows="3"
+                                                                            class="relative block w-full p-2 px-3 py-3 mt-1 text-gray-900 placeholder-gray-400 border border-gray-400 rounded shadow-sm appearance-none focus:outline-none focus:ring-blue-600 focus:border-blue-600 focus:z-10"
+                                                                            spellcheck="false" name="reason"
+                                                                            id="reason01_02_2023"></textarea>
+                                                                    </div>
+                                                                    <div
+                                                                        class="flex items-center justify-center w-full gap-4 pt-4">
+                                                                        <div class="w-1/2">
+                                                                            <button type="submit"
+                                                                                class="w-full p-2 font-semibold text-white bg-blue-600 rounded-md btn"
+                                                                                value="01_02_2023">Request
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <img class="w-10 h-10 rounded-full"
+                                            src="https://salarydocument.fra1.digitaloceanspaces.com/faceattendance/diBET5ah1hyGr34zOU13DaHoAYfpuzgnWqzQiB3d.jpg"
+                                            alt="">
+                                    </div>
+
+                                </div>
+                                <p class="text-xs text-gray-600">
+                                    9M7R+V3H , 9M7R+V3H 638004 India
+                                </p>
+                            </div>
+                            <div class="text-left">
+                                <div class="flex items-center justify-between gap-4">
+                                    <div>
+                                        <div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg"
+                                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                class="w-5 h-5 text-blue-600">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3">
+                                                </path>
+                                            </svg>
+                                            <span class="text-sm font-semibold text-gray-600">Punched via
+                                                Selfie</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <p class="text-sm font-bold text-gray-900"> In Time :
+                                                01-02-2023 10:10:26 am
+                                            </p>
+                                            <div x-data="{ 'showModal': false }" class="intimemodel">
+                                                <button @click="showModal = true"
+                                                    class="flex items-center text-blue-600">
+                                                    <span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1"
+                                                            fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                            stroke-width="2">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                                                            </path>
+                                                        </svg>
+                                                    </span>
+                                                </button>
+
+                                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                    x-show="showModal" style="display: none;">
+                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                        @click.away="showModal = false"
+                                                        x-transition:enter="motion-safe:ease-out duration-300"
+                                                        x-transition:enter-start="opacity-0 scale-90"
+                                                        x-transition:enter-end="opacity-100 scale-100">
+                                                        <div class="flex items-center justify-between">
+                                                            <p class="font-bold text-gray-900">
+                                                                Request Time Correction
+                                                            </p>
+                                                            <span @click="showModal = false">
+                                                                <svg class="w-5 h-5 text-gray-900"
+                                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                                        stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                                                                    </path>
+                                                                </svg>
+                                                            </span>
+                                                        </div>
+                                                        <form action="https://test.swipebox.in/staff/time-correction"
+                                                            method="post" id="requestform01_02_2023">
+                                                            <input type="hidden" name="_token"
+                                                                value="ZPI4sqw7zJbPZUxAcww4c2MtHdCcQap6i7PaSKJ4">
+                                                            <input type="hidden" name="status" value="1">
+                                                            <input type="hidden" name="employee_id" value="888">
+                                                            <input type="hidden" name="actualTime" value="18:45:18">
+                                                            <input type="hidden" name="oldTime"
+                                                                value="01-02-2023 10:10:26 am">
+                                                            <input type="hidden" name="location"
+                                                                value="9M7R+V3H , 9M7R+V3H 638004 India">
+                                                            <input type="hidden" name="date" value="2023-02-01">
+                                                            <div class="w-full mt-4">
+                                                                <div class="space-y-2 divide-y">
+                                                                    <div>
+                                                                        <label class="text-sm text-gray-600"
+                                                                            for="">Time</label>
+                                                                        <div>
+                                                                            <select
+                                                                                class="w-16 p-2 text-gray-600 border border-gray-400 rounded-md"
+                                                                                name="hours" id="hours01_02_2023"
+                                                                                required="">
+                                                                                <option value="00">00</option>
+                                                                                <option value="01">01</option>
+                                                                                <option value="02">02</option>
+                                                                                <option value="03">03</option>
+                                                                                <option value="04">04</option>
+                                                                                <option value="05">05</option>
+                                                                                <option value="06">06</option>
+                                                                                <option value="07">07</option>
+                                                                                <option value="08">08</option>
+                                                                                <option value="09">09</option>
+                                                                                <option value="10">10</option>
+                                                                                <option value="11">11</option>
+                                                                                <option value="12">12</option>
+                                                                            </select>
+                                                                            <span class="font-bold">:</span>
+                                                                            <select
+                                                                                class="w-16 p-2 text-gray-600 border border-gray-400 rounded-md"
+                                                                                name="mint" id="mint01_02_2023"
+                                                                                required="">
+                                                                                <option value="00">00</option>
+                                                                                <option value="01">01</option>
+                                                                                <option value="02">02</option>
+                                                                                <option value="03">03</option>
+                                                                                <option value="04">04</option>
+                                                                                <option value="05">05</option>
+                                                                                <option value="06">06</option>
+                                                                                <option value="07">07</option>
+                                                                                <option value="08">08</option>
+                                                                                <option value="09">09</option>
+                                                                                <option value="10">10</option>
+                                                                                <option value="11">11</option>
+                                                                                <option value="12">12</option>
+                                                                                <option value="13">13</option>
+                                                                                <option value="14">14</option>
+                                                                                <option value="15">15</option>
+                                                                                <option value="16">16</option>
+                                                                                <option value="17">17</option>
+                                                                                <option value="18">18</option>
+                                                                                <option value="19">19</option>
+                                                                                <option value="20">20</option>
+                                                                                <option value="21">21</option>
+                                                                                <option value="22">22</option>
+                                                                                <option value="23">23</option>
+                                                                                <option value="24">24</option>
+                                                                                <option value="25">25</option>
+                                                                                <option value="26">26</option>
+                                                                                <option value="27">27</option>
+                                                                                <option value="28">28</option>
+                                                                                <option value="29">29</option>
+                                                                                <option value="30">30</option>
+                                                                                <option value="31">31</option>
+                                                                                <option value="32">32</option>
+                                                                                <option value="33">33</option>
+                                                                                <option value="34">34</option>
+                                                                                <option value="35">35</option>
+                                                                                <option value="36">36</option>
+                                                                                <option value="37">37</option>
+                                                                                <option value="38">38</option>
+                                                                                <option value="39">39</option>
+                                                                                <option value="40">40</option>
+                                                                                <option value="41">41</option>
+                                                                                <option value="42">42</option>
+                                                                                <option value="43">43</option>
+                                                                                <option value="44">44</option>
+                                                                                <option value="45">45</option>
+                                                                                <option value="46">46</option>
+                                                                                <option value="47">47</option>
+                                                                                <option value="48">48</option>
+                                                                                <option value="49">49</option>
+                                                                                <option value="50">50</option>
+                                                                                <option value="51">51</option>
+                                                                                <option value="52">52</option>
+                                                                                <option value="53">53</option>
+                                                                                <option value="54">54</option>
+                                                                                <option value="55">55</option>
+                                                                                <option value="56">56</option>
+                                                                                <option value="57">57</option>
+                                                                                <option value="58">58</option>
+                                                                                <option value="59">59</option>
+                                                                                <option value="60">60</option>
+                                                                            </select>
+                                                                            <select
+                                                                                class="w-16 p-2 text-gray-600 border border-gray-400 rounded-md"
+                                                                                name="formate" id="formate01_02_2023"
+                                                                                required="">
+                                                                                <option value="am">AM</option>
+                                                                                <option value="pm">PM</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div>
+                                                                        <label class="text-sm text-gray-600"
+                                                                            for="">Reason</label>
+                                                                        <textarea rows="3"
+                                                                            class="relative block w-full p-2 px-3 py-3 mt-1 text-gray-900 placeholder-gray-400 border border-gray-400 rounded shadow-sm appearance-none focus:outline-none focus:ring-blue-600 focus:border-blue-600 focus:z-10"
+                                                                            spellcheck="false" name="reason"
+                                                                            id="reason01_02_2023"></textarea>
+                                                                    </div>
+                                                                    <div
+                                                                        class="flex items-center justify-center w-full gap-4 pt-4">
+                                                                        <div class="w-1/2">
+                                                                            <button type="submit"
+                                                                                class="w-full p-2 font-semibold text-white bg-blue-600 rounded-md btn"
+                                                                                value="01_02_2023">Request
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <img class="w-10 h-10 rounded-full"
+                                            src="https://salarydocument.fra1.digitaloceanspaces.com/faceattendance/diBET5ah1hyGr34zOU13DaHoAYfpuzgnWqzQiB3d.jpg"
+                                            alt="">
+                                    </div>
+
+                                </div>
+                                <p class="text-xs text-gray-600">
+                                    9M7R+V3H , 9M7R+V3H 638004 India
+                                </p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </section>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+<script>
+    var sourceData = [
+      {
+        id: "1",
+        date: "30-Jan-2024",
+        day: "Tuesday",
+        status: "Present",
+        timing: "09:30 AM - 07:00 PM",
+        workinghours: "09:30",
+      },
+      {
+        id: "2",
+        date: "29-Jan-2024",
+        day: "Monday",
+        status: "Late Entry",
+        timing: "10:30 AM - 07:00 PM",
+        workinghours: "08:30",
+      },
+      {
+        id: "3",
+        date: "28-Jan-2024",
+        day: "Sunday",
+        status: "Weekoff",
+        timing: "",
+        workinghours: "",
+      },
+      {
+        id: "4",
+        date: "27-Jan-2024",
+        day: "Saturday",
+        status: "Absent",
+        timing: "",
+        workinghours: "",
+      },
+      {
+        id: "5",
+        date: "26-Jan-2024",
+        day: "Friday",
+        status: "Public Holiday",
+        timing: "",
+        workinghours: "",
+      },
+      {
+        id: "6",
+        date: "25-Jan-2024",
+        day: "Thursday",
+        status: "Halfday",
+        timing: "09:35 AM - 02:00 PM",
+        workinghours: "04:25",
+      },
+      {
+        id: "7",
+        date: "24-Jan-2024",
+        day: "Wednesday",
+        status: "Forgotout",
+        timing: "09:35 AM",
+        workinghours: "",
+
+      },
+    ];
+      </script>
+
+<script>
+    function slideout() {
+        return {
+            open: false,
+            usedKeyboard: false,
+            init() {
+                this.$watch('open', value => {
+                    value && this.$refs.closeButton.focus()
+                    this.toggleOverlay()
+                })
+                this.toggleOverlay()
+            },
+            toggleOverlay() {
+                document.body.classList[this.open ? 'add' : 'remove']('h-screen', 'overflow-hidden')
+            }
+        }
+    }
+</script>
+<style>
+    /* In your custom stylesheet or in a style tag within your HTML */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+</style>
+
+</html>
