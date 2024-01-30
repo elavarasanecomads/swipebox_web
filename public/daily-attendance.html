@@ -389,9 +389,10 @@
                                                             <a href="employee-detail.html"
                                                                 class="font-semibold text-blue-600">Elavarasan</a>
                                                             <p class="text-sm text-gray-600">67525165</p>
-                                                            <div class="flex items-center gap-4">
-                                                                <div x-data="{ 'showModal': false }"
-                                                                    @keydown.escape="showModal = false">
+                                                            <div class="flex items-center gap-4"
+                                                                x-data="{ 'showMap': false }"
+                                                                @keydown.escape="showMap = false">
+                                                                <div x-data="{ 'showModal': false }">
                                                                     <button @click="showModal = true"
                                                                         class="text-sm text-blue-600">View Logs
                                                                     </button>
@@ -465,8 +466,7 @@
                                                                                                 x-data="{ openMap: false, latitude: 11.3785089, longitude: 77.8953063 }">
                                                                                                 <a target="_blank"
                                                                                                     x-bind:href="'https://maps.google.com/maps?q=' + latitude + ',' + longitude + '&hl=en&z=14'">
-                                                                                                    <svg
-                                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                                    <svg xmlns="http://www.w3.org/2000/svg"
                                                                                                         fill="none"
                                                                                                         viewBox="0 0 24 24"
                                                                                                         stroke-width="1.5"
@@ -479,7 +479,20 @@
                                                                                                     </svg></a>
 
                                                                                             </div>
-
+                                                                                            <button
+                                                                                                @click="showMap = true">
+                                                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                    fill="none"
+                                                                                                    viewBox="0 0 24 24"
+                                                                                                    stroke-width="1.5"
+                                                                                                    stroke="currentColor"
+                                                                                                    class="w-5 h-5 text-blue-600">
+                                                                                                    <path
+                                                                                                        stroke-linecap="round"
+                                                                                                        stroke-linejoin="round"
+                                                                                                        d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
+                                                                                                </svg>
+                                                                                            </button>
                                                                                         </div>
 
                                                                                         <p
@@ -669,6 +682,39 @@
                                                                                         </p>
                                                                                     </div>
                                                                                 </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                                        x-show="showMap" style="display: none;">
+                                                                        <!-- Modal inner -->
+                                                                        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
+                                                                            @click.away="showModal = false"
+                                                                            x-transition:enter="motion-safe:ease-out duration-300"
+                                                                            x-transition:enter-start="opacity-0 scale-90"
+                                                                            x-transition:enter-end="opacity-100 scale-100">
+                                                                            <!-- Title / Close-->
+                                                                            <div
+                                                                                class="flex items-center justify-between">
+                                                                                <p class="font-bold text-gray-900">
+                                                                                    Location On Map
+                                                                                </p>
+                                                                                <span @click="showMap = false">
+                                                                                    <svg class="w-5 h-5 text-gray-900"
+                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                        fill="none" viewBox="0 0 24 24"
+                                                                                        stroke="currentColor">
+                                                                                        <path stroke-linecap="round"
+                                                                                            stroke-linejoin="round"
+                                                                                            stroke-width="2"
+                                                                                            d="M6 18L18 6M6 6l12 12">
+                                                                                        </path>
+                                                                                    </svg>
+                                                                                </span>
+                                                                            </div>
+                                                                            <!-- content -->
+                                                                            <div>
+
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1562,17 +1608,15 @@
                                                             <a href="employee-detail.html"
                                                                 class="font-semibold text-blue-600">Karthika</a>
                                                             <p class="text-sm text-gray-600">67525166</p>
-                                                            <div x-data="{ 'showModal': false }"
-                                                                @keydown.escape="showModal = false">
-                                                                <button @click="showModal = true"
-                                                                    class="text-sm text-blue-600">View Logs
-                                                                </button>
 
-                                                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
-                                                                    x-show="showModal" style="display: none;">
+                                                            <div x-data="{ isPopupOpen: false, isMapPopupOpen: false }">
+
+                                                                <!-- Initial popup -->
+                                                                <div x-show="isPopupOpen"
+                                                                    class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50">
                                                                     <!-- Modal inner -->
                                                                     <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
-                                                                        @click.away="showModal = false"
+                                                                    @click.away="isPopupOpen = false"
                                                                         x-transition:enter="motion-safe:ease-out duration-300"
                                                                         x-transition:enter-start="opacity-0 scale-90"
                                                                         x-transition:enter-end="opacity-100 scale-100">
@@ -1581,7 +1625,7 @@
                                                                             <p class="font-bold text-gray-900">
                                                                                 Attendance Log
                                                                             </p>
-                                                                            <span @click="showModal = false">
+                                                                            <button  @click="isPopupOpen = false">
                                                                                 <svg class="w-5 h-5 text-gray-900"
                                                                                     xmlns="http://www.w3.org/2000/svg"
                                                                                     fill="none" viewBox="0 0 24 24"
@@ -1591,7 +1635,8 @@
                                                                                         stroke-width="2"
                                                                                         d="M6 18L18 6M6 6l12 12"></path>
                                                                                 </svg>
-                                                                            </span>
+                                                                            </button>
+                                                                            
                                                                         </div>
                                                                         <!-- content -->
                                                                         <div>
@@ -1629,7 +1674,11 @@
                                                                                             In Time : 25-04-2023
                                                                                             10:00:00
                                                                                         </p>
-
+                                                                                        <button @click="isMapPopupOpen = true">
+                                                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-blue-600">
+                                                                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"></path>
+                                                                                            </svg>
+                                                                                        </button>
                                                                                     </div>
 
                                                                                     <p class="text-xs text-gray-600">
@@ -1900,7 +1949,46 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
+
+                                                                <!-- Second popup (Map popup) -->
+                                                                <div x-show="isMapPopupOpen"
+                                                                    class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50">
+                                                                    <div
+                                                                        class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-2xl h-4/5">
+                                                                       <div class="flex items-center justify-between">
+                                                                            <div>
+                                                                                <p class="font-bold">Elavarasan</p>
+                                                                                <p class="text-sm text-gray-600">In Time : 25-04-2023 10:00:00</p>
+                                                                            </div>
+                                                                            <button  @click="isMapPopupOpen = false; isPopupOpen = true">
+                                                                                <svg class="w-5 h-5 text-gray-900"
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    fill="none" viewBox="0 0 24 24"
+                                                                                    stroke="currentColor">
+                                                                                    <path stroke-linecap="round"
+                                                                                        stroke-linejoin="round"
+                                                                                        stroke-width="2"
+                                                                                        d="M6 18L18 6M6 6l12 12"></path>
+                                                                                </svg>
+                                                                            </button>
+                                                                       </div>
+                                                                        <!-- Add your embedded map code here -->
+                                                                        <div class="pt-6">
+                                                                            <iframe
+                                                                                src="http://maps.google.com/maps?q=11.3785089,77.8953063&z=16&output=embed"
+                                                                                height="80%" width="100%"></iframe>
+                                                                        </div>
+                                                                       
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Trigger button -->                                                                
+                                                                    <button  @click="isPopupOpen = true"
+                                                                    class="text-sm text-blue-600">View Logs
+                                                                </button>
                                                             </div>
+
+                                                            
                                                         </div>
 
                                                     </div>
