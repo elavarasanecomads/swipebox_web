@@ -9,7 +9,134 @@
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
-<body>
+<body class="space-y-4">
+  <div x-data="{ step: 1 }">
+    <div x-show="step === 1" class="flex items-center justify-around gap-4">
+        <div class="pt-5">
+            <button class="p-4 bg-gray-100 rounded-md">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                  </svg>                                      
+            </button>
+        </div>
+        <div class="flex items-center w-full pt-6">
+            <div class="w-1/6">
+                <p class="text=sm text-gray-600">All</p>
+                <p class="text-lg font-bold">320</p>
+            </div>
+            <div class="w-1/6">
+                <p class="text=sm text-gray-600">Present</p>
+                <p class="text-lg font-bold">320</p>
+            </div>
+            <div class="w-1/6">
+                <p class="text=sm text-gray-600">Absent</p>
+                <p class="text-lg font-bold">320</p>
+            </div>
+            <div class="w-1/6">
+                <p class="text=sm text-gray-600">Late Entry</p>
+                <p class="text-lg font-bold">320</p>
+            </div>
+            <div class="w-1/6">
+                <p class="text=sm text-gray-600">Halfday</p>
+                <p class="text-lg font-bold">320</p>
+            </div>
+            <div class="w-1/6">
+                <p class="text=sm text-gray-600">Not Punched</p>
+                <p class="text-lg font-bold">320</p>
+            </div>
+        </div>
+        <div class="pt-5">
+            <button @click="step = 2" class="p-4 bg-gray-100 rounded-md">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                  </svg>                                      
+            </button>
+        </div>
+    </div>
+    <div x-show="step === 2" class="flex items-center justify-around gap-4">
+        <div class="pt-5">
+            <button @click="step = 1" class="p-4 bg-gray-100 rounded-md">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                  </svg>                                      
+            </button>
+        </div>
+        <div class="flex items-center w-full pt-6">
+            <div class="w-1/6">
+                <p class="text=sm text-gray-600">Paid Leave</p>
+                <p class="text-lg font-bold">320</p>
+            </div>
+            <div class="w-1/6">
+                <p class="text=sm text-gray-600 truncate">Paid Halfday Leave</p>
+                <p class="text-lg font-bold">320</p>
+            </div>
+            <div class="w-1/6">
+                <p class="text=sm text-gray-600">Unpaid Leave</p>
+                <p class="text-lg font-bold">320</p>
+            </div>
+            <div class="w-1/6">
+                <p class="text=sm text-gray-600 truncate">Unpaid Halfday Leave</p>
+                <p class="text-lg font-bold">320</p>
+            </div>
+            <div class="w-1/6">
+                <p class="text=sm text-gray-600">Weekoff</p>
+                <p class="text-lg font-bold">320</p>
+            </div>
+            <div class="w-1/6">
+                <p class="text=sm text-gray-600">Public Holiday</p>
+                <p class="text-lg font-bold">320</p>
+            </div>
+        </div>
+        <div class="pt-5">
+            <button @click="step = 3" class="p-4 bg-gray-100 rounded-md">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                  </svg>                                      
+            </button>
+        </div>
+    </div>
+    <div x-show="step === 3" class="flex items-center justify-around gap-4">
+        <div class="pt-5">
+            <button @click="step = 2" class="p-4 bg-gray-100 rounded-md">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                  </svg>                                      
+            </button>
+        </div>
+        <div class="flex items-center w-full pt-6">
+            <div class="w-1/6">
+                <p class="text=sm text-gray-600">Forgot Out</p>
+                <p class="text-lg font-bold">320</p>
+            </div>
+            <div class="w-1/6">
+                <p class="text=sm text-gray-600">Early Out</p>
+                <p class="text-lg font-bold">320</p>
+            </div>
+            <div class="w-1/6">
+                <p class="text=sm text-gray-600">Short Hours</p>
+                <p class="text-lg font-bold">320</p>
+            </div>
+            <div class="w-1/6">
+                <p class="text=sm text-gray-600">1.5X Present</p>
+                <p class="text-lg font-bold">320</p>
+            </div>
+            <div class="w-1/6">
+                <p class="text=sm text-gray-600">2X present</p>
+                <p class="text-lg font-bold">320</p>
+            </div>
+            <div class="w-1/6">
+                
+            </div>
+        </div>
+        <div class="pt-5">
+            <button class="p-4 bg-gray-100 rounded-md">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                  </svg>                                      
+            </button>
+        </div>
+    </div>
+</div>
     <div x-data="{ showModal: false, showConfirmationModal: false }">
         <button @click="showModal = true" class="p-2 bg-gray-100 border border-gray-400 rounded w-44">
           Open Popup
@@ -99,6 +226,41 @@
         </div>
     </div>
     
-</body>
+    <div x-data="{ isPopupOpen: false, isMapPopupOpen: false }">
+
+      <!-- Initial popup -->
+      <div x-show="isPopupOpen" class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50">
+        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md">
+          <h2 class="mb-4 text-2xl">Initial Popup</h2>
+          <button @click="isMapPopupOpen = true">Open Map</button>
+        </div>
+      </div>
+    
+      <!-- Second popup (Map popup) -->
+      <div x-show="isMapPopupOpen" class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50">
+        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-2xl h-4/5">
+          <h2 class="mb-4 text-2xl">Map Popup</h2>
+          <!-- Add your embedded map code here -->
+          <div>
+            <iframe src="http://maps.google.com/maps?q=11.3785089,77.8953063&z=16&output=embed" height="80%" width="600"></iframe>
+          </div>
+          <!-- Add more content or adjust the map content here -->
+          <button @click="isMapPopupOpen = false">Close Map</button>
+        </div>
+      </div>
+    
+      <!-- Trigger button -->
+      <button @click="isPopupOpen = true" class="mt-8 ml-8">Open Popup</button>
+      </div>
+
+      
+
+    </body>
+    <script defer>
+      document.addEventListener('DOMContentLoaded', function () {
+          // Your additional JavaScript code can go here
+      });
+  </script>
+
 
 </html>

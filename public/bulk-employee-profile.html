@@ -66,6 +66,11 @@
                                     class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
                                     :class="openTab === 6 ? activeClasses : inactiveClasses">Biometric Details</button>
                             </div>
+                            <div class="col-span-1" @click="openTab = 7">
+                                <button
+                                    class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
+                                    :class="openTab === 7 ? activeClasses : inactiveClasses">Leave Report</button>
+                            </div>
                         </div>
 
                         <div class="pt-6 space-y-4 bg-white" x-show="openTab === 1" style="display: none;">
@@ -1034,6 +1039,175 @@
                                                         <td class="p-4">9192939494</td>
                                                         <td class="p-4">NA-1362</td>
                                                         <td class="p-4">1362</td>
+                                                    </tr>
+                                                    </template>
+                                                    <!-- Add more rows as needed -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="flex flex-col items-center justify-center gap-4 pt-6 lg:flex-row lg:justify-between">
+                                        <div class="flex items-center">
+                                            <p class="pr-2 text-sm font-medium">Rows per page</p>
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                <option>10</option>
+                                                <option>25</option>
+                                                <option>50</option>
+                                                <option>100</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <nav class="relative z-0 inline-flex -space-x-px shadow-sm"
+                                                aria-label="Pagination">
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-blue-100">
+                                                    <span class="sr-only">Previous</span>
+                                                    <!-- Heroicon name: chevron-left -->
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                        <path fill-rule="evenodd"
+                                                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    1
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    2
+                                                </a>
+                                                <a href="#"
+                                                    class="relative items-center hidden px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 md:inline-flex hover:bg-blue-100">
+                                                    3
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    4
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                                    5
+                                                </a>
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-blue-100">
+                                                    <span class="sr-only">Next</span>
+                                                    <!-- Heroicon name: chevron-right -->
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                        <path fill-rule="evenodd"
+                                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </a>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-6 space-y-4 bg-white" x-show="openTab === 7" style="display: none;">
+                            <div>
+                                <div class="flex items-center">
+                                    <div class="pb-6">
+                                        <p class="text-xl font-bold lg:text-2xl">Employees Leave Report</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex flex-wrap items-center gap-4 pb-8">
+                                        <div class="w-full lg:w-60">
+                                            <span class="inline-block w-full rounded shadow-sm">
+                                                <button
+                                                    class="relative z-0 w-full py-2 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                                    type="button" aria-haspopup="listbox" aria-expanded="true"
+                                                    aria-label="search" aria-checked="false">
+
+                                                    <input id="search" type="search"
+                                                        placeholder="Search by name, email, mobile"
+                                                        class="w-full h-full form-control focus:outline-none">
+
+                                                    <span
+                                                        class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                        <svg class="w-6 h-6 text-gray-600"
+                                                            xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                                        </svg>
+                                                    </span>
+                                                </button>
+                                            </span>
+                                        </div>
+                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                            class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>All Branches</option>
+                                            <option>Ecomads Pvt Ltd, Covai</option>
+                                            <option>Ecomads Pvt Ltd, Tiruchengode</option>
+                                        </select>
+                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                            class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>All Departments</option>
+                                            <option>Sales</option>
+                                            <option>Purchase</option>
+                                        </select>
+                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                            class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>Casual Leave</option>
+                                            <option>Unpaid Casual Leave</option>
+                                        </select>
+                                        <div>
+                                            <button class="flex items-center gap-2 px-3 py-2 font-semibold text-gray-100 bg-blue-600 rounded">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path>
+                                                </svg>
+                                                <span class="text-sm">Download</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="relative">
+                                        <div class="w-full overflow-x-scroll ">
+                                            <table class="divide-y divide-gray-200 table-auto">
+                                                <thead
+                                                    class="text-xs font-medium tracking-wider text-left text-white uppercase bg-blue-600 whitespace-nowrap">
+                                                    <tr class="py-4 divide-x">
+                                                        <th scope="col" class="sticky left-0 z-10 p-4 bg-blue-600">
+                                                            Name</th>
+                                                        <th scope="col" class="p-4">
+                                                            Mobile Number</th>
+                                                        <th scope="col" class="p-4">
+                                                            Employee Id</th>
+                                                        <th scope="col" class="p-4">
+                                                            Casual Leave</th>
+                                                            <th scope="col" class="p-4">
+                                                                Sick Leave</th>
+                                                                <th scope="col" class="p-4">
+                                                                    Loss of Pay</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody
+                                                    class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
+                                                    <tr>
+                                                        <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                                            <div class="flex items-center gap-2 w-max">
+                                                                <img class="w-8 h-8 rounded-full"
+                                                                    src="https://randomuser.me/api/portraits/men/11.jpg"
+                                                                    alt="">
+                                                                <a href="" class="font-medium text-blue-600">John
+                                                                    Doe</a>
+                                                            </div>
+                                                        </td>
+                                                        <td class="p-4">9192939494</td>
+                                                        <td class="p-4">NA-1362</td>
+                                                        <td class="p-4">1.5</td>
+                                                        <td class="p-4">1</td>
+                                                        <td class="p-4">0</td>
                                                     </tr>
                                                     </template>
                                                     <!-- Add more rows as needed -->
