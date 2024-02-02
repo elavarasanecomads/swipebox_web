@@ -8,6 +8,11 @@
     <link href="output.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 </head>
 
 <body class="bg-gray-100">
@@ -1154,11 +1159,11 @@
                                             <option>Sales</option>
                                             <option>Purchase</option>
                                         </select>
-                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                            class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                            <option>Casual Leave</option>
-                                            <option>Unpaid Casual Leave</option>
-                                        </select>
+                                        <div class="col-start-1">
+                                            <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                                                <span>04/01/2024 - 02/02/2024</span>
+                                            </div>
+                                        </div>
                                         <div>
                                             <button class="flex items-center gap-2 px-3 py-2 font-semibold text-gray-100 bg-blue-600 rounded">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -1291,4 +1296,29 @@
     });
 </script>
 
+<script type="text/javascript">
+    $(function () {
+
+        var start = moment().subtract(29, 'days');
+        var end = moment();
+
+        function cb(start, end) {
+            $('#reportrange span').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
+        }
+
+        $('#reportrange').daterangepicker({
+            startDate: start,
+            endDate: end,
+            ranges: {
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            }
+        }, cb);
+
+        cb(start, end);
+
+    });
+</script>
 </html>
