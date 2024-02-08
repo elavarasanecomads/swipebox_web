@@ -1,0 +1,330 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Salary</title>    
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+                    <!--Brudcrumb-->
+                    <div class="flex items-center justify-between">
+                        <a href="settings-2.html" class="flex items-center gap-1 text-sm text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5">
+                                <path fill-rule="evenodd"
+                                    d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <p class="text-2xl font-bold text-gray-900">Stop Salary</p>
+                        </a>
+                        <div> 
+                            <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                <button class="px-2 py-2 font-semibold text-white bg-blue-600 rounded-md"
+                                    @click="showModal = true">
+                                    Add Employee
+                                </button>
+                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                    x-show="showModal" style="display: none;">
+                                    <!-- Modal inner -->
+                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
+                                        @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300"
+                                        x-transition:enter-start="opacity-0 scale-90"
+                                        x-transition:enter-end="opacity-100 scale-100">
+                                        <!-- Title / Close-->
+                                        <div class="flex items-center justify-between">
+                                            <p class="font-bold text-gray-900">
+                                                Stop Payment
+                                            </p>
+                                            <span @click="showModal = false">
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M6 18L18 6M6 6l12 12"></path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <!-- content -->
+                                        <div class="w-full mt-4">
+                                            <div class="space-y-2" x-data="{ 'showModal': false }">
+                                                <div class="flex items-center gap-2">
+                                                    <div class="w-full">
+                                                        <label class="font-semibold text-gray-600" for="amount">Employee Name</label>
+                                                        <input type="text" name="amount" id="amount" autocomplete="title"
+                                                            placeholder=""
+                                                            class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                    </div>
+                                                    <div>
+                                                        <button @click="showModal = true" class="flex items-center justify-center w-10 h-10 mt-6 text-white bg-blue-600 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                                                              </svg>
+                                                              
+                                                        </button>
+                                                    </div>                                                    
+                                                </div>
+                                                <div x-show="showModal" class="grid grid-cols-2 gap-2 py-2 text-sm text-gray-600">
+                                                    <div>
+                                                        <p class="font-semibold">Mobile Number</p>
+                                                        <p>9876543210</p>
+                                                    </div>
+                                                    <div>
+                                                        <p class="font-semibold">Emp Id</p>
+                                                        <p>NA-1112</p>
+                                                    </div>
+                                                    <div>
+                                                        <p class="font-semibold">Join Date</p>
+                                                        <p>01-02-2023</p>
+                                                    </div>
+                                                    <div>
+                                                        <p class="font-semibold">Payroll Stop From</p>
+                                                        <p>26-02-2024 - 25-03-2024</p>
+                                                    </div>
+                                                </div>
+                                            
+                                                <div>
+                                                    <label class="font-semibold text-gray-600" for="amount">Remarks</label>
+                                                    <textarea name="" id="" cols="30" rows="3" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600"></textarea>
+                                                    
+                                                </div>
+                                                <div class="flex items-center w-full gap-4 pt-4">
+                                                    <div class="w-1/2">
+                                                        <button
+                                                            class="w-full p-2 text-blue-600 border border-blue-600 rounded-md">Cancel</button>
+                                                    </div>
+                                                    <div class="w-1/2">
+                                                        <button
+                                                            class="w-full p-2 text-white bg-blue-600 rounded-md">Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-8">
+                        <div class="flex flex-col border-b">
+                            <div class="z-10 -my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                    <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+
+                                        <table class="min-w-full divide-y divide-gray-200 table-auto">
+                                            <thead class="bg-blue-600">
+                                                <tr>
+                                                    <th scope="col" class="px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                        Name
+                                                    </th>
+                                                    <th scope="col" class="px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                        Remarks
+                                                    </th>                                                    
+                                                    <th scope="col" class="px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                        Action
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white divide-y divide-gray-200">
+                                                <tr>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <div class="flex items-center gap-2">
+                                                            <img class="w-10 h-10 rounded-full" src="https://geeks-react.netlify.app/static/media/avatar-1.d2fd9642fd3628734b27.jpg" alt="">
+                                                            <div>
+                                                                <a href="employee-detail.html" class="font-semibold text-blue-600">Riyas</a>
+                                                                <p class="text-sm text-gray-600">67525167</p>
+                                                            </div>
+    
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        Absconding
+                                                    </td>
+                                                    <td class="relative flex items-center gap-4 px-6 py-4 whitespace-nowrap">
+                                                        <div x-data="{ 'showModal': false }">
+                                                            <button @click="showModal = true" class="flex items-center text-red-600"><span><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                                                                        </path>
+                                                                    </svg></span></button>
+                                                                    <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                                    x-show="showModal" style="display: none;">
+                                                                    <!-- Modal inner -->
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
+                                                                        @click.away="showModal = false"
+                                                                        x-transition:enter="motion-safe:ease-out duration-300"
+                                                                        x-transition:enter-start="opacity-0 scale-90"
+                                                                        x-transition:enter-end="opacity-100 scale-100">
+                                                                        <!-- Title / Close-->
+                                                                        <div class="flex items-center justify-between">
+                                                                            <p class="font-bold text-gray-900">
+                                
+                                                                            </p>
+                                                                            <span @click="showModal = false">
+                                                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                                                        stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                                </svg>
+                                                                            </span>
+                                                                        </div>
+                                                                        <!-- content -->
+                                                                        <div class="w-full mt-4">
+                                                                            <div class="flex flex-col items-center justify-center gap-2">
+                                                                                <div>
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-red-500"
+                                                                                        viewBox="0 0 20 20" fill="currentColor">
+                                                                                        <path fill-rule="evenodd"
+                                                                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                                                            clip-rule="evenodd"></path>
+                                                                                    </svg>
+                                                                                </div>
+                                                                                <p class="font-bold">Delete Stop Salary</p>
+                                                                                <p class="text-center text-gray-600 whitespace-normal">Do you want to delete this employee from stop salary process list?</p>
+                                                                            </div>
+                                                                            <div class="flex items-center w-full gap-4 pt-4">
+                                                                                <div class="w-1/2">
+                                                                                    <button
+                                                                                        class="w-full p-2 text-blue-600 border border-blue-600 rounded-md">Cancel</button>
+                                                                                </div>
+                                                                                <div class="w-1/2">
+                                                                                    <button
+                                                                                        class="w-full p-2 text-white bg-blue-600 rounded-md">Delete</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+      $("#navigation").load("nav.html");
+      $("#aside").load("aside.html");
+    });
+  </script>
+  <style>
+        .top-100 {top: 100%}
+    .bottom-100 {bottom: 100%}
+    .max-h-select {
+        max-height: 300px;
+    }
+  </style>
+  <script>
+        function selectConfigs() {
+        return {
+            filter: '',
+            show: false,
+            selected: null,
+            focusedOptionIndex: null,
+            options: null,
+            close() { 
+              this.show = false;
+              this.filter = this.selectedName();
+              this.focusedOptionIndex = this.selected ? this.focusedOptionIndex : null;
+            },
+            open() { 
+              this.show = true; 
+              this.filter = '';
+            },
+            toggle() { 
+              if (this.show) {
+                this.close();
+              }
+              else {
+                this.open()
+              }
+            },
+            isOpen() { return this.show === true },
+            selectedName() { return this.selected ? this.selected.name.first + ' ' + this.selected.name.last : this.filter; },
+            classOption(id, index) {
+              const isSelected = this.selected ? (id == this.selected.login.uuid) : false;
+              const isFocused = (index == this.focusedOptionIndex);
+              return {
+                'cursor-pointer w-full border-gray-100 border-b hover:bg-blue-50': true,
+                'bg-blue-100': isSelected,
+                'bg-blue-50': isFocused
+              };
+            },
+            fetchOptions() {
+              fetch('https://randomuser.me/api/?results=5')
+                .then(response => response.json())
+                .then(data => this.options = data);
+            },
+            filteredOptions() {
+              return this.options
+                ? this.options.results.filter(option => {
+                    return (option.name.first.toLowerCase().indexOf(this.filter) > -1) 
+                      || (option.name.last.toLowerCase().indexOf(this.filter) > -1)
+                      || (option.email.toLowerCase().indexOf(this.filter) > -1)
+                })
+               : {}
+            },
+            onOptionClick(index) {
+              this.focusedOptionIndex = index;
+              this.selectOption();
+            },
+            selectOption() {
+              if (!this.isOpen()) {
+                return;
+              }
+              this.focusedOptionIndex = this.focusedOptionIndex ?? 0;
+              const selected = this.filteredOptions()[this.focusedOptionIndex]
+              if (this.selected && this.selected.login.uuid == selected.login.uuid) {
+                this.filter = '';
+                this.selected = null;
+              }
+              else {
+                this.selected = selected;
+                this.filter = this.selectedName();
+              }
+              this.close();
+            },
+            focusPrevOption() {
+              if (!this.isOpen()) {
+                return;
+              }
+              const optionsNum = Object.keys(this.filteredOptions()).length - 1;
+              if (this.focusedOptionIndex > 0 && this.focusedOptionIndex <= optionsNum) {
+                this.focusedOptionIndex--;
+              }
+              else if (this.focusedOptionIndex == 0) {
+                this.focusedOptionIndex = optionsNum;
+              }
+            },
+            focusNextOption() {
+              const optionsNum = Object.keys(this.filteredOptions()).length - 1;
+              if (!this.isOpen()) {
+                this.open();
+              }
+              if (this.focusedOptionIndex == null || this.focusedOptionIndex == optionsNum) {
+                this.focusedOptionIndex = 0;
+              }
+              else if (this.focusedOptionIndex >= 0 && this.focusedOptionIndex < optionsNum) {
+                this.focusedOptionIndex++;
+              }
+            }
+        }
+       
+    }
+  </script>
+</html>

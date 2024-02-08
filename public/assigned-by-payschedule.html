@@ -1,0 +1,140 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+                    <!--Brudcrumb-->
+                    <div class="flex items-center justify-between">
+                        <a href="create-payschedule-monthly.html" class="flex items-center gap-1 text-sm text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5">
+                                <path fill-rule="evenodd"
+                                    d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <p class="text-2xl font-bold text-gray-900">Assigned By</p>
+                        </a>
+                        
+                    </div>
+                    <div class="w-full pt-6 space-y-4 lg:w-2/5">
+                        <div x-data="{ selectedOption: 'option1' }">
+                            <div>
+                                <label class="font-semibold text-gray-600" for="businessname">Choose Level</label>
+                                <select x-model="selectedOption" id="type" name="type" autocomplete="type"
+                                    class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                    <option value="option1">Branch Level</option>
+                                    <option value="option2">Department Level</option>
+                                    <option value="option3">Shift Level</option>
+                                    <option value="option4">Category Level</option>
+                                </select>
+                            </div>
+                            <div class="pt-6 space-y-4" x-show="selectedOption === 'option1'">
+                                <div>
+                                    <label class="font-semibold text-gray-600" for="businessname">Select Branch</label>
+                                    <select id="type" name="type" autocomplete="type"
+                                        class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                        <option>All</option>
+                                        <option>AV Plaza</option>
+                                        <option>CHB Colony</option>
+                                        <option>Sengodampalayam</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="pt-6 space-y-4" x-show="selectedOption === 'option2'">
+                                <div>
+                                    <label class="font-semibold text-gray-600" for="businessname">Select Branch</label>
+                                    <select id="type" name="type" autocomplete="type"
+                                        class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                        <option>All</option>
+                                        <option>AV Plaza</option>
+                                        <option>CHB Colony</option>
+                                        <option>Sengodampalayam</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="font-semibold text-gray-600" for="businessname">Select Department</label>
+                                    <select id="type" name="type" autocomplete="type"
+                                        class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                        <option>All</option>
+                                        <option>Digital Marketing</option>
+                                        <option>Accounts</option>
+                                        <option>PHP</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="pt-6 space-y-4" x-show="selectedOption === 'option3'">
+                                <div>
+                                    <label class="font-semibold text-gray-600" for="businessname">Select Branch</label>
+                                    <select id="type" name="type" autocomplete="type"
+                                        class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                        <option>All</option>
+                                        <option>AV Plaza</option>
+                                        <option>CHB Colony</option>
+                                        <option>Sengodampalayam</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="font-semibold text-gray-600" for="businessname">Select Shift</label>
+                                    <select id="type" name="type" autocomplete="type"
+                                        class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                        <option>All</option>
+                                        <option>Morning Shift</option>
+                                        <option>Afternoon Shift</option>
+                                        <option>Evening Shift</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="pt-6 space-y-4" x-show="selectedOption === 'option4'">
+                                <div>
+                                    <label class="font-semibold text-gray-600" for="businessname">Select Branch</label>
+                                    <select id="type" name="type" autocomplete="type"
+                                        class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                        <option>All</option>
+                                        <option>AV Plaza</option>
+                                        <option>CHB Colony</option>
+                                        <option>Sengodampalayam</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="font-semibold text-gray-600" for="businessname">Select Employee Category</label>
+                                    <select id="type" name="type" autocomplete="type"
+                                        class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                        <option>All</option>
+                                        <option>Permanent</option>
+                                        <option>Contract</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="pt-8">
+                                <button class="w-full p-3 font-semibold text-center text-white bg-blue-600 rounded-md lg:w-36">Save
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+</html>
