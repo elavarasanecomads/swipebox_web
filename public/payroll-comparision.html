@@ -1,0 +1,399 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payroll Comparison</title>
+  <link href="output.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+  <div class="flex w-full">
+    <div id="aside"></div>
+    <div class="w-full">
+      <div id="navigation"></div>
+      <div class="mx-0 my-4 lg:m-4">
+        <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+          <!--Brudcrumb-->
+          <div class="flex items-center gap-2">
+            <a href="payroll-run.html" class="flex items-center gap-1 text-sm text-gray-600">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                <path fill-rule="evenodd"
+                  d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </a>
+            <p class="text-2xl font-bold text-gray-900">Payroll Comparison</p>
+          </div>
+          <div x-data="{ selectedOption: 'option1' }" class="py-4 space-y-4">
+            <div class="flex flex-wrap items-center gap-4 pb-8">                
+                <select x-model="selectedOption" id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                  <option value="option1">Monthwise</option>
+                    <option value="option2">Employeewise</option>
+                </select>
+                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                    <option>Month 1</option>
+                    <option>Jan - 2024</option>
+                    <option>Dec - 2023</option>
+                    <option>Nov - 2023</option>
+                    <option>Oct - 2023</option>
+                </select>
+                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm lg:w-44 disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                  <option>Month 2</option>
+                  <option>Jan - 2024</option>
+                  <option>Dec - 2023</option>
+                  <option>Nov - 2023</option>
+                  <option>Oct - 2023</option>
+              </select>
+              <div x-show="selectedOption === 'option2'" class="w-full lg:w-60">
+                <span class="inline-block w-full rounded shadow-sm">
+                    <button class="relative z-0 w-full py-2 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600" type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search" aria-checked="false">
+
+                        <input id="search" type="search" placeholder="Search by name, email, mobile" class="w-full h-full form-control focus:outline-none">
+
+                        <span class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                            <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </span>
+                    </button>
+                </span>
+            </div>
+                <div>
+                    <button class="flex items-center gap-2 px-3 py-2.5 font-semibold text-gray-100 bg-blue-600 rounded">
+                        
+                        <span class="text-sm">Search</span>
+                    </button>
+                </div>
+            </div>
+            <!--Employee table-->
+            <div x-show="selectedOption === 'option1'">
+              <div class="relative">
+                  <div class="w-full overflow-x-scroll ">
+                      <table class="divide-y divide-gray-200 table-auto">
+                          <thead class="text-xs font-medium tracking-wider text-left text-white uppercase bg-blue-600 whitespace-nowrap">
+                              <tr class="py-4 divide-x">
+                                  <th scope="col" class="sticky left-0 z-10 p-4 bg-blue-600">
+                                      Name</th>
+                                  <th scope="col" class="p-4">
+                                      Dec 2023</th>
+                                  <th scope="col" class="p-4">
+                                      Jan 2024</th>
+                                  <th scope="col" class="p-4">
+                                      Difference</th>
+    
+                              </tr>
+                          </thead>
+                          <tbody x-data="{myForData: sourceData}" class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
+                            <template x-for="item in myForData" :key="item">
+                            <tr>
+                                  <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                      <p x-text="item.cname"></p>
+                                  </td>
+                                  <td class="p-4">
+                                    <p x-text="item.amt1"></p>
+                                  </td>
+                                  <td class="p-4">
+                                    <p x-text="item.amt2"></p>
+                                  </td>
+                                  <td class="p-4">
+                                    <p x-text="item.diff"></p>
+                                  </td>
+                              </tr>
+                            </template>  
+
+                              <tr>
+                                <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                    <p>NET SALARY</p>
+                                </td>
+                                <td class="p-4">
+                                  <p>100000</p>
+                                </td>
+                                <td class="p-4">
+                                  <p>110000</p>
+                                </td>
+                                <td class="p-4">
+                                  <p>10000</p>
+                                </td>
+                            </tr>
+                            <tr>
+                              <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                <p>GROSS SALARY</p>
+                            </td>
+                            <td class="p-4">
+                              <p>150000</p>
+                            </td>
+                            <td class="p-4">
+                              <p>140000</p>
+                            </td>
+                            <td class="p-4">
+                              <p>10000</p>
+                            </td>
+                          </tr>
+                              <!-- Add more rows as needed -->
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+            <!--Employee table-->
+            <div x-show="selectedOption === 'option2'">
+              <div class="relative">
+                  <div class="w-full overflow-x-scroll ">
+                      <table class="divide-y divide-gray-200 table-auto">
+                          <thead class="text-xs font-medium tracking-wider text-left text-white uppercase bg-blue-600 whitespace-nowrap">
+                              <tr class="py-4 divide-x">
+                                  <th scope="col" class="sticky left-0 z-10 p-4 bg-blue-600">
+                                      Component Name</th>
+                                      <th scope="col" class="p-4">
+                                        Employee Name</th>
+                                  <th scope="col" class="p-4">
+                                      Dec 2023</th>
+                                  <th scope="col" class="p-4">
+                                      Jan 2024</th>
+                                  <th scope="col" class="p-4">
+                                      Difference</th>
+    
+                              </tr>
+                          </thead>
+                          <tbody x-data="{myForData: sourceData}" class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
+                            <template x-for="item in myForData" :key="item">
+                              <tr>
+                                    <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                        <p x-text="item.cname"></p>
+                                    </td>
+                                    <td class="p-4">
+                                      <p>Elavarasan</p>
+                                    </td>
+                                    <td class="p-4">
+                                      <p x-text="item.amt1"></p>
+                                    </td>
+                                    <td class="p-4">
+                                      <p x-text="item.amt2"></p>
+                                    </td>
+                                    <td class="p-4">
+                                      <p x-text="item.diff"></p>
+                                    </td>
+                                </tr>
+                              </template>  
+                              <template x-for="item in myForData" :key="item">
+                                <tr>
+                                      <td class="sticky left-0 w-full p-4 bg-white whitespace-nowrap">
+                                          <p x-text="item.cname"></p>
+                                      </td>
+                                      <td class="p-4">
+                                        <p>Palanikumar</p>
+                                      </td>
+                                      <td class="p-4">
+                                        <p x-text="item.amt1"></p>
+                                      </td>
+                                      <td class="p-4">
+                                        <p x-text="item.amt2"></p>
+                                      </td>
+                                      <td class="p-4">
+                                        <p x-text="item.diff"></p>
+                                      </td>
+                                  </tr>
+                                </template>  
+                              
+                              <!-- Add more rows as needed -->
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+              <div class="flex flex-col items-center justify-center gap-4 pt-6 lg:flex-row lg:justify-between">
+                  <div class="flex items-center">
+                      <p class="pr-2 text-sm font-medium">Rows per page</p>
+                      <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                          <option>10</option>
+                          <option>25</option>
+                          <option>50</option>
+                          <option>100</option>
+                      </select>
+                  </div>
+                  <div>
+                      <nav class="relative z-0 inline-flex -space-x-px shadow-sm" aria-label="Pagination">
+                          <a href="#" class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-blue-100">
+                              <span class="sr-only">Previous</span>
+                              <!-- Heroicon name: chevron-left -->
+                              <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                  <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                              </svg>
+                          </a>
+                          <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                              1
+                          </a>
+                          <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                              2
+                          </a>
+                          <a href="#" class="relative items-center hidden px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 md:inline-flex hover:bg-blue-100">
+                              3
+                          </a>
+                          <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                              4
+                          </a>
+                          <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                              5
+                          </a>
+                          <a href="#" class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-blue-100">
+                              <span class="sr-only">Next</span>
+                              <!-- Heroicon name: chevron-right -->
+                              <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                  <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                              </svg>
+                          </a>
+                      </nav>
+                  </div>
+              </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  $(function () {
+    $("#navigation").load("nav.html");
+    $("#aside").load("aside.html");
+  });
+</script>
+<script>
+  var sourceData = [
+    {
+      id: "1",
+      cname: "Basic + Da",
+      amt1: "12000",
+      amt2: "11500",
+      diff: "- 500",
+    },
+    {
+      id: "2",
+      cname: "Bonus",
+      amt1: "1000",
+      amt2: "1500",
+      diff: "+ 500",
+    },
+    {
+      id: "3",
+      cname: "Allowance",
+      amt1: "500",
+      amt2: "500",
+      diff: "0",
+    },
+    {
+      id: "4",
+      cname: "Over Time [OT]",
+      amt1: "800",
+      amt2: "0",
+      diff: "- 800",
+    },
+    {
+      id: "5",
+      cname: "Pay Per Work",
+      amt1: "0",
+      amt2: "0",
+      diff: "0",
+    },
+    {
+      id: "6",
+      cname: "Leave Encash",
+      amt1: "0",
+      amt2: "500",
+      diff: "+ 500",
+    },
+    {
+      id: "7",
+      cname: "PF (Employee)",
+      amt1: "1440",
+      amt2: "1400",
+      diff: "- 40",
+
+    },
+    {
+      id: "8",
+      cname: "ESI (Employee)",
+      amt1: "200",
+      amt2: "250",
+      diff: "50",
+
+    },
+    {
+      id: "9",
+      cname: "Professional Tax",
+      amt1: "120",
+      amt2: "120",
+      diff: "0",
+
+    },
+    {
+      id: "10",
+      cname: "Deductions",
+      amt1: "1000",
+      amt2: "0",
+      diff: "-1000",
+
+    },
+    {
+      id: "11",
+      cname: "Loan",
+      amt1: "12000",
+      amt2: "11500",
+      diff: "- 500",
+
+    },
+    {
+      id: "12",
+      cname: "Salary Advance",
+      amt1: "12000",
+      amt2: "11500",
+      diff: "- 500",
+
+    },
+    {
+      id: "13",
+      cname: "Late Entry Penalties",
+      amt1: "12000",
+      amt2: "11500",
+      diff: "- 500",
+
+    },
+    {
+      id: "14",
+      cname: "Early Exit Penalties",
+      amt1: "12000",
+      amt2: "11500",
+      diff: "- 500",
+
+    },
+    {
+      id: "15",
+      cname: "Break Hour Penalties",
+      amt1: "12000",
+      amt2: "11500",
+      diff: "- 500",
+
+    },
+    {
+      id: "16",
+      cname: "Employer Provident Fund (PF)",
+      amt1: "12000",
+      amt2: "11500",
+      diff: "- 500",
+
+    },
+    {
+      id: "17",
+      cname: "Employee State Insurance (ESI)",
+      amt1: "12000",
+      amt2: "11500",
+      diff: "- 500",
+
+    },
+  ];
+</script>
+
+</html>
