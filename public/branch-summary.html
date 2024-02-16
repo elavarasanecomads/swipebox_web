@@ -18,7 +18,7 @@
       <div id="navigation"></div>
       
       <div class="mx-0 my-4 lg:m-4">
-        <div class="h-full p-4 space-y-6 bg-white border rounded-md lg:p-8">
+        <div class="h-full p-4 bg-white border rounded-md lg:p-8">
             <div class="flex items-center justify-between">
                 <a href="dashboard.html" class="flex items-center gap-1 text-sm text-gray-600">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
@@ -169,7 +169,7 @@
                         class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600">Muster</button></a>
                 </div>
             </div>
-          <div class="mt-4">
+          <div class="my-4">
             <p class="text-2xl font-bold">Branch Summary</p>
           </div>
           <div class="w-full">
@@ -219,7 +219,7 @@
                 </div>
               
               <div>
-                <div class="flex flex-col pt-8">
+                <div class="flex flex-col pt-2">
                     <div class="-my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                             <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
@@ -460,47 +460,51 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex justify-center mt-4">
-                        <nav class="relative z-0 inline-flex -space-x-px shadow-sm" aria-label="Pagination">
-                            <a href="#" class="relative inline-flex items-center px-2 py-2 text-gray-500 bg-white border border-gray-300 text-smfont-medium rounded-l-md hover:bg-indigo-100">
-                                <span class="sr-only">Previous</span>
-                                <!-- Heroicon name: chevron-left -->
-                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </a>
-                            <a href="#" class="relative inline-flex items-center px-4 py-2 text-gray-700 bg-white border border-gray-300 text-smfont-medium hover:bg-indigo-100">
-                                1
-                            </a>
-                            <a href="#" class="relative inline-flex items-center px-4 py-2 text-gray-700 bg-white border border-gray-300 text-smfont-medium hover:bg-indigo-100">
-                                2
-                            </a>
-                            <a href="#" class="relative items-center hidden px-4 py-2 text-gray-700 bg-white border border-gray-300 text-smfont-medium md:inline-flex hover:bg-indigo-100">
-                                3
-                            </a>
-                            <a href="#" class="relative inline-flex items-center px-4 py-2 text-gray-700 bg-white border border-gray-300 text-smfont-medium hover:bg-indigo-100">
-                                4
-                            </a>
-                            <a href="#" class="relative inline-flex items-center px-4 py-2 text-gray-700 bg-white border border-gray-300 text-smfont-medium hover:bg-indigo-100">
-                                5
-                            </a>
-                            <a href="#" class="relative inline-flex items-center px-2 py-2 text-gray-500 bg-white border border-gray-300 text-smfont-medium rounded-r-md hover:bg-indigo-100">
-                                <span class="sr-only">Next</span>
-                                <!-- Heroicon name: chevron-right -->
-                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </a>
-                        </nav>
-                    </div>
+                    <div
+                                        class="flex flex-col items-center justify-center gap-4 pt-4 lg:flex-row lg:justify-between">
+                                        <div class="flex items-center">
+                                            <p class="pr-2 text-sm font-medium">Rows per page</p>
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                <option>10</option>
+                                                <option>25</option>
+                                                <option>50</option>
+                                                <option>100</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <nav class="relative z-0 inline-flex -space-x-px shadow-sm"
+                                                aria-label="Pagination">
+                                                <a href="#"
+                                                    class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-blue-100">
+                                                    
+                                                    <!-- Heroicon name: chevron-left -->
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                        <path fill-rule="evenodd"
+                                                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg>
+                                                    <span class="text-sm">Prev</span>
+                                                </a>
+                                                <a href="#"
+                                                    class="relative flex items-center justify-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-blue-100">
+                                                    <span class="text-sm">Next</span>
+                                                    <!-- Heroicon name: chevron-right -->
+                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                        <path fill-rule="evenodd"
+                                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </a>
+                                            </nav>
+                                        </div>
+                                    </div>
                 </div>
               </div>
             </div>
           </div>
-
-          
-
-
         </div>
       </div>
     </div>

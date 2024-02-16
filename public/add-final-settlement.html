@@ -1,0 +1,75 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Settlement</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+                    <!--Brudcrumb-->
+                    <div class="flex items-center gap-2">
+                        <a href="payroll-run.html" class="flex items-center gap-1 text-sm text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5">
+                                <path fill-rule="evenodd"
+                                    d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <p class="text-2xl font-bold text-gray-900">Add Final Settlement</p>
+                    </div>
+                    <div class="pt-6" x-data="{ step: 1 }">
+                        <!-- Step 1 -->
+                        <div x-show="step === 1">
+                            <h1 class="mb-4 text-xl font-bold">Step 1/5: Add Employee</h1>
+                            <!-- Your form content for step 1 goes here -->
+                    
+                            <button @click="step = 2" class="px-4 py-2 text-white bg-blue-500 rounded">Next</button>
+                        </div>
+                    
+                        <!-- Step 2 -->
+                        <div x-show="step === 2">
+                            <h1 class="mb-4 text-xl font-bold">Step 2/5: Resignation Details</h1>
+                            <!-- Your form content for step 2 goes here -->
+                    
+                            <div class="flex justify-between">
+                                <button @click="step = 1" class="px-4 py-2 text-white bg-gray-500 rounded">Previous</button>
+                                <button @click="step = 3" class="px-4 py-2 text-white bg-blue-500 rounded">Next</button>
+                            </div>
+                        </div>
+                    
+                        <!-- Step 3 -->
+                        <div x-show="step === 3">
+                            <h1 class="mb-4 text-xl font-bold">Step 3: Confirmation</h1>
+                            <!-- Your form content for step 3 goes here -->
+                    
+                            <div class="flex justify-between">
+                                <button @click="step = 2" class="px-4 py-2 text-white bg-gray-500 rounded">Previous</button>
+                                <button @click="submitForm" class="px-4 py-2 text-white bg-green-500 rounded">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+</html>

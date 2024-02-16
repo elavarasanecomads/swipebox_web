@@ -339,7 +339,6 @@
                                         <th scope="col" class="p-4">
                                             Penalties
                                         </th>
-
                                     </tr>
                                 </thead>
                                 <tbody class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
@@ -974,8 +973,72 @@
                                             </div>
                                         </td>
                                         <td class="p-4">
-                                            <div>
-                                                <p>08:30:00</p>
+                                            <div class="flex items-center gap-2">
+                                                <div x-data="{ 'showModal': false }">
+                                                    <button @click="showModal = true"
+                                                        class="flex items-center text-blue-600">
+                                                        01:30:00
+                                                    </button>
+                                                    <template x-teleport="body">
+                                                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                            x-show="showModal" style="display: none">
+                                                            <!-- Modal inner -->
+                                                            <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm"
+                                                                @click.away="showModal = false"
+                                                                x-transition:enter="motion-safe:ease-out duration-300"
+                                                                x-transition:enter-start="opacity-0 scale-90"
+                                                                x-transition:enter-end="opacity-100 scale-100">
+                                                                <!-- Title / Close-->
+                                                                <div class="flex items-center justify-between">
+                                                                    <p class="font-bold text-gray-900">
+                                                                        Working Hour
+                                                                    </p>
+                                                                    <span @click="showModal = false">
+                                                                        <svg class="w-5 h-5 text-gray-900"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            fill="none" viewBox="0 0 24 24"
+                                                                            stroke="currentColor">
+                                                                            <path stroke-linecap="round"
+                                                                                stroke-linejoin="round" stroke-width="2"
+                                                                                d="M6 18L18 6M6 6l12 12"></path>
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                                <!-- content -->
+                                                                <div>
+                                                                    <p><span>Elavarasan</span> |
+                                                                        <span>25-04-2022</span>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="py-4">
+                                                                    <div class="space-y-2">
+                                                                        <div class="flex flex-col items-start">
+                                                                            <label
+                                                                                class="text-sm font-medium text-gray-600">
+                                                                                Actual Working Hour</label>
+                                                                            <input id="" type="time" value="01:00"
+                                                                                class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
+                                                                        </div>
+                                                                        <div class="flex flex-col items-start">
+                                                                            <label
+                                                                                class="text-sm font-medium text-gray-600">
+                                                                                Deducted Hour</label>
+                                                                            <input id="" type="time" value="01:00"
+                                                                                class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
+                                                                        </div>
+                                                                        <div class="flex flex-col items-start">
+                                                                            <label
+                                                                                class="text-sm font-medium text-gray-600">
+                                                                                Final Working Hour</label>
+                                                                            <input id="" type="time" value="01:00"
+                                                                                class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </template>
+                                                </div>
                                             </div>
                                         </td>
                                         <td class="p-4">
@@ -1505,10 +1568,10 @@
                                                                         <span>25-04-2022</span>
                                                                     </p>
                                                                 </div>
-                                                                <div class="pt-6">
+                                                                <div class="py-4">
                                                                     <div class="space-y-4">
                                                                         <div
-                                                                            class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+                                                                            class="grid grid-cols-1 gap-4 lg:grid-cols-2">
                                                                             <div class="flex flex-col items-start">
                                                                                 <label
                                                                                     class="text-sm font-medium text-gray-600">
@@ -1516,13 +1579,20 @@
                                                                                 <input id="" type="time" value="01:00"
                                                                                     class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
                                                                             </div>
-                                                                            <div class="pt-5">
-                                                                                <button disabled=""
-                                                                                    class="p-2 px-6 font-semibold text-white bg-blue-600 rounded disabled:opacity-50">Save</button>
+                                                                            <div>
+                                                                                <label
+                                                                                    class="text-sm font-medium text-gray-600">
+                                                                                    Fine Type</label>
+                                                                                    <select class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
+                                                                                        <option>Fixed</option>
+                                                                                        <option>Halfday</option>
+                                                                                        <option>Fullday</option>
+                                                                                        <option>Forgive</option>
+                                                                                    </select>
                                                                             </div>
                                                                         </div>
                                                                         <div
-                                                                            class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+                                                                            class="grid grid-cols-1 gap-4 lg:grid-cols-2">
                                                                             <div class="flex flex-col items-start">
                                                                                 <label
                                                                                     class="text-sm font-medium text-gray-600">
@@ -1530,13 +1600,20 @@
                                                                                 <input id="" type="time" value="01:00"
                                                                                     class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
                                                                             </div>
-                                                                            <div class="pt-5">
-                                                                                <button
-                                                                                    class="p-2 px-6 font-semibold text-white bg-blue-600 rounded">Save</button>
+                                                                            <div>
+                                                                                <label
+                                                                                    class="text-sm font-medium text-gray-600">
+                                                                                    Fine Type</label>
+                                                                                    <select class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
+                                                                                        <option>Fixed</option>
+                                                                                        <option>Halfday</option>
+                                                                                        <option>Fullday</option>
+                                                                                        <option>Forgive</option>
+                                                                                    </select>
                                                                             </div>
                                                                         </div>
                                                                         <div
-                                                                            class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+                                                                            class="grid grid-cols-1 gap-4 lg:grid-cols-2">
                                                                             <div class="flex flex-col items-start">
                                                                                 <label
                                                                                     class="text-sm font-medium text-gray-600">
@@ -1544,11 +1621,39 @@
                                                                                 <input id="" type="time" value="01:00"
                                                                                     class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
                                                                             </div>
-                                                                            <div class="pt-5">
-                                                                                <button
-                                                                                    class="p-2 px-6 font-semibold text-white bg-blue-600 rounded">Save</button>
+                                                                            <div>
+                                                                                <label
+                                                                                    class="text-sm font-medium text-gray-600">
+                                                                                    Fine Type</label>
+                                                                                    <select class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
+                                                                                        <option>Fixed</option>
+                                                                                        <option>Halfday</option>
+                                                                                        <option>Fullday</option>
+                                                                                        <option>Forgive</option>
+                                                                                    </select>
                                                                             </div>
                                                                         </div>
+                                                                        <div
+                                                                        class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                                                                        <div class="flex flex-col items-start">
+                                                                            <label
+                                                                                class="text-sm font-medium text-gray-600">
+                                                                                Working Hours</label>
+                                                                            <input id="" type="time" value="01:00"
+                                                                                class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
+                                                                        </div>
+                                                                        <div>
+                                                                            <label
+                                                                                class="text-sm font-medium text-gray-600">
+                                                                                Fine Type</label>
+                                                                                <select class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
+                                                                                    <option>Fixed</option>
+                                                                                    <option>Halfday</option>
+                                                                                    <option>Fullday</option>
+                                                                                    <option>Forgive</option>
+                                                                                </select>
+                                                                        </div>
+                                                                    </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
