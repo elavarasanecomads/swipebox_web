@@ -346,11 +346,19 @@
                                                     class="bg-white divide-y divide-gray-200">
                                                     <tr>
                                                         <td class="px-2 py-3 whitespace-nowrap">
-                                                            <div class="flex items-center ">
+                                                            <div class="flex items-center gap-2">
                                                                 <p @click="isOpen = !isOpen"
                                                                     @keydown.escape="isOpen = false"
                                                                     class="text-sm font-semibold text-blue-600">
                                                                     Elavarasan</p>
+                                                                    <button @click="isOpen = !isOpen"
+                                                                    @keydown.escape="isOpen = false">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-blue-600">
+                                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                                                          </svg>
+                                                                          
+                                                                    </button>
                                                                     <div role="status">
                                                                         <svg aria-hidden="true" class="inline w-4 h-4 ml-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                             <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
