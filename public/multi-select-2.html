@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ open: false, selected: [] }">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="m-8">
+    <div class="text-left">
+        <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">Select Branch</label>
+        <div class="relative" @click.away="open = false">
+            <button @click="open = !open" class="w-full py-2 pl-3 pr-10 text-left bg-white border border-gray-300 rounded-md shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                <span class="block truncate" x-text="selected.length > 0 ? selected.join(', ') : 'Select Branch'"></span>
+                <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                    <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M10 12a1 1 0 01-.707-.293l-4-4a1 1 0 111.414-1.414L10 9.586l3.293-3.293a1 1 0 111.414 1.414l-4 4A1 1 0 0110 12z" clip-rule="evenodd" />
+                    </svg>
+                </span>
+            </button>
+            <div x-show="open" class="absolute z-10 w-full mt-2 bg-white rounded-md shadow-lg">
+                <ul class="py-1">
+                    <li x-for="(option, index) in ['Coimbatore', 'Erode', 'Chennai', 'Madurai']" :key="index">
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" x-model="selected" :value="option" class="mr-2"><span x-text="option"></span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@3.x.x/dist/alpine.min.js" defer></script>
+</html>
