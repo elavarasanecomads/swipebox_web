@@ -158,17 +158,55 @@
                         </div>
                     </div>
                 </li>
-                <li class="group hover:bg-primary-100">
-                    <a href="approvals.html" class="flex items-center px-6 py-3 text-white group-hover:bg-blue-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24"
+                
+                <li class="group" x-data="{ isOpen: true }">
+                  <div @click="isOpen = !isOpen">
+                      <div class="flex items-center justify-between px-6 py-3">
+                          <a href="#" class="flex items-center text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
                             </path>
-                        </svg>Approvals
-                    </a>
-                </li>
-                <li class="text-white group">
+                        </svg>
+                              Approvals
+                          </a>
+                          <div>
+                              <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
+                                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M19 9l-7 7-7-7"></path>
+                              </svg>
+                              <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
+                                  fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M5 15l7-7 7 7"></path>
+                              </svg>
+
+                          </div>
+                      </div>
+                  </div>
+                  <!-- Dropdown Nav -->
+                  <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
+                      <div>
+                          <ul class="space-y-1 text-white">
+                              <li class="px-6 hover:bg-primary-100">
+                                  <a href="monitor.html" class="flex items-center py-2 pl-6 ">
+                                      Monitor</a>
+                              </li>
+                              <li class="px-6 hover:bg-primary-100">
+                                  <a href="my-approvals.html" class="flex items-center py-2 pl-6">
+                                      My Approvals</a>
+                              </li>
+                              <li class="px-6 hover:bg-primary-100">
+                                  <a href="workflow.html" class="flex items-center py-2 pl-6">
+                                      Workflow</a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </li>
+                <!-- <li class="text-white group">
                   <a href="workflow.html" class="flex items-center px-6 py-3 group-hover:bg-blue-700">
                     <svg xmlns="http://www.w3.org/2000/svg" class="mr-3 icon icon-tabler icon-tabler-subtask" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -179,7 +217,7 @@
                       <path d="M12 15m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z" />
                     </svg>Workflow
                   </a>
-                </li>
+                </li> -->
                 <li class="group hover:bg-primary-100">
                     <a href="Payrun-Overview.html"
                         class="flex items-center px-6 py-3 text-white group-hover:bg-blue-700">

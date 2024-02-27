@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leave Approval</title>
+    <title>Time Correction Approval</title>
     <link href="output.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.5/cdn.js"
         integrity="sha512-8IPRU0MPrge2KfSxkAtO8pIkaMzThW/MBSvPqcyVisSymLWC986buo27pKAt5mWXmt58dT6jIsw7h8NNugtRwg=="
@@ -31,7 +31,7 @@
                                         clip-rule="evenodd"></path>
                                 </svg>
                             </a>
-                            <p class="text-2xl font-bold text-gray-900">Leave Approval</p>
+                            <p class="text-2xl font-bold text-gray-900">Time Correction Approval</p>
 
                         </div>
                     </div>
@@ -95,10 +95,7 @@
                                                 <p>Name</p>
                                             </div>
                                         </th>
-                                        <th scope="col" class="p-4">LEAVE DATE</th>
-
-                                        <th scope="col" class="p-4">
-                                            TYPE </th>
+                                        <th scope="col" class="p-4">Time</th>
                                         <th scope="col" class="p-4" title="Break Time">
                                             STATUS</th>
                                         <th scope="col" class="p-4" title="Working Hours">
@@ -117,20 +114,15 @@
                                                     <div>
                                                         <a href="employee-detail.html"
                                                             class="font-medium text-blue-600">ATHEESWAR MANICKAM</a>
-                                                        <p class="text-xs text-gray-600">12-02-2024 16:00</p>
+                                                        <p class="text-xs text-gray-600">23-02-2024 18:00</p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="p-4">
                                             <div>
-                                                <p class="font-semibold">13 Feb-13 Feb 2024 </p>
-                                                <p>1 days (CL)</p>
-                                            </div>
-                                        </td>
-                                        <td class="p-4">
-                                            <div>
-                                                <p class="font-semibold">Paid</p>
+                                                <p>Captured : In : 23-02-2024 10:10 AM</p>
+                                                <p>Requested : In : 23-02-2024 09:00 AM</p>
                                             </div>
                                         </td>
                                         <td class="p-4">
@@ -176,7 +168,7 @@
                                                                                 class="font-semibold text-blue-600">ATHEESWAR
                                                                                 MANICKAM</a>
                                                                             <p class="text-sm text-gray-600">
-                                                                                12-02-2024 16:00</p>
+                                                                                23-02-2024 18:00</p>
                                                                         </div>
                                                                     </div>
                                                                     <span @click="showModal = false">
@@ -192,57 +184,19 @@
                                                                 </div>
                                                                 <!-- content -->
                                                                 <div class="w-full mt-4 overflow-y-scroll h-96">
-                                                                    <div class="grid grid-cols-2 gap-4 lg:grid-cols-3">
+                                                                    <div class="grid grid-cols-2 gap-4 lg:grid-cols-2">
                                                                         <div class="col-span-1">
-                                                                            <p class="text-sm font-semibold">Start
-                                                                                Date</p>
-                                                                            <p>13-02-2024</p>
-                                                                        </div>
-                                                                        <div class="col-span-1">
-                                                                            <p class="text-sm font-semibold">End
-                                                                                Date</p>
-                                                                            <p>13-02-2024</p>
+                                                                            <p class="text-sm font-semibold">Captured Time</p>
+                                                                            <p>In : 23-02-2024 10:10 AM</p>
                                                                         </div>
                                                                         <div class="col-span-1">
-                                                                            <p class="text-sm font-semibold">Total
-                                                                                Days</p>
-                                                                            <p>1</p>
+                                                                            <p class="text-sm font-semibold">Requested Time</p>
+                                                                            <p>In : 23-02-2024 09:00 AM</p>
                                                                         </div>
-                                                                        <div class="col-span-1">
-                                                                            <p class="text-sm font-semibold">Half
-                                                                                Day Type</p>
-                                                                            <p>First Half</p>
-                                                                        </div>
-                                                                        <div class="col-span-1">
-                                                                            <p class="text-sm font-semibold">Type
-                                                                            </p>
-                                                                            <p>Paid</p>
-                                                                        </div>
-                                                                        <div class="col-span-1">
-                                                                            <p class="text-sm font-semibold">Leave
-                                                                                Type</p>
-                                                                            <p>Privilege Leave</p>
-                                                                        </div>
-                                                                        <div class="col-span-1">
-                                                                            <p class="text-sm font-semibold">Leave
-                                                                                In This Month</p>
-                                                                            <p>2 days</p>
-                                                                        </div>
-                                                                        <div class="col-span-1">
-                                                                            <p class="text-sm font-semibold">Leave
-                                                                                In This Year</p>
-                                                                            <p>10 Days</p>
-                                                                        </div>
-                                                                        <div class="col-span-3 col-start-1">
-                                                                            <p class="text-sm font-semibold">
-                                                                                Description</p>
-                                                                            <p class="whitespace-normal">I am writing to
-                                                                                apply for my
-                                                                                Privilege Leave for a period of two
-                                                                                days I am writing to apply for my
-                                                                                Privilege Leave for a period of two
-                                                                                days</p>
-                                                                        </div>
+                                                                        <div class="col-span-2">
+                                                                            <p class="text-sm font-semibold">Location</p>
+                                                                            <p class="whitespace-normal">9QP2+75, 9QP2+75, , , Tamil Nadu, 638008 India</p>
+                                                                        </div>                                                                        
                                                                     </div>
                                                                     <div class="w-full p-4 mt-4 space-y-4 bg-gray-100 rounded-md">
                                                                         <h3 class="text-xl font-bold">Logs</h3>
@@ -252,7 +206,7 @@
                                                                                     Approved</p>
                                                                                 <p class="text-sm text-gray-600">
                                                                                     <span>Premkumar</span> |
-                                                                                    <span>13-02-2024 09:00</span>
+                                                                                    <span>24-02-2024 11:00</span>
                                                                                 </p>
                                                                             </div>
                                                                             <div>
@@ -260,15 +214,14 @@
                                                                                     Approved</p>
                                                                                 <p class="text-sm text-gray-600">
                                                                                     <span>Elavarasan</span> |
-                                                                                    <span>12-02-2024 18:00</span>
+                                                                                    <span>24-02-2024 09:00</span>
                                                                                 </p>
                                                                             </div>
                                                                             <div>
-                                                                                <p class="font-semibold">Leave Request
-                                                                                    Submitted</p>
+                                                                                <p class="font-semibold">Attendance Approval Created</p>
                                                                                 <p class="text-sm text-gray-600">
                                                                                     <span>ATHEESWAR MANICKAM</span> |
-                                                                                    <span>12-02-2024 16:00</span>
+                                                                                    <span>23-02-2024 18:00</span>
                                                                                 </p>
                                                                             </div>
                                                                         </div>
@@ -364,20 +317,15 @@
                                                         <a href="employee-detail.html"
                                                             class="font-medium text-blue-600">Kuralarasan
                                                             C</a>
-                                                        <p class="text-xs text-gray-600">12-02-2024 13:00</p>
+                                                        <p class="text-xs text-gray-600">23-02-2024 18:00</p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="p-4">
                                             <div>
-                                                <p class="font-semibold">13 Feb-13 Feb 2024 </p>
-                                                <p>1 days (CL)</p>
-                                            </div>
-                                        </td>
-                                        <td class="p-4">
-                                            <div>
-                                                <p class="font-semibold">Paid</p>
+                                                <p>Captured : In : 23-02-2024 10:10 AM</p>
+                                                <p>Requested : In : 23-02-2024 09:00 AM</p>
                                             </div>
                                         </td>
                                         <td class="p-4">
@@ -423,7 +371,7 @@
                                                                                 class="font-semibold text-blue-600">Kuralarasan
                                                                                 C</a>
                                                                             <p class="text-sm text-gray-600">
-                                                                                12-02-2024 13:00</p>
+                                                                            23-02-2024 18:00</p>
                                                                         </div>
                                                                     </div>
                                                                     <span @click="showModal = false">
@@ -439,58 +387,20 @@
                                                                 </div>
                                                                 <!-- content -->
                                                                 <div class="w-full mt-4 overflow-y-scroll h-96">
-                                                                    <div class="grid grid-cols-2 gap-4 lg:grid-cols-3">
+                                                                    <div class="grid grid-cols-2 gap-4 lg:grid-cols-2">
                                                                         <div class="col-span-1">
-                                                                            <p class="text-sm font-semibold">Start
-                                                                                Date</p>
-                                                                            <p>13-02-2024</p>
-                                                                        </div>
-                                                                        <div class="col-span-1">
-                                                                            <p class="text-sm font-semibold">End
-                                                                                Date</p>
-                                                                            <p>13-02-2024</p>
+                                                                            <p class="text-sm font-semibold">Captured Time</p>
+                                                                            <p>In : 23-02-2024 10:10 AM</p>
                                                                         </div>
                                                                         <div class="col-span-1">
-                                                                            <p class="text-sm font-semibold">Total
-                                                                                Days</p>
-                                                                            <p>1</p>
+                                                                            <p class="text-sm font-semibold">Requested Time</p>
+                                                                            <p>In : 23-02-2024 09:00 AM</p>
                                                                         </div>
-                                                                        <div class="col-span-1">
-                                                                            <p class="text-sm font-semibold">Half
-                                                                                Day Type</p>
-                                                                            <p>First Half</p>
+                                                                        <div class="col-span-2">
+                                                                            <p class="text-sm font-semibold">Location</p>
+                                                                            <p class="whitespace-normal">9QP2+75, 9QP2+75, , , Tamil Nadu, 638008 India</p>
                                                                         </div>
-                                                                        <div class="col-span-1">
-                                                                            <p class="text-sm font-semibold">Type
-                                                                            </p>
-                                                                            <p>Paid</p>
-                                                                        </div>
-                                                                        <div class="col-span-1">
-                                                                            <p class="text-sm font-semibold">Leave
-                                                                                Type</p>
-                                                                            <p>Privilege Leave</p>
-                                                                        </div>
-                                                                        <div class="col-span-1">
-                                                                            <p class="text-sm font-semibold">Leave
-                                                                                In This Month</p>
-                                                                            <p>2 days</p>
-                                                                        </div>
-                                                                        <div class="col-span-1">
-                                                                            <p class="text-sm font-semibold">Leave
-                                                                                In This Year</p>
-                                                                            <p>10 Days</p>
-                                                                        </div>
-                                                                        <div class="col-span-3 col-start-1">
-                                                                            <p class="text-sm font-semibold">
-                                                                                Description</p>
-                                                                            <p class="whitespace-normal">I am writing to
-                                                                                apply for
-                                                                                my
-                                                                                Privilege Leave for a period of two
-                                                                                days I am writing to apply for my
-                                                                                Privilege Leave for a period of two
-                                                                                days</p>
-                                                                        </div>
+                                                                        
                                                                     </div>
                                                                     <div class="w-full p-4 mt-4 space-y-4 bg-gray-100 rounded-md">
                                                                         <h3 class="text-xl font-bold">Logs</h3>
@@ -500,7 +410,7 @@
                                                                                     Approved</p>
                                                                                 <p class="text-sm text-gray-600">
                                                                                     <span>Palanikumar</span> |
-                                                                                    <span>12-02-2024
+                                                                                    <span>24-02-2024
                                                                                         18:00</span>
                                                                                 </p>
                                                                             </div>
@@ -509,7 +419,7 @@
                                                                                     Approved</p>
                                                                                 <p class="text-sm text-gray-600">
                                                                                     <span>Premkumar</span> |
-                                                                                    <span>12-02-2024
+                                                                                    <span>24-02-2024
                                                                                         17:00</span>
                                                                                 </p>
                                                                             </div>
@@ -518,17 +428,16 @@
                                                                                     Approved</p>
                                                                                 <p class="text-sm text-gray-600">
                                                                                     <span>Elavarasan</span> |
-                                                                                    <span>12-02-2024
+                                                                                    <span>24-02-2024
                                                                                         13:30</span>
                                                                                 </p>
                                                                             </div>
                                                                             <div>
-                                                                                <p class="font-semibold">Leave Request
-                                                                                    Submitted</p>
+                                                                                <p class="font-semibold">Attendance Approval Created</p>
                                                                                 <p class="text-sm text-gray-600">
                                                                                     <span>Kuralarasan
-                                                                                        C</span> | <span>12-02-2024
-                                                                                        13:00</span></p>
+                                                                                        C</span> | <span>23-02-2024
+                                                                                        18:00</span></p>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -552,20 +461,15 @@
                                                         <a href="employee-detail.html"
                                                             class="font-medium text-blue-600">Mohanraj
                                                             A</a>
-                                                        <p class="text-xs text-gray-600">12-02-2024 09:00</p>
+                                                        <p class="text-xs text-gray-600">23-02-2024 18:00</p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="p-4">
                                             <div>
-                                                <p class="font-semibold">13 Feb-13 Feb 2024 </p>
-                                                <p>1 days (CL)</p>
-                                            </div>
-                                        </td>
-                                        <td class="p-4">
-                                            <div>
-                                                <p class="font-semibold">Paid</p>
+                                                <p>Captured : In : 23-02-2024 10:10 AM</p>
+                                                <p>Requested : In : 23-02-2024 09:00 AM</p>
                                             </div>
                                         </td>
                                         <td class="p-4">
@@ -611,7 +515,7 @@
                                                                                 class="font-semibold text-blue-600">Mohanraj
                                                                                 A</a>
                                                                             <p class="text-sm text-gray-600">
-                                                                                12-02-2024 09:00</p>
+                                                                                23-02-2024 18:00</p>
                                                                         </div>
                                                                     </div>
                                                                     <span @click="showModal = false">
@@ -627,57 +531,22 @@
                                                                 </div>
                                                                 <!-- content -->
                                                                 <div class="w-full mt-4 overflow-y-scroll h-96">
-                                                                    <div class="grid grid-cols-2 gap-4 lg:grid-cols-3">
+                                                                    <div class="grid grid-cols-2 gap-4 lg:grid-cols-2">
                                                                         <div class="col-span-1">
-                                                                            <p class="text-sm font-semibold">Start
-                                                                                Date</p>
-                                                                            <p>13-02-2024</p>
+                                                                            <p class="text-sm font-semibold">Captured Time</p>
+                                                                            <p>In : 23-02-2024 10:10 AM</p>
                                                                         </div>
                                                                         <div class="col-span-1">
-                                                                            <p class="text-sm font-semibold">End
-                                                                                Date</p>
-                                                                            <p>13-02-2024</p>
+                                                                            <p class="text-sm font-semibold">Requested Time</p>
+                                                                            <p>In : 23-02-2024 09:00 AM</p>
                                                                         </div>
-                                                                        <div class="col-span-1">
-                                                                            <p class="text-sm font-semibold">Total
-                                                                                Days</p>
-                                                                            <p>1</p>
+                                                                        <div class="col-span-2">
+                                                                            <p class="text-sm font-semibold">Location</p>
+                                                                            <p class="whitespace-normal">9QP2+75, 9QP2+75, , , Tamil Nadu, 638008 India</p>
                                                                         </div>
-                                                                        <div class="col-span-1">
-                                                                            <p class="text-sm font-semibold">Half
-                                                                                Day Type</p>
-                                                                            <p>First Half</p>
-                                                                        </div>
-                                                                        <div class="col-span-1">
-                                                                            <p class="text-sm font-semibold">Type
-                                                                            </p>
-                                                                            <p>Paid</p>
-                                                                        </div>
-                                                                        <div class="col-span-1">
-                                                                            <p class="text-sm font-semibold">Leave
-                                                                                Type</p>
-                                                                            <p>Privilege Leave</p>
-                                                                        </div>
-                                                                        <div class="col-span-1">
-                                                                            <p class="text-sm font-semibold">Leave
-                                                                                In This Month</p>
-                                                                            <p>2 days</p>
-                                                                        </div>
-                                                                        <div class="col-span-1">
-                                                                            <p class="text-sm font-semibold">Leave
-                                                                                In This Year</p>
-                                                                            <p>10 Days</p>
-                                                                        </div>
-                                                                        <div class="col-span-3 col-start-1">
-                                                                            <p class="text-sm font-semibold">
-                                                                                Description</p>
-                                                                            <p class="whitespace-normal">I am writing to
-                                                                                apply for
-                                                                                my
-                                                                                Privilege Leave for a period of two
-                                                                                days I am writing to apply for my
-                                                                                Privilege Leave for a period of two
-                                                                                days</p>
+                                                                        <div class="col-span-2">
+                                                                            <p class="text-sm font-semibold">Reject Reason</p>
+                                                                            <p class="whitespace-normal">Invalid Request</p>
                                                                         </div>
                                                                     </div>
                                                                     <div class="w-full p-4 mt-4 space-y-4 bg-gray-100 rounded-md">
@@ -688,7 +557,7 @@
                                                                                     Rejected</p>
                                                                                 <p class="text-sm text-gray-600">
                                                                                     <span>Premkumar</span> |
-                                                                                    <span>12-02-2024
+                                                                                    <span>24-02-2024
                                                                                         18:00</span>
                                                                                 </p>
                                                                             </div>
@@ -697,17 +566,16 @@
                                                                                     Approved</p>
                                                                                 <p class="text-sm text-gray-600">
                                                                                     <span>Elavarasan</span> |
-                                                                                    <span>12-02-2024
+                                                                                    <span>24-02-2024
                                                                                         13:00</span>
                                                                                 </p>
                                                                             </div>
                                                                             <div>
-                                                                                <p class="font-semibold">Leave Request
-                                                                                    Submitted</p>
+                                                                                <p class="font-semibold">Attendance Approval Created</p>
                                                                                 <p class="text-sm text-gray-600">
                                                                                     <span>Mohanraj
-                                                                                        A</span> | <span>12-02-2024
-                                                                                        09:00</span></p>
+                                                                                        A</span> | <span>24-02-2024
+                                                                                        18:00</span></p>
                                                                             </div>
                                                                         </div>
                                                                     </div>

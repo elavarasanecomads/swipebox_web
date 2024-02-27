@@ -41,7 +41,7 @@ style.innerHTML = `
   z-index: 100;
   padding:2px;
   border-radius: 4px;
-  border: solid 1px red;
+  border: solid 1px #94a3b8;
   display: none;
   margin-top: 40px;
   position: absolute;
@@ -82,7 +82,7 @@ style.innerHTML = `
   background-color: #ced4da;
 }
 .multiselect-dropdown span.maxselected {width:100%;}
-.multiselect-dropdown-all-selector {border-bottom:solid 1px #999;}
+// .multiselect-dropdown-all-selector {border-bottom:solid 1px #999;}
 `;
 document.head.appendChild(style);
 

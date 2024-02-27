@@ -9,7 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.5/cdn.js"
         integrity="sha512-8IPRU0MPrge2KfSxkAtO8pIkaMzThW/MBSvPqcyVisSymLWC986buo27pKAt5mWXmt58dT6jIsw7h8NNugtRwg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
-        <script type="text/javascript" src="multiselect-dropdown.js"></script>
+    <script type="text/javascript" src="multiselect-dropdown.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
@@ -20,425 +20,486 @@
             <div id="navigation"></div>
 
             <div class="mx-0 my-4 lg:m-4">
-                <div class="h-full p-4 bg-white border rounded-md lg:p-8">
-                    <div class="flex items-center justify-between gap-8 pb-6">
-                        <div class="flex items-center gap-2">
-                            <a href="dashboard.html" class="flex items-center gap-1 text-sm text-gray-600">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                                    class="w-5 h-5">
-                                    <path fill-rule="evenodd"
-                                        d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                            </a>
-                            <p class="text-2xl font-bold text-gray-900">Workflow Setup</p>
+                <div class="h-full p-4 bg-white border rounded-md lg:p-8">                    
+                    <div x-data="{ selectedLevels: 1 }">                        
+                        <div>
+                            <div class="flex items-center gap-2 pb-6">
+                                <a href="workflow.html" class="flex items-center gap-1 text-sm text-gray-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                        class="w-5 h-5">
+                                        <path fill-rule="evenodd"
+                                            d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </a>
+                                <p class="text-2xl font-bold text-gray-900">Workflow Setup</p>
+                            </div>
+                            <div class="w-full space-y-4 lg:w-1/2">
+                                <div>
+                                    <label class="col-start-1 text-sm font-semibold text-gray-600"
+                                        for="businessname">Workflow Name</label>
+                                    <input type="text" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                </div>
+                                <div class="text-left">
+                                    <label class="col-start-1 text-sm font-semibold text-gray-600"
+                                        for="businessname">Choose
+                                        Type</label>
+                                    <select id="" name="select" multiple multiselect-search="true"
+                                        multiselect-select-all="true" multiselect-max-items="10" autocomplete=""
+                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>Attendance Approval</option>
+                                        <option>Time Correction Approval</option>
+                                        <option>Leave Approval</option>
+                                        <option>Permission Approval</option>
+                                        <option>Over Time (OT) Approval</option>
+                                        <option>Compensatory Off Approval</option>
+                                        <option>Pay Per Work Approval</option>
+                                        <option>Face Registration Approval</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <h3 class="text-lg font-bold">Assign To</h3>
+                                </div>
+                                <div x-data="{ selectedOption: 'option1' }">
+                                    <div>
+                                        <label class="font-semibold text-gray-600" for="businessname">Choose
+                                            Level</label>
+                                        <select x-model="selectedOption" id="type" name="type" autocomplete="type"
+                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                            <option value="option1">Branch Level</option>
+                                            <option value="option2">Department Level</option>
+                                        </select>
+                                    </div>
+                                    <div class="pt-6 space-y-4" x-show="selectedOption === 'option1'">
+                                        <div>
+                                            <label class="font-semibold text-gray-600" for="businessname">Select
+                                                Branch</label>
+                                            <select id="type" 
+                                                autocomplete="type"
+                                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                <option>Select</option>
+                                                <option>AV Plaza</option>
+                                                <option>CHB Colony</option>
+                                                <option>Sengodampalayam</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="pt-6 space-y-4" x-show="selectedOption === 'option2'">
+                                        <div>
+                                            <label class="font-semibold text-gray-600" for="businessname">Select
+                                                Branch</label>
+                                            <select id="type" 
+                                                autocomplete="type"
+                                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                <option>Select</option>
+                                                <option>AV Plaza</option>
+                                                <option>CHB Colony</option>
+                                                <option>Sengodampalayam</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="font-semibold text-gray-600" for="businessname">Select
+                                                Department</label>
+                                            <select id="type" 
+                                                autocomplete="type"
+                                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                <option>Select</option>
+                                                <option>Digital Marketing</option>
+                                                <option>Accounts</option>
+                                                <option>PHP</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="pt-6 text-xl font-bold">Workflow Levels</h3>
+                            <div class="w-full pt-6 text-left lg:w-1/2">
+                                <label class="col-start-1 text-sm font-semibold text-gray-600"
+                                    for="businessname">Workflow
+                                    Level</label>
+                                <select x-model="selectedLevels" id="" name="" autocomplete=""
+                                    class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                    <option value="1">1 Level </option>
+                                    <option value="2">2 Levels</option>
+                                    <option value="3">3 Levels</option>
+                                    <option value="4">4 Levels</option>
+                                    <option value="5">5 Levels</option>
+                                </select>
+                            </div>
+                                <div class="pt-4 space-y-4">
+                                <!-- Branch Level -->
+                                <div x-show="selectedLevels >= 1">
+                                    <div x-data="{ isOpen: true }" class="p-4 border rounded-md shadow-md">
+                                        <div @click="isOpen = !isOpen" class="flex items-center justify-between gap-4 cursor-pointer">
+                                            <div>
+                                                <p class="font-bold">Level 1 Reviewer</p>
+                                                <p class="text-sm text-gray-600">Elavarasan Rajan</p>
+                                            </div>
+                                            <div>
+                                                <svg x-show="isOpen" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M19 9l-7 7-7-7"></path>
+                                                </svg>
+                                                <svg x-show="!isOpen" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M5 15l7-7 7 7"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div x-show="!isOpen" class="flex flex-col pt-4">
+                                            <div>
+                                                <div class="flex flex-col gap-4 lg:flex-row">
+                                                    <div class="w-full text-left lg:w-1/2">
+                                                        <label class="text-sm font-semibold text-gray-600"
+                                                            for="businessname">Level 1</label>
+                                                        <select name="select" multiple multiselect-search="true"
+                                                            class="w-full p-2">
+                                                            <option>Premkumar</option>
+                                                            <option>Elavarasan</option>
+                                                            <option>Palanikumar</option>
+                                                            <option>Vinothkumar</option>
+                                                            <option>Kavin</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="w-full text-left lg:w-1/2">
+                                                       
+                                                        <label class="text-sm font-semibold text-gray-600"
+                                                        for="businessname">Auto forward</label>
+                                                        <select class="block px-3 py-2 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                            <option value="">None</option>
+                                                            <option value="">12 hours</option>
+                                                            <option value="">24 hours</option>
+                                                            <option value="">36 hours</option>
+                                                            <option value="">48 hours</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="grid grid-cols-2 gap-4 pt-4 text-xs lg:grid-cols-6">
+                                                    <div class="flex items-center gap-2">
+                                                        <input id="candidates" name="candidates" type="checkbox"
+                                                            class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
+                                                        <p>Accept & Forward</p>
+                                                    </div>
+                                                    <div class="flex items-center gap-2">
+                                                        <input id="candidates" name="candidates" type="checkbox"
+                                                            class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
+                                                        <p>Accept</p>
+                                                    </div>
+                                                    <div class="flex items-center gap-2">
+                                                        <input id="candidates" name="candidates" type="checkbox"
+                                                            class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
+                                                        <p>Reject</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div x-show="selectedLevels >= 2">
+                                    <div x-data="{ isOpen: true }" class="p-4 border rounded-md shadow-md">
+                                        <div @click="isOpen = !isOpen" class="flex items-center justify-between gap-4 cursor-pointer">
+                                            <div>
+                                                <p class="font-bold">Level 2 Reviewer</p>
+                                                <p class="text-sm text-gray-600">Premkumar</p>
+                                            </div>
+                                            <div>
+                                                <svg x-show="isOpen" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M19 9l-7 7-7-7"></path>
+                                                </svg>
+                                                <svg x-show="!isOpen" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M5 15l7-7 7 7"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div x-show="!isOpen" class="flex flex-col pt-4">
+                                            <div>
+                                                <div class="flex flex-col gap-4 lg:flex-row">
+                                                    <div class="w-full text-left lg:w-1/2">
+                                                        <label class="text-sm font-semibold text-gray-600"
+                                                            for="businessname">Level 2</label>
+                                                        <select name="select" multiple multiselect-search="true"
+                                                            class="w-full p-2">
+                                                            <option>Premkumar</option>
+                                                            <option>Elavarasan</option>
+                                                            <option>Palanikumar</option>
+                                                            <option>Vinothkumar</option>
+                                                            <option>Kavin</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="w-full text-left lg:w-1/2">
+                                                       
+                                                        <label class="text-sm font-semibold text-gray-600"
+                                                        for="businessname">Auto forward</label>
+                                                        <select class="block px-3 py-2 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                            <option value="">None</option>
+                                                            <option value="">12 hours</option>
+                                                            <option value="">24 hours</option>
+                                                            <option value="">36 hours</option>
+                                                            <option value="">48 hours</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="grid grid-cols-2 gap-4 pt-4 text-xs lg:grid-cols-6">
+                                                    <div class="flex items-center gap-2">
+                                                        <input id="candidates" name="candidates" type="checkbox"
+                                                            class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
+                                                        <p>Accept & Forward</p>
+                                                    </div>
+                                                    <div class="flex items-center gap-2">
+                                                        <input id="candidates" name="candidates" type="checkbox"
+                                                            class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
+                                                        <p>Accept</p>
+                                                    </div>
+                                                    <div class="flex items-center gap-2">
+                                                        <input id="candidates" name="candidates" type="checkbox"
+                                                            class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
+                                                        <p>Reject</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div x-show="selectedLevels >= 3">
+                                    <div x-data="{ isOpen: true }" class="p-4 border rounded-md shadow-md">
+                                        <div @click="isOpen = !isOpen" class="flex items-center justify-between gap-4 cursor-pointer">
+                                            <div>
+                                                <p class="font-bold">Level 3 Reviewer</p>
+                                                <p class="text-sm text-gray-600">-</p>
+                                            </div>
+                                            <div>
+                                                <svg x-show="isOpen" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M19 9l-7 7-7-7"></path>
+                                                </svg>
+                                                <svg x-show="!isOpen" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M5 15l7-7 7 7"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div x-show="!isOpen" class="flex flex-col pt-4">
+                                            <div>
+                                                <div class="flex flex-col gap-4 lg:flex-row">
+                                                    <div class="w-full text-left lg:w-1/2">
+                                                        <label class="text-sm font-semibold text-gray-600"
+                                                            for="businessname">Level 3</label>
+                                                        <select name="select" multiple multiselect-search="true"
+                                                            class="w-full p-2">
+                                                            <option>Premkumar</option>
+                                                            <option>Elavarasan</option>
+                                                            <option>Palanikumar</option>
+                                                            <option>Vinothkumar</option>
+                                                            <option>Kavin</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="w-full text-left lg:w-1/2">
+                                                       
+                                                        <label class="text-sm font-semibold text-gray-600"
+                                                        for="businessname">Auto forward</label>
+                                                        <select class="block px-3 py-2 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                            <option value="">None</option>
+                                                            <option value="">12 hours</option>
+                                                            <option value="">24 hours</option>
+                                                            <option value="">36 hours</option>
+                                                            <option value="">48 hours</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="grid grid-cols-2 gap-4 pt-4 text-xs lg:grid-cols-6">
+                                                    <div class="flex items-center gap-2">
+                                                        <input id="candidates" name="candidates" type="checkbox"
+                                                            class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
+                                                        <p>Accept & Forward</p>
+                                                    </div>
+                                                    <div class="flex items-center gap-2">
+                                                        <input id="candidates" name="candidates" type="checkbox"
+                                                            class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
+                                                        <p>Accept</p>
+                                                    </div>
+                                                    <div class="flex items-center gap-2">
+                                                        <input id="candidates" name="candidates" type="checkbox"
+                                                            class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
+                                                        <p>Reject</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div x-show="selectedLevels >= 4">
+                                    <div x-data="{ isOpen: true }" class="p-4 border rounded-md shadow-md">
+                                        <div @click="isOpen = !isOpen" class="flex items-center justify-between gap-4 cursor-pointer">
+                                            <div>
+                                                <p class="font-bold">Level 4 Reviewer</p>
+                                                <p class="text-sm text-gray-600">-</p>
+                                            </div>
+                                            <div>
+                                                <svg x-show="isOpen" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M19 9l-7 7-7-7"></path>
+                                                </svg>
+                                                <svg x-show="!isOpen" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M5 15l7-7 7 7"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div x-show="!isOpen" class="flex flex-col pt-4">
+                                            <div>
+                                                <div class="flex flex-col gap-4 lg:flex-row">
+                                                    <div class="w-full text-left lg:w-1/2">
+                                                        <label class="text-sm font-semibold text-gray-600"
+                                                            for="businessname">Level 4</label>
+                                                        <select name="select" multiple multiselect-search="true"
+                                                            class="w-full p-2">
+                                                            <option>Premkumar</option>
+                                                            <option>Elavarasan</option>
+                                                            <option>Palanikumar</option>
+                                                            <option>Vinothkumar</option>
+                                                            <option>Kavin</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="w-full text-left lg:w-1/2">
+                                                       
+                                                        <label class="text-sm font-semibold text-gray-600"
+                                                        for="businessname">Auto forward</label>
+                                                        <select class="block px-3 py-2 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                            <option value="">None</option>
+                                                            <option value="">12 hours</option>
+                                                            <option value="">24 hours</option>
+                                                            <option value="">36 hours</option>
+                                                            <option value="">48 hours</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="grid grid-cols-2 gap-4 pt-4 text-xs lg:grid-cols-6">
+                                                    <div class="flex items-center gap-2">
+                                                        <input id="candidates" name="candidates" type="checkbox"
+                                                            class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
+                                                        <p>Accept & Forward</p>
+                                                    </div>
+                                                    <div class="flex items-center gap-2">
+                                                        <input id="candidates" name="candidates" type="checkbox"
+                                                            class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
+                                                        <p>Accept</p>
+                                                    </div>
+                                                    <div class="flex items-center gap-2">
+                                                        <input id="candidates" name="candidates" type="checkbox"
+                                                            class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
+                                                        <p>Reject</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div x-show="selectedLevels >= 5">
+                                    <div x-data="{ isOpen: true }" class="p-4 border rounded-md shadow-md">
+                                        <div @click="isOpen = !isOpen" class="flex items-center justify-between gap-4 cursor-pointer">
+                                            <div>
+                                                <p class="font-bold">Level 5 Reviewer</p>
+                                                <p class="text-sm text-gray-600">-</p>
+                                            </div>
+                                            <div>
+                                                <svg x-show="isOpen" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M19 9l-7 7-7-7"></path>
+                                                </svg>
+                                                <svg x-show="!isOpen" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M5 15l7-7 7 7"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div x-show="!isOpen" class="flex flex-col pt-4">
+                                            <div>
+                                                <div class="flex flex-col gap-4 lg:flex-row">
+                                                    <div class="w-full text-left lg:w-1/2">
+                                                        <label class="text-sm font-semibold text-gray-600"
+                                                            for="businessname">Level 5</label>
+                                                        <select name="select" multiple multiselect-search="true"
+                                                            class="w-full p-2">
+                                                            <option>Premkumar</option>
+                                                            <option>Elavarasan</option>
+                                                            <option>Palanikumar</option>
+                                                            <option>Vinothkumar</option>
+                                                            <option>Kavin</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="w-full text-left lg:w-1/2">
+                                                       
+                                                        <label class="text-sm font-semibold text-gray-600"
+                                                        for="businessname">Auto forward</label>
+                                                        <select class="block px-3 py-2 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                            <option value="">None</option>
+                                                            <option value="">12 hours</option>
+                                                            <option value="">24 hours</option>
+                                                            <option value="">36 hours</option>
+                                                            <option value="">48 hours</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="grid grid-cols-2 gap-4 pt-4 text-xs lg:grid-cols-6">
+                                                    <div class="flex items-center gap-2">
+                                                        <input id="candidates" name="candidates" type="checkbox"
+                                                            class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
+                                                        <p>Accept & Forward</p>
+                                                    </div>
+                                                    <div class="flex items-center gap-2">
+                                                        <input id="candidates" name="candidates" type="checkbox"
+                                                            class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
+                                                        <p>Accept</p>
+                                                    </div>
+                                                    <div class="flex items-center gap-2">
+                                                        <input id="candidates" name="candidates" type="checkbox"
+                                                            class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
+                                                        <p>Reject</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="w-full pt-8 lg:w-1/4">
+                                <button type="submit" class="w-full px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded-md ">
+                                    Save Workflow
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <div>
-                        <div class="w-full space-y-4 lg:w-1/2">
-                            <div class="text-left">
-                                <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">Choose Type</label>
-                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                    <option>Attendance Approval</option>
-                                    <option>Time Correction Approval</option>
-                                    <option>Leave Request Approval</option>
-                                    <option>Permission Approval</option>
-                                    <option>OT Approval</option>
-                                    <option>Face Registration Approval</option>
-                                </select>
-                            </div>
-                            <div class="text-left">
-                                <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">Assign to</label>
-                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                    <option>Branch Level</option>
-                                    <option>Department Level</option>
-                                    <option>Shift Level</option>
-                                    <option>Category Level</option>
-                                    <option>Designation Level</option>
-                                    <option>Employee Level</option>
-                                </select>
-                            </div>
-                            <div class="text-left">
-                                <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">Select Branch</label>
-                                <select name="select" multiple multiselect-search="true" multiselect-select-all="true" multiselect-max-items="10" class="w-full p-2">
-                                    <option>Coimbatore</option>
-                                    <option>Erode</option>
-                                    <option>Chennai</option>
-                                    <option>Madurai</option>
-                                    <option>Salem</option>
-                                    <option>Namakkal</option>
-                                </select>
-                            </div>
-                            <div class="text-left">
-                                <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">Review Level</label>
-                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                    <option>1 Level</option>
-                                    <option>2 Levels</option>
-                                    <option>3 Levels</option>
-                                    <option>4 Levels</option>
-                                    <option>5 Levels</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="pt-4">
-                            <!-- Branch Level -->
-                            <div>
-                                <h3 class="text-xl font-bold">Branch Level</h3>
-                                <div class="p-4 mt-4 border rounded-md">
-                                    <p class="font-bold">Coimbatore</p>
-                                    <div class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-3">
-                                        <div>
-                                            <div class="text-left">
-                                                <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">Level 1</label>
-                                                <select name="select" multiple multiselect-search="true" class="w-full p-2">
-                                                    <option>Premkumar</option>
-                                                    <option>Elavarasan</option>
-                                                    <option>Palanikumar</option>
-                                                    <option>Vinothkumar</option>
-                                                    <option>Kavin</option>
-                                                </select>
-                                            </div>
-                                            <div class="grid grid-cols-2 gap-4 pt-4 text-xs">
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Accept & Forward</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Accept</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Revoke</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Reject</p>
-                                                </div>
-                                                <div>
-                                                    <label for="">Auto-forward Due Days</label>
-                                                    <input type="text" placeholder="Eg:1" class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="text-left">
-                                                <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">Level 2</label>
-                                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                    <option>Select</option>
-                                                    <option>Premkumar</option>
-                                                    <option>Elavarasan</option>
-                                                    <option>Palanikumar</option>
-                                                    <option>Vinothkumar</option>
-                                                    <option>Kavin</option>
-                                                </select>
-                                            </div>
-                                            <div class="grid grid-cols-2 gap-4 pt-4 text-xs">
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Accept & Forward</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Accept</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Revoke</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Reject</p>
-                                                </div>
-                                                <div>
-                                                    <label for="">Auto-forward Due Days</label>
-                                                    <input type="text" placeholder="Eg:1" class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="text-left">
-                                                <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">Level 3</label>
-                                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                    <option>Select</option>
-                                                    <option>Premkumar</option>
-                                                    <option>Elavarasan</option>
-                                                    <option>Palanikumar</option>
-                                                    <option>Vinothkumar</option>
-                                                    <option>Kavin</option>
-                                                </select>
-                                            </div>
-                                            <div class="grid grid-cols-2 gap-4 pt-4 text-xs">
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Accept & Forward</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Accept</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Revoke</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Reject</p>
-                                                </div>
-                                                <div>
-                                                    <label for="">Auto-forward Due Days</label>
-                                                    <input type="text" placeholder="Eg:1" class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="text-left">
-                                                <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">Level 4</label>
-                                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                    <option>Select</option>
-                                                    <option>Premkumar</option>
-                                                    <option>Elavarasan</option>
-                                                    <option>Palanikumar</option>
-                                                    <option>Vinothkumar</option>
-                                                    <option>Kavin</option>
-                                                </select>
-                                            </div>
-                                            <div class="grid grid-cols-2 gap-4 pt-4 text-xs">
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Accept & Forward</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Accept</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Revoke</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Reject</p>
-                                                </div>
-                                                <div>
-                                                    <label for="">Auto-forward Due Days</label>
-                                                    <input type="text" placeholder="Eg:1" class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="text-left">
-                                                <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">Level 5</label>
-                                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                    <option>Select</option>
-                                                    <option>Premkumar</option>
-                                                    <option>Elavarasan</option>
-                                                    <option>Palanikumar</option>
-                                                    <option>Vinothkumar</option>
-                                                    <option>Kavin</option>
-                                                </select>
-                                            </div>
-                                            <div class="grid grid-cols-2 gap-4 pt-4 text-xs">
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Accept & Forward</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Accept</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Revoke</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Reject</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="p-4 mt-4 border rounded-md">
-                                    <p class="font-bold">Erode</p>
-                                    <div class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-3">
-                                        <div>
-                                            <div class="text-left">
-                                                <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">Level 1</label>
-                                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                    <option>Select</option>
-                                                    <option>Premkumar</option>
-                                                    <option>Elavarasan</option>
-                                                    <option>Palanikumar</option>
-                                                    <option>Vinothkumar</option>
-                                                    <option>Kavin</option>
-                                                </select>
-                                            </div>
-                                            <div class="grid grid-cols-2 gap-4 pt-4 text-xs">
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Accept & Forward</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Accept</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Revoke</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Reject</p>
-                                                </div>
-                                                <div>
-                                                    <label for="">Auto-forward Due Days</label>
-                                                    <input type="text" placeholder="Eg:1" class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="text-left">
-                                                <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">Level 2</label>
-                                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                    <option>Select</option>
-                                                    <option>Premkumar</option>
-                                                    <option>Elavarasan</option>
-                                                    <option>Palanikumar</option>
-                                                    <option>Vinothkumar</option>
-                                                    <option>Kavin</option>
-                                                </select>
-                                            </div>
-                                            <div class="grid grid-cols-2 gap-4 pt-4 text-xs">
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Accept & Forward</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Accept</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Revoke</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Reject</p>
-                                                </div>
-                                                <div>
-                                                    <label for="">Auto-forward Due Days</label>
-                                                    <input type="text" placeholder="Eg:1" class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="text-left">
-                                                <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">Level 3</label>
-                                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                    <option>Select</option>
-                                                    <option>Premkumar</option>
-                                                    <option>Elavarasan</option>
-                                                    <option>Palanikumar</option>
-                                                    <option>Vinothkumar</option>
-                                                    <option>Kavin</option>
-                                                </select>
-                                            </div>
-                                            <div class="grid grid-cols-2 gap-4 pt-4 text-xs">
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Accept & Forward</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Accept</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Revoke</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Reject</p>
-                                                </div>
-                                                <div>
-                                                    <label for="">Auto-forward Due Days</label>
-                                                    <input type="text" placeholder="Eg:1" class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="text-left">
-                                                <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">Level 4</label>
-                                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                    <option>Select</option>
-                                                    <option>Premkumar</option>
-                                                    <option>Elavarasan</option>
-                                                    <option>Palanikumar</option>
-                                                    <option>Vinothkumar</option>
-                                                    <option>Kavin</option>
-                                                </select>
-                                            </div>
-                                            <div class="grid grid-cols-2 gap-4 pt-4 text-xs">
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Accept & Forward</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Accept</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Revoke</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Reject</p>
-                                                </div>
-                                                <div>
-                                                    <label for="">Auto-forward Due Days</label>
-                                                    <input type="text" placeholder="Eg:1" class="block w-full px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="text-left">
-                                                <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">Level 5</label>
-                                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                    <option>Select</option>
-                                                    <option>Premkumar</option>
-                                                    <option>Elavarasan</option>
-                                                    <option>Palanikumar</option>
-                                                    <option>Vinothkumar</option>
-                                                    <option>Kavin</option>
-                                                </select>
-                                            </div>
-                                            <div class="grid grid-cols-2 gap-4 pt-4 text-xs">
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Accept & Forward</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Accept</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Revoke</p>
-                                                </div>
-                                                <div class="flex items-center gap-2">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                                    <p>Reject</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                        
                     </div>
-                   
+
                 </div>
 
             </div>
@@ -452,7 +513,9 @@
     });
 </script>
 <style>
-   [x-cloak] { display: none !important; }
-
+    [x-cloak] {
+        display: none !important;
+    }
 </style>
+
 </html>
