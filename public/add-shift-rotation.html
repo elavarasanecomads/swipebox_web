@@ -7,6 +7,8 @@
     <title>Create Shift Rotation</title>
     <link href="output.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+    
+    <script type="text/javascript" src="multiselect-dropdown.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
@@ -80,27 +82,7 @@
                                     </div>
                                     <p class="text-green-600">Every <span class="font-semibold">Sunday 05:00 PM</span>
                                         scheduler will run</p>
-                                        <div>
-                                            <p class="font-bold">Applicable From</p>
-                                        </div>
-                                        <div class="grid items-center grid-cols-2 gap-4 lg:grid-cols-4">
-                                            <div class="">
-                                                <label class="text-sm font-semibold text-gray-600" for="">From</label>
-                                                <select
-                                                    class="block w-full px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                    <option value="">Sunday</option>
-                                                    <option value="">Monday</option>
-                                                    <option value="">Tuesday</option>
-                                                    <option value="">Wednesday</option>
-                                                    <option value="">Thursday</option>
-                                                    <option value="">Friday</option>
-                                                    <option value="">Saturday</option>
-                                                </select>
-                                            </div>
-                                            <div>
-                                                <p>- <span class="font-semibold">Saturday</span> of every week</p>
-                                            </div>
-                                        </div>
+                                        
                                 </div>
                                 <div class="space-y-4" x-show="selectedOption === 'option3'">
                                     <div>
@@ -122,29 +104,9 @@
                                         <input type="time" name="" id="" autocomplete="" placeholder="Shift Name"
                                             class="block w-full px-3 py-2 border border-gray-400 rounded-md lg:w-1/2 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                     </div>
-                                    <p class="text-green-600">Every <span class="font-semibold">Sunday 05:00 PM</span>
+                                    <p class="text-green-600">Every 2nd <span class="font-semibold">Sunday 05:00 PM</span>
                                         scheduler will run</p>
-                                        <div>
-                                            <p class="font-bold">Applicable From</p>
-                                        </div>
-                                        <div class="grid items-center grid-cols-2 gap-4 lg:grid-cols-4">
-                                            <div class="">
-                                                <label class="text-sm font-semibold text-gray-600" for="">From</label>
-                                                <select
-                                                    class="block w-full px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                    <option value="">Sunday</option>
-                                                    <option value="">Monday</option>
-                                                    <option value="">Tuesday</option>
-                                                    <option value="">Wednesday</option>
-                                                    <option value="">Thursday</option>
-                                                    <option value="">Friday</option>
-                                                    <option value="">Saturday</option>
-                                                </select>
-                                            </div>
-                                            <div>
-                                                <p>- <span class="font-semibold">Saturday</span> of every week</p>
-                                            </div>
-                                        </div>
+                                        
                                 </div>
                                 <div class="space-y-4" x-show="selectedOption === 'option4'">
                                     <div x-data="{ selectedDay: '' }">
@@ -155,9 +117,7 @@
                                           <template x-for="day in 28">
                                             <option x-text="day"></option>
                                           </template>
-                                        </select>
-                                      
-                                        <p x-show="selectedDay">You selected day: <span x-text="selectedDay"></span></p>
+                                        </select>                                      
                                       </div>
                                       
                                     <div>
@@ -166,29 +126,9 @@
                                         <input type="time" name="" id="" autocomplete="" placeholder="Shift Name"
                                             class="block w-full px-3 py-2 border border-gray-400 rounded-md lg:w-1/2 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                     </div>
-                                    <p class="text-green-600">Every <span class="font-semibold">Sunday 05:00 PM</span>
+                                    <p class="text-green-600">Every month <span class="font-semibold">2 date</span>
                                         scheduler will run</p>
-                                        <div>
-                                            <p class="font-bold">Applicable From</p>
-                                        </div>
-                                        <div class="grid items-center grid-cols-2 gap-4 lg:grid-cols-4">
-                                            <div class="">
-                                                <label class="text-sm font-semibold text-gray-600" for="">From</label>
-                                                <select
-                                                    class="block w-full px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                    <option value="">Sunday</option>
-                                                    <option value="">Monday</option>
-                                                    <option value="">Tuesday</option>
-                                                    <option value="">Wednesday</option>
-                                                    <option value="">Thursday</option>
-                                                    <option value="">Friday</option>
-                                                    <option value="">Saturday</option>
-                                                </select>
-                                            </div>
-                                            <div>
-                                                <p>- <span class="font-semibold">Saturday</span> of every week</p>
-                                            </div>
-                                        </div>
+                                        
                                 </div>
                             </div>
                             
@@ -574,10 +514,9 @@
                                 <div>
                                     <label class="text-sm font-semibold text-gray-600" for="branch">Choose
                                         Branch</label>
-                                    <select id="branch" name="branch" autocomplete="branch"
+                                    <select id="branch" multiple multiselect-search="true"
+                                    multiselect-select-all="true" multiselect-max-items="10"
                                         class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                        <option>All
-                                        </option>
                                         <option>Ecomads
                                             Pvt Ltd,
                                             Coimbatore
@@ -588,45 +527,47 @@
                                         </option>
                                     </select>
                                 </div>
-                                <div class="flex items-center gap-4">
-                                    <!--use multi select dropdown-->
-                                    <div class="w-1/2">
-                                        <label class="text-sm font-semibold text-gray-600" for="department">Apply
-                                            Policy
-                                            On</label>
-                                        <select id="department" name="department" autocomplete="department"
-                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                            <option>
-                                                Select
-                                            </option>
-                                            <option>
-                                                Department
-                                                Level
-                                            </option>
-                                            <option>
-                                                Shift
-                                                Level
-                                            </option>
-                                        </select>
-                                    </div>
-                                    <!--use multi select dropdown / Based on apply policy level value was change and also label was change-->
-                                    <div class="w-1/2">
-                                        <label class="text-sm font-semibold text-gray-600" for="department">Shift
+                                <div x-data="{ selectedOption: 'option1' }">
+                                    <div>
+                                        <label class="font-semibold text-gray-600" for="businessname">Choose
                                             Level</label>
-                                        <select id="department" name="department" autocomplete="department"
-                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                            <option>All
-                                            </option>
-                                            <option>
-                                                Morning
-                                                Shift
-                                            </option>
-                                            <option>
-                                                Evening
-                                                Shift
-                                            </option>
+                                        <select x-model="selectedOption" id="type" name="type" autocomplete="type"
+                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                            <option value="option1">Department Level</option>
+                                            <option value="option2">Shift Level</option>
                                         </select>
                                     </div>
+                                    <div class="pt-6 space-y-4" x-show="selectedOption === 'option1'">
+                                        <div>
+                                            <label class="font-semibold text-gray-600" for="businessname">Select
+                                                Department</label>
+                                            <select id="type" 
+                                                autocomplete="type" multiple multiselect-search="true"
+                                                multiselect-select-all="true" multiselect-max-items="10"
+                                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                <option>PHP</option>
+                                                <option>Android</option>
+                                                <option>Accounts</option>
+                                                <option>Digital Marketing</option>
+                                                <option>Human Resource</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="pt-6 space-y-4" x-show="selectedOption === 'option2'">
+                                        <div>
+                                            <label class="font-semibold text-gray-600" for="businessname">Select
+                                                Shift</label>
+                                            <select id="type" 
+                                                autocomplete="type" multiple multiselect-search="true"
+                                                multiselect-select-all="true" multiselect-max-items="10"
+                                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                <option>Morning Shift</option>
+                                                <option>Afternoon Shift</option>
+                                                <option>Evening Shift</option>
+                                                <option>Night Shift</option>
+                                            </select>
+                                        </div>
+                                    </div>                                    
                                 </div>
                             </div>
                         </div>
