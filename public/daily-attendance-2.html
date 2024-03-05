@@ -3462,8 +3462,8 @@
                                                                                 class="text-sm font-semibold text-gray-600"
                                                                                 for="businessname">hh
                                                                             </label>
-                                                                            <select id="jobtype" name="jobtype"
-                                                                                autocomplete="jobtype"
+                                                                            <select id="" name=""
+                                                                                autocomplete=""
                                                                                 class="block w-20 px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                                                                 <option>01</option>
                                                                                 <option>02</option>
@@ -3484,8 +3484,8 @@
                                                                                 class="text-sm font-semibold text-gray-600"
                                                                                 for="businessname">mm
                                                                             </label>
-                                                                            <select id="jobtype" name="jobtype"
-                                                                                autocomplete="jobtype"
+                                                                            <select id="" name=""
+                                                                                autocomplete=""
                                                                                 class="block w-20 px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                                                                 <option>01</option>
                                                                                 <option>02</option>
@@ -3502,8 +3502,8 @@
                                                                             </select>
                                                                         </div>
                                                                         <div>
-                                                                            <select id="jobtype" name="jobtype"
-                                                                                autocomplete="jobtype"
+                                                                            <select id="" name=""
+                                                                                autocomplete=""
                                                                                 class="block w-20 px-2 py-1 mt-6 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                                                                 <option>PM</option>
                                                                                 <option>AM</option>
@@ -3979,7 +3979,7 @@
                     <div class="flex flex-col items-center justify-center gap-4 pt-6 lg:flex-row lg:justify-between">
                         <div class="flex items-center">
                             <p class="pr-2 text-sm font-medium">Rows per page</p>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                            <select id="" name="" autocomplete=""
                                 class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                 <option>10</option>
                                 <option>25</option>
@@ -4061,7 +4061,7 @@
                 </div>
             </header>
             <div class="top-0 w-full h-full p-4 py-12 overflow-y-scroll">
-                <div class="pt-2">
+                <div class="pt-2" x-data="{ selectedOption: '' }">
                     <div class="space-y-2">
                         <div class="text-left">
                             <label class="text-sm font-semibold text-gray-600" for="businessname">Select
@@ -4073,7 +4073,7 @@
                         <div class="text-left">
                             <label class="text-sm font-semibold text-gray-600" for="businessname">Select
                                 Branch</label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype" disabled=""
+                            <select id="" name="" autocomplete="" disabled=""
                                 class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
 
                                 <option>Ecomads Pvt Ltd, Covai</option>
@@ -4084,7 +4084,7 @@
                         <div class="text-left">
                             <label class="text-sm font-semibold text-gray-600" for="businessname">Select
                                 Department</label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype" disabled=""
+                            <select id="" name="" autocomplete="" disabled=""
                                 class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                 <option>Sales</option>
                                 <option>All</option>
@@ -4096,7 +4096,7 @@
                             <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">Select
                                 Employee
                                 Category</label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                            <select id="" name="" autocomplete=""
                                 class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                 <option>All</option>
                                 <option>Permanant</option>
@@ -4109,7 +4109,7 @@
                         <div class="text-left">
                             <label class="text-sm font-semibold text-gray-600" for="businessname">Select
                                 Designation</label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                            <select id="" name="" autocomplete=""
                                 class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                 <option>All</option>
                                 <option>Director</option>
@@ -4122,7 +4122,7 @@
                         <div class="text-left">
                             <label class="text-sm font-semibold text-gray-600" for="businessname">Select
                                 Shift</label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                            <select id="" name="" autocomplete=""
                                 class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                 <option>All</option>
                                 <option>Morning Shift</option>
@@ -4132,17 +4132,44 @@
                         </div>
                         <div class="text-left">
                             <label class="text-sm font-semibold text-gray-600" for="businessname">Select
-                                Type</label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                Status</label>
+                            <select id="" name="" autocomplete="" x-model="selectedOption"
                                 class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                 <option>All</option>
-                                <option>Permission</option>
-                                <option>Late Entry </option>
-                                <option>Early Exit</option>
-                                <option>Overtime</option>
+                                <option>Present</option>
+                                <option>Absent</option>
+                                <option>Halfday</option>
+                                <option>Late Entry</option>
+                                <option>Not Punched</option>
+                                <option>Paid Leave</option>
+                                <option>Paid Halfday Leave</option>
+                                <option>Unpaid Leave</option>
+                                <option>Unpaid Halfday Leave</option>
+                                <option value="option1">Weekoff</option>
+                                <option value="option1">Public Holiday</option>
+                                <option>1.5X Present</option>
+                                <option>2X Present</option>
                                 <option>Forgot Out</option>
-                                <option>Short Hours</option>
-                                <option>Break Hours</option>
+                            </select>
+                        </div>
+                        <div class="text-left" x-show="selectedOption === 'option1'">
+                            <label class="text-sm font-semibold text-gray-600" for="">Select
+                                Punch Status</label>
+                            <select id="" name="" autocomplete=""
+                                class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>All</option>
+                                <option>Punched</option>
+                                <option>Not Punched </option>
+                            </select>
+                        </div>
+                        <div class="text-left">
+                            <label class="text-sm font-semibold text-gray-600" for="">Select
+                                Type</label>
+                            <select id="" name="" autocomplete=""
+                                class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>All</option>
+                                <option>Penalties</option>
+                                <option>Overtime </option>
                             </select>
                         </div>
                         <div class="w-48 pt-6">
