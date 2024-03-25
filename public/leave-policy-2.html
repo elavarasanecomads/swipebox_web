@@ -1,0 +1,624 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+                    <!--Brudcrumb-->
+                    <div class="flex items-center gap-2">
+                        <a href="leave-settings-2.html" class="flex items-center gap-1 text-sm text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5">
+                                <path fill-rule="evenodd"
+                                    d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <p class="text-2xl font-bold text-gray-900">Leave Policy</p>
+
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-4 pt-6 lg:grid-cols-2 lg:w-3/5">
+                        <div>
+                            <label class="text-sm font-semibold text-gray-600" for="branch">Leave Name</label>
+                            <input type="text" name="businessname" id="businessname" autocomplete="title" placeholder=""
+                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                        </div>
+                        <div>
+                            <label class="text-sm font-semibold text-gray-600" for="branch">Leave Code</label>
+                            <input type="text" name="businessname" id="businessname" autocomplete="title" placeholder=""
+                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                        </div>
+                        <div>
+                            <label class="text-sm font-semibold text-gray-600" for="businessname">Type</label>
+                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>Select</option>
+                                <option>Paid</option>
+                                <option>Unpaid</option>
+                            </select>
+                        </div>
+                        <div class="lg:col-span-2" x-data="{ selectedOption: 'option1' }">
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="col-start-1">
+                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Leave
+                                        Days</label>
+                                    <input type="text" name="businessname" id="businessname" autocomplete="title"
+                                        placeholder=""
+                                        class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Type</label>
+                                    <select x-model="selectedOption" id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option value="option1">Monthly Basis</option>
+                                        <option value="option2">Quarterly Basis</option>
+                                        <option value="option3">Half Yearly Basis</option>
+                                        <option value="option4">Yearly Basis</option>
+                                        <option value="option5">Present Days Basis</option>
+                                        <option value="option6">One Time</option>
+                                    </select>
+                                </div>
+                                <div x-show="selectedOption === 'option5'">
+                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Present Days</label>
+                                    <input type="text" name="businessname" id="businessname" autocomplete="title"
+                                        placeholder=""
+                                        class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                            </div>
+                            <!-- info text -->
+                            <div class="pt-2 text-sm text-gray-600">                                
+                                <div class="space-y-2" x-show="selectedOption === 'option1'">
+                                    <p><span class="font-semibold text-gray-900">Every month 1 CL
+                                        </span>will be allotted to the staff.</p>
+                                    <p><span class="font-semibold text-gray-900">Total of 12 Leave Days
+                                        </span>will be allotted in a year in the Leave Cycle.</p>
+                                </div>
+                                <div class="space-y-2" x-show="selectedOption === 'option2'">
+                                    <p><span class="font-semibold text-gray-900">Every Quarter 1 CL
+                                        </span>will be allotted to the staff.</p>
+                                    <p><span class="font-semibold text-gray-900">Total of 4 Leave Days
+                                        </span>will be allotted in a year in the Leave Cycle.</p>
+                                </div>
+                                <div class="space-y-2" x-show="selectedOption === 'option3'">
+                                    <p><span class="font-semibold text-gray-900">Every Half Year 1 CL
+                                        </span>will be allotted to the staff.</p>
+                                    <p><span class="font-semibold text-gray-900">Total of 2 Leave Days
+                                        </span>will be allotted in a year in the Leave Cycle.</p>
+                                </div>
+                                <div class="space-y-2" x-show="selectedOption === 'option4'">
+                                    <p><span class="font-semibold text-gray-900">Total of 1 Leave Days
+                                        </span> will be allotted in a year in the Leave Cycle.
+                                    </p>
+                                </div>
+                                <div  class="space-y-2" x-show="selectedOption === 'option5'">
+                                    <div class="flex items-center gap-2 "><p><span class="font-semibold text-gray-900">1 Leave Day
+                                    </span> will be allotted after every <span
+                                        class="font-semibold text-gray-900">10 present days.</span></p>
+                                            <div  x-data="{ open: false }" class="relative">
+                                                <button @click="open = !open" class="text-gray-500"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                        stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                                    </svg>
+                                                </button>
+                                                <div x-show="open" @click.away="open = false"
+                                                    class="absolute z-10 flex items-center justify-center w-48 p-2 text-xs text-center text-white bg-gray-800 rounded-md shadow-lg -left-24 top-6">
+                                                    Present, Weekly Off, Public Holiday, Paid Leave days will be considered for the worked day calculation.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                                <div class="space-y-2" x-show="selectedOption === 'option6'">
+                                    <p>Total of <span class="font-semibold text-gray-900">1 Leave Days</span> will be
+                                        allotted once after <span class="font-semibold text-gray-900">1 Years</span></p>
+                                    <p>Leave to be used within the Calendar year (Jan - Dec) or within 180 days of
+                                        credit, whichever duration is greater.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+
+                    <div class="py-6">
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4" x-data="{toggle: false}">
+
+                                <div class="relative w-12 h-6 transition duration-200 ease-linear rounded-full"
+                                    :class="[toggle ? 'bg-green-600' : 'bg-gray-400']">
+
+                                    <label for="toggle"
+                                        class="absolute drop-shadow-lg left-1 bg-white mt-[2px] w-5 h-5 rounded-full transition transform duration-100 ease-linear cursor-pointer"
+                                        :class="[toggle ? 'translate-x-full border-black' : 'translate-x-0 border-gray-400']">
+                                    </label>
+
+                                    <input type="checkbox" id="toggle" name="toggle" x-model="toggle"
+                                        class="w-full h-full appearance-none active:outline-none focus:outline-none" />
+                                </div>
+                                <p class="text-gray-800">Apply sandwich rule</p>
+                                <div x-data="{ open: false }" class="relative">
+                                    <button @click="open = !open" class="text-gray-500"><svg
+                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                        </svg>
+                                    </button>
+                                    <div x-show="open" @click.away="open = false"
+                                        class="absolute z-10 flex items-center justify-center w-48 p-2 text-xs text-center text-white bg-gray-800 rounded-md shadow-lg -left-24 top-6">
+                                        Holidays and weekly offs falling between applied leaves will be deducted from
+                                        leave balance
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div x-data="{toggle: false}">
+                                <div class="flex items-start gap-4">
+                                    <!--Toogle enable / disable-->
+                                    <div class="relative flex-shrink-0 w-12 h-6 transition duration-200 ease-linear rounded-full"
+                                        :class="[toggle ? 'bg-green-600' : 'bg-gray-400']">
+
+                                        <label for="toggle"
+                                            class="absolute drop-shadow-lg left-1 bg-white mt-[2px] w-5 h-5 rounded-full transition transform duration-100 ease-linear cursor-pointer"
+                                            :class="[toggle ? 'translate-x-full border-black' : 'translate-x-0 border-gray-400']">
+                                        </label>
+
+                                        <input type="checkbox" id="toggle" name="toggle" x-model="toggle"
+                                            class="w-full h-full appearance-none active:outline-none focus:outline-none" />
+                                    </div>
+                                    <p class="text-gray-800">Avail Leave within a X days window of the actual birth date
+                                    </p>
+                                    <div x-data="{ open: false }" class="relative">
+                                        <button @click="open = !open" class="text-gray-500"><svg
+                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                            </svg>
+                                        </button>
+                                        <div x-show="open" @click.away="open = false"
+                                            class="absolute z-10 flex items-center justify-center w-48 p-2 text-xs text-center text-white bg-gray-800 rounded-md shadow-lg -left-24 top-6">
+                                            You can set up the date of birth details for staff members in the employee
+                                            profile section
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pt-2" id="toggleOn" x-show="toggle">
+                                    <p class="text-gray-800">Avail Leave within a<span
+                                            class="border-b border-gray-600"><input
+                                                class="w-12 px-2 py-1 text-gray-600 bg-transparent border-none appearance-none focus:outline-none"
+                                                type="text"></span> days window of the actual birth date.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4" x-data="{toggle: false}">
+
+                                <div class="relative flex-shrink-0 w-12 h-6 transition duration-200 ease-linear rounded-full"
+                                    :class="[toggle ? 'bg-green-600' : 'bg-gray-400']">
+
+                                    <label for="toggle"
+                                        class="absolute drop-shadow-lg left-1 bg-white mt-[2px] w-5 h-5 rounded-full transition transform duration-100 ease-linear cursor-pointer"
+                                        :class="[toggle ? 'translate-x-full border-black' : 'translate-x-0 border-gray-400']">
+                                    </label>
+
+                                    <input type="checkbox" id="toggle" name="toggle" x-model="toggle"
+                                        class="w-full h-full appearance-none active:outline-none focus:outline-none" />
+                                </div>
+                                <p class="text-gray-800">This Leave type can't be clubbed with any other leave
+                                    type.
+                                </p>
+                            </div>
+
+                            <div class="flex items-start gap-4" x-data="{toggle: false}">
+
+                                <div class="relative flex-shrink-0 w-12 h-6 transition duration-200 ease-linear rounded-full"
+                                    :class="[toggle ? 'bg-green-600' : 'bg-gray-400']">
+
+                                    <label for="toggle"
+                                        class="absolute drop-shadow-lg left-1 bg-white mt-[2px] w-5 h-5 rounded-full transition transform duration-100 ease-linear cursor-pointer"
+                                        :class="[toggle ? 'translate-x-full border-black' : 'translate-x-0 border-gray-400']">
+                                    </label>
+
+                                    <input type="checkbox" id="toggle" name="toggle" x-model="toggle"
+                                        class="w-full h-full appearance-none active:outline-none focus:outline-none" />
+                                </div>
+                                <p class="text-gray-800">Leave balances shoud be visible to employees</p>
+                                <div x-data="{ open: false }" class="relative">
+                                    <button @click="open = !open" class="text-gray-500"><svg
+                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                        </svg>
+                                    </button>
+                                    <div x-show="open" @click.away="open = false"
+                                        class="absolute z-10 flex items-center justify-center w-48 p-2 text-xs text-center text-white bg-gray-800 rounded-md shadow-lg -left-24 top-6">
+                                        Leave balance will not be visible to staff, They can still apply leave as per
+                                        alloted Leaves
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div x-data="{toggle: false}">
+                                <div class="flex items-start gap-4">
+                                    <!--Toogle enable / disable-->
+                                    <div class="relative flex-shrink-0 w-12 h-6 transition duration-200 ease-linear rounded-full"
+                                        :class="[toggle ? 'bg-green-600' : 'bg-gray-400']">
+
+                                        <label for="toggle"
+                                            class="absolute drop-shadow-lg left-1 bg-white mt-[2px] w-5 h-5 rounded-full transition transform duration-100 ease-linear cursor-pointer"
+                                            :class="[toggle ? 'translate-x-full border-black' : 'translate-x-0 border-gray-400']">
+                                        </label>
+
+                                        <input type="checkbox" id="toggle" name="toggle" x-model="toggle"
+                                            class="w-full h-full appearance-none active:outline-none focus:outline-none" />
+                                    </div>
+                                    <p class="text-gray-800">Employee can apply backdated leaves upto X days</p>
+
+                                </div>
+                                <div class="pt-2" id="toggleOn" x-show="toggle">
+                                    <p class="text-gray-800">Allow backdated leaves upto <span
+                                            class="border-b border-gray-600"><input
+                                                class="w-12 px-2 py-1 text-gray-600 bg-transparent border-none appearance-none focus:outline-none"
+                                                type="text"></span> days.</p>
+                                </div>
+                            </div>
+                            <div x-data="{toggle: false}">
+                                <div class="flex items-start gap-4">
+                                    <!--Toogle enable / disable-->
+                                    <div class="relative flex-shrink-0 w-12 h-6 transition duration-200 ease-linear rounded-full"
+                                        :class="[toggle ? 'bg-green-600' : 'bg-gray-400']">
+
+                                        <label for="toggle"
+                                            class="absolute drop-shadow-lg left-1 bg-white mt-[2px] w-5 h-5 rounded-full transition transform duration-100 ease-linear cursor-pointer"
+                                            :class="[toggle ? 'translate-x-full border-black' : 'translate-x-0 border-gray-400']">
+                                        </label>
+
+                                        <input type="checkbox" id="toggle" name="toggle" x-model="toggle"
+                                            class="w-full h-full appearance-none active:outline-none focus:outline-none" />
+                                    </div>
+                                    <p class="text-gray-800">Restrict previous month Leave actions after X day of the
+                                        current month</p>
+
+                                </div>
+                                <div class="pt-2" id="toggleOn" x-show="toggle">
+                                    <p class="text-gray-800">Restrict previous month Leave actions after <span
+                                            class="border-b border-gray-600"><input
+                                                class="w-12 px-2 py-1 text-gray-600 bg-transparent border-none appearance-none focus:outline-none"
+                                                type="text"></span> day of the current month </p>
+                                </div>
+                            </div>
+
+                            <div x-data="{toggle: false}">
+                                <div class="flex items-start gap-4">
+                                    <!--Toogle enable / disable-->
+                                    <div class="relative flex-shrink-0 w-12 h-6 transition duration-200 ease-linear rounded-full"
+                                        :class="[toggle ? 'bg-green-600' : 'bg-gray-400']">
+
+                                        <label for="toggle"
+                                            class="absolute drop-shadow-lg left-1 bg-white mt-[2px] w-5 h-5 rounded-full transition transform duration-100 ease-linear cursor-pointer"
+                                            :class="[toggle ? 'translate-x-full border-black' : 'translate-x-0 border-gray-400']">
+                                        </label>
+
+                                        <input type="checkbox" id="toggle" name="toggle" x-model="toggle"
+                                            class="w-full h-full appearance-none active:outline-none focus:outline-none" />
+                                    </div>
+                                    <p class="text-gray-800">Restrict applying up to X days Leave in a month</p>
+                                    <div x-data="{ open: false }" class="relative">
+                                        <button @click="open = !open" class="text-gray-500"><svg
+                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                            </svg>
+                                        </button>
+                                        <div x-show="open" @click.away="open = false"
+                                            class="absolute z-10 flex items-center justify-center w-48 p-2 text-xs text-center text-white bg-gray-800 rounded-md shadow-lg -left-24 top-6">
+                                            Staff can apply this leave only up to X days in a month
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pt-2" id="toggleOn" x-show="toggle">
+                                    <p class="text-gray-800">Restrict applying up to <span
+                                            class="border-b border-gray-600"><input
+                                                class="w-12 px-2 py-1 text-gray-600 bg-transparent border-none appearance-none focus:outline-none"
+                                                type="text"></span> days Leave in a month</p>
+                                </div>
+                            </div>
+
+                            <div x-data="{toggle: false}">
+                                <div class="flex items-start gap-4">
+                                    <!--Toogle enable / disable-->
+                                    <div class="relative flex-shrink-0 w-12 h-6 transition duration-200 ease-linear rounded-full"
+                                        :class="[toggle ? 'bg-green-600' : 'bg-gray-400']">
+
+                                        <label for="toggle"
+                                            class="absolute drop-shadow-lg left-1 bg-white mt-[2px] w-5 h-5 rounded-full transition transform duration-100 ease-linear cursor-pointer"
+                                            :class="[toggle ? 'translate-x-full border-black' : 'translate-x-0 border-gray-400']">
+                                        </label>
+
+                                        <input type="checkbox" id="toggle" name="toggle" x-model="toggle"
+                                            class="w-full h-full appearance-none active:outline-none focus:outline-none" />
+                                    </div>
+                                    <p class="text-gray-800">Employees leaves request can be auto Approve/reject after X
+                                        days.</p>
+
+                                </div>
+                                <div class="pt-2" id="toggleOn" x-show="toggle">
+                                    <div class="flex flex-wrap items-center gap-2 text-sm text-gray-800">
+                                        <span>Auto</span>
+                                        <select id="branch" name="branch" autocomplete="branch"
+                                            class="block px-3 py-1 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm w-28 focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>Select</option>
+                                            <option>Approve</option>
+                                            <option>Reject</option>
+                                        </select>
+                                        <span>after</span>
+                                        <span class="border-b border-gray-600"><input
+                                                class="w-12 px-2 py-1 text-gray-600 bg-transparent border-none appearance-none focus:outline-none"
+                                                type="text"></span>
+                                        <span>days.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div x-data="{toggle: false}">
+                                <div class="flex items-start gap-4">
+                                    <!--Toogle enable / disable-->
+                                    <div class="relative flex-shrink-0 w-12 h-6 transition duration-200 ease-linear rounded-full"
+                                        :class="[toggle ? 'bg-green-600' : 'bg-gray-400']">
+
+                                        <label for="toggle"
+                                            class="absolute drop-shadow-lg left-1 bg-white mt-[2px] w-5 h-5 rounded-full transition transform duration-100 ease-linear cursor-pointer"
+                                            :class="[toggle ? 'translate-x-full border-black' : 'translate-x-0 border-gray-400']">
+                                        </label>
+
+                                        <input type="checkbox" id="toggle" name="toggle" x-model="toggle"
+                                            class="w-full h-full appearance-none active:outline-none focus:outline-none" />
+                                    </div>
+                                    <p class="text-gray-800">Auto cancel previous month pending Leaves on X day of the
+                                        current month</p>
+
+                                </div>
+                                <div class="pt-2" id="toggleOn" x-show="toggle">
+                                    <p class="text-gray-800">Auto cancel previous month pending Leaves on <span
+                                            class="border-b border-gray-600"><input
+                                                class="w-12 px-2 py-1 text-gray-600 bg-transparent border-none appearance-none focus:outline-none"
+                                                type="text"></span> day of the current month</p>
+                                </div>
+                            </div>
+
+                            <div x-data="{toggle: false}">
+                                <div class="flex items-start gap-4">
+                                    <!--Toogle enable / disable-->
+                                    <div class="relative flex-shrink-0 w-12 h-6 transition duration-200 ease-linear rounded-full"
+                                        :class="[toggle ? 'bg-green-600' : 'bg-gray-400']">
+
+                                        <label for="toggle"
+                                            class="absolute drop-shadow-lg left-1 bg-white mt-[2px] w-5 h-5 rounded-full transition transform duration-100 ease-linear cursor-pointer"
+                                            :class="[toggle ? 'translate-x-full border-black' : 'translate-x-0 border-gray-400']">
+                                        </label>
+
+                                        <input type="checkbox" id="toggle" name="toggle" x-model="toggle"
+                                            class="w-full h-full appearance-none active:outline-none focus:outline-none" />
+                                    </div>
+                                    <p class="text-gray-800">Maximum number of consecutive days of leave allowed.</p>
+
+                                </div>
+                                <div class="pt-2" id="toggleOn" x-show="toggle">
+                                    <p class="text-gray-800">Maximum<span class="border-b border-gray-600"><input
+                                                class="w-12 px-2 py-1 text-gray-600 bg-transparent border-none appearance-none focus:outline-none"
+                                                type="text"></span> consecutive days of leave allowed.</p>
+                                </div>
+                            </div>
+                            <div x-data="{toggle: false}">
+                                <div class="flex items-start gap-4">
+                                    <!--Toogle enable / disable-->
+                                    <div class="relative flex-shrink-0 w-12 h-6 transition duration-200 ease-linear rounded-full"
+                                        :class="[toggle ? 'bg-green-600' : 'bg-gray-400']">
+
+                                        <label for="toggle"
+                                            class="absolute drop-shadow-lg left-1 bg-white mt-[2px] w-5 h-5 rounded-full transition transform duration-100 ease-linear cursor-pointer"
+                                            :class="[toggle ? 'translate-x-full border-black' : 'translate-x-0 border-gray-400']">
+                                        </label>
+
+                                        <input type="checkbox" id="toggle" name="toggle" x-model="toggle"
+                                            class="w-full h-full appearance-none active:outline-none focus:outline-none" />
+                                    </div>
+                                    <p class="text-gray-800">At the end of every cycle, the employee can encash the
+                                        remaining leave balances</p>
+
+                                </div>
+                                <div class="pt-2" id="toggleOn" x-show="toggle">
+                                    <p class="text-gray-800">Encash maximum<span class="border-b border-gray-600"><input
+                                                class="w-12 px-2 py-1 text-gray-600 bg-transparent border-none appearance-none focus:outline-none"
+                                                type="text"></span> Unused Leaves.</p>
+                                </div>
+                            </div>
+                            <div x-data="{toggle: false}">
+                                <div class="flex items-start gap-4">
+                                    <!--Toogle enable / disable-->
+                                    <div class="relative flex-shrink-0 w-12 h-6 transition duration-200 ease-linear rounded-full"
+                                        :class="[toggle ? 'bg-green-600' : 'bg-gray-400']">
+
+                                        <label for="toggle"
+                                            class="absolute drop-shadow-lg left-1 bg-white mt-[2px] w-5 h-5 rounded-full transition transform duration-100 ease-linear cursor-pointer"
+                                            :class="[toggle ? 'translate-x-full border-black' : 'translate-x-0 border-gray-400']">
+                                        </label>
+
+                                        <input type="checkbox" id="toggle" name="toggle" x-model="toggle"
+                                            class="w-full h-full appearance-none active:outline-none focus:outline-none" />
+                                    </div>
+                                    <p class="text-gray-800">Carry forward the employee balance leaves at the end of
+                                        each cycle</p>
+
+                                </div>
+                                <div class="pt-2" id="toggleOn" x-show="toggle">
+                                    <p class="text-gray-800">Carry forward maximum<span
+                                            class="border-b border-gray-600"><input
+                                                class="w-12 px-2 py-1 text-gray-600 bg-transparent border-none appearance-none focus:outline-none"
+                                                type="text"></span> Unused Leaves.</p>
+                                </div>
+                            </div>
+                            <div x-data="{toggle: false}">
+                                <div class="flex items-start gap-4">
+                                    <div class="relative flex-shrink-0 w-12 h-6 transition duration-200 ease-linear rounded-full"
+                                        :class="[toggle ? 'bg-green-600' : 'bg-gray-400']">
+
+                                        <label for="toggle"
+                                            class="absolute drop-shadow-lg left-1 bg-white mt-[2px] w-5 h-5 rounded-full transition transform duration-100 ease-linear cursor-pointer"
+                                            :class="[toggle ? 'translate-x-full border-black' : 'translate-x-0 border-gray-400']">
+                                        </label>
+
+                                        <input type="checkbox" id="toggle" name="toggle" x-model="toggle"
+                                            class="w-full h-full appearance-none active:outline-none focus:outline-none" />
+                                    </div>
+                                    <p class="text-gray-800">Allow advance leaves upto X Days.</p>
+
+                                </div>
+                                <div class="pt-2" id="toggleOn" x-show="toggle">
+                                    <p class="text-gray-800">Allow advance leaves upto <span
+                                            class="border-b border-gray-600"><input
+                                                class="w-12 px-2 py-1 text-gray-600 bg-transparent border-none appearance-none focus:outline-none"
+                                                type="text"></span> days.</p>
+                                </div>
+                            </div>
+
+
+                            <div x-data="{toggle: false}">
+                                <div class="flex items-start gap-4">
+                                    <!--Toogle enable / disable-->
+                                    <div class="relative flex-shrink-0 w-12 h-6 transition duration-200 ease-linear rounded-full"
+                                        :class="[toggle ? 'bg-green-600' : 'bg-gray-400']">
+
+                                        <label for="toggle"
+                                            class="absolute drop-shadow-lg left-1 bg-white mt-[2px] w-5 h-5 rounded-full transition transform duration-100 ease-linear cursor-pointer"
+                                            :class="[toggle ? 'translate-x-full border-black' : 'translate-x-0 border-gray-400']">
+                                        </label>
+
+                                        <input type="checkbox" id="toggle" name="toggle" x-model="toggle"
+                                            class="w-full h-full appearance-none active:outline-none focus:outline-none" />
+                                    </div>
+                                    <p class="text-gray-800">Allocate Leaves after X days of joining</p>
+
+                                </div>
+                                <div class="pt-4 pl-4 space-y-2" id="toggleOn" x-show="toggle">
+                                    <div class="inline-flex items-center">
+                                        <input name="weekoff" checked="" type="checkbox" class="w-4 h-4 form-checkbox">
+                                        <span class="ml-2 text-gray-800">Allot leaves from joining date</span>
+                                    </div>
+                                    <p class="text-gray-800">Allocate allot leaves after <span
+                                            class="border-b border-gray-600"><input
+                                                class="w-12 px-2 py-1 text-gray-600 bg-transparent border-none appearance-none focus:outline-none"
+                                                type="text"></span> days of joining.</p>
+                                </div>
+                            </div>
+                            <div x-data="{toggle: false}">
+                                <div class="flex items-start gap-4">
+                                    <div class="relative flex-shrink-0 w-12 h-6 transition duration-200 ease-linear rounded-full"
+                                        :class="[toggle ? 'bg-green-600' : 'bg-gray-400']">
+
+                                        <label for="toggle"
+                                            class="absolute drop-shadow-lg left-1 bg-white mt-[2px] w-5 h-5 rounded-full transition transform duration-100 ease-linear cursor-pointer"
+                                            :class="[toggle ? 'translate-x-full border-black' : 'translate-x-0 border-gray-400']">
+                                        </label>
+
+                                        <input type="checkbox" id="toggle" name="toggle" x-model="toggle"
+                                            class="w-full h-full appearance-none active:outline-none focus:outline-none" />
+                                    </div>
+                                    <p class="text-gray-800">Attachment mandatory if leave more than X days.</p>
+
+                                </div>
+                                <div class="pt-2" id="toggleOn" x-show="toggle">
+                                    <p class="text-gray-800">Attachment mandatory if leave more than <span
+                                            class="border-b border-gray-600"><input
+                                                class="w-12 px-2 py-1 text-gray-600 bg-transparent border-none appearance-none focus:outline-none"
+                                                type="text"></span> days.</p>
+                                </div>
+                            </div>
+                            <div x-data="{toggle: false}">
+                                <div class="flex items-start gap-4">
+                                    <div class="relative flex-shrink-0 w-12 h-6 transition duration-200 ease-linear rounded-full"
+                                        :class="[toggle ? 'bg-green-600' : 'bg-gray-400']">
+
+                                        <label for="toggle"
+                                            class="absolute drop-shadow-lg left-1 bg-white mt-[2px] w-5 h-5 rounded-full transition transform duration-100 ease-linear cursor-pointer"
+                                            :class="[toggle ? 'translate-x-full border-black' : 'translate-x-0 border-gray-400']">
+                                        </label>
+
+                                        <input type="checkbox" id="toggle" name="toggle" x-model="toggle"
+                                            class="w-full h-full appearance-none active:outline-none focus:outline-none" />
+                                    </div>
+                                    <p class="text-gray-800">Apply Leave X days in advance</p>
+                                    <div x-data="{ open: false }" class="relative">
+                                        <button @click="open = !open" class="text-gray-500"><svg
+                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                            </svg>
+                                        </button>
+                                        <div x-show="open" @click.away="open = false"
+                                            class="absolute z-10 flex items-center justify-center w-48 p-2 text-xs text-center text-white bg-gray-800 rounded-md shadow-lg -left-24 top-6">
+                                            If you have this policy enabled, staff will be required to apply for Leave X
+                                            days in advance
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pt-2" id="toggleOn" x-show="toggle">
+                                    <p class="text-gray-800">Apply Leave <span class="border-b border-gray-600"><input
+                                                class="w-12 px-2 py-1 text-gray-600 bg-transparent border-none appearance-none focus:outline-none"
+                                                type="text"></span> days in advance</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4" x-data="{toggle: false}">
+                                <div class="relative w-12 h-6 transition duration-200 ease-linear rounded-full"
+                                    :class="[toggle ? 'bg-green-600' : 'bg-gray-400']">
+
+                                    <label for="toggle"
+                                        class="absolute drop-shadow-lg left-1 bg-white mt-[2px] w-5 h-5 rounded-full transition transform duration-100 ease-linear cursor-pointer"
+                                        :class="[toggle ? 'translate-x-full border-black' : 'translate-x-0 border-gray-400']">
+                                    </label>
+
+                                    <input type="checkbox" id="toggle" name="toggle" x-model="toggle"
+                                        class="w-full h-full appearance-none active:outline-none focus:outline-none" />
+                                </div>
+                                <p class="text-gray-800">Apply Leave in Hours</p>
+                            </div>
+
+                            <div>
+                                <button
+                                    class="p-3 py-3 font-bold text-center text-white uppercase bg-blue-600 rounded-md w-36">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+</html>
