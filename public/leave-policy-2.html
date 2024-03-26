@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="output.css" rel="stylesheet">
+    <script type="text/javascript" src="multiselect-dropdown.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -27,23 +28,24 @@
                                     clip-rule="evenodd"></path>
                             </svg>
                         </a>
-                        <p class="text-2xl font-bold text-gray-900">Leave Policy</p>
+                        <p class="text-2xl font-bold text-gray-900">Leave Type</p>
 
                     </div>
 
                     <div class="grid grid-cols-1 gap-4 pt-6 lg:grid-cols-2 lg:w-3/5">
                         <div>
-                            <label class="text-sm font-semibold text-gray-600" for="branch">Leave Name</label>
+                            <label class="text-sm font-semibold text-gray-600" for="branch">Leave Name <span class="text-red-600">*</span></label>
                             <input type="text" name="businessname" id="businessname" autocomplete="title" placeholder=""
                                 class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                         </div>
                         <div>
-                            <label class="text-sm font-semibold text-gray-600" for="branch">Leave Code</label>
+                            <label class="text-sm font-semibold text-gray-600" for="branch">Leave Code <span class="text-red-600">*</span></label>
                             <input type="text" name="businessname" id="businessname" autocomplete="title" placeholder=""
                                 class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                         </div>
+                        
                         <div>
-                            <label class="text-sm font-semibold text-gray-600" for="businessname">Type</label>
+                            <label class="text-sm font-semibold text-gray-600" for="businessname">Type <span class="text-red-600">*</span></label>
                             <select id="jobtype" name="jobtype" autocomplete="jobtype"
                                 class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                 <option>Select</option>
@@ -51,19 +53,36 @@
                                 <option>Unpaid</option>
                             </select>
                         </div>
+                        <div>
+                            <label class="text-sm font-semibold text-gray-600" for="businessname">Leave Group <span class="text-red-600">*</span></label>
+                            <select id="" name="select" multiple multiselect-search="true"
+                            multiselect-select-all="true" multiselect-max-items="10" autocomplete=""
+                                class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                 <option>Level 1 Employees</option>
+                                <option>Level 2 Employees</option>
+                            </select>
+                        </div>
+                        <div class="lg:col-span-2">
+                            <label class="text-sm font-semibold text-gray-600"
+                                for="">
+                                Description</label>
+                            <textarea name="" id="" cols="30" rows="2"
+                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600"></textarea>
+
+                        </div>
                         <div class="lg:col-span-2" x-data="{ selectedOption: 'option1' }">
-                            <div class="grid grid-cols-3 gap-4">
+                            <div class="grid grid-cols-2 gap-4 lg:grid-cols-3">
                                 <div class="col-start-1">
                                     <label class="text-sm font-semibold text-gray-600" for="businessname">Leave
-                                        Days</label>
+                                        Days <span class="text-red-600">*</span></label>
                                     <input type="text" name="businessname" id="businessname" autocomplete="title"
                                         placeholder=""
                                         class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                 </div>
                                 <div>
-                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Type</label>
+                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Type <span class="text-red-600">*</span></label>
                                     <select x-model="selectedOption" id="jobtype" name="jobtype" autocomplete="jobtype"
-                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        class="block w-full px-3 py-2.5 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                         <option value="option1">Monthly Basis</option>
                                         <option value="option2">Quarterly Basis</option>
                                         <option value="option3">Half Yearly Basis</option>
@@ -73,7 +92,7 @@
                                     </select>
                                 </div>
                                 <div x-show="selectedOption === 'option5'">
-                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Present Days</label>
+                                    <label class="text-sm font-semibold text-gray-600" for="businessname">Present Days <span class="text-red-600">*</span></label>
                                     <input type="text" name="businessname" id="businessname" autocomplete="title"
                                         placeholder=""
                                         class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
