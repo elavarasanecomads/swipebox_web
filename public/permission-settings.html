@@ -19,7 +19,7 @@
         <div class="h-full p-4 bg-white border rounded-md lg:p-8">
           <!--Brudcrumb-->
           <div class="flex items-center gap-1 text-sm text-gray-600">
-            <a href="payschedule-monthly.html">
+            <a href="settings-2.html">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
                 <path fill-rule="evenodd"
                   d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
@@ -43,13 +43,13 @@
                   <input type="checkbox" id="toggle" name="toggle" x-model="toggle"
                     class="w-full h-full appearance-none active:outline-none focus:outline-none" />
                 </div>
-                <p class="text-gray-800">Set X time permissions in a month.</p>
+                <p class="text-gray-800">Set X time permissions within a month.</p>
 
               </div>
               <div class="pt-2" id="toggleOn" x-show="toggle">
                 <p class="text-gray-800">Set<span class="border-b border-gray-600"><input
                       class="w-12 px-2 py-1 text-gray-600 bg-transparent border-none appearance-none focus:outline-none"
-                      type="text"></span> time permissions in a month.</p>
+                      type="text"></span> time permissions within a month.</p>
               </div>
             </div>
             <div x-data="{toggle: false}">
@@ -66,13 +66,13 @@
                   <input type="checkbox" id="toggle" name="toggle" x-model="toggle"
                     class="w-full h-full appearance-none active:outline-none focus:outline-none" />
                 </div>
-                <p class="text-gray-800">Set total X minutes permissions in a month.</p>
+                <p class="text-gray-800">Allocate a total of X hours of permissions within a month.</p>
 
               </div>
               <div class="pt-2" id="toggleOn" x-show="toggle">
-                <p class="text-gray-800">Set total<span class="border-b border-gray-600"><input
+                <p class="text-gray-800">Allocate a total of<span class="border-b border-gray-600"><input
                       class="w-12 px-2 py-1 text-gray-600 bg-transparent border-none appearance-none focus:outline-none"
-                      type="text"></span> minutes permissions in a month.</p>
+                      type="text"></span> hours of permissions within a month.</p>
               </div>
             </div>
             <div x-data="{toggle: false}">
@@ -89,13 +89,13 @@
                   <input type="checkbox" id="toggle" name="toggle" x-model="toggle"
                     class="w-full h-full appearance-none active:outline-none focus:outline-none" />
                 </div>
-                <p class="text-gray-800">Set maximum X minutes allowed per permissions.</p>
+                <p class="text-gray-800">Set the maximum allowance to X minutes per permission.</p>
 
               </div>
               <div class="pt-2" id="toggleOn" x-show="toggle">
-                <p class="text-gray-800">Set maximum<span class="border-b border-gray-600"><input
+                <p class="text-gray-800">Set the maximum allowance to <span class="border-b border-gray-600"><input
                       class="w-12 px-2 py-1 text-gray-600 bg-transparent border-none appearance-none focus:outline-none"
-                      type="text"></span> minutes allowed per permissions.</p>
+                      type="text"></span>minutes per permission.</p>
               </div>
             </div>
             <button class="w-1/2 p-3 font-semibold text-center text-white bg-blue-600 rounded-md lg:w-1/4">SAVE</button>
