@@ -32,104 +32,6 @@
                                 </svg>
                             </a>
                             <p class="text-2xl font-bold text-gray-900">Daily Attendance</p>
-
-                        </div>
-                        <div x-data="{ 'showModal': false }" x-cloak @keydown.escape="showModal = false">
-                            <button class="font-semibold text-blue-600" @click="showModal = true">Customize</button>
-                            <div class="fixed inset-0 z-50 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
-                                x-show="showModal" style="display: none">
-                                <!-- Modal inner -->
-                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-lg"
-                                    @click.away="showModal = false"
-                                    x-transition:enter="motion-safe:ease-out duration-300"
-                                    x-transition:enter-start="opacity-0 scale-90"
-                                    x-transition:enter-end="opacity-100 scale-100">
-                                    <!-- Title / Close-->
-                                    <div class="flex items-center justify-between">
-                                        <p class="font-bold text-gray-900">Customize fields</p>
-                                        <span @click="showModal = false">
-                                            <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
-                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M6 18L18 6M6 6l12 12"></path>
-                                            </svg>
-                                        </span>
-                                    </div>
-                                    <!-- content -->
-                                    <div class="w-full mt-4 space-y-4">
-                                        <ul class="grid grid-cols-2 gap-4 md:grid-cols-2 lg:grid-cols-2">
-                                            <li class="flex items-center gap-2">
-                                                <input class="w-4 h-4" checked type="checkbox">
-                                                <p>Not Punched</p>
-                                            </li>
-                                            <li class="flex items-center gap-2">
-                                                <input class="w-4 h-4" checked type="checkbox">
-                                                <p>Present</p>
-                                            </li>
-                                            <li class="flex items-center gap-2">
-                                                <input class="w-4 h-4" checked type="checkbox">
-                                                <p>Absent</p>
-                                            </li>
-                                            <li class="flex items-center gap-2">
-                                                <input class="w-4 h-4" checked type="checkbox">
-                                                <p>Halfday</p>
-                                            </li>
-                                            <li class="flex items-center gap-2">
-                                                <input class="w-4 h-4" checked type="checkbox">
-                                                <p>Late Entry</p>
-                                            </li>
-                                            <li class="flex items-center gap-2">
-                                                <input class="w-4 h-4" checked type="checkbox">
-                                                <p>Paid Leave</p>
-                                            </li>
-                                            <li class="flex items-center gap-2">
-                                                <input class="w-4 h-4" checked type="checkbox">
-                                                <p>Paid Halfday Leave</p>
-                                            </li>
-                                            <li class="flex items-center gap-2">
-                                                <input class="w-4 h-4" checked type="checkbox">
-                                                <p>Unpaid Leave</p>
-                                            </li>
-                                            <li class="flex items-center gap-2">
-                                                <input class="w-4 h-4" checked type="checkbox">
-                                                <p>Unpaid Halfday Leave</p>
-                                            </li>
-                                            <li class="flex items-center gap-2">
-                                                <input class="w-4 h-4" checked type="checkbox">
-                                                <p>Public Holiday</p>
-                                            </li>
-                                            <li class="flex items-center gap-2">
-                                                <input class="w-4 h-4" checked type="checkbox">
-                                                <p>Weekoff</p>
-                                            </li>
-                                            <li class="flex items-center gap-2">
-                                                <input class="w-4 h-4" checked type="checkbox">
-                                                <p>Forgot Out</p>
-                                            </li>
-                                            <li class="flex items-center gap-2">
-                                                <input class="w-4 h-4" checked type="checkbox">
-                                                <p>Earlyout</p>
-                                            </li>
-                                            <li class="flex items-center gap-2">
-                                                <input class="w-4 h-4 checked" type="checkbox">
-                                                <p>Short Hours</p>
-                                            </li>
-                                            <li class="flex items-center gap-2">
-                                                <input class="w-4 h-4" checked type="checkbox">
-                                                <p>1.5X Present</p>
-                                            </li>
-                                            <li class="flex items-center gap-2">
-                                                <input class="w-4 h-4" checked type="checkbox">
-                                                <p>2X Present</p>
-                                            </li>
-
-                                        </ul>
-                                        <button
-                                            class="px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded w-36">Save
-                                            Fields</button>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div x-data="{ clicks: 0, loading: false, contentVisible: false }" x-cloak>
@@ -339,6 +241,8 @@
                                             W.H</th>
                                         <th scope="col" class="p-4">
                                             Status</th>
+                                            <th scope="col" class="p-4">
+                                               Sub Status</th>
                                         <th scope="col" class="p-4" title="Overtime">
                                             OT</th>
                                         <th scope="col" class="p-4">
@@ -1555,6 +1459,9 @@
                                             </div>
                                         </td>
                                         <td class="p-4">
+                                            <p class="text-sm">FO | LE | 1.5X P | 2X P</p>
+                                        </td>
+                                        <td class="p-4">
                                             <div class="flex items-center gap-2">
                                                 <div x-data="{ 'showModal': false }">
                                                     <button @click="showModal = true"
@@ -1700,54 +1607,12 @@
                                                                             </div>
                                                                         </div>
                                                                         <div
-                                                                            class="grid grid-cols-1 gap-4 lg:grid-cols-2">
-                                                                            <div class="flex flex-col items-start">
-                                                                                <label
-                                                                                    class="text-sm font-medium text-gray-600">
-                                                                                    Early out Hours</label>
-                                                                                <input id="" type="time" value="01:00"
-                                                                                    class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
-                                                                            </div>
-                                                                            <div>
-                                                                                <label
-                                                                                    class="text-sm font-medium text-gray-600">
-                                                                                    Fine Type</label>
-                                                                                    <select class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
-                                                                                        <option>Fixed</option>
-                                                                                        <option>Halfday</option>
-                                                                                        <option>Fullday</option>
-                                                                                        <option>Forgive</option>
-                                                                                    </select>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div
-                                                                            class="grid grid-cols-1 gap-4 lg:grid-cols-2">
-                                                                            <div class="flex flex-col items-start">
-                                                                                <label
-                                                                                    class="text-sm font-medium text-gray-600">
-                                                                                    Break Hours</label>
-                                                                                <input id="" type="time" value="01:00"
-                                                                                    class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
-                                                                            </div>
-                                                                            <div>
-                                                                                <label
-                                                                                    class="text-sm font-medium text-gray-600">
-                                                                                    Fine Type</label>
-                                                                                    <select class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
-                                                                                        <option>Fixed</option>
-                                                                                        <option>Halfday</option>
-                                                                                        <option>Fullday</option>
-                                                                                        <option>Forgive</option>
-                                                                                    </select>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div
-                                                                        class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                                                                        class="grid grid-cols-1 gap-4 lg:grid-cols-3">
                                                                         <div class="flex flex-col items-start">
                                                                             <label
                                                                                 class="text-sm font-medium text-gray-600">
-                                                                                Working Hours</label>
-                                                                            <input id="" type="time" value="01:00"
+                                                                                Earlyout Hours</label>
+                                                                            <input id=""  value="01:00"
                                                                                 class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
                                                                         </div>
                                                                         <div>
@@ -1761,7 +1626,64 @@
                                                                                     <option>Forgive</option>
                                                                                 </select>
                                                                         </div>
+                                                                        <div class="flex flex-col items-start">
+                                                                            <label
+                                                                                class="text-sm font-medium text-gray-600">
+                                                                                Earlyout Penalties</label>
+                                                                            <input id=""  value="01:00"
+                                                                                class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
+                                                                        </div>
                                                                     </div>
+                                                                    <div
+                                                                    class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+                                                                    <div class="flex flex-col items-start">
+                                                                        <label
+                                                                            class="text-sm font-medium text-gray-600">
+                                                                            Working Hours</label>
+                                                                        <input id=""  value="01:00"
+                                                                            class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
+                                                                    </div>
+                                                                    <div>
+                                                                        <label
+                                                                            class="text-sm font-medium text-gray-600">
+                                                                            Fine Type</label>
+                                                                            <select class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
+                                                                                <option>Fixed</option>
+                                                                                <option>Halfday</option>
+                                                                                <option>Fullday</option>
+                                                                                <option>Forgive</option>
+                                                                            </select>
+                                                                    </div>
+                                                                    <div class="flex flex-col items-start">
+                                                                        <label
+                                                                            class="text-sm font-medium text-gray-600">
+                                                                            Working Hour Penalties</label>
+                                                                        <input id=""  value="01:00"
+                                                                            class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
+                                                                    </div>
+                                                                </div>
+                                                                       
+                                                                    <div
+                                                                            class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+
+                                                                            <div>
+                                                                                <label
+                                                                                    class="text-sm font-medium text-gray-600">
+                                                                                    Fine Type</label>
+                                                                                    <select class="w-full p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
+                                                                                        <option>Halfday</option>
+                                                                                        <option>Fullday</option>
+                                                                                        <option>Forgive</option>
+                                                                                    </select>
+                                                                            </div>
+                                                                            <div class="flex flex-col items-start">
+                                                                                <label
+                                                                                    class="text-sm font-medium text-gray-600">
+                                                                                    Forgot out Penalties</label>
+                                                                                <input id="" type="time" value="01:00"
+                                                                                    class="w-full p-1.5 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2835,6 +2757,9 @@
                                                     </template>
                                                 </div>
                                             </div>
+                                        </td>
+                                        <td class="p-4">
+                                            <p class="text-sm"> LE </p>
                                         </td>
                                         <td class="p-4">
                                             <div class="flex items-center gap-2">
@@ -4060,6 +3985,9 @@
                                                     </template>
                                                 </div>
                                             </div>
+                                        </td>
+                                        <td class="p-4">
+                                            <p class="text-sm"> LE | FO</p>
                                         </td>
                                         <td class="p-4">
                                             <div>
