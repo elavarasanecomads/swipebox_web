@@ -1364,23 +1364,13 @@
                                                                                     <!-- content -->
                                                                                     <div class="pt-4 space-y-4">
                                                                                         <div class="space-y-2">
-                                                                                            <div x-data="{ selectedOption: '' }" class="bg-gray-100 rounded-md">
+                                                                                            <div class="bg-gray-100 rounded-md">
                                                                                                 <div class="flex items-center justify-between p-2 text-sm">
                                                                                                     <label class="inline-flex items-center">
-                                                                                                        <input x-model="selectedOption" name="leave_type" value="casual" type="radio" class="w-4 h-4 form-radio">
+                                                                                                        <input name="leave_type" value="casual" type="radio" class="w-4 h-4 form-radio">
                                                                                                         <span class="ml-2 font-semibold">Casual Leave</span>
                                                                                                     </label>
                                                                                                     <p>2 Days</p>
-                                                                                                </div>
-                                                                                                <div x-show="selectedOption === 'casual'" class="ml-8 space-x-4 text-xs">
-                                                                                                    <label class="inline-flex items-center">
-                                                                                                        <input name="halfday_type" value="first" type="radio" class="w-4 h-4 form-radio">
-                                                                                                        <span class="ml-2 font-semibold">First Half Leave</span>
-                                                                                                    </label>
-                                                                                                    <label class="inline-flex items-center">
-                                                                                                        <input name="halfday_type" value="second" type="radio" class="w-4 h-4 form-radio">
-                                                                                                        <span class="ml-2 font-semibold">Second Half Leave</span>
-                                                                                                    </label>
                                                                                                 </div>
                                                                                             </div>
                                                                                             
@@ -1746,21 +1736,26 @@
                                                                                     <!-- content -->
                                                                                     <div class="pt-4 space-y-4">
                                                                                         <div class="space-y-2">
-                                                                                            <div
-                                                                                                class="flex justify-between p-2 text-sm bg-gray-100 rounded-md item-center">
-                                                                                                <label
-                                                                                                    class="inline-flex items-center">
-                                                                                                    <input
-                                                                                                        x-model="selectedOption"
-                                                                                                        name="salary"
-                                                                                                        type="radio"
-                                                                                                        class="w-4 h-4 form-checkbox">
-                                                                                                    <span
-                                                                                                        class="ml-2 font-semibold">Casual
-                                                                                                        Leave</span>
-                                                                                                </label>
-                                                                                                <p>2 Days</p>
+                                                                                            <div x-data="{ selectedOption: '' }" class="bg-gray-100 rounded-md">
+                                                                                                <div class="flex items-center justify-between p-2 text-sm">
+                                                                                                    <label class="inline-flex items-center">
+                                                                                                        <input x-model="selectedOption" name="leave_type" value="casual" type="radio" class="w-4 h-4 form-radio">
+                                                                                                        <span class="ml-2 font-semibold">Casual Leave</span>
+                                                                                                    </label>
+                                                                                                    <p>2 Days</p>
+                                                                                                </div>
+                                                                                                <div x-show="selectedOption === 'casual'" class="ml-8 space-x-4 text-xs">
+                                                                                                    <label class="inline-flex items-center">
+                                                                                                        <input name="halfday_type" value="first" type="radio" class="w-4 h-4 form-radio">
+                                                                                                        <span class="ml-2 font-semibold">First Half Leave</span>
+                                                                                                    </label>
+                                                                                                    <label class="inline-flex items-center">
+                                                                                                        <input name="halfday_type" value="second" type="radio" class="w-4 h-4 form-radio">
+                                                                                                        <span class="ml-2 font-semibold">Second Half Leave</span>
+                                                                                                    </label>
+                                                                                                </div>
                                                                                             </div>
+                                                                                            
                                                                                             <div
                                                                                                 class="flex justify-between p-2 text-sm bg-gray-100 rounded-md item-center">
                                                                                                 <label
@@ -1769,6 +1764,7 @@
                                                                                                         x-model="selectedOption"
                                                                                                         name="salary"
                                                                                                         type="radio"
+                                                                                                        disabled
                                                                                                         class="w-4 h-4 form-checkbox">
                                                                                                     <span
                                                                                                         class="ml-2 font-semibold">Sick
