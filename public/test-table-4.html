@@ -1,0 +1,298 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.5/cdn.js"
+        integrity="sha512-8IPRU0MPrge2KfSxkAtO8pIkaMzThW/MBSvPqcyVisSymLWC986buo27pKAt5mWXmt58dT6jIsw7h8NNugtRwg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+
+</head>
+<body class="p-4">
+    <div class="relative">
+        <div class="w-full overflow-x-scroll">
+            <table class="divide-y divide-gray-200 table-auto">
+                <thead
+                    class="text-xs font-medium tracking-wider text-left text-white uppercase bg-blue-600 whitespace-nowrap">
+                    <tr class="py-4 divide-x">
+                        <th scope="col" class="sticky left-0 z-10 p-4 bg-blue-600">Name</th>
+                        <th scope="col" class="p-4">In Time</th>
+
+                        <th scope="col" class="p-4">
+                            Out Time</th>
+                        <th scope="col" class="p-4" title="Break Time">
+                            B.T</th>
+                        <th scope="col" class="p-4" title="Working Hours">
+                            W.H</th>
+                        <th scope="col" class="p-4">
+                            <div class="flex gap-2 item-center">
+                                <p>Status</p>
+                                <div class="relative" x-data="{ open: false }">
+                                    <button @click="open = !open">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                            class="w-4 h-4">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
+                                        </svg>
+                                    </button>
+                                    <div x-show="open" @click.away="open = false"
+                                        class="absolute right-0 z-10 w-48 p-4 text-xs text-center bg-white border rounded-md shadow-lg top-6">
+                                        <div class="flex flex-col text-left">
+                                            <div class="inline-flex items-center py-1.5">
+                                                <input name="status" x-ref="presentRadio" type="radio"
+                                                    class="w-4 h-4 form-checkbox">
+                                                <span class="w-full ml-2 text-gray-600 cursor-pointer"
+                                                    @click="$refs.presentRadio.checked = true">All</span>
+                                            </div>
+                                            <div class="inline-flex items-center py-1.5">
+                                                <input name="status" x-ref="presentRadio" type="radio"
+                                                    class="w-4 h-4 form-checkbox">
+                                                <span class="w-full ml-2 text-gray-600 cursor-pointer"
+                                                    @click="$refs.presentRadio.checked = true">Present</span>
+                                            </div>
+                                            <div class="inline-flex items-center py-1.5">
+                                                <input name="status" x-ref="notInRadio" type="radio"
+                                                    class="w-4 h-4 form-checkbox">
+                                                <span class="w-full ml-2 text-gray-600 cursor-pointer"
+                                                    @click="$refs.notInRadio.checked = true">Not
+                                                    In</span>
+                                            </div>
+                                            <div class="inline-flex items-center py-1.5">
+                                                <input name="status" x-ref="leaveRadio" type="radio"
+                                                    class="w-4 h-4 form-checkbox">
+                                                <span class="w-full ml-2 text-gray-600 cursor-pointer "
+                                                    @click="$refs.leaveRadio.checked = true">Paid
+                                                    Leave</span>
+                                            </div>
+                                            <div class="inline-flex items-center py-1.5">
+                                                <input name="status" x-ref="leaveRadio" type="radio"
+                                                    class="w-4 h-4 form-checkbox">
+                                                <span class="w-full ml-2 text-gray-600 cursor-pointer "
+                                                    @click="$refs.leaveRadio.checked = true">Unpaid
+                                                    Leave</span>
+                                            </div>
+                                            <div class="inline-flex items-center py-1.5">
+                                                <input name="status" x-ref="weekOffRadio" type="radio"
+                                                    class="w-4 h-4 form-checkbox">
+                                                <span class="w-full ml-2 text-gray-600 cursor-pointer"
+                                                    @click="$refs.weekOffRadio.checked = true">Weekoff</span>
+                                            </div>
+                                            <div class="inline-flex items-center py-1.5">
+                                                <input name="status" x-ref="publicHolidayRadio"
+                                                    type="radio" class="w-4 h-4 form-checkbox">
+                                                <span class="w-full ml-2 text-gray-600 cursor-pointer"
+                                                    @click="$refs.publicHolidayRadio.checked = true">Public
+                                                    Holiday</span>
+                                            </div>
+                                            <div class="pt-4">
+                                                <button
+                                                    class="w-1/2 px-2 py-1.5 text-sm font-semibold text-white uppercase bg-blue-600 rounded">Apply</button>
+                                            </div>
+                                            <!-- Include other radio options similarly -->
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </th>
+                        <th scope="col" class="p-4">
+                            <div class="flex gap-2 item-center">
+                                <p>Sub Status</p>
+                                <div class="relative" x-data="{ open: false }">
+                                    <div class="relative">
+                                        <button @click="open = !open">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                viewBox="0 0 24 24" stroke-width="1.5"
+                                                stroke="currentColor" class="w-4 h-4">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
+                                            </svg>
+                                        </button>
+                                        <div class="absolute -top-0.5 -right-1">
+                                            <div class="w-2.5 h-2.5 bg-yellow-400 rounded-full"></div>
+                                        </div>
+                                    </div>
+
+                                    <div x-show="open" @click.away="open = false"
+                                        class="absolute right-0 z-10 p-4 text-xs text-center bg-white border rounded-md shadow-lg w-96 top-6">
+                                        <div class="grid grid-cols-2 gap-x-4">
+                                            <div class="inline-flex items-center py-1.5">
+                                                <input name="status" x-ref="presentRadio" type="radio"
+                                                    class="w-4 h-4 form-checkbox">
+                                                <span
+                                                    class="w-full ml-2 text-left text-gray-600 cursor-pointer"
+                                                    @click="$refs.presentRadio.checked = true">All</span>
+                                            </div>
+                                            <div class="inline-flex items-center py-1.5">
+                                                <input name="status" x-ref="presentRadio" type="radio"
+                                                    class="w-4 h-4 form-checkbox">
+                                                <span
+                                                    class="w-full ml-2 text-left text-gray-600 cursor-pointer"
+                                                    @click="$refs.presentRadio.checked = true">Late
+                                                    Entry</span>
+                                            </div>
+                                            <div class="inline-flex items-center py-1.5">
+                                                <input name="status" x-ref="presentRadio" type="radio"
+                                                    class="w-4 h-4 form-checkbox">
+                                                <span
+                                                    class="w-full ml-2 text-left text-gray-600 cursor-pointer"
+                                                    @click="$refs.presentRadio.checked = true">Early
+                                                    Out</span>
+                                            </div>
+                                            <div class="inline-flex items-center py-1.5">
+                                                <input name="status" x-ref="presentRadio" type="radio"
+                                                    class="w-4 h-4 form-checkbox">
+                                                <span
+                                                    class="w-full ml-2 text-left text-gray-600 cursor-pointer"
+                                                    @click="$refs.presentRadio.checked = true">Forgot
+                                                    Out</span>
+                                            </div>
+                                            <div class="inline-flex items-center py-1.5">
+                                                <input name="status" x-ref="presentRadio" type="radio"
+                                                    class="w-4 h-4 form-checkbox">
+                                                <span
+                                                    class="w-full ml-2 text-left text-gray-600 cursor-pointer"
+                                                    @click="$refs.presentRadio.checked = true">Short
+                                                    Hours</span>
+                                            </div>
+                                            <div class="inline-flex items-center py-1.5">
+                                                <input name="status" x-ref="presentRadio" type="radio"
+                                                    class="w-4 h-4 form-checkbox">
+                                                <span
+                                                    class="w-full ml-2 text-left text-gray-600 cursor-pointer"
+                                                    @click="$refs.presentRadio.checked = true">Paid
+                                                    Halfday Leave</span>
+                                            </div>
+                                            <div class="inline-flex items-center py-1.5">
+                                                <input name="status" x-ref="presentRadio" type="radio"
+                                                    class="w-4 h-4 form-checkbox">
+                                                <span
+                                                    class="w-full ml-2 text-left text-gray-600 cursor-pointer"
+                                                    @click="$refs.presentRadio.checked = true">Unpaid
+                                                    Halfday Leave</span>
+                                            </div>
+                                            <div class="inline-flex items-center py-1.5">
+                                                <input name="status" x-ref="presentRadio" type="radio"
+                                                    class="w-4 h-4 form-checkbox">
+                                                <span
+                                                    class="w-full ml-2 text-left text-gray-600 cursor-pointer"
+                                                    @click="$refs.presentRadio.checked = true">Break
+                                                    Hours</span>
+                                            </div>
+                                            <div class="inline-flex items-center py-1.5">
+                                                <input name="status" x-ref="presentRadio" type="radio"
+                                                    class="w-4 h-4 form-checkbox">
+                                                <span
+                                                    class="w-full ml-2 text-left text-gray-600 cursor-pointer"
+                                                    @click="$refs.presentRadio.checked = true">Working
+                                                    Hours</span>
+                                            </div>
+                                            <div class="inline-flex items-center py-1.5">
+                                                <input name="status" x-ref="presentRadio" type="radio"
+                                                    class="w-4 h-4 form-checkbox">
+                                                <span
+                                                    class="w-full ml-2 text-left text-gray-600 cursor-pointer"
+                                                    @click="$refs.presentRadio.checked = true">Overtime</span>
+                                            </div>
+                                            <div class="inline-flex items-center py-1.5">
+                                                <input name="status" x-ref="presentRadio" type="radio"
+                                                    class="w-4 h-4 form-checkbox">
+                                                <span
+                                                    class="w-full ml-2 text-left text-gray-600 cursor-pointer"
+                                                    @click="$refs.presentRadio.checked = true">1.5X
+                                                    Present</span>
+                                            </div>
+                                            <div class="inline-flex items-center py-1.5">
+                                                <input name="status" x-ref="presentRadio" type="radio"
+                                                    class="w-4 h-4 form-checkbox">
+                                                <span
+                                                    class="w-full ml-2 text-left text-gray-600 cursor-pointer"
+                                                    @click="$refs.presentRadio.checked = true">2X
+                                                    Present</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col text-left">
+
+                                            <div class="pt-4">
+                                                <button
+                                                    class="w-24 px-2 py-1.5 text-sm font-semibold text-white uppercase bg-blue-600 rounded">Apply</button>
+                                            </div>
+                                            <!-- Include other radio options similarly -->
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </th>
+                        <th scope="col" class="p-4" title="Overtime">
+                            OT</th>
+                        <th scope="col" class="p-4">
+                            Penalties
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
+                    <tr>
+                        <td class="sticky left-0 z-30 w-full p-4 bg-white whitespace-nowrap">
+                            <div class="flex items-center gap-2 w-max">
+                                <img class="w-8 h-8 rounded-full"
+                                    src="https://randomuser.me/api/portraits/men/11.jpg" alt="" />
+                                <div>
+                                    <a href="" class="font-medium text-blue-600">John Doe</a>
+                                    <p class="text-xs text-gray-600">NA_1110</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-4">
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm text-gray-900"> 10:00 AM </span>                                
+                            </div>
+                        </td>
+                        <td class="p-4">
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm text-gray-900"> 05:00 PM </span>                                
+                            </div>
+                        </td>
+                        <td class="p-4">
+                            <div>
+                                <p>01:30:00</p>
+                            </div>
+                        </td>
+                        <td class="p-4">
+                            <div>
+                                <p>01:30:00</p>
+                            </div>
+                        </td>
+                        <td class="p-4">
+                            <div>
+                                <p>Present</p>
+                            </div>
+                        </td>
+                        <td class="p-4">
+                            <div>
+                                <p>Late Entry</p>
+                            </div>
+                        </td>
+                        <td class="p-4">
+                            <div>
+                                <p>01:30:00</p>
+                            </div>
+                        </td>
+                        <td class="p-4">
+                            <div>
+                                <p>01:30:00</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
