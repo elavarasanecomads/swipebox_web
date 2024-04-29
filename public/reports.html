@@ -51,32 +51,58 @@
                         </ol>
                     </nav>
                     <h1 class="py-4 text-2xl font-bold">Reports</h1>
-                    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+                    <div x-data="{ selectedOption: 'select' }" class="grid grid-cols-1 gap-4 lg:grid-cols-3">
                         <div class="col-start-1">
                             <label class="text-sm font-medium text-gray-600" for="businessname">Report Type <span
-                                    class="text-red-600">*</span></label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                class="text-red-600">*</span></label>
+                        <select x-model="selectedOption" id="jobtype" name="jobtype" autocomplete="jobtype"
                                 class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                <option>Select</option>
-                                <option>Attendance</option>
-                                <option>Payroll</option>                                
-                                <option>Compliance</option>
-                                <option>Miscellaneous</option>
-                            </select>
+                            <option value="select">Select</option>
+                            <option value="attendance">Attendance</option>
+                            <option value="payroll">Payroll</option>
+                            <option value="compliance">Compliance</option>
+                            <option value="employee">Employee Details</option>
+                        </select>
                         </div>
-                        <div>
+                        <div x-show="selectedOption === 'attendance'">
                             <label class="text-sm font-medium text-gray-600" for="businessname">Type <span
                                     class="text-red-600">*</span></label>
                             <select id="jobtype" name="jobtype" autocomplete="jobtype"
                                 class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                <option>Select</option>
-                                <option>Attendance Detailed</option>
-                                <option>Attendance Summary</option>
-                                <option>Late Entry</option>
-                                <option>Over Time</option>
-                                <option>Leave Balance</option>
-                                <option>Paid Leave Balance</option>
-                                <option>Unpaid Leave Balance</option>
+                                <option>Attendance Summary Report</option>
+                                <option>Branch Level Summary Report</option>
+                                <option>Over Time Report</option>
+                                <option>Late Entry Report</option>
+                                <option>Early Exit Report</option>
+                                <option>Short Hours Report</option>
+                                <option>Leave Report</option>
+                                <option>Leave Balance Report</option>
+                                <option>Attendance Detailed Report</option>
+                            </select>
+                        </div>
+                        <div x-show="selectedOption === 'payroll'">
+                            <label class="text-sm font-medium text-gray-600" for="businessname">Type <span
+                                    class="text-red-600">*</span></label>
+                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>Staff Payroll Report</option>
+                                <option>Allowance Report</option>
+                                <option>Bonus Report</option>
+                                <option>Deduction Report</option>
+                                <option>Loan Summary Report</option>
+                                <option>Advance Summary Report</option>
+                                <option>Bulk Salary Slip</option>
+                            </select>
+                        </div>
+                        <div x-show="selectedOption === 'compliance'">
+                            <label class="text-sm font-medium text-gray-600" for="businessname">Type <span
+                                    class="text-red-600">*</span></label>
+                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>ESI Report</option>
+                                <option>PF Report</option>
+                                <option>PT Report</option>
+                                <option>TDS Report</option>
                             </select>
                         </div>
                         <div class="col-start-1">
