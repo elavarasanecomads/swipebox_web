@@ -1,0 +1,113 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Candidate</title>    
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="h-full p-4 bg-white border rounded-md lg:p-8">
+                    <!--Breadcrumb-->
+                    <div class="flex items-center gap-2">
+                      <a href="dashboard.html" class="flex items-center gap-1 text-sm text-gray-600">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                              class="w-5 h-5">
+                              <path fill-rule="evenodd"
+                                  d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                  clip-rule="evenodd"></path>
+                          </svg>
+                      </a>
+                      <p class="text-2xl font-bold text-gray-900">Add Candidate</p>
+                  </div>
+                  <div class="grid w-full grid-cols-1 gap-4 pt-6 lg:w-3/4 lg:grid-cols-2">
+                    <div>
+                        <label class="text-sm font-semibold text-gray-600" for="">Name<span class="text-red-600"> *</span></label>
+                        <input type="text" name="" id="" autocomplete="" placeholder=""
+                          class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                      </div>
+                      <div>
+                        <label class="text-sm font-semibold text-gray-600" for="">Father Name</label>
+                        <input type="text" name="" id="" autocomplete="" placeholder=""
+                          class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                      </div>
+                      <div>
+                        <label class="text-sm font-semibold text-gray-600" for="">Mobile Number<span class="text-red-600"> *</span></label>
+                        <input type="text" name="" id="" autocomplete="" placeholder=""
+                          class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                      </div>
+                      <div>
+                        <label class="text-sm font-semibold text-gray-600" for="">Email</label>
+                        <input type="text" name="" id="" autocomplete="" placeholder=""
+                          class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                      </div>
+                      <div>
+                        <label class="text-sm font-semibold text-gray-600" for="">Date of Birth</label>
+                        <input type="text" name="" id="" autocomplete="" placeholder=""
+                          class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                      </div>
+                      <div>
+                        <label class="text-sm font-semibold text-gray-600" for="">Address</label>
+                        <input type="text" name="" id="" autocomplete="" placeholder=""
+                          class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                      </div>
+                      <div class="col-span-2 pt-4">
+                        <h3 class="text-xl font-bold">Education Details</h3>
+                      </div>
+                      <div>
+                        <label class="text-sm font-semibold text-gray-600" for="">Highest Education Level</label>
+                        <input type="text" name="" id="" autocomplete="" placeholder=""
+                          class="block w-full px-3 py-3 mt-1 uppercase border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                      </div>
+                      <div>
+                        <label class="text-sm font-semibold text-gray-600" for="">Institution Name</label>
+                        <input type="text" name="" id="" autocomplete="" placeholder=""
+                          class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                      </div>
+                      <div>
+                        <label class="text-sm font-semibold text-gray-600" for="">Graduation Year</label>
+                        <input type="text" name="" id="" autocomplete="" placeholder=""
+                          class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                      </div>
+                      <div class="col-span-2 pt-4">
+                        <h3 class="text-xl font-bold">Experience Details</h3>
+                      </div>
+                      <div>
+                        <label class="text-sm font-semibold text-gray-600" for="">Previous / Current Working Company</label>
+                        <input type="text" name="" id="" autocomplete="" placeholder=""
+                          class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                      </div>
+                      <div>
+                        <label class="text-sm font-semibold text-gray-600" for="">No.of Years Experience</label>
+                        <input type="text" name="" id="" autocomplete="" placeholder=""
+                          class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                      </div>
+                      <div>
+                        <label class="text-sm font-semibold text-gray-600" for="">Position Held Previous / Current Company</label>
+                        <input type="text" name="" id="" autocomplete="" placeholder=""
+                          class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                      </div>
+                      <div class="col-start-1 pt-6">
+                        <button class="w-full p-3 font-semibold text-center text-white bg-blue-600 rounded-md">Save</button>
+
+                      </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+      $("#navigation").load("nav.html");
+      $("#aside").load("aside.html");
+    });
+  </script>
+</html>

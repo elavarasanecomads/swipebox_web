@@ -1,0 +1,416 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Final Settlement</title>
+    <link href="output.css" rel="stylesheet">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="relative bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full ">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded lg:p-4">
+                    <div class="py-4 space-y-4">
+                        <div class="flex items-center gap-2">
+                            <a href="final-settlement.html" class="flex items-center gap-1 text-sm text-gray-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                    class="w-5 h-5">
+                                    <path fill-rule="evenodd"
+                                        d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                            <h1 class="text-2xl font-bold">Create Final Settlement</h1>
+                        </div>
+                        <div>
+                            <div class="pt-8" x-data="{ step: 1 }">
+
+                                <!-- Step 1 -->
+                                <div x-show="step === 1" class="space-y-6">
+                                    <h1 class="text-lg font-bold">Step 1: Select Employee</h1>
+                                    <!-- Your form content for step 1 goes here -->
+                                    <div class="max-w-xs">
+                                        <div>
+                                            <label class="text-sm font-medium text-gray-600" for="businessname">
+                                               Select Employee</label>
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                class="block w-full px-2 py-1.5 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                <option>Select</option>
+                                                <option>Elavarasan [NA-1110]</option>
+                                                <option>Hemalatha [NA-1190]</option>                                    
+                                            </select>
+                                        </div>
+                                    </div>                                   
+
+                                    <div class="flex items-center gap-4 pt-10">
+                                        <button @click=""
+                                            class="w-24 px-4 py-2 font-semibold text-blue-600 bg-white border border-blue-600 rounded">Previous</button>
+                                        <button @click="step = 2"
+                                            class="w-24 px-4 py-2 font-semibold text-white bg-blue-500 border border-blue-600 rounded">Next</button>
+                                    </div>
+
+                                </div>
+
+                                <!-- Step 2 -->
+                                <div x-show="step === 2" class="space-y-6">
+                                    <h1 class="text-lg font-bold">Step 2: Resignation Details</h1>
+                                    <!-- Your form content for step 1 goes here -->
+                                    <div class="max-w-xs space-y-4">
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="date">Resignation Submitted On</label>
+                                            <input type="date" name="" id="" autocomplete="" placeholder="" class="block w-full p-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="date">Leaving Date</label>
+                                            <input type="date" name="" id="" autocomplete="" placeholder="" class="block w-full p-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-medium text-gray-600" for="businessname">
+                                               Leaving Reason</label>
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                class="block w-full p-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                                <option>Select</option>
+                                                <option>Resigned</option> 
+                                                <option>Terminated</option>  
+                                                <option>Contract Expiry</option>  
+                                                <option>Expired</option>                                
+                                                <option>Abandoned</option>                                
+                                                <option>Transferred</option>                                
+                                                <option>Sick</option>                                
+                                                <option>Termination on Leave</option>                                
+                                                <option>Resigned on Leave</option>                                
+                                                <option>Deported</option>
+                                                <option>Others</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="date">Settlement Date</label>
+                                            <input type="date" name="" id="" autocomplete="" placeholder="" class="block w-full p-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center gap-4 pt-10">
+                                        <button @click="step = 1"
+                                            class="w-24 px-4 py-2 font-semibold text-blue-600 bg-white border border-blue-600 rounded">Previous</button>
+                                        <button @click="step = 3"
+                                            class="w-24 px-4 py-2 font-semibold text-white bg-blue-500 border border-blue-600 rounded">Next</button>
+                                    </div>
+
+
+                                </div>
+
+                                <!-- Step 3 -->
+                                <div x-show="step === 3" class="space-y-6">
+                                    <h1 class="text-lg font-bold">Step 3: Notice Pay</h1>
+                                    <!-- Your form content for step 3 goes here -->
+                                    <div class="max-w-xs space-y-4">
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="date">Notice Period Days</label>
+                                            <input type="text" name="" id="" autocomplete="" placeholder="" class="block w-full p-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="date">No of Days Served in Notice Period</label>
+                                            <input type="text" name="" id="" autocomplete="" placeholder="" class="block w-full p-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="date">Shortfall in Notice Period</label>
+                                            <input type="text" name="" id="" autocomplete="" placeholder="" class="block w-full p-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        </div>
+                                        <div>
+                                            <label class="inline-flex items-center">
+                                                <input checked name="" type="checkbox" class="w-4 h-4 form-checkbox">
+                                                <span class="ml-2 font-semibold">Deduct Salary for Shortfall Days</span>
+                                              </label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold">Shortfall Days Monthwise in Notice Period</h3>
+                                        <div class="pt-4">
+                                            <p><span class="font-semibold">January 2024: </span> 5 Days</p>
+                                            <p><span class="font-semibold">February 2024: </span> 29 Days</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center gap-4 pt-10">
+                                        <button @click="step = 2"
+                                            class="w-24 px-4 py-2 font-semibold text-blue-600 bg-white border border-blue-600 rounded">Previous</button>
+                                        <button @click="step = 4"
+                                            class="w-24 px-4 py-2 font-semibold text-white bg-blue-500 border border-blue-600 rounded">Next</button>
+                                    </div>
+                                </div>
+
+                                <!-- Step 4 -->
+                                <div x-show="step === 4" class="space-y-6">
+                                    <h1 class="text-lg font-bold">Step 4: Work Days</h1>
+                                    <!-- Your form content for step 3 goes here -->
+                                    <div>
+                                        <div class="max-w-sm mb-4 space-y-4">
+                                            <div>
+                                                <div class="inline-flex items-center w-full gap-2 p-2 text-sm text-yellow-600 bg-yellow-100 rounded">
+                                                    <div>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                                          </svg>
+                                                    </div>
+                                                    <p>Based on leaving date workdays are updated</p>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="inline-flex items-center w-full gap-2 p-2 text-sm text-yellow-600 bg-yellow-100 rounded">
+                                                    <div>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                                          </svg>
+                                                    </div>
+                                                    <p>Last Working Day : 28-02-2024</p>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="inline-flex items-center w-full gap-2 p-2 text-sm text-yellow-600 bg-yellow-100 rounded">
+                                                    <div>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                                          </svg>
+                                                    </div>
+                                                    <p>Last Paid Month : Dec 2023</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <table>
+                                            <thead class="text-sm bg-gray-200">
+                                                <th class="p-2 px-4">Payroll Month</th>
+                                                <th class="p-2 px-4">Work Days</th>
+                                                <th class="p-2 px-4">Days Worked</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="p-2 px-4">Dec 2023</td>
+                                                    <td class="p-2 px-4">30</td>
+                                                    <td class="p-2 px-4">
+                                                        <div>
+                                                            <input type="text" name="" id="" autocomplete="" placeholder="" class="block w-16 p-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="p-2 px-4 text-right" colspan="2">No of Days Worked</td>
+                                                    <td class="p-2 px-4">
+                                                        <div>
+                                                            <input type="text" name="" id="" autocomplete="" placeholder="" class="block w-16 p-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="flex items-center gap-4 pt-10">
+                                        <button @click="step = 3"
+                                            class="w-24 px-4 py-2 font-semibold text-blue-600 bg-white border border-blue-600 rounded">Previous</button>
+                                        <button @click="step = 5"
+                                            class="w-24 px-4 py-2 font-semibold text-white bg-blue-500 border border-blue-600 rounded">Next</button>
+                                    </div>
+                                </div>
+
+                                <!-- Step 5 -->
+                                <div x-show="step === 5" class="space-y-6">
+                                    <h1 class="text-lg font-bold">Step 5: Leave Encashment</h1>
+                                    <!-- Your form content for step 3 goes here -->
+                                    <div>
+                                        <table>
+                                            <thead class="text-sm bg-gray-200">
+                                                <th class="p-2 px-4">Leave Type</th>
+                                                <th class="p-2 px-4">Balance</th>
+                                                <th class="p-2 px-4">Encash</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="p-2 px-4">Casual Leave</td>
+                                                    <td class="p-2 px-4">3</td>
+                                                    <td class="p-2 px-4">
+                                                        <div>
+                                                            <input type="text" name="" id="" autocomplete="" placeholder="" class="block w-16 p-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="p-2 px-4">Compoff</td>
+                                                    <td class="p-2 px-4">10</td>
+                                                    <td class="p-2 px-4">
+                                                        <div>
+                                                            <input type="text" name="" id="" autocomplete="" placeholder="" class="block w-16 p-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="p-2 px-4">Earned Leave</td>
+                                                    <td class="p-2 px-4">10</td>
+                                                    <td class="p-2 px-4">
+                                                        <div>
+                                                            <input type="text" name="" id="" autocomplete="" placeholder="" class="block w-16 p-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="p-2 px-4 text-right" colspan="2">Total Leave</td>
+                                                    <td class="p-2 px-4">
+                                                        <div>
+                                                            <input type="text" name="" id="" autocomplete="" placeholder="" class="block w-16 p-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="flex items-center gap-4 pt-10">
+                                        <button @click="step = 4"
+                                            class="w-24 px-4 py-2 font-semibold text-blue-600 bg-white border border-blue-600 rounded">Previous</button>
+                                        <button @click="step = 6"
+                                            class="w-24 px-4 py-2 font-semibold text-white bg-blue-500 border border-blue-600 rounded">Next</button>
+                                    </div>
+                                </div>
+
+                                <!-- Step 6 -->
+                                <div x-show="step === 6" class="space-y-6">
+                                    <h1 class="text-lg font-bold">Step 6: Remarks</h1>
+                                    <!-- Your form content for step 3 goes here -->
+                                    <div class="max-w-sm">
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="date">Remarks</label>
+                                           <textarea name="" id="" class="block w-full p-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center gap-4 pt-10">
+                                        <button @click="step = 5"
+                                            class="w-24 px-4 py-2 font-semibold text-blue-600 bg-white border border-blue-600 rounded">Previous</button>
+                                        
+                                        <a href="final-settlement.html">    <button @click="submitForm"
+                                            class="w-24 px-4 py-2 font-semibold text-white bg-blue-500 border border-blue-600 rounded">Finish</button>
+                                        </a>
+                                        </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+<script>
+    function select(config) {
+        return {
+            data: config.data,
+
+            emptyOptionsMessage: config.emptyOptionsMessage ?? 'No results match your search.',
+
+            focusedOptionIndex: null,
+
+            name: config.name,
+
+            open: false,
+
+            options: {},
+
+            placeholder: config.placeholder ?? 'Select an option',
+
+            search: '',
+
+            value: config.value,
+
+            closeListbox: function () {
+                this.open = false
+
+                this.focusedOptionIndex = null
+
+                this.search = ''
+            },
+
+            focusNextOption: function () {
+                if (this.focusedOptionIndex === null) return this.focusedOptionIndex = Object.keys(this.options).length - 1
+
+                if (this.focusedOptionIndex + 1 >= Object.keys(this.options).length) return
+
+                this.focusedOptionIndex++
+
+                this.$refs.listbox.children[this.focusedOptionIndex].scrollIntoView({
+                    block: "center",
+                })
+            },
+
+            focusPreviousOption: function () {
+                if (this.focusedOptionIndex === null) return this.focusedOptionIndex = 0
+
+                if (this.focusedOptionIndex <= 0) return
+
+                this.focusedOptionIndex--
+
+                this.$refs.listbox.children[this.focusedOptionIndex].scrollIntoView({
+                    block: "center",
+                })
+            },
+
+            init: function () {
+                this.options = this.data
+
+                if (!(this.value in this.options)) this.value = null
+
+                this.$watch('search', ((value) => {
+                    if (!this.open || !value) return this.options = this.data
+
+                    this.options = Object.keys(this.data)
+                        .filter((key) => this.data[key].toLowerCase().includes(value.toLowerCase()))
+                        .reduce((options, key) => {
+                            options[key] = this.data[key]
+                            return options
+                        }, {})
+                }))
+            },
+
+            selectOption: function () {
+                if (!this.open) return this.toggleListboxVisibility()
+
+                this.value = Object.keys(this.options)[this.focusedOptionIndex]
+
+                this.closeListbox()
+            },
+
+            toggleListboxVisibility: function () {
+                if (this.open) return this.closeListbox()
+
+                this.focusedOptionIndex = Object.keys(this.options).indexOf(this.value)
+
+                if (this.focusedOptionIndex < 0) this.focusedOptionIndex = 0
+
+                this.open = true
+
+                this.$nextTick(() => {
+                    this.$refs.search.focus()
+
+                    this.$refs.listbox.children[this.focusedOptionIndex].scrollIntoView({
+                        block: "nearest"
+                    })
+                })
+            },
+        }
+    }
+</script>
+
+</html>
