@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asset Management</title>
     <link href="output.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.5/cdn.js" integrity="sha512-8IPRU0MPrge2KfSxkAtO8pIkaMzThW/MBSvPqcyVisSymLWC986buo27pKAt5mWXmt58dT6jIsw7h8NNugtRwg==" crossorigin="anonymous" referrerpolicy="no-referrer" defer=""></script>    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.5/cdn.js"
+        integrity="sha512-8IPRU0MPrge2KfSxkAtO8pIkaMzThW/MBSvPqcyVisSymLWC986buo27pKAt5mWXmt58dT6jIsw7h8NNugtRwg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body class="bg-gray-100">
@@ -29,12 +32,59 @@
                         <div class="flex items-center gap-4">
                             <h1 class="text-2xl font-bold">Asset Management</h1>
                             <div>
-                                <a href="asset-add.html" class="px-3 py-2 font-semibold text-white bg-blue-600 rounded-md">Add New</a>
+                                <a href="asset-add.html"
+                                    class="px-3 py-2 font-semibold text-white bg-blue-600 rounded-md">Add New</a>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
                     <div>
                         <div class="relative pt-8">
+                            <div class="grid grid-cols-1 gap-2 pb-2 lg:gap-4 lg:grid-cols-4">
+                                <div class="text-left">
+                                    <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">
+                                        Asset Category</label>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All</option>
+                                        <option>Computer Pheriperals</option>
+                                        <option>Electricals</option>
+                                        <option>Vachiles</option>
+                                    </select>
+                                </div>
+                                <div class="text-left">
+                                    <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">
+                                        Asset Type</label>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All</option>
+                                        <option>Mouse</option>
+                                        <option>Desktop</option>
+                                        <option>CPU</option>
+                                    </select>
+                                </div>
+                                <div class="mt-1">
+                                    <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">
+                                        Search</label>
+                                    <span class="inline-block w-full rounded shadow-sm">
+                                        <button
+                                            class="relative z-0 w-full py-2 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                            type="button" aria-haspopup="listbox" aria-expanded="true"
+                                            aria-label="search" aria-checked="false">
+                                            <input id="search" type="text" placeholder="Search by name"
+                                                class="w-full h-full form-control focus:outline-none searchdata">
+                                            <span
+                                                class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
                             <div class="w-full overflow-x-scroll">
                                 <table class="divide-y divide-gray-200 table-auto">
                                     <thead
@@ -46,13 +96,13 @@
                                             <th scope="col" class="p-4">Category</th>
                                             <th scope="col" class="p-4">
                                                 Condition</th>
-                                                <th scope="col" class="p-4">
-                                                    Status</th>
+                                            <th scope="col" class="p-4">
+                                                Status</th>
 
-                                            <th scope="col" class="p-4">Assigned To</th>    
+                                            <th scope="col" class="p-4">Assigned To</th>
                                             <th scope="col" class="p-4">
                                                 Assigned On</th>
-                                           
+
                                             <th scope="col" class="p-4">
                                                 Action</th>
                                         </tr>
@@ -85,12 +135,11 @@
                                             </td>
                                             <td class="p-4">
                                                 <div class="px-2 text-gray-600 " x-data="{ isOpen: false }">
-                                                    <button @click="isOpen = !isOpen"
-                                                        @keydown.escape="isOpen = false"
+                                                    <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
                                                         class="focus:outline-none">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                            viewBox="0 0 24 24" stroke-width="1.5"
-                                                            stroke="currentColor" class="w-6 h-6">
+                                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                            class="w-6 h-6">
                                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                                 d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                                                         </svg>
@@ -113,37 +162,67 @@
                                                             <a href="asset-add.html">Edit Asset</a>
                                                         </li>
                                                         <li class="p-2">
-                                                            <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
-                                                                <button @click="showModal = true"><span>Delete Asset</span></button>
-                                                            
-                                                                <template x-teleport="body" data-teleport-template="true">
-                                                                    <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none">
+                                                            <div x-data="{ 'showModal': false }"
+                                                                @keydown.escape="showModal = false">
+                                                                <button @click="showModal = true"><span>Delete
+                                                                        Asset</span></button>
+
+                                                                <template x-teleport="body"
+                                                                    data-teleport-template="true">
+                                                                    <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                                        x-show="showModal" style="display: none">
                                                                         <!-- Modal inner -->
-                                                                        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                                        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm"
+                                                                            @click.away="showModal = false"
+                                                                            x-transition:enter="motion-safe:ease-out duration-300"
+                                                                            x-transition:enter-start="opacity-0 scale-90"
+                                                                            x-transition:enter-end="opacity-100 scale-100">
                                                                             <!-- Title / Close-->
-                                                                            <div class="flex items-center justify-between">
+                                                                            <div
+                                                                                class="flex items-center justify-between">
                                                                                 <p class="font-bold text-gray-900"></p>
                                                                                 <span @click="showModal = false">
-                                                                                    <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                                    <svg class="w-5 h-5 text-gray-900"
+                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                        fill="none" viewBox="0 0 24 24"
+                                                                                        stroke="currentColor">
+                                                                                        <path stroke-linecap="round"
+                                                                                            stroke-linejoin="round"
+                                                                                            stroke-width="2"
+                                                                                            d="M6 18L18 6M6 6l12 12">
+                                                                                        </path>
                                                                                     </svg>
                                                                                 </span>
                                                                             </div>
                                                                             <!-- content -->
                                                                             <div class="w-full mt-4">
                                                                                 <div class="space-y-2">
-                                                                                    <div class="flex flex-col items-center justify-center">
+                                                                                    <div
+                                                                                        class="flex flex-col items-center justify-center">
                                                                                         <div>
-                                                                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-red-500" viewBox="0 0 20 20" fill="currentColor">
-                                                                                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                class="w-8 h-8 text-red-500"
+                                                                                                viewBox="0 0 20 20"
+                                                                                                fill="currentColor">
+                                                                                                <path
+                                                                                                    fill-rule="evenodd"
+                                                                                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                                                                    clip-rule="evenodd">
+                                                                                                </path>
                                                                                             </svg>
                                                                                         </div>
-                                                                                        <p class="font-bold">Delete This Asset</p>
-                                                                                        <p class="text-gray-600">Do you wish to delete this Asset?</p>
+                                                                                        <p class="font-bold">Delete This
+                                                                                            Asset</p>
+                                                                                        <p class="text-gray-600">Do you
+                                                                                            wish to delete this Asset?
+                                                                                        </p>
                                                                                     </div>
-                                                                                    <div class="flex items-center gap-4 pt-6">
-                                                                                        <button class="w-full p-2 font-semibold text-gray-900 bg-gray-100 rounded">Cancel</button>
-                                                                                        <button class="w-full p-2 font-semibold text-white bg-red-600 rounded">Delete</button>
+                                                                                    <div
+                                                                                        class="flex items-center gap-4 pt-6">
+                                                                                        <button
+                                                                                            class="w-full p-2 font-semibold text-gray-900 bg-gray-100 rounded">Cancel</button>
+                                                                                        <button
+                                                                                            class="w-full p-2 font-semibold text-white bg-red-600 rounded">Delete</button>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -155,9 +234,9 @@
                                                     </ul>
                                                 </div>
 
-                                              </td>
+                                            </td>
                                         </tr>
-                                       
+
                                     </tbody>
                                 </table>
                             </div>
