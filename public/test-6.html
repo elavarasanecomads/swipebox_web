@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <div class="flex items-center gap-4">
+            <!-- select all -->
+            <input id="select-all" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white">
+            <p>Select All</p>
+        </div>
+        <div>
+            <div class="flex items-center gap-4">
+                <!-- select all in Fruit -->
+                <input id="select-all-fruits" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white">
+                <p>Employee 1</p>
+            </div>
+            <ul>
+                <li>
+                    <div class="flex items-center gap-4">
+                        <!-- select individual fruit -->
+                        <input class="fruit" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white">
+                        <p>Apple</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex items-center gap-4">
+                        <!-- select individual fruit -->
+                        <input class="fruit" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white">
+                        <p>Orange</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        <div>
+            <div class="flex items-center gap-4">
+                <!-- select all in Animals -->
+                <input id="select-all-animals" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white">
+                <p>Animals</p>
+            </div>
+            <ul>
+                <li>
+                    <div class="flex items-center gap-4">
+                        <!-- select individual animal -->
+                        <input class="animal" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white">
+                        <p>Lion</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex items-center gap-4">
+                        <!-- select individual animal -->
+                        <input class="animal" type="checkbox" class="w-4 h-4 text-indigo-600 border-2 border-white">
+                        <p>Tiger</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const selectAllCheckbox = document.getElementById('select-all');
+            const selectAllFruitsCheckbox = document.getElementById('select-all-fruits');
+            const selectAllAnimalsCheckbox = document.getElementById('select-all-animals');
+            const fruitCheckboxes = document.querySelectorAll('.fruit');
+            const animalCheckboxes = document.querySelectorAll('.animal');
+
+            // Function to toggle all checkboxes
+            const toggleCheckboxes = (checkboxes, isChecked) => {
+                checkboxes.forEach(checkbox => checkbox.checked = isChecked);
+            };
+
+            // Update main "Select All" checkbox
+            const updateSelectAll = () => {
+                selectAllCheckbox.checked = document.querySelectorAll('input[type="checkbox"]:not(#select-all):checked').length === document.querySelectorAll('input[type="checkbox"]:not(#select-all)').length;
+            };
+
+            // "Select All" checkbox change event
+            selectAllCheckbox.addEventListener('change', (event) => {
+                const isChecked = event.target.checked;
+                toggleCheckboxes(document.querySelectorAll('input[type="checkbox"]'), isChecked);
+            });
+
+            // Group "Select All" checkboxes change events
+            selectAllFruitsCheckbox.addEventListener('change', (event) => {
+                const isChecked = event.target.checked;
+                toggleCheckboxes(fruitCheckboxes, isChecked);
+                updateSelectAll();
+            });
+
+            selectAllAnimalsCheckbox.addEventListener('change', (event) => {
+                const isChecked = event.target.checked;
+                toggleCheckboxes(animalCheckboxes, isChecked);
+                updateSelectAll();
+            });
+
+            // Individual checkboxes change events
+            fruitCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', (event) => {
+                    selectAllFruitsCheckbox.checked = document.querySelectorAll('.fruit:checked').length === fruitCheckboxes.length;
+                    updateSelectAll();
+                });
+            });
+
+            animalCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', (event) => {
+                    selectAllAnimalsCheckbox.checked = document.querySelectorAll('.animal:checked').length === animalCheckboxes.length;
+                    updateSelectAll();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
