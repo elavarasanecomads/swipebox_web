@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Penalty Calculator</title>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.2.2/dist/cdn.min.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-100">
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+        <div x-data="salaryCalculator()" class="p-6 bg-white rounded-lg shadow-lg">
+            <h1 class="mb-4 text-2xl font-bold">Salary Calculator</h1>
+            <div class="mb-4">
+              <label class="block text-gray-700">Total Amount (Rs):</label>
+              <input type="number" x-model="totalAmount" class="w-full p-2 mt-1 border rounded" placeholder="Enter total amount">
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700">Total Days:</label>
+              <input type="number" x-model="totalDays" class="w-full p-2 mt-1 border rounded" placeholder="Enter total days">
+            </div>
+            <div class="mt-4">
+              <h2 class="text-xl font-bold">Per Day Salary: Rs <span x-text="perDaySalary"></span></h2>
+            </div>
+            <div class="mt-4 mb-4">
+              <label class="block text-gray-700">Shift Hours per Day:</label>
+              <input type="number" x-model="shiftHours" class="w-full p-2 mt-1 border rounded" placeholder="Enter shift hours">
+            </div>
+            <div class="mt-4">
+              <h2 class="text-xl font-bold">Per Hour Salary: Rs <span x-text="perHourSalary"></span></h2>
+            </div>
+          </div>
+        <div x-data="penaltyCalculator()" class="p-6 bg-white rounded-lg shadow-lg">
+            <h1 class="mb-4 text-2xl font-bold">Penalty Calculator</h1>
+            <div class="mb-4">
+              <label class="block text-gray-700">Time (Hours:Minutes):</label>
+              <input type="text" x-model="timeInput" class="w-full p-2 mt-1 border rounded" placeholder="144:30">
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700">Rate per Hour (Rs):</label>
+              <input type="number" x-model="ratePerHour" class="w-full p-2 mt-1 border rounded" placeholder="60">
+            </div>
+            <div class="mt-4">
+              <h2 class="text-xl font-bold">Penalty Amount: Rs <span x-text="penaltyAmount"></span></h2>
+            </div>
+          </div>
+    </div>
+</body>
+
+
+  <script>
+    function penaltyCalculator() {
+      return {
+        _timeInput: '',
+        _ratePerHour: '',
+        penaltyAmount: 0,
+        init() {
+          this.calculatePenalty();
+        },
+        calculatePenalty() {
+          if (!this._timeInput || !this._ratePerHour) {
+            this.penaltyAmount = '0.00';
+            return;
+          }
+
+          const timeParts = this._timeInput.split(':');
+          const hours = parseFloat(timeParts[0]) || 0;
+          const minutes = timeParts[1] ? parseFloat(timeParts[1]) : 0;
+
+          const totalHours = hours + (minutes / 60);
+          this.penaltyAmount = (totalHours * parseFloat(this._ratePerHour)).toFixed(2);
+        },
+        get timeInput() {
+          return this._timeInput;
+        },
+        set timeInput(value) {
+          this._timeInput = value;
+          this.calculatePenalty();
+        },
+        get ratePerHour() {
+          return this._ratePerHour;
+        },
+        set ratePerHour(value) {
+          this._ratePerHour = value;
+          this.calculatePenalty();
+        }
+      }
+    }
+  </script>
+  <script>
+    function salaryCalculator() {
+      return {
+        totalAmount: '',
+        totalDays: '',
+        shiftHours: '',
+        perDaySalary: '0.00',
+        perHourSalary: '0.00',
+        init() {
+          this.calculatePerDaySalary();
+          this.calculatePerHourSalary();
+        },
+        calculatePerDaySalary() {
+          if (!this.totalAmount || !this.totalDays) {
+            this.perDaySalary = '0.00';
+            return;
+          }
+
+          const totalAmount = parseFloat(this.totalAmount);
+          const totalDays = parseFloat(this.totalDays);
+
+          const perDaySalary = totalAmount / totalDays;
+          this.perDaySalary = perDaySalary.toFixed(2);
+          
+          this.calculatePerHourSalary(); // Ensure per hour salary is recalculated when per day salary is updated
+        },
+        calculatePerHourSalary() {
+          if (!this.shiftHours || this.perDaySalary === '0.00') {
+            this.perHourSalary = '0.00';
+            return;
+          }
+
+          const shiftHours = parseFloat(this.shiftHours);
+          const perDaySalary = parseFloat(this.perDaySalary);
+
+          const perHourSalary = perDaySalary / shiftHours;
+          this.perHourSalary = perHourSalary.toFixed(2);
+        },
+        get totalAmount() {
+          return this._totalAmount;
+        },
+        set totalAmount(value) {
+          this._totalAmount = value;
+          this.calculatePerDaySalary();
+        },
+        get totalDays() {
+          return this._totalDays;
+        },
+        set totalDays(value) {
+          this._totalDays = value;
+          this.calculatePerDaySalary();
+        },
+        get shiftHours() {
+          return this._shiftHours;
+        },
+        set shiftHours(value) {
+          this._shiftHours = value;
+          this.calculatePerHourSalary();
+        }
+      }
+    }
+  </script>
+</html>

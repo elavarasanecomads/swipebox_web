@@ -192,7 +192,60 @@
                                     </div>
                                     <div class="space-y-1">
                                         <p class="text-sm text-gray-600 uppercase">Stop Payment</p>
-                                        <p class="text-2xl font-bold">1</p>
+                                         <div x-data="{ 'showModal': false }">
+                                            <button @click="showModal = true"
+                                            class="text-2xl font-bold">
+                                                1
+                                            </button>
+                                            <template x-teleport="body">
+                                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                    x-show="showModal" style="display: none">
+                                                    <!-- Modal inner -->
+                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md "
+                                                        @click.away="showModal = false"
+                                                        x-transition:enter="motion-safe:ease-out duration-300"
+                                                        x-transition:enter-start="opacity-0 scale-90"
+                                                        x-transition:enter-end="opacity-100 scale-100">
+                                                        <!-- Title / Close-->
+                                                        <div class="flex items-center justify-between">
+                                                            <p class="font-bold text-gray-900">
+                                                                Stop Payment
+                                                            </p>
+                                                            <span @click="showModal = false">
+                                                                <svg class="w-5 h-5 text-gray-900"
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    fill="none" viewBox="0 0 24 24"
+                                                                    stroke="currentColor">
+                                                                    <path stroke-linecap="round"
+                                                                        stroke-linejoin="round" stroke-width="2"
+                                                                        d="M6 18L18 6M6 6l12 12"></path>
+                                                                </svg>
+                                                            </span>
+                                                        </div>
+                                                        <!-- content -->
+                                                        <div>
+                                                            <p class="text-sm text-gray-600">Dec 25/11/2023 - 24/12/2023</p>
+                                                        </div>
+                                                        <div class="pt-2 overflow-y-auto divide-y max-h-96">
+                                                            <div class="flex items-center gap-2 py-2">
+                                                                <img class="w-10 h-10 rounded-full" src="https://randomuser.me/api/portraits/men/77.jpg" alt="">
+                                                                <div>
+                                                                    <p class="font-semibold text-blue-600">Palanikumar</p>
+                                                                    <p class="text-sm text-gray-600">NA-1011</p>
+                                                                </div>        
+                                                            </div>
+                                                            <div class="flex items-center gap-2 py-2">
+                                                                <img class="w-10 h-10 rounded-full" src="https://randomuser.me/api/portraits/men/99.jpg" alt="">
+                                                                <div>
+                                                                    <p class="font-semibold text-blue-600">Elavarasan Rajan</p>
+                                                                    <p class="text-sm text-gray-600">NA-1020</p>
+                                                                </div>        
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </template>
+                                        </div>
                                     </div>
                                     <div class="col-start-1" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
                                         <button @click="showModal = true"
