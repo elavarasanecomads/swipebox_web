@@ -220,16 +220,55 @@
               </a>
             </li>
             
-            <li class="group hover:bg-blue-100">
-              <a href="reports.html" class="flex items-center px-6 py-3 text-gray-900">
-
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-blue-600" fill="none"
+           
+            <li class="group" x-data="{ isOpen: true }">
+              <div @click="isOpen = !isOpen">
+                <div class="flex items-center justify-between px-6 py-3 text-blue-600">
+                  <a href="#" class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" fill="none"
                   viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
                   </path>
-                </svg>Reports
-              </a>
+                </svg>
+                <span class="text-gray-900">Reports</span>
+                  </a>
+                  <div>
+                    <svg x-show="isOpen" class="w-5 h-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                    <svg x-show="!isOpen" class="w-5 h-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                    </svg>
+
+                  </div>
+                </div>
+              </div>
+              <!-- Dropdown Nav -->
+              <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
+                <div>
+                  <ul class="space-y-1">
+                    <li class="px-6">
+                      <a href="reports.html" class="flex items-center py-2 pl-6">
+                        Reports</a>
+                    </li>
+                    <li class="px-6">
+                      <a href="activity-log.html" class="flex items-center py-2 pl-6">
+                       Activity Log</a>
+                    </li>
+                    <li class="px-6">
+                      <a href="whatsapp-log.html" class="flex items-center py-2 pl-6">
+                        Whatsapp Log</a>
+                    </li>
+                    <li class="px-6">
+                      <a href="sms-log.html" class="flex items-center py-2 pl-6">
+                        SMS Log</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </li>
             <li class="group hover:bg-blue-100">
               <a href="notification.html" class="flex items-center px-6 py-3 text-gray-900">
