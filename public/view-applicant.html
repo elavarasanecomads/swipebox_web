@@ -1,0 +1,114 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Applicant</title>    
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="h-full p-4 bg-white border rounded-md lg:p-8">
+                    <div class="flex items-center gap-2">
+                        <a href="applicants.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5">
+                                <path fill-rule="evenodd"
+                                    d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <div class="flex items-center gap-4">
+                            <h1 class="text-2xl font-bold">View Applicant</h1>                           
+                        </div>                        
+                    </div>
+                    <div class="flex flex-col gap-4 lg:flex-row">
+                        <div class="w-full p-4 mt-6 rounded bg-blue-50">
+                            <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+                                <div class="">
+                                    <p class="text-sm font-semibold text-gray-500">Name</p>
+                                    <p>Elavarasan Rajan</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-gray-500">Mobile Number</p>
+                                    <p>8072276922</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-gray-500">Appling For</p>
+                                    <p>Telecalling Executive</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-gray-500">Email</p>
+                                    <p>rskelavarasan@gmail.com</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-gray-500">Current Role</p>
+                                    <p>Junior Telecaller</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-gray-500">Location</p>
+                                    <p>Salem</p>
+                                </div>
+                                <div class="col-span-3">
+                                    <p class="text-sm font-semibold text-gray-500">Why are you applying for this role?</p>
+                                    <p>I have already experience in tele calling and Im looking forward the job to enhance my knowledge.</p>
+                                </div>
+                                <div class="col-span-3">
+                                    <p class="text-sm font-semibold text-gray-500">Links to social profiles</p>
+                                    <p>https://www.behance.net/gallery/189617081/Graphic-Design-Portfolio-2023-24?tracking_source=search_projects|portfolio&l=13</p>
+                                </div>
+                                <div class="col-span-3">
+                                    <p class="text-sm font-semibold text-gray-500">Resume</p>
+                                    <div class="flex items-center gap-4">
+                                        <p>Elavarasan.pdf</p>
+                                        <button>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-blue-600">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"></path>
+                                            </svg>
+
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full pt-6 lg:w-3/4">
+                        <h3 class="text-xl font-bold">Applicant Status</h3>
+                        <div class="pt-6 space-y-4">
+                            <div>                            
+                                <p class="text-sm font-bold text-gray-900">
+                                    Status Updated -> Interview Scheduled</p>
+                                    <p class="text-sm ">Scheduled meeting at 10:00 PM on 28-05-2024</p>
+                                <p class="text-xs text-gray-600">
+                                    04-10-2023 15:03 | Elavarasan
+                                </p>
+                            </div>
+                            <div>                            
+                                <p class="text-sm font-bold text-gray-900">
+                                    Status Updated -> Contacted</p>
+                                    <p class="text-sm ">He said, He is intrested in job and scheduled meeting at 10:00 PM on 28-05-2024</p>
+                                <p class="text-xs text-gray-600">
+                                    04-10-2023 15:03 | Elavarasan
+                                </p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+      $("#navigation").load("nav.html");
+      $("#aside").load("aside.html");
+    });
+  </script>
+</html>

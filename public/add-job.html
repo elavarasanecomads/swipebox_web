@@ -1,0 +1,92 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Job</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="h-full p-4 bg-white border rounded-md lg:p-8">
+                    <div class="flex items-center gap-2">
+                        <a href="job-board.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5">
+                                <path fill-rule="evenodd"
+                                    d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <div class="flex items-center gap-4">
+                            <h1 class="text-2xl font-bold">Create New Job</h1>
+                        </div>
+                    </div>
+                    <div class="w-full pt-6 lg:w-1/2">
+                        <div class="space-y-4">
+                            <div class="w-full">
+                                <label class="text-sm font-semibold text-gray-600" for="">Job Title</label>
+                                <input type="text"
+                                    class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                            </div>
+                            <div class="w-full">
+                                <label class="text-sm font-semibold text-gray-600" for="">Job Description</label>
+                                <textarea name="" id="" cols="30" rows="5"
+                                    class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base"></textarea>
+                            </div>
+                            <div class="w-full">
+                                <label class="text-sm font-semibold text-gray-600" for="">Job Location</label>
+                                <input type="text"
+                                    class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                            </div>
+                            <div class="w-full">
+                                <label class="text-sm font-semibold text-gray-600" for="">Salary</label>
+                                <input type="text"
+                                    class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                            </div>
+                            <div class="py-4">
+                                <label class="text-sm font-semibold text-gray-600">Status <span class="text-red-600">*</span></label>
+                                <div class="flex text-gray-600">
+                                    <span>Closed</span>
+                                    <div class="mx-2" x-data="{toggle: true}">
+                                        <div class="relative w-12 h-6 transition duration-200 ease-linear bg-green-600 rounded-full"
+                                            :class="[toggle ? 'bg-green-600' : 'bg-gray-400']">
+                                            <label for="toggle"
+                                                class="absolute drop-shadow-lg left-1 bg-white mt-[2px] w-5 h-5 rounded-full transition transform duration-100 ease-linear cursor-pointer translate-x-full border-black"
+                                                :class="[toggle ? 'translate-x-full border-black' : 'translate-x-0 border-gray-400']">
+                                            </label>
+                                            <input type="checkbox" id="toggle" name="toggle"
+                                                x-model="toggle"
+                                                class="w-full h-full appearance-none active:outline-none focus:outline-none">
+                                        </div>
+                                    </div>
+                                    <span>Open</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-8">
+                            <button
+                                class="w-full p-3 font-semibold text-white bg-blue-600 rounded-md lg:w-44">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+</html>
