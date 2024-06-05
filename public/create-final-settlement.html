@@ -305,7 +305,7 @@
 
                                 <!-- Step 6 -->
                                 <div x-show="step === 6" class="space-y-6">
-                                    <h1 class="text-lg font-bold">Step 6: Remarks</h1>
+                                    <h1 class="text-lg font-bold">Step 5: Remarks</h1>
                                     <!-- Your form content for step 3 goes here -->
                                     <div class="max-w-sm">
                                         <div>
@@ -313,6 +313,89 @@
                                                 for="date">Remarks</label>
                                             <textarea name="" id=""
                                                 class="block w-full p-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center gap-4 pt-10">
+                                        <button @click="step = 5"
+                                            class="w-24 px-4 py-2 font-semibold text-blue-600 bg-white border border-blue-600 rounded">Previous</button>
+                                            <button @click="step = 7"
+                                            class="w-24 px-4 py-2 font-semibold text-white bg-blue-500 border border-blue-600 rounded">Next</button>
+                                           
+                                    </div>
+                                </div>
+
+                                <div x-show="step === 7" class="space-y-6">
+                                    <h1 class="text-lg font-bold">Step 6: Preview</h1>
+                                    <!-- Your form content for step 3 goes here -->
+                                    <div class="w-full">
+                                        <div>
+                                           <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Employee Name</p>
+                                                <p>Elavarasan Rajan</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Employee ID</p>
+                                                <p>NA1110</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Mobile Number</p>
+                                                <p>8972276922</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Email Id</p>
+                                                <p>elavarasanecomads@gmail.com</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Branch</p>
+                                                <p>CHB Colony</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Department</p>
+                                                <p>Human Resource</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Resignation Submitted On</p>
+                                                <p>01-06-2024</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Notice Period Days</p>
+                                                <p>30 Days</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Leaving Date</p>
+                                                <p>15-06-2024</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Leaving Reason</p>
+                                                <p>Resigned</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Settlement Date</p>
+                                                <p>30-06-2024</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">No of Days Served in Notice Period</p>
+                                                <p>15</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Shortfall in Notice Period</p>
+                                                <p>15</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Deduction Amount for Shortfall Days</p>
+                                                <p>15000</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Leave Encashment</p>
+                                                <p>2 Days</p>
+                                            </div>
+                                            <div class="col-span-1 lg:col-span-3">
+                                                <p class="text-sm font-semibold text-gray-500">Remarks</p>
+                                                <p></p>
+                                            </div>
+                                           </div>
                                         </div>
                                     </div>
 
