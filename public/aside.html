@@ -262,7 +262,59 @@
                                 d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z">
                             </path>
                         </svg>Payroll Run
-                    </a>
+                      </a>
+                      <div>
+                        <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                          viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                        <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                          viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                        </svg>
+    
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Dropdown Nav -->
+                  <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
+                    <div>
+                      <ul class="space-y-1 text-white">
+                        <li class="px-6">
+                          <a href="prorated-salary.html" class="flex items-center py-2 pl-6">
+                            Prorated Salary</a>
+                        </li>
+                        <li class="px-6">
+                          <a href="calculate-salary.html" class="flex items-center py-2 pl-6">
+                            Calculate Salary</a>
+                        </li>
+                        <li class="px-6">
+                          <a href="projected-salary.html" class="flex items-center py-2 pl-6">
+                            Projected Salary</a>
+                        </li>
+                        <li class="px-6">
+                          <a href="final-salary.html" class="flex items-center py-2 pl-6">
+                            Final Salary</a>
+                        </li>
+                        <li class="px-6">
+                          <a href="withhold-salary-2.html" class="flex items-center py-2 pl-6">
+                            Withhold Salary</a>
+                        </li>
+                        <li class="px-6">
+                          <a href="stop-payment.html" class="flex items-center py-2 pl-6">
+                            Stop Payment</a>
+                        </li>
+                        <li class="px-6">
+                          <a href="payroll-comparison.html" class="flex items-center py-2 pl-6">
+                            Payroll Comparison</a>
+                        </li>
+                        <li class="px-6">
+                          <a href="salary-paid-history-details.html" class="flex items-center py-2 pl-6">
+                            Salary Paid History</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </li>
                 <li class="group hover:bg-primary-100">
                     <a href="announcement.html" class="flex items-center px-6 py-3 text-white group-hover:bg-blue-700">
@@ -608,16 +660,74 @@
                           </div>
                       </div>
                   </li>
-                    <li class="group hover:bg-blue-100">
-                      <a href="Payrun-Overview.html" class="flex items-center px-6 py-3 text-gray-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3 text-blue-600" fill="none"
+                    
+                    <li class="group" x-data="{ isOpen: true }">
+                      <div @click="isOpen = !isOpen">
+                          <div class="flex items-center justify-between px-6 py-3">
+                              <a href="#" class="flex items-center text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3 text-blue-600" fill="none"
                           viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                           <path stroke-linecap="round" stroke-linejoin="round"
                             d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z">
                           </path>
-                        </svg>Payroll Run
-                      </a>
-                    </li>
+                        </svg>
+                                  Payroll Run
+                              </a>
+                              <div>
+                                  <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
+                                      fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M19 9l-7 7-7-7"></path>
+                                  </svg>
+                                  <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
+                                      fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M5 15l7-7 7 7"></path>
+                                  </svg>
+      
+                              </div>
+                          </div>
+                      </div>
+                      <!-- Dropdown Nav -->
+                      <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
+                          <div>
+                              <ul class="space-y-1 text-white">
+                                <li class="px-6">
+                                  <a href="prorated-salary.html" class="flex items-center py-2 pl-6">
+                                    Prorated Salary</a>
+                                </li>
+                                <li class="px-6">
+                                  <a href="calculate-salary.html" class="flex items-center py-2 pl-6">
+                                    Calculate Salary</a>
+                                </li>
+                                <li class="px-6">
+                                  <a href="projected-salary.html" class="flex items-center py-2 pl-6">
+                                    Projected Salary</a>
+                                </li>
+                                <li class="px-6">
+                                  <a href="final-salary.html" class="flex items-center py-2 pl-6">
+                                    Final Salary</a>
+                                </li>
+                                <li class="px-6">
+                                  <a href="withhold-salary-2.html" class="flex items-center py-2 pl-6">
+                                    Withhold Salary</a>
+                                </li>
+                                <li class="px-6">
+                                  <a href="stop-payment.html" class="flex items-center py-2 pl-6">
+                                    Stop Payment</a>
+                                </li>
+                                <li class="px-6">
+                                  <a href="payroll-comparison.html" class="flex items-center py-2 pl-6">
+                                    Payroll Comparison</a>
+                                </li>
+                                <li class="px-6">
+                                  <a href="salary-paid-history-details.html" class="flex items-center py-2 pl-6">
+                                    Salary Paid History</a>
+                                </li>
+                              </ul>
+                          </div>
+                      </div>
+                  </li>
                     <li class="group hover:bg-blue-100">
                       <a href="announcement.html" class="flex items-center px-6 py-3 text-gray-900">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3 text-blue-600" fill="none"

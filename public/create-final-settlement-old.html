@@ -27,7 +27,7 @@
                                         clip-rule="evenodd"></path>
                                 </svg>
                             </a>
-                            <h1 class="text-2xl font-bold">Create Final Settlement</h1>                            
+                            <h1 class="text-2xl font-bold">Create Final Settlement</h1>
                         </div>
                         <div>
                             <div class="pt-8" x-data="{ step: 1 }">
@@ -52,7 +52,6 @@
                                     <div class="flex items-center gap-4 pt-10">
                                         <button @click=""
                                             class="w-24 px-4 py-2 font-semibold text-blue-600 bg-white border border-blue-600 rounded">Previous</button>
-                                           
                                         <button @click="step = 2"
                                             class="w-24 px-4 py-2 font-semibold text-white bg-blue-500 border border-blue-600 rounded">Next</button>
                                     </div>
@@ -112,8 +111,7 @@
                                     <div class="flex items-center gap-4 pt-10">
                                         <button @click="step = 1"
                                             class="w-24 px-4 py-2 font-semibold text-blue-600 bg-white border border-blue-600 rounded">Previous</button>
-                                            <button class="px-4 py-2 font-semibold text-white bg-blue-500 border border-blue-600 rounded">Save As Draft</button>
-                                            <button @click="step = 3"
+                                        <button @click="step = 3"
                                             class="w-24 px-4 py-2 font-semibold text-white bg-blue-500 border border-blue-600 rounded">Next</button>
                                     </div>
 
@@ -122,68 +120,124 @@
 
                                 <!-- Step 3 -->
                                 <div x-show="step === 3" class="space-y-6">
-                                    <h1 class="text-lg font-bold">Step 3: Payroll Details</h1>
+                                    <h1 class="text-lg font-bold">Step 3: Notice Pay</h1>
                                     <!-- Your form content for step 3 goes here -->
                                     <div class="max-w-xs space-y-4">
                                         <div>
-                                            <p class="pb-4 text-lg font-bold">Earnings</p>
-                                            <div class="w-full">
-                                                <label class="text-sm font-semibold text-gray-600" for="">Total Salary</label>
-                                                <input type="text" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                            </div>
+                                            <label class="text-sm font-semibold text-gray-600" for="date">No of Days
+                                                Served in Notice Period</label>
+                                            <input type="text" name="" id="" autocomplete="" placeholder=""
+                                                class="block w-full p-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                         </div>
-                                        <div class="space-y-4">
-                                            <p class="text-lg font-bold">Statutory Deductions</p>
-                                            <div class="w-full">
-                                                <label class="text-sm font-semibold text-gray-600" for="">Provident Fund (PF)</label>
-                                                <input type="text" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                            </div>
-                                            <div class="w-full">
-                                                <label class="text-sm font-semibold text-gray-600" for="">Employee State Insurance (ESI)</label>
-                                                <input type="text" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                            </div>
-                                            <div class="w-full">
-                                                <label class="text-sm font-semibold text-gray-600" for="">Professional Tax</label>
-                                                <input type="text" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                            </div>
-                                            <div class="w-full">
-                                                <label class="text-sm font-semibold text-gray-600" for="">Tax Deducted at Source (TDS)</label>
-                                                <input type="text" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                            </div>
-                                            <div class="w-full">
-                                                <label class="text-sm font-semibold text-gray-600" for="">Labor Welfare Fund</label>
-                                                <input type="text" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                            </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="date">Shortfall in
+                                                Notice Period</label>
+                                            <input type="text" name="" id="" autocomplete="" placeholder=""
+                                                class="block w-full p-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                         </div>
-                                        <div class="space-y-4">
-                                            <p class="text-lg font-bold">Deductions</p>
-                                            <div class="w-full">
-                                                <label class="text-sm font-semibold text-gray-600" for="">Common Deductions</label>
-                                                <input type="text" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                            </div>
-                                            <div class="w-full">
-                                                <label class="text-sm font-semibold text-gray-600" for="">Loan <span class="font-normal text-red-600">Unpaid Amount : 10000</span></label>
-                                                <input type="text" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                            </div>
-                                            <div class="w-full">
-                                                <label class="text-sm font-semibold text-gray-600" for="">Advance <span class="font-normal text-red-600">Unpaid Amount : 10000</span></label>
-                                                <input type="text" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                            </div>
+                                        <div>
+                                            <label class="inline-flex items-center">
+                                                <input checked name="" type="checkbox" class="w-4 h-4 form-checkbox">
+                                                <span class="ml-2 font-semibold">Deduct Salary for Shortfall Days</span>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600" for="date">Deduction
+                                                Amount for Shortfall Days</label>
+                                            <input type="text" name="" id="" autocomplete="" placeholder=""
+                                                class="block w-full p-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                         </div>
                                     </div>
-                                   
+                                    <!-- <div>
+                                        <h3 class="font-bold">Shortfall Days Monthwise in Notice Period</h3>
+                                        <div class="pt-4">
+                                            <p><span class="font-semibold">January 2024: </span> 5 Days</p>
+                                            <p><span class="font-semibold">February 2024: </span> 29 Days</p>
+                                        </div>
+                                    </div> -->
 
                                     <div class="flex items-center gap-4 pt-10">
                                         <button @click="step = 2"
                                             class="w-24 px-4 py-2 font-semibold text-blue-600 bg-white border border-blue-600 rounded">Previous</button>
-                                            <button class="px-4 py-2 font-semibold text-white bg-blue-500 border border-blue-600 rounded">Save As Draft</button>
-                                            <button @click="step = 4"
+                                        <button @click="step = 5"
                                             class="w-24 px-4 py-2 font-semibold text-white bg-blue-500 border border-blue-600 rounded">Next</button>
                                     </div>
-                                </div>                              
+                                </div>
 
                                 <!-- Step 4 -->
-                                <div x-show="step === 4" class="space-y-6">
+                                <!-- <div x-show="step === 4" class="space-y-6">
+                                    <h1 class="text-lg font-bold">Step 4: Work Days</h1>
+                                    <div>
+                                        <div class="max-w-sm mb-4 space-y-4">
+                                            <div>
+                                                <div class="inline-flex items-center w-full gap-2 p-2 text-sm text-yellow-600 bg-yellow-100 rounded">
+                                                    <div>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                                          </svg>
+                                                    </div>
+                                                    <p>Based on leaving date workdays are updated</p>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="inline-flex items-center w-full gap-2 p-2 text-sm text-yellow-600 bg-yellow-100 rounded">
+                                                    <div>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                                          </svg>
+                                                    </div>
+                                                    <p>Last Working Day : 28-02-2024</p>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="inline-flex items-center w-full gap-2 p-2 text-sm text-yellow-600 bg-yellow-100 rounded">
+                                                    <div>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                                          </svg>
+                                                    </div>
+                                                    <p>Last Paid Month : Dec 2023</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <table>
+                                            <thead class="text-sm bg-gray-200">
+                                                <th class="p-2 px-4">Payroll Month</th>
+                                                <th class="p-2 px-4">Work Days</th>
+                                                <th class="p-2 px-4">Days Worked</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="p-2 px-4">Dec 2023</td>
+                                                    <td class="p-2 px-4">30</td>
+                                                    <td class="p-2 px-4">
+                                                        <div>
+                                                            <input type="text" name="" id="" autocomplete="" placeholder="" class="block w-16 p-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="p-2 px-4 text-right" colspan="2">No of Days Worked</td>
+                                                    <td class="p-2 px-4">
+                                                        <div>
+                                                            <input type="text" name="" id="" autocomplete="" placeholder="" class="block w-16 p-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="flex items-center gap-4 pt-10">
+                                        <button @click="step = 3"
+                                            class="w-24 px-4 py-2 font-semibold text-blue-600 bg-white border border-blue-600 rounded">Previous</button>
+                                        <button @click="step = 5"
+                                            class="w-24 px-4 py-2 font-semibold text-white bg-blue-500 border border-blue-600 rounded">Next</button>
+                                    </div>
+                                </div> -->
+
+                                <!-- Step 5 -->
+                                <div x-show="step === 5" class="space-y-6">
                                     <h1 class="text-lg font-bold">Step 4: Leave Encashment</h1>
                                     <!-- Your form content for step 4 goes here -->
                                     <div>
@@ -250,50 +304,18 @@
                                             </tbody>
                                         </table>
                                     </div>
+
                                     <div class="flex items-center gap-4 pt-10">
-                                        <button @click="step = 3"
+                                        <button @click="step = 4"
                                             class="w-24 px-4 py-2 font-semibold text-blue-600 bg-white border border-blue-600 rounded">Previous</button>
-                                            <button class="px-4 py-2 font-semibold text-white bg-blue-500 border border-blue-600 rounded">Save As Draft</button>
-                                            <button @click="step = 5"
+                                        <button @click="step = 6"
                                             class="w-24 px-4 py-2 font-semibold text-white bg-blue-500 border border-blue-600 rounded">Next</button>
                                     </div>
                                 </div>
 
-                                  <!-- Step 5 -->
-                                  <div x-show="step === 5" class="space-y-6">
-                                    <h1 class="text-lg font-bold">Step 5: Summary</h1>
-                                    <div>
-                                        <div class="max-w-sm mb-4 space-y-4">
-                                            <div class="w-full">
-                                                <label class="text-sm font-semibold text-gray-600" for="">Total Earnings</label>
-                                                <input type="text" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                            </div>
-                                            <div class="w-full">
-                                                <label class="text-sm font-semibold text-gray-600" for="">Total Statutory Deductions</label>
-                                                <input type="text" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                            </div>
-                                            <div class="w-full">
-                                                <label class="text-sm font-semibold text-gray-600" for="">Total Common Deductions</label>
-                                                <input type="text" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                            </div>
-                                            <div class="w-full">
-                                                <label class="text-sm font-semibold text-gray-600" for="">NETPAY</label>
-                                                <input type="text" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="flex items-center gap-4 pt-10">
-                                        <button @click="step = 4"
-                                            class="w-24 px-4 py-2 font-semibold text-blue-600 bg-white border border-blue-600 rounded">Previous</button>
-                                            <button class="px-4 py-2 font-semibold text-white bg-blue-500 border border-blue-600 rounded">Save As Draft</button>
-                                            <button @click="step = 6"
-                                            class="w-24 px-4 py-2 font-semibold text-white bg-blue-500 border border-blue-600 rounded">Next</button>
-                                    </div>
-                                </div>
                                 <!-- Step 6 -->
                                 <div x-show="step === 6" class="space-y-6">
-                                    <h1 class="text-lg font-bold">Step 6: Remarks</h1>
+                                    <h1 class="text-lg font-bold">Step 5: Remarks</h1>
                                     <!-- Your form content for step 3 goes here -->
                                     <div class="max-w-sm">
                                         <div>
@@ -307,7 +329,95 @@
                                     <div class="flex items-center gap-4 pt-10">
                                         <button @click="step = 5"
                                             class="w-24 px-4 py-2 font-semibold text-blue-600 bg-white border border-blue-600 rounded">Previous</button>
-                                            <a href="final-settlement.html"> <button @click="submitForm"
+                                            <button @click="step = 7"
+                                            class="w-24 px-4 py-2 font-semibold text-white bg-blue-500 border border-blue-600 rounded">Next</button>
+                                           
+                                    </div>
+                                </div>
+
+                                <div x-show="step === 7" class="space-y-6">
+                                    <h1 class="text-lg font-bold">Step 6: Preview</h1>
+                                    <!-- Your form content for step 3 goes here -->
+                                    <div class="w-full">
+                                        <div>
+                                           <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Employee Name</p>
+                                                <p>Elavarasan Rajan</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Employee ID</p>
+                                                <p>NA1110</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Mobile Number</p>
+                                                <p>8972276922</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Email Id</p>
+                                                <p>elavarasanecomads@gmail.com</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Branch</p>
+                                                <p>CHB Colony</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Department</p>
+                                                <p>Human Resource</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Resignation Submitted On</p>
+                                                <p>01-06-2024</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Notice Period Days</p>
+                                                <p>30 Days</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Leaving Date</p>
+                                                <p>15-06-2024</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Leaving Reason</p>
+                                                <p>Resigned</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Settlement Date</p>
+                                                <p>30-06-2024</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">No of Days Served in Notice Period</p>
+                                                <p>15</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Shortfall in Notice Period</p>
+                                                <p>15</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Deduction Amount for Shortfall Days</p>
+                                                <p>15000</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Leave Encashment Days</p>
+                                                <p>2 Days</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-500">Leave Encashment Amount</p>
+                                                <p>2000</p>
+                                            </div>
+                                            <div class="col-span-1 lg:col-span-2">
+                                                <p class="text-sm font-semibold text-gray-500">Remarks</p>
+                                                <p></p>
+                                            </div>
+                                           </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center gap-4 pt-10">
+                                        <button @click="step = 5"
+                                            class="w-24 px-4 py-2 font-semibold text-blue-600 bg-white border border-blue-600 rounded">Previous</button>
+
+                                        <a href="final-settlement.html"> <button @click="submitForm"
                                                 class="w-24 px-4 py-2 font-semibold text-white bg-blue-500 border border-blue-600 rounded">Finish</button>
                                         </a>
                                     </div>
