@@ -906,8 +906,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 2rem;
 }
 
-.-mr-4 {
-  margin-right: -1rem;
+.mr-6 {
+  margin-right: 1.5rem;
 }
 
 .mb-5 {
@@ -932,14 +932,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .ml-9 {
   margin-left: 2.25rem;
-}
-
-.mr-6 {
-  margin-right: 1.5rem;
-}
-
-.mr-4 {
-  margin-right: 1rem;
 }
 
 .block {
@@ -1284,6 +1276,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 33.333333%;
 }
 
+.w-5\/6 {
+  width: 83.333333%;
+}
+
 .w-3\.5 {
   width: 0.875rem;
 }
@@ -1437,6 +1433,23 @@ Ensure the default browser behavior of the `hidden` attribute.
 .animate-ping {
   -webkit-animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
           animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@-webkit-keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+
+.animate-pulse {
+  -webkit-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .cursor-default {
@@ -2353,6 +2366,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-red-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(254 242 242 / var(--tw-bg-opacity));
+}
+
+.bg-red-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 202 202 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-50 {
