@@ -1,0 +1,180 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leave Balance History</title>
+  <link href="output.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+  <div class="flex w-full">
+    <div id="aside"></div>
+    <div class="w-full">
+      <div id="navigation"></div>
+      <div class="mx-0 my-4 lg:m-4">
+        <div class="h-full p-4 bg-white border rounded-md lg:p-8">
+          <div class="w-full">
+            <div class="flex items-center gap-2">
+                <a href="leave-balance.html" class="flex items-center gap-1 text-sm text-gray-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                        <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+              <h1 class="text-2xl font-bold">Leave Balance History</h1>
+            </div>
+            <div class="pt-4">
+                <p class="text-sm font-semibold uppercase">Elavarasan | Casual Leave</p>
+            </div>
+            <div class="pt-8">
+              <div class="flex flex-col border-b">
+                <div class="z-10 -my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
+                  <div class="inline-block max-w-xl min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                    <div class="border-b border-gray-200 shadow sm:rounded-lg">
+
+                      <table class="min-w-full divide-y divide-gray-200 table-auto">
+                        <thead class="bg-blue-600">
+                          <tr>
+                            <th scope="col" class="px-3 py-3 font-semibold tracking-wider text-left text-gray-100 ">
+                              Date
+                            </th>
+                            <th scope="col" class="px-3 py-3 font-semibold tracking-wider text-left text-gray-100 ">
+                              Allocated
+                            </th>
+                            <th scope="col" class="px-3 py-3 font-semibold tracking-wider text-left text-gray-100 ">
+                              Carryforward
+                            </th>
+                            <th scope="col" class="px-3 py-3 font-semibold tracking-wider text-left text-gray-100 ">
+                              Used
+                            </th>
+                            <th scope="col" class="px-3 py-3 font-semibold tracking-wider text-left text-gray-100 ">
+                              Balance
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                          <tr>
+                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                              <p class="font-semibold">01-07-2024</p>
+                            </td>
+                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                              <span class="text-base text-gray-900">
+                               1
+                              </span>
+                            </td>
+                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                              <span class="text-base text-gray-900">
+                                2
+                              </span>
+                            </td>
+                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                              <span class="text-base text-gray-900">
+                                0
+                              </span>
+                            </td>
+                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                              <span class="text-base text-gray-900">
+                                3
+                              </span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                              <p class="font-semibold">01-06-2024</p>
+                            </td>
+                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                              <span class="text-base text-gray-900">
+                               1
+                              </span>
+                            </td>
+                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                              <span class="text-base text-gray-900">
+                                2
+                              </span>
+                            </td>
+                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                              <span class="text-base text-gray-900">
+                                1
+                              </span>
+                            </td>
+                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                              <span class="text-base text-gray-900">
+                                2
+                              </span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                              <p class="font-semibold">01-05-2024</p>
+                            </td>
+                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                              <span class="text-base text-gray-900">
+                               1
+                              </span>
+                            </td>
+                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                              <span class="text-base text-gray-900">
+                                1
+                              </span>
+                            </td>
+                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                              <span class="text-base text-gray-900">
+                                0
+                              </span>
+                            </td>
+                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                              <span class="text-base text-gray-900">
+                                2
+                              </span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                              <p class="font-semibold">01-04-2024</p>
+                            </td>
+                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                              <span class="text-base text-gray-900">
+                               1
+                              </span>
+                            </td>
+                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                              <span class="text-base text-gray-900">
+                                0
+                              </span>
+                            </td>
+                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                              <span class="text-base text-gray-900">
+                                0
+                              </span>
+                            </td>
+                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
+                              <span class="text-base text-gray-900">
+                                1
+                              </span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  $(function () {
+    $("#navigation").load("nav.html");
+    $("#aside").load("aside.html");
+  });
+</script>
+
+</html>

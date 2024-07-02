@@ -17,63 +17,17 @@
       <div id="navigation"></div>
       <div class="mx-0 my-4 lg:m-4">
         <div class="h-full p-4 bg-white border rounded-md lg:p-8">
-          <!--Brudcrumb-->
-          <nav class="flex pb-4" aria-label="Breadcrumb">
-            <ol class="inline-flex flex-wrap items-center space-x-1 md:space-x-3">
-              <li class="inline-flex items-center">
-                <a href="dashboard.html"
-                  class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
-                  <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
-                    </path>
-                  </svg>
-                  Dashboard
-                </a>
-              </li>
-              <li>
-                <div class="flex items-center">
-                  <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                      clip-rule="evenodd"></path>
-                  </svg>
-                  <a href="employee-summary.html"
-                    class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">Employee
-                    Summary</a>
-                </div>
-              </li>
-              <li>
-                <div class="flex items-center">
-                  <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                      clip-rule="evenodd"></path>
-                  </svg>
-                  <a href="employee-detail.html"
-                    class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">Employee</a>
-                </div>
-              </li>
-              <li aria-current="page">
-                <div class="flex items-center">
-                  <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                      clip-rule="evenodd"></path>
-                  </svg>
-                  <span class="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">Leave Balance</span>
-                </div>
-              </li>
-            </ol>
-          </nav>
+          <!--Brudcrumb-->          
           <div class="w-full">
-            <div class="flex items-center gap-4 ">
+            <div class="flex items-center gap-2">
+              <a href="employee-detail.html" class="flex items-center gap-1 text-sm text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                    <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd"></path>
+                </svg>
+            </a>
               <h1 class="text-2xl font-bold">Leave Balance</h1>
             </div>
-            <div class="flex flex-col items-center gap-4 pt-4 lg:flex-row">
+            <div class="pt-4">
               <div>
                 <p class="pb-4 text-sm font-semibold text-red-600 uppercase">NAME : <span>ELAVARASAN</span>
                 <p class="text-sm font-semibold uppercase">Leave Type : <span>Monthly</span>
@@ -140,7 +94,7 @@
                                 4
                               </span>
                             </td>
-                            <td class="relative flex items-center gap-4 px-6 py-2 whitespace-normal w-36">
+                            <td class="relative flex items-center gap-4 px-6 py-2 whitespace-normal">
                               <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
                                 <button @click="showModal = true" class="">
                                   <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" fill="none"
@@ -191,36 +145,11 @@
                                   </div>
                                 </div>
                               </div>
+                              <div>
+                                <a href="leave-balance-history.html" class="font-semibold text-blue-600">View History</a>
+                              </div>
                             </td>
                           </tr>
-                          <!-- <tr>
-                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
-                              <p class="font-semibold">Compensatory Off </p>
-                            </td>
-                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
-                              <p class="text-base text-gray-900">CO</p>
-                            </td>
-                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
-                              <span class="text-base text-gray-900">
-                                10
-                              </span>
-                            </td>
-                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
-                              <span class="text-base text-gray-900">
-                                5
-                              </span>
-                            </td>
-                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
-                              <span class="text-base text-gray-900">
-                                5
-                              </span>
-                            </td>
-                            <td class="px-3 py-2 whitespace-nowrap lg:whitespace-normal">
-                              <span class="text-base text-gray-900">
-                                5
-                              </span>
-                            </td>
-                          </tr> -->
                         </tbody>
                       </table>
                     </div>
