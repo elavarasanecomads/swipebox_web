@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skeleton Loader</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .skeleton {
+            @apply bg-green-600 animate-pulse;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div x-data="{ loading: true }" x-init="setTimeout(() => loading = false, 5000)" class="w-96">
+        <!-- Skeleton Loader -->
+        <template x-if="loading">
+            <div>
+                <div class="w-3/4 h-6 mb-4 bg-red-200 animate-pulse"></div>
+                <div class="w-full h-4 mb-2 bg-red-200 animate-pulse"></div>
+                <div class="w-full h-4 mb-2 bg-red-200 animate-pulse"></div>
+                <div class="w-5/6 h-4 bg-red-200 animate-pulse"></div>
+            </div>
+        </template>
+    
+        <!-- Loaded Content -->
+        <template x-if="!loading">
+            <div>
+                <h1 class="mb-4 text-xl font-bold">Loaded Content</h1>
+                <p class="mb-2">This is the main content that was loaded after the skeleton screen.</p>
+                <p>Here you can add any other content that should be displayed after loading is complete.</p>
+            </div>
+        </template>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2" defer></script>
+</body>
+</html>

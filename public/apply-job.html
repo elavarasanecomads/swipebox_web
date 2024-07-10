@@ -1,0 +1,191 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Job</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+</head>
+<body class="mx-auto my-6 bg-gray-100">
+    <div class="flex items-center justify-center">
+        <div class="w-full max-w-4xl min-h-screen p-4 bg-white rounded-md">
+            <h1 class="text-2xl font-bold">Telecallers Wanted</h1>
+            <div class="flex flex-wrap items-center gap-4 pt-4 text-gray-600">
+                <div class="flex gap-1 item-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-600">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
+                      </svg>
+                     <p>Nithra Apps India Private Limited</p> 
+                </div>
+                <div class="flex gap-1 item-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-600">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                      </svg>
+                      
+                     <p>Tiruchengode</p> 
+                </div>
+                <div class="flex gap-1 item-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-600">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
+                      </svg>
+                      
+                     <p>10000</p> 
+                </div>
+            </div>
+           <div>
+            <div x-data="{
+                openTab: 1,
+                activeClasses: 'border-b-2 border-blue-600 text-blue-600',
+                inactiveClasses: ''
+            }" class="mt-6">
+                <div class="grid grid-cols-2 gap-4 pt-4 bg-gray-100 border-b lg:grid-cols-3">
+                    <div class="col-span-1" @click="openTab = 1">
+                        <button
+                            class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
+                            :class="openTab === 1 ? activeClasses : inactiveClasses">Apply Job</button>
+                    </div>
+                    <div class="col-span-1" @click="openTab = 2">
+                        <button
+                            class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600"
+                            :class="openTab === 2 ? activeClasses : inactiveClasses">Job Description</button>
+                    </div>
+                </div>
+                <div class="w-full space-y-4 bg-white lg:p-4 lg:w-3/5" x-show="openTab === 1" style="display: none;">
+                    <div class="space-y-4">
+                        <div class="w-full">
+                            <label class="text-sm font-semibold text-gray-600" for="">Name <span class="text-red-600">*</span></label>
+                            <input type="text"
+                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                        </div>
+                        <div class="w-full">
+                            <label class="text-sm font-semibold text-gray-600" for="">Mobile <span class="text-red-600">*</span></label>
+                            <input type="text"
+                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                        </div>
+                        <div class="w-full">
+                            <label class="text-sm font-semibold text-gray-600" for="">Email</label>
+                            <input type="text"
+                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                        </div>                            
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">Postal Address</label>
+                                <input type="text" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base" value="">
+                            </div>
+                            <div class="w-full">
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">State</label>
+                                <select id="state" name="state" autocomplete="oc_state" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                    <option value="">Select State</option>
+                                                                        <option value="1">Andaman and Nicobar (UT)</option>
+                                                                        <option value="2">Andhra Pradesh</option>
+                                                                        <option value="3">Arunachal Pradesh</option>
+                                                                        <option value="4">Assam</option>
+                                                                        <option value="5">Bihar</option>
+                                                                        <option value="6">Chandigarh (UT)</option>
+                                                                        <option value="7">Chhattisgarh</option>
+                                                                        <option value="8">Dadra and Nagar Haveli (UT)</option>
+                                                                        <option value="9">Daman and Diu (UT)</option>
+                                                                        <option value="10">Delhi</option>
+                                                                        <option value="11">Goa</option>
+                                                                        <option value="12">Gujarat</option>
+                                                                        <option value="13">Haryana</option>
+                                                                        <option value="14">Himachal Pradesh</option>
+                                                                        <option value="15">Jammu and Kashmir</option>
+                                                                        <option value="16">Jharkhand</option>
+                                                                        <option value="17">Karnataka</option>
+                                                                        <option value="18">Kerala</option>
+                                                                        <option value="19">Lakshadweep (UT)</option>
+                                                                        <option value="20">Madhya Pradesh</option>
+                                                                        <option value="21">Maharashtra</option>
+                                                                        <option value="22">Manipur</option>
+                                                                        <option value="23">Meghalaya</option>
+                                                                        <option value="24">Mizoram</option>
+                                                                        <option value="25">Nagaland</option>
+                                                                        <option value="26">Orissa</option>
+                                                                        <option value="27">Puducherry (UT)</option>
+                                                                        <option value="28">Punjab</option>
+                                                                        <option value="29">Rajasthan</option>
+                                                                        <option value="30">Sikkim</option>
+                                                                        <option value="31">Tamil Nadu</option>
+                                                                        <option value="32">Telangana</option>
+                                                                        <option value="33">Tripura</option>
+                                                                        <option value="34">Uttar Pradesh</option>
+                                                                        <option value="35">Uttarakhand</option>
+                                                                        <option value="36">West Bengal</option>
+                                                                </select>
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600" for="businessname">Date of Birth</label>
+                                <input type="date" name="dob" id="dob" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600" value="" onkeydown="return false">
+                            </div>
+    
+                            <div class="w-full">
+                                <label class="text-sm font-semibold text-gray-600" for="gender">Gender</label>
+                                <select id="gender" name="gender" autocomplete="gender" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                    <option value="">Select Gender</option>
+                                    <option value="1">Male</option>
+                                    <option value="2">Female</option>
+                                    <option value="3">Other</option>
+                                </select>
+                            </div>
+                        <div class="w-full">
+                            <label class="text-sm font-semibold text-gray-600" for="">Current Role</label>
+                            <input type="text"
+                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                        </div>
+                        <div class="w-full">
+                            <label class="text-sm font-semibold text-gray-600" for="">Why are you applying for this role?</label>
+                            <p class="text-sm text-gray-600" for="">Let us know if there are any particular reasons why you would be a good fit for this position.
+                            </p>
+                            <textarea name="" id="" cols="30" rows="2"
+                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base"></textarea>
+                        </div>
+                        <div class="w-full">
+                            <label class="text-sm font-semibold text-gray-600" for="">Links to social profiles</label>
+                            <p class="text-sm text-gray-600" for="">If you have any links to personal websites, portfolios or profiles such as LinkedIn that you want to include, add details below.
+                            </p>
+                            <textarea name="" id="" cols="30" rows="2"
+                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base"></textarea>
+                        </div>
+                        <div  class="w-full col-start-1">
+                            <label class="text-sm font-semibold text-gray-600" for="date">Upload Resume</label>
+
+                            <button class="flex items-center gap-2 px-6 py-2 mt-1 font-semibold text-gray-600 bg-gray-200 rounded">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"></path>
+                                </svg>
+
+                                <p>Upload File</p>
+                            </button>
+                            <div class="flex items-center gap-2 pt-2 pb-4">
+                                <p>inputfile.pdf</p>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-red-600">
+                                        <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>                            
+                       
+                    </div>
+                    <div class="pt-8">
+                        <button
+                            class="w-full p-3 font-semibold text-white bg-blue-600 rounded-md lg:w-44">Save</button>
+                    </div>
+                </div>
+                <div class="space-y-4 bg-white lg:p-4" x-show="openTab === 2" style="display: none;">
+                    <div class="space-y-4 text-gray-600">
+                        <p>
+                            We are seeking a Laravel Developer with 4+ years of experience in Laravel framework, background jobs, cron management, Blade templating, and repository pattern. This position offers a competitive salary ranging from 8 L to 10 L annually, based on experience and skills. If you're based in Coimbatore, India, and passionate about developing innovative web solutions, we encourage you to apply.
+                        </p>
+                        <p>Join our team and contribute to impactful projects in a collaborative environment. Interested candidates, please send your resume and cover letter for consideration.</p>
+                    </div>
+                </div>
+            </div>
+           </div>
+        </div>
+    </div>
+    
+</body>
+</html>
