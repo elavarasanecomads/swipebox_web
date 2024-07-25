@@ -83,54 +83,38 @@
                         <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 1" style="display: none;">
                             <div>
                                 <h3 class="text-xl font-bold">Personal Details</h3>
-                                <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
-                                    <div class="relative flex flex-col items-center justify-center">
-                                        <img class="rounded-full" src="http://www.gravatar.com/avatar?d=mm"
-                                            alt="avatar">
-                                        <div class="absolute bottom-6">
-                                            <button>
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary-600"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2"
-                                                        d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
-                                                    </path>
-                                                </svg>
-                                            </button>
-                                        </div>
-                                        <p class="text-sm font-semibold text-gray-600">Profile Picture</p>
-                                    </div>
+                                <div class="grid grid-cols-1 gap-4 pt-6 lg:grid-cols-3">
                                     <div class="col-start-1">
                                         <label class="text-sm font-semibold text-gray-600" for="">Name</label>
-                                        <input type="text" name="" id="" autocomplete="title"
+                                        <input type="text" name="" id="" autocomplete=""
                                             placeholder=""
-                                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
+                                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                     </div>
                                     <div>
                                         <label class="text-sm font-semibold text-gray-600" for="">Phone
                                             Number</label>
-                                        <input type="text" name="" id="" autocomplete="title"
+                                        <input type="text" name="" id="" autocomplete=""
                                             placeholder=""
-                                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
+                                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                     </div>
                                     <div>
                                         <label class="text-sm font-semibold text-gray-600" for="">Email Id</label>
-                                        <input type="text" name="" id="" autocomplete="title"
+                                        <input type="text" name="" id="" autocomplete=""
                                             placeholder=""
-                                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
+                                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                     </div>
                                     <div>
                                         <label class="text-sm font-semibold text-gray-600" for="">Postal
                                             Address</label>
-                                        <input type="text" name="" id="" autocomplete="title"
+                                        <input type="text" name="" id="" autocomplete=""
                                             placeholder=""
-                                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
+                                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                     </div>
                                     <div class="w-full">
                                         <label class="text-sm font-semibold text-gray-600" for="">State</label>
                                         <select id="" name="" autocomplete=""
                                             class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                            <option>Choose</option>
+                                            <option>Select</option>
                                             <option>Andhrapradesh</option>
                                             <option>Assam</option>
                                             <option>Tamilnadu</option>
@@ -139,34 +123,79 @@
                                     <div>
                                         <label class="text-sm font-semibold text-gray-600" for="">Date of
                                             Birth</label>
-                                        <input type="text" name="" id="" autocomplete="title"
+                                        <input type="text" name="" id="" autocomplete=""
                                             placeholder=""
-                                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
+                                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                     </div>
                                     <div class="w-full">
                                         <label class="text-sm font-semibold text-gray-600" for="">Gender</label>
                                         <select id="" name="" autocomplete=""
                                             class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>Select</option>
                                             <option>Male</option>
                                             <option>Female</option>
                                             <option>Other</option>
                                         </select>
                                     </div>
-
+                                    <div class="w-full">
+                                        <label class="text-sm font-semibold text-gray-600" for="">Marital Status</label>
+                                        <select id="" name="" autocomplete=""
+                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>Select</option>
+                                            <option>Married</option>
+                                            <option>Unmarried</option>
+                                            <option>Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="w-full">
+                                        <label class="text-sm font-semibold text-gray-600" for="">Blood Group</label>
+                                        <select id="" name="" autocomplete=""
+                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>Select</option>
+                                            <option>A+</option>
+                                            <option>A-</option>
+                                            <option>B+</option>
+                                            <option>B-</option>
+                                            <option>AB+</option>
+                                            <option>AB-</option>
+                                            <option>O+</option>
+                                            <option>O-</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600" for="">Father's Name</label>
+                                        <input type="text" name="" id="" autocomplete=""
+                                            placeholder=""
+                                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600" for="">Mother's Name</label>
+                                        <input type="text" name="" id="" autocomplete=""
+                                            placeholder=""
+                                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600" for="">Emergency Contact</label>
+                                        <input type="text" name="" id="" autocomplete=""
+                                            placeholder=""
+                                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                    </div>
                                 </div>
                             </div>
-                            <div>
-                                <div class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-2">
+                            <div class="pt-6">
+                                <h3 class="text-xl font-bold">Employement Details</h3>
+
+                                <div class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-3">
                                     <div>
                                         <label class="text-sm font-semibold text-gray-600" for="">Aadhar
                                             Number</label>
-                                        <input type="text" name="" id="" autocomplete="title"
+                                        <input type="text" name="" id="" autocomplete=""
                                             placeholder=""
                                             class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                     </div>
                                     <div>
                                         <label class="text-sm font-semibold text-gray-600" for="">PAN Number</label>
-                                        <input type="text" name="" id="" autocomplete="title"
+                                        <input type="text" name="" id="" autocomplete=""
                                             placeholder=""
                                             class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                     </div>
@@ -174,19 +203,31 @@
                                         <label class="text-sm font-semibold text-gray-600" for="">UAN Number</label>
                                         <label for="" class="text-xs text-gray-600">For PF Detail, Add UAN
                                             Number</label>
-                                        <input type="text" name="" id="" autocomplete="title"
+                                        <input type="text" name="" id="" autocomplete=""
                                             placeholder=""
                                             class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                     </div>
                                     <div>
                                         <label class="text-sm font-semibold text-gray-600" for="">PF Number</label>
-                                        <input type="text" name="" id="" autocomplete="title"
+                                        <input type="text" name="" id="" autocomplete=""
                                             placeholder=""
                                             class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                     </div>
                                     <div>
                                         <label class="text-sm font-semibold text-gray-600" for="">ESI Number</label>
-                                        <input type="text" name="" id="" autocomplete="title"
+                                        <input type="text" name="" id="" autocomplete=""
+                                            placeholder=""
+                                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600" for="">Medical Insurence No.</label>
+                                        <input type="text" name="" id="" autocomplete=""
+                                            placeholder=""
+                                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600" for="">Medical Insurence Expiry Date</label>
+                                        <input type="date" name="" id="" autocomplete=""
                                             placeholder=""
                                             class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                     </div>
@@ -201,69 +242,71 @@
                         <div class="p-4 pt-6 space-y-4 bg-white" x-show="openTab === 2" style="display: none;">
                             <div>
                                 <h3 class="py-4 text-xl font-bold">Preference</h3>
-                                <div class="grid grid-cols-1 gap-4 lg:gap-8 lg:grid-cols-2">
+                                <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
                                     <div>
-                                        <label class="text-sm font-semibold text-gray-600" for="">Select
+                                        <label class="text-sm font-semibold text-gray-600" for="">
                                             Branch</label>
                                         <select id="" name="" autocomplete=""
-                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
-                                            <option>All</option>
+                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>Select</option>
                                             <option>Ecomads Pvt Ltd, Covai</option>
                                             <option>Ecomads Pvt Ltd, Tiruchencode</option>
                                         </select>
                                     </div>
                                     <div>
-                                        <label class="text-sm font-semibold text-gray-600" for="">Select
+                                        <label class="text-sm font-semibold text-gray-600" for="">
                                             Department</label>
                                         <select id="" name="" autocomplete=""
-                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
-                                            <option>All</option>
+                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>Select</option>
                                             <option>HR Department</option>
                                             <option>Sales Department</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600" for="">Employee
+                                            Id</label>
+                                        <input type="text" name="" id="" autocomplete=""
+                                            placeholder=""
+                                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                    </div>
+                                    <div class="col-start-1">
+                                        <label class="text-sm font-semibold text-gray-600" for="">Shift Type
+                                            </label>
+                                        <select id="" name="" autocomplete=""
+                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>Select</option>
+                                            <option>Fixed Shift</option>
+                                            <option>Open Shift</option>
+                                            <option>Multiple Shift</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600" for="">Shift Name
+                                            </label>
+                                        <select id="" name="" autocomplete=""
+                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>Select</option>
+                                            <option>Morning Shift</option>
+                                            <option>Afternoon Shift</option>
                                         </select>
                                     </div>
                                     <div>
                                         <label class="text-sm font-semibold text-gray-600" for="">Shift
                                             Rotation</label>
                                         <select id="" name="" autocomplete=""
-                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                             <option>None</option>
                                             <option>Day Night Shift</option>
                                             <option>Morning Eve Shift</option>
                                         </select>
                                     </div>
-                                    <div class="col-start-1">
-                                        <label class="text-sm font-semibold text-gray-600" for="">Select Shift
-                                            </label>
-                                        <select id="" name="" autocomplete=""
-                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
-                                            <option>Select</option>
-                                            <option>Morning Shift</option>
-                                            <option>Afternoon Shift</option>
-                                        </select>
-                                    </div>
-                                    <div class="flex items-center gap-4">
-                                        <div>
-                                            <label class="text-sm font-semibold text-gray-600" for="">Start
-                                                Time</label>
-                                            <input type="text" name="" id=""
-                                                autocomplete="title" placeholder=""
-                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
-                                        </div>
-                                        <div>
-                                            <label class="text-sm font-semibold text-gray-600" for="">End
-                                                time</label>
-                                            <input type="text" name="" id=""
-                                                autocomplete="title" placeholder=""
-                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
-                                        </div>
-                                    </div>  
                                     <div>
-                                        <label class="text-sm font-semibold text-gray-600" for="">Select Staff
+                                        <label class="text-sm font-semibold text-gray-600" for="">Staff
                                             Category</label>
                                         <select id="" name="" autocomplete=""
-                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
-                                            <option>Staff Category</option>
+                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>Select</option>
                                             <option>Permanant</option>
                                             <option>Contract</option>
                                             <option>Casual</option>
@@ -272,11 +315,11 @@
                                         </select>
                                     </div>
                                     <div>
-                                        <label class="text-sm font-semibold text-gray-600" for="">Select
+                                        <label class="text-sm font-semibold text-gray-600" for="">
                                             Designation</label>
                                         <select id="" name="" autocomplete=""
-                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
-                                            <option>Staff Category</option>
+                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>Select</option>
                                             <option>Director</option>
                                             <option>CTO</option>
                                             <option>STO</option>
@@ -285,87 +328,98 @@
                                         </select>
                                     </div>
                                     <div>
-                                        <label class="text-sm font-semibold text-gray-600" for="">Select Leave Template</label>
+                                        <label class="text-sm font-semibold text-gray-600" for="">Leave Template</label>
                                         <select id="" name="" autocomplete=""
-                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                             <option>Select</option>
                                             <option>Freshers Template</option>
                                         </select>
                                     </div>
-                                    <div>
-                                        <label class="text-sm font-semibold text-gray-600" for="">Employee
-                                            Id</label>
-                                        <input type="text" name="" id="" autocomplete="title"
-                                            placeholder=""
-                                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
-                                    </div>
+                                    
                                     <div>
                                         <label class="text-sm font-semibold text-gray-600" for="">Date of
                                             Joining</label>
-                                        <input type="text" name="" id="" autocomplete="title"
+                                        <input type="date" name="" id="" autocomplete=""
                                             placeholder=""
-                                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
+                                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                     </div>                                  
                                     <div>
                                         <label class="text-sm font-semibold text-gray-600" for="">Resignation
                                             Date</label>
-                                        <input type="text" name="" id="" autocomplete="title"
+                                        <input type="date" name="" id="" autocomplete=""
                                             placeholder=""
-                                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-primary-600 focus:border-primary-600">
+                                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                     </div>
                                     <div>
-                                        <label class="text-sm font-semibold text-gray-600" for="">Select Role</label>
-                                        <select id="" name="" autocomplete="" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                        <label class="text-sm font-semibold text-gray-600" for="">Resignation
+                                            Reason</label>
+                                        <input type="text" name="" id="" autocomplete=""
+                                            placeholder=""
+                                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600" for="">Role</label>
+                                        <select id="" name="" autocomplete="" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                             <option>Employee</option>
                                             <option>Branch Manager</option>
                                             <option>Department Head</option>
                                         </select>
                                     </div>
                                     <div>
-                                        <label class="text-sm font-semibold text-gray-600" for="">Select Division</label>
+                                        <label class="text-sm font-semibold text-gray-600" for="">Company</label>
                                         <select id="" name="" autocomplete=""
-                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>Select</option>
+                                            <option>Sakthi Sugars</option>
+                                            <option>Sakthi Papers</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600" for="">Employee Referral</label>
+                                        <select id="" name="" autocomplete=""
+                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>Select</option>
+                                            <option>Elavarasan - NA1011</option>
+                                            <option>Hemalatha - NA1012</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600" for="">Division</label>
+                                        <select id="" name="" autocomplete=""
+                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                             <option>Select</option>
                                             <option>South</option>
                                             <option>North</option>
                                         </select>
                                     </div>
                                     <div>
-                                        <label class="text-sm font-semibold text-gray-600" for="">Select Sub Division</label>
+                                        <label class="text-sm font-semibold text-gray-600" for="">Sub Division</label>
                                         <select id="" name="" autocomplete=""
-                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                             <option>Select</option>
                                             <option>Chennai</option>
                                             <option>Covai</option>
                                         </select>
                                     </div>
                                     <div>
-                                        <label class="text-sm font-semibold text-gray-600" for="">Select Grade</label>
+                                        <label class="text-sm font-semibold text-gray-600" for="">Grade</label>
                                         <select id="" name="" autocomplete=""
-                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                             <option>Select</option>
                                             <option>Grade 1</option>
                                             <option>Grade 2</option>
                                         </select>
                                     </div>
                                     <div>
-                                        <label class="text-sm font-semibold text-gray-600" for="">Select Contractor</label>
+                                        <label class="text-sm font-semibold text-gray-600" for="">Contractor</label>
                                         <select id="" name="" autocomplete=""
-                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                             <option>Select</option>
                                             <option>Contractor 1</option>
                                             <option>Contractor 2</option>
                                         </select>
                                     </div>
-                                    <div>
-                                        <label class="text-sm font-semibold text-gray-600" for="">Select Company</label>
-                                        <select id="" name="" autocomplete=""
-                                            class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
-                                            <option>Select</option>
-                                            <option>Sakthi Sugars</option>
-                                            <option>Sakthi Papers</option>
-                                        </select>
-                                    </div>
+                                   
                                 </div>
                             </div>
                             <div class="py-6">
@@ -381,33 +435,33 @@
                                     <div>
                                         <label class="text-sm font-semibold text-gray-600" for="">Account Holder
                                             Name</label>
-                                        <input type="text" name="" id="" autocomplete="title"
+                                        <input type="text" name="" id="" autocomplete=""
                                             placeholder=""
                                             class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                     </div>
                                     <div>
                                         <label class="text-sm font-semibold text-gray-600" for="">Account
                                             Number</label>
-                                        <input type="text" name="" id="" autocomplete="title"
+                                        <input type="text" name="" id="" autocomplete=""
                                             placeholder=""
                                             class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                     </div>
                                     <div>
                                         <label class="text-sm font-semibold text-gray-600" for="">Confirm Account
                                             Number</label>
-                                        <input type="password" name="" id="" autocomplete="title"
+                                        <input type="password" name="" id="" autocomplete=""
                                             placeholder=""
                                             class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                     </div>
                                     <div>
                                         <label class="text-sm font-semibold text-gray-600" for="">Bank Name</label>
-                                        <input type="text" name="" id="" autocomplete="title"
+                                        <input type="text" name="" id="" autocomplete=""
                                             placeholder=""
                                             class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                     </div>
                                     <div>
                                         <label class="text-sm font-semibold text-gray-600" for="">IFSC Code</label>
-                                        <input type="text" name="" id="" autocomplete="title"
+                                        <input type="text" name="" id="" autocomplete=""
                                             placeholder=""
                                             class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                     </div>
@@ -424,7 +478,7 @@
                                 <div class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-2">
                                     <div>
                                         <label class="text-sm font-semibold text-gray-600" for="">UPI ID</label>
-                                        <input type="text" name="" id="" autocomplete="title"
+                                        <input type="text" name="" id="" autocomplete=""
                                             placeholder=""
                                             class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                     </div>
@@ -462,19 +516,19 @@
                                                     <div class="pb-4 space-y-2 border-b">
                                                         <div>
                                                             <label class="text-sm font-semibold text-gray-600" for="date">Date</label>
-                                                            <input type="text" name="date" id="date" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                            <input type="text" name="date" id="date" autocomplete="" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                         </div>
                                                         <div>
                                                             <label class="text-sm font-semibold text-gray-600" for="amount">Current Salary</label>
-                                                            <input type="text" name="amount" id="amount" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                            <input type="text" name="amount" id="amount" autocomplete="" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                         </div>
                                                         <div>
                                                             <label class="text-sm font-semibold text-gray-600" for="amount">Increment Amount</label>
-                                                            <input type="text" name="amount" id="amount" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                            <input type="text" name="amount" id="amount" autocomplete="" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                         </div>
                                                         <div>
                                                             <label class="text-sm font-semibold text-gray-600" for="amount">New Salary</label>
-                                                            <input type="text" name="amount" id="amount" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                            <input type="text" name="amount" id="amount" autocomplete="" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                         </div>
                                                         <div>
                                                             <button class="w-full p-3 font-semibold text-white bg-blue-600 rounded-md">Save
@@ -558,19 +612,19 @@
                                                                                     <div class="pb-4 space-y-2 border-b">
                                                                                         <div>
                                                                                             <label class="text-sm font-semibold text-gray-600" for="date">Date</label>
-                                                                                            <input type="text" name="date" id="date" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                                            <input type="text" name="date" id="date" autocomplete="" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                                                         </div>
                                                                                         <div>
                                                                                             <label class="text-sm font-semibold text-gray-600" for="amount">Current Salary</label>
-                                                                                            <input type="text" name="amount" id="amount" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                                            <input type="text" name="amount" id="amount" autocomplete="" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                                                         </div>
                                                                                         <div>
                                                                                             <label class="text-sm font-semibold text-gray-600" for="amount">Increment Amount</label>
-                                                                                            <input type="text" name="amount" id="amount" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                                            <input type="text" name="amount" id="amount" autocomplete="" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                                                         </div>
                                                                                         <div>
                                                                                             <label class="text-sm font-semibold text-gray-600" for="amount">New Salary</label>
-                                                                                            <input type="text" name="amount" id="amount" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                                            <input type="text" name="amount" id="amount" autocomplete="" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                                                         </div>
                                                                                         <div>
                                                                                             <button class="w-full p-3 font-semibold text-white bg-blue-600 rounded-md">Update
@@ -671,19 +725,19 @@
                                                                                     <div class="pb-4 space-y-2 border-b">
                                                                                         <div>
                                                                                             <label class="text-sm font-semibold text-gray-600" for="date">Date</label>
-                                                                                            <input type="text" name="date" id="date" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                                            <input type="text" name="date" id="date" autocomplete="" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                                                         </div>
                                                                                         <div>
                                                                                             <label class="text-sm font-semibold text-gray-600" for="amount">Current Salary</label>
-                                                                                            <input type="text" name="amount" id="amount" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                                            <input type="text" name="amount" id="amount" autocomplete="" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                                                         </div>
                                                                                         <div>
                                                                                             <label class="text-sm font-semibold text-gray-600" for="amount">Increment Amount</label>
-                                                                                            <input type="text" name="amount" id="amount" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                                            <input type="text" name="amount" id="amount" autocomplete="" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                                                         </div>
                                                                                         <div>
                                                                                             <label class="text-sm font-semibold text-gray-600" for="amount">New Salary</label>
-                                                                                            <input type="text" name="amount" id="amount" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                                            <input type="text" name="amount" id="amount" autocomplete="" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                                                         </div>
                                                                                         <div>
                                                                                             <button class="w-full p-3 font-semibold text-white bg-blue-600 rounded-md">Update
@@ -776,7 +830,7 @@
                                                     <div class="pb-4 space-y-2 border-b">
                                                         <div>
                                                             <label class="text-sm font-semibold text-gray-600" for="date">Folder Name</label>
-                                                            <input type="text" name="date" id="date" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                            <input type="text" name="date" id="date" autocomplete="" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                         </div>
                                                         <div>
                                                             <button class="p-3 font-semibold text-white bg-blue-600 rounded-md w-44">Create New
