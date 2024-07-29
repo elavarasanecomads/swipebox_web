@@ -21,114 +21,148 @@
                         <div class="flex items-center gap-4">
                             <p class="text-2xl font-bold">Add New Employee</p>
                             <div>
-                                <button class="p-2 font-semibold text-white bg-blue-600 rounded-md"><a href="bulk-employee-upload.html">Bulk Upload</a></button>
+                                <button class="p-2 font-semibold text-white bg-blue-600 rounded-md"><a
+                                        href="bulk-employee-upload.html">Bulk Upload</a></button>
 
                             </div>
                         </div>
                     </div>
-                        <div class="grid w-full grid-cols-1 gap-4 pt-4 lg:grid-cols-2 lg:w-3/4">
+                    <div class="grid w-full grid-cols-1 gap-4 pt-4 lg:grid-cols-3" x-data="{ selectedOption: 'option1' }">
+                        <div>
+                            <label class="text-sm font-semibold text-gray-600" for="Name">Name <span
+                                    class="text-red-600">*</span></label>
+                            <input type="text" name="Name" id="Name" autocomplete="title" placeholder=""
+                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                        </div>
+                        <div>
+                            <label class="text-sm font-semibold text-gray-600" for="Phone">Phone Number</label>
+                            <input type="text" name="Phone" id="Phone" autocomplete="title" placeholder=""
+                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                        </div>
+                        <div>
+                            <label class="text-sm font-semibold text-gray-600" for="Phone">Email</label>
+                            <input type="text" name="Email" id="Email" autocomplete="" placeholder=""
+                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                        </div>
+                        <div class="col-span-1 lg:col-span-3">
+                            <h2 class="text-xl font-bold">Employee Preference</h2>
+                        </div>
+                        <div>
+                            <label class="text-sm font-semibold text-gray-600" for="">Employee
+                                Id</label>
+                            <input type="text" name="" id="" autocomplete="" placeholder=""
+                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                        </div>
+                        <div>
+                            <label class="text-sm font-semibold text-gray-600" for="businessname">Select Branch <span
+                                    class="text-red-600">*</span></label>
+                            <select id="" name="" autocomplete=""
+                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>Select</option>
+                                <option>Ecomads Pvt Ltd, Covai</option>
+                                <option>Ecomads Pvt Ltd, Tiruchencode</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                Department</label>
+                            <select id="" name="" autocomplete=""
+                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>Select</option>
+                                <option>HR Department</option>
+                                <option>Sales Department</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-sm font-semibold text-gray-600" for="businessname">Select Shift Type
+                                <span class="text-red-600">*</span></label>
+                            <select id="" name="" autocomplete=""
+                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>Select</option>
+                                <option>Fixed Shift</option>
+                                <option>Open Shift</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-sm font-semibold text-gray-600" for="businessname">Shift Settings <span
+                                    class="text-red-600">*</span></label>
+                            <select id="" name="" autocomplete=""
+                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>Select</option>
+                                <option>Morning Shift</option>
+                                <option>Afternoon Shift</option>
+                            </select>
+                        </div>
+                        <div class="col-span-1 lg:col-span-3">
+                            <h2 class="text-xl font-bold">Payroll</h2>
+                        </div>
+                        <div>
+                            <label class="font-semibold text-gray-600" for="businessname">Salary
+                                Type</label>
+                            <select x-model="selectedOption" id="type" name="type" autocomplete="type"
+                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                <option>Select</option>
+                                <option value="option1">Monthly</option>
+                                <option value="option2">Weekly</option>
+                                <option value="option3">Daily</option>
+                                <option value="option4">Hourly</option>
+                                <option value="option5">Pay Per Work Wages</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="font-semibold text-gray-600" for="businessname">Pay
+                                Schedule</label>
+                            <select id="" name="" autocomplete=""
+                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                <option>Select</option>
+                                <option>Monthly</option>
+                                <option>Weekly</option>
+                            </select>
+                        </div>
+                        <div>
                             <div>
-                                <label class="text-sm font-semibold text-gray-600" for="Name">Name <span class="text-red-600">*</span></label>
-                                <input type="text" name="Name" id="Name" autocomplete="title" placeholder=""
-                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                <label x-show="selectedOption === 'option1'" class="font-semibold text-gray-600"
+                                    for="businessname">Salary Per Month</label>
+                                <label x-show="selectedOption === 'option2'" class="font-semibold text-gray-600"
+                                    for="businessname">Salary Per Week</label>
+                                <label x-show="selectedOption === 'option3'" class="font-semibold text-gray-600"
+                                    for="businessname">Salary Per Day</label>
+                                <label x-show="selectedOption === 'option4'" class="font-semibold text-gray-600"
+                                    for="businessname">Salary Per Hour</label>
                             </div>
-                            <div>
-                                <label class="text-sm font-semibold text-gray-600" for="Phone">Phone Number</label>
-                                <input type="text" name="Phone" id="Phone" autocomplete="title" placeholder=""
-                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                            </div>
-                            <div>
-                                <label class="text-sm font-semibold text-gray-600" for="Phone">Email</label>
-                                <input type="text" name="Email" id="Email" autocomplete="" placeholder=""
-                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                            </div>
-                            <div class="col-span-1 lg:col-span-2">
-                                <h2 class="text-2xl font-bold">Employee Preference</h2>
-                            </div>
-                            <div>
-                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select Branch  <span class="text-red-600">*</span></label>
-                                <select id="" name="" autocomplete=""
-                                    class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                    <option>Select</option>
-                                    <option>Ecomads Pvt Ltd, Covai</option>
-                                    <option>Ecomads Pvt Ltd, Tiruchencode</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select Department</label>
-                                <select id="" name="" autocomplete=""
-                                    class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                    <option>Select</option>
-                                    <option>HR Department</option>
-                                    <option>Sales Department</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select Shift Type  <span class="text-red-600">*</span></label>
-                                <select id="" name="" autocomplete=""
-                                    class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                    <option>Select</option>
-                                    <option>Fixed Shift</option>
-                                    <option>Open Shift</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="text-sm font-semibold text-gray-600" for="businessname">Shift Settings  <span class="text-red-600">*</span></label>
-                                <select id="" name="" autocomplete=""
-                                    class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                    <option>Select</option>
-                                    <option>Morning Shift</option>
-                                    <option>Afternoon Shift</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="text-sm font-semibold text-gray-600" for="businessname">Employee ID</label>
-                                <input type="text" name="businessname" id="businessname" autocomplete="title"
-                                    placeholder=""
-                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                            </div>
-                            <div>
-                                <label class="text-sm font-semibold text-gray-600" for="businessname">Salary Type</label>
-                                <select id="" name="" autocomplete="" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                    <option>Monthly Salary</option>
-                                    <option>Weekly Salary</option>
-                                    <option>Daily Salary</option>
-                                    <option>Per Hour Salary</option>
-                                    <option>Pay Per Work</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="text-sm font-semibold text-gray-600" for="businessname">Salary</label>
-                                <input type="text" name="businessname" id="businessname" autocomplete="title"
-                                    placeholder=""
-                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                            </div>
-                            <div>
-                                <label class="text-sm font-semibold text-gray-600" for="businessname">Pay Shedule</label>
-                                <select id="" name="" autocomplete=""
-                                    class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                    <option>Monthly</option>
-                                    <option>Weekly</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="text-sm font-semibold text-gray-600" for="businessname">Select Role</label>
-                                <select id="" name="" autocomplete="" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                    <option>Employee</option>
-                                    <option>Branch Manager</option>
-                                    <option>Department Head</option>
-                                </select>
-                            </div>
-                            <div class="col-start-1 pt-8">
-                                <a href="contact-success.html">
-                                <button class="w-1/2 p-3 font-semibold text-white bg-blue-600 rounded-md">Add Employee</button>
+                            <input type="text" name="businessname" id="businessname" autocomplete="title" placeholder=""
+                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                        </div>
+                        <div>
+                            <label class="font-semibold text-gray-600" for="businessname">Payment Mode</label>
+                            <select id="" name="" autocomplete=""
+                                class="block w-full px-1 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>Select</option>
+                                <option>Cash</option>
+                                <option>Bank Transfer</option>
+                                <option>UPI</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="font-semibold text-gray-600" for="businessname">Salary
+                                Template</label>
+                            <select id="" name="" autocomplete=""
+                                class="block w-full px-1 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>Basic Template</option>
+                                <option>Higher Template</option>
+                            </select>
+                        </div>
+                        <div class="col-start-1 pt-8">
+                            <a href="contact-success.html">
+                                <button class="w-1/2 p-3 font-semibold text-white bg-blue-600 rounded-md">Add
+                                    Employee</button>
                             </a>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </body>
 <script>
