@@ -291,6 +291,35 @@
                                         <input type="checkbox" id="toggle" name="toggle" x-model="toggle"
                                             class="w-full h-full appearance-none active:outline-none focus:outline-none" />
                                     </div>
+                                    <p class="text-gray-800">At the end of every cycle, the employee can encash / carryforward the
+                                        remaining leave balances</p>
+
+                                </div>
+                                <div class="pt-2" id="toggleOn" x-show="toggle">
+                                    <p class="text-gray-800"><span class="border-b border-gray-600"><select
+                                        class="px-2 py-1 text-gray-600 bg-transparent border-none appearance-none w-28 focus:outline-none"
+                                        type="text">
+                                    <option value="">Carryforward</option>
+                                    <option value="">Encash</option>
+                                    </select></span> maximum<span class="border-b border-gray-600"><input
+                                                class="w-12 px-2 py-1 text-gray-600 bg-transparent border-none appearance-none focus:outline-none"
+                                                type="text"></span> Unused Leaves.</p>
+                                </div>
+                            </div>
+                            <div x-data="{toggle: false}">
+                                <div class="flex items-start gap-4">
+                                    <!--Toogle enable / disable-->
+                                    <div class="relative flex-shrink-0 w-12 h-6 transition duration-200 ease-linear rounded-full"
+                                        :class="[toggle ? 'bg-green-600' : 'bg-gray-400']">
+
+                                        <label for="toggle"
+                                            class="absolute drop-shadow-lg left-1 bg-white mt-[2px] w-5 h-5 rounded-full transition transform duration-100 ease-linear cursor-pointer"
+                                            :class="[toggle ? 'translate-x-full border-black' : 'translate-x-0 border-gray-400']">
+                                        </label>
+
+                                        <input type="checkbox" id="toggle" name="toggle" x-model="toggle"
+                                            class="w-full h-full appearance-none active:outline-none focus:outline-none" />
+                                    </div>
                                     <p class="text-gray-800">Carry forward the employee balance leaves at the end of
                                         each cycle</p>
 
