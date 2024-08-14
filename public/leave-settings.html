@@ -92,10 +92,10 @@
                   <div>
                     <div x-show="selectedOption === 'option1'">
                       <div class="lg:w-1/4">
-                        <label class="text-sm font-semibold text-gray-600" for="">Schedule Day</label>
+                        <label class="text-sm font-semibold text-gray-600" for="">Schedule Date</label>
                         <select
                           class="block w-full px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                          <option>Select a day</option>
+                          <option>Select a date</option>
                           <option>1</option>
                           <option>2</option>
                           <option>3</option>
@@ -126,13 +126,12 @@
                           <option>28</option>
                         </select>
                       </div>
-                      <p class="pt-4 text-blue-600">Every <span class="font-semibold">month 2 date</span>
-                        scheduler will run</p>
+                      <p class="pt-4 text-blue-600">The leave carryforward process will start on 5/9/2024</p>
                     </div>
                     <div class="w-full space-y-4" x-show="selectedOption === 'option2'">
                       <div class="flex flex-col items-center w-full gap-4 lg:flex-row">
                         <div class="w-full lg:w-1/4">
-                          <label class="text-sm font-semibold text-gray-600" for="">Schedule Month</label>
+                          <label class="text-sm font-semibold text-gray-600" for="">From Month</label>
                           <select
                             class="block w-full px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                             <option>Select a month</option>
@@ -151,10 +150,29 @@
                           </select>
                         </div>
                         <div class="w-full lg:w-1/4">
-                          <label class="text-sm font-semibold text-gray-600" for="">Schedule Day</label>
+                          <label class="text-sm font-semibold text-gray-600" for="">To Month</label>
                           <select
                             class="block w-full px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                            <option>Select a day</option>
+                            <option>Select a month</option>
+                            <option>January</option>
+                            <option>February</option>
+                            <option>March</option>
+                            <option>April</option>
+                            <option>May</option>
+                            <option>June</option>
+                            <option>July</option>
+                            <option>August</option>
+                            <option>September</option>
+                            <option>October</option>
+                            <option>November</option>
+                            <option>December</option>
+                          </select>
+                        </div>
+                        <!-- <div class="w-full lg:w-1/4">
+                          <label class="text-sm font-semibold text-gray-600" for="">Schedule Date</label>
+                          <select
+                            class="block w-full px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                            <option>Select a date</option>
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -184,57 +202,18 @@
                             <option>27</option>
                             <option>28</option>
                           </select>
+                        </div> -->
+                        <div class="w-full lg:w-1/4">
+                          <label class="text-sm font-semibold text-gray-600" for="">Accural Type</label>
+                          <select
+                            class="block w-full px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                            <option>All At Once</option>
+                            <option>Month Start</option>
+                            
+                          </select>
                         </div>
                       </div>
-                      <p class="pt-2 text-blue-600">Every Year <span class="font-semibold">March 2 date</span>
-                        scheduler will run</p>
-                    </div>
-                    <div class="space-y-4" x-show="selectedOption === 'option3'">
-                      <div>
-                        <label class="text-sm font-semibold text-gray-600" for="">Schedule Day</label>
-                        <select
-                          class="block w-full px-3 py-2 border border-gray-400 rounded-md lg:w-1/2 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                          <option value="">Sunday</option>
-                          <option value="">Monday</option>
-                          <option value="">Tuesday</option>
-                          <option value="">Wednesday</option>
-                          <option value="">Thursday</option>
-                          <option value="">Friday</option>
-                          <option value="">Saturday</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label class="text-sm font-semibold text-gray-600" for="">Schedule Time</label>
-  
-                        <input type="time" name="" id="" autocomplete="" placeholder="Shift Name"
-                          class="block w-full px-3 py-2 border border-gray-400 rounded-md lg:w-1/2 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                      </div>
-                      <p class="text-green-600">Every 2nd <span class="font-semibold">Sunday 05:00 PM</span>
-                        scheduler will run</p>
-  
-                    </div>
-                    <div class="space-y-4" x-show="selectedOption === 'option4'">
-                      <div x-data="{ selectedDay: '' }">
-                        <label class="text-sm font-semibold text-gray-600" for="">Schedule Day</label>
-  
-                        <select x-model="selectedDay"
-                          class="block w-full px-3 py-2 border border-gray-400 rounded-md lg:w-1/2 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                          <option value="" disabled>Select a day</option>
-                          <template x-for="day in 28">
-                            <option x-text="day"></option>
-                          </template>
-                        </select>
-                      </div>
-  
-                      <div>
-                        <label class="text-sm font-semibold text-gray-600" for="">Schedule Time</label>
-  
-                        <input type="time" name="" id="" autocomplete="" placeholder="Shift Name"
-                          class="block w-full px-3 py-2 border border-gray-400 rounded-md lg:w-1/2 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                      </div>
-                      <p class="text-green-600">Every month <span class="font-semibold">2 date</span>
-                        scheduler will run</p>
-  
+                      <p class="pt-2 text-blue-600">The leave carryforward process will start on 5/9/2024</p>
                     </div>
                   </div>
   
