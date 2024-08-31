@@ -274,22 +274,40 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="pt-4 lg:flex lg:items-end lg:justify-end ">
-                            <div>
+                        <div x-data="{ allSelected: false }" class="flex flex-col items-start w-full gap-4 pt-4 lg:flex-row lg:items-center lg:justify-between">
+                            <div class="order-2 lg:order-1">
+                                <!-- Select all 344 records button -->
+                                <div class="px-2 py-1 text-blue-600 bg-blue-100 rounded-sm" x-show="!allSelected">
+                                    <button @click="allSelected = true" class="text-sm font-semibold">Select all 344 records</button>
+                                </div>
+                        
+                                <!-- 344 records selected and Clear button -->
+                                <div class="flex items-center gap-2" x-show="allSelected">
+                                    <div class="px-2 py-1 text-white bg-blue-600 rounded-sm">
+                                        <button class="text-sm font-semibold">344 records selected</button>
+                                    </div>
+                                    <div class="px-2 py-1 text-gray-900 bg-gray-200 rounded-sm">
+                                        <button @click="allSelected = false" class="text-sm font-semibold">Clear All</button>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="order-1 w-full lg:order-2 lg:w-72">
                                 <span class="inline-block w-full rounded shadow-sm">
                                     <button
-                                        class="relative w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-72 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
-                                        type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search"
-                                        aria-checked="false">
-
+                                        class="relative w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                        type="button" aria-haspopup="listbox" aria-expanded="true"
+                                        aria-label="search" aria-checked="false">
+                                        
                                         <input id="search" type="search" placeholder="Search by name, email, mobile"
-                                            class="w-full h-full form-control focus:outline-none">
-
+                                            class="w-full form-control focus:outline-none">
+                                        
                                         <span
                                             class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
                                             <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
                                                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    stroke-width="2"
                                                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                                             </svg>
                                         </span>
