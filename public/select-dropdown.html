@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Select Dropdown with "All weeks" Option</title>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-100">
+  <div x-data="dropdown()" class="relative w-64">
+    <!-- Multi-select input field -->
+    <div class="relative">
+      <input 
+        @click="open = !open" 
+        type="text" 
+        readonly 
+        :value="allSelectedInFullList ? 'All weeks' : (selectedOptions.length > 0 ? selectedOptionsDisplay : 'No Weekoff Selected')" 
+        class="w-full px-3 py-2 bg-white border border-gray-300 rounded cursor-pointer" 
+      >
+      <div class="absolute top-0 right-0 px-3 py-2 pointer-events-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Dropdown options -->
+    <div x-show="open" @click.away="open = false" class="absolute z-10 w-full mt-2 bg-white border rounded shadow-lg">
+      <div class="px-4 py-2">
+        <!-- Select All option -->
+        <div>
+          <div @click="toggleSelectAll()" class="flex items-center p-2 rounded cursor-pointer hover:bg-gray-100">
+            <input type="checkbox" :checked="allSelectedInFullList" class="mr-2">
+            <label class="text-gray-700">All weeks</label>
+          </div>
+          <hr class="my-2">
+        </div>
+
+        <!-- Scrollable options container -->
+        <div class="overflow-y-scroll max-h-48">
+          <!-- All options (no search filtering) -->
+          <template x-for="(option, index) in options" :key="index">
+            <div @click="toggleOption(option)" class="flex items-center p-2 rounded cursor-pointer hover:bg-gray-100">
+              <input type="checkbox" :value="option" :checked="selectedOptions.includes(option)" @change.stop class="mr-2">
+              <label x-text="option" class="text-gray-700"></label>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function dropdown() {
+      return {
+        open: false,
+        selectedOptions: [],
+        allSelected: false,
+
+        // Example options for weeks
+        options: [
+          'Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5'
+        ],
+
+        // Display selected options, but if 'All weeks' is selected, show only 'All weeks'
+        get selectedOptionsDisplay() {
+          return this.allSelectedInFullList ? 'All weeks' : this.selectedOptions.join(', ');
+        },
+
+        // Check if all options in the full list are selected (used for the "All weeks" checkbox)
+        get allSelectedInFullList() {
+          return this.options.every(option => this.selectedOptions.includes(option));
+        },
+
+        // Toggle Select All functionality (only for the full list, not filtered options)
+        toggleSelectAll() {
+          if (this.allSelectedInFullList) {
+            // Deselect all options if "All weeks" is selected
+            this.selectedOptions = [];
+          } else {
+            // Select all options in the full list
+            this.selectedOptions = [...this.options];
+          }
+        },
+
+        // Toggle individual option
+        toggleOption(option) {
+          if (this.selectedOptions.includes(option)) {
+            this.selectedOptions = this.selectedOptions.filter(item => item !== option);
+          } else {
+            this.selectedOptions.push(option);
+          }
+
+          // Update "All" selection based on the total selection state
+          this.allSelected = this.allSelectedInFullList;
+        }
+      }
+    }
+  </script>
+</body>
+</html>

@@ -118,7 +118,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody class="bg-white divide-y divide-gray-200">
-                                                    <tr>
+                                                    <tr x-data="{ jobType: '', calculateLOP: false }">
                                                         <td class="px-4 py-4 whitespace-nowrap">
                                                             <div class="text-base text-gray-900">
                                                                 <p class="font-semibold text-blue-600">
@@ -126,28 +126,38 @@
                                                                 </p>
                                                             </div>
                                                         </td>
+                                                        <!-- Only show Calculate LOP checkbox when Fixed Amount is selected -->
+                                                        <td class="px-4 py-4 whitespace-nowrap">
+                                                            <div class="flex items-center p-2 rounded cursor-pointer"  x-show="jobType === 'Fixed Amount'">
+                                                                <label class="font-semibold text-gray-700">Calculate LOP</label>
+                                                                <input class="w-4 h-4 ml-2" type="checkbox" x-model="calculateLOP">
+                                                            </div>
+                                                        </td>
                                                         <td class="px-4 py-4 whitespace-nowrap">
                                                             <button class="flex items-center">
-                                                                <input type="text"
+                                                                <!-- Input box hidden when Fixed Amount is selected -->
+                                                                <input type="text" x-show="jobType !== 'Fixed Amount'"
                                                                     class="block w-24 px-3 py-3 border border-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                                 <span class="px-3 py-2 border border-gray-400">
-                                                                    <select id="jobtype" name="jobtype" disabled
-                                                                        autocomplete="jobtype"
+                                                                    <select id="jobtype" name="jobtype" autocomplete="jobtype" x-model="jobType"
                                                                         class="block px-1 py-1 text-sm bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                                        <option>% of Salary</option>
-                                                                        <option>Fixed Amount</option>
+                                                                        <option value="">% of Salary</option>
+                                                                        <option value="Fixed Amount">Fixed Amount</option>
                                                                     </select>
                                                                 </span>
                                                             </button>
                                                         </td>
                                                         <td></td>
                                                     </tr>
+                                                    
+                                                    
                                                     <tr>
                                                         <td class="px-4 py-4 whitespace-nowrap">
                                                             <p class="font-semibold text-blue-600">
                                                                 HRA
                                                             </p>
                                                         </td>
+                                                        <td class="px-4 py-4 whitespace-nowrap"></td>
                                                         <td class="px-4 py-4 whitespace-nowrap">
                                                             <div class="flex items-end justify-end"
                                                                 x-data="{ showPercentageSalaryField: false }">
@@ -187,6 +197,7 @@
                                                                 </p>
                                                             </div>
                                                         </td>
+                                                        <td class="px-4 py-4 whitespace-nowrap"></td>
                                                         <td class="px-4 py-4 whitespace-nowrap"
                                                             x-data="{ 'showModal': false }"
                                                             @keydown.escape="showModal = false">
@@ -254,6 +265,7 @@
                                                                     Allowance</p>
                                                             </div>
                                                         </td>
+                                                        <td class="px-4 py-4 whitespace-nowrap"></td>
                                                         <td class="px-4 py-4 whitespace-nowrap"
                                                             x-data="{ 'showModal': false }"
                                                             @keydown.escape="showModal = false">
@@ -322,6 +334,7 @@
                                                                 </p>
                                                             </div>
                                                         </td>
+                                                        <td class="px-4 py-4 whitespace-nowrap"></td>
                                                         <td class="px-4 py-4 whitespace-nowrap"
                                                             x-data="{ 'showModal': false }"
                                                             @keydown.escape="showModal = false">
@@ -391,6 +404,7 @@
                                                                 </p>
                                                             </div>
                                                         </td>
+                                                        <td class="px-4 py-4 whitespace-nowrap"></td>
                                                         <td class="px-4 py-4 whitespace-nowrap"
                                                             x-data="{ 'showModal': false }"
                                                             @keydown.escape="showModal = false">
@@ -462,6 +476,7 @@
                                                                     for daily salary type.</span>
                                                             </div>
                                                         </td>
+                                                        <td class="px-4 py-4 whitespace-nowrap"></td>
                                                         <td class="px-4 py-4 whitespace-nowrap"
                                                             x-data="{ 'showModal': false }"
                                                             @keydown.escape="showModal = false">
@@ -533,6 +548,7 @@
                                                                     for hourly salary type.</span>
                                                             </div>
                                                         </td>
+                                                        <td class="px-4 py-4 whitespace-nowrap"></td>
                                                         <td class="px-4 py-4 whitespace-nowrap"
                                                             x-data="{ 'showModal': false }"
                                                             @keydown.escape="showModal = false">
@@ -602,6 +618,7 @@
                                                                 </p>
                                                             </div>
                                                         </td>
+                                                        <td class="px-4 py-4 whitespace-nowrap"></td>
                                                         <td class="px-4 py-4 whitespace-nowrap"
                                                             x-data="{ 'showModal': false }"
                                                             @keydown.escape="showModal = false">
