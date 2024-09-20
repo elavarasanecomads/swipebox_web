@@ -54,27 +54,51 @@
                     <div x-data="{ selectedOption: 'select' }" class="grid grid-cols-1 gap-4 lg:grid-cols-3">
                         <div class="col-start-1">
                             <label class="text-sm font-medium text-gray-600" for="businessname">Report Type <span
-                                class="text-red-600">*</span></label>
-                        <select x-model="selectedOption" id="jobtype" name="jobtype" autocomplete="jobtype"
+                                    class="text-red-600">*</span></label>
+                            <select x-model="selectedOption" id="jobtype" name="jobtype" autocomplete="jobtype"
                                 class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                            <option value="select">Select</option>
-                            <option value="attendance">Attendance</option>
-                            <option value="payroll">Payroll</option>
-                            <option value="compliance">Compliance</option>
-                            <option value="employee">Employee Details</option>
-                        </select>
+                                <option value="select">Select</option>
+                                <option value="attendance">Attendance Reports</option>
+                                <option value="ot_late">OT & Fine Reports</option>
+                                <option value="leave">Leave Reports</option>
+                                <option value="payroll">Payroll Reports</option>
+                                <option value="compliance">Compliance</option>
+                                <option value="employee">Employee Details</option>
+                            </select>
                         </div>
                         <div x-show="selectedOption === 'attendance'">
                             <label class="text-sm font-medium text-gray-600" for="businessname">Type <span
                                     class="text-red-600">*</span></label>
                             <select id="jobtype" name="jobtype" autocomplete="jobtype"
                                 class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                <option>Attendance Summary Report</option>
-                                <option>Branch Level Summary Report</option>
+                                <option value="">Attendance Summary Report</option>
+                                <option value="">Branch & Department Level Summary Report</option>                               
+                                <option value="">Attendance Detailed Report</option>
+                                <option value="">Attendance Summary Report - 2</option>
+                                <option value="">Attendance Shift Report</option>
+                                <option value="">Attendance Muster Report</option>
+                                <option value="">Multiple In & OUT Report</option>
+                                <option value="">Attendance Detailed Report - List View </option>
+                            </select>
+                        </div>
+                        <div x-show="selectedOption === 'ot_late'">
+                            <label class="text-sm font-medium text-gray-600" for="businessname">Type <span
+                                    class="text-red-600">*</span></label>
+                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                 <option>Over Time Report</option>
-                                <option>Late Entry Report</option>
-                                <option>Early Exit Report</option>
+                                <option>Late Entry Penalty Report</option>
+                                <option>Early Exit Penalty Report</option>
+                                <option>Break Hour Penalty Report</option>
+                                <option>Working Hour Penalty Report</option>
                                 <option>Short Hours Report</option>
+                            </select>
+                        </div>
+                        <div x-show="selectedOption === 'leave'">
+                            <label class="text-sm font-medium text-gray-600" for="businessname">Type <span
+                                    class="text-red-600">*</span></label>
+                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                 <option>Leave Report</option>
                                 <option>Leave Balance Report</option>
                                 <option>Attendance Detailed Report</option>
@@ -126,7 +150,7 @@
                         </div>
                         <div class="col-start-1">
                             <label class="text-sm font-medium text-gray-600" for="businessname">
-                               Employee Status</label>
+                                Employee Status</label>
                             <select id="jobtype" name="jobtype" autocomplete="jobtype"
                                 class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
                                 <option>All</option>
@@ -164,16 +188,21 @@
                         <p class="text-sm text-gray-500">
                             Report generation can take upto 10 min. Once completed we will be notify.</p>
                     </div>
-                    
+
                     <div id="downloads" class="py-4 space-y-4 border-t">
                         <div class="flex items-center justify-between">
                             <h1 class="text-2xl font-bold">Downloads</h1>
-                            <button @click="showModal = true" class="flex items-center gap-1 px-4 py-2 font-semibold text-white bg-green-600 rounded"><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"></path>
-                            </svg>
-                        </span><span>Refresh</span></button>
+                            <button @click="showModal = true"
+                                class="flex items-center gap-1 px-4 py-2 font-semibold text-white bg-green-600 rounded"><span><svg
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99">
+                                        </path>
+                                    </svg>
+                                </span><span>Refresh</span></button>
                         </div>
-                        
+
                         <div class="flex flex-col border-b">
                             <div class="z-10 -my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
                                 <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
@@ -405,7 +434,7 @@
                                                             </div>
                                                         </div>
                                                     </td>
-                                                </tr>                                                
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
