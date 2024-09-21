@@ -55,13 +55,11 @@
                             <option>Casual</option>
                         </select>
                         <div>
-                            <label class="text-sm font-medium text-gray-600" for="businessname">Select Period <span
-                                    class="text-red-600">*</span></label>
-                            <div id="reportrange" class="w-full p-2 mt-1 bg-white border border-gray-400 rounded-md shadow-sm cursor-pointer">
+                             <div id="reportrange" class="w-full p-2 mt-1 bg-white border border-gray-400 rounded-md shadow-sm cursor-pointer">
                                 <span></span>
                             </div>
                         </div>
-                        <div class="w-48 mt-6">
+                        <div class="w-48 mt-3">
                             <button
                                 class="w-full px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded-md">Search</button>
                         </div>
@@ -98,25 +96,18 @@
                                 </div>
                             </div>
                             <div class="flex flex-col gap-6 pt-6 pb-2 md:flex-row md:items-center md:justify-between">                            
-                                <div>
-                                    <span class="inline-block w-full rounded shadow-sm">
-                                        <button
-                                            class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-72 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
-                                            type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search"
-                                            aria-checked="false">
-                                            <input id="search" type="text" placeholder="Search by name or id"
-                                                class="w-full h-full form-control focus:outline-none searchdata">
-                                            <span
-                                                class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
-                                                <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                                </svg>
-                                            </span>
-                                        </button>
+                                <div class="relative w-full lg:w-72">
+                                    <input id="search" type="text" placeholder="Search by name or id"
+                                        class="w-full py-2 pl-10 pr-3 bg-white border border-gray-400 rounded shadow-sm outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600 searchdata">
+                                    <span class="absolute inset-y-0 flex items-center pointer-events-none left-2">
+                                        <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                        </svg>
                                     </span>
                                 </div>
+                                
                                 <div class="flex items-center gap-4">
                                     
                                     <div class="relative text-gray-600" x-data="{ isOpen: false }" x-cloak>
@@ -168,9 +159,17 @@
                                                             Deductions
                                                         </th>
                                                         <th scope="col"
+                                                        class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                        Taxes
+                                                    </th>
+                                                        <th scope="col"
                                                             class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
                                                             Net Pay
                                                         </th>
+                                                        <th scope="col"
+                                                        class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+                                                        CTC
+                                                    </th>
                                                         <th scope="col"
                                                             class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
                                                             Action
@@ -209,7 +208,17 @@
                                                         </td>
                                                         <td class="px-2 py-3 whitespace-nowrap">
                                                             <span class="text-sm text-gray-900">
-                                                                <span>₹</span> 16000
+                                                                <span>₹</span> 500
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                <span>₹</span> 15500
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                <span>₹</span> 16100
                                                             </span>
                                                         </td>
                                                         <td class="relative px-2 py-3 whitespace-nowrap">
@@ -257,7 +266,17 @@
                                                         </td>
                                                         <td class="px-2 py-3 whitespace-nowrap">
                                                             <span class="text-sm text-gray-900">
-                                                                <span>₹</span> 8000
+                                                                <span>₹</span> 500
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                <span>₹</span> 7500
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                <span>₹</span> 8500
                                                             </span>
                                                         </td>
                                                         <td class="relative px-2 py-3 whitespace-nowrap">
@@ -301,6 +320,16 @@
                                                         <td class="px-2 py-3 whitespace-nowrap">
                                                             <span class="text-sm text-gray-900">
                                                                 <span>₹</span> 500
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                <span>₹</span> 0
+                                                            </span>
+                                                        </td>
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                <span>₹</span> 13000
                                                             </span>
                                                         </td>
                                                         <td class="px-2 py-3 whitespace-nowrap">
@@ -524,6 +553,45 @@
                             </div>
                             <div class="py-2">
                                 <div class="flex items-center justify-between">
+                                    <h3 class="font-bold text-red-600">(-) Tax Deductions</h3>
+                                    <p class="font-bold text-red-600"><span>₹ </span>2837</p>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between pt-4">
+                                        <p class="font-semibold">PF</p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>1800</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">ESI</p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>637</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-2">
+                                            <p class="font-semibold">PT</p>
+                                            <a class="text-sm font-medium text-blue-600" href="bonus.html">+ Add</a>
+                                        </div>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>50</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-2">
+                                            <p class="font-semibold">TDS</p>
+                                            <a class="text-sm font-medium text-blue-600" href="tds-deduction.html">+
+                                                Add</a>
+                                        </div>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>350</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-2">
+                                            <p class="font-semibold">Labor Welfare Fund</p>
+                                            <a class="text-sm font-medium text-blue-600" href="labour-welfare-fund.html">+
+                                                Add</a>
+                                        </div>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>0</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="py-2">
+                                <div class="flex items-center justify-between">
                                     <h3 class="font-bold text-red-600">(-) Common Deductions</h3>
                                     <p class="font-bold text-red-600"><span>₹ </span>3200</p>
                                 </div>
@@ -566,7 +634,51 @@
                                                 class="font-normal font-base">[2:30 Hrs]</span></p>
                                         <p class="font-semibold text-gray-600"><span>₹ </span>100</p>
                                     </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">Work Hour Penalties <span
+                                                class="font-normal font-base">[2:30 Hrs]</span></p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>100</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">Short Hour Penalties <span
+                                                class="font-normal font-base">[2:30 Hrs]</span></p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>100</p>
+                                    </div>
                                 </div>
+                            </div>
+                            <div class="py-2">
+                                <div class="flex items-center justify-between">
+                                    <h3 class="font-bold text-green-600">(+) Employer Contributions</h3>
+                                    <p class="font-bold text-green-600"><span>₹ </span>2347</p>
+                                </div>
+
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between pt-4">
+                                        <p class="font-semibold">PF</p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>1800</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">ESI</p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>147</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">PT</p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>50</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold">TDS </p>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>350</p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-2">
+                                            <p class="font-semibold">Labor Welfare Fund</p>
+                                            <a class="text-sm font-medium text-blue-600" href="labour-welfare-fund.html">+
+                                                Add</a>
+                                        </div>
+                                        <p class="font-semibold text-gray-600"><span>₹ </span>0</p>
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="py-2 pb-24">
                                 <div class="flex items-center justify-between">
