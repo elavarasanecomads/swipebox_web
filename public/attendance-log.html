@@ -68,6 +68,14 @@
                                     <option>QR Code</option>
                                 </select>
                             </div>
+                            <div>
+                                <label for="" class="block text-sm font-medium text-gray-700">Failed Reason</label>
+                                <select id="" name="" autocomplete="" class="block w-full p-1.5 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                    <option>All</option>
+                                    <option>User Not Mapped</option>                            
+                                    <option>1 Minute Gap</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="relative">
                             <div class="w-full overflow-x-scroll">
@@ -83,8 +91,10 @@
                                                 Device Serial</th>
                                             <th scope="col" class="p-4">
                                                 User ID</th>
-                                            <th scope="col" class="w-full p-4">
+                                            <th scope="col" class="p-4">
                                                 Punch Details</th>
+                                            <th scope="col" class="w-full p-4">
+                                                    Reject Reason</th>
             
                                         </tr>
                                     </thead>
@@ -108,7 +118,10 @@
                                                 <p class="text-sm text-gray-900">NA1011</p>
                                             </td>
                                             <td class="p-4">
-                                                <p class="w-full text-sm text-gray-900 whitespace-nowrap">24-05-2024 10:08</p>
+                                                <p class="text-sm text-gray-900">24-05-2024 10:08</p>
+                                            </td>
+                                            <td class="p-4">
+                                                <p class="w-full text-sm text-gray-900 whitespace-nowrap">1 Minute Gap</p>
                                             </td>
                                         </tr>
                                     </tbody>
