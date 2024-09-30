@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shift Form with Alpine.js</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="p-6 bg-gray-100">
+
+    <div class="max-w-lg p-6 mx-auto bg-white rounded-lg shadow-md" x-data="shiftCalculator()">
+        <h2 class="mb-6 text-2xl font-bold text-center">Shift Details Form</h2>
+        
+        <form @submit.prevent="calculatePenalties">
+            <!-- Shift Start Time -->
+            <div class="mb-4">
+                <label for="shift_start" class="block text-sm font-medium text-gray-700">Shift Start Time</label>
+                <input type="time" id="shift_start" name="shift_start" x-model="shift_start" class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            </div>
+
+            <!-- Shift End Time -->
+            <div class="mb-4">
+                <label for="shift_end" class="block text-sm font-medium text-gray-700">Shift End Time</label>
+                <input type="time" id="shift_end" name="shift_end" x-model="shift_end" class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            </div>
+
+            <!-- Punch-In Time -->
+            <div class="mb-4">
+                <label for="punch_in" class="block text-sm font-medium text-gray-700">Punch-In Time</label>
+                <input type="time" id="punch_in" name="punch_in" x-model="punch_in" class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            </div>
+
+            <!-- Punch-Out Time -->
+            <div class="mb-4">
+                <label for="punch_out" class="block text-sm font-medium text-gray-700">Punch-Out Time</label>
+                <input type="time" id="punch_out" name="punch_out" x-model="punch_out" class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            </div>
+
+            <!-- Late Entry Grace Minutes -->
+            <div class="mb-4">
+                <label for="late_grace" class="block text-sm font-medium text-gray-700">Late Entry Grace Minutes</label>
+                <input type="number" id="late_grace" name="late_grace" x-model="late_grace" class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            </div>
+
+            <!-- Early Out Grace Minutes -->
+            <div class="mb-4">
+                <label for="earlyout_grace" class="block text-sm font-medium text-gray-700">Early Out Grace Minutes</label>
+                <input type="number" id="earlyout_grace" name="earlyout_grace" x-model="earlyout_grace" class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            </div>
+
+            <!-- Working Hour Grace Minutes -->
+            <div class="mb-4">
+                <label for="working_hour_grace" class="block text-sm font-medium text-gray-700">Working Hour Grace Minutes</label>
+                <input type="number" id="working_hour_grace" name="working_hour_grace" x-model="working_hour_grace" class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit" class="w-full px-4 py-2 font-bold text-white bg-blue-600 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    Calculate Penalties
+                </button>
+            </div>
+        </form>
+
+        <!-- Display Results -->
+        <div class="mt-6">
+            <p class="font-bold">Working Hours: <span x-text="working_hours"></span></p>
+            <p class="font-bold">Late Entry Penalty: <span x-text="late_penalty"></span></p>
+            <p class="font-bold">Early Out Penalty: <span x-text="earlyout_penalty"></span></p>
+            <p class="font-bold">Working Hour Penalty: <span x-text="working_hour_penalty"></span></p>
+        </div>
+    </div>
+
+    <script>
+        function shiftCalculator() {
+            return {
+                shift_start: '09:00',
+                shift_end: '18:00',
+                punch_in: '',
+                punch_out: '',
+                late_grace: 0,
+                earlyout_grace: 0,
+                working_hour_grace: 0,
+                working_hours: 'N/A',
+                late_penalty: 'N/A',
+                earlyout_penalty: 'N/A',
+                working_hour_penalty: 'N/A',
+
+                calculatePenalties() {
+                    const shiftStart = new Date(`1970-01-01T${this.shift_start}:00`);
+                    const shiftEnd = new Date(`1970-01-01T${this.shift_end}:00`);
+                    const punchIn = new Date(`1970-01-01T${this.punch_in}:00`);
+                    const punchOut = new Date(`1970-01-01T${this.punch_out}:00`);
+                    
+                    // Calculate working hours
+                    let workingTime = (punchOut - punchIn) / (1000 * 60); // Convert to minutes
+                    this.working_hours = this.formatTime(workingTime);
+
+                    // Late entry penalty
+                    const lateEntryAllowed = new Date(shiftStart.getTime() + this.late_grace * 60 * 1000);
+                    if (punchIn > lateEntryAllowed) {
+                        let lateMinutes = (punchIn - lateEntryAllowed) / (1000 * 60);
+                        this.late_penalty = this.formatTime(lateMinutes);
+                    } else {
+                        this.late_penalty = "00:00";
+                    }
+
+                    // Early out penalty
+                    const earlyOutAllowed = new Date(shiftEnd.getTime() - this.earlyout_grace * 60 * 1000);
+                    if (punchOut < earlyOutAllowed) {
+                        let earlyMinutes = (earlyOutAllowed - punchOut) / (1000 * 60);
+                        this.earlyout_penalty = this.formatTime(earlyMinutes);
+                    } else {
+                        this.earlyout_penalty = "00:00";
+                    }
+
+                    // Working hour penalty
+                    const expectedWorkingTime = (shiftEnd - shiftStart) / (1000 * 60); // In minutes
+                    const graceAdjustedTime = expectedWorkingTime - this.working_hour_grace;
+
+                    if (workingTime < graceAdjustedTime) {
+                        let penaltyMinutes = graceAdjustedTime - workingTime;
+                        this.working_hour_penalty = this.formatTime(penaltyMinutes);
+                    } else {
+                        this.working_hour_penalty = "00:00";
+                    }
+                },
+
+                formatTime(minutes) {
+                    const hrs = Math.floor(minutes / 60);
+                    const mins = Math.floor(minutes % 60);
+                    return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}`;
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
