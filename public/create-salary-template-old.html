@@ -1,7 +1,5 @@
 <html lang="en">
 
-</html>
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,16 +19,16 @@
                 <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
                     <div class="flex items-center gap-1 text-sm text-gray-600">
                         <a href="salary-template.html">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                                class="w-5 h-5">
-                                <path fill-rule="evenodd"
-                                    d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </a>
-                        <p class="text-2xl font-bold text-gray-900">Create Salary Template</p>
-                    </div>
-
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                              class="w-5 h-5">
+                              <path fill-rule="evenodd"
+                                  d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                  clip-rule="evenodd"></path>
+                          </svg>
+                      </a>
+                      <p class="text-2xl font-bold text-gray-900">Create Salary Template</p>
+                      </div>
+                      
                     <div class="pt-4 space-y-4">
                         <div>
                             <label class="font-semibold text-gray-600" for="">Template Name</label>
@@ -39,80 +37,62 @@
                         </div>
                         <div class="pb-4">
                             <div class="flex items-center justify-between pb-4">
-                                <p class="text-xl font-bold ">Earnings</p>
-                                <div x-data="earningsDropdown()" class="relative text-right w-72">
-                                    <!-- Add Earnings Button -->
-                                    <div class="relative">
-                                        <button @click="open = !open"
-                                            class="w-40 px-4 py-2 font-semibold text-white bg-blue-600 rounded-md cursor-pointer">
-                                            Add Earnings
-                                        </button>
-                                    </div>
-
-
-                                    <!-- Dropdown options -->
-                                    <div x-show="open" @click.away="open = false"
-                                        class="absolute z-10 w-full mt-1 bg-white border rounded shadow-lg">
-                                        <div class="px-4 py-2">
-                                            <!-- Search input -->
-                                            <input type="text" placeholder="Search..." x-model="search"
-                                                class="w-full px-3 py-2 mb-2 border rounded">
-
-                                            <!-- Scrollable options container -->
-                                            <div class="overflow-y-scroll text-left max-h-48">
-                                                <!-- Suggested heading -->
-                                                <h3 class="mb-2 text-sm font-bold text-gray-600">Suggested</h3>
-
-                                                <!-- If no options match the search, show "No records found" -->
-                                                <template
-                                                    x-if="filteredOptions.length === 0 && customNames.length === 0">
-                                                    <div class="p-2 text-gray-700">No records found</div>
-                                                </template>
-
-                                                <!-- Filtered options based on search -->
-                                                <template x-for="(option, index) in filteredOptions" :key="index">
-                                                    <div @click="selectOption(option)"
-                                                        class="flex items-center p-2 rounded cursor-pointer hover:bg-gray-100">
-                                                        <label x-text="option" class="text-gray-700 "></label>
-                                                    </div>
-                                                </template>
-
-                                                <!-- Custom heading (if custom names exist) -->
-                                                <template x-if="customNames.length > 0">
-                                                    <h3 class="mt-4 mb-2 text-sm font-bold text-gray-600">Custom</h3>
-                                                </template>
-
-                                                <!-- Custom names -->
-                                                <template x-for="(custom, index) in filteredCustomNames" :key="index">
-                                                    <div @click="selectOption(custom)"
-                                                        class="flex items-center p-2 rounded cursor-pointer hover:bg-gray-100">
-                                                        <label x-text="custom" class="text-gray-700"></label>
-                                                    </div>
-                                                </template>
-
-                                                <!-- Add Custom Option -->
-                                                <div @click="openCustomPopup()"
-                                                    class="flex items-center justify-center p-2 mt-2 bg-blue-100 rounded-md cursor-pointer hover:bg-blue-300">
-                                                    <label class="font-semibold text-center text-blue-600">+ Add
-                                                        Custom</label>
-                                                </div>
+                                <p class="pb-4 text-xl font-bold">Earnings</p>
+                                <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                    <button @click="showModal = true"
+                                        class="p-2 font-medium text-white bg-blue-600 rounded w-36">Add New</button>
+                                    <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                        x-show="showModal" style="display: none;">
+                                        <!-- Modal inner -->
+                                        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
+                                            @click.away="showModal = false"
+                                            x-transition:enter="motion-safe:ease-out duration-300"
+                                            x-transition:enter-start="opacity-0 scale-90"
+                                            x-transition:enter-end="opacity-100 scale-100">
+                                            <!-- Title / Close-->
+                                            <div class="flex items-center justify-between">
+                                                <p class="font-bold text-gray-900">
+                                                    Add Earnings
+                                                </p>
+                                                <span @click="showModal = false">
+                                                    <svg class="w-5 h-5 text-gray-900"
+                                                        xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                    </svg>
+                                                </span>
                                             </div>
-                                        </div>
-                                    </div>
+                                            <!-- content -->
+                                            <div class="w-full">
+                                                <div class="pt-4 space-y-4">
+                                                    <div>
+                                                        <label class="font-semibold text-gray-600" for="">Name</label>
+                                                        <input type="text" name="" id="" autocomplete="title"
+                                                            placeholder=""
+                                                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                    </div>
+                                                    <div x-data="{ showPercentageSalaryField: false }">
+                                                        <label class="font-semibold text-gray-600" for="">Calculation
+                                                            Type</label>
+                                                        <button class="flex items-center mt-1">
+                                                            <input x-show="showPercentageSalaryField" type="text"
+                                                                class="block w-24 px-3 py-3 border border-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                            <span class="px-3 py-3 border border-gray-400 lg:py-2">
+                                                                <select id="jobtype" name="jobtype"
+                                                                    autocomplete="jobtype"
+                                                                    x-on:change="showPercentageSalaryField = ($event.target.value === '% of Salary')"
+                                                                    class="block px-1 py-1 text-sm text-gray-600 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
 
-                                    <!-- Custom Popup -->
-                                    <div x-show="showPopup"
-                                        class="fixed inset-0 z-20 flex items-center justify-center bg-black bg-opacity-50">
-                                        <div class="p-4 bg-white rounded shadow-lg w-80">
-                                            <h2 class="mb-4 text-lg font-semibold text-left">Custom Earnings</h2>
-
-                                            <input type="text" x-model="customEarnings" placeholder="Enter custom name"
-                                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                            <div class="flex items-center justify-end gap-4 pt-4">
-                                                <button @click="closeCustomPopup()"
-                                                    class="px-4 py-2 font-semibold text-gray-600 bg-gray-200 rounded">Cancel</button>
-                                                <button @click="saveCustomEarnings"
-                                                    class="px-4 py-2 font-semibold text-white bg-blue-600 rounded">Save</button>
+                                                                    <option>Fixed Amount</option>
+                                                                    <option>% of Salary</option>
+                                                                </select>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                    <button @click="showModal = true"
+                                                        class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -131,10 +111,8 @@
                                                         </th>
                                                         <th scope="col"
                                                             class="w-full px-4 py-3 text-sm text-left text-white">
-
+                                                            
                                                         </th>
-                                                        <th scope="col"
-                                                            class="w-full px-4 py-3 text-sm text-left text-white"></th>
                                                         <th scope="col"
                                                             class="w-full px-4 py-3 text-sm text-left text-white"></th>
                                                     </tr>
@@ -150,12 +128,9 @@
                                                         </td>
                                                         <!-- Only show Calculate LOP checkbox when Fixed Amount is selected -->
                                                         <td class="px-4 py-4 whitespace-nowrap">
-                                                            <div class="flex items-center p-2 rounded cursor-pointer"
-                                                                x-show="jobType === 'Fixed Amount'">
-                                                                <label class="font-semibold text-gray-700">Calculate
-                                                                    LOP</label>
-                                                                <input class="w-4 h-4 ml-2" type="checkbox"
-                                                                    x-model="calculateLOP">
+                                                            <div class="flex items-center p-2 rounded cursor-pointer"  x-show="jobType === 'Fixed Amount'">
+                                                                <label class="font-semibold text-gray-700">Calculate LOP</label>
+                                                                <input class="w-4 h-4 ml-2" type="checkbox" x-model="calculateLOP">
                                                             </div>
                                                         </td>
                                                         <td class="px-4 py-4 whitespace-nowrap">
@@ -164,51 +139,45 @@
                                                                 <input type="text" x-show="jobType !== 'Fixed Amount'"
                                                                     class="block w-24 px-3 py-3 border border-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                                 <span class="px-3 py-2 border border-gray-400">
-                                                                    <select id="jobtype" name="jobtype"
-                                                                        autocomplete="jobtype" x-model="jobType"
+                                                                    <select id="jobtype" name="jobtype" autocomplete="jobtype" x-model="jobType"
                                                                         class="block px-1 py-1 text-sm bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                                                         <option value="">% of Salary</option>
-                                                                        <option value="Fixed Amount">Fixed Amount
-                                                                        </option>
+                                                                        <option value="Fixed Amount">Fixed Amount</option>
                                                                     </select>
                                                                 </span>
                                                             </button>
                                                         </td>
                                                         <td></td>
                                                     </tr>
-                                                    <tr x-data="{ jobType: '', calculateLOP: false }">
+                                                    
+                                                    
+                                                    <tr>
                                                         <td class="px-4 py-4 whitespace-nowrap">
-                                                            <div class="text-base text-gray-900">
-                                                                <p class="font-semibold text-blue-600">
-                                                                    Component Name
-                                                                </p>
-                                                            </div>
+                                                            <p class="font-semibold text-blue-600">
+                                                                HRA
+                                                            </p>
                                                         </td>
-                                                        <!-- Only show Calculate LOP checkbox when Fixed Amount is selected -->
+                                                        <td class="px-4 py-4 whitespace-nowrap"></td>
                                                         <td class="px-4 py-4 whitespace-nowrap">
-                                                            <div class="flex items-center p-2 rounded cursor-pointer"
-                                                                x-show="jobType === 'Fixed Amount'">
-                                                                <label class="font-semibold text-gray-700">Calculate
-                                                                    LOP</label>
-                                                                <input class="w-4 h-4 ml-2" type="checkbox"
-                                                                    x-model="calculateLOP">
+                                                            <div class="flex items-end justify-end"
+                                                                x-data="{ showPercentageSalaryField: false }">
+                                                                <button class="flex items-center mt-1">
+                                                                    <input x-show="showPercentageSalaryField"
+                                                                        type="text"
+                                                                        class="block w-24 px-3 py-3 border border-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                    <span
+                                                                        class="px-3 py-3 border border-gray-400 lg:py-2">
+                                                                        <select id="jobtype" name="jobtype"
+                                                                            autocomplete="jobtype"
+                                                                            x-on:change="showPercentageSalaryField = ($event.target.value === '% of Salary')"
+                                                                            class="block px-1 py-1 text-sm text-gray-600 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+
+                                                                            <option>Fixed Amount</option>
+                                                                            <option>% of Salary</option>
+                                                                        </select>
+                                                                    </span>
+                                                                </button>
                                                             </div>
-                                                        </td>
-                                                        <td class="px-4 py-4 whitespace-nowrap">
-                                                            <button class="flex items-center">
-                                                                <!-- Input box hidden when Fixed Amount is selected -->
-                                                                <input type="text" x-show="jobType !== 'Fixed Amount'"
-                                                                    class="block w-24 px-3 py-3 border border-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                                <span class="px-3 py-2 border border-gray-400">
-                                                                    <select id="jobtype" name="jobtype"
-                                                                        autocomplete="jobtype" x-model="jobType"
-                                                                        class="block px-1 py-1 text-sm bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                                        <option value="">% of Salary</option>
-                                                                        <option value="Fixed Amount">Fixed Amount
-                                                                        </option>
-                                                                    </select>
-                                                                </span>
-                                                            </button>
                                                         </td>
                                                         <td class="px-4 py-4 whitespace-nowrap">
                                                             <button><svg xmlns="http://www.w3.org/2000/svg"
@@ -220,7 +189,6 @@
                                                                 </svg></button>
                                                         </td>
                                                     </tr>
-
                                                     <tr>
                                                         <td class="px-4 py-4 whitespace-nowrap">
                                                             <div class="text-base text-gray-900">
@@ -736,7 +704,7 @@
                                                         </th>
                                                         <th scope="col"
                                                             class="w-full px-4 py-3 text-sm text-left text-white">
-
+                                                            
                                                         </th>
                                                         <th scope="col"
                                                             class="w-full px-4 py-3 text-sm text-left text-white"></th>
@@ -904,8 +872,7 @@
                                                                                                 class="ml-2 font-semibold text-gray-600">HRA</span>
                                                                                         </label>
                                                                                     </div>
-                                                                                    <div class="flex items-center mt-2 ml-4"
-                                                                                        x-data="{ showTextbox: false }">
+                                                                                    <div class="flex items-center mt-2 ml-4" x-data="{ showTextbox: false }">
                                                                                         <div
                                                                                             class="inline-flex items-center px-2">
                                                                                             <span
@@ -958,8 +925,7 @@
                                                                                                 class="ml-2 font-semibold text-gray-600">HRA</span>
                                                                                         </label>
                                                                                     </div>
-                                                                                    <div class="flex items-center mt-2 ml-4"
-                                                                                        x-data="{ showTextbox: false }">
+                                                                                    <div class="flex items-center mt-2 ml-4" x-data="{ showTextbox: false }">
                                                                                         <div
                                                                                             class="inline-flex items-center px-2">
                                                                                             <span
@@ -1227,79 +1193,60 @@
                         <div class="pb-4">
                             <div class="flex items-center justify-between pb-4">
                                 <p class="pb-4 text-xl font-bold">Common Deductions</p>
-                                <div x-data="deductionDropdown()" class="relative text-right w-72">
-                                    <!-- Add deduction Button -->
-                                    <div class="relative">
-                                        <button @click="open = !open"
-                                            class="w-40 px-4 py-2 font-semibold text-white bg-blue-600 rounded-md cursor-pointer">
-                                            Add Deduction
-                                        </button>
-                                    </div>
-
-
-                                    <!-- Dropdown options -->
-                                    <div x-show="open" @click.away="open = false"
-                                        class="absolute z-10 w-full mt-1 bg-white border rounded shadow-lg">
-                                        <div class="px-4 py-2">
-                                            <!-- Search input -->
-                                            <input type="text" placeholder="Search..." x-model="search"
-                                                class="w-full px-3 py-2 mb-2 border rounded">
-
-                                            <!-- Scrollable options container -->
-                                            <div class="overflow-y-scroll text-left max-h-48">
-                                                <!-- Suggested heading -->
-                                                <h3 class="mb-2 text-sm font-bold text-gray-600">Suggested</h3>
-
-                                                <!-- If no options match the search, show "No records found" -->
-                                                <template
-                                                    x-if="filteredOptions.length === 0 && customNames.length === 0">
-                                                    <div class="p-2 text-gray-700">No records found</div>
-                                                </template>
-
-                                                <!-- Filtered options based on search -->
-                                                <template x-for="(option, index) in filteredOptions" :key="index">
-                                                    <div @click="selectOption(option)"
-                                                        class="flex items-center p-2 rounded cursor-pointer hover:bg-gray-100">
-                                                        <label x-text="option" class="text-gray-700 "></label>
-                                                    </div>
-                                                </template>
-
-                                                <!-- Custom heading (if custom names exist) -->
-                                                <template x-if="customNames.length > 0">
-                                                    <h3 class="mt-4 mb-2 text-sm font-bold text-gray-600">Custom</h3>
-                                                </template>
-
-                                                <!-- Custom names -->
-                                                <template x-for="(custom, index) in filteredCustomNames" :key="index">
-                                                    <div @click="selectOption(custom)"
-                                                        class="flex items-center p-2 rounded cursor-pointer hover:bg-gray-100">
-                                                        <label x-text="custom" class="text-gray-700"></label>
-                                                    </div>
-                                                </template>
-
-                                                <!-- Add Custom Option -->
-                                                <div @click="openCustomPopup()"
-                                                    class="flex items-center justify-center p-2 mt-2 bg-blue-100 rounded-md cursor-pointer hover:bg-blue-300">
-                                                    <label class="font-semibold text-center text-blue-600">+ Add
-                                                        Custom</label>
-                                                </div>
+                                <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                    <button @click="showModal = true"
+                                        class="p-2 font-medium text-white bg-blue-600 rounded w-36">Add New</button>
+                                    <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                        x-show="showModal" style="display: none;">
+                                        <!-- Modal inner -->
+                                        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
+                                            @click.away="showModal = false"
+                                            x-transition:enter="motion-safe:ease-out duration-300"
+                                            x-transition:enter-start="opacity-0 scale-90"
+                                            x-transition:enter-end="opacity-100 scale-100">
+                                            <!-- Title / Close-->
+                                            <div class="flex items-center justify-between">
+                                                <p class="font-bold text-gray-900">
+                                                    Add Deductions
+                                                </p>
+                                                <span @click="showModal = false">
+                                                    <svg class="w-5 h-5 text-gray-900"
+                                                        xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                    </svg>
+                                                </span>
                                             </div>
-                                        </div>
-                                    </div>
+                                            <!-- content -->
+                                            <div class="w-full">
+                                                <div class="pt-4 space-y-4">
+                                                    <div>
+                                                        <label class="font-semibold text-gray-600" for="">Name</label>
+                                                        <input type="text" name="" id="" autocomplete="title"
+                                                            placeholder=""
+                                                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                    </div>
+                                                    <div x-data="{ showPercentageSalaryField: false }">
+                                                        <label class="font-semibold text-gray-600" for="">Calculation
+                                                            Type</label>
+                                                        <button class="flex items-center mt-1">
+                                                            <input x-show="showPercentageSalaryField" type="text"
+                                                                class="block w-24 px-3 py-3 border border-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                            <span class="px-3 py-3 border border-gray-400 lg:py-2">
+                                                                <select id="jobtype" name="jobtype"
+                                                                    autocomplete="jobtype"
+                                                                    x-on:change="showPercentageSalaryField = ($event.target.value === '% of Salary')"
+                                                                    class="block px-1 py-1 text-sm text-gray-600 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
 
-                                    <!-- Custom Popup -->
-                                    <div x-show="showPopup"
-                                        class="fixed inset-0 z-20 flex items-center justify-center bg-black bg-opacity-50">
-                                        <div class="p-4 bg-white rounded shadow-lg w-80">
-                                            <h2 class="mb-4 text-lg font-semibold text-left">Custom Deduction</h2>
-
-                                            <input type="text" x-model="customDeduction" placeholder="Enter custom name"
-                                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                            <div class="flex items-center justify-end gap-4 pt-4">
-                                                <button @click="closeCustomPopup()"
-                                                    class="px-4 py-2 font-semibold text-gray-600 bg-gray-200 rounded">Cancel</button>
-                                                <button @click="saveCustomDeduction"
-                                                    class="px-4 py-2 font-semibold text-white bg-blue-600 rounded">Save</button>
+                                                                    <option>Fixed Amount</option>
+                                                                    <option>% of Salary</option>
+                                                                </select>
+                                                            </span>
+                                                        </button>
+                                                    </div> <button @click="showModal = true"
+                                                        class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1318,7 +1265,7 @@
                                                         </th>
                                                         <th scope="col"
                                                             class="w-full px-4 py-3 text-sm text-left text-white">
-
+                                                            
                                                         </th>
                                                         <th scope="col"
                                                             class="w-full px-4 py-3 text-sm text-left text-white"></th>
@@ -1930,7 +1877,7 @@
                                                         </th>
                                                         <th scope="col"
                                                             class="w-full px-4 py-3 text-sm text-left text-white">
-
+                                                            
                                                         </th>
                                                         <th scope="col"
                                                             class="w-full px-4 py-3 text-sm text-left text-white"></th>
@@ -2030,8 +1977,7 @@
                                                                                                 class="ml-2 font-semibold text-gray-600">HRA</span>
                                                                                         </label>
                                                                                     </div>
-                                                                                    <div class="flex items-center mt-2 ml-4"
-                                                                                        x-data="{ showTextbox: false }">
+                                                                                    <div class="flex items-center mt-2 ml-4" x-data="{ showTextbox: false }">
                                                                                         <div
                                                                                             class="inline-flex items-center px-2">
                                                                                             <span
@@ -2084,8 +2030,7 @@
                                                                                                 class="ml-2 font-semibold text-gray-600">HRA</span>
                                                                                         </label>
                                                                                     </div>
-                                                                                    <div class="flex items-center mt-2 ml-4"
-                                                                                        x-data="{ showTextbox: false }">
+                                                                                    <div class="flex items-center mt-2 ml-4" x-data="{ showTextbox: false }">
                                                                                         <div
                                                                                             class="inline-flex items-center px-2">
                                                                                             <span
@@ -2284,8 +2229,8 @@
                             <div class="py-4 pt-8">
                                 <a href="assigned-by.html">
                                     <button
-                                        class="w-full p-3 font-semibold text-center text-white bg-blue-600 rounded-md lg:w-44">Continue</button>
-                                </a>
+                                    class="w-full p-3 font-semibold text-center text-white bg-blue-600 rounded-md lg:w-44">Continue</button>
+                                </a>                                
                             </div>
                         </div>
                     </div>
@@ -2299,136 +2244,6 @@
         $("#navigation").load("nav.html");
         $("#aside").load("aside.html");
     });
-</script>
-<script>
-    function earningsDropdown() {
-        return {
-            open: false,
-            search: '',
-            selectedOption: null,
-            customEarnings: '',
-            showPopup: false,
-
-            // Default Allowance options
-            options: [
-                'HRA', 'Dearness Allowance', 'Education Allowance', 'Conveyance Allowance', 'Special Allowance', 'Travel Allowance',
-                'Accommodation and Food', 'Cash Allowance', 'Distance Allowance', 'Entertainment Allowance',
-                'Fuel Allowance', 'Helper Allowance', 'Hill Allowance', 'Internet Allowance', 'Laptop Allowance',
-                'Management Allowance', 'Meal Allowance', 'Medical Allowance',
-                'Mediclaim & Insurance', 'Night Shift Allowance', 'Other Allowance', 'Personal Allowance',
-                'Phone Allowance', 'Project Allowance', 'Refreshment Allowance', 'Servant Allowance', 'Shift Allowance',
-                'Site Allowance', 'Special Compensatory Allowance', 'Stationary Allowance',
-                'Statutory Bonus', 'Supervisor Allowance', 'Telephone & Internet Reimbursement', 'Transport Allowance',
-                'Underground Allowance', 'Uniform Allowance', 'Warden Allowance', 'Washing Allowance',
-                'Gratuity Earned', 'Long Service Allowance', 'Driver Allowance', 'Admin Allowance'
-            ],
-
-            // Custom names
-            customNames: [],
-
-            // Filter options based on search input
-            get filteredOptions() {
-                return this.options.filter(option => option.toLowerCase().includes(this.search.toLowerCase()));
-            },
-
-            // Filter custom names based on search input
-            get filteredCustomNames() {
-                return this.customNames.filter(custom => custom.toLowerCase().includes(this.search.toLowerCase()));
-            },
-
-            // Select an option (either from default or custom names)
-            selectOption(option) {
-                this.selectedOption = option;
-                this.open = false;
-            },
-
-            // Open custom popup
-            openCustomPopup() {
-                this.showPopup = true;
-                this.open = false;
-            },
-
-            // Open custom popup
-            closeCustomPopup() {
-                this.showPopup = false;
-                this.open = true;
-            },
-
-            // Save custom earnings
-            saveCustomEarnings() {
-                if (this.customEarnings.trim() !== '') {
-                    this.customNames.push(this.customEarnings.trim()); // Add custom name to custom list
-                    this.selectedOption = this.customEarnings.trim();
-                    this.customEarnings = '';
-                }
-                this.showPopup = false;
-            }
-        }
-    }
-    function deductionDropdown() {
-      return {
-        open: false,
-        search: '',
-        selectedOption: null,
-        customDeduction: '',
-        showPopup: false,
-
-        // Default Deduction options
-        options: [
-        "Medical Insurance Premium",
-        "Food Deduction",
-        "Benevolent Fund",
-        "Term Insurance",
-        "Group Accidental Policy & WC",
-        "Gratuity",
-        "Statutory Bonus Deduction",
-        "Security Deposit",
-        "Uniform Deduction",
-        "Transport Charges",
-        "Miscellaneous Deduction",
-        ],
-
-        // Custom names
-        customNames: [],
-
-        // Filter options based on search input
-        get filteredOptions() {
-          return this.options.filter(option => option.toLowerCase().includes(this.search.toLowerCase()));
-        },
-
-        // Filter custom names based on search input
-        get filteredCustomNames() {
-          return this.customNames.filter(custom => custom.toLowerCase().includes(this.search.toLowerCase()));
-        },
-
-        // Select an option (either from default or custom names)
-        selectOption(option) {
-          this.selectedOption = option;
-          this.open = false;
-        },
-
-        // Open custom popup
-        openCustomPopup() {
-          this.showPopup = true;
-          this.open = false;
-        },
-         // Open custom popup
-         closeCustomPopup() {
-                this.showPopup = false;
-                this.open = true;
-            },
-
-        // Save custom deduction
-        saveCustomDeduction() {
-          if (this.customDeduction.trim() !== '') {
-            this.customNames.push(this.customDeduction.trim()); // Add custom name to custom list
-            this.selectedOption = this.customDeduction.trim();
-            this.customDeduction = '';
-          }
-          this.showPopup = false;
-        }
-      }
-    }
 </script>
 
 </html>

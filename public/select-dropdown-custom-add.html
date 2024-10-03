@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dropdown with Custom Option</title>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-100">
+  <div x-data="earningsDropdown()" class="relative w-64">
+    <!-- Add Earnings Button -->
+    <div class="relative mb-4">
+      <button 
+        @click="open = !open" 
+        class="w-full px-4 py-2 text-white bg-blue-500 rounded-md cursor-pointer"
+      >
+        Add Earnings
+      </button>
+    </div>
+
+    <!-- Display Selected Option -->
+    <p class="mt-2 text-lg font-semibold text-gray-700" x-text="selectedOption ? 'Selected: ' + selectedOption : 'No selection made'"></p>
+
+    <!-- Dropdown options -->
+    <div x-show="open" @click.away="open = false" class="absolute z-10 w-full mt-2 bg-white border rounded shadow-lg">
+      <div class="px-4 py-2">
+        <!-- Search input -->
+        <input 
+          type="text" 
+          placeholder="Search..." 
+          x-model="search" 
+          class="w-full px-3 py-2 mb-2 border rounded" 
+        >
+
+        <!-- Scrollable options container -->
+        <div class="overflow-y-scroll max-h-48">
+          <!-- Suggested heading -->
+          <h3 class="mb-2 text-sm font-bold text-gray-600">Suggested</h3>
+
+          <!-- If no options match the search, show "No records found" -->
+          <template x-if="filteredOptions.length === 0 && customNames.length === 0">
+            <div class="p-2 text-gray-700">No records found</div>
+          </template>
+
+          <!-- Filtered options based on search -->
+          <template x-for="(option, index) in filteredOptions" :key="index">
+            <div @click="selectOption(option)" class="flex items-center p-2 rounded cursor-pointer hover:bg-gray-100">
+              <label x-text="option" class="text-gray-700"></label>
+            </div>
+          </template>
+
+          <!-- Custom heading (if custom names exist) -->
+          <template x-if="customNames.length > 0">
+            <h3 class="mt-4 mb-2 text-sm font-bold text-gray-600">Custom</h3>
+          </template>
+
+          <!-- Custom names -->
+          <template x-for="(custom, index) in filteredCustomNames" :key="index">
+            <div @click="selectOption(custom)" class="flex items-center p-2 rounded cursor-pointer hover:bg-gray-100">
+              <label x-text="custom" class="text-gray-700"></label>
+            </div>
+          </template>
+
+          <!-- Add Custom Option -->
+          <div @click="openCustomPopup()" class="flex items-center p-2 mt-2 bg-blue-200 rounded-md cursor-pointer hover:bg-blue-300">
+            <label class="text-gray-700">Add Custom</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Popup -->
+    <div x-show="showPopup" class="fixed inset-0 z-20 flex items-center justify-center bg-black bg-opacity-50">
+      <div class="p-4 bg-white rounded shadow-lg w-80">
+        <h2 class="mb-4 text-lg font-semibold">Custom</h2>
+        <input type="text" x-model="customEarnings" placeholder="Enter custom name" class="w-full px-3 py-2 mb-2 border rounded">
+        <div class="flex justify-end">
+          <button @click="saveCustomEarnings" class="px-4 py-2 text-white bg-blue-500 rounded">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function earningsDropdown() {
+      return {
+        open: false,
+        search: '',
+        selectedOption: null,
+        customEarnings: '',
+        showPopup: false,
+
+        // Default Allowance options
+        options: [
+          'Dearness Allowance', 'Accommodation and Food', 'Bonus and Incentives', 'Cash Allowance', 'CCA', 
+          'Children Education Allowance', 'Conveyance Allowance', 'Distance Allowance', 'Entertainment Allowance', 
+          'Fuel Allowance', 'Helper Allowance', 'Hill Allowance', 'Internet Allowance', 'Laptop Allowance', 
+          'Leave Encashment', 'LTA', 'Management Allowance', 'Meal Allowance', 'Medical Allowance', 
+          'Mediclaim & Insurance', 'Night Shift Allowance', 'Other Allowance', 'Personal Allowance', 
+          'Phone Allowance', 'Project Allowance', 'Refreshment Allowance', 'Servant Allowance', 'Shift Allowance', 
+          'Site Allowance', 'Special Allowance', 'Special Compensatory Allowance', 'Stationary Allowance', 
+          'Statutory Bonus', 'Supervisor Allowance', 'Telephone & Internet Reimbursement', 'Transport Allowance', 
+          'Travel Allowance', 'Underground Allowance', 'Uniform Allowance', 'Warden Allowance', 'Washing Allowance', 
+          'Gratuity Earned', 'Long Service Allowance', 'Driver Allowance', 'Admin Allowance', 'Paid Leave Allowance'
+        ],
+
+        // Custom names
+        customNames: [],
+
+        // Filter options based on search input
+        get filteredOptions() {
+          return this.options.filter(option => option.toLowerCase().includes(this.search.toLowerCase()));
+        },
+
+        // Filter custom names based on search input
+        get filteredCustomNames() {
+          return this.customNames.filter(custom => custom.toLowerCase().includes(this.search.toLowerCase()));
+        },
+
+        // Select an option (either from default or custom names)
+        selectOption(option) {
+          this.selectedOption = option;
+          this.open = false;
+        },
+
+        // Open custom popup
+        openCustomPopup() {
+          this.showPopup = true;
+          this.open = false;
+        },
+
+        // Save custom earnings
+        saveCustomEarnings() {
+          if (this.customEarnings.trim() !== '') {
+            this.customNames.push(this.customEarnings.trim()); // Add custom name to custom list
+            this.selectedOption = this.customEarnings.trim();
+            this.customEarnings = '';
+          }
+          this.showPopup = false;
+        }
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+<html lang="en"></html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+                    <div class="flex items-center gap-1 text-sm text-gray-600">
+                        <a href="salary-template.html">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                              class="w-5 h-5">
+                              <path fill-rule="evenodd"
+                                  d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                  clip-rule="evenodd"></path>
+                          </svg>
+                      </a>
+                      <p class="text-2xl font-bold text-gray-900">Create Salary Template</p>
+                      </div>
+                      
+                    <div class="pt-4 space-y-4">
+                        <div>
+                            <label class="font-semibold text-gray-600" for="">Template Name</label>
+                            <input type="text" name="" id="" autocomplete="title" placeholder=""
+                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                        </div>
+                        <div class="pb-4">
+                            <div class="flex items-center justify-between pb-4">
+                                <p class="pb-4 text-xl font-bold">Earnings</p>                               
+                            </div>
+                            <div x-data="{ earnings: [], deductions: [], components: ['Basic + DA', 'HRA', 'Bonus'] }">
+                                <div>
+                                    <div class="-my-2 overflow-x-auto md:overflow-x-hidden sm:-mx-6 lg:-mx-8">
+                                        <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                            <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-sm">
+                                                <h2 class="mb-2 text-lg font-semibold">Earnings</h2>
+                                                <table class="min-w-full divide-y divide-gray-200 table-auto">
+                                                    <thead class="bg-gray-200">
+                                                        <tr>
+                                                            <th scope="col" class="w-full px-4 py-3 text-sm text-left">Component Name</th>
+                                                            <th scope="col" class="w-full px-4 py-3 text-sm text-left"></th>
+                                                            <th scope="col" class="w-full px-4 py-3 text-sm text-left"></th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="bg-white divide-y divide-gray-200">
+                                                        <template x-for="(earning, index) in earnings" :key="index">
+                                                            <tr x-data="{ selection: earning.selection || '', calculateLOP: earning.calculateLOP || false }">
+                                                                <td class="px-4 py-4 whitespace-nowrap">
+                                                                    <div class="text-base text-gray-900">
+                                                                        <p class="font-semibold text-blue-600" x-text="earning.name || 'Basic + DA'"></p>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-4 whitespace-nowrap">
+                                                                    <div class="flex items-center p-2 rounded cursor-pointer" x-show="selection === 'Fixed Amount'">
+                                                                        <label class="font-semibold text-gray-700">Calculate LOP</label>
+                                                                        <input class="w-4 h-4 ml-2" type="checkbox" x-model="calculateLOP">
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-4 whitespace-nowrap">
+                                                                    <button class="flex items-center">
+                                                                        <input type="text" x-show="selection !== 'Fixed Amount'" class="block w-24 px-3 py-3 border border-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                        <span class="px-3 py-2 border border-gray-400">
+                                                                            <select x-model="selection" @change="earning.name = selection"
+                                                                                class="block px-1 py-1 text-sm bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                                                <option value="">Select Component</option>
+                                                                                <template x-for="component in components" :key="component">
+                                                                                    <option x-bind:value="component" x-text="component"></option>
+                                                                                </template>
+                                                                            </select>
+                                                                        </span>
+                                                                    </button>
+                                                                </td>
+                                                                <td class="px-4 py-4 whitespace-nowrap">
+                                                                    <button @click="earnings.splice(index, 1)">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-600" viewBox="0 0 20 20" fill="currentColor">
+                                                                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                                                        </svg>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                        </template>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="py-4">
+                                                <button @click="earnings.push({ selection: '', name: '' })" class="px-4 py-2 font-semibold text-white bg-blue-500 rounded-md cursor-pointer w-36">Add Earnings</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div class="mt-8">
+                                    <div class="-my-2 overflow-x-auto md:overflow-x-hidden sm:-mx-6 lg:-mx-8">
+                                        <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                            <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-sm">
+                                                <h2 class="mb-2 text-lg font-semibold">Deductions</h2>
+                                                <table class="min-w-full divide-y divide-gray-200 table-auto">
+                                                    <thead class="bg-gray-200">
+                                                        <tr>
+                                                            <th scope="col" class="w-full px-4 py-3 text-sm text-left">Component Name</th>
+                                                            <th scope="col" class="w-full px-4 py-3 text-sm text-left"></th>
+                                                            <th scope="col" class="w-full px-4 py-3 text-sm text-left"></th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="bg-white divide-y divide-gray-200">
+                                                        <template x-for="(deduction, index) in deductions" :key="index">
+                                                            <tr x-data="{ selection: deduction.selection || '', calculateLOP: deduction.calculateLOP || false }">
+                                                                <td class="px-4 py-4 whitespace-nowrap">
+                                                                    <div class="text-base text-gray-900">
+                                                                        <p class="font-semibold text-blue-600" x-text="deduction.name || 'Basic + DA'"></p>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-4 whitespace-nowrap">
+                                                                    <div class="flex items-center p-2 rounded cursor-pointer" x-show="selection === 'Fixed Amount'">
+                                                                        <label class="font-semibold text-gray-700">Calculate LOP</label>
+                                                                        <input class="w-4 h-4 ml-2" type="checkbox" x-model="calculateLOP">
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-4 whitespace-nowrap">
+                                                                    <button class="flex items-center">
+                                                                        <input type="text" x-show="selection !== 'Fixed Amount'" class="block w-24 px-3 py-3 border border-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                        <span class="px-3 py-2 border border-gray-400">
+                                                                            <select x-model="selection" @change="deduction.name = selection"
+                                                                                class="block px-1 py-1 text-sm bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                                                <option value="">Select Component</option>
+                                                                                <template x-for="component in components" :key="component">
+                                                                                    <option x-bind:value="component" x-text="component"></option>
+                                                                                </template>
+                                                                            </select>
+                                                                        </span>
+                                                                    </button>
+                                                                </td>
+                                                                <td class="px-4 py-4 whitespace-nowrap">
+                                                                    <button @click="deductions.splice(index, 1)">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-600" viewBox="0 0 20 20" fill="currentColor">
+                                                                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                                                        </svg>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                        </template>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="py-4">
+                                                <button @click="deductions.push({ selection: '', name: '' })" class="px-4 py-2 font-semibold text-white bg-blue-500 rounded-md cursor-pointer w-36">Add Deduction</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                        <div class="pb-4">
+                            <div class="flex items-center justify-between pb-4">
+                                <p class="pb-4 text-xl font-bold">Statutory Deductions</p>
+                            </div>
+                            <div>
+                                <div class="-my-2 overflow-x-auto md:overflow-x-hidden sm:-mx-6 lg:-mx-8">
+                                    <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                        <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-sm">
+                                            <table class="min-w-full divide-y divide-gray-200 table-auto">
+                                                <thead class="bg-blue-600">
+                                                    <tr>
+                                                        <th scope="col"
+                                                            class="w-full px-4 py-3 text-sm text-left text-white">
+                                                            Component Name
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="w-full px-4 py-3 text-sm text-left text-white">
+                                                            
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="w-full px-4 py-3 text-sm text-left text-white"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="bg-white divide-y divide-gray-200">
+                                                    <tr>
+                                                        <td class="px-4 py-4 whitespace-nowrap">
+                                                            <div class="text-base text-gray-900">
+                                                                <p class="font-semibold text-blue-600">
+                                                                    Tax Deducted at Source (TDS)
+                                                                </p>
+                                                            </div>
+                                                        </td>
+                                                        <td class="px-4 py-4 whitespace-nowrap"
+                                                            x-data="{ 'showModal': false }"
+                                                            @keydown.escape="showModal = false">
+                                                            <div>
+                                                                <button @click="showModal = true"
+                                                                    class="p-2 font-medium text-gray-800 bg-gray-200 rounded w-36">Disable</button>
+                                                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                                    x-show="showModal" style="display: none;">
+                                                                    <!-- Modal inner -->
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
+                                                                        @click.away="showModal = false"
+                                                                        x-transition:enter="motion-safe:ease-out duration-300"
+                                                                        x-transition:enter-start="opacity-0 scale-90"
+                                                                        x-transition:enter-end="opacity-100 scale-100">
+                                                                        <!-- Title / Close-->
+                                                                        <div class="flex items-center justify-between">
+                                                                            <p class="font-bold text-gray-900">
+                                                                                TDS Contribution for Employee
+                                                                            </p>
+                                                                            <span @click="showModal = false">
+                                                                                <svg class="w-5 h-5 text-gray-900"
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    fill="none" viewBox="0 0 24 24"
+                                                                                    stroke="currentColor">
+                                                                                    <path stroke-linecap="round"
+                                                                                        stroke-linejoin="round"
+                                                                                        stroke-width="2"
+                                                                                        d="M6 18L18 6M6 6l12 12"></path>
+                                                                                </svg>
+                                                                            </span>
+                                                                        </div>
+                                                                        <!-- content -->
+                                                                        <div class="w-full">
+                                                                            <div class="flex flex-col pt-4 space-y-4 ">
+                                                                                <div>
+                                                                                    <label
+                                                                                        class="inline-flex items-center">
+                                                                                        <input name="tds" type="radio"
+                                                                                            class="w-4 h-4 form-checkbox">
+                                                                                        <span
+                                                                                            class="ml-2 font-semibold text-gray-600">Enable</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <label class="inline-flex items-center">
+                                                                                    <input name="tds" type="radio"
+                                                                                        class="w-4 h-4 form-checkbox">
+                                                                                    <span
+                                                                                        class="ml-2 font-semibold text-gray-600">Disable</span>
+                                                                                </label>
+
+                                                                                <button @click="showModal = true"
+                                                                                    class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td></td>
+                                                    </tr>                                                   
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pb-4">
+                            <div class="flex items-center justify-between pb-4">
+                                <p class="pb-4 text-xl font-bold">Common Deductions</p>                              
+                            </div>
+                            <div>
+                                <div class="-my-2 overflow-x-auto md:overflow-x-hidden sm:-mx-6 lg:-mx-8">
+                                    <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                        <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-sm">
+                                            <table class="min-w-full divide-y divide-gray-200 table-auto">
+                                                <thead class="bg-blue-600">
+                                                    <tr>
+                                                        <th scope="col"
+                                                            class="w-full px-4 py-3 text-sm text-left text-white">
+                                                            Component Name
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="w-full px-4 py-3 text-sm text-left text-white">
+                                                            
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="w-full px-4 py-3 text-sm text-left text-white"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="bg-white divide-y divide-gray-200">
+                                                    <tr>
+                                                        <td class="px-4 py-4 whitespace-nowrap">
+                                                            <div class="text-base text-gray-900">
+                                                                <p class="font-semibold text-blue-600">
+                                                                    Deductions
+                                                                </p>
+                                                            </div>
+                                                        </td>
+                                                        <td class="px-4 py-4 whitespace-nowrap"
+                                                            x-data="{ 'showModal': false }"
+                                                            @keydown.escape="showModal = false">
+                                                            <div class="flex items-center justify-end">
+                                                                <button @click="showModal = true"
+                                                                    class="p-2 font-medium text-gray-800 bg-gray-200 rounded w-36">Enable</button>
+                                                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                                    x-show="showModal" style="display: none;">
+                                                                    <!-- Modal inner -->
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
+                                                                        @click.away="showModal = false"
+                                                                        x-transition:enter="motion-safe:ease-out duration-300"
+                                                                        x-transition:enter-start="opacity-0 scale-90"
+                                                                        x-transition:enter-end="opacity-100 scale-100">
+                                                                        <!-- Title / Close-->
+                                                                        <div class="flex items-center justify-between">
+                                                                            <p class="font-bold text-gray-900">
+                                                                                Deductions
+                                                                            </p>
+                                                                            <span @click="showModal = false">
+                                                                                <svg class="w-5 h-5 text-gray-900"
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    fill="none" viewBox="0 0 24 24"
+                                                                                    stroke="currentColor">
+                                                                                    <path stroke-linecap="round"
+                                                                                        stroke-linejoin="round"
+                                                                                        stroke-width="2"
+                                                                                        d="M6 18L18 6M6 6l12 12"></path>
+                                                                                </svg>
+                                                                            </span>
+                                                                        </div>
+                                                                        <!-- content -->
+                                                                        <div class="w-full">
+                                                                            <div class="flex flex-col pt-4 space-y-4 ">
+                                                                                <div>
+                                                                                    <label
+                                                                                        class="inline-flex items-center">
+                                                                                        <input name="tds" type="radio"
+                                                                                            class="w-4 h-4 form-checkbox"
+                                                                                            checked>
+                                                                                        <span
+                                                                                            class="ml-2 font-semibold text-gray-600">Enable</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <label class="inline-flex items-center">
+                                                                                    <input name="tds" type="radio"
+                                                                                        class="w-4 h-4 form-checkbox">
+                                                                                    <span
+                                                                                        class="ml-2 font-semibold text-gray-600">Disable</span>
+                                                                                </label>
+
+                                                                                <button @click="showModal = true"
+                                                                                    class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="py-4">                                            
+                                            <button class="px-4 py-2 font-semibold text-white bg-blue-500 rounded-md cursor-pointer w-36">Add Deduction</button>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+</html>
