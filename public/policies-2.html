@@ -8258,7 +8258,7 @@
                                                                                         </div>
                                                                                         <!--P01 content -->
                                                                                         <div
-                                                                                            class="w-full mt-4 space-y-4">
+                                                                                            class="w-full mt-4 space-y-4 overflow-y-auto">
                                                                                             <div class="flex flex-wrap">
                                                                                                 <p>5.12: If "Overtime"
                                                                                                     is applied, it
@@ -8267,81 +8267,79 @@
                                                                                                     "X" minutes.</p>
                                                                                             </div>
                                                                                             <div class="pt-6 space-y-2">
-                                                                                                <div
-                                                                                                    class="flex items-center gap-4">
+                                                                                                <div class="space-y-4">
                                                                                                     <div class="flex gap-4">
                                                                                                         <div>
-                                                                                                            <label
-                                                                                                                class="text-sm font-semibold text-gray-600"
-                                                                                                                for="branch">Select
-                                                                                                                X
-                                                                                                                Value</label>
-                                                                                                            <select
-                                                                                                                id=""
-                                                                                                                name=""
-                                                                                                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                                                                                <option>
-                                                                                                                    0
-                                                                                                                </option>
-                                                                                                                <template
-                                                                                                                    x-for="i in 59">
-                                                                                                                    <option
-                                                                                                                        x-text="i">
-                                                                                                                        1
-                                                                                                                    </option>
+                                                                                                            <label class="text-sm font-semibold text-gray-600" for="branch">Select X</label>
+                                                                                                            <select id="" name="" class="block w-full p-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                                                                                <template x-for="i in 60">
+                                                                                                                    <option x-text="i"> </option>
                                                                                                                 </template>
                                                                                                             </select>
                                                                                                         </div>
                                                                                                         <div>
-                                                                                                            <label
-                                                                                                                class="text-sm font-semibold text-gray-600"
-                                                                                                                for="branch">Select
-                                                                                                                Y
-                                                                                                                Value</label>
-                                                                                                            <select
-                                                                                                                id=""
-                                                                                                                name=""
-                                                                                                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                                                                                <option>
-                                                                                                                    0
-                                                                                                                </option>
-                                                                                                                <template
-                                                                                                                    x-for="i in 59">
-                                                                                                                    <option
-                                                                                                                        x-text="i">
-                                                                                                                        1
-                                                                                                                    </option>
+                                                                                                            <label class="text-sm font-semibold text-gray-600" for="branch">Select Y</label>
+                                                                                                            <select id="" name="" class="block w-full p-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                                                                                <template x-for="i in 60">
+                                                                                                                    <option x-text="i"> </option>
                                                                                                                 </template>
                                                                                                             </select>
-
                                                                                                         </div>
                                                                                                         <div>
-                                                                                                            <label
-                                                                                                                class="text-sm font-semibold text-gray-600"
-                                                                                                                for="branch">Select
-                                                                                                                Z
-                                                                                                                Value</label>
-                                                                                                            <select
-                                                                                                                id=""
-                                                                                                                name=""
-                                                                                                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                                                                                                <option>
-                                                                                                                    0
-                                                                                                                </option>
-                                                                                                                <option>
-                                                                                                                    15
-                                                                                                                </option>
-                                                                                                                <option>
-                                                                                                                    30
-                                                                                                                </option>
-                                                                                                                <option>
-                                                                                                                    45
-                                                                                                                </option>
-                                                                                                                <option>
-                                                                                                                    60
-                                                                                                                </option>
+                                                                                                            <label class="text-sm font-semibold text-gray-600" for="branch">Select Z</label>
+                                                                                                            <select id="" name="" class="block w-full p-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                                                                                <option>0</option>
+                                                                                                                <option>15</option>
+                                                                                                                <option>30</option>
+                                                                                                                <option>45</option>
+                                                                                                                <option>60</option>
                                                                                                             </select>
-
+                                                                                                        </div>
+                                                                                                        <div class="flex items-center justify-center mt-8">
+                                                                                                            <button class="text-blue-600"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                                                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                                                                                              </svg>
+                                                                                                              </button>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="flex gap-4">
+                                                                                                        <div>
+                                                                                                            <label class="text-sm font-semibold text-gray-600" for="branch">Select X</label>
+                                                                                                            <select id="" name="" class="block w-full p-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                                                                                <template x-for="i in 60">
+                                                                                                                    <option x-text="i"> </option>
+                                                                                                                </template>
+                                                                                                            </select>
+                                                                                                        </div>
+                                                                                                        <div>
+                                                                                                            <label class="text-sm font-semibold text-gray-600" for="branch">Select Y</label>
+                                                                                                            <select id="" name="" class="block w-full p-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                                                                                <template x-for="i in 60">
+                                                                                                                    <option x-text="i"> </option>
+                                                                                                                </template>
+                                                                                                            </select>
+                                                                                                        </div>
+                                                                                                        <div>
+                                                                                                            <label class="text-sm font-semibold text-gray-600" for="branch">Select Z</label>
+                                                                                                            <select id="" name="" class="block w-full p-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                                                                                <option>0</option>
+                                                                                                                <option>15</option>
+                                                                                                                <option>30</option>
+                                                                                                                <option>45</option>
+                                                                                                                <option>60</option>
+                                                                                                            </select>
+                                                                                                        </div>
+                                                                                                        <div class="flex justify-center mt-8 item-center">
+                                                                                                            <button class="text-red-600"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                                                                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                                                                                                              </svg>
+                                                                                                              </button>
+                                                                                                        </div>
+                                                                                                        <div class="flex items-center justify-center mt-8">
+                                                                                                            <button class="text-blue-600"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                                                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                                                                                              </svg>
+                                                                                                              </button>
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 </div>

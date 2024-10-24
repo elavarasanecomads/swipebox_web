@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> <!-- Alpine.js included -->
+    <title>Mobile Sidebar</title>
+</head>
+<body class="relative">
+
+    <!-- Header for mobile menu -->
+    <header class="lg:hidden">
+        <div x-data="{ isOpen: false }">
+            <div class="flex items-center justify-between w-full px-4 py-4 bg-blue-600">
+                <a href="index.html" class="flex items-center">
+                    <span class="text-2xl font-bold text-white uppercase">
+                        Nithra People
+                    </span>
+                </a>
+                <button @click="isOpen = !isOpen" class="text-3xl text-white focus:outline-none" aria-label="menu">
+                    <!-- Hamburger icon -->
+                    <svg x-show="!isOpen" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                    </svg>
+                    <!-- Close icon -->
+                    <svg x-show="isOpen" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Overlay (to darken the background when the sidebar is open) -->
+            <div x-show="isOpen" @click="isOpen = false" class="fixed inset-0 z-40 bg-black bg-opacity-50" x-cloak></div>
+
+            <!-- Sidebar menu -->
+            <div :class="isOpen ? 'translate-x-0' : '-translate-x-full'" class="fixed inset-y-0 left-0 z-50 w-3/4 transition-transform duration-300 ease-in-out transform bg-white" x-cloak>
+                <nav class="flex flex-col px-4 pt-6">
+                    <ul>
+                        <li class="group hover:bg-blue-100">
+                            <a href="dashboard.html" class="flex items-center px-6 py-3 text-gray-600 group-hover:text-blue-900">
+                                <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="mr-3 group-hover:text-blue-900" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                                </svg>Dashboard
+                            </a>
+                        </li>
+                        <!-- Add more links here as needed -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <aside class="relative hidden w-64 min-h-screen bg-white border-t border-r lg:block">
+        <p class="px-6 pt-3 text-2xl font-bold text-blue-600 uppercase">Nithra People</p>
+        <nav class="pt-3 space-y-4 text-base">
+            <ul>
+                <li class="group hover:bg-blue-100">
+                    <a href="dashboard.html" class="flex items-center px-6 py-3 text-gray-600 group-hover:text-blue-900">
+                        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="mr-3 group-hover:text-blue-900" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                        </svg>Dashboard
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+</body>
+</html>

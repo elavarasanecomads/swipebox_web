@@ -10,9 +10,20 @@
 </head>
 
 <body class="bg-gray-100">
-    <div class="flex h-screen overflow-hidden" x-data="{ activeMenu: 'dashboard', activeLink: null, sidebarOpen: true }">
+    <div class="flex h-screen overflow-hidden" x-data="{ activeMenu: 'dashboard', activeLink: null, sidebarOpen: true, mobileMenuOpen: false }">
+        
+        <!-- Mobile Header -->
+        <!-- Mobile Header -->
+<div class="fixed top-0 left-0 z-30 flex items-center justify-between w-full h-16 p-4 bg-green-800">
+    <div class="text-lg text-white">Logo</div>
+    <div @click="mobileMenuOpen = !mobileMenuOpen" class="text-white cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 6h18M3 12h18m-7 6h7" />
+        </svg>
+    </div>
+</div>
         <!-- Primary Menu (Sticky) -->
-        <div class="relative sticky top-0 z-20 w-16 h-full p-2 space-y-4 bg-green-800">
+        <div class="relative flex-col hidden w-16 h-full p-2 space-y-4 bg-green-800 lg:flex">
             <!-- Sidebar Toggle Button -->
             <div @click="sidebarOpen = !sidebarOpen" class="flex items-center justify-center w-12 h-12 p-2 text-white rounded-md cursor-pointer hover:bg-green-100 hover:text-green-800">
                 <template x-if="sidebarOpen">
@@ -33,20 +44,13 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                 </svg>
             </div>
-
-            <!-- Attendance Icon -->
-            <div @click="activeMenu = 'attendance'; activeLink = null; sidebarOpen = true" :class="activeMenu === 'attendance' ? 'bg-green-100 text-green-800' : 'text-white'" class="flex items-center justify-center w-12 h-12 p-2 rounded-md cursor-pointer hover:bg-green-100 hover:text-green-800">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 2.994v2.25m10.5-2.25v2.25m-14.252 13.5V7.491a2.25 2.25 0 0 1 2.25-2.25h13.5a2.25 2.25 0 0 1 2.25 2.25v11.251m-18 0a2.25 2.25 0 0 0 2.25 2.25h13.5a2.25 2.25 0 0 0 2.25-2.25m-18 0v-7.5a2.25 2.25 0 0 1 2.25-2.25h13.5a2.25 2.25 0 0 1 2.25 2.25v7.5m-6.75-6h2.25m-9 2.25h4.5m.002-2.25h.005v.006H12v-.006Zm-.001 4.5h.006v.006h-.006v-.005Zm-2.25.001h.005v.006H9.75v-.006Zm-2.25 0h.005v-.005h-.006v.005Zm6.75-2.247h.005v.005h-.005v-.005Zm0 2.247h.006v.006h-.006v-.006Zm2.25-2.248h.006V15H16.5v-.005Z" />
-                </svg>
-            </div>
         </div>
 
         <!-- Sidebar Content (Sticky) -->
-        <div class="relative sticky top-0 z-10 h-full transition-all duration-300 ease-in-out transform bg-green-700" :class="sidebarOpen ? 'w-48' : 'w-0 overflow-hidden'">
+        <div class="relative sticky top-0 z-10 hidden h-full transition-all duration-300 ease-in-out transform bg-green-700 lg:flex" :class="sidebarOpen ? 'w-48' : 'w-0 overflow-hidden'">
             <div class="px-4 py-4" x-show="sidebarOpen" x-transition>
                 <!-- Dashboard Links -->
-                <div x-show="activeMenu === 'dashboard'" x-cloak x-transition.opacity x-transition:leave="transition ease-in duration-1000" x-transition:leave-end="opacity-0" style="display: none;">
+                <div x-show="activeMenu === 'dashboard'" x-cloak x-transition>
                     <p class="px-2 font-semibold text-green-100 uppercase">Dashboard</p>
                     <ul class="pt-4 space-y-2">
                         <li class="w-full">
@@ -60,27 +64,22 @@
                         </li>
                     </ul>
                 </div>
-
-                <!-- Attendance Links -->
-                <div x-show="activeMenu === 'attendance'" x-cloak x-transition.opacity x-transition:leave="transition ease-in duration-1000" x-transition:leave-end="opacity-0" style="display: none;">
-                    <p class="px-2 font-semibold text-green-100 uppercase">Attendance</p>
-                    <ul class="pt-4 space-y-2">
-                        <li class="w-full">
-                            <a @click="activeLink = 'attendance1'" :class="activeLink === 'attendance1' ? 'bg-green-100 text-green-800' : 'text-green-100'" href="#" class="block w-full p-2 px-4 text-sm rounded-md hover:bg-green-100 hover:text-green-800">Attendance Link 1</a>
-                        </li>
-                        <li class="w-full">
-                            <a @click="activeLink = 'attendance2'" :class="activeLink === 'attendance2' ? 'bg-green-100 text-green-800' : 'text-green-100'" href="#" class="block w-full p-2 px-4 text-sm rounded-md hover:bg-green-100 hover:text-green-800">Attendance Link 2</a>
-                        </li>
-                        <li class="w-full">
-                            <a @click="activeLink = 'attendance3'" :class="activeLink === 'attendance3' ? 'bg-green-100 text-green-800' : 'text-green-100'" href="#" class="block w-full p-2 px-4 text-sm rounded-md hover:bg-green-100 hover:text-green-800">Attendance Link 3</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </div>
 
+       <!-- Mobile Menu (Overlay) -->
+       <div class="fixed inset-0 z-20 flex flex-col transition-transform transform bg-green-800" :class="mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'" style="height: calc(100vh - 64px); top: 64px;">
+        <div class="flex-1 overflow-y-auto">
+            <ul class="p-4 space-y-2">
+                <li><a @click="activeMenu = 'dashboard'; mobileMenuOpen = false" class="block p-2 text-white rounded hover:bg-green-700">Dashboard</a></li>
+                <li><a @click="activeMenu = 'attendance'; mobileMenuOpen = false" class="block p-2 text-white rounded hover:bg-green-700">Attendance</a></li>
+                <!-- Add more menu items here -->
+            </ul>
+        </div>
+    </div>
+
         <!-- Main Content (Scrollable) -->
-        <div class="flex-1 p-8 overflow-y-auto">
+        <div class="flex-1 p-8 overflow-y-auto transition-all duration-300 lg:pl-16" :class="mobileMenuOpen ? 'lg:pl-0' : ''">
             <h1 class="text-2xl font-semibold">Main Content</h1>
             <div x-data="{ showModal: false }" @keydown.escape="showModal = false">
                 <button @click="showModal = true" class="px-3 py-2 font-semibold text-white bg-blue-600 rounded-md">Add New</button>
