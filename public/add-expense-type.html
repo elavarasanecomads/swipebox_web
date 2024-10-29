@@ -9,9 +9,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.5/cdn.js"
         integrity="sha512-8IPRU0MPrge2KfSxkAtO8pIkaMzThW/MBSvPqcyVisSymLWC986buo27pKAt5mWXmt58dT6jIsw7h8NNugtRwg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>    
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-       
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 
 <body class="bg-gray-100">
@@ -36,98 +36,126 @@
                                 <a href="" class="px-3 py-2 font-semibold text-white bg-blue-600 rounded-md">Add
                                     New</a>
                             </div>
-                        </div>                            
+                        </div>
                     </div>
-                    <div x-data="formHandler()">
-                        <div class="w-full pt-4 space-y-4 lg:w-1/2">
+                    <div>
+                        <div x-data="{ 
+                            category: '', 
+                            calculationType: 'Expense Amount', 
+                            limit: 'No Limit' 
+                        }" class="w-full pt-4 space-y-4 lg:w-1/2">
+
                             <!-- Name Field -->
                             <div>
-                                <label class="text-sm font-semibold text-gray-600">Name <span class="text-red-600">*</span></label>
-                                <input type="text" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                <label class="text-sm font-semibold text-gray-600">Name <span
+                                        class="text-red-600">*</span></label>
+                                <input type="text" placeholder=""
+                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                             </div>
-                    
+
                             <!-- Category Field -->
                             <div>
-                                <label class="text-sm font-semibold text-gray-600">Category <span class="text-red-600">*</span></label>
-                                <select x-model="category" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                <label class="text-sm font-semibold text-gray-600">Category <span
+                                        class="text-red-600">*</span></label>
+                                <select x-model="category"
+                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                    <option value="">Select Category</option>
                                     <option value="Travel">Travel</option>
                                     <option value="Food">Food</option>
                                     <option value="Hotel Stay">Hotel Stay</option>
                                 </select>
                             </div>
-                    
+
                             <!-- Description Field -->
                             <div>
                                 <label class="text-sm font-semibold text-gray-600">Description</label>
-                                <textarea cols="30" rows="3" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600"></textarea>
+                                <textarea cols="30" rows="3"
+                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600"></textarea>
                             </div>
-                    
+
                             <!-- Calculation Type and Calculation Rate -->
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label class="text-sm font-semibold text-gray-600">Calculation Type <span class="text-red-600">*</span></label>
-                                    <select x-model="calculationType" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                        <option value="Unit">Unit</option>
-                                        <option value="KM">KM</option>
+                                    <label class="text-sm font-semibold text-gray-600">Calculation Type <span
+                                            class="text-red-600">*</span></label>
+                                    <select x-model="calculationType"
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                         <option value="Expense Amount">Expense Amount</option>
+                                        <option x-show="category === 'Travel'" value="KM">KM</option>
+                                        <option x-show="category === 'Food'" value="Unit">Unit</option>
                                     </select>
                                 </div>
-                    
-                                <div x-show="calculationType !== 'Expense Amount'">
-                                    <label class="text-sm font-semibold text-gray-600">Calculation Rate (Per KM/Unit) <span class="text-red-600">*</span></label>
-                                    <input type="text" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+
+                                <!-- If type is KM -->
+                                <div x-show="calculationType === 'KM'">
+                                    <label class="text-sm font-semibold text-gray-600">Calculation Rate (Per KM) <span
+                                            class="text-red-600">*</span></label>
+                                    <input type="text" placeholder=""
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+
+                                <!-- If type is Unit -->
+                                <div x-show="calculationType === 'Unit'">
+                                    <label class="text-sm font-semibold text-gray-600">Calculation Rate (Per Unit) <span
+                                            class="text-red-600">*</span></label>
+                                    <input type="text" placeholder=""
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                 </div>
                             </div>
-                    
+
                             <!-- Limit and Proof Fields -->
-                            <div class="grid grid-cols-2 gap-4">
+                            <div class="grid grid-cols-2 col-start-1 gap-4">
                                 <div>
-                                    <label class="text-sm font-semibold text-gray-600">Limit <span class="text-red-600">*</span></label>
-                                    <select x-model="limit" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                        <option value="No Limit">No Limit</option>
+                                    <label class="text-sm font-semibold text-gray-600">Limit <span
+                                            class="text-red-600">*</span></label>
+                                    <select x-model="limit"
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        <option value="No Limit" selected>No Limit</option>
                                         <option value="Set Limit">Set Limit</option>
                                     </select>
                                 </div>
-                    
+
                                 <div x-show="limit === 'Set Limit'">
-                                    <label class="text-sm font-semibold text-gray-600">Limit Amount Without Proof <span class="text-red-600">*</span></label>
-                                    <input type="text" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                    <label class="text-sm font-semibold text-gray-600">Limit Amount Without Proof <span
+                                            class="text-red-600">*</span></label>
+                                    <input type="text" placeholder=""
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                 </div>
-                    
+
                                 <div x-show="limit === 'Set Limit'">
-                                    <label class="text-sm font-semibold text-gray-600">Limit Amount With Proof <span class="text-red-600">*</span></label>
-                                    <input type="text" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                    <label class="text-sm font-semibold text-gray-600">Limit Amount With Proof <span
+                                            class="text-red-600">*</span></label>
+                                    <input type="text" placeholder=""
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                 </div>
-                            </div>
-                    
-                            <!-- Proof Required Field -->
-                            <div class="grid grid-cols-2 gap-4" x-show="limit === 'No Limit'">
-                                <div>
-                                    <label class="text-sm font-semibold text-gray-600">Is Proof Required? <span class="text-red-600">*</span></label>
-                                    <select class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+
+                                <div x-show="limit === 'No Limit'">
+                                    <label class="text-sm font-semibold text-gray-600">Is Proof Required? <span
+                                            class="text-red-600">*</span></label>
+                                    <select
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
                                     </select>
                                 </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600">Limit Type<span
+                                            class="text-red-600">*</span></label>
+                                    <select x-model="limit"
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        <option value="No Limit" selected>Daily</option>
+                                        <option value="Set Limit">Monthly</option>
+                                    </select>
+                                </div>
                             </div>
-                    
+
                             <!-- Save Button -->
                             <div class="grid grid-cols-2 gap-4">
-                                <button class="w-full p-3 font-semibold text-center text-white bg-blue-600 rounded-md">Save</button>
+                                <button
+                                    class="w-full p-3 font-semibold text-center text-white bg-blue-600 rounded-md">Save</button>
                             </div>
                         </div>
                     </div>
-                    
-                    <script>
-                        function formHandler() {
-                            return {
-                                category: '',           // selected category
-                                calculationType: '',    // selected calculation type
-                                limit: '',              // selected limit option
-                            }
-                        }
-                    </script>
-                    
                 </div>
             </div>
         </div>
@@ -140,4 +168,5 @@
         $("#aside").load("aside.html");
     });
 </script>
+
 </html>
