@@ -30,7 +30,11 @@
                             </svg>
                         </a>
                         <div class="flex items-center gap-4">
-                            <h1 class="text-2xl font-bold">Expense Claims</h1>                           
+                            <h1 class="text-2xl font-bold">Expense Claims</h1>  
+                            <div>
+                                <a href="add-expense-claim.html" class="px-3 py-2 font-semibold text-white bg-blue-600 rounded-md">Add
+                                    New</a>
+                            </div>                         
                         </div>
                     </div>
                     <div>
@@ -441,89 +445,7 @@
                         </div>                        
                     </div>
                 </footer>
-                <div class="top-0 w-full h-full p-4 pt-16 overflow-y-scroll">
-                    <div x-data="{ selectedAction: 'approve' }" class="py-4">
-                        <!-- Sections -->
-                        <div>
-                            <!-- Approve Section -->
-                            <div x-show="selectedAction === 'approve'"
-                                class="grid grid-cols-4 gap-4">
-                                <div>
-                                    <label
-                                        class="text-sm font-semibold text-gray-600">Amount
-                                        <span
-                                            class="text-red-600">*</span></label>
-                                    <input type="text" placeholder=""
-                                        class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                </div>
-                                <div>
-                                    <label
-                                        class="text-sm font-semibold text-gray-600">Remarks</label>
-                                    <input type="text" placeholder=""
-                                        class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                </div>
-                            </div>
-
-                            <!-- Approve and Paid Section -->
-                            <div x-show="selectedAction === 'approveAndPaid'"
-                                class="grid grid-cols-4 gap-4">
-                                <div>
-                                    <label
-                                        class="text-sm font-semibold text-gray-600">Amount
-                                        <span
-                                            class="text-red-600">*</span></label>
-                                    <input type="text" placeholder=""
-                                        class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                </div>
-                                <div>
-                                    <label
-                                        class="text-sm font-semibold text-gray-600">Remarks</label>
-                                    <input type="text" placeholder=""
-                                        class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                </div>
-                            </div>
-
-                            <!-- Mark Paid Section -->
-                            <div x-show="selectedAction === 'markPaid'"
-                                class="grid grid-cols-4 gap-4">
-                                <div>
-                                    <label
-                                        class="text-sm font-semibold text-gray-600">Remarks</label>
-                                    <input type="text" placeholder=""
-                                        class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Button Section -->
-                        <div
-                            class="flex flex-row flex-wrap items-center gap-4 mt-4">
-                            <div>
-                                <button @click="selectedAction = 'approve'"
-                                    class="px-4 py-2 font-semibold text-white bg-blue-600 rounded hover:bg-blue-700">
-                                    Approve
-                                </button>
-                            </div>
-                            <div>
-                                <button
-                                    @click="selectedAction = 'approveAndPaid'"
-                                    class="px-4 py-2 font-semibold text-white bg-green-600 rounded hover:bg-green-700">
-                                    Approve and Paid
-                                </button>
-                            </div>
-                            <div>
-                                <button @click="selectedAction = 'markPaid'"
-                                    class="px-4 py-2 font-semibold text-white bg-yellow-600 rounded hover:bg-yellow-700">
-                                    Mark Paid
-                                </button>
-                            </div>
-                            <div>
-                                <button @click="selectedAction = 'reject'"
-                                    class="px-4 py-2 font-semibold text-white bg-red-600 rounded hover:bg-red-700">
-                                    Reject
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                <div class="top-0 w-full h-full p-4 pt-16 overflow-y-scroll">                   
                     <!-- content -->
                     <div class="w-full mt-4">
                         <div class="grid grid-cols-1 gap-4 md:grid-cols-3">

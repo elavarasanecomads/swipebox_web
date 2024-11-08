@@ -1,0 +1,97 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+<body class="bg-gray-100">
+    <header class="flex items-center justify-between p-6 bg-white border-b">
+        <div>
+            <img class="h-6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Tailwind_CSS_logo.svg/2560px-Tailwind_CSS_logo.svg.png" alt="">
+        </div>
+        <div>
+            <ul class="flex items-center gap-4 font-semibold">
+                <li>
+                    <a href="">Home</a>
+                </li>
+                <li>
+                    <a href="">Users</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <main class="flex items-center justify-center py-8">
+        <div class="w-full max-w-6xl">
+        <div>
+            <div class="flex items-center gap-4">
+                <h1 class="text-2xl font-bold">Users</h1>
+                <div class="inline-flex px-4 py-2 font-semibold text-white bg-blue-600 rounded-md">
+                    Add New
+                </div>
+            </div>
+                <div class="relative pt-6 overflow-x-auto">
+                    <table class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    name
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    email
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    mobile
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    age
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    DOB
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    status
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Elavarasan
+                                </th>
+                                <td class="px-6 py-4">
+                                    rskelaa@gmail.com
+                                </td>
+                                <td class="px-6 py-4">
+                                    9898989898
+                                </td>
+                                <td class="px-6 py-4">
+                                    20
+                                </td>
+                                <td class="px-6 py-4">
+                                    20-11-1995
+                                </td>
+                                <td class="px-6 py-4">
+                                    active
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-4">
+                                        <button class="font-semibold text-blue-600">Edit</button>
+                                        <button class="font-semibold text-red-600">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+        </div>
+        </div>
+    </main>
+</body>
+</html>
