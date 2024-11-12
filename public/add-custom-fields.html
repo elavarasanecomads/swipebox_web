@@ -35,7 +35,7 @@
                         </div>
 
                     </div>
-                    <div class="w-full pt-6 space-y-4 lg:w-1/2">
+                    <div x-data="dropdownHandler()" class="w-full pt-6 space-y-4 lg:w-1/2" >
                         <div>
                             <label for="" class="font-semibold text-gray-600">Enter Name <span class="text-red-600">*</span></label>
                             <input type="text" placeholder=""
@@ -56,7 +56,7 @@
                             </select>
                         </div>
                         <div class="space-y-4">
-                            <div x-data="dropdownHandler()" class="space-y-4">
+                            <div class="space-y-4">
                                 <!-- Enter Type Dropdown -->
                                 <div>
                                     <label for="type" class="font-semibold text-gray-600">Enter Type <span class="text-red-600">*</span></label>
@@ -155,7 +155,7 @@
                                 <span class="ml-2 font-semibold text-gray-600">Add Mandatory Field</span>
                             </label>
                         </div>
-                        <div>
+                        <div x-show="selectedType === 'dropdown'">
                             <label class="inline-flex items-center px-2">
                                 <input class="w-4 h-4" type="checkbox">
                                 <span class="ml-2 font-semibold text-gray-600">Add Filter</span>
