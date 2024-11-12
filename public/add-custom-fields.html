@@ -1,0 +1,180 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Custom Fields</title>
+    <link href="output.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.5/cdn.js"
+        integrity="sha512-8IPRU0MPrge2KfSxkAtO8pIkaMzThW/MBSvPqcyVisSymLWC986buo27pKAt5mWXmt58dT6jIsw7h8NNugtRwg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full min-w-0 grow">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+                    <div class="flex items-center gap-4">
+                        <a href="employee-custom-fields.html" class="flex items-center gap-1 text-sm text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5">
+                                <path fill-rule="evenodd"
+                                    d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <div class="flex items-center gap-4">
+                            <p class="text-2xl font-bold text-gray-900">Add Custom Fields</p>
+                        </div>
+
+                    </div>
+                    <div class="w-full pt-6 space-y-4 lg:w-1/2">
+                        <div>
+                            <label for="" class="font-semibold text-gray-600">Enter Name <span class="text-red-600">*</span></label>
+                            <input type="text" placeholder=""
+                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                        </div>
+                        <div>
+                            <label for="" class="font-semibold text-gray-600">Enter Group <span class="text-red-600">*</span></label>
+                            <select
+                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                <option value="">Select Type</option>
+                                <option value="">Profile Details</option>
+                                <option value="">Payroll Details</option>
+                                <option value="">Personal Details</option>
+                                <option value="">Employement Details</option>
+                                <option value="">Work Details</option>
+                                <option value="">Bank Details</option>                                
+                                <option value="">Others</option>
+                            </select>
+                        </div>
+                        <div class="space-y-4">
+                            <div x-data="dropdownHandler()" class="space-y-4">
+                                <!-- Enter Type Dropdown -->
+                                <div>
+                                    <label for="type" class="font-semibold text-gray-600">Enter Type <span class="text-red-600">*</span></label>
+                                    <select x-model="selectedType" 
+                                            class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        <option value="">Select Type</option>
+                                        <option value="text">Text</option>
+                                        <option value="dropdown">Dropdown</option>
+                                        <option value="date">Date</option>
+                                        <option value="phone">Phone Number</option>
+                                        <option value="email">Email</option>
+                                        <option value="number">Number</option>
+                                    </select>
+                                </div>
+                            
+                                <!-- Add Options section (Only shows if 'Dropdown' is selected) -->
+                                <div x-show="selectedType === 'dropdown'" x-data="addOptions()" class="p-4 space-y-4 border-2 border-gray-400 border-dashed rounded bg-gray-50">
+                                    <p class="font-bold">Add Options</p>
+                            
+                                    <!-- Add New Option -->
+                                    <div class="flex items-center gap-4">
+                                        <input 
+                                            type="text" 
+                                            placeholder="Enter option" 
+                                            x-model="newOption" 
+                                            @keyup.enter="addOption" 
+                                            class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600"
+                                        />
+                                        <button 
+                                            @click="addOption" 
+                                            class="p-2 px-6 font-semibold text-white bg-green-600 rounded-md"
+                                            :disabled="newOption.trim() === '' || isDuplicate(newOption)">
+                                            Add
+                                        </button>
+                                    </div>
+                            
+                                    <!-- Added Options -->
+                                    <div class="flex flex-wrap gap-2">
+                                        <template x-for="(option, index) in options" :key="index">
+                                            <div class="flex items-center gap-2 px-4 py-2 text-sm font-semibold bg-blue-100 border rounded-full">
+                                                <p x-text="option"></p>
+                                                <button 
+                                                    @click="removeOption(option)" 
+                                                    class="text-red-600 focus:outline-none"
+                                                    aria-label="Remove option">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                                                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <script>
+                                // Main Alpine component to handle the dropdown type selection
+                                function dropdownHandler() {
+                                    return {
+                                        selectedType: '', // Bind to the selected dropdown type
+                                    }
+                                }
+                            
+                                // Alpine component to manage adding and removing options
+                                function addOptions() {
+                                    return {
+                                        newOption: '',
+                                        options: [], // Initialize with no options
+                            
+                                        // Add the new option to the list
+                                        addOption() {
+                                            const trimmedOption = this.newOption.trim();
+                                            if (trimmedOption && !this.isDuplicate(trimmedOption)) {
+                                                this.options.push(trimmedOption);
+                                                this.newOption = ''; // Clear input after adding
+                                            }
+                                        },
+                            
+                                        // Remove a selected option
+                                        removeOption(option) {
+                                            this.options = this.options.filter(opt => opt !== option); // Remove option by value
+                                        },
+                            
+                                        // Check if the option is a duplicate
+                                        isDuplicate(option) {
+                                            return this.options.some(opt => opt.toLowerCase() === option.trim().toLowerCase());
+                                        }
+                                    }
+                                }
+                            </script>
+                            
+                        </div>                       
+                        <div>
+                            <label class="inline-flex items-center px-2">
+                                <input class="w-4 h-4" type="checkbox">
+                                <span class="ml-2 font-semibold text-gray-600">Add Mandatory Field</span>
+                            </label>
+                        </div>
+                        <div>
+                            <label class="inline-flex items-center px-2">
+                                <input class="w-4 h-4" type="checkbox">
+                                <span class="ml-2 font-semibold text-gray-600">Add Filter</span>
+                            </label>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 pt-6">
+                            <button
+                                class="w-full p-3 font-semibold text-center text-white bg-blue-600 rounded-md">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+</html>
