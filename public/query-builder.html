@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose and Select Fields</title>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="p-10 bg-gray-100">
+
+<div x-data="fieldSelector()" class="max-w-4xl mx-auto" x-init="init()">
+    <div class="grid grid-cols-2 gap-4">
+        <!-- Choose Fields Column -->
+        <div>
+            <h2 class="mb-4 text-xl font-semibold">Choose Fields</h2>
+            <ul>
+                <template x-for="field in availableFields" :key="field.name">
+                    <li @click="selectField(field.name)"
+                        class="p-2 mb-2 transition bg-white rounded cursor-pointer hover:bg-blue-100">
+                        <span x-text="field.name"></span> - Order: <span x-text="field.order"></span>
+                    </li>
+                </template>
+                <p x-show="availableFields.length === 0" class="text-gray-500">No fields available</p>
+            </ul>
+        </div>
+
+        <!-- Selected Fields Column -->
+        <div>
+            <h2 class="mb-4 text-xl font-semibold">Selected Fields</h2>
+            <ul>
+                <!-- Loop through selected fields and add placeholder at draggedOverIndex -->
+                <template x-for="(field, index) in selectedFields" :key="field">
+                    <li draggable="true"
+                        @dragstart="dragStart(index)"
+                        @dragover.prevent="dragOver(index)"
+                        @drop="dragDrop(index)"
+                        class="flex items-center justify-between p-2 mb-2 bg-white rounded"
+                        :class="{'hidden': draggedOverIndex === index}">
+                        <span x-text="field"></span>
+                        <button @click="deselectField(index)" 
+                                class="text-red-500 hover:text-red-700">
+                            Remove
+                        </button>
+                    </li>
+                </template>
+
+                <!-- Persistent placeholder to indicate drop position -->
+                <li x-show="draggedOverIndex !== null"
+                    class="h-10 mb-2 transition bg-blue-200 rounded"></li>
+
+                <p x-show="selectedFields.length === 0 && draggedOverIndex === null" class="text-gray-500">No fields selected</p>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    function fieldSelector() {
+        return {
+            initialFields: [
+                { name: 'Name', order: 1 },
+                { name: 'Email', order: 2 },
+                { name: 'Department', order: 3 },
+                { name: 'Position', order: 4 },
+                { name: 'Location', order: 5 },
+                { name: 'Date Joined', order: 6 }
+            ],
+            availableFields: [],
+            selectedFields: [],
+            draggedIndex: null,
+            draggedOverIndex: null,
+
+            init() {
+                this.availableFields = JSON.parse(JSON.stringify(this.initialFields));
+            },
+
+            selectField(fieldName) {
+                const index = this.availableFields.findIndex(f => f.name === fieldName);
+                if (index > -1) {
+                    this.selectedFields.push(this.availableFields[index].name);
+                    this.availableFields.splice(index, 1);
+                }
+            },
+            
+            deselectField(index) {
+                const fieldName = this.selectedFields[index];
+                const field = this.initialFields.find(f => f.name === fieldName);
+                this.selectedFields.splice(index, 1);
+                this.availableFields.push(field);
+                this.availableFields.sort((a, b) => a.order - b.order);
+            },
+
+            dragStart(index) {
+                this.draggedIndex = index;
+                this.draggedOverIndex = index;  // Start placeholder at initial position
+            },
+
+            dragOver(index) {
+                if (this.draggedOverIndex !== index) {
+                    this.draggedOverIndex = index;
+                }
+            },
+
+            dragDrop(index) {
+                if (this.draggedIndex !== null && this.draggedIndex !== index) {
+                    const [draggedItem] = this.selectedFields.splice(this.draggedIndex, 1);
+                    this.selectedFields.splice(index, 0, draggedItem);
+                }
+                this.draggedIndex = null;
+                this.draggedOverIndex = null;
+            }
+        };
+    }
+</script>
+
+</body>
+</html>
