@@ -1,0 +1,265 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Location</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.5/cdn.js"
+        integrity="sha512-8IPRU0MPrge2KfSxkAtO8pIkaMzThW/MBSvPqcyVisSymLWC986buo27pKAt5mWXmt58dT6jIsw7h8NNugtRwg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full min-w-0 grow">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+                    <div>
+                        <div class="p-4 space-y-4 border-b">
+                            <div class="flex items-center gap-2">
+                                <a href="dashboard.html" class="flex items-center gap-1 text-sm text-gray-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                        <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </a>
+                                <p class="text-2xl font-bold text-gray-900">Live Location Tracking</p>    
+                            </div>
+                            <div class="grid grid-cols-1 gap-4 lg:grid-cols-4">
+                                <div x-data="dropdown()" class="relative w-64">
+                                    <!-- Select-like Box -->
+                                    <label class="text-sm font-semibold text-gray-600">Select User</label>
+                                    <div 
+                                        @click="toggleDropdown()" 
+                                        class="flex items-center justify-between w-full px-4 py-2 mt-1 border border-gray-400 rounded cursor-pointer focus:ring focus:ring-blue-300"
+                                    >
+                                        <span x-text="selected || 'Select a user'" class="text-gray-700"></span>
+                                        <svg class="w-4 h-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </div>
+                                
+                                    <!-- Dropdown Menu -->
+                                    <div 
+                                        x-show="open" 
+                                        @click.away="closeDropdown()" 
+                                        class="absolute left-0 z-10 w-full mt-1 bg-white border border-gray-300 rounded shadow-lg"
+                                        style="display: none;" 
+                                    >
+                                        <!-- Search Box -->
+                                        <div class="p-2">
+                                            <input 
+                                                type="text" 
+                                                x-model="search" 
+                                                placeholder="Search users..." 
+                                                class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300"
+                                            />
+                                        </div>
+                                
+                                        <!-- Dropdown Options -->
+                                        <ul class="overflow-auto max-h-40">
+                                            <!-- Display filtered users -->
+                                            <template x-for="user in filteredUsers" :key="user">
+                                                <li 
+                                                    @click="selectUser(user)" 
+                                                    class="px-4 py-2 cursor-pointer hover:bg-blue-100"
+                                                >
+                                                    <span x-text="user"></span>
+                                                </li>
+                                            </template>
+                                
+                                            <!-- No record found -->
+                                            <li 
+                                                x-show="filteredUsers.length === 0" 
+                                                class="px-4 py-2 text-gray-500"
+                                            >
+                                                No record found
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="pt-6">
+                                    <button class="w-32 p-2 font-semibold text-white bg-blue-600 rounded-md">Search</button>
+                                </div>
+                            </div>                
+                        </div>
+                        <div class="grid grid-cols-1 gap-4 p-4 lg:grid-cols-5">
+                            <div class="w-full h-full border-4 border-gray-300 rounded-lg shadow-md lg:col-span-3">
+                                <iframe class="rounded-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62589.38927838923!2d77.71539695!3d11.346626149999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba96f46762f4671%3A0xd97da6e3d9c7f75e!2sErode%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1690435976640!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                            <div class="space-y-4 lg:col-span-2">
+                                <div class="grid grid-cols-3 gap-4">
+                                    <div class="px-4 py-2 text-white bg-blue-600 rounded-lg">
+                                        <p class="text-xl font-bold">12</p>
+                                        <p>All Users</p>
+                                    </div>
+                                    <div class="px-4 py-2 text-white bg-green-600 rounded-lg">
+                                        <p class="text-xl font-bold">8</p>
+                                        <p>Active Users</p>
+                                    </div>
+                                    <div class="px-4 py-2 text-white bg-red-600 rounded-lg">
+                                        <p class="text-xl font-bold">4</p>
+                                        <p>Inactive Users</p>
+                                    </div>                        
+                                </div>
+                                <p class="text-xs text-gray-600">Last Updated on 27-07-2023 12:57 PM - 2 mins ago</p>
+                                <div class="border divide-y rounded-lg">
+                                    <div class="px-4 py-2 bg-white">
+                                        <h3 class="text-xl font-bold">All Users</h3>
+                                    </div>
+                                    <div class="px-4 py-2 bg-white">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-12 h-12">
+                                                    <img class="rounded-full" src="https://randomuser.me/api/portraits/men/22.jpg" alt="">
+                                                </div>
+                                                <div>
+                                                    <div class="flex items-center justify-between">
+                                                        <div class="flex items-center gap-2">
+                                                            <p class="font-bold">Elavarasan Rajan</p>
+                                                            <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+                                                        </div>
+                                                        <div class="text-green-600">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-battery-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                                <path d="M6 7h11a2 2 0 0 1 2 2v.5a.5 .5 0 0 0 .5 .5a.5 .5 0 0 1 .5 .5v3a.5 .5 0 0 1 -.5 .5a.5 .5 0 0 0 -.5 .5v.5a2 2 0 0 1 -2 2h-11a2 2 0 0 1 -2 -2v-6a2 2 0 0 1 2 -2"></path>
+                                                                <path d="M7 10l0 4"></path>
+                                                                <path d="M10 10l0 4"></path>
+                                                                <path d="M13 10l0 4"></path>
+                                                                <path d="M16 10l0 4"></path>
+                                                             </svg>
+                                                        </div>
+                                                    </div><p class="text-xs text-gray-600">46 stv nagar, 4th cross, east, Nava India Rd, Peelamedu, Coimbatore, Tamil Nadu</p>
+                                                </div>                            
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="px-4 py-2 bg-white">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-12 h-12">
+                                                    <img class="rounded-full" src="https://randomuser.me/api/portraits/men/23.jpg" alt="">
+                                                </div>
+                                                <div>
+                                                    <div class="flex items-center justify-between">
+                                                        <div class="flex items-center gap-2">
+                                                            <p class="font-bold">Karthik</p>
+                                                            <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+                                                        </div>
+                                                        <div class="text-green-600">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-battery-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                                <path d="M6 7h11a2 2 0 0 1 2 2v.5a.5 .5 0 0 0 .5 .5a.5 .5 0 0 1 .5 .5v3a.5 .5 0 0 1 -.5 .5a.5 .5 0 0 0 -.5 .5v.5a2 2 0 0 1 -2 2h-11a2 2 0 0 1 -2 -2v-6a2 2 0 0 1 2 -2"></path>
+                                                                <path d="M7 10l0 4"></path>
+                                                                <path d="M10 10l0 4"></path>
+                                                             </svg>
+                                                        </div>
+                                                    </div><p class="text-xs text-gray-600">46 stv nagar, 4th cross, east, Nava India Rd, Peelamedu, Coimbatore, Tamil Nadu</p>
+                                                </div>                            
+                                            </div>
+                                        </div>
+                                    </div>                        
+                                    <div class="px-4 py-2 bg-white">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-12 h-12">
+                                                    <img class="rounded-full" src="https://randomuser.me/api/portraits/men/24.jpg" alt="">
+                                                </div>
+                                                <div>
+                                                    <div class="flex items-center justify-between">
+                                                        <div class="flex items-center gap-2">
+                                                            <p class="font-bold">Parthipan</p>
+                                                            <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+                                                        </div>
+                                                        <div class="text-red-600">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-battery-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                                <path d="M6 7h11a2 2 0 0 1 2 2v.5a.5 .5 0 0 0 .5 .5a.5 .5 0 0 1 .5 .5v3a.5 .5 0 0 1 -.5 .5a.5 .5 0 0 0 -.5 .5v.5a2 2 0 0 1 -2 2h-11a2 2 0 0 1 -2 -2v-6a2 2 0 0 1 2 -2"></path>
+                                                                <path d="M7 10l0 4"></path>
+                                                             </svg>
+                                                        </div>
+                                                    </div><p class="text-xs text-gray-600">46 stv nagar, 4th cross, east, Nava India Rd, Peelamedu, Coimbatore, Tamil Nadu</p>
+                                                </div>                            
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="px-4 py-2 bg-white">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-12 h-12">
+                                                    <img class="rounded-full" src="https://randomuser.me/api/portraits/men/26.jpg" alt="">
+                                                </div>
+                                                <div>
+                                                    <div class="flex items-center gap-2">
+                                                        <p class="font-bold">Vinoth</p>
+                                                        <div class="w-2 h-2 bg-red-600 rounded-full"></div>
+                                                    </div>
+                                                    <p class="text-xs text-gray-600">46 stv nagar, 4th cross, east, Nava India Rd, Peelamedu, Coimbatore, Tamil Nadu</p>
+                                                </div>                            
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="px-4 py-2 bg-white">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-12 h-12">
+                                                    <img class="rounded-full" src="https://randomuser.me/api/portraits/men/28.jpg" alt="">
+                                                </div>
+                                                <div>
+                                                    <div class="flex items-center gap-2">
+                                                        <p class="font-bold">Arumugam</p>
+                                                        <div class="w-2 h-2 bg-red-600 rounded-full"></div>
+                                                    </div><p class="text-xs text-gray-600">46 stv nagar, 4th cross, east, Nava India Rd, Peelamedu, Coimbatore, Tamil Nadu</p>
+                                                </div>                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+<script>
+    function dropdown() {
+        return {
+            open: false,
+            search: '',
+            selected: null,
+            users: ['Alice', 'Bob', 'Charlie', 'David', 'Eva'],
+            toggleDropdown() {
+                this.open = !this.open;
+            },
+            closeDropdown() {
+                this.open = false;
+            },
+            get filteredUsers() {
+                return this.users.filter(user =>
+                    user.toLowerCase().includes(this.search.toLowerCase())
+                );
+            },
+            selectUser(user) {
+                this.selected = user;
+                this.search = '';
+                this.open = false;
+            }
+        };
+    }
+    </script>
+</html>

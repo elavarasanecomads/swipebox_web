@@ -1,0 +1,475 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.5/cdn.js"
+        integrity="sha512-8IPRU0MPrge2KfSxkAtO8pIkaMzThW/MBSvPqcyVisSymLWC986buo27pKAt5mWXmt58dT6jIsw7h8NNugtRwg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full min-w-0 grow">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+                    <div>
+                        <div class="p-4 space-y-4 border-b">
+                            <div class="flex items-center gap-2">
+                                <a href="dashboard.html" class="flex items-center gap-1 text-sm text-gray-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                        <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </a>
+                                <p class="text-2xl font-bold text-gray-900">Timeline</p>
+    
+                            </div>
+                            <div class="grid grid-cols-1 gap-4 lg:grid-cols-4">
+                                <div>
+                                    <div x-data="dropdown()" class="relative w-64">
+                                        <!-- Select-like Box -->
+                                        <label class="text-sm font-semibold text-gray-600">Select User</label>
+                                        <div 
+                                            @click="toggleDropdown()" 
+                                            class="flex items-center justify-between w-full px-4 py-2 mt-1 border border-gray-400 rounded cursor-pointer focus:ring focus:ring-blue-300"
+                                        >
+                                            <span x-text="selected || 'Select a user'" class="text-gray-700"></span>
+                                            <svg class="w-4 h-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                        </div>
+                                    
+                                        <!-- Dropdown Menu -->
+                                        <div 
+                                            x-show="open" 
+                                            @click.away="closeDropdown()" 
+                                            class="absolute left-0 z-10 w-full mt-1 bg-white border border-gray-300 rounded shadow-lg"
+                                            style="display: none;" 
+                                        >
+                                            <!-- Search Box -->
+                                            <div class="p-2">
+                                                <input 
+                                                    type="text" 
+                                                    x-model="search" 
+                                                    placeholder="Search users..." 
+                                                    class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300"
+                                                />
+                                            </div>
+                                    
+                                            <!-- Dropdown Options -->
+                                            <ul class="overflow-auto max-h-40">
+                                                <!-- Display filtered users -->
+                                                <template x-for="user in filteredUsers" :key="user">
+                                                    <li 
+                                                        @click="selectUser(user)" 
+                                                        class="px-4 py-2 cursor-pointer hover:bg-blue-100"
+                                                    >
+                                                        <span x-text="user"></span>
+                                                    </li>
+                                                </template>
+                                    
+                                                <!-- No record found -->
+                                                <li 
+                                                    x-show="filteredUsers.length === 0" 
+                                                    class="px-4 py-2 text-gray-500"
+                                                >
+                                                    No record found
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>                                  
+                                        
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600">Select Date</label>
+                                    <input type="date" name="" id="" autocomplete="" placeholder="" class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div class="pt-6">
+                                    <button class="w-32 p-2 font-semibold text-white bg-blue-600 rounded-md">Search</button>
+                                </div>
+                            </div>                
+                        </div>
+                        <div class="grid grid-cols-1 gap-4 p-4 lg:grid-cols-5">
+                            <div class="w-full h-full border-4 border-gray-300 rounded-lg shadow-md lg:col-span-3">
+                                <iframe class="rounded-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62589.38927838923!2d77.71539695!3d11.346626149999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba96f46762f4671%3A0xd97da6e3d9c7f75e!2sErode%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1690435976640!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                            <div class="space-y-4 lg:col-span-2">
+                                <div class="grid grid-cols-3 gap-4 p-4 text-white bg-blue-600 rounded-lg">
+                                    <div>
+                                        <p class="font-bold">07:30:02 Hrs</p>
+                                        <p class="text-sm">Total Time</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold">135.00 KM</p>
+                                        <p class="text-sm">Total Distance</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold">05:00:02 Hrs</p>
+                                        <p class="text-sm">Total Travel Time</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold">02:30:00 Hrs</p>
+                                        <p class="text-sm">Total Meeting Time</p>
+                                    </div>
+                                </div>
+                                <div class="border rounded-lg">
+                                    <div class="px-4 py-4 bg-white">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center gap-2">
+                                                <div class="flex items-center justify-center w-10 h-10 text-white bg-blue-600 rounded-full">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-fingerprint" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                        <path d="M18.9 7a8 8 0 0 1 1.1 5v1a6 6 0 0 0 .8 3"></path>
+                                                        <path d="M8 11a4 4 0 0 1 8 0v1a10 10 0 0 0 2 6"></path>
+                                                        <path d="M12 11v2a14 14 0 0 0 2.5 8"></path>
+                                                        <path d="M8 15a18 18 0 0 0 1.8 6"></path>
+                                                        <path d="M4.9 19a22 22 0 0 1 -.9 -7v-1a8 8 0 0 1 12 -6.95"></path>
+                                                     </svg>
+                                                </div>
+                                                <div>
+                                                    <p class="font-bold">Punch In</p>
+                                                </div>                            
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-bold">10:00 AM</p>
+                                            </div>
+                                        </div>
+                                        <div class="pl-12 space-y-1">
+                                            <p class="text-xs text-gray-600">46 stv nagar, 4th cross, east, Nava India Rd, Peelamedu, Coimbatore, Tamil Nadu</p>
+                                        <div x-data="{ open: false, imgUrl: '' }">
+                                            <div>
+                                                <div x-on:click="open = true; imgUrl = 'img/speedometer.jpg'" class="cursor-pointer">
+                                                    <img src="img/speedometer.jpg" alt="Image 1" class="object-cover w-16 h-16 border rounded-lg shadow-lg" />
+                                                </div>
+                                                <!-- Add more images here as needed -->
+                                            </div>
+                                    
+                                            <div x-show="open" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                                                x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+                                                class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75">
+                                                <div x-on:click="open = false" class="absolute top-0 right-0 p-4 cursor-pointer">
+                                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                    </svg>
+                                                </div>
+                                                <div class="max-w-3xl p-4">
+                                                    <img x-bind:src="imgUrl" alt="Lightbox Image" class="object-contain w-full h-auto" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>                            
+                                    </div>
+                                    <div class="px-4 py-4 bg-gray-100">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center gap-2">
+                                                <div class="flex items-center justify-center w-10 h-10 text-white bg-blue-600 rounded-full">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-motorbike" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                        <path d="M5 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+                                                        <path d="M19 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+                                                        <path d="M7.5 14h5l4 -4h-10.5m1.5 4l4 -4"></path>
+                                                        <path d="M13 6h2l1.5 3l2 4"></path>
+                                                     </svg>
+                                                </div>
+                                                <div>
+                                                    <p class="font-bold">Travel</p>
+                                                    <p class="text-xs text-gray-600">45 Kms</p>
+                                                </div>                            
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-bold">10:00 AM - 11:30 AM</p>
+                                                <p class="text-xs text-right text-gray-600">01:30 Hrs</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="px-4 py-4 bg-white">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center gap-2">
+                                                <div class="flex items-center justify-center w-10 h-10 text-white bg-blue-600 rounded-full">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-fingerprint" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                        <path d="M18.9 7a8 8 0 0 1 1.1 5v1a6 6 0 0 0 .8 3"></path>
+                                                        <path d="M8 11a4 4 0 0 1 8 0v1a10 10 0 0 0 2 6"></path>
+                                                        <path d="M12 11v2a14 14 0 0 0 2.5 8"></path>
+                                                        <path d="M8 15a18 18 0 0 0 1.8 6"></path>
+                                                        <path d="M4.9 19a22 22 0 0 1 -.9 -7v-1a8 8 0 0 1 12 -6.95"></path>
+                                                     </svg>
+                                                </div>
+                                                <div>
+                                                    <p class="font-bold">Check In</p>
+                                                </div>                            
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-bold">11:30 AM - 12:15 PM</p>
+                                                <p class="text-xs text-right text-gray-600">00:45 Hrs</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="pl-12 space-y-1">
+                                            <p class="text-sm font-semibold text-gray-600">Salaravana Silks</p>
+                                            <p class="text-xs text-gray-800">X7VV+M6Q, Nagapattinam - Coimbatore - Gundlupet Hwy, Panapalayam, Palladam, Tamil Nadu 641664</p>
+                                            <div class="flex items-center gap-4 pb-1">
+                                                <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                    <button @click="showModal = true"
+                                                        class="text-sm font-semibold text-center text-blue-600">View Notes</button>
+                    
+                                                    <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                        x-show="showModal" style="display: none;">
+                                                        <!-- Modal inner -->
+                                                        <div class="w-11/12 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
+                                                            @click.away="showModal = false"
+                                                            x-transition:enter="motion-safe:ease-out duration-300"
+                                                            x-transition:enter-start="opacity-0 scale-90"
+                                                            x-transition:enter-end="opacity-100 scale-100">
+                                                            <!-- Title / Close-->
+                                                            <div
+                                                                class="flex items-center justify-between p-4 border-b border-gray-300">
+                                                                <p class="font-bold">
+                                                                    Add Notes
+                                                                </p>
+                                                                <span @click="showModal = false">
+                                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                                            stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                    </svg>
+                                                                </span>
+                                                            </div>
+                                                            <!-- content -->
+                                                            <div class="w-full p-4">
+                                                                <div>
+                                                                    <label class="text-sm font-semibold" for="name">
+                                                                        Notes</label>
+                                                                    <textarea rows="2"
+                                                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base"></textarea>
+                                                                </div>
+                                                                <div class="flex items-center justify-end w-full gap-4 pt-4">
+                                                                    <div>
+                                                                        <button @click="showModal = true"
+                                                                            class="w-32 px-2 py-2 text-sm font-semibold text-center text-gray-600 bg-gray-200 border border-gray-200 rounded-md hover:bg-gray-300">Cancel</button>
+                                                                    </div>
+                                                                    <div>
+                                                                        <button
+                                                                            class="w-32 px-2 py-2 text-sm font-semibold text-center text-white bg-indigo-600 border border-indigo-600 rounded-md hover:bg-indigo-800">Add
+                                                                            Notes</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                                    <button @click="showModal = true"
+                                                        class="text-sm font-semibold text-center text-blue-600">View Tasks</button>
+                    
+                                                    <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                        x-show="showModal" style="display: none;">
+                                                        <!-- Modal inner -->
+                                                        <div class="w-11/12 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
+                                                            @click.away="showModal = false"
+                                                            x-transition:enter="motion-safe:ease-out duration-300"
+                                                            x-transition:enter-start="opacity-0 scale-90"
+                                                            x-transition:enter-end="opacity-100 scale-100">
+                                                            <!-- Title / Close-->
+                                                            <div
+                                                                class="flex items-center justify-between p-4 border-b border-gray-300">
+                                                                <p class="font-bold">
+                                                                    Add Notes
+                                                                </p>
+                                                                <span @click="showModal = false">
+                                                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                                            stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                                    </svg>
+                                                                </span>
+                                                            </div>
+                                                            <!-- content -->
+                                                            <div class="w-full p-4">
+                                                                <div>
+                                                                    <label class="text-sm font-semibold" for="name">
+                                                                        Notes</label>
+                                                                    <textarea rows="2"
+                                                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base"></textarea>
+                                                                </div>
+                                                                <div class="flex items-center justify-end w-full gap-4 pt-4">
+                                                                    <div>
+                                                                        <button @click="showModal = true"
+                                                                            class="w-32 px-2 py-2 text-sm font-semibold text-center text-gray-600 bg-gray-200 border border-gray-200 rounded-md hover:bg-gray-300">Cancel</button>
+                                                                    </div>
+                                                                    <div>
+                                                                        <button
+                                                                            class="w-32 px-2 py-2 text-sm font-semibold text-center text-white bg-indigo-600 border border-indigo-600 rounded-md hover:bg-indigo-800">Add
+                                                                            Notes</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div x-data="{ open: false, imgUrl: '' }">
+                                            <div>
+                                                <div x-on:click="open = true; imgUrl = 'img/speedometer.jpg'" class="cursor-pointer">
+                                                    <img src="img/speedometer.jpg" alt="Image 1" class="object-cover w-16 h-16 border rounded-lg shadow-lg" />
+                                                </div>
+                                                <!-- Add more images here as needed -->
+                                            </div>
+                                    
+                                            <div x-show="open" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                                                x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+                                                class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75">
+                                                <div x-on:click="open = false" class="absolute top-0 right-0 p-4 cursor-pointer">
+                                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                    </svg>
+                                                </div>
+                                                <div class="max-w-3xl p-4">
+                                                    <img x-bind:src="imgUrl" alt="Lightbox Image" class="object-contain w-full h-auto" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="px-4 py-4 bg-gray-100">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center gap-2">
+                                                <div class="flex items-center justify-center w-10 h-10 text-white bg-blue-600 rounded-full">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-motorbike" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                        <path d="M5 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+                                                        <path d="M19 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+                                                        <path d="M7.5 14h5l4 -4h-10.5m1.5 4l4 -4"></path>
+                                                        <path d="M13 6h2l1.5 3l2 4"></path>
+                                                     </svg>
+                                                </div>
+                                                <div>
+                                                    <p class="font-bold">Travel</p>
+                                                    <p class="text-xs text-gray-600">45 Kms</p>
+                                                </div>                            
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-bold">12:15 PM - 01:30 PM</p>
+                                                <p class="text-xs text-right text-gray-600">01:15 Hrs</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="px-4 py-4 bg-white">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center gap-2">
+                                                <div class="flex items-center justify-center w-10 h-10 text-white bg-blue-600 rounded-full">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-fingerprint" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                        <path d="M18.9 7a8 8 0 0 1 1.1 5v1a6 6 0 0 0 .8 3"></path>
+                                                        <path d="M8 11a4 4 0 0 1 8 0v1a10 10 0 0 0 2 6"></path>
+                                                        <path d="M12 11v2a14 14 0 0 0 2.5 8"></path>
+                                                        <path d="M8 15a18 18 0 0 0 1.8 6"></path>
+                                                        <path d="M4.9 19a22 22 0 0 1 -.9 -7v-1a8 8 0 0 1 12 -6.95"></path>
+                                                     </svg>
+                                                </div>
+                                                <div>
+                                                    <p class="font-bold">Check In</p>
+                                                </div>                            
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-bold">01:30 PM - 03:15 PM</p>
+                                                <p class="text-xs text-right text-gray-600">01:45 Hrs</p>
+                                            </div>
+                                        </div>
+                                        <p class="pl-12 text-xs text-gray-600">69, R V K Rd, Tamil Nadu 638001</p>
+                                    </div>
+                                    <div class="px-4 py-4 bg-gray-100">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center gap-2">
+                                                <div class="flex items-center justify-center w-10 h-10 text-white bg-blue-600 rounded-full">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-motorbike" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                        <path d="M5 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+                                                        <path d="M19 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+                                                        <path d="M7.5 14h5l4 -4h-10.5m1.5 4l4 -4"></path>
+                                                        <path d="M13 6h2l1.5 3l2 4"></path>
+                                                     </svg>
+                                                </div>
+                                                <div>
+                                                    <p class="font-bold">Travel</p>
+                                                    <p class="text-xs text-gray-600">45 Kms</p>
+                                                </div>                            
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-bold">03:15 PM - 05:30 PM</p>
+                                                <p class="text-xs text-right text-gray-600">02:15 Hrs</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="px-4 py-4 bg-white">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center gap-2">
+                                                <div class="flex items-center justify-center w-10 h-10 text-white bg-blue-600 rounded-full">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-fingerprint" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                        <path d="M18.9 7a8 8 0 0 1 1.1 5v1a6 6 0 0 0 .8 3"></path>
+                                                        <path d="M8 11a4 4 0 0 1 8 0v1a10 10 0 0 0 2 6"></path>
+                                                        <path d="M12 11v2a14 14 0 0 0 2.5 8"></path>
+                                                        <path d="M8 15a18 18 0 0 0 1.8 6"></path>
+                                                        <path d="M4.9 19a22 22 0 0 1 -.9 -7v-1a8 8 0 0 1 12 -6.95"></path>
+                                                     </svg>
+                                                </div>
+                                                <div>
+                                                    <p class="font-bold">Punch Out</p>
+                                                </div>                            
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-bold">05:30 PM</p>
+                                            </div>
+                                        </div>
+                                        <p class="pl-12 text-xs text-gray-600">46 stv nagar, 4th cross, east, Nava India Rd, Peelamedu, Coimbatore, Tamil Nadu</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+<script>
+    function dropdown() {
+        return {
+            open: false,
+            search: '',
+            selected: null,
+            users: ['Alice', 'Bob', 'Charlie', 'David', 'Eva'],
+            toggleDropdown() {
+                this.open = !this.open;
+            },
+            closeDropdown() {
+                this.open = false;
+            },
+            get filteredUsers() {
+                return this.users.filter(user =>
+                    user.toLowerCase().includes(this.search.toLowerCase())
+                );
+            },
+            selectUser(user) {
+                this.selected = user;
+                this.search = '';
+                this.open = false;
+            }
+        };
+    }
+    </script>
+    
+</html>
