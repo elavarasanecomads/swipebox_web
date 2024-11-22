@@ -317,7 +317,53 @@
                   </div>
               </div>
           </li>
-               
+          <li class="group" x-data="{ isOpen: true }">
+            <div @click="isOpen = !isOpen">
+                <div class="flex items-center justify-between px-6 py-3">
+                    <a href="#" class="flex items-center text-white">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="mr-4 icon icon-tabler icon-tabler-route" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+                        <path d="M18 5m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+                        <path d="M12 19h4.5a3.5 3.5 0 0 0 0 -7h-8a3.5 3.5 0 0 1 0 -7h3.5"></path>
+                     </svg>
+                  Field Tracking 
+                    </a>
+                    <div>
+                        <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                        <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 15l7-7 7 7"></path>
+                        </svg>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Dropdown Nav -->
+            <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
+                <div>
+                    <ul class="space-y-1 text-white">
+                        <li class="px-6 hover:bg-primary-100">
+                            <a href="#" class="flex items-center py-2 pl-6 ">
+                                Live Location</a>
+                        </li>
+                        <li class="px-6 hover:bg-primary-100">
+                            <a href="#" class="flex items-center py-2 pl-6">
+                                Timeline</a>
+                        </li>
+                        <li class="px-6 hover:bg-primary-100">
+                          <a href="#" class="flex items-center py-2 pl-6">
+                              Users</a>
+                      </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
                 <li class="group" x-data="{ isOpen: true }">
                   <div @click="isOpen = !isOpen">
                     <div class="flex items-center justify-between px-6 py-3 text-white group-hover:bg-blue-700">
