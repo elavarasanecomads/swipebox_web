@@ -1,0 +1,99 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permission for Customer</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+                    <div class="pb-4">
+                        <div class="flex items-center gap-4">
+                            <a href="customers.html" class="flex items-center gap-1 text-sm text-gray-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                    class="w-5 h-5">
+                                    <path fill-rule="evenodd"
+                                        d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                            <div class="flex items-center gap-4">
+                                <p class="text-2xl font-bold text-gray-900">Permission</p>
+                            </div>                            
+                        </div>
+                        <p class="text-gray-600">Assign employees the ability to add customers to field tracking for seamless customer management.</p>
+                    </div>
+                    <div class="w-full pb-4 space-y-4">                       
+                        <div class="pt-6">
+                            <div class="flex flex-col border-b">
+                                <div class="z-10 -my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                    <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                        <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+
+                                            <table class="min-w-full divide-y divide-gray-200 table-auto">
+                                                <thead class="bg-blue-600">
+                                                    <tr>
+                                                        <th scope="col"
+                                                            class="px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase">
+                                                            Employee Name
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="px-4 py-3 font-bold tracking-wider text-left text-gray-100 uppercase w-36">
+                                                            <span> <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4 accent-green-600" type="checkbox" name="" id="">
+                                                            </span>Add</span>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="bg-white divide-y divide-gray-200">
+                                                    <tr>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <p class="font-semibold">Elavarasan</p>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" checked name="" id="">
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="bg-blue-50">
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <p class="font-semibold">Bindhu</p>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="text-base text-gray-900">
+                                                                <input class="w-4 h-4" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+</html>
