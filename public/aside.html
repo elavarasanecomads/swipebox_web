@@ -1,1021 +1,925 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nav</title>
-    <link href="output.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nav</title>
+  <link href="output.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body class="">
-    <aside class="fixed relative hidden w-64 h-full min-h-screen bg-blue-600 border-t lg:block">
-        <div class="px-6 py-1 bg-white">
-            <div class="">
-                <img class="bg-white rounded h-14" src="img/pep_logo_1.png" alt="log">
-            </div>
-        </div>
-        <nav class="pt-3 space-y-4 text-base">
-            <ul>
-                <li class="group hover:bg-primary-100">
-                    <a href="dashboard.html" class="flex items-center px-6 py-3 text-white group-hover:bg-blue-700">
-                        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            class="mr-3 group-hover:text-primary-900" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
-                            </path>
-                        </svg>Dashboard
-                    </a>
-                </li>
-                <li class="group" x-data="{ isOpen: true }">
-                  <div @click="isOpen = !isOpen">
-                      <div class="flex items-center justify-between px-6 py-3">
-                          <a href="#" class="flex items-center text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
-                            </path>
-                        </svg>
-                              Onboard
-                          </a>
-                          <div>
-                              <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M19 9l-7 7-7-7"></path>
-                              </svg>
-                              <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                                  fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M5 15l7-7 7 7"></path>
-                              </svg>
-  
-                          </div>
-                      </div>
-                  </div>
-                  <!-- Dropdown Nav -->
-                  <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
-                      <div>
-                          <ul class="space-y-1 text-white">
-                              <li class="px-6 hover:bg-primary-100">
-                                  <a href="applicants.html" class="flex items-center py-2 pl-6 ">
-                                      Applicant</a>
-                              </li>
-                              <li class="px-6 hover:bg-primary-100">
-                                  <a href="jobs.html" class="flex items-center py-2 pl-6">
-                                      Jobs</a>
-                              </li>
-                              <li class="px-6 hover:bg-primary-100">
-                                <a href="onboard-settings.html" class="flex items-center py-2 pl-6">
-                                    Onboard Settings</a>
-                            </li>
-                          </ul>
-                      </div>
-                  </div>
-              </li>                
-                <li class="group" x-data="{ isOpen: true }">
-                    <div @click="isOpen = !isOpen">
-                        <div class="flex items-center justify-between px-6 py-3">
-                            <a href="#" class="flex items-center text-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
-                                    </path>
-                                </svg>
-                                Attendance
-                            </a>
-                            <div>
-                                <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                                <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                                    fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 15l7-7 7 7"></path>
-                                </svg>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Dropdown Nav -->
-                    <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
-                        <div>
-                            <ul class="space-y-1 text-white">
-                              <li class="px-6 hover:bg-primary-100">
-                                <a href="daily-attendance-detail.html" class="flex items-center py-2 pl-6">
-                                    Attendance Summary</a>
-                            </li>
-                            
-                            <li class="px-6 hover:bg-primary-100">
-                              <a href="daily-attendance-2.html" class="flex items-center py-2 pl-6">
-                                  Detailed Attendance</a>
-                          </li>
-                                <li class="px-6 hover:bg-primary-100">
-                                    <a href="attendance-muster.html" class="flex items-center py-2 pl-6">
-                                        Attendance Muster</a>
-                                </li>
-                                
-                              <li class="px-6 hover:bg-primary-100">
-                                <a href="penalty-management.html" class="flex items-center py-2 pl-6">
-                                    Penalty Management</a>
-                            </li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-                <li class="group" x-data="{ isOpen: true }">
-                    <div @click="isOpen = !isOpen">
-                        <div class="flex items-center justify-between px-6 py-3">
-                            <a href="#" class="flex items-center text-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
-                                    </path>
-                                </svg>
-                                Employees
-                            </a>
-                            <div>
-                                <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                                <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                                    fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 15l7-7 7 7"></path>
-                                </svg>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Dropdown Nav -->
-                    <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
-                        <div>
-                            <ul class="space-y-1 text-white">
-                                <li class="px-6 hover:bg-primary-100">
-                                    <a href="employee-summary-2.html" class="flex items-center py-2 pl-6 ">
-                                        Employee Master</a>
-                                </li>
-                                <li class="px-6 hover:bg-primary-100">
-                                    <a href="bulk-employee-profile.html" class="flex items-center py-2 pl-6">
-                                        Employee Profiles</a>
-                                </li>
-                                <li class="px-6 hover:bg-primary-100">
-                                    <a href="bulk-employee-payments.html" class="flex items-center py-2 pl-6">
-                                        Employee Payments</a>
-                                </li>
-                                <li class="px-6 hover:bg-primary-100">
-                                  <a href="shift-board.html" class="flex items-center py-2 pl-6">
-                                      Shift Board</a>
-                              </li>
-                              <li class="px-6 hover:bg-primary-100">
-                                <a href="bulk-update.html" class="flex items-center py-2 pl-6">
-                                  Bulk Update</a>
-                              </li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-                
-                <li class="group" x-data="{ isOpen: true }">
-                  <div @click="isOpen = !isOpen">
-                      <div class="flex items-center justify-between px-6 py-3">
-                          <a href="#" class="flex items-center text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
-                            </path>
-                        </svg>
-                              Approvals
-                          </a>
-                          <div>
-                              <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M19 9l-7 7-7-7"></path>
-                              </svg>
-                              <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                                  fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M5 15l7-7 7 7"></path>
-                              </svg>
-
-                          </div>
-                      </div>
-                  </div>
-                  <!-- Dropdown Nav -->
-                  <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
-                      <div>
-                          <ul class="space-y-1 text-white">
-                              <li class="px-6 hover:bg-primary-100">
-                                  <a href="monitor.html" class="flex items-center py-2 pl-6 ">
-                                      Monitor</a>
-                              </li>
-                              <li class="px-6 hover:bg-primary-100">
-                                  <a href="my-approvals.html" class="flex items-center py-2 pl-6">
-                                      My Approvals</a>
-                              </li>
-                              <li class="px-6 hover:bg-primary-100">
-                                  <a href="workflow.html" class="flex items-center py-2 pl-6">
-                                      Workflow</a>
-                              </li>
-                          </ul>
-                      </div>
-                  </div>
-              </li>
-              <li class="group" x-data="{ isOpen: true }">
-                <div @click="isOpen = !isOpen">
-                    <div class="flex items-center justify-between px-6 py-3">
-                        <a href="#" class="flex items-center text-white">
-                        
-                      <svg xmlns="http://www.w3.org/2000/svg" class="mr-3 icon icon-tabler icon-tabler-box" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
-                        <path d="M12 12l8 -4.5" />
-                        <path d="M12 12l0 9" />
-                        <path d="M12 12l-8 -4.5" />
-                      </svg>
-                            Assets
-                        </a>
-                        <div>
-                            <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                            <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 15l7-7 7 7"></path>
-                            </svg>
-
-                        </div>
-                    </div>
-                </div>
-                <!-- Dropdown Nav -->
-                <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
-                    <div>
-                        <ul class="space-y-1 text-white">
-                            <li class="px-6 hover:bg-primary-100">
-                                <a href="asset-details.html" class="flex items-center py-2 pl-6 ">
-                                    Asset Details</a>
-                            </li>
-                            <li class="px-6 hover:bg-primary-100">
-                                <a href="asset-settings.html" class="flex items-center py-2 pl-6">
-                                    Asset Settings</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </li>
-            <li class="group" x-data="{ isOpen: true }">
-              <div @click="isOpen = !isOpen">
-                  <div class="flex items-center justify-between px-6 py-3">
-                      <a href="#" class="flex items-center text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                    Expense 
-                      </a>
-                      <div>
-                          <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                              fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M19 9l-7 7-7-7"></path>
-                          </svg>
-                          <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                              fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M5 15l7-7 7 7"></path>
-                          </svg>
-
-                      </div>
-                  </div>
-              </div>
-              <!-- Dropdown Nav -->
-              <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
-                  <div>
-                      <ul class="space-y-1 text-white">
-                          <li class="px-6 hover:bg-primary-100">
-                              <a href="expense-claims.html" class="flex items-center py-2 pl-6 ">
-                                  Expense Claims</a>
-                          </li>
-                          <li class="px-6 hover:bg-primary-100">
-                              <a href="expense-types.html" class="flex items-center py-2 pl-6">
-                                  Expense Settings</a>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
-          </li>
-          <li class="group" x-data="{ isOpen: true }">
-            <div @click="isOpen = !isOpen">
-                <div class="flex items-center justify-between px-6 py-3">
-                    <a href="#" class="flex items-center text-white">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="mr-4 icon icon-tabler icon-tabler-route" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
-                        <path d="M18 5m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
-                        <path d="M12 19h4.5a3.5 3.5 0 0 0 0 -7h-8a3.5 3.5 0 0 1 0 -7h3.5"></path>
-                     </svg>
-                  Field Tracking 
-                    </a>
-                    <div>
-                        <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                        <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M5 15l7-7 7 7"></path>
-                        </svg>
-
-                    </div>
-                </div>
-            </div>
-            <!-- Dropdown Nav -->
-            <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
-                <div>
-                    <ul class="space-y-1 text-white">
-                        <li class="px-6 hover:bg-primary-100">
-                            <a href="live-location.html" class="flex items-center py-2 pl-6 ">
-                                Live Location</a>
-                        </li>
-                        <li class="px-6 hover:bg-primary-100">
-                            <a href="timeline.html" class="flex items-center py-2 pl-6">
-                                Timeline</a>
-                        </li>
-                        <li class="px-6 hover:bg-primary-100">
-                          <a href="users.html" class="flex items-center py-2 pl-6">
-                              Users</a>
-                      </li>
-                    </ul>
-                </div>
-            </div>
+  <aside class="fixed relative hidden w-64 h-full min-h-screen bg-blue-600 border-t lg:block">
+    <div class="px-6 py-1 bg-white">
+      <div class="">
+        <img class="bg-white rounded h-14" src="img/pep_logo_1.png" alt="log">
+      </div>
+    </div>
+    <nav class="pt-3 space-y-4 text-base">
+      <ul>
+        <li class="group hover:bg-primary-100">
+          <a href="dashboard.html" class="flex items-center px-6 py-3 text-white group-hover:bg-blue-700">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              class="mr-3 group-hover:text-primary-900" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+              </path>
+            </svg>Dashboard
+          </a>
         </li>
         <li class="group" x-data="{ isOpen: true }">
           <div @click="isOpen = !isOpen">
-              <div class="flex items-center justify-between px-6 py-3">
-                  <a href="#" class="flex items-center text-white">                   
-                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-4">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
-                  </svg>
-                  
-                Customers
-                  </a>
-                  <div>
-                      <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                          fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M19 9l-7 7-7-7"></path>
-                      </svg>
-                      <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                          fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M5 15l7-7 7 7"></path>
-                      </svg>
+            <div class="flex items-center justify-between px-6 py-3">
+              <a href="#" class="flex items-center text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
+                  </path>
+                </svg>
+                Onboard
+              </a>
+              <div>
+                <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+                <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                </svg>
 
-                  </div>
               </div>
+            </div>
           </div>
           <!-- Dropdown Nav -->
           <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
-              <div>
-                  <ul class="space-y-1 text-white">
-                      <li class="px-6 hover:bg-primary-100">
-                          <a href="customers.html" class="flex items-center py-2 pl-6 ">
-                              Customer Master</a>
-                      </li>
-                      <li class="px-6 hover:bg-primary-100">
-                          <a href="customers-custom-fields.html" class="flex items-center py-2 pl-6">
-                              Customer Form fileds</a>
-                      </li>
-                      <li class="px-6 hover:bg-primary-100">
-                        <a href="customers-add-permission.html" class="flex items-center py-2 pl-6">
-                            Customer Permission
-                        </a>
-                    </li>
-                  </ul>
-              </div>
+            <div>
+              <ul class="space-y-1 text-white">
+                <li class="px-6 hover:bg-primary-100">
+                  <a href="applicants.html" class="flex items-center py-2 pl-6 ">
+                    Applicant</a>
+                </li>
+                <li class="px-6 hover:bg-primary-100">
+                  <a href="jobs.html" class="flex items-center py-2 pl-6">
+                    Jobs</a>
+                </li>
+                <li class="px-6 hover:bg-primary-100">
+                  <a href="onboard-settings.html" class="flex items-center py-2 pl-6">
+                    Onboard Settings</a>
+                </li>
+              </ul>
+            </div>
           </div>
-      </li>
-                <li class="group" x-data="{ isOpen: true }">
-                  <div @click="isOpen = !isOpen">
-                    <div class="flex items-center justify-between px-6 py-3 text-white group-hover:bg-blue-700">
-                      <a href="#" class="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z">
-                            </path>
-                        </svg>Payroll Run
-                      </a>
-                      <div>
-                        <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
-                          viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                        <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
-                          viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
-                        </svg>
-    
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Dropdown Nav -->
-                  <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
-                    <div>
-                      <ul class="space-y-1 text-white">
-                        <li class="px-6">
-                          <a href="prorated-salary.html" class="flex items-center py-2 pl-6">
-                            Prorated Salary</a>
-                        </li>
-                        <li class="px-6">
-                          <a href="calculate-salary.html" class="flex items-center py-2 pl-6">
-                            Calculate Salary</a>
-                        </li>
-                        <li class="px-6">
-                          <a href="projected-salary.html" class="flex items-center py-2 pl-6">
-                            Projected Salary</a>
-                        </li>
-                        <li class="px-6">
-                          <a href="final-salary.html" class="flex items-center py-2 pl-6">
-                            Final Salary</a>
-                        </li>
-                        <li class="px-6">
-                          <a href="withhold-salary-2.html" class="flex items-center py-2 pl-6">
-                            Withhold Salary</a>
-                        </li>
-                        <li class="px-6">
-                          <a href="stop-payment.html" class="flex items-center py-2 pl-6">
-                            Stop Payment</a>
-                        </li>
-                        
-                        <li class="px-6">
-                          <a href="final-settlement.html" class="flex items-center py-2 pl-6">
-                            Final Settlement</a>
-                        </li>
-                        <li class="px-6">
-                          <a href="payroll-comparison.html" class="flex items-center py-2 pl-6">
-                            Payroll Comparison</a>
-                        </li>
-                        <li class="px-6">
-                          <a href="salary-paid-history-details.html" class="flex items-center py-2 pl-6">
-                            Salary Paid History</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <li class="group hover:bg-primary-100">
-                    <a href="announcement.html" class="flex items-center px-6 py-3 text-white group-hover:bg-blue-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z">
-                            </path>
-                        </svg>Announcement
-                    </a>
-                </li>
-                <li class="group" x-data="{ isOpen: true }">
-                  <div @click="isOpen = !isOpen">
-                    <div class="flex items-center justify-between px-6 py-3 text-white group-hover:bg-blue-700">
-                      <a href="#" class="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" fill="none"
-                      viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
-                      </path>
-                    </svg>Reports
-                      </a>
-                      <div>
-                        <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
-                          viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                        <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
-                          viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
-                        </svg>
-    
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Dropdown Nav -->
-                  <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
-                    <div>
-                      <ul class="space-y-1 text-white">
-                        <li class="px-6">
-                          <a href="reports.html" class="flex items-center py-2 pl-6">
-                            Reports</a>
-                        </li>
-                        <li class="px-6">
-                          <a href="forms.html" class="flex items-center py-2 pl-6">
-                            Government Forms</a>
-                        </li>
-                        <li class="px-6">
-                          <a href="activity-log.html" class="flex items-center py-2 pl-6">
-                           Activity Log</a>
-                        </li>
-                        <li class="px-6">
-                          <a href="whatsapp-log.html" class="flex items-center py-2 pl-6">
-                            Whatsapp Log</a>
-                        </li>
-                        <li class="px-6">
-                          <a href="sms-log.html" class="flex items-center py-2 pl-6">
-                            SMS Log</a>
-                        </li>
-                        <li class="px-6">
-                          <a href="attendance-log.html" class="flex items-center py-2 pl-6">
-                            Attendance Log</a>
-                        </li>
-                        <li class="px-6">
-                          <a href="cron-job-monitoring.html" class="flex items-center py-2 pl-6">
-                            Cron Job Monitoring</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <li class="group hover:bg-primary-100">
-                    <a href="my-profile.html" class="flex items-center px-6 py-3 text-white group-hover:bg-blue-700">
+        </li>
+        <li class="group" x-data="{ isOpen: true }">
+          <div @click="isOpen = !isOpen">
+            <div class="flex items-center justify-between px-6 py-3">
+              <a href="#" class="flex items-center text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
+                  </path>
+                </svg>
+                Attendance
+              </a>
+              <div>
+                <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+                <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                </svg>
 
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-primary-600" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                        </svg>My Profile
-                    </a>
-                </li>
-                <li class="group hover:bg-primary-100">
-                    <a href="mark-attendance-app.html"
-                        class="flex items-center px-6 py-3 text-white group-hover:bg-blue-700">
-
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-primary-600" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>Mark Attendance
-                    </a>
-                </li>
-                <li class="group hover:bg-primary-100">
-                    <a href="my-account.html" class="flex items-center px-6 py-3 text-white group-hover:bg-blue-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6 mr-2 text-primary-600">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
-                        </svg>
-                        Company Profile
-                    </a>
-                </li>
-                <li class="group hover:bg-primary-100">
-                    <a href="settings-2.html" class="flex items-center px-6 py-3 text-white group-hover:bg-blue-700">
-
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-primary-600" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
-                            </path>
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z">
-                            </path>
-                        </svg>Settings
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </aside>
-    <div class="w-full">
-        <div x-cloak x-data="{isSideMenuOpen:false}">
-            <!--Mobile Nav-->
-            <div x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150"
-              x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-              x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100"
-              x-transition:leave-end="opacity-0"
-              class="fixed inset-0 z-30 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"
-              style="display: none;"></div>
-            <aside class="fixed inset-y-0 z-40 flex-shrink-0 space-y-6 overflow-y-auto bg-white w-72 xl:hidden"
-              x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150"
-              x-transition:enter-start="opacity-0 transform -translate-x-20" x-transition:enter-end="opacity-100"
-              x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100"
-              x-transition:leave-end="opacity-0 transform -translate-x-20" @click.away="isSideMenuOpen=false"
-              @keydown.escape="isSideMenuOpen=false" style="display: none;">
-              <div class="mt-2 mb-4">
-                <img src="img/pep_logo_1.png" alt="nithra logo" class="h-10 pl-6">
-                <nav class="space-y-4 text-base">
-                  <ul>
-                    <li class="group hover:bg-blue-100">
-                      <a href="dashboard.html" class="flex items-center px-6 py-3 text-gray-900">
-                        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                          class="mr-3 text-blue-600 group-hover:text-blue-900" xmlns="http://www.w3.org/2000/svg">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
-                          </path>
-                        </svg>Dashboard
-                      </a>
-                    </li>
-                    <li class="group hover:bg-blue-100">
-                      <a href="daily-attendance.html" class="flex items-center px-6 py-3 text-gray-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3 text-blue-600" fill="none"
-                          viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
-                          </path>
-                        </svg>Attendance Master
-                      </a>
-                    </li>
-                    <li class="group" x-data="{ isOpen: true }">
-                      <div @click="isOpen = !isOpen">
-                        <div class="flex items-center justify-between px-6 py-3">
-                          <a href="#" class="flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3 text-blue-600" fill="none"
-                              viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                              <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
-                              </path>
-                            </svg>
-                            Attendance
-                          </a>
-                          <div>
-                            <svg x-show="isOpen" class="w-5 h-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                              viewBox="0 0 24 24" stroke="currentColor">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                            <svg x-show="!isOpen" class="w-5 h-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                              viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
-                            </svg>
-        
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Dropdown Nav -->
-                      <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
-                        <div>
-                          <ul class="space-y-1 text-gray-600">
-                            <li class="px-6 hover:bg-primary-100">
-                              <a href="penalty-management.html" class="flex items-center py-2 pl-6">
-                                Penalty Management</a>
-                            </li>
-                            <li class="px-6 hover:bg-primary-100">
-                              <a href="daily-attendance-detail.html" class="flex items-center py-2 pl-6">
-                                Attendance Summary</a>
-                            </li>
-                            <li class="px-6 hover:bg-primary-100">
-                              <a href="branch-summary.html" class="flex items-center py-2 pl-6">
-                                Branch Summary</a>
-                            </li>
-                            <li class="px-6 hover:bg-primary-100">
-                              <a href="department-summary.html" class="flex items-center py-2 pl-6">
-                                Department Summary</a>
-                            </li>
-                            <li class="px-6 hover:bg-primary-100">
-                              <a href="shift-summary.html" class="flex items-center py-2 pl-6">
-                                Shift Summary</a>
-                            </li>
-                            <li class="px-6 hover:bg-primary-100">
-                              <a href="attendance-muster.html" class="flex items-center py-2 pl-6">
-                                Attendance Muster</a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="group" x-data="{ isOpen: true }">
-                      <div @click="isOpen = !isOpen">
-                        <div class="flex items-center justify-between px-6 py-3">
-                          <a href="#" class="flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3 text-blue-600" fill="none"
-                              viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                              <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
-                              </path>
-                            </svg>
-                            Employees
-                          </a>
-                          <div>
-                            <svg x-show="isOpen" class="w-5 h-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                              viewBox="0 0 24 24" stroke="currentColor">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                            <svg x-show="!isOpen" class="w-5 h-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                              viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
-                            </svg>
-        
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Dropdown Nav -->
-                      <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
-                        <div>
-                          <ul class="space-y-1 text-gray-600">
-                            <li class="px-6 hover:bg-primary-100">
-                              <a href="employee-summary.html" class="flex items-center py-2 pl-6 ">
-                                Employee Master</a>
-                            </li>
-                            <li class="px-6 hover:bg-primary-100">
-                              <a href="bulk-employee-profile.html" class="flex items-center py-2 pl-6">
-                                Employee Profiles</a>
-                            </li>
-                            <li class="px-6 hover:bg-primary-100">
-                              <a href="bulk-employee-payments.html" class="flex items-center py-2 pl-6">
-                                Employee Payments</a>
-                            </li>
-                            <li class="px-6 hover:bg-primary-100">
-                              <a href="shift-board.html" class="flex items-center py-2 pl-6">
-                                Shift Board</a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="group" x-data="{ isOpen: true }">
-                      <div @click="isOpen = !isOpen">
-                          <div class="flex items-center justify-between px-6 py-3">
-                              <a href="#" class="flex items-center text-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
-                                </path>
-                            </svg>
-                                  Approvals
-                              </a>
-                              <div>
-                                  <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                                      fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                          d="M19 9l-7 7-7-7"></path>
-                                  </svg>
-                                  <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                                      fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
-                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                          d="M5 15l7-7 7 7"></path>
-                                  </svg>
-    
-                              </div>
-                          </div>
-                      </div>
-                      <!-- Dropdown Nav -->
-                      <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
-                          <div>
-                              <ul class="space-y-1 text-white">
-                                  <li class="px-6 hover:bg-primary-100">
-                                      <a href="monitor.html" class="flex items-center py-2 pl-6 ">
-                                          Monitor</a>
-                                  </li>
-                                  <li class="px-6 hover:bg-primary-100">
-                                      <a href="my-approvals.html" class="flex items-center py-2 pl-6">
-                                          My Approvals</a>
-                                  </li>
-                                  <li class="px-6 hover:bg-primary-100">
-                                      <a href="workflow.html" class="flex items-center py-2 pl-6">
-                                          Workflow</a>
-                                  </li>
-                              </ul>
-                          </div>
-                      </div>
-                  </li>
-                    <li class="group" x-data="{ isOpen: true }">
-                      <div @click="isOpen = !isOpen">
-                          <div class="flex items-center justify-between px-6 py-3">
-                              <a href="#" class="flex items-center text-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
-                                </path>
-                            </svg>
-                                  Assets
-                              </a>
-                              <div>
-                                  <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                                      fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                          d="M19 9l-7 7-7-7"></path>
-                                  </svg>
-                                  <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                                      fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
-                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                          d="M5 15l7-7 7 7"></path>
-                                  </svg>
-      
-                              </div>
-                          </div>
-                      </div>
-                      <!-- Dropdown Nav -->
-                      <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
-                          <div>
-                              <ul class="space-y-1 text-white">
-                                  <li class="px-6 hover:bg-primary-100">
-                                      <a href="asset-details.html" class="flex items-center py-2 pl-6 ">
-                                          Asset Details</a>
-                                  </li>
-                                  <li class="px-6 hover:bg-primary-100">
-                                      <a href="asset-settings.html" class="flex items-center py-2 pl-6">
-                                          Asset Settings</a>
-                                  </li>
-                              </ul>
-                          </div>
-                      </div>
-                  </li>
-                    
-                    <li class="group" x-data="{ isOpen: true }">
-                      <div @click="isOpen = !isOpen">
-                          <div class="flex items-center justify-between px-6 py-3">
-                              <a href="#" class="flex items-center text-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3 text-blue-600" fill="none"
-                          viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z">
-                          </path>
-                        </svg>
-                                  Payroll Run
-                              </a>
-                              <div>
-                                  <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                                      fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                          d="M19 9l-7 7-7-7"></path>
-                                  </svg>
-                                  <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                                      fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
-                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                          d="M5 15l7-7 7 7"></path>
-                                  </svg>
-      
-                              </div>
-                          </div>
-                      </div>
-                      <!-- Dropdown Nav -->
-                      <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
-                          <div>
-                              <ul class="space-y-1 text-white">
-                                <li class="px-6">
-                                  <a href="prorated-salary.html" class="flex items-center py-2 pl-6">
-                                    Prorated Salary</a>
-                                </li>
-                                <li class="px-6">
-                                  <a href="calculate-salary.html" class="flex items-center py-2 pl-6">
-                                    Calculate Salary</a>
-                                </li>
-                                <li class="px-6">
-                                  <a href="projected-salary.html" class="flex items-center py-2 pl-6">
-                                    Projected Salary</a>
-                                </li>
-                                <li class="px-6">
-                                  <a href="final-salary.html" class="flex items-center py-2 pl-6">
-                                    Final Salary</a>
-                                </li>
-                                <li class="px-6">
-                                  <a href="withhold-salary-2.html" class="flex items-center py-2 pl-6">
-                                    Withhold Salary</a>
-                                </li>
-                                <li class="px-6">
-                                  <a href="stop-payment.html" class="flex items-center py-2 pl-6">
-                                    Stop Payment</a>
-                                </li>
-                                <li class="px-6">
-                                  <a href="final-settlement.html" class="flex items-center py-2 pl-6">
-                                    Final Settlement</a>
-                                </li>
-                                <li class="px-6">
-                                  <a href="payroll-comparison.html" class="flex items-center py-2 pl-6">
-                                    Payroll Comparison</a>
-                                </li>
-                                <li class="px-6">
-                                  <a href="salary-paid-history-details.html" class="flex items-center py-2 pl-6">
-                                    Salary Paid History</a>
-                                </li>
-                              </ul>
-                          </div>
-                      </div>
-                  </li>
-                    <li class="group hover:bg-blue-100">
-                      <a href="announcement.html" class="flex items-center px-6 py-3 text-gray-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3 text-blue-600" fill="none"
-                          viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z">
-                          </path>
-                        </svg>Announcement
-                      </a>
-                    </li>
-                    <li class="group" x-data="{ isOpen: true }">
-                      <div @click="isOpen = !isOpen">
-                        <div class="flex items-center justify-between px-6 py-3">
-                          <a href="#" class="flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-blue-600" fill="none"
-                          viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
-                          </path>
-                        </svg>Reports
-                          </a>
-                          <div>
-                            <svg x-show="isOpen" class="w-5 h-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                              viewBox="0 0 24 24" stroke="currentColor">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                            <svg x-show="!isOpen" class="w-5 h-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                              viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
-                            </svg>
-        
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Dropdown Nav -->
-                      <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
-                        <div>
-                          <ul class="space-y-1 text-gray-600">
-                            <li class="px-6 hover:bg-primary-100">
-                              <a href="reports.html" class="flex items-center py-2 pl-6">
-                                Reports</a>
-                            </li>
-                            <li class="px-6 hover:bg-primary-100">
-                              <a href="forms.html" class="flex items-center py-2 pl-6">
-                                Government Forms</a>
-                            </li>
-                            <li class="px-6 hover:bg-primary-100">
-                              <a href="activity-log.html" class="flex items-center py-2 pl-6">
-                               Activity Log</a>
-                            </li>
-                            <li class="px-6 hover:bg-primary-100">
-                              <a href="whatsapp-log.html" class="flex items-center py-2 pl-6">
-                                Whatsapp Log</a>
-                            </li>
-                            <li class="px-6 hover:bg-primary-100">
-                              <a href="sms-log.html" class="flex items-center py-2 pl-6">
-                                SMS Log</a>
-                            </li>
-                            <li class="px-6">
-                              <a href="cron-job-monitoring.html" class="flex items-center py-2 pl-6">
-                                Cron Job Monitoring</a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="group hover:bg-blue-100">
-                      <a href="notification.html" class="flex items-center px-6 py-3 text-gray-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3 text-blue-600" fill="none"
-                          viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9">
-                          </path>
-                        </svg>Notification
-                      </a>
-                    </li>
-                    <li class="group hover:bg-blue-100">
-                      <a href="my-account.html" class="flex items-center px-6 py-3 text-gray-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                          stroke="currentColor" class="w-6 h-6 mr-3 text-blue-600">
-                          <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
-                        </svg>
-                        Company Profile
-                      </a>
-                    </li>
-                    <li class="group hover:bg-blue-100">
-                      <a href="settings-2.html" class="flex items-center px-6 py-3 text-gray-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3 text-blue-600" fill="none"
-                          viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>Settings
-                      </a>
-                    </li>
-                    <li class="group hover:bg-blue-100">
-                      <a href="settings.html" class="flex items-center px-6 py-3 text-gray-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                          stroke="currentColor" class="w-6 h-6 mr-3 text-blue-600">
-                          <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
-                        </svg>
-                        Logout
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
               </div>
-            </aside>
-        
-            <!-- Trial Period is going on means show the below banner. -->
-            <!-- <div x-data="{ isOpen: true }" x-show="isOpen" class="bg-yellow-100 rounded">
+            </div>
+          </div>
+          <!-- Dropdown Nav -->
+          <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
+            <div>
+              <ul class="space-y-1 text-white">
+                <li class="px-6 hover:bg-primary-100">
+                  <a href="daily-attendance-detail.html" class="flex items-center py-2 pl-6">
+                    Attendance Summary</a>
+                </li>
+
+                <li class="px-6 hover:bg-primary-100">
+                  <a href="daily-attendance-2.html" class="flex items-center py-2 pl-6">
+                    Detailed Attendance</a>
+                </li>
+                <li class="px-6 hover:bg-primary-100">
+                  <a href="attendance-muster.html" class="flex items-center py-2 pl-6">
+                    Attendance Muster</a>
+                </li>
+
+                <li class="px-6 hover:bg-primary-100">
+                  <a href="penalty-management.html" class="flex items-center py-2 pl-6">
+                    Penalty Management</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="group" x-data="{ isOpen: true }">
+          <div @click="isOpen = !isOpen">
+            <div class="flex items-center justify-between px-6 py-3">
+              <a href="#" class="flex items-center text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                  </path>
+                </svg>
+                Employees
+              </a>
+              <div>
+                <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+                <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                </svg>
+
+              </div>
+            </div>
+          </div>
+          <!-- Dropdown Nav -->
+          <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
+            <div>
+              <ul class="space-y-1 text-white">
+                <li class="px-6 hover:bg-primary-100">
+                  <a href="employee-summary-2.html" class="flex items-center py-2 pl-6 ">
+                    Employee Master</a>
+                </li>
+                <li class="px-6 hover:bg-primary-100">
+                  <a href="bulk-employee-profile.html" class="flex items-center py-2 pl-6">
+                    Employee Profiles</a>
+                </li>
+                <li class="px-6 hover:bg-primary-100">
+                  <a href="bulk-employee-payments.html" class="flex items-center py-2 pl-6">
+                    Employee Payments</a>
+                </li>
+                <li class="px-6 hover:bg-primary-100">
+                  <a href="shift-board.html" class="flex items-center py-2 pl-6">
+                    Shift Board</a>
+                </li>
+                <li class="px-6 hover:bg-primary-100">
+                  <a href="bulk-update.html" class="flex items-center py-2 pl-6">
+                    Bulk Update</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+
+        <li class="group" x-data="{ isOpen: true }">
+          <div @click="isOpen = !isOpen">
+            <div class="flex items-center justify-between px-6 py-3">
+              <a href="#" class="flex items-center text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
+                  </path>
+                </svg>
+                Approvals
+              </a>
+              <div>
+                <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+                <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                </svg>
+
+              </div>
+            </div>
+          </div>
+          <!-- Dropdown Nav -->
+          <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
+            <div>
+              <ul class="space-y-1 text-white">
+                <li class="px-6 hover:bg-primary-100">
+                  <a href="monitor.html" class="flex items-center py-2 pl-6 ">
+                    Monitor</a>
+                </li>
+                <li class="px-6 hover:bg-primary-100">
+                  <a href="my-approvals.html" class="flex items-center py-2 pl-6">
+                    My Approvals</a>
+                </li>
+                <li class="px-6 hover:bg-primary-100">
+                  <a href="workflow.html" class="flex items-center py-2 pl-6">
+                    Workflow</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="group" x-data="{ isOpen: true }">
+          <div @click="isOpen = !isOpen">
+            <div class="flex items-center justify-between px-6 py-3">
+              <a href="#" class="flex items-center text-white">
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="mr-3 icon icon-tabler icon-tabler-box" width="24"
+                  height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" fill="none" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
+                  <path d="M12 12l8 -4.5" />
+                  <path d="M12 12l0 9" />
+                  <path d="M12 12l-8 -4.5" />
+                </svg>
+                Assets
+              </a>
+              <div>
+                <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+                <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                </svg>
+
+              </div>
+            </div>
+          </div>
+          <!-- Dropdown Nav -->
+          <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
+            <div>
+              <ul class="space-y-1 text-white">
+                <li class="px-6 hover:bg-primary-100">
+                  <a href="asset-details.html" class="flex items-center py-2 pl-6 ">
+                    Asset Details</a>
+                </li>
+                <li class="px-6 hover:bg-primary-100">
+                  <a href="asset-settings.html" class="flex items-center py-2 pl-6">
+                    Asset Settings</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="group" x-data="{ isOpen: true }">
+          <div @click="isOpen = !isOpen">
+            <div class="flex items-center justify-between px-6 py-3">
+              <a href="#" class="flex items-center text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                Expense
+              </a>
+              <div>
+                <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+                <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                </svg>
+
+              </div>
+            </div>
+          </div>
+          <!-- Dropdown Nav -->
+          <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
+            <div>
+              <ul class="space-y-1 text-white">
+                <li class="px-6 hover:bg-primary-100">
+                  <a href="expense-claims.html" class="flex items-center py-2 pl-6 ">
+                    Expense Claims</a>
+                </li>
+                <li class="px-6 hover:bg-primary-100">
+                  <a href="expense-types.html" class="flex items-center py-2 pl-6">
+                    Expense Settings</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="group hover:bg-primary-100">
+          <a href="live-location.html" class="flex items-center px-6 py-3 text-white group-hover:bg-blue-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mr-4 icon icon-tabler icon-tabler-route" width="20"
+                  height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+                  <path d="M18 5m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+                  <path d="M12 19h4.5a3.5 3.5 0 0 0 0 -7h-8a3.5 3.5 0 0 1 0 -7h3.5"></path>
+                </svg>Field Tracking
+          </a>
+        </li>
+        <li class="group" x-data="{ isOpen: true }">
+          <div @click="isOpen = !isOpen">
+            <div class="flex items-center justify-between px-6 py-3 text-white group-hover:bg-blue-700">
+              <a href="#" class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z">
+                  </path>
+                </svg>Payroll Run
+              </a>
+              <div>
+                <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+                <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                </svg>
+
+              </div>
+            </div>
+          </div>
+          <!-- Dropdown Nav -->
+          <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
+            <div>
+              <ul class="space-y-1 text-white">
+                <li class="px-6">
+                  <a href="prorated-salary.html" class="flex items-center py-2 pl-6">
+                    Prorated Salary</a>
+                </li>
+                <li class="px-6">
+                  <a href="calculate-salary.html" class="flex items-center py-2 pl-6">
+                    Calculate Salary</a>
+                </li>
+                <li class="px-6">
+                  <a href="projected-salary.html" class="flex items-center py-2 pl-6">
+                    Projected Salary</a>
+                </li>
+                <li class="px-6">
+                  <a href="final-salary.html" class="flex items-center py-2 pl-6">
+                    Final Salary</a>
+                </li>
+                <li class="px-6">
+                  <a href="withhold-salary-2.html" class="flex items-center py-2 pl-6">
+                    Withhold Salary</a>
+                </li>
+                <li class="px-6">
+                  <a href="stop-payment.html" class="flex items-center py-2 pl-6">
+                    Stop Payment</a>
+                </li>
+
+                <li class="px-6">
+                  <a href="final-settlement.html" class="flex items-center py-2 pl-6">
+                    Final Settlement</a>
+                </li>
+                <li class="px-6">
+                  <a href="payroll-comparison.html" class="flex items-center py-2 pl-6">
+                    Payroll Comparison</a>
+                </li>
+                <li class="px-6">
+                  <a href="salary-paid-history-details.html" class="flex items-center py-2 pl-6">
+                    Salary Paid History</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="group hover:bg-primary-100">
+          <a href="announcement.html" class="flex items-center px-6 py-3 text-white group-hover:bg-blue-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z">
+              </path>
+            </svg>Announcement
+          </a>
+        </li>
+        <li class="group" x-data="{ isOpen: true }">
+          <div @click="isOpen = !isOpen">
+            <div class="flex items-center justify-between px-6 py-3 text-white group-hover:bg-blue-700">
+              <a href="#" class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                  </path>
+                </svg>Reports
+              </a>
+              <div>
+                <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+                <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                </svg>
+
+              </div>
+            </div>
+          </div>
+          <!-- Dropdown Nav -->
+          <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
+            <div>
+              <ul class="space-y-1 text-white">
+                <li class="px-6">
+                  <a href="reports.html" class="flex items-center py-2 pl-6">
+                    Reports</a>
+                </li>
+                <li class="px-6">
+                  <a href="forms.html" class="flex items-center py-2 pl-6">
+                    Government Forms</a>
+                </li>
+                <li class="px-6">
+                  <a href="activity-log.html" class="flex items-center py-2 pl-6">
+                    Activity Log</a>
+                </li>
+                <li class="px-6">
+                  <a href="whatsapp-log.html" class="flex items-center py-2 pl-6">
+                    Whatsapp Log</a>
+                </li>
+                <li class="px-6">
+                  <a href="sms-log.html" class="flex items-center py-2 pl-6">
+                    SMS Log</a>
+                </li>
+                <li class="px-6">
+                  <a href="attendance-log.html" class="flex items-center py-2 pl-6">
+                    Attendance Log</a>
+                </li>
+                <li class="px-6">
+                  <a href="cron-job-monitoring.html" class="flex items-center py-2 pl-6">
+                    Cron Job Monitoring</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="group hover:bg-primary-100">
+          <a href="my-profile.html" class="flex items-center px-6 py-3 text-white group-hover:bg-blue-700">
+
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-primary-600" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>My Profile
+          </a>
+        </li>
+        <li class="group hover:bg-primary-100">
+          <a href="mark-attendance-app.html" class="flex items-center px-6 py-3 text-white group-hover:bg-blue-700">
+
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-primary-600" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>Mark Attendance
+          </a>
+        </li>
+        <li class="group hover:bg-primary-100">
+          <a href="my-account.html" class="flex items-center px-6 py-3 text-white group-hover:bg-blue-700">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6 mr-2 text-primary-600">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+            </svg>
+            Company Profile
+          </a>
+        </li>
+        <li class="group hover:bg-primary-100">
+          <a href="settings-2.html" class="flex items-center px-6 py-3 text-white group-hover:bg-blue-700">
+
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-primary-600" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+              </path>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z">
+              </path>
+            </svg>Settings
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+  <div class="w-full">
+    <div x-cloak x-data="{isSideMenuOpen:false}">
+      <!--Mobile Nav-->
+      <div x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150"
+        x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="fixed inset-0 z-30 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"
+        style="display: none;"></div>
+      <aside class="fixed inset-y-0 z-40 flex-shrink-0 space-y-6 overflow-y-auto bg-white w-72 xl:hidden"
+        x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150"
+        x-transition:enter-start="opacity-0 transform -translate-x-20" x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0 transform -translate-x-20" @click.away="isSideMenuOpen=false"
+        @keydown.escape="isSideMenuOpen=false" style="display: none;">
+        <div class="mt-2 mb-4">
+          <img src="img/pep_logo_1.png" alt="nithra logo" class="h-10 pl-6">
+          <nav class="space-y-4 text-base">
+            <ul>
+              <li class="group hover:bg-blue-100">
+                <a href="dashboard.html" class="flex items-center px-6 py-3 text-gray-900">
+                  <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    class="mr-3 text-blue-600 group-hover:text-blue-900" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                    </path>
+                  </svg>Dashboard
+                </a>
+              </li>
+              <li class="group hover:bg-blue-100">
+                <a href="daily-attendance.html" class="flex items-center px-6 py-3 text-gray-900">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3 text-blue-600" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
+                    </path>
+                  </svg>Attendance Master
+                </a>
+              </li>
+              <li class="group" x-data="{ isOpen: true }">
+                <div @click="isOpen = !isOpen">
+                  <div class="flex items-center justify-between px-6 py-3">
+                    <a href="#" class="flex items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3 text-blue-600" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
+                        </path>
+                      </svg>
+                      Attendance
+                    </a>
+                    <div>
+                      <svg x-show="isOpen" class="w-5 h-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                      </svg>
+                      <svg x-show="!isOpen" class="w-5 h-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                      </svg>
+
+                    </div>
+                  </div>
+                </div>
+                <!-- Dropdown Nav -->
+                <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
+                  <div>
+                    <ul class="space-y-1 text-gray-600">
+                      <li class="px-6 hover:bg-primary-100">
+                        <a href="penalty-management.html" class="flex items-center py-2 pl-6">
+                          Penalty Management</a>
+                      </li>
+                      <li class="px-6 hover:bg-primary-100">
+                        <a href="daily-attendance-detail.html" class="flex items-center py-2 pl-6">
+                          Attendance Summary</a>
+                      </li>
+                      <li class="px-6 hover:bg-primary-100">
+                        <a href="branch-summary.html" class="flex items-center py-2 pl-6">
+                          Branch Summary</a>
+                      </li>
+                      <li class="px-6 hover:bg-primary-100">
+                        <a href="department-summary.html" class="flex items-center py-2 pl-6">
+                          Department Summary</a>
+                      </li>
+                      <li class="px-6 hover:bg-primary-100">
+                        <a href="shift-summary.html" class="flex items-center py-2 pl-6">
+                          Shift Summary</a>
+                      </li>
+                      <li class="px-6 hover:bg-primary-100">
+                        <a href="attendance-muster.html" class="flex items-center py-2 pl-6">
+                          Attendance Muster</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="group" x-data="{ isOpen: true }">
+                <div @click="isOpen = !isOpen">
+                  <div class="flex items-center justify-between px-6 py-3">
+                    <a href="#" class="flex items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3 text-blue-600" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                        </path>
+                      </svg>
+                      Employees
+                    </a>
+                    <div>
+                      <svg x-show="isOpen" class="w-5 h-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                      </svg>
+                      <svg x-show="!isOpen" class="w-5 h-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                      </svg>
+
+                    </div>
+                  </div>
+                </div>
+                <!-- Dropdown Nav -->
+                <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
+                  <div>
+                    <ul class="space-y-1 text-gray-600">
+                      <li class="px-6 hover:bg-primary-100">
+                        <a href="employee-summary.html" class="flex items-center py-2 pl-6 ">
+                          Employee Master</a>
+                      </li>
+                      <li class="px-6 hover:bg-primary-100">
+                        <a href="bulk-employee-profile.html" class="flex items-center py-2 pl-6">
+                          Employee Profiles</a>
+                      </li>
+                      <li class="px-6 hover:bg-primary-100">
+                        <a href="bulk-employee-payments.html" class="flex items-center py-2 pl-6">
+                          Employee Payments</a>
+                      </li>
+                      <li class="px-6 hover:bg-primary-100">
+                        <a href="shift-board.html" class="flex items-center py-2 pl-6">
+                          Shift Board</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="group" x-data="{ isOpen: true }">
+                <div @click="isOpen = !isOpen">
+                  <div class="flex items-center justify-between px-6 py-3">
+                    <a href="#" class="flex items-center text-white">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
+                        </path>
+                      </svg>
+                      Approvals
+                    </a>
+                    <div>
+                      <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                      </svg>
+                      <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                      </svg>
+
+                    </div>
+                  </div>
+                </div>
+                <!-- Dropdown Nav -->
+                <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
+                  <div>
+                    <ul class="space-y-1 text-white">
+                      <li class="px-6 hover:bg-primary-100">
+                        <a href="monitor.html" class="flex items-center py-2 pl-6 ">
+                          Monitor</a>
+                      </li>
+                      <li class="px-6 hover:bg-primary-100">
+                        <a href="my-approvals.html" class="flex items-center py-2 pl-6">
+                          My Approvals</a>
+                      </li>
+                      <li class="px-6 hover:bg-primary-100">
+                        <a href="workflow.html" class="flex items-center py-2 pl-6">
+                          Workflow</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="group" x-data="{ isOpen: true }">
+                <div @click="isOpen = !isOpen">
+                  <div class="flex items-center justify-between px-6 py-3">
+                    <a href="#" class="flex items-center text-white">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
+                        </path>
+                      </svg>
+                      Assets
+                    </a>
+                    <div>
+                      <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                      </svg>
+                      <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                      </svg>
+
+                    </div>
+                  </div>
+                </div>
+                <!-- Dropdown Nav -->
+                <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
+                  <div>
+                    <ul class="space-y-1 text-white">
+                      <li class="px-6 hover:bg-primary-100">
+                        <a href="asset-details.html" class="flex items-center py-2 pl-6 ">
+                          Asset Details</a>
+                      </li>
+                      <li class="px-6 hover:bg-primary-100">
+                        <a href="asset-settings.html" class="flex items-center py-2 pl-6">
+                          Asset Settings</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+
+              <li class="group" x-data="{ isOpen: true }">
+                <div @click="isOpen = !isOpen">
+                  <div class="flex items-center justify-between px-6 py-3">
+                    <a href="#" class="flex items-center text-white">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3 text-blue-600" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z">
+                        </path>
+                      </svg>
+                      Payroll Run
+                    </a>
+                    <div>
+                      <svg x-show="isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                      </svg>
+                      <svg x-show="!isOpen" class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                      </svg>
+
+                    </div>
+                  </div>
+                </div>
+                <!-- Dropdown Nav -->
+                <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
+                  <div>
+                    <ul class="space-y-1 text-white">
+                      <li class="px-6">
+                        <a href="prorated-salary.html" class="flex items-center py-2 pl-6">
+                          Prorated Salary</a>
+                      </li>
+                      <li class="px-6">
+                        <a href="calculate-salary.html" class="flex items-center py-2 pl-6">
+                          Calculate Salary</a>
+                      </li>
+                      <li class="px-6">
+                        <a href="projected-salary.html" class="flex items-center py-2 pl-6">
+                          Projected Salary</a>
+                      </li>
+                      <li class="px-6">
+                        <a href="final-salary.html" class="flex items-center py-2 pl-6">
+                          Final Salary</a>
+                      </li>
+                      <li class="px-6">
+                        <a href="withhold-salary-2.html" class="flex items-center py-2 pl-6">
+                          Withhold Salary</a>
+                      </li>
+                      <li class="px-6">
+                        <a href="stop-payment.html" class="flex items-center py-2 pl-6">
+                          Stop Payment</a>
+                      </li>
+                      <li class="px-6">
+                        <a href="final-settlement.html" class="flex items-center py-2 pl-6">
+                          Final Settlement</a>
+                      </li>
+                      <li class="px-6">
+                        <a href="payroll-comparison.html" class="flex items-center py-2 pl-6">
+                          Payroll Comparison</a>
+                      </li>
+                      <li class="px-6">
+                        <a href="salary-paid-history-details.html" class="flex items-center py-2 pl-6">
+                          Salary Paid History</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="group hover:bg-blue-100">
+                <a href="announcement.html" class="flex items-center px-6 py-3 text-gray-900">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3 text-blue-600" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z">
+                    </path>
+                  </svg>Announcement
+                </a>
+              </li>
+              <li class="group" x-data="{ isOpen: true }">
+                <div @click="isOpen = !isOpen">
+                  <div class="flex items-center justify-between px-6 py-3">
+                    <a href="#" class="flex items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-blue-600" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                        </path>
+                      </svg>Reports
+                    </a>
+                    <div>
+                      <svg x-show="isOpen" class="w-5 h-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                      </svg>
+                      <svg x-show="!isOpen" class="w-5 h-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                      </svg>
+
+                    </div>
+                  </div>
+                </div>
+                <!-- Dropdown Nav -->
+                <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
+                  <div>
+                    <ul class="space-y-1 text-gray-600">
+                      <li class="px-6 hover:bg-primary-100">
+                        <a href="reports.html" class="flex items-center py-2 pl-6">
+                          Reports</a>
+                      </li>
+                      <li class="px-6 hover:bg-primary-100">
+                        <a href="forms.html" class="flex items-center py-2 pl-6">
+                          Government Forms</a>
+                      </li>
+                      <li class="px-6 hover:bg-primary-100">
+                        <a href="activity-log.html" class="flex items-center py-2 pl-6">
+                          Activity Log</a>
+                      </li>
+                      <li class="px-6 hover:bg-primary-100">
+                        <a href="whatsapp-log.html" class="flex items-center py-2 pl-6">
+                          Whatsapp Log</a>
+                      </li>
+                      <li class="px-6 hover:bg-primary-100">
+                        <a href="sms-log.html" class="flex items-center py-2 pl-6">
+                          SMS Log</a>
+                      </li>
+                      <li class="px-6">
+                        <a href="cron-job-monitoring.html" class="flex items-center py-2 pl-6">
+                          Cron Job Monitoring</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="group hover:bg-blue-100">
+                <a href="notification.html" class="flex items-center px-6 py-3 text-gray-900">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3 text-blue-600" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9">
+                    </path>
+                  </svg>Notification
+                </a>
+              </li>
+              <li class="group hover:bg-blue-100">
+                <a href="my-account.html" class="flex items-center px-6 py-3 text-gray-900">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6 mr-3 text-blue-600">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+                  </svg>
+                  Company Profile
+                </a>
+              </li>
+              <li class="group hover:bg-blue-100">
+                <a href="settings-2.html" class="flex items-center px-6 py-3 text-gray-900">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3 text-blue-600" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>Settings
+                </a>
+              </li>
+              <li class="group hover:bg-blue-100">
+                <a href="settings.html" class="flex items-center px-6 py-3 text-gray-900">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6 mr-3 text-blue-600">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                  </svg>
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- Trial Period is going on means show the below banner. -->
+      <!-- <div x-data="{ isOpen: true }" x-show="isOpen" class="bg-yellow-100 rounded">
                     <div class="px-3 py-3 mx-auto max-w-7xl ">
                       <div class="flex flex-wrap items-start justify-between lg:gap-4">
                         <div class="flex items-start flex-1 w-0">
@@ -1052,9 +956,9 @@
                       </div>
                     </div>
                 </div> -->
-        
-            <!-- The trial period is expired means, show the below banner. -->
-            <!-- <div x-data="{ isOpen: true }" x-show="isOpen" class="bg-red-100 rounded">
+
+      <!-- The trial period is expired means, show the below banner. -->
+      <!-- <div x-data="{ isOpen: true }" x-show="isOpen" class="bg-red-100 rounded">
                     <div class="px-3 py-3 mx-auto max-w-7xl ">
                       <div class="flex flex-wrap items-start justify-between">
                         <div class="flex items-start flex-1 w-0">
@@ -1090,9 +994,9 @@
                       </div>
                     </div>
                   </div> -->
-        
-            <!-- Trial Period is going on means show the below banner. -->
-            <!-- <div x-data="{ isOpen: true }" x-show="isOpen" class="bg-yellow-100 rounded">
+
+      <!-- Trial Period is going on means show the below banner. -->
+      <!-- <div x-data="{ isOpen: true }" x-show="isOpen" class="bg-yellow-100 rounded">
                     <div class="px-3 py-3 mx-auto max-w-7xl ">
                       <div class="flex flex-wrap items-start justify-between lg:gap-4">
                         <div class="flex items-start flex-1 w-0">
@@ -1129,9 +1033,9 @@
                       </div>
                     </div>
                 </div> -->
-        
-            <!-- if the Plan is expired means, show the below banner. -->
-            <!-- <div x-data="{ isOpen: true }" x-show="isOpen" class="bg-red-100 rounded">
+
+      <!-- if the Plan is expired means, show the below banner. -->
+      <!-- <div x-data="{ isOpen: true }" x-show="isOpen" class="bg-red-100 rounded">
                     <div class="px-3 py-3 mx-auto max-w-7xl ">
                       <div class="flex flex-wrap items-start justify-between">
                         <div class="flex items-start flex-1 w-0">
@@ -1168,8 +1072,8 @@
                       </div>
                     </div>
                   </div> -->
-          </div>
     </div>
+  </div>
 </body>
 
 </html>

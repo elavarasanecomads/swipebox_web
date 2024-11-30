@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Customer</title>
+    <title>Add Task</title>
     <link href="output.css" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -18,7 +18,7 @@
             <div class="mx-0 my-4 lg:m-4">
                 <div class="h-full p-4 bg-white border rounded-md lg:p-8">
                     <div class="flex items-center gap-2">
-                        <a href="customers.html">
+                        <a href="tasks.html">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                 class="w-5 h-5">
                                 <path fill-rule="evenodd"
@@ -27,23 +27,86 @@
                             </svg>
                         </a>
                         <div class="flex items-center gap-4">
-                            <h1 class="text-2xl font-bold">Add Customer</h1>
+                            <h1 class="text-2xl font-bold">Add Task</h1>
                         </div>
                     </div>
                     <div class="w-full pt-6 lg:w-3/4">
                         <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">                                                      
-                            <div class="w-full">
-                                <label class="text-sm font-semibold text-gray-600" for="branch">Customer Name</label>
+                            <div class="w-full col-span-2">
+                                <label class="text-sm font-semibold text-gray-600" for="branch">Task Title</label>
                                 <input type="text"
                                     class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                             </div>
-                            <div class="w-full">
-                                <label class="text-sm font-semibold text-gray-600" for="branch">Customer Mobile</label>
+                            <div class="w-full col-span-2">
+                                <label class="text-sm font-semibold text-gray-600" for="branch">Description</label>
                                 <input type="text" value=""
                                     class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                             </div>
+                            <div x-data="dropdown()" class="relative w-full">
+                                <!-- Select-like Box -->
+                                <label class="text-sm font-semibold text-gray-600">Customer Name</label>
+                                <div @click="toggleDropdown()" class="flex items-center justify-between w-full px-4 py-2 mt-1 border border-gray-400 rounded cursor-pointer focus:ring focus:ring-blue-300">
+                                    <span x-text="selected || 'Select a user'" class="text-gray-700">Select a user</span>
+                                    <svg class="w-4 h-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </div>
+                            
+                                <!-- Dropdown Menu -->
+                                <div x-show="open" @click.away="closeDropdown()" class="absolute left-0 z-10 w-full mt-1 bg-white border border-gray-300 rounded shadow-lg" style="display: none;">
+                                    <!-- Search Box -->
+                                    <div class="p-2">
+                                        <input type="text" x-model="search" placeholder="Search users..." class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300">
+                                    </div>
+                            
+                                    <!-- Dropdown Options -->
+                                    <ul class="overflow-auto max-h-40">
+                                        <!-- Display filtered users -->
+                                        <template x-for="user in filteredUsers" :key="user">
+                                            <li @click="selectUser(user)" class="px-4 py-2 cursor-pointer hover:bg-blue-100">
+                                                <span x-text="user"></span>
+                                            </li>
+                                        </template>
+                                            <li @click="selectUser(user)" class="px-4 py-2 cursor-pointer hover:bg-blue-100">
+                                                <span x-text="user">Alice</span>
+                                            </li>
+                                        
+                                            <li @click="selectUser(user)" class="px-4 py-2 cursor-pointer hover:bg-blue-100">
+                                                <span x-text="user">Bob</span>
+                                            </li>
+                                        
+                                            <li @click="selectUser(user)" class="px-4 py-2 cursor-pointer hover:bg-blue-100">
+                                                <span x-text="user">Charlie</span>
+                                            </li>
+                                        
+                                            <li @click="selectUser(user)" class="px-4 py-2 cursor-pointer hover:bg-blue-100">
+                                                <span x-text="user">David</span>
+                                            </li>
+                                        
+                                            <li @click="selectUser(user)" class="px-4 py-2 cursor-pointer hover:bg-blue-100">
+                                                <span x-text="user">Eva</span>
+                                            </li>
+                                        <li @click="selectUser(user)" class="px-4 py-2 cursor-pointer hover:bg-blue-100">
+                                                <span x-text="user">Alice</span>
+                                            </li><li @click="selectUser(user)" class="px-4 py-2 cursor-pointer hover:bg-blue-100">
+                                                <span x-text="user">Bob</span>
+                                            </li><li @click="selectUser(user)" class="px-4 py-2 cursor-pointer hover:bg-blue-100">
+                                                <span x-text="user">Charlie</span>
+                                            </li><li @click="selectUser(user)" class="px-4 py-2 cursor-pointer hover:bg-blue-100">
+                                                <span x-text="user">David</span>
+                                            </li><li @click="selectUser(user)" class="px-4 py-2 cursor-pointer hover:bg-blue-100">
+                                                <span x-text="user">Eva</span>
+                                            </li>
+                            
+                                        <!-- No record found -->
+                                        <li x-show="filteredUsers.length === 0" class="px-4 py-2 text-gray-500" style="display: none;">
+                                            No record found
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>   
                             <div class="w-full">
-                                <label class="text-sm font-semibold text-gray-600" for="branch">Customer Email</label>
+                                <label class="text-sm font-semibold text-gray-600" for="branch">Customer Phone</label>
                                 <input type="text" value=""
                                     class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                             </div>
@@ -52,31 +115,43 @@
                                 <input type="text" value=""
                                     class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                             </div>
-                            <div class="w-full">
-                                <label class="text-sm font-semibold text-gray-600" for="branch">City</label>
-                                <input type="text" value=""
+                            <div class="w-full col-start-1">
+                                <label class="text-sm font-semibold text-gray-600" for="branch">Date</label>
+                                <input type="date" value=""
                                     class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                             </div>
-                            <div class="w-full">
-                                <label class="text-sm font-semibold text-gray-600" for="branch">Pincode</label>
-                                <input type="text" value=""
-                                    class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="w-full">
+                                    <label class="text-sm font-semibold text-gray-600" for="branch">Start Time</label>
+                                    <input type="time" value=""
+                                        class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                </div>
+                                <div class="w-full">
+                                    <label class="text-sm font-semibold text-gray-600" for="branch">Start Time</label>
+                                    <input type="time" value=""
+                                        class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                </div>
                             </div>
-                            <div class="col-span-2 space-y-4">
-                                <div>
-                                    <label class="font-semibold text-gray-600" for="businessname">Search Location On Map</label>
-                                    <div class="relative flex">                            
-                                        <input class="w-full px-4 py-3 pl-12 mt-1 leading-tight text-gray-900 border border-gray-600 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600" name="search" placeholder="Search Location On Map">
-                                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 text-sm leading-5">
-                                            <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                            </svg>               
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <img class="w-full" src="img/map.png" alt="">
-                                </div>
+                            <div class="w-full">
+                                <label class="text-sm font-semibold text-gray-600">Priority</label>
+                                <select id="" name="" autocomplete="" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                    <option>Low</option>
+                                    <option>Medium</option>
+                                    <option>High</option>
+                                    <option>Critical</option>
+                                </select>
+                            </div>
+                            <div class="w-full">
+                                <label class="text-sm font-semibold text-gray-600">Status</label>
+                                <select id="" name="" autocomplete="" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                    <option>To Do</option>
+                                    <option>In Progress</option>
+                                    <option>In Review</option>
+                                    <option>Completed</option>
+                                    <option>On Hold</option>
+                                    <option>Invalid</option>
+                                    <option>Cancelled</option>
+                                </select>
                             </div>
                             <div class="w-full">
                                 <label class="text-sm font-semibold text-gray-600" for="branch">Custom Field 1</label>
