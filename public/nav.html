@@ -741,6 +741,15 @@
                     </ul>
                   </div>
                 </li>
+                <li>
+                  <a 
+                    :class="activePage === 'users.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
+                    class="p-2 px-4 font-semibold rounded-full hover:bg-blue-100 hover:text-blue-600" 
+                    href="users.html" 
+                    @click="activePage = 'users.html'; window.location.href = 'users.html'">
+                    Users
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

@@ -1,0 +1,267 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Form</title>
+    <link href="output.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.5/cdn.js"
+        integrity="sha512-8IPRU0MPrge2KfSxkAtO8pIkaMzThW/MBSvPqcyVisSymLWC986buo27pKAt5mWXmt58dT6jIsw7h8NNugtRwg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+       
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full min-w-0 grow">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+                    <div class="flex items-center gap-4">
+                        <a href="tasks.html" class="flex items-center gap-1 text-sm text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5">
+                                <path fill-rule="evenodd"
+                                    d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <div class="flex items-center gap-4">
+                            <p class="text-2xl font-bold text-gray-900">Create Form</p>
+                        </div>                            
+                    </div>
+                    <div>
+                        <div class="pt-6 space-y-4">
+                            <div>
+                                <div class="w-full lg:w-2/3">
+                                    <label for="" class="w-full text-sm font-semibold text-gray-600">Form Name <span class="text-red-600">*</span></label>
+                                    <input type="text" placeholder="Task Name" 
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                            </div>
+                            <h2 class="text-lg font-bold">Default Fields</h2>
+                            <div class="grid grid-cols-1 gap-4 lg:grid-cols-4">
+                                <div>
+                                    <input type="text" placeholder="Customer Name" 
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                            
+                                <!-- Category Field -->
+                                <div>
+                                    <select 
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        <option value="">Select Type</option>
+                                        <option value="">Text</option>
+                                        <option value="">Dropdown</option>
+                                        <option value="">Date</option>
+                                        <option value="">Phone Number</option>
+                                        <option value="">Email</option>
+                                        <option value="">Number</option>
+                                    </select>
+                                </div>
+                                <div class="lg:pt-5">
+                                    <label
+                                    class="inline-flex items-center px-2">
+                                    <input class="w-4 h-4"
+                                        type="checkbox">
+                                    <span
+                                        class="ml-2 font-semibold text-gray-600">Mandatory Field</span>
+                                </label>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 gap-4 lg:grid-cols-4">
+                                <div>
+                                    <input type="text" placeholder="Customer Mobile" 
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                            
+                                <!-- Category Field -->
+                                <div>
+                                    <select 
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        <option value="">Select Type</option>
+                                        <option value="">Text</option>
+                                        <option value="">Dropdown</option>
+                                        <option value="">Date</option>
+                                        <option value="">Phone Number</option>
+                                        <option value="">Email</option>
+                                        <option value="">Number</option>
+                                    </select>
+                                </div>
+                                <div class="lg:pt-5">
+                                    <label
+                                    class="inline-flex items-center px-2">
+                                    <input class="w-4 h-4"
+                                        type="checkbox">
+                                    <span
+                                        class="ml-2 font-semibold text-gray-600">Mandatory Field</span>
+                                </label>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 gap-4 lg:grid-cols-4">
+                                <div>
+                                    <input type="text" placeholder="Attachment" 
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                            
+                                <!-- Category Field -->
+                                <div>
+                                    <select 
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        <option value="">Select Type</option>
+                                        <option value="">Text</option>
+                                        <option value="">Dropdown</option>
+                                        <option value="">Date</option>
+                                        <option value="">Phone Number</option>
+                                        <option value="">Email</option>
+                                        <option value="">Number</option>
+                                    </select>
+                                </div>
+                                <div class="lg:pt-5">
+                                    <label
+                                    class="inline-flex items-center px-2">
+                                    <input class="w-4 h-4"
+                                        type="checkbox">
+                                    <span
+                                        class="ml-2 font-semibold text-gray-600">Mandatory Field</span>
+                                </label>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 gap-4 lg:grid-cols-4">
+                                <div>
+                                    <input type="text" placeholder="Remarks" 
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                            
+                                <!-- Category Field -->
+                                <div>
+                                    <select 
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        <option value="">Select Type</option>
+                                        <option value="">Text</option>
+                                        <option value="">Dropdown</option>
+                                        <option value="">Date</option>
+                                        <option value="">Phone Number</option>
+                                        <option value="">Email</option>
+                                        <option value="">Number</option>
+                                    </select>
+                                </div>
+                                <div class="lg:pt-5">
+                                    <label
+                                    class="inline-flex items-center px-2">
+                                    <input class="w-4 h-4"
+                                        type="checkbox">
+                                    <span
+                                        class="ml-2 font-semibold text-gray-600">Mandatory Field</span>
+                                </label>
+                                </div>
+                            </div>
+                            <h2 class="text-lg font-bold">Custom Fields</h2>
+                            <div x-data="{ 
+                                fieldType: '', 
+                                dropdownOptions: [], 
+                                newOption: '', 
+                                addOption() {
+                                    const trimmedOption = this.newOption.trim();
+                                    // Check for duplicates before adding
+                                    if (trimmedOption && !this.dropdownOptions.includes(trimmedOption)) {
+                                        this.dropdownOptions.push(trimmedOption);
+                                        this.newOption = ''; // Reset input after adding
+                                    } else {
+                                        alert('Option already exists or is empty.'); // Alert for duplicates or empty option
+                                    }
+                                }
+                            }" 
+                            class="grid grid-cols-1 gap-4 lg:grid-cols-4">
+                        
+                            <!-- Name Field -->
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600">Custom Name 1 <span class="text-red-600">*</span></label>
+                                <input type="text" placeholder="" 
+                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                            </div>
+                        
+                            <!-- Type Field -->
+                            <div>
+                                <label class="text-sm font-semibold text-gray-600">Type <span class="text-red-600">*</span></label>
+                                <select x-model="fieldType"
+                                    class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                    <option value="">Select Type</option>
+                                    <option value="Text">Text</option>
+                                    <option value="Dropdown">Dropdown</option>
+                                    <option value="Date">Date</option>
+                                    <option value="Phone Number">Phone Number</option>
+                                    <option value="Email">Email</option>
+                                    <option value="Number">Number</option>
+                                </select>
+                            </div>
+                        
+                            <!-- Add Options Field (Only visible for Dropdown type) -->
+                            <div x-show="fieldType === 'Dropdown'" class="space-y-2">   
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600">Add Options <span class="text-red-600">*</span></label>
+                                    <!-- Dynamically Generated Dropdown Options -->
+                                    <select class="block w-full px-3 py-3 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        <template x-for="(option, index) in dropdownOptions" :key="index">
+                                            <option :value="option" x-text="option"></option>
+                                        </template>
+                                    </select>
+                                </div>                            
+                               
+                                <div class="flex space-x-2">
+                                    <input type="text" x-model="newOption" placeholder="Enter option"
+                                        class="block w-full px-3 py-3 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                    <button type="button" @click="addOption"
+                                        class="px-4 py-2 text-white bg-green-600 rounded-md">Add</button>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                 <!-- Mandatory Field Checkbox -->
+                            <div class="lg:pt-5">
+                                <label class="inline-flex items-center px-2">
+                                    <input class="w-4 h-4" type="checkbox">
+                                    <span class="ml-2 font-semibold text-gray-600">Mandatory Field</span>
+                                </label>
+                                
+                            </div>
+                                <div class="flex items-center gap-4 pt-5">
+                                    <div>
+                                        <button class="text-red-600"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+                                          </svg>
+                                          </button>
+                                    </div>
+                                    <div>
+                                        <button class="text-blue-600"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
+                                          </svg>
+                                          </button>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="w-full pt-6">
+                            <button class="p-3 font-semibold text-center text-white bg-blue-600 rounded-md w-36">Save</button>
+                        </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+</html>

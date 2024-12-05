@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Builder</title>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-6 bg-gray-100">
+  <div class="grid grid-cols-1 gap-4 lg:grid-cols-2" x-data="formBuilder">
+    <!-- Builder -->
+    <div class="p-6 bg-white rounded shadow">
+      <h2 class="mb-4 text-xl font-bold">Form Builder</h2>
+      <div class="mb-4 space-x-2 space-y-2">
+        <button class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600" @click="addField('heading')">Heading</button>
+        <button class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600" @click="addField('text')">Input Text</button>
+        <button class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600" @click="addField('date')">Date</button>
+        <button class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600" @click="addField('email')">Email</button>
+        <button class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600" @click="addField('phone')">Phone Number</button>
+        <button class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600" @click="addField('number')">Number</button>
+        <button class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600" @click="addField('description')">Description</button>
+        <button class="px-4 py-2 text-white bg-green-500 rounded hover:bg-green-600" @click="addField('select')">Select</button>
+        <button class="px-4 py-2 text-white bg-green-500 rounded hover:bg-green-600" @click="addField('checkbox')">Checkbox</button>
+        <button class="px-4 py-2 text-white bg-green-500 rounded hover:bg-green-600" @click="addField('radio')">Radio Button</button>
+      </div>
+      <div>
+        <template x-for="(field, index) in fields" :key="field.id">
+          <div class="p-4 pb-4 mb-4 border rounded">
+            <div class="flex items-center gap-4">
+              <div class="w-1/2">
+                <input 
+                type="text" 
+                x-model="field.label" 
+                class="w-full p-3 text-sm border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none"
+                placeholder="Field Label">                
+              </div>
+
+              <div class="flex items-center w-1/2 space-x-2">
+                <label>
+                  <input type="checkbox" x-model="field.mandatory" class="mr-1"> Mandatory
+                </label>
+                <button class="text-gray-500 hover:text-gray-700" :disabled="index === 0" @click="moveFieldUp(index)">Up</button>
+                <button class="text-gray-500 hover:text-gray-700" :disabled="index === fields.length - 1" @click="moveFieldDown(index)">Down</button>
+                <button class="text-red-500 hover:text-red-700" @click="removeField(index)">Delete</button>
+              </div>
+            </div>
+            <template x-if="['select', 'checkbox', 'radio'].includes(field.type)">
+              <div class="mt-2">
+                <h4 class="mb-2 text-sm font-bold">Options</h4>
+                <template x-for="(option, optionIndex) in field.options" :key="optionIndex">
+                  <div class="flex items-center mb-2 space-x-2">
+                    <input 
+                      type="text" 
+                      x-model="field.options[optionIndex]" 
+                      class="w-full text-sm border-b border-gray-300 focus:border-blue-500 focus:outline-none"
+                      placeholder="Option">
+                    <button 
+                      class="text-red-500 hover:text-red-700" 
+                      @click="removeOption(field, optionIndex)">Delete</button>
+                  </div>
+                </template>
+                <button 
+                  class="px-4 py-2 mt-2 text-white bg-blue-500 rounded hover:bg-blue-600" 
+                  @click="addOption(field)">Add Option</button>
+              </div>
+            </template>
+          </div>
+        </template>
+      </div>
+    </div>
+
+    <!-- Preview -->
+    <div class="p-6 bg-white rounded shadow">
+      <h2 class="mb-4 text-xl font-bold">Form Preview</h2>
+      <form>
+        <template x-for="field in fields" :key="field.id">
+          <div class="mb-4">
+            <!-- Heading -->
+            <template x-if="field.type === 'heading'">
+              <h3 class="text-lg font-semibold" x-text="field.label"></h3>
+            </template>
+
+            <!-- Input Fields -->
+            <template x-if="['text', 'date', 'email', 'phone', 'number'].includes(field.type)">
+              <label class="block mb-1">
+                <span>
+                  <span x-text="field.label"></span>
+                  <span x-show="field.mandatory" class="text-red-600">*</span>
+                </span>
+                <input :type="field.type" class="w-full p-2 border rounded" :required="field.mandatory">
+              </label>
+            </template>
+
+            <!-- Description -->
+            <template x-if="field.type === 'description'">
+              <textarea class="w-full p-2 border rounded" :required="field.mandatory"></textarea>
+            </template>
+
+            <!-- Select -->
+            <template x-if="field.type === 'select'">
+              <label class="block mb-1">
+                <span>
+                  <span x-text="field.label"></span>
+                  <span x-show="field.mandatory" class="text-red-600">*</span>
+                </span>
+                <select class="w-full p-2 border rounded" :required="field.mandatory">
+                  <template x-for="option in field.options" :key="option">
+                    <option x-text="option"></option>
+                  </template>
+                </select>
+              </label>
+            </template>
+
+            <!-- Checkbox -->
+            <template x-if="field.type === 'checkbox'">
+              <label class="block mb-1">
+                <span x-text="field.label"></span>
+                <span x-show="field.mandatory" class="text-red-600">*</span>
+                <div class="mt-1">
+                  <template x-for="option in field.options" :key="option">
+                    <label class="inline-flex items-center space-x-2">
+                      <input type="checkbox" class="border-gray-300">
+                      <span x-text="option"></span>
+                    </label>
+                  </template>
+                </div>
+              </label>
+            </template>
+
+            <!-- Radio -->
+            <template x-if="field.type === 'radio'">
+              <label class="block mb-1">
+                <span x-text="field.label"></span>
+                <span x-show="field.mandatory" class="text-red-600">*</span>
+                <div class="mt-1">
+                  <template x-for="option in field.options" :key="option">
+                    <label class="inline-flex items-center space-x-2">
+                      <input type="radio" name="radio" class="border-gray-300">
+                      <span x-text="option"></span>
+                    </label>
+                  </template>
+                </div>
+              </label>
+            </template>
+          </div>
+        </template>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const formBuilder = () => ({
+      fields: [],
+      addField(type) {
+        const fieldTypeLabels = {
+          heading: 'Heading',
+          text: 'Text Field',
+          date: 'Date Field',
+          email: 'Email Field',
+          phone: 'Phone Number',
+          number: 'Number Field',
+          description: 'Description Field',
+          select: 'Dropdown Field',
+          checkbox: 'Checkbox Field',
+          radio: 'Radio Field'
+        };
+        this.fields.push({
+          id: Date.now(),
+          type: type,
+          label: fieldTypeLabels[type],
+          mandatory: false,
+          options: ['Option 1', 'Option 2'] // Default options for select, checkbox, and radio fields
+        });
+      },
+      addOption(field) {
+        field.options.push(`Option ${field.options.length + 1}`);
+      },
+      removeOption(field, index) {
+        field.options.splice(index, 1);
+      },
+      removeField(index) {
+        this.fields.splice(index, 1);
+      },
+      moveFieldUp(index) {
+        if (index > 0) {
+          const temp = this.fields[index];
+          this.fields[index] = this.fields[index - 1];
+          this.fields[index - 1] = temp;
+        }
+      },
+      moveFieldDown(index) {
+        if (index < this.fields.length - 1) {
+          const temp = this.fields[index];
+          this.fields[index] = this.fields[index + 1];
+          this.fields[index + 1] = temp;
+        }
+      }
+      
+    });
+  </script>
+</body>
+</html>
