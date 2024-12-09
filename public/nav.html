@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nav</title>
   <link href="output.css" rel="stylesheet">
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
@@ -67,7 +66,7 @@
               <!-- Dropdown Nav -->
               <div :class="isOpen ? 'hidden' : 'flex' " class="flex flex-col">
                 <div>
-                  <ul class="space-y-1 text-gray-600">                   
+                  <ul class="space-y-1 text-gray-600">
                     <li class="px-6 hover:bg-primary-100">
                       <a href="daily-attendance-detail.html" class="flex items-center py-2 pl-6">
                         Attendance Summary</a>
@@ -131,8 +130,8 @@
                     </li>
                     <li class="px-6 hover:bg-primary-100">
                       <a href="shift-board.html" class="flex items-center py-2 pl-6">
-                          Shift Board</a>
-                  </li>
+                        Shift Board</a>
+                    </li>
                     <li class="px-6 hover:bg-primary-100">
                       <a href="bulk-update.html" class="flex items-center py-2 pl-6">
                         Bulk Update</a>
@@ -151,11 +150,13 @@
                 </svg>Approvals
               </a>
             </li>
-            
+
             <li class="group hover:bg-blue-100">
               <a href="workflow.html" class="flex items-center px-6 py-3 text-gray-900">
-                <svg xmlns="http://www.w3.org/2000/svg" class="mr-3 text-blue-600 icon icon-tabler icon-tabler-subtask" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mr-3 text-blue-600 icon icon-tabler icon-tabler-subtask"
+                  width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <path d="M6 9l6 0" />
                   <path d="M4 5l4 0" />
                   <path d="M6 5v11a1 1 0 0 0 1 1h5" />
@@ -169,12 +170,12 @@
                 <div class="flex items-center justify-between px-6 py-3 text-blue-600">
                   <a href="#" class="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3 text-blue-600" fill="none"
-                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z">
-                  </path>
-                </svg>
-                <span class="text-gray-900">Payroll Run</span>
+                      viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z">
+                      </path>
+                    </svg>
+                    <span class="text-gray-900">Payroll Run</span>
                   </a>
                   <div>
                     <svg x-show="isOpen" class="w-5 h-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -216,7 +217,7 @@
                     <li class="px-6">
                       <a href="stop-payment.html" class="flex items-center py-2 pl-6">
                         Stop Payment</a>
-                    </li>                    
+                    </li>
                     <li class="px-6">
                       <a href="final-settlement.html" class="flex items-center py-2 pl-6">
                         Final Settlement</a>
@@ -246,26 +247,26 @@
 
             <li class="group hover:bg-blue-100">
               <a href="help.html" class="flex items-center px-6 py-3 text-gray-900">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24"
-                  stroke="currentColor" stroke-width="2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-blue-600" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round"
                     d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>Help
               </a>
             </li>
-            
-           
+
+
             <li class="group" x-data="{ isOpen: true }">
               <div @click="isOpen = !isOpen">
                 <div class="flex items-center justify-between px-6 py-3 text-blue-600">
                   <a href="#" class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" fill="none"
-                  viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
-                  </path>
-                </svg>
-                <span class="text-gray-900">Reports</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                      </path>
+                    </svg>
+                    <span class="text-gray-900">Reports</span>
                   </a>
                   <div>
                     <svg x-show="isOpen" class="w-5 h-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -294,7 +295,7 @@
                     </li>
                     <li class="px-6">
                       <a href="activity-log.html" class="flex items-center py-2 pl-6">
-                       Activity Log</a>
+                        Activity Log</a>
                     </li>
                     <li class="px-6">
                       <a href="whatsapp-log.html" class="flex items-center py-2 pl-6">
@@ -305,178 +306,177 @@
                         SMS Log</a>
                     </li>
                     <li class="px-6"></li>
-                      <a href="attendance-log.html" class="flex items-center py-2 pl-6">
-                        Attendance Log</a>
-                    </li>
-                    <li class="px-6">
-                      <a href="cron-job-monitoring.html" class="flex items-center py-2 pl-6">
-                        Cron Job Monitoring</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+                    <a href="attendance-log.html" class="flex items-center py-2 pl-6">
+                      Attendance Log</a>
             </li>
-            <li class="group hover:bg-blue-100">
-              <a href="notification.html" class="flex items-center px-6 py-3 text-gray-900">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3 text-blue-600" fill="none"
-                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9">
-                  </path>
-                </svg>Notification
-              </a>
-            </li>
-            <li class="group hover:bg-blue-100">
-              <a href="my-account.html" class="flex items-center px-6 py-3 text-gray-900">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                  stroke="currentColor" class="w-6 h-6 mr-3 text-blue-600">
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
-                </svg>
-                Company Profile
-              </a>
-            </li>
-            <li class="group hover:bg-blue-100">
-              <a href="settings-2.html" class="flex items-center px-6 py-3 text-gray-900">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3 text-blue-600" fill="none"
-                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>Settings
-              </a>
-            </li>
-            <li class="group hover:bg-blue-100">
-              <a href="settings.html" class="flex items-center px-6 py-3 text-gray-900">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                  stroke="currentColor" class="w-6 h-6 mr-3 text-blue-600">
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
-                </svg>
-                Logout
-              </a>
+            <li class="px-6">
+              <a href="cron-job-monitoring.html" class="flex items-center py-2 pl-6">
+                Cron Job Monitoring</a>
             </li>
           </ul>
-        </nav>
       </div>
-    </aside>
-    <div
-      class="w-full px-4 py-3 mx-auto bg-white border-b shadow lg:py-4 md:max-w-full lg:max-w-screen-full md:px-24 lg:px-8">
+  </div>
+  </li>
+  <li class="group hover:bg-blue-100">
+    <a href="notification.html" class="flex items-center px-6 py-3 text-gray-900">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3 text-blue-600" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9">
+        </path>
+      </svg>Notification
+    </a>
+  </li>
+  <li class="group hover:bg-blue-100">
+    <a href="my-account.html" class="flex items-center px-6 py-3 text-gray-900">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="w-6 h-6 mr-3 text-blue-600">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+      </svg>
+      Company Profile
+    </a>
+  </li>
+  <li class="group hover:bg-blue-100">
+    <a href="settings-2.html" class="flex items-center px-6 py-3 text-gray-900">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3 text-blue-600" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>Settings
+    </a>
+  </li>
+  <li class="group hover:bg-blue-100">
+    <a href="settings.html" class="flex items-center px-6 py-3 text-gray-900">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="w-6 h-6 mr-3 text-blue-600">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+      </svg>
+      Logout
+    </a>
+  </li>
+  </ul>
+  </nav>
+  </div>
+  </aside>
+  <div
+    class="w-full px-4 py-3 mx-auto bg-white border-b shadow lg:py-4 md:max-w-full lg:max-w-screen-full md:px-24 lg:px-8">
 
-      <!--Desktop Nav-->
-      <nav class="relative flex items-center justify-between">
-        <div class="flex items-center">
-          <div class="lg:hidden">
-            <img src="img/pep_logo_1.png" class="h-10" alt="">
-          </div>
+    <!--Desktop Nav-->
+    <nav class="relative flex items-center justify-between">
+      <div class="flex items-center">
+        <div class="lg:hidden">
+          <img src="img/pep_logo_1.png" class="h-10" alt="">
         </div>
-        <div class="hidden lg:block">
-          <div class="flex items-center gap-2">
-            <div class="relative inline-block">
-              <button>
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600" viewBox="0 0 20 20"
-                  fill="currentColor">
-                  <path
-                    d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z">
-                  </path>
-                </svg>
-              </button>
-              <div class="absolute top-0 right-0"><span class="flex w-3 h-3 ">
-                  <span
-                    class="absolute inline-flex w-full h-full bg-red-400 rounded-full opacity-75 animate-ping"></span>
-                  <span class="relative inline-flex w-3 h-3 bg-red-500 border-2 border-white rounded-full"></span>
-                </span></div>
-            </div>
-            <div class="px-2">
-              <a class="" href="notification.html">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600" viewBox="0 0 20 20"
-                  fill="currentColor">
-                  <path
-                    d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
-                </svg>
-              </a>
-            </div>
-            <div class="px-2">
-              <a href="help.html">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24"
-                  stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </a>
-            </div>
-            <div class="relative px-2 text-gray-600" x-data="{ isOpen: false }">
-              <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
-                class="flex items-center focus:outline-none">
-                <img src="https://www.adobe.com/content/dam/offers-homepage/us/en/homepage/twitter_adobe.png"
-                  alt="avatar" class="w-8 h-8 rounded-full">
-                <span class="px-1 text-sm font-medium">Adobe Corporation</span>
-                <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                  <path d="M15.3 9.3a1 1 0 0 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4l3.3 3.29 3.3-3.3z"
-                    class="heroicon-ui"></path>
-                </svg>
-              </button>
-              <ul x-show="isOpen" @click.away="isOpen = false"
-                class="absolute right-0 z-20 py-1 mt-2 overflow-hidden font-normal bg-white border rounded shadow w-72">
-                <li class="border-b divide-y">
-                  <div class="flex items-start gap-4 p-2 cursor-pointer">
-                    <div>
-                      <img class="w-10 h-10 rounded-full"
-                        src="https://www.adobe.com/content/dam/offers-homepage/us/en/homepage/twitter_adobe.png" alt="">
-                    </div>
-                    <div>
-                      <p class="font-medium">Adobe Corporation</p>
-                      <span class="text-xs text-gray-600">Id : 687676EB89
-                      </span>
+      </div>
+      <div class="hidden lg:block">
+        <div class="flex items-center gap-2">
+          <div class="relative inline-block">
+            <button>
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path
+                  d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z">
+                </path>
+              </svg>
+            </button>
+            <div class="absolute top-0 right-0"><span class="flex w-3 h-3 ">
+                <span class="absolute inline-flex w-full h-full bg-red-400 rounded-full opacity-75 animate-ping"></span>
+                <span class="relative inline-flex w-3 h-3 bg-red-500 border-2 border-white rounded-full"></span>
+              </span></div>
+          </div>
+          <div class="px-2">
+            <a class="" href="notification.html">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path
+                  d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
+              </svg>
+            </a>
+          </div>
+          <div class="px-2">
+            <a href="help.html">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </a>
+          </div>
+          <div class="relative px-2 text-gray-600" x-data="{ isOpen: false }">
+            <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
+              class="flex items-center focus:outline-none">
+              <img src="https://www.adobe.com/content/dam/offers-homepage/us/en/homepage/twitter_adobe.png" alt="avatar"
+                class="w-8 h-8 rounded-full">
+              <span class="px-1 text-sm font-medium">Adobe Corporation</span>
+              <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                <path d="M15.3 9.3a1 1 0 0 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4l3.3 3.29 3.3-3.3z"
+                  class="heroicon-ui"></path>
+              </svg>
+            </button>
+            <ul x-show="isOpen" @click.away="isOpen = false"
+              class="absolute right-0 z-20 py-1 mt-2 overflow-hidden font-normal bg-white border rounded shadow w-72">
+              <li class="border-b divide-y">
+                <div class="flex items-start gap-4 p-2 cursor-pointer">
+                  <div>
+                    <img class="w-10 h-10 rounded-full"
+                      src="https://www.adobe.com/content/dam/offers-homepage/us/en/homepage/twitter_adobe.png" alt="">
+                  </div>
+                  <div>
+                    <p class="font-medium">Adobe Corporation</p>
+                    <span class="text-xs text-gray-600">Id : 687676EB89
+                    </span>
 
-                      <div class="py-2 pt-4">
-                        <a class="p-1 px-4 text-xs font-semibold text-gray-900 bg-gray-100 border border-gray-300 rounded-md"
-                          href="manage-organization.html">Manage Organization</a>
-                      </div>
+                    <div class="py-2 pt-4">
+                      <a class="p-1 px-4 text-xs font-semibold text-gray-900 bg-gray-100 border border-gray-300 rounded-md"
+                        href="manage-organization.html">Manage Organization</a>
                     </div>
                   </div>
-                  <div class="flex items-start gap-4 p-2 cursor-pointer">
-                    <div>
-                      <img class="w-10 h-10 rounded-full"
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png"
-                        alt="">
-                    </div>
-                    <div>
-                      <p class="font-medium">Google INC</p>
-                      <span class="text-xs text-gray-600">Id : 687676EB90
-                      </span>
-                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-2 cursor-pointer">
+                  <div>
+                    <img class="w-10 h-10 rounded-full"
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png"
+                      alt="">
                   </div>
-                </li>
-                <li class="border-t group hover:bg-indigo-100">
-                  <a href="logout.html" class="flex items-center px-3 py-3 group-hover:text-indigo-800">
-                    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                      viewBox="0 0 24 24" class="mr-3 text-gray-600 text-blue-600 group-hover:text-indigo-800">
-                      <path d="M0 0h24v24H0z" fill="none"></path>
-                      <path
-                        d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z">
-                      </path>
-                    </svg>Sign out
-                  </a>
-                </li>
-              </ul>
-            </div>
+                  <div>
+                    <p class="font-medium">Google INC</p>
+                    <span class="text-xs text-gray-600">Id : 687676EB90
+                    </span>
+                  </div>
+                </div>
+              </li>
+              <li class="border-t group hover:bg-indigo-100">
+                <a href="logout.html" class="flex items-center px-3 py-3 group-hover:text-indigo-800">
+                  <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    class="mr-3 text-gray-600 text-blue-600 group-hover:text-indigo-800">
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z">
+                    </path>
+                  </svg>Sign out
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
-        <div class="flex items-center gap-2 lg:hidden">
-          <button @click="isSideMenuOpen=true" aria-label="Open Menu" title="Open Menu"
-            class="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline">
-            <svg class="w-5 h-5 text-gray-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </button>
-        </div>
-      </nav>
-    </div>
+      </div>
+      <div class="flex items-center gap-2 lg:hidden">
+        <button @click="isSideMenuOpen=true" aria-label="Open Menu" title="Open Menu"
+          class="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline">
+          <svg class="w-5 h-5 text-gray-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </div>
 
-    <!-- Trial Period is going on means show the below banner. -->
-    <!-- <div x-data="{ isOpen: true }" x-show="isOpen" class="bg-yellow-100 rounded">
+  <!-- Trial Period is going on means show the below banner. -->
+  <!-- <div x-data="{ isOpen: true }" x-show="isOpen" class="bg-yellow-100 rounded">
             <div class="px-3 py-3 mx-auto max-w-7xl ">
               <div class="flex flex-wrap items-start justify-between lg:gap-4">
                 <div class="flex items-start flex-1 w-0">
@@ -514,8 +514,8 @@
             </div>
         </div> -->
 
-    <!-- The trial period is expired means, show the below banner. -->
-    <!-- <div x-data="{ isOpen: true }" x-show="isOpen" class="bg-red-100 rounded">
+  <!-- The trial period is expired means, show the below banner. -->
+  <!-- <div x-data="{ isOpen: true }" x-show="isOpen" class="bg-red-100 rounded">
             <div class="px-3 py-3 mx-auto max-w-7xl ">
               <div class="flex flex-wrap items-start justify-between">
                 <div class="flex items-start flex-1 w-0">
@@ -552,8 +552,8 @@
             </div>
           </div> -->
 
-    <!-- Trial Period is going on means show the below banner. -->
-    <!-- <div x-data="{ isOpen: true }" x-show="isOpen" class="bg-yellow-100 rounded">
+  <!-- Trial Period is going on means show the below banner. -->
+  <!-- <div x-data="{ isOpen: true }" x-show="isOpen" class="bg-yellow-100 rounded">
             <div class="px-3 py-3 mx-auto max-w-7xl ">
               <div class="flex flex-wrap items-start justify-between lg:gap-4">
                 <div class="flex items-start flex-1 w-0">
@@ -591,172 +591,204 @@
             </div>
         </div> -->
 
-    <!-- if the Plan is expired means, show the below banner. -->
-    <div x-data="{ isOpen: true }" x-show="isOpen" class="bg-red-100 rounded">
-            <div class="px-3 py-3 mx-auto max-w-7xl ">
-              <div class="flex flex-wrap items-start justify-between">
-                <div class="flex items-start flex-1 w-0">
-                  <div class="flex flex-col ml-3">
-                    <div class="flex items-center gap-2">
-                      <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                          class="w-6 h-6 text-red-600">
-                          <path fill-rule="evenodd"
-                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z"
-                            clip-rule="evenodd" />
-                        </svg>
-                      </div>
-                      <p class="font-bold">"Notice: Your Plan Has Expired – Renewal Required!"</p>
-                    </div>
-                    <p class="pt-2 text-sm text-gray-600 lg:pt-1 lg:pl-8">"Your ' Plan Name ' plan expired on 'date'. To keep enjoying all the benefits of 'Plan Name', please renew your plan today!
-                        "</p>
-                  </div>
-                </div>
-                <div class="flex-shrink-0 order-3 w-full mt-2 sm:order-2 sm:mt-0 sm:w-auto">
-                  <a href="plan-details.html"
-                    class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700">Renew
-                    Now</a>
-                </div>
-                <div class="flex-shrink-0 order-2 sm:order-3 sm:ml-3">
-                  <button x-on:click="isOpen = false" type="button"
-                    class="flex p-2 -mt-2 -mr-1 rounded-md lg:mt-0 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2">
-                    <span class="sr-only">Dismiss</span>
-                    <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                      viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
-                </div>
+  <!-- if the Plan is expired means, show the below banner. -->
+  <div x-data="{ isOpen: true }" x-show="isOpen" class="bg-red-100 rounded">
+    <div class="px-3 py-3 mx-auto max-w-7xl ">
+      <div class="flex flex-wrap items-start justify-between">
+        <div class="flex items-start flex-1 w-0">
+          <div class="flex flex-col ml-3">
+            <div class="flex items-center gap-2">
+              <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                  class="w-6 h-6 text-red-600">
+                  <path fill-rule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z"
+                    clip-rule="evenodd" />
+                </svg>
               </div>
+              <p class="font-bold">"Notice: Your Plan Has Expired – Renewal Required!"</p>
             </div>
+            <p class="pt-2 text-sm text-gray-600 lg:pt-1 lg:pl-8">"Your ' Plan Name ' plan expired on 'date'. To keep
+              enjoying all the benefits of 'Plan Name', please renew your plan today!
+              "</p>
           </div>
+        </div>
+        <div class="flex-shrink-0 order-3 w-full mt-2 sm:order-2 sm:mt-0 sm:w-auto">
+          <a href="plan-details.html"
+            class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700">Renew
+            Now</a>
+        </div>
+        <div class="flex-shrink-0 order-2 sm:order-3 sm:ml-3">
+          <button x-on:click="isOpen = false" type="button"
+            class="flex p-2 -mt-2 -mr-1 rounded-md lg:mt-0 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2">
+            <span class="sr-only">Dismiss</span>
+            <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-          <div x-data="{ activePage: window.location.pathname.split('/').pop() || 'timeline' }" class="bg-white rounded">
-            <div class="px-3 py-3 mx-auto max-w-7xl">
-              <ul class="flex flex-row items-center gap-4">
-                <!-- Live Location -->
-                <li>
-                  <a 
-                    :class="activePage === 'live-location.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
-                    class="p-2 px-4 font-semibold rounded-full hover:bg-blue-100 hover:text-blue-600" 
-                    href="live-location.html" 
-                    @click="activePage = 'live-location.html'; window.location.href = 'live-location.html'">
-                    Live Location
-                  </a>
-                </li>
-          
-                <!-- Timeline -->
-                <li>
-                  <a 
-                    :class="activePage === 'timeline.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
-                    class="p-2 px-4 font-semibold rounded-full hover:bg-blue-100 hover:text-blue-600" 
-                    href="timeline.html" 
-                    @click="activePage = 'timeline.html'; window.location.href = 'timeline.html'">
-                    Timeline
-                  </a>
-                </li>
-          
-                <!-- Customers Dropdown -->
-                <li>
-                  <div 
-                    x-data="{ isOpen: false }" 
-                    class="relative">
-                    <button 
-                      @click="isOpen = !isOpen" 
-                      @keydown.escape="isOpen = false"
-                      class="flex items-center font-semibold focus:outline-none"
-                      :class="activePage.startsWith('customers') ? 'bg-blue-100 text-blue-600 p-2 px-4 rounded-full' : 'text-gray-900'">
-                      Customers
-                    </button>
-                    <!-- Dropdown Menu -->
-                    <ul 
-                      x-show="isOpen" 
-                      @click.away="isOpen = false"
-                      class="absolute left-0 z-20 py-1 mt-2 overflow-hidden font-normal bg-white border rounded shadow w-60">
-                      <li>
-                        <a 
-                          :class="activePage === 'customers.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
-                          class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" 
-                          href="customers.html" 
-                          @click="activePage = 'customers.html'; window.location.href = 'customers.html'">
-                          All Customers
-                        </a>
-                      </li>
-                      <li>
-                        <a 
-                          :class="activePage === 'customers-custom-fields.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
-                          class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" 
-                          href="customers-custom-fields.html" 
-                          @click="activePage = 'customers-custom-fields.html'; window.location.href = 'customers-custom-fields.html'">
-                          Customer Custom Field
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-          
-                <!-- Tasks Dropdown -->
-                <li>
-                  <div 
-                    x-data="{ isOpen: false }" 
-                    class="relative">
-                    <button 
-                      @click="isOpen = !isOpen" 
-                      @keydown.escape="isOpen = false"
-                      class="flex items-center font-semibold focus:outline-none"
-                      :class="activePage.startsWith('tasks') ? 'bg-blue-100 text-blue-600 p-2 px-4 rounded-full' : 'text-gray-900'">
-                      Tasks
-                    </button>
-                    <!-- Dropdown Menu -->
-                    <ul 
-                      x-show="isOpen" 
-                      @click.away="isOpen = false"
-                      class="absolute left-0 z-20 py-1 mt-2 overflow-hidden font-normal bg-white border rounded shadow w-60">
-                      <li>
-                        <a 
-                          :class="activePage === 'tasks.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
-                          class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" 
-                          href="tasks.html" 
-                          @click="activePage = 'tasks.html'; window.location.href = 'tasks.html'">
-                          All Tasks
-                        </a>
-                      </li>
-                      <li>
-                        <a 
-                          :class="activePage === 'task-custom-fields.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
-                          class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" 
-                          href="task-custom-fields.html" 
-                          @click="activePage = 'task-custom-fields.html'; window.location.href = 'task-custom-fields.html'">
-                          Task Custom Field
-                        </a>
-                      </li>
-                      <li>
-                        <a 
-                          :class="activePage === 'task-settings.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
-                          class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" 
-                          href="task-settings.html" 
-                          @click="activePage = 'task-settings.html'; window.location.href = 'task-settings.html'">
-                          Task Settings
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li>
-                  <a 
-                    :class="activePage === 'users.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
-                    class="p-2 px-4 font-semibold rounded-full hover:bg-blue-100 hover:text-blue-600" 
-                    href="users.html" 
-                    @click="activePage = 'users.html'; window.location.href = 'users.html'">
-                    Users
-                  </a>
-                </li>
-              </ul>
-            </div>
+  <div x-data="{ activePage: window.location.pathname.split('/').pop() || 'timeline' }" class="bg-white rounded">
+    <div class="px-3 py-3 mx-auto max-w-7xl">
+      <ul class="flex flex-row items-center gap-4">
+        <!-- Static Links -->
+        <li>
+          <a 
+            :class="activePage === 'live-location.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
+            class="p-2 px-4 font-semibold rounded-full hover:bg-blue-100 hover:text-blue-600" 
+            href="live-location.html" 
+            @click="activePage = 'live-location.html'">
+            Live Location
+          </a>
+        </li>
+        <li>
+          <a 
+            :class="activePage === 'timeline.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
+            class="p-2 px-4 font-semibold rounded-full hover:bg-blue-100 hover:text-blue-600" 
+            href="timeline.html" 
+            @click="activePage = 'timeline.html'">
+            Timeline
+          </a>
+        </li>        
+  
+        <!-- Customers Dropdown -->
+        <li>
+          <div x-data="{ isOpen: false }" class="relative">
+            <button 
+              @click="isOpen = !isOpen" 
+              @keydown.escape="isOpen = false"
+              class="flex items-center font-semibold focus:outline-none"
+              :class="activePage.startsWith('customers') ? 'bg-blue-100 text-blue-600 p-2 px-4 rounded-full' : 'text-gray-900'">
+              Customers
+            </button>
+            <ul 
+              x-show="isOpen" 
+              @click.away="isOpen = false"
+              class="absolute left-0 z-20 py-1 mt-2 overflow-hidden font-normal bg-white border rounded shadow w-60">
+              <li>
+                <a 
+                  :class="activePage === 'customers.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
+                  class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" 
+                  href="customers.html" 
+                  @click="activePage = 'customers.html'">
+                  All Customers
+                </a>
+              </li>
+              <li>
+                <a 
+                  :class="activePage === 'customers-custom-fields.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
+                  class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" 
+                  href="customers-custom-fields.html" 
+                  @click="activePage = 'customers-custom-fields.html'">
+                  Customer Custom Field
+                </a>
+              </li>
+            </ul>
           </div>
-          
-          
-          
+        </li>
+  
+        <!-- Tasks Dropdown -->
+        <li>
+          <div x-data="{ isOpen: false }" class="relative">
+            <button 
+              @click="isOpen = !isOpen" 
+              @keydown.escape="isOpen = false"
+              class="flex items-center font-semibold focus:outline-none"
+              :class="activePage.startsWith('tasks') ? 'bg-blue-100 text-blue-600 p-2 px-4 rounded-full' : 'text-gray-900'">
+              Tasks
+            </button>
+            <ul 
+              x-show="isOpen" 
+              @click.away="isOpen = false"
+              class="absolute left-0 z-20 py-1 mt-2 overflow-hidden font-normal bg-white border rounded shadow w-60">
+              <li>
+                <a 
+                  :class="activePage === 'tasks.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
+                  class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" 
+                  href="tasks.html" 
+                  @click="activePage = 'tasks.html'">
+                  All Tasks
+                </a>
+              </li>
+              <li>
+                <a 
+                  :class="activePage === 'task-custom-fields.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
+                  class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" 
+                  href="task-custom-fields.html" 
+                  @click="activePage = 'task-custom-fields.html'">
+                  Task Custom Field
+                </a>
+              </li>
+              <li>
+                <a 
+                  :class="activePage === 'task-settings.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
+                  class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" 
+                  href="task-settings.html" 
+                  @click="activePage = 'task-settings.html'">
+                  Task Settings
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+  
+        <!-- Forms Dropdown -->
+        <li>
+          <div x-data="{ isOpen: false }" class="relative">
+            <button 
+              @click="isOpen = !isOpen" 
+              @keydown.escape="isOpen = false"
+              class="flex items-center font-semibold focus:outline-none"
+              :class="activePage.startsWith('form') ? 'bg-blue-100 text-blue-600 p-2 px-4 rounded-full' : 'text-gray-900'">
+              Forms
+            </button>
+            <ul 
+              x-show="isOpen" 
+              @click.away="isOpen = false"
+              class="absolute left-0 z-20 py-1 mt-2 overflow-hidden font-normal bg-white border rounded shadow w-60">
+              <li>
+                <a 
+                  :class="activePage === 'form-details.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
+                  class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" 
+                  href="form-details.html" 
+                  @click="activePage = 'form-details.html'">
+                  Form Response
+                </a>
+              </li>
+              <li>
+                <a 
+                  :class="activePage === 'form-settings.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
+                  class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" 
+                  href="form-settings.html" 
+                  @click="activePage = 'form-settings.html'">
+                  Form Settings
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a 
+            :class="activePage === 'users.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
+            class="p-2 px-4 font-semibold rounded-full hover:bg-blue-100 hover:text-blue-600" 
+            href="users.html" 
+            @click="activePage = 'users.html'">
+            Users
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  
+  
+  
+  
   </div>
 </body>
 
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </html>

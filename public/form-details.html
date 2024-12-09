@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div>
-                        <div class="relative pt-8">
+                        <div class="relative pt-4">
                             <div class="grid grid-cols-1 gap-2 pb-2 lg:gap-4 lg:grid-cols-4">                                
                                 <div class="mt-1">
                                     <label class="col-start-1 text-sm font-semibold text-gray-600" for="">
@@ -57,6 +57,20 @@
                                             </span>
                                         </button>
                                     </span>
+                                </div>
+                                <div class="text-left">
+                                    <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">
+                                        Form</label>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All</option>
+                                        <option>Form 1</option>
+                                        <option>Form 2</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">
+                                        Select Date</label>
+                                    <input type="date" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                 </div>
                             </div>
                             <div class="w-full overflow-x-scroll">
@@ -237,347 +251,11 @@
             </div>
         </div>
     </div>
-    <section x-data="slideout()" x-cloak @open-menu.window="open = $event.detail.open"
-            @keydown.window.tab="usedKeyboard = true" @keydown.escape="open = false" x-init="init()">
-            <div x-show.transition.opacity.duration.500="open" @click="open = false"
-                class="fixed inset-0 bg-black bg-opacity-25"></div>
-            <div class="fixed top-0 right-0 z-50 w-full h-screen max-w-xl overflow-hidden transition duration-300 transform bg-white"
-                :class="{'translate-x-full': !open}">
-                <footer class="fixed inset-x-0 top-0 p-4 text-center text-white bg-white border-t">
-                    <div>
-                        <div class="flex items-end justify-between">
-                            <div class="flex items-center gap-2 w-max">
-                                <img class="w-8 h-8 rounded-full" src="https://randomuser.me/api/portraits/men/11.jpg" alt="">
-                                <div>
-                                    <p class="font-medium text-blue-600">ATHEESWAR
-                                        MANICKAM <span class="p-0.5 px-2 text-xs font-semibold inline-block text-yellow-600 bg-yellow-100 rounded-full">Pending</span>
-                                    </p>
-                                    <p class="text-xs text-left text-gray-600">12-02-2024
-                                        18:00</p>
-                                </div>
-                            </div>
-                            <div>
-                                <button @click="open = false" x-ref="closeButton"
-                                    :class="{'focus:outline-none': !usedKeyboard}" class="z-50">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-800">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>                        
-                    </div>
-                </footer>
-                <div class="top-0 w-full h-full p-4 pt-16 overflow-y-scroll">
-                    <div x-data="{ selectedAction: 'approve' }" class="py-4">
-                        <!-- Sections -->
-                        <div>
-                            <!-- Approve Section -->
-                            <div x-show="selectedAction === 'approve'"
-                                class="grid grid-cols-4 gap-4">
-                                <div>
-                                    <label
-                                        class="text-sm font-semibold text-gray-600">Amount
-                                        <span
-                                            class="text-red-600">*</span></label>
-                                    <input type="text" placeholder=""
-                                        class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                </div>
-                                <div>
-                                    <label
-                                        class="text-sm font-semibold text-gray-600">Remarks</label>
-                                    <input type="text" placeholder=""
-                                        class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                </div>
-                            </div>
-
-                            <!-- Approve and Paid Section -->
-                            <div x-show="selectedAction === 'approveAndPaid'"
-                                class="grid grid-cols-4 gap-4">
-                                <div>
-                                    <label
-                                        class="text-sm font-semibold text-gray-600">Amount
-                                        <span
-                                            class="text-red-600">*</span></label>
-                                    <input type="text" placeholder=""
-                                        class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                </div>
-                                <div>
-                                    <label
-                                        class="text-sm font-semibold text-gray-600">Remarks</label>
-                                    <input type="text" placeholder=""
-                                        class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                </div>
-                            </div>
-
-                            <!-- Mark Paid Section -->
-                            <div x-show="selectedAction === 'markPaid'"
-                                class="grid grid-cols-4 gap-4">
-                                <div>
-                                    <label
-                                        class="text-sm font-semibold text-gray-600">Remarks</label>
-                                    <input type="text" placeholder=""
-                                        class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Button Section -->
-                        <div
-                            class="flex flex-row flex-wrap items-center gap-4 mt-4">
-                            <div>
-                                <button @click="selectedAction = 'approve'"
-                                    class="px-4 py-2 font-semibold text-white bg-blue-600 rounded hover:bg-blue-700">
-                                    Approve
-                                </button>
-                            </div>
-                            <div>
-                                <button
-                                    @click="selectedAction = 'approveAndPaid'"
-                                    class="px-4 py-2 font-semibold text-white bg-green-600 rounded hover:bg-green-700">
-                                    Approve and Paid
-                                </button>
-                            </div>
-                            <div>
-                                <button @click="selectedAction = 'markPaid'"
-                                    class="px-4 py-2 font-semibold text-white bg-yellow-600 rounded hover:bg-yellow-700">
-                                    Mark Paid
-                                </button>
-                            </div>
-                            <div>
-                                <button @click="selectedAction = 'reject'"
-                                    class="px-4 py-2 font-semibold text-white bg-red-600 rounded hover:bg-red-700">
-                                    Reject
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- content -->
-                    <div class="w-full mt-4">
-                        <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
-                            <div class="col-span-1">
-                                <p class="text-sm font-semibold">ID</p>
-                                <p>EXP-00003</p>
-                            </div>
-                            <div class="col-span-1">
-                                <p class="text-sm font-semibold">Type</p>
-                                <p>Petrol</p>
-                            </div>
-                            <div class="col-span-1">
-                                <p class="text-sm font-semibold">Expense
-                                    Date</p>
-                                <p>13-02-2024 to 15-02-2024</p>
-                            </div>
-                            <div class="col-span-1">
-                                <p class="text-sm font-semibold">Request Amount
-                                </p>
-                                <p>₹ 5000</p>
-                            </div>
-                            <div class="col-span-1">
-                                <p class="text-sm font-semibold">Bill Number</p>
-                                <p>B001, B002</p>
-                            </div>
-                            <div class="col-span-1">
-                                <p class="text-sm font-semibold">Description</p>
-                                <p>lorem ipsum text</p>
-                            </div>
-                            <div class="col-span-1">
-                                <p class="text-sm font-semibold">Custom Field 1
-                                </p>
-                                <p>Custom value 1</p>
-                            </div>
-                            <div class="col-span-1">
-                                <p class="text-sm font-semibold">Custom Field 2
-                                </p>
-                                <p>Custom value 2</p>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="py-4 border-b" x-data="{selected:null}">
-                                <div class="flex items-center gap-4">
-                                    <p class="text-sm font-bold">Bills</p>
-                                    <div>
-
-                                        <button
-                                            @click="selected !== 1 ? selected = 1 : selected = null">
-                                            <!-- Down -->
-                                            <svg x-show="selected == null"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                fill="currentColor" class="w-5 h-5">
-                                                <path fill-rule="evenodd"
-                                                    d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z"
-                                                    clip-rule="evenodd"></path>
-                                            </svg>
-
-                                            <!-- UP -->
-                                            <svg x-show="selected == 1"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                fill="currentColor" class="w-5 h-5"
-                                                style="display: none;">
-                                                <path fill-rule="evenodd"
-                                                    d="M11.47 7.72a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 01-1.06-1.06l7.5-7.5z"
-                                                    clip-rule="evenodd"></path>
-                                            </svg>
-
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="relative overflow-hidden transition-all duration-700 max-h-0"
-                                    style="" x-ref="container1"
-                                    x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
-                                    <div class="relative mt-4 overflow-x-auto">
-                                        <table
-                                            class="w-full text-sm text-left text-gray-500">
-                                            <thead
-                                                class="text-xs text-gray-700 uppercase bg-gray-100">
-                                                <tr>
-                                                    <th scope="col" class="px-6 py-2">
-                                                        Bill No.
-                                                    </th>
-                                                    <th scope="col" class="px-6 py-2">
-                                                        Amount
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr class="bg-white border-b">
-                                                    <th scope="row"
-                                                        class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap">
-                                                        BN0001
-                                                    </th>
-                                                    <td class="px-6 py-2">
-                                                        ₹ 2000
-                                                    </td>
-                                                </tr>
-                                                <tr class="bg-white border-b">
-                                                    <th scope="row"
-                                                        class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap">
-                                                        BN0002
-                                                    </th>
-                                                    <td class="px-6 py-2">
-                                                        ₹ 3000
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="py-4 border-b" x-data="{selected:null}">
-                                <div class="flex items-center gap-4">
-                                    <p class="text-sm font-bold">Attachments</p>
-                                    <div>
-
-                                        <button
-                                            @click="selected !== 1 ? selected = 1 : selected = null">
-                                            <!-- Down -->
-                                            <svg x-show="selected == null"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                fill="currentColor" class="w-5 h-5">
-                                                <path fill-rule="evenodd"
-                                                    d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z"
-                                                    clip-rule="evenodd"></path>
-                                            </svg>
-
-                                            <!-- UP -->
-                                            <svg x-show="selected == 1"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                fill="currentColor" class="w-5 h-5"
-                                                style="display: none;">
-                                                <path fill-rule="evenodd"
-                                                    d="M11.47 7.72a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 01-1.06-1.06l7.5-7.5z"
-                                                    clip-rule="evenodd"></path>
-                                            </svg>
-
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="relative overflow-hidden transition-all duration-700 max-h-0"
-                                    style="" x-ref="container1"
-                                    x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
-                                    
-                                    <div class="grid grid-cols-2 gap-4 mt-4 lg:grid-cols-4">
-                                        <div>
-                                            <img src="img/task.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                           
-
-                        </div>
-                        <div class="p-4 mt-4 space-y-4 bg-gray-100 rounded-md">
-                            <div>
-                                <p class="text-sm font-bold text-gray-900">
-                                    Expense Claim Rejected</p>
-                                <p class="text-xs text-gray-600">
-                                    29-10-2023 15:03 | Elavarasan
-                                </p>
-                            </div>
-                            <div>
-                                <p class="text-sm font-bold text-gray-900">
-                                    Expense Claim Approved and Paid for ₹ 1200
-                                </p>
-                                <p class="text-sm text-gray-600">Remarks :
-                                    Remarks texts goes here</p>
-                                <p class="text-xs text-gray-600">
-                                    29-10-2023 15:03 | Elavarasan
-                                </p>
-                            </div>
-                            <div>
-                                <p class="text-sm font-bold text-gray-900">
-                                    Expense Claim Paid</p>
-                                <p class="text-sm text-gray-600">Remarks :
-                                    Remarks texts goes here</p>
-                                <p class="text-xs text-gray-600">
-                                    29-10-2023 15:03 | Elavarasan
-                                </p>
-                            </div>
-                            <div>
-                                <p class="text-sm font-bold text-gray-900">
-                                    Expense Claim Approved for ₹ 1200</p>
-                                <p class="text-sm text-gray-600">Remarks :
-                                    Remarks texts goes here</p>
-                                <p class="text-xs text-gray-600">
-                                    29-10-2023 15:03 | Elavarasan
-                                </p>
-                            </div>
-                            <div>
-                                <p class="text-sm font-bold text-gray-900">
-                                    Expense Claim Created</p>
-                                <p class="text-xs text-gray-600">
-                                    29-10-2023 15:03 | Elavarasan
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </section>
 </body>
 <script>
     $(function () {
         $("#navigation").load("nav.html");
         $("#aside").load("aside.html");
     });
-</script>
-<script>
-    function slideout() {
-        return {
-            open: false,
-            usedKeyboard: false,
-            init() {
-                this.$watch('open', value => {
-                    value && this.$refs.closeButton.focus()
-                    this.toggleOverlay()
-                })
-                this.toggleOverlay()
-            },
-            toggleOverlay() {
-                document.body.classList[this.open ? 'add' : 'remove']('h-screen', 'overflow-hidden')
-            }
-        }
-    }
 </script>
 </html>

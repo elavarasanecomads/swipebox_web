@@ -30,7 +30,7 @@
                                 </svg>
                             </a>
                             <p class="text-2xl font-bold text-gray-900">Detailed Attendance</p>
-                            <a href="unprocessed-logs.html" class="font-semibold text-blue-600">Unprocessed Logs</a>
+                            <a href="unprocessed-log-3.html" class="font-semibold text-blue-600">Unprocessed Logs</a>
                         </div>
                     </div>
                     <div x-data="{ clicks: 0, loading: false, contentVisible: false }" x-cloak>
@@ -920,6 +920,69 @@
                                                                                 class="w-full p-2 font-semibold text-gray-900 bg-gray-100 rounded">Cancel</button>
                                                                             <button
                                                                                 class="w-full p-2 font-semibold text-white bg-blue-600 rounded">Save</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </template>
+                                                    </div>
+
+                                                    <div x-data="modalComponent()">
+                                                        <button @click="showModal = true" class="text-blue-600">
+                                                           Edit Log
+                                                        </button>
+                                                
+                                                        <template x-teleport="body">
+                                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none">
+                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                                    
+                                                                    <div class="flex items-center justify-between">
+                                                                        <div class="flex items-center gap-2">
+                                                                            <img class="w-10 h-10 rounded-full" src="https://geeks-react.netlify.app/static/media/avatar-1.d2fd9642fd3628734b27.jpg" alt="">
+                                                                            <div>
+                                                                                <a href="employee-detail.html" class="font-semibold text-blue-600">Elavarasan</a>
+                                                                                <p class="text-sm text-gray-600">04-12-2024</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <span @click="showModal = false">
+                                                                            <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                                                                                </path>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </div>
+                                                
+                                                                    <div class="w-full max-h-[75%] overflow-y-auto mt-4">
+                                                                        <table class="min-w-full overflow-hidden border border-collapse border-gray-300 rounded-md">
+                                                                            <thead class="text-sm text-left text-gray-700 uppercase bg-gray-100">
+                                                                                <tr>
+                                                                                    <th class="px-4 py-2 border-b border-gray-300">Date</th>
+                                                                                    <th class="px-4 py-2 border-b border-gray-300">Time</th>
+                                                                                    <th class="px-4 py-2 border-b border-gray-300">Action</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody class="text-sm text-gray-900">
+                                                                                <template x-for="(row, index) in rows" :key="index">
+                                                                                    <tr class="even:bg-gray-50 hover:bg-gray-100">
+                                                                                        <td class="px-4 py-2 border-b border-gray-300">
+                                                                                            <input type="date" class="w-full p-1 border border-gray-300 rounded" x-model="row.date">
+                                                                                        </td>
+                                                                                        <td class="px-4 py-2 border-b border-gray-300">
+                                                                                            <input type="time" class="w-full p-1 border border-gray-300 rounded" x-model="row.time">
+                                                                                        </td>
+                                                                                        <td class="px-4 py-2 text-center border-b border-gray-300">
+                                                                                            <button class="px-2 py-1 text-white bg-red-500 rounded" @click="deleteRow(index)">Delete</button>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </template>
+                                                                            </tbody>
+                                                                        </table>
+                                                                        <div class="flex items-center justify-between pt-6">
+                                                                            <button class="px-4 py-1 font-semibold text-white bg-blue-600 rounded" @click="addRow()">Add</button>
+                                                                            <div class="space-x-2">
+                                                                                <button class="px-4 py-2 font-semibold text-gray-900 bg-gray-200 rounded" @click="showModal = false">Close</button>
+                                                                                <button class="w-24 px-4 py-2 font-semibold text-white bg-green-600 rounded">Save</button>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -3978,6 +4041,24 @@
                 const tomorrow = new Date(this.currentDate);
                 tomorrow.setDate(this.currentDate.getDate() + 1);
                 return tomorrow > new Date();
+            },
+        };
+    }
+</script>
+<script>
+    function modalComponent() {
+        return {
+            showModal: false,
+            rows: [{ date: '', time: '' }], // Default row
+            addRow() {
+                this.rows.push({ date: '', time: '' });
+            },
+            deleteRow(index) {
+                if (this.rows.length > 1) {
+                    this.rows.splice(index, 1);
+                } else {
+                    alert('At least one row must remain.');
+                }
             },
         };
     }
