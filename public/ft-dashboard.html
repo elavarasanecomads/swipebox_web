@@ -1,0 +1,189 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FT Dashboard</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.5/cdn.js"
+        integrity="sha512-8IPRU0MPrge2KfSxkAtO8pIkaMzThW/MBSvPqcyVisSymLWC986buo27pKAt5mWXmt58dT6jIsw7h8NNugtRwg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full min-w-0 grow">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+                    <!--Brudcrumb-->
+                    <div class="flex items-center gap-2">
+                        <h1 class="text-2xl font-bold">Dashboard</h1>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 pt-6 lg:grid-cols-6">
+                        <div class="flex-1 whitespace-nowrap">
+                            <p class="font-semibold text-gray-600 truncate">All Users</p>
+                            <button class="text-3xl font-bold cursor-pointer hover:text-blue-600">2</button>
+                        </div>
+                        <div class="flex-1 whitespace-nowrap">
+                            <p class="font-semibold text-gray-600 truncate">Total Users</p>
+                            <button class="text-3xl font-bold cursor-pointer hover:text-blue-600">15:00 <span class="text-base font-semibold">Hrs</span></button>
+                        </div>
+                        <div class="flex-1 whitespace-nowrap">
+                            <p class="font-semibold text-gray-600 truncate">Total Distance</p>
+                            <button class="text-3xl font-bold cursor-pointer hover:text-blue-600">270 <span class="text-base font-semibold">Km</span></button>
+                        </div>
+                        <div class="flex-1 whitespace-nowrap">
+                            <p class="font-semibold text-gray-600 truncate">Total Travel Time</p>
+                            <button class="text-3xl font-bold cursor-pointer hover:text-blue-600">10:00 <span class="text-base font-semibold">Hrs</span></button>
+                        </div>
+                        <div class="flex-1 whitespace-nowrap">
+                            <p class="font-semibold text-gray-600 truncate">Total Meeting Time</p>
+                            <button class="text-3xl font-bold cursor-pointer hover:text-blue-600">05:00 <span class="text-base font-semibold">Hrs</span></button>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="relative pt-8">
+                            <div class="w-full overflow-x-scroll">
+                                <table class="w-full divide-y divide-gray-200 table-auto">
+                                    <thead class="text-xs font-medium tracking-wider text-left text-white uppercase bg-blue-600">
+                                        <tr class="py-4 divide-x">
+                                            <!-- Equal width classes applied -->
+                                            <th scope="col" class="sticky left-0 z-0 w-1/6 p-4 bg-blue-600">Name</th>
+                                            <th scope="col" class="w-1/6 p-4">Total Time</th>
+                                            <th scope="col" class="w-1/6 p-4">Total Distance</th>
+                                            <th scope="col" class="w-1/6 p-4">Total Travel Time</th>
+                                            <th scope="col" class="w-1/6 p-4">Total Meeting Time</th>
+                                            <th scope="col" class="w-1/6 p-4">Action</th>
+                                        </tr>
+                                    </thead>
+                        
+                                    <tbody class="text-sm bg-white divide-y divide-gray-200">
+                                        <!-- Row 1 -->
+                                        <tr>
+                                            <td class="sticky left-0 z-0 w-1/6 p-4 bg-white">
+                                                <div class="flex items-center gap-2 w-max">
+                                                    <img class="w-8 h-8 rounded-full" src="https://randomuser.me/api/portraits/men/11.jpg" alt="">
+                                                    <div>
+                                                        <a href="" class="font-medium text-blue-600">Elavarasan Rajan</a>
+                                                        <p class="text-xs text-gray-600">NA_1110</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="w-1/6 p-4">
+                                                <p>07:30:02</p>
+                                            </td>
+                                            <td class="w-1/6 p-4">
+                                                <p>135.00 KM</p>
+                                            </td>
+                                            <td class="w-1/6 p-4">
+                                                <p>05:00:02</p>
+                                            </td>
+                                            <td class="w-1/6 p-4">
+                                                <p>02:30:00</p>
+                                            </td>
+                                            <td class="w-1/6 p-4">
+                                                <a href="timeline.html">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-blue-600">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                                                      </svg>
+                                                      
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="sticky left-0 z-0 w-1/6 p-4 bg-white">
+                                                <div class="flex items-center gap-2 w-max">
+                                                    <img class="w-8 h-8 rounded-full" src="https://randomuser.me/api/portraits/men/12.jpg" alt="">
+                                                    <div>
+                                                        <a href="" class="font-medium text-blue-600">Ragupathi</a>
+                                                        <p class="text-xs text-gray-600">NA_1111</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="w-1/6 p-4">
+                                                <p>07:30:02</p>
+                                            </td>
+                                            <td class="w-1/6 p-4">
+                                                <p>135.00 KM</p>
+                                            </td>
+                                            <td class="w-1/6 p-4">
+                                                <p>05:00:02</p>
+                                            </td>
+                                            <td class="w-1/6 p-4">
+                                                <p>02:30:00</p>
+                                            </td>
+                                            <td class="w-1/6 p-4">
+                                                <a href="timeline.html">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-blue-600">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                                                      </svg>
+                                                      
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="flex flex-col items-center justify-center gap-4 pt-6 lg:flex-row lg:justify-between">
+                                <div class="flex items-center">
+                                    <p class="pr-2 text-sm font-medium">Rows per page</p>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>10</option>
+                                        <option>25</option>
+                                        <option>50</option>
+                                        <option>100</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <nav class="relative z-0 inline-flex -space-x-px shadow-sm" aria-label="Pagination">
+                                        <a href="#" class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-blue-100">
+                                            <span class="sr-only">Previous</span>
+                                            <!-- Heroicon name: chevron-left -->                                    
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                                <path fill-rule="evenodd" d="M4.72 9.47a.75.75 0 0 0 0 1.06l4.25 4.25a.75.75 0 1 0 1.06-1.06L6.31 10l3.72-3.72a.75.75 0 1 0-1.06-1.06L4.72 9.47Zm9.25-4.25L9.72 9.47a.75.75 0 0 0 0 1.06l4.25 4.25a.75.75 0 1 0 1.06-1.06L11.31 10l3.72-3.72a.75.75 0 0 0-1.06-1.06Z" clip-rule="evenodd"></path>
+                                              </svg>
+                                                                                
+                                        </a>
+                                        <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                                <path fill-rule="evenodd" d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"></path>
+                                              </svg>
+                                              
+                                        </a>
+                                        <a href="#" class="relative items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                            3 </a>
+                                        <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                                <path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"></path>
+                                              </svg>
+                                                  
+                                         </a>
+                                        <a href="#" class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-blue-100">
+                                            <span class="sr-only">Next</span>
+                                            <!-- Heroicon name: chevron-right -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                                <path fill-rule="evenodd" d="M15.28 9.47a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 1 1-1.06-1.06L13.69 10 9.97 6.28a.75.75 0 0 1 1.06-1.06l4.25 4.25ZM6.03 5.22l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L8.69 10 4.97 6.28a.75.75 0 0 1 1.06-1.06Z" clip-rule="evenodd"></path>
+                                              </svg>
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+</html>
