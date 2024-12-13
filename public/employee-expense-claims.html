@@ -37,9 +37,36 @@
                             </div>                         
                         </div>
                     </div>
+
                     <div>
+                        <div class="p-4 py-6 mt-6 border-l-4 border-r border-yellow-600 rounded shadow-md bg-blue-50 border-r-gray-300 border-y-gray-300 border-y">
+                            <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">                               
+                                <div class="space-y-1">
+                                    <p class="text-sm text-gray-600 uppercase">Approval Amount</p>
+                                    <p class="text-2xl font-bold"><span>₹ </span>87000</p>
+                                </div>
+                                <div class="space-y-1">
+                                    <p class="text-sm text-gray-600 uppercase">Paid Amount</p>
+                                    <p class="text-2xl font-bold"><span>₹ </span>103000</p>
+                                </div>
+                                <div class="space-y-1">
+                                    <p class="text-sm text-gray-600 uppercase">Pending Request</p>
+                                    <p class="text-2xl font-bold">11</p>
+                                </div>
+                                <div class="space-y-1">
+                                    <p class="text-sm text-gray-600 uppercase">Pending Amount</p>
+                                    <p class="text-2xl font-bold"><span>₹ </span>10000</p>
+                                </div>                               
+                            </div>
+                        </div>
                         <div class="relative pt-8">
                             <div class="grid grid-cols-1 gap-2 pb-2 lg:gap-4 lg:grid-cols-4">
+                                <div class="text-left">
+                                    <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">
+                                        Month</label>
+                                        <input type="month" class="block w-full px-3 py-2 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                    
+                                </div>
                                 <div class="text-left">
                                     <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">
                                         Expense Type</label>
@@ -58,7 +85,7 @@
                                             class="relative z-0 w-full py-2 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
                                             type="button" aria-haspopup="listbox" aria-expanded="true"
                                             aria-label="search" aria-checked="false">
-                                            <input id="search" type="text" placeholder="Search by name, Id"
+                                            <input id="search" type="text" placeholder="Search by Id"
                                                 class="w-full form-control focus:outline-none searchdata">
                                             <span
                                                 class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
@@ -78,7 +105,6 @@
                                     <thead
                                         class="text-xs font-medium tracking-wider text-left text-white uppercase bg-blue-600 whitespace-nowrap">
                                         <tr class="py-4 divide-x">
-                                            <th scope="col" class="sticky left-0 z-0 p-4 bg-blue-600">Name</th>
                                             <th scope="col" class="p-4">ID</th>
                                             <th scope="col" class="p-4">Type</th>
                                             <th scope="col" class="p-4">Amount</th>
@@ -97,23 +123,6 @@
                                     </thead>
                                     <tbody class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
                                         <tr>
-                                            <td class="sticky left-0 z-0 w-full p-4 bg-white whitespace-nowrap">
-                                                <div class="flex items-center gap-4">
-                                                    <div class="flex items-center gap-2 w-max">
-                                                        <img class="w-8 h-8 rounded-full"
-                                                            src="https://randomuser.me/api/portraits/men/11.jpg" alt="">
-                                                        <div>
-                                                            <p x-data="{usedKeyboard: false}"
-                                                            @keydown.window.tab="usedKeyboard = true"
-                                                            role=button
-                                                            @click="$dispatch('open-menu', { open: true })"
-                                                            :class="{'focus:outline-none': !usedKeyboard}"
-                                                                class="font-medium text-blue-600">ATHEESWAR MANICKAM</p>
-                                                            <p class="text-xs text-gray-600">12-02-2024 19:00</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
                                             <td class="p-4">
                                                 <p class="text-sm text-gray-900">EXP-00004</p>
                                                 <p class="text-xs text-gray-600">01-Oct-2024 to 10-Oct-2024</p>
@@ -143,23 +152,6 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="sticky left-0 z-0 w-full p-4 bg-white whitespace-nowrap">
-                                                <div class="flex items-center gap-4">
-                                                    <div class="flex items-center gap-2 w-max">
-                                                        <img class="w-8 h-8 rounded-full"
-                                                            src="https://randomuser.me/api/portraits/men/11.jpg" alt="">
-                                                        <div>
-                                                            <p x-data="{usedKeyboard: false}"
-                                                            @keydown.window.tab="usedKeyboard = true"
-                                                            role=button
-                                                            @click="$dispatch('open-menu', { open: true })"
-                                                            :class="{'focus:outline-none': !usedKeyboard}"
-                                                                class="font-medium text-blue-600">ATHEESWAR MANICKAM</p>
-                                                            <p class="text-xs text-gray-600">12-02-2024 18:00</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
                                             <td class="p-4">
                                                 <p class="text-sm text-gray-900">EXP-00003</p>
                                                 <p class="text-xs text-gray-600">01-Oct-2024 to 10-Oct-2024</p>
@@ -263,23 +255,6 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="sticky left-0 z-0 w-full p-4 bg-white whitespace-nowrap">
-                                                <div class="flex items-center gap-4">
-                                                    <div class="flex items-center gap-2 w-max">
-                                                        <img class="w-8 h-8 rounded-full"
-                                                            src="https://randomuser.me/api/portraits/men/11.jpg" alt="">
-                                                        <div>
-                                                            <p x-data="{usedKeyboard: false}"
-                                                            @keydown.window.tab="usedKeyboard = true"
-                                                            role=button
-                                                            @click="$dispatch('open-menu', { open: true })"
-                                                            :class="{'focus:outline-none': !usedKeyboard}"
-                                                                class="font-medium text-blue-600">ATHEESWAR MANICKAM</p>
-                                                            <p class="text-xs text-gray-600">12-02-2024 17:00</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
                                             <td class="p-4">
                                                 <p class="text-sm text-gray-900">EXP-00002</p>
                                                 <p class="text-sm text-gray-600">01-Oct-2024 to 10-Oct-2024</p>
@@ -307,23 +282,6 @@
                                             <td class="p-4"> - </td>
                                         </tr>
                                         <tr>
-                                            <td class="sticky left-0 z-0 w-full p-4 bg-white whitespace-nowrap">
-                                                <div class="flex items-center gap-4">
-                                                     <div class="flex items-center gap-2 w-max">
-                                                        <img class="w-8 h-8 rounded-full"
-                                                            src="https://randomuser.me/api/portraits/men/11.jpg" alt="">
-                                                        <div>
-                                                            <p x-data="{usedKeyboard: false}"
-                                                            @keydown.window.tab="usedKeyboard = true"
-                                                            role=button
-                                                            @click="$dispatch('open-menu', { open: true })"
-                                                            :class="{'focus:outline-none': !usedKeyboard}"
-                                                                class="font-medium text-blue-600">ATHEESWAR MANICKAM</p>
-                                                            <p class="text-xs text-gray-600">12-02-2024 16:00</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
                                             <td class="p-4">
                                                 <p class="text-sm text-gray-900">EXP-00001</p>
                                                 <p class="text-sm text-gray-600">01-Oct-2024 to 10-Oct-2024</p>

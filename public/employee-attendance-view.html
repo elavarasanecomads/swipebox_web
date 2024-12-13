@@ -1,0 +1,376 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Attendance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/anchor@3.13.5/dist/cdn.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.5/cdn.js"
+        integrity="sha512-8IPRU0MPrge2KfSxkAtO8pIkaMzThW/MBSvPqcyVisSymLWC986buo27pKAt5mWXmt58dT6jIsw7h8NNugtRwg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+
+            <div class="min-w-0 mx-0 my-4 lg:m-4 grow">
+                <div class="h-full p-4 space-y-6 bg-white border rounded-md lg:p-8">
+                    <div class="flex items-center justify-between gap-8">
+                        <div class="flex items-center gap-2">
+                            <a href="dashboard.html" class="flex items-center gap-1 text-sm text-gray-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                    class="w-5 h-5">
+                                    <path fill-rule="evenodd"
+                                        d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                            <p class="text-2xl font-bold text-gray-900">Employee Attendance</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+                        <div>
+                            <div id="reportrange"
+                                class="w-full p-2 bg-white border border-gray-400 rounded-md shadow-sm cursor-pointer">
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="relative w-full">
+                            <input id="search" type="text" placeholder="Search by name, emp.id or mobile"
+                                class="w-full py-2 pl-10 pr-3 bg-white border border-gray-400 rounded shadow-sm outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600 searchdata">
+                            <span class="absolute inset-y-0 flex items-center pointer-events-none left-2">
+                                <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="w-36">
+                            <button class="w-full px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded">Search</button>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="w-full overflow-x-scroll" x-data="attendanceData()">
+                            <table class="w-full divide-y divide-gray-200 table-auto">
+                                <thead
+                                    class="text-xs font-medium tracking-wider text-left text-white uppercase bg-blue-600 whitespace-nowrap">
+                                    <tr class="py-4 divide-x">
+                                        <th scope="col" class="p-4 w-[10%]" title="In time">Date</th>
+                                        <th scope="col" class="p-4 w-[10%]" title="In time">In Time</th>
+                                        <th scope="col" class="p-4 w-[10%]" title="Out time">Out Time</th>
+                                        <th scope="col" class="p-4 w-[10%]" title="Break Time">B.T</th>
+                                        <th scope="col" class="p-4 w-[10%]" title="Working Hours">W.H</th>
+                                        <th scope="col" class="p-4 w-[10%]" title="Status">Status</th>
+                                        <th scope="col" class="p-4 w-[10%]" title="Sub status">Sub Status</th>
+                                        <th scope="col" class="p-4 w-[10%]" title="Overtime">OT</th>
+                                        <th scope="col" class="p-4 w-[10%]" title="Penalties">Penalties</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-sm bg-white divide-y divide-gray-200 whitespace-nowrap">
+                                    <tr>
+                                        <td class="p-4 w-[10%]">
+                                            <a class="flex items-center gap-2" href="daily-attendance-2.html"
+                                                target="_blank">
+                                                <p class="font-semibold text-blue-600">01-12-2024</p>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke-width="1.5" stroke="currentColor"
+                                                    class="w-5 h-5 text-blue-600">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                                </svg>
+                                            </a>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>09:00 AM</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>07:00 PM</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>01:10</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>08:50</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>Present</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>LE | EO</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>01:00</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>00:30</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-4 w-[10%]">
+                                            <a class="flex items-center gap-2" href="daily-attendance-2.html"
+                                                target="_blank">
+                                                <p class="font-semibold text-blue-600">02-12-2024</p>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke-width="1.5" stroke="currentColor"
+                                                    class="w-5 h-5 text-blue-600">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                                </svg>
+                                            </a>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>08:00 AM</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>05:00 PM</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>00:10</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>07:50</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>Present</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>EO</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>-</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>-</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-4 w-[10%]">
+                                            <a class="flex items-center gap-2" href="daily-attendance-2.html"
+                                                target="_blank">
+                                                <p class="font-semibold text-blue-600">03-12-2024</p>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke-width="1.5" stroke="currentColor"
+                                                    class="w-5 h-5 text-blue-600">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                                </svg>
+                                            </a>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>09:10 AM</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>06:00 PM</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>01:00</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>07:50</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>Present</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>LE | EO</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>-</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>00:10</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-4 w-[10%]">
+                                            <a class="flex items-center gap-2" href="daily-attendance-2.html"
+                                                target="_blank">
+                                                <p class="font-semibold text-blue-600">04-12-2024</p>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke-width="1.5" stroke="currentColor"
+                                                    class="w-5 h-5 text-blue-600">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                                </svg>
+                                            </a>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>09:15 AM</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>06:15 PM</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>01:00</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>08:00</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>Present</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>LE</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>-</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>00:20</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-4 w-[10%]">
+                                            <a class="flex items-center gap-2" href="daily-attendance-2.html"
+                                                target="_blank">
+                                                <p class="font-semibold text-blue-600">05-12-2024</p>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke-width="1.5" stroke="currentColor"
+                                                    class="w-5 h-5 text-blue-600">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                                </svg>
+                                            </a>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>08:45 AM</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>06:45 PM</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>01:00</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>09:00</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>Present</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>EO</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>-</p>
+                                        </td>
+                                        <td class="p-4 w-[10%]">
+                                            <p>00:30</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+                    </div>
+                    <div class="flex flex-col items-center justify-center gap-4 pt-6 lg:flex-row lg:justify-between">
+                        <div class="flex items-center">
+                            <p class="pr-2 text-sm font-medium">Rows per page</p>
+                            <select id="" name="" autocomplete=""
+                                class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>10</option>
+                                <option>25</option>
+                                <option>50</option>
+                                <option>100</option>
+                            </select>
+                        </div>
+                        <div>
+                            <nav class="relative z-0 inline-flex -space-x-px shadow-sm" aria-label="Pagination">
+                                <a href="#"
+                                    class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-blue-100">
+                                    <span class="sr-only">Previous</span>
+                                    <!-- Heroicon name: chevron-left -->
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                        fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </a>
+                                <a href="#"
+                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                    1 </a>
+                                <a href="#"
+                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                    2 </a>
+                                <a href="#"
+                                    class="relative items-center hidden px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 md:inline-flex hover:bg-blue-100">
+                                    3 </a>
+                                <a href="#"
+                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                    4 </a>
+                                <a href="#"
+                                    class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                    5 </a>
+                                <a href="#"
+                                    class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-blue-100">
+                                    <span class="sr-only">Next</span>
+                                    <!-- Heroicon name: chevron-right -->
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                        fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+<style>
+    [x-cloak] {
+        display: none !important;
+    }
+</style>
+<script type="text/javascript">
+    $(function () {
+
+        var start = moment().subtract(29, 'days');
+        var end = moment();
+
+        function cb(start, end) {
+            $('#reportrange span').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
+        }
+
+        $('#reportrange').daterangepicker({
+            startDate: start,
+            endDate: end,
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            }
+        }, cb);
+
+        cb(start, end);
+
+    });
+</script>
+
+</html>

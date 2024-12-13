@@ -34,19 +34,45 @@
                         </div>
                     </div>
                     <div>
+                        <div class="p-4 py-6 mt-6 border-l-4 border-r border-yellow-600 rounded shadow-md bg-blue-50 border-r-gray-300 border-y-gray-300 border-y">
+                            <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">                               
+                                <div class="space-y-1">
+                                    <p class="text-sm text-gray-600 uppercase">Approval Amount</p>
+                                    <p class="text-2xl font-bold"><span>₹ </span>87000</p>
+                                </div>
+                                <div class="space-y-1">
+                                    <p class="text-sm text-gray-600 uppercase">Paid Amount</p>
+                                    <p class="text-2xl font-bold"><span>₹ </span>103000</p>
+                                </div>
+                                <div class="space-y-1">
+                                    <p class="text-sm text-gray-600 uppercase">Pending Request</p>
+                                    <p class="text-2xl font-bold">11</p>
+                                </div>
+                                <div class="space-y-1">
+                                    <p class="text-sm text-gray-600 uppercase">Pending Amount</p>
+                                    <p class="text-2xl font-bold"><span>₹ </span>10000</p>
+                                </div>                               
+                            </div>
+                        </div>
                         <div class="relative pt-8">
                             <div class="grid grid-cols-1 gap-2 pb-2 lg:gap-4 lg:grid-cols-4">
                                 <div class="text-left">
                                     <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">
+                                        Month</label>
+                                        <input type="month" class="block w-full px-3 py-2 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                    
+                                </div>
+                                <div class="text-left">
+                                    <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">
                                         Expense Type</label>
                                     <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        class="block w-full px-3 py-2 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                         <option>All</option>
                                         <option>Travel</option>
                                         <option>Hotel Stay</option>
                                     </select>
                                 </div>
-                                <div class="mt-1">
+                                <div>
                                     <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">
                                         Search</label>
                                     <span class="inline-block w-full rounded shadow-sm">
@@ -67,6 +93,41 @@
                                             </span>
                                         </button>
                                     </span>
+                                </div>
+                                <div class="relative mt-5 text-gray-600" x-data="{ isOpen: false }">
+                                    <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
+                                        class="flex items-center gap-2 px-3 py-2 font-semibold text-gray-100 bg-blue-600 rounded">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
+                                          </svg>                                          
+                                        <span class="hidden text-sm lg:block">Filter</span>
+                                    </button>
+                                    <div x-show="isOpen" @click.away="isOpen = false" class="absolute right-0 z-20 w-64 p-4 mt-2 space-y-4 overflow-hidden text-sm font-normal bg-white border rounded shadow" style="display: none;">
+                                        <div>
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                <option>All Branches</option>
+                                                <option>Ecomads Pvt Ltd, Covai</option>
+                                                <option>Ecomads Pvt Ltd, Tiruchengode</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                <option>All Departments</option>
+                                                <option>Sales</option>
+                                                <option>Purchase</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                <option>All Status</option>
+                                                <option>Present</option>
+                                                <option>Absent</option>
+                                            </select>
+                                        </div>
+                                        <div class="w-32 space-y-4">
+                                            <button class="w-full px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded searchFilter">Apply Filters</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="w-full overflow-x-scroll">
