@@ -414,30 +414,89 @@
             <div class="top-0 w-full h-full p-4 pt-16 overflow-y-scroll">
                 <!-- content -->
                 <div class="w-full mt-4">
-                    <div class="flex items-center gap-4">
-                        <div>
-                            <button class="px-3 py-2 font-semibold text-white bg-blue-600 rounded-md">Mark As Completed</button>
+                    <div x-data="{ showCompletedForm: false, showFillForm: false }" class="max-w-2xl p-6 mx-auto bg-white rounded-md shadow-md">
+                        <!-- Button Section -->
+                        <div class="flex items-center gap-4">
+                            <div>
+                                <button 
+                                    @click="showCompletedForm = !showCompletedForm; showFillForm = false" 
+                                    class="px-3 py-2 font-semibold text-white bg-blue-600 rounded-md">
+                                    Mark As Completed
+                                </button>
+                            </div>
+                            <div>
+                                <button 
+                                    @click="showFillForm = !showFillForm; showCompletedForm = false" 
+                                    class="px-3 py-2 font-semibold text-white bg-green-600 rounded-md">
+                                    Fill Form
+                                </button>
+                            </div>
                         </div>
-                        <div>
-                            <button class="px-3 py-2 font-semibold text-white bg-green-600 rounded-md">Fill Form</button>
+                
+                        <!-- Mark As Completed Form -->
+                        <div x-show="showCompletedForm" x-cloak class="pt-4 space-y-4">
+                            <form class="space-y-4">
+                                <div class="w-full">
+                                    <label for="completed-remarks" class="w-full text-sm font-semibold text-gray-600">Remarks <span class="text-red-600">*</span></label>
+                                    <input 
+                                        type="text" 
+                                        id="completed-remarks" 
+                                        placeholder="Enter remarks" 
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div>
+                                    <button 
+                                        type="submit" 
+                                        class="px-4 py-2 font-semibold text-white bg-blue-600 rounded-md">
+                                        Submit
+                                    </button>
+                                </div>
+                            </form>
                         </div>
-                    </div>
-                    <div class="pt-4 space-y-4">
-                        <div class="w-full">
-                            <label for="" class="w-full text-sm font-semibold text-gray-600">Customer Name <span class="text-red-600">*</span></label>
-                            <input type="text" placeholder="Customer Name" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                        </div>
-                        <div class="w-full">
-                            <label for="" class="w-full text-sm font-semibold text-gray-600">Customer Mobile <span class="text-red-600">*</span></label>
-                            <input type="text" placeholder="Customer Mobile" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                        </div>
-                        <div class="w-full">
-                            <label for="" class="w-full text-sm font-semibold text-gray-600">Remarks <span class="text-red-600">*</span></label>
-                            <input type="text" placeholder="Remarks" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                        </div>
-                        <div class="w-full">
-                            <label for="" class="w-full text-sm font-semibold text-gray-600">Custom Field 1 <span class="text-red-600">*</span></label>
-                            <input type="text" placeholder="Custom Field 1" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                
+                        <!-- Fill Form -->
+                        <div x-show="showFillForm" x-cloak class="pt-4 space-y-4">
+                            <form class="space-y-4">
+                                <div class="w-full">
+                                    <label for="customer-name" class="w-full text-sm font-semibold text-gray-600">Customer Name <span class="text-red-600">*</span></label>
+                                    <input 
+                                        type="text" 
+                                        id="customer-name" 
+                                        placeholder="Customer Name" 
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div class="w-full">
+                                    <label for="customer-mobile" class="w-full text-sm font-semibold text-gray-600">Customer Mobile <span class="text-red-600">*</span></label>
+                                    <input 
+                                        type="text" 
+                                        id="customer-mobile" 
+                                        placeholder="Customer Mobile" 
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div class="w-full">
+                                    <label for="fill-remarks" class="w-full text-sm font-semibold text-gray-600">Remarks <span class="text-red-600">*</span></label>
+                                    <input 
+                                        type="text" 
+                                        id="fill-remarks" 
+                                        placeholder="Remarks" 
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div class="w-full">
+                                    <label for="custom-field-1" class="w-full text-sm font-semibold text-gray-600">Custom Field 1 <span class="text-red-600">*</span></label>
+                                    <input 
+                                        type="text" 
+                                        id="custom-field-1" 
+                                        placeholder="Custom Field 1" 
+                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                                <div>
+                                    <button 
+                                        type="submit" 
+                                        class="px-4 py-2 font-semibold text-white bg-green-600 rounded-md">
+                                        Submit
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <div class="grid grid-cols-1 gap-4 pt-4 md:grid-cols-3">
