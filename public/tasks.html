@@ -39,38 +39,58 @@
                     </div>
                     <div>
                         <div class="relative pt-8">
-                            <div class="grid grid-cols-1 gap-2 pb-2 lg:gap-4 lg:grid-cols-4">
+                            <div class="grid grid-cols-1 gap-2 pb-2 lg:gap-4 lg:grid-cols-4">                               
                                 <div class="text-left">
                                     <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">
-                                        Expense Type</label>
-                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                        class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        Status</label>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                         <option>All</option>
-                                        <option>Travel</option>
-                                        <option>Hotel Stay</option>
+                                        <option>Todo</option>
+                                        <option>Inprogress</option>                                        
+                                        <option>Inreview</option>                                        
+                                        <option>Completed</option>
                                     </select>
                                 </div>
-                                <div class="mt-1">
+                                <div>
                                     <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">
                                         Search</label>
                                     <span class="inline-block w-full rounded shadow-sm">
-                                        <button
-                                            class="relative z-0 w-full py-2 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
-                                            type="button" aria-haspopup="listbox" aria-expanded="true"
-                                            aria-label="search" aria-checked="false">
-                                            <input id="search" type="text" placeholder="Search by name, Id"
-                                                class="w-full form-control focus:outline-none searchdata">
-                                            <span
-                                                class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
-                                                <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2"
-                                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                        <button class="relative z-0 w-full py-2 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600" type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search" aria-checked="false">
+                                            <input id="search" type="text" placeholder="Search by name, Id" class="w-full form-control focus:outline-none searchdata">
+                                            <span class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                                                 </svg>
                                             </span>
                                         </button>
                                     </span>
+                                </div>
+                                <div class="relative mt-5 text-gray-600" x-data="{ isOpen: false }">
+                                    <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false" class="flex items-center gap-2 px-3 py-2 font-semibold text-gray-100 bg-blue-600 rounded">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z"></path>
+                                          </svg>                                          
+                                        <span class="hidden text-sm lg:block">Filter</span>
+                                    </button>
+                                    <div x-show="isOpen" @click.away="isOpen = false" class="absolute right-0 z-20 w-64 p-4 mt-2 space-y-4 overflow-hidden text-sm font-normal bg-white border rounded shadow" style="display: none;">
+                                        <div>
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                <option>All Branches</option>
+                                                <option>Ecomads Pvt Ltd, Covai</option>
+                                                <option>Ecomads Pvt Ltd, Tiruchengode</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                <option>All Departments</option>
+                                                <option>Sales</option>
+                                                <option>Purchase</option>
+                                            </select>
+                                        </div>
+                                        <div class="w-32 space-y-4">
+                                            <button class="w-full px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded searchFilter">Apply Filters</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="w-full overflow-x-scroll">
@@ -102,6 +122,7 @@
                                                                 :class="{'focus:outline-none': !usedKeyboard}"
                                                                 class="font-medium text-blue-600">HTML - Expense
                                                                 Management _ reimbursement [ Mongo DB ]</p>
+                                                                <p class="text-xs text-gray-600">TA0005 | 12-02-2024 19:00</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -186,6 +207,7 @@
                                                         <div>
                                                             <p class="font-medium text-blue-600">UI Development for HRMS
                                                                 Dashboard</p>
+                                                                <p class="text-xs text-gray-600">TA0004 | 12-02-2024 19:00</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -219,6 +241,7 @@
                                                         <div>
                                                             <p class="font-medium text-blue-600">Backend API -
                                                                 Attendance Sync</p>
+                                                                <p class="text-xs text-gray-600">TA0003 | 12-02-2024 19:00</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -252,6 +275,7 @@
                                                         <div>
                                                             <p class="font-medium text-blue-600">Mobile App Bug Fixes
                                                             </p>
+                                                            <p class="text-xs text-gray-600">TA0002 | 12-02-2024 19:00</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -285,6 +309,7 @@
                                                         <div>
                                                             <p class="font-medium text-blue-600">Database Optimization -
                                                                 Payroll System</p>
+                                                                <p class="text-xs text-gray-600">TA0001 | 12-02-2024 19:00</p>
                                                         </div>
                                                     </div>
                                                 </div>
