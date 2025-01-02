@@ -6,12 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Master</title>
     <link href="output.css" rel="stylesheet">
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.5/cdn.js"
-        integrity="sha512-8IPRU0MPrge2KfSxkAtO8pIkaMzThW/MBSvPqcyVisSymLWC986buo27pKAt5mWXmt58dT6jIsw7h8NNugtRwg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.5/cdn.js"
+integrity="sha512-8IPRU0MPrge2KfSxkAtO8pIkaMzThW/MBSvPqcyVisSymLWC986buo27pKAt5mWXmt58dT6jIsw7h8NNugtRwg=="
+crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
 </head>
 
 <body class="bg-gray-100">
@@ -57,7 +55,12 @@
                                     </button>
                                 </span>
                             </div>
-                            <div class="flex items-center gap-4">
+                            <div class="flex items-center order-3 text-sm font-semibold uppercase lg:order-2 divide-x-1">
+                                <p class="px-2">All <span class="p-1 bg-gray-200 rounded">120</span></p>
+                                <p class="px-2">Active <span class="p-1 bg-green-200 rounded">110</span></p>
+                                <p class="px-2">Inactive <span class="p-1 bg-red-200 rounded">10</span></p>
+                            </div>
+                            <div class="flex items-center order-2 gap-4 lg:order-3">
                                 <div class="relative text-gray-600">
                                     <button x-data="{usedKeyboard: false}" x-cloak @keydown.window.tab="usedKeyboard = true"
                                         role=button @click="$dispatch('open-menu', { open: true })"
@@ -321,6 +324,26 @@
                                 <option>Inactive </option>
                             </select>
                         </div>
+                        <div class="text-left">
+                            <label class="text-sm font-semibold text-gray-600" for="businessname">Select
+                                Face Type</label>
+                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>All</option>
+                                <option>Selfie</option>
+                                <option>Mirror </option>
+                            </select>
+                        </div>
+                        <div class="text-left">
+                            <label class="text-sm font-semibold text-gray-600" for="businessname">Select Registration Type</label>
+                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>All</option>
+                                <option>Registered</option>
+                                <option>Not Registered</option>
+                            </select>
+                        </div>
+                        
                         <div class="w-48 pt-6">
                             <button
                                 class="w-full px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded">Apply

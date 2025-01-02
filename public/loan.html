@@ -1,0 +1,324 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.5/cdn.js"
+        integrity="sha512-8IPRU0MPrge2KfSxkAtO8pIkaMzThW/MBSvPqcyVisSymLWC986buo27pKAt5mWXmt58dT6jIsw7h8NNugtRwg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full min-w-0 grow">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+                    <!--Brudcrumb-->
+                    <div class="flex items-center gap-2">
+                        <a href="dashboard.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5">
+                                <path fill-rule="evenodd"
+                                    d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <div class="flex items-center gap-4">
+                            <h1 class="text-2xl font-bold">Loan</h1>
+                            <div>
+                                <a href="loan-add.html" class="px-3 py-2 font-semibold text-white bg-blue-600 rounded-md">Add
+                                    New</a>
+                            </div>                           
+                        </div>
+                    </div>
+                    <div>
+                        <div class="grid grid-cols-1 gap-2 pt-8 pb-2 lg:gap-4 lg:grid-cols-3">
+                            <div class="w-full">
+                                <label class="text-sm font-semibold text-gray-600" for="branch">Status</label>
+                                <select id="branch" name="branch" autocomplete="branch" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                    <option>All</option>
+                                    <option>Active</option>
+                                    <option>Completed</option>
+                                </select>
+                            </div>
+                            <div class="mt-1">
+                                <label class="col-start-1 text-sm font-semibold text-gray-600" for="businessname">
+                                    Search</label>
+                                <span class="inline-block w-full rounded shadow-sm">
+                                    <button class="relative z-0 w-full py-2 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600" type="button" aria-haspopup="listbox" aria-expanded="true" aria-label="search" aria-checked="false">
+                                        <input id="search" type="text" placeholder="Search by name" class="w-full form-control focus:outline-none searchdata">
+                                        <span class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                            <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 pb-2 lg:grid-cols-4">                            
+                            <div class="p-4 bg-orange-100 rounded-md">
+                                <p class="text-2xl font-bold">2</p>
+                                <p class="text-sm">Total Loans</p>
+                            </div>
+                            <div class="p-4 bg-blue-100 rounded-md">
+                                <p class="text-xl font-bold">10000</p>
+                                <p class="text-sm">Loan Amount</p>
+                            </div>
+                            <div class="p-4 bg-green-100 rounded-md">
+                                <p class="text-2xl font-bold">6000</p>
+                                <p class="text-sm">Amount Repaid</p>
+                            </div>
+                            <div class="p-4 bg-red-100 rounded-md">
+                                <p class="text-2xl font-bold">4000</p>
+                                <p class="text-sm">Remaining Amount</p>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <div class="w-full overflow-x-scroll">
+                                <table class="w-full divide-y divide-gray-200 table-auto">
+                                    <thead class="text-xs font-medium tracking-wider text-left text-white uppercase bg-blue-600">
+                                        <tr class="py-4 divide-x">
+                                            <!-- Equal width classes applied -->
+                                            <th scope="col" class="sticky left-0 z-0 w-1/5 p-4 bg-blue-600">Name</th>
+                                            <th scope="col" class="w-1/5 p-4">Loan Status</th>                                            
+                                            <th scope="col" class="w-1/5 p-4">Loan Amount</th>                                                                                        
+                                            <th scope="col" class="w-1/5 p-4">Amount Repaid</th>
+                                            <th scope="col" class="w-1/5 p-4">Remaining Amount</th>
+                                        </tr>
+                                    </thead>
+                        
+                                    <tbody class="text-sm bg-white divide-y divide-gray-200">
+                                        <!-- Row 1 -->
+                                        <tr>
+                                            <td class="sticky left-0 z-0 w-1/5 p-4 bg-white">
+                                                <div class="flex items-center gap-2 w-max">
+                                                    <img class="w-8 h-8 rounded-full" src="https://randomuser.me/api/portraits/men/11.jpg" alt="">
+                                                    <div>
+                                                        <p x-data="{usedKeyboard: false}"
+                                                                @keydown.window.tab="usedKeyboard = true" role=button
+                                                                @click="$dispatch('open-menu', { open: true })"
+                                                                :class="{'focus:outline-none': !usedKeyboard}"
+                                                                class="font-medium text-blue-600">John Doe</p>
+                                                        <p class="text-xs text-gray-600">NA_1110</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="w-1/5 p-4">
+                                                <p class="p-0.5 px-2 text-xs inline-block font-semibold text-green-600 bg-green-100 rounded-full">
+                                                    Active
+                                                </p>
+                                            </td>
+                                            <td class="w-1/5 gap-4 p-4">
+                                                <p>10000</p>
+                                            </td>
+                                            <td class="w-1/5 gap-4 p-4">
+                                                <p>6000</p>
+                                            </td>
+                                            <td class="w-1/5 gap-4 p-4">
+                                                <p>4000</p>
+                                            </td>
+                                        </tr>                        
+                                        <tr>
+                                            <td class="sticky left-0 z-0 w-1/5 p-4 bg-white">
+                                                <div class="flex items-center gap-2 w-max">
+                                                    <img class="w-8 h-8 rounded-full" src="https://randomuser.me/api/portraits/men/12.jpg" alt="">
+                                                    <div>
+                                                        <p x-data="{usedKeyboard: false}"
+                                                                @keydown.window.tab="usedKeyboard = true" role=button
+                                                                @click="$dispatch('open-menu', { open: true })"
+                                                                :class="{'focus:outline-none': !usedKeyboard}"
+                                                                class="font-medium text-blue-600">Stive Smith</p>
+                                                        <p class="text-xs text-gray-600">NA_1110</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="w-1/5 p-4">
+                                                <p class="p-0.5 px-2 text-xs inline-block font-semibold text-red-600 bg-red-100 rounded-full">
+                                                    Completed
+                                                </p>
+                                            </td>
+                                            <td class="w-1/5 gap-4 p-4">
+                                                <p>10000</p>
+                                            </td>
+                                            <td class="w-1/5 gap-4 p-4">
+                                                <p>10000</p>
+                                            </td>
+                                            <td class="w-1/5 gap-4 p-4">
+                                                <p>0</p>
+                                            </td>
+                                        </tr>  
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="flex flex-col items-center justify-center gap-4 pt-6 lg:flex-row lg:justify-between">
+                                <div class="flex items-center">
+                                    <p class="pr-2 text-sm font-medium">Rows per page</p>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>10</option>
+                                        <option>25</option>
+                                        <option>50</option>
+                                        <option>100</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <nav class="relative z-0 inline-flex -space-x-px shadow-sm" aria-label="Pagination">
+                                        <a href="#" class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-blue-100">
+                                            <span class="sr-only">Previous</span>
+                                            <!-- Heroicon name: chevron-left -->                                    
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                                <path fill-rule="evenodd" d="M4.72 9.47a.75.75 0 0 0 0 1.06l4.25 4.25a.75.75 0 1 0 1.06-1.06L6.31 10l3.72-3.72a.75.75 0 1 0-1.06-1.06L4.72 9.47Zm9.25-4.25L9.72 9.47a.75.75 0 0 0 0 1.06l4.25 4.25a.75.75 0 1 0 1.06-1.06L11.31 10l3.72-3.72a.75.75 0 0 0-1.06-1.06Z" clip-rule="evenodd"></path>
+                                              </svg>
+                                                                                
+                                        </a>
+                                        <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                                <path fill-rule="evenodd" d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"></path>
+                                              </svg>
+                                              
+                                        </a>
+                                        <a href="#" class="relative items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                            3 </a>
+                                        <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                                <path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"></path>
+                                              </svg>
+                                                  
+                                         </a>
+                                        <a href="#" class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-blue-100">
+                                            <span class="sr-only">Next</span>
+                                            <!-- Heroicon name: chevron-right -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                                <path fill-rule="evenodd" d="M15.28 9.47a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 1 1-1.06-1.06L13.69 10 9.97 6.28a.75.75 0 0 1 1.06-1.06l4.25 4.25ZM6.03 5.22l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L8.69 10 4.97 6.28a.75.75 0 0 1 1.06-1.06Z" clip-rule="evenodd"></path>
+                                              </svg>
+                                              
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section x-data="slideout()" x-cloak @open-menu.window="open = $event.detail.open"
+    @keydown.window.tab="usedKeyboard = true" @keydown.escape="open = false" x-init="init()">
+    <div x-show.transition.opacity.duration.500="open" @click="open = false"
+        class="fixed inset-0 bg-black bg-opacity-25"></div>
+    <div class="fixed top-0 right-0 z-50 w-full h-screen max-w-xl overflow-hidden transition duration-300 transform bg-white"
+        :class="{'translate-x-full': !open}">
+        <footer class="fixed inset-x-0 top-0 p-4 text-center text-white bg-white border-t">
+            <div>
+                <div class="flex items-start justify-between">
+                    <div class="w-max">
+                        <div class="flex items-center gap-2 w-max">
+                            <img class="w-8 h-8 rounded-full" src="https://randomuser.me/api/portraits/men/12.jpg" alt="">
+                            <div>
+                                <p class="font-medium text-left text-blue-600">Stive Smith</p>
+                                <p class="text-xs text-left text-gray-600">NA_1110</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 pt-2">
+                        <p> <span
+                                class="p-0.5 px-2 text-xs font-semibold inline-block text-green-600 bg-green-100 rounded-full">Active</span>
+                        </p>
+                        <button @click="open = false" x-ref="closeButton"
+                            :class="{'focus:outline-none': !usedKeyboard}" class="z-50">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-800">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="top-0 w-full h-full p-4 pt-24 overflow-y-scroll">
+            <!-- content -->
+            <div class="w-full">
+                <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
+                    <div class="p-4 bg-blue-100 rounded-md">
+                        <p class="text-xl font-bold">10000</p>
+                        <p class="text-sm">Loan Amount</p>
+                    </div>
+                    <div class="p-4 bg-green-100 rounded-md">
+                        <p class="text-2xl font-bold">6000</p>
+                        <p class="text-sm">Amount Repaid</p>
+                    </div>
+                    <div class="p-4 bg-red-100 rounded-md">
+                        <p class="text-2xl font-bold">4000</p>
+                        <p class="text-sm">Remaining Amount</p>
+                    </div>
+                    <div class="p-4 bg-red-100 rounded-md">
+                        <p class="text-2xl font-bold">4</p>
+                        <p class="text-sm">Pending Instalment</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 gap-4 pt-4 md:grid-cols-2">
+                    <div class="col-span-1">
+                        <p class="text-sm font-semibold">Loan Amount</p>
+                        <p>10000</p>
+                    </div>
+                    <div class="col-span-1">
+                        <p class="text-sm font-semibold">Interest Rate</p>
+                        <p>12%</p>
+                    </div>
+                    <div class="col-span-1">
+                        <p class="text-sm font-semibold">Disbursement Date</p>
+                        <p>01-06-2024</p>
+                    </div>
+                    <div class="col-span-1">
+                        <p class="text-sm font-semibold">Loan Tenure</p>
+                        <p>10000</p>
+                    </div>
+                    <div class="col-span-1">
+                        <p class="text-sm font-semibold">Instalment Date</p>
+                        <p>25-06-2024</p>
+                    </div>
+                    <div class="col-span-1">
+                        <p class="text-sm font-semibold">Instalment Amount</p>
+                        <p>1200</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+<script>
+    function slideout() {
+        return {
+            open: false,
+            usedKeyboard: false,
+            init() {
+                this.$watch('open', value => {
+                    value && this.$refs.closeButton.focus()
+                    this.toggleOverlay()
+                })
+                this.toggleOverlay()
+            },
+            toggleOverlay() {
+                document.body.classList[this.open ? 'add' : 'remove']('h-screen', 'overflow-hidden')
+            }
+        }
+    }
+</script>
+</html>

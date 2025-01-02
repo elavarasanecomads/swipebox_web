@@ -1,0 +1,177 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Loan</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.5/cdn.js"
+        integrity="sha512-8IPRU0MPrge2KfSxkAtO8pIkaMzThW/MBSvPqcyVisSymLWC986buo27pKAt5mWXmt58dT6jIsw7h8NNugtRwg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full min-w-0 grow">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+                    <!--Brudcrumb-->
+                    <div class="flex items-center gap-2">
+                        <a href="loan.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5">
+                                <path fill-rule="evenodd"
+                                    d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <div class="flex items-center gap-4">
+                            <h1 class="text-2xl font-bold">Add Loan</h1>                                                
+                        </div>
+                    </div>
+                    <div class="w-full mt-4 space-y-4 lg:w-1/2">
+                        <div x-data="dropdown()" class="relative w-full">
+                            <!-- Select-like Box -->
+                            <label class="text-sm font-semibold text-gray-600">Select User <span class="text-red-600">*</span></label>
+                            <div 
+                                @click="toggleDropdown()" 
+                                class="flex items-center justify-between w-full px-4 py-3 mt-1 border border-gray-400 rounded cursor-pointer focus:ring focus:ring-blue-300"
+                            >
+                                <span x-text="selected || 'Select a user'" class="text-gray-700"></span>
+                                <svg class="w-4 h-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                        
+                            <!-- Dropdown Menu -->
+                            <div 
+                                x-show="open" 
+                                @click.away="closeDropdown()" 
+                                class="absolute left-0 z-10 w-full mt-1 bg-white border border-gray-300 rounded shadow-lg"
+                                style="display: none;" 
+                            >
+                                <!-- Search Box -->
+                                <div class="p-2">
+                                    <input 
+                                        type="text" 
+                                        x-model="search" 
+                                        placeholder="Search users..." 
+                                        class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300"
+                                    />
+                                </div>
+                        
+                                <!-- Dropdown Options -->
+                                <ul class="overflow-auto max-h-40">
+                                    <!-- Display filtered users -->
+                                    <template x-for="user in filteredUsers" :key="user">
+                                        <li 
+                                            @click="selectUser(user)" 
+                                            class="px-4 py-2 cursor-pointer hover:bg-blue-100"
+                                        >
+                                            <span x-text="user"></span>
+                                        </li>
+                                    </template>
+                        
+                                    <!-- No record found -->
+                                    <li 
+                                        x-show="filteredUsers.length === 0" 
+                                        class="px-4 py-2 text-gray-500"
+                                    >
+                                        No record found
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                       <div x-data="{ calculateInterest: '' }" class="grid grid-cols-2 gap-4">
+                        <div class="w-full">
+                            <label class="text-sm font-semibold text-gray-600" for="">Loan Amount <span class="text-red-600">*</span></label>
+                            <input type="text"
+                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                        </div>
+                        <div class="w-full">
+                            <label class="text-sm font-semibold text-gray-600" for="">Calculate Interest  <span class="text-red-600">*</span></label>
+                            <select
+                                x-model="calculateInterest"
+                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base"
+                            >
+                                <option value="">Select</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <div x-show="calculateInterest === 'yes'" class="w-full">
+                            <label class="text-sm font-semibold text-gray-600" for="">Interest Rate  <span class="text-red-600">*</span></label>
+                            <input type="text"
+                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                        </div>
+                        <div class="w-full">
+                            <label class="text-sm font-semibold text-gray-600" for="">Disbursement Date <span class="text-red-600">*</span></label>
+                            <input type="date"
+                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                        </div>
+                        <div class="w-full">
+                            <label class="text-sm font-semibold text-gray-600" for="">Loan Tenure(In Months)  <span class="text-red-600">*</span></label>
+                            <input type="text"
+                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                        </div>
+                       </div>
+                       <div class="space-y-4">
+                        <h3 class="font-bold">Repayment Details</h3>
+                        <div class="w-full">
+                            <label class="text-sm font-semibold text-gray-600" for="">Instalment Date <span class="text-red-600">*</span></label>
+                            <input type="date"
+                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                        </div>
+                        <div class="w-full">
+                            <label class="text-sm font-semibold text-gray-600" for="">Instalment Amount <span class="text-red-600">*</span></label>
+                            <input type="text"
+                                class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                        </div>
+                       </div>
+                       <div class="pt-6">
+                        <button class="p-3 font-semibold text-center text-white bg-blue-600 rounded-md w-36">Add Loan</button>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+<script>
+    function dropdown() {
+        return {
+            open: false,
+            search: '',
+            selected: null,
+            users: ['Alice', 'Bob', 'Charlie', 'David', 'Eva'],
+            toggleDropdown() {
+                this.open = !this.open;
+            },
+            closeDropdown() {
+                this.open = false;
+            },
+            get filteredUsers() {
+                return this.users.filter(user =>
+                    user.toLowerCase().includes(this.search.toLowerCase())
+                );
+            },
+            selectUser(user) {
+                this.selected = user;
+                this.search = '';
+                this.open = false;
+            }
+        };
+    }
+    </script>
+</html>
