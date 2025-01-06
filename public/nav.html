@@ -695,6 +695,15 @@
                   Customer Custom Field
                 </a>
               </li>
+              <li>
+                <a 
+                  :class="activePage === 'customers-add-permission.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
+                  class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" 
+                  href="customers-add-permission.html" 
+                  @click="activePage = 'customers-add-permission.html'">
+                  Add Permissions
+                </a>
+              </li>
             </ul>
           </div>
         </li>
