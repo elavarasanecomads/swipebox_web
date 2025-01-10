@@ -18,67 +18,21 @@
             <div class="mx-0 my-4 lg:m-4">
                 <div class="h-full p-4 bg-white border rounded-md lg:p-8">
                     <!--Brudcrumb-->
-                    <nav class="flex pb-4" aria-label="Breadcrumb">
-                        <ol class="inline-flex flex-wrap items-center space-x-1 md:space-x-3">
-                            <li class="inline-flex items-center">
-                                <a href="dashboard.html"
-                                    class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
-                                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
-                                        </path>
-                                    </svg>
-                                    Dashboard
-                                </a>
-                            </li>
-                            <li>
-                                <div class="flex items-center">
-                                    <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    <a href="employee-summary.html"
-                                        class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">Employee
-                                        Summary</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flex items-center">
-                                    <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    <a href="employee-detail.html"
-                                        class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">Employee</a>
-                                </div>
-                            </li>
-                            <li aria-current="page">
-                                <div class="flex items-center">
-                                    <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span
-                                        class="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">Loan</span>
-                                </div>
-                            </li>
-                        </ol>
-                    </nav>
-                    <div>
-                        <p class="text-2xl font-bold">Employee Loan</p>
+                    <div class="flex items-center gap-2">
+                        <a href="dashboard.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <div class="flex items-center gap-4">
+                            <h1 class="text-2xl font-bold">Employee Loan</h1>                                                   
+                        </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-8 pt-4 lg:grid-cols-3">
+                    <div class="grid grid-cols-2 gap-8 pt-4 lg:grid-cols-4">                       
                         <div class="relative p-4 border rounded-md shadow-md">
                             <div>
-                                <p class="text-2xl font-bold text-green-600">₹ 200</p>
-                                <p class="font-medium text-gray-600">Amount To Be Repaid</p>
+                                <p class="text-2xl font-bold text-orange-600">₹ 10000</p>
+                                <p class="font-medium text-gray-600">Total Loan Amount</p>
                             </div>
                             <div class="absolute top-4 right-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-600" fill="none"
@@ -95,10 +49,16 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="p-4 border rounded-md shadow-md">
+                            <div>
+                                <p class="text-2xl font-bold text-blue-600">9</p>
+                                <p class="font-medium text-gray-600">Pending Instalment</p>
+                            </div>
+                        </div>
                         <div class="relative p-4 border rounded-md shadow-md">
                             <div>
-                                <p class="text-xl font-bold text-red-600">₹ 500</p>
-                                <p class="font-medium text-gray-600">Amount Given</p>
+                                <p class="text-xl font-bold text-red-600">₹ 1000</p>
+                                <p class="font-medium text-gray-600">Amount Repaid</p>
                             </div>
                             <div class="absolute top-4 right-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-600" fill="none"
@@ -111,8 +71,8 @@
                         </div>
                         <div class="relative p-4 border rounded-md shadow-md">
                             <div>
-                                <p class="text-xl font-bold text-green-600">₹ 300</p>
-                                <p class="font-medium text-gray-600">Amount Paid</p>
+                                <p class="text-xl font-bold text-green-600">₹ 9000</p>
+                                <p class="font-medium text-gray-600">Remaining Amount</p>
                             </div>
                             <div class="absolute top-4 right-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-600" fill="none"
@@ -124,21 +84,21 @@
                         </div>
                     </div>
 
-                    <div class="flex items-center justify-between gap-4 pt-12">
+                    <div class="flex items-center justify-between gap-4 pt-4">
                         <h3 class="text-xl font-bold">Loan Summary</h3>
                         <div class="flex items-center gap-4">
                             <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
                                 <button @click="showModal = true"
-                                    class="w-32 p-2 font-semibold text-white bg-red-600 rounded">Add Loan</button>
+                                    class="w-32 p-2 font-semibold text-white bg-blue-600 rounded">Add Loan</button>
                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                     x-show="showModal" style="display: none;">
-                                    <!-- Modal inner -->
-                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                    
+                                    <div class="w-11/12 px-6 py-4 mx-auto overflow-y-auto text-left bg-white rounded shadow-lg md:max-w-xl"
                                         @click.away="showModal = false"
                                         x-transition:enter="motion-safe:ease-out duration-300"
                                         x-transition:enter-start="opacity-0 scale-90"
                                         x-transition:enter-end="opacity-100 scale-100">
-                                        <!-- Title / Close-->
+                                        
                                         <div class="flex items-center justify-between">
                                             <p class="font-bold text-gray-900">
                                                 Add Loan
@@ -151,34 +111,71 @@
                                                 </svg>
                                             </span>
                                         </div>
-                                        <!-- content -->
+                                        
                                         <div class="w-full mt-4">
-                                            <div class="pb-4 space-y-2 border-b">
-                                                <div>
-                                                    <label class="font-semibold text-gray-600" for="date">Date Of
-                                                        Payment</label>
-                                                    <input type="text" name="date" id="date" autocomplete="title"
-                                                        placeholder=""
-                                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            <div class="grid grid-cols-1 gap-4 lg:grid-cols-2" x-data="{ calculateInterest: '' }">
+                                                <div class="w-full">
+                                                    <label class="text-sm font-semibold text-gray-600" for="">Date <span class="text-red-600">*</span></label>
+                                                    <input type="date"
+                                                        class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                                 </div>
-                                                <div>
-                                                    <label class="font-semibold text-gray-600" for="amount">Payment
-                                                        Amount</label>
-                                                    <input type="text" name="amount" id="amount" autocomplete="title"
-                                                        placeholder=""
-                                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                <div class="w-full">
+                                                    <label class="text-sm font-semibold text-gray-600" for="">Loan Amount <span class="text-red-600">*</span></label>
+                                                    <input type="text"
+                                                        class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                                 </div>
-                                                <div>
-                                                    <label class="font-semibold text-gray-600" for="notes">Notes</label>
-                                                    <input type="text" name="notes" id="notes" autocomplete="title"
-                                                        placeholder=""
-                                                        class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                <div class="w-full">
+                                                    <label class="text-sm font-semibold text-gray-600" for="">Calculate Interest  <span class="text-red-600">*</span></label>
+                                                    <select
+                                                        x-model="calculateInterest"
+                                                        class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base"
+                                                    >
+                                                        <option value="">Select</option>
+                                                        <option value="yes">Yes</option>
+                                                        <option value="no">No</option>
+                                                    </select>
                                                 </div>
-                                                <div>
+                                                <div x-show="calculateInterest === 'yes'" class="w-full">
+                                                    <label class="text-sm font-semibold text-gray-600" for="">Interest Rate  <span class="text-red-600">*</span></label>
+                                                    <input type="text"
+                                                        class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                </div>
+                                                <div class="col-span-2">
+                                                    <h3 class="font-bold">Repayment Details</h3>
+                                                </div>                                                                                              
+                                                <div class="w-full">
+                                                    <label class="text-sm font-semibold text-gray-600" for="">Loan Tenure(In Months)  <span class="text-red-600">*</span></label>
+                                                    <input type="text"
+                                                        class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                </div>
+                                                <div class="w-full">
+                                                    <label class="text-sm font-semibold text-gray-600" for="">Instalment Amount <span class="text-red-600">*</span></label>
+                                                    <input type="text"
+                                                        class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                </div>
+                                                <div class="w-full">
+                                                    <label class="text-sm font-semibold text-gray-600" for="">Instalment Date <span class="text-red-600">*</span></label>
+                                                    <input type="date"
+                                                        class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                </div>  
+                                                <div class="w-full">
+                                                    <label class="text-sm font-semibold text-gray-600" for="">Notes <span class="text-red-600">*</span></label>
+                                                    <input type="text"
+                                                        class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                </div>
+                                                <div class="flex items-center col-span-2 p-2 mt-2 bg-blue-100 rounded">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-1 text-blue-600">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                                      </svg>                                  
+                                                    <p class="text-blue-600">Every Month 25th, Amount will Debited.</p>
+                                                </div> 
+                                                <div class="pt-2">
                                                     <button
                                                         class="w-full p-3 font-semibold text-white bg-blue-600 rounded-md">Add
                                                         Loan</button>
                                                 </div>
+                                                
+                                                   
                                             </div>
                                         </div>
                                     </div>
@@ -190,7 +187,7 @@
                                 <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                     x-show="showModal" style="display: none;">
                                     <!-- Modal inner -->
-                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm"
                                         @click.away="showModal = false"
                                         x-transition:enter="motion-safe:ease-out duration-300"
                                         x-transition:enter-start="opacity-0 scale-90"
@@ -244,7 +241,7 @@
                         </div>
                     </div>
 
-                    <div class="mt-8">
+                    <div class="mt-2">
                         <div class="flex flex-col border-b">
                             <div class="z-10 -my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
                                 <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
@@ -279,7 +276,7 @@
                                             <tbody class="bg-white divide-y divide-gray-200">
                                                 <tr>
                                                     <td class="px-6 py-4 whitespace-nowrap">
-                                                        <p class="font-bold">01-06-2022</p>
+                                                        <p class="font-bold">01-01-2025</p>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <span class="text-base text-gray-900">
@@ -287,13 +284,11 @@
                                                         </span>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
-                                                        <span class="text-base text-green-600">
+                                                        <span class="text-base">
                                                             ₹ 10000</span>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
-                                                        <p class="p-0.5 px-2 text-xs inline-block font-semibold text-green-600 bg-green-100 rounded-full">
-                                                            Paid
-                                                        </p>
+                                                        -
                                                     </td>
                                                     <td
                                                         class="relative flex items-center gap-4 px-6 py-4 whitespace-nowrap">
@@ -301,7 +296,7 @@
                                                             @keydown.escape="showModal = false">
                                                             <button @click="showModal = true" class="">
                                                                 <svg xmlns="http://www.w3.org/2000/svg"
-                                                                    class="w-6 h-6 text-blue-600" fill="none"
+                                                                    class="w-6 h-6 text-blue-600/50" fill="none"
                                                                     viewBox="0 0 24 24" stroke="currentColor"
                                                                     stroke-width="2">
                                                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -311,7 +306,7 @@
                                                             <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                 x-show="showModal" style="display: none;">
                                                                 <!-- Modal inner -->
-                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm"
                                                                     @click.away="showModal = false"
                                                                     x-transition:enter="motion-safe:ease-out duration-300"
                                                                     x-transition:enter-start="opacity-0 scale-90"
@@ -384,7 +379,7 @@
                                                         </div>
                                                         <div x-data="{ 'showModal': false }">
                                                             <button @click="showModal = true"
-                                                                class="flex items-center text-red-600"><span><svg
+                                                                class="flex items-center text-red-600/50"><span><svg
                                                                         xmlns="http://www.w3.org/2000/svg"
                                                                         class="w-5 h-5 mr-1" fill="none"
                                                                         viewBox="0 0 24 24" stroke="currentColor">
@@ -396,7 +391,7 @@
                                                             <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                 x-show="showModal" style="display: none;">
                                                                 <!-- Modal inner -->
-                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm"
                                                                     @click.away="showModal = false"
                                                                     x-transition:enter="motion-safe:ease-out duration-300"
                                                                     x-transition:enter-start="opacity-0 scale-90"
@@ -456,7 +451,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="px-6 py-4 whitespace-nowrap">
-                                                        <p class="font-bold">12-06-2022</p>
+                                                        <p class="font-bold">25-01-2025</p>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <span class="text-base text-gray-900">
@@ -464,8 +459,8 @@
                                                         </span>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
-                                                        <span class="text-base text-green-600">
-                                                            ₹ 300</span>
+                                                        <span class="text-base">
+                                                            ₹ 1000</span>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <p class="p-0.5 px-2 text-xs inline-block font-semibold text-green-600 bg-green-100 rounded-full">
@@ -478,7 +473,7 @@
                                                             @keydown.escape="showModal = false">
                                                             <button @click="showModal = true" class="">
                                                                 <svg xmlns="http://www.w3.org/2000/svg"
-                                                                    class="w-6 h-6 text-blue-600" fill="none"
+                                                                    class="w-6 h-6 text-blue-600/50" fill="none"
                                                                     viewBox="0 0 24 24" stroke="currentColor"
                                                                     stroke-width="2">
                                                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -488,7 +483,7 @@
                                                             <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                 x-show="showModal" style="display: none;">
                                                                 <!-- Modal inner -->
-                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm"
                                                                     @click.away="showModal = false"
                                                                     x-transition:enter="motion-safe:ease-out duration-300"
                                                                     x-transition:enter-start="opacity-0 scale-90"
@@ -561,7 +556,7 @@
                                                         </div>
                                                         <div x-data="{ 'showModal': false }">
                                                             <button @click="showModal = true"
-                                                                class="flex items-center text-red-600"><span><svg
+                                                                class="flex items-center text-red-600/50"><span><svg
                                                                         xmlns="http://www.w3.org/2000/svg"
                                                                         class="w-5 h-5 mr-1" fill="none"
                                                                         viewBox="0 0 24 24" stroke="currentColor">
@@ -573,7 +568,7 @@
                                                             <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                 x-show="showModal" style="display: none;">
                                                                 <!-- Modal inner -->
-                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm"
                                                                     @click.away="showModal = false"
                                                                     x-transition:enter="motion-safe:ease-out duration-300"
                                                                     x-transition:enter-start="opacity-0 scale-90"
@@ -633,7 +628,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="px-6 py-4 whitespace-nowrap">
-                                                        <p class="font-bold">08-06-2022</p>
+                                                        <p class="font-bold">25-02-2025</p>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <span class="text-base text-gray-900">
@@ -641,8 +636,8 @@
                                                         </span>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
-                                                        <span class="text-base text-red-600">
-                                                            ₹ 500</span>
+                                                        <span class="text-base">
+                                                            ₹ 1000</span>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <p class="p-0.5 px-2 text-xs inline-block font-semibold text-red-600 bg-red-100 rounded-full">
@@ -665,7 +660,7 @@
                                                             <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                 x-show="showModal" style="display: none;">
                                                                 <!-- Modal inner -->
-                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm"
                                                                     @click.away="showModal = false"
                                                                     x-transition:enter="motion-safe:ease-out duration-300"
                                                                     x-transition:enter-start="opacity-0 scale-90"
@@ -750,7 +745,7 @@
                                                             <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                                                 x-show="showModal" style="display: none;">
                                                                 <!-- Modal inner -->
-                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm"
                                                                     @click.away="showModal = false"
                                                                     x-transition:enter="motion-safe:ease-out duration-300"
                                                                     x-transition:enter-start="opacity-0 scale-90"
