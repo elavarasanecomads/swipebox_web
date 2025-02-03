@@ -12614,7 +12614,7 @@
                                         </td>
                                         <td class="px-4 py-2 whitespace-normal">
                                             <span class="text-base text-gray-900">
-                                                If an employee works for X days, calculate an Allowance of Y rupees based on the number of days they are present.
+                                                If an employee works for X days, calculate an Allowance of Y rupees based on the number of days they are worked.
                                             </span>
                                             </br>
                                             <div class="pt-2">
@@ -12688,7 +12688,7 @@
                                                         <!--P01 content -->
                                                         <div class="w-full mt-4 space-y-4">
                                                             <div class="flex flex-wrap">
-                                                                <p>12.2 If an employee works for X days, calculate an Allowance of Y rupees based on the number of days they are present.</p>
+                                                                <p>12.2 If an employee works for X days, calculate an Allowance of Y rupees based on the number of days they are worked.</p>
                                                             </div>
                                                             <div class="pt-6 space-y-2">
                                                                 <div
@@ -12707,6 +12707,24 @@
                                                                             Value</label>
                                                                        <input type="text" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
                                                                     </div>
+                                                                </div>
+                                                                
+                                                                <!--use multi select dropdown-->
+                                                                <div>
+                                                                    <label
+                                                                        class="text-sm font-semibold text-gray-600"
+                                                                        for="branch">Choose
+                                                                        Workdays</label>
+                                                                    <select id="branch"
+                                                                        name="branch"
+                                                                        autocomplete="branch"
+                                                                        class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                                        <option>All</option>
+                                                                        <option>Present</option>
+                                                                        <option>Weekoff</option>
+                                                                        <option>Public Holiday</option>                                                                        
+                                                                        <option>Paid Leave</option>
+                                                                    </select>
                                                                 </div>
                                                                 <!--use multi select dropdown-->
                                                                 <div>
