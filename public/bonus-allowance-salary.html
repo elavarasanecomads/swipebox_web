@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compensation Salary</title>
+    <title>Bonus/Allowance/Incentive Salary</title>
     <link href="output.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -30,7 +30,7 @@
                                     clip-rule="evenodd"></path>
                             </svg>
                         </a>
-                        <h1 class="text-2xl font-bold">Compensation Salary</h1>                            
+                        <h1 class="text-2xl font-bold">Bonus/Allowance/Incentive Salary</h1>                            
                     </div>
                     <div class="grid grid-cols-1 gap-4 pb-8 lg:grid-cols-4">                                
                         <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
@@ -74,6 +74,21 @@
                                 <option>All Category</option>
                                 <option>Permanant</option>
                                 <option>Casual</option>
+                            </select>   
+                            <select id="" name="" autocomplete="" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>Select Month</option>
+                                <option>Feb 2024</option>
+                                <option>Jan 2024</option>
+                            </select>     
+                            <select id="" name="" autocomplete="" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>Select Date</option>
+                                <option>12-01-2025 - 19-01-2025</option>
+                                <option>04-01-2025 - 11-01-2025</option>
+                            </select>   
+                            <select id="" name="" autocomplete="" class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                <option>Select Type</option>
+                                <option>Paid</option>
+                                <option>Not Paid</option>
                             </select>                            
                         </div>
                         <div>
@@ -152,14 +167,27 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="flex flex-col ">
+                            <div class="flex flex-col ">                                
                                 <div class="-my-2 overflow-x-auto md:overflow-x-auto sm:-mx-6 lg:-mx-8">
                                     <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                                         <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
-
+                                            <div class="flex items-center order-2 gap-2 pb-4">
+                                                <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block px-1 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                    <option>Bulk Actions</option>
+                                                    <option>Record</option>
+                                                    <option>Delete</option>
+                                                </select>
+                                                <button class="px-4 py-1 mt-1 font-semibold text-center text-gray-900 bg-gray-300 rounded">Apply</button>
+                                            </div>
                                             <table class="min-w-full divide-y divide-gray-200 table-fixed ">
                                                 <thead class="bg-blue-600">
                                                     <tr class="text-sm">
+                                                        <th scope="col" class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
+
+                                                            <span class="text-sm text-gray-900">
+                                                                <input class="w-4 h-4 border border-white" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </th>
                                                         <th scope="col"
                                                             class="px-2 py-3 font-semibold tracking-wider text-left text-gray-100 uppercase">
                                                             Name
@@ -186,7 +214,11 @@
                                                 </thead>
                                                 <tbody class="bg-white divide-y divide-gray-200">
                                                     <tr>
-                                                        
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                <input class="w-4 h-4 border border-white" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
                                                         <td class="px-2 py-3 whitespace-nowrap">
                                                             <div>
                                                                 <p class="font-semibold text-blue-600">Elavarasan Rajan
@@ -216,7 +248,11 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                <input class="w-4 h-4 border border-white" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>  
                                                         <td class="px-2 py-3 whitespace-nowrap">
                                                             <div>
                                                                 <p class="font-semibold text-blue-600">Karthika Mohankumar
@@ -246,7 +282,11 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        
+                                                        <td class="px-2 py-3 whitespace-nowrap">
+                                                            <span class="text-sm text-gray-900">
+                                                                <input class="w-4 h-4 border border-white" type="checkbox" name="" id="">
+                                                            </span>
+                                                        </td>
                                                         <td class="px-2 py-3 whitespace-nowrap">
                                                             <div>
                                                                 <p class="font-semibold text-blue-600">Rakupathi
