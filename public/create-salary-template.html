@@ -37,6 +37,24 @@
                             <input type="text" name="" id="" autocomplete="title" placeholder=""
                                 class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                         </div>
+                        <div>
+                            <label class="inline-flex items-center">
+                                <input name="" type="checkbox" class="w-4 h-4 form-checkbox">
+                                <span class="ml-2 font-semibold">Calculate Salary based on Workdays.</span>
+                                <div x-data="{ open: false }" @click.outside="open = false" class="relative">
+                                    <button @click="open = !open" class="p-2 rounded-full">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-600">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                          </svg>
+                                          
+                                    </button>
+                                    
+                                    <div x-show="open" class="absolute p-2 mt-2 text-sm text-white transform -translate-x-1/2 bg-gray-800 rounded shadow-lg w-72 left-1/2">
+                                        If enabled, salary will be calculated based on workdays, which are determined by the workday policy.
+                                    </div>
+                                </div>
+                              </label>
+                        </div>
                         <div class="pb-4">
                             <div class="flex items-center justify-between pb-4">
                                 <p class="text-xl font-bold ">Earnings</p>
