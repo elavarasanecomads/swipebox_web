@@ -43,17 +43,21 @@
                                 <span class="ml-2 font-semibold">Calculate Salary based on Workdays.</span>
                                 <div x-data="{ open: false }" @click.outside="open = false" class="relative">
                                     <button @click="open = !open" class="p-2 rounded-full">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-600">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
-                                          </svg>
-                                          
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-600">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                        </svg>
+
                                     </button>
-                                    
-                                    <div x-show="open" class="absolute p-2 mt-2 text-sm text-white transform -translate-x-1/2 bg-gray-800 rounded shadow-lg w-72 left-1/2">
-                                        If enabled, salary will be calculated based on workdays, which are determined by the workday policy.
+
+                                    <div x-show="open"
+                                        class="absolute p-2 mt-2 text-sm text-white transform -translate-x-1/2 bg-gray-800 rounded shadow-lg w-72 left-1/2">
+                                        If enabled, salary will be calculated based on workdays, which are determined by
+                                        the workday policy.
                                     </div>
                                 </div>
-                              </label>
+                            </label>
                         </div>
                         <div class="pb-4">
                             <div class="flex items-center justify-between pb-4">
@@ -444,6 +448,116 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-4 py-4 whitespace-nowrap">
+                                                            <div class="text-base text-gray-900">
+                                                                <p class="font-semibold text-blue-600">
+                                                                    Holiday & Weekend Overtime
+                                                                </p>
+                                                            </div>
+                                                        </td>
+                                                        <td class="px-4 py-4 whitespace-nowrap"></td>
+                                                        <td class="px-4 py-4 whitespace-nowrap"
+                                                            x-data="{ 'showModal': false }"
+                                                            @keydown.escape="showModal = false">
+                                                            <div class="flex items-center justify-end">
+                                                                <button @click="showModal = true"
+                                                                    class="p-2 font-medium text-gray-800 bg-gray-200 rounded w-36">Enable</button>
+                                                                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                                                    x-show="showModal" style="display: none;">
+                                                                    <!-- Modal inner -->
+                                                                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm"
+                                                                        @click.away="showModal = false"
+                                                                        x-transition:enter="motion-safe:ease-out duration-300"
+                                                                        x-transition:enter-start="opacity-0 scale-90"
+                                                                        x-transition:enter-end="opacity-100 scale-100">
+                                                                        <!-- Title / Close-->
+                                                                        <div class="flex items-center justify-between">
+                                                                            <p class="font-bold text-gray-900">
+                                                                                Holiday & Weekend Overtime
+                                                                            </p>
+                                                                            <span @click="showModal = false">
+                                                                                <svg class="w-5 h-5 text-gray-900"
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    fill="none" viewBox="0 0 24 24"
+                                                                                    stroke="currentColor">
+                                                                                    <path stroke-linecap="round"
+                                                                                        stroke-linejoin="round"
+                                                                                        stroke-width="2"
+                                                                                        d="M6 18L18 6M6 6l12 12"></path>
+                                                                                </svg>
+                                                                            </span>
+                                                                        </div>
+                                                                        <!-- content -->
+                                                                        <div class="w-full">
+                                                                            <div class="pt-4">
+                                                                                <div class="space-y-4">
+                                                                                    <div>
+                                                                                        <label
+                                                                                            class="inline-flex items-center">
+                                                                                            <input type="radio"
+                                                                                                class="w-4 h-4 form-checkbox">
+                                                                                            <div
+                                                                                                class="ml-2 font-semibold text-gray-600">
+
+                                                                                                <span>Enable</span>
+                                                                                            </div>
+                                                                                        </label>
+                                                                                        <div
+                                                                                            class="flex flex-col pt-2 pl-4 space-y-4">
+                                                                                            <div
+                                                                                                class="inline-flex items-center px-2">
+                                                                                                <input class="w-4 h-4"
+                                                                                                    type="radio"
+                                                                                                    checked="">
+                                                                                                <span
+                                                                                                    class="ml-2 font-semibold text-gray-600">Count
+                                                                                                    OT working hours for
+                                                                                                    payment. </span>
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="inline-flex items-center px-2">
+                                                                                                <input class="w-4 h-4"
+                                                                                                    type="radio"
+                                                                                                    checked="">
+                                                                                                <span
+                                                                                                    class="ml-2 font-semibold text-gray-600">Count
+                                                                                                    attendance for
+                                                                                                    payment.</span>
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="inline-flex items-center px-2">
+                                                                                                <input class="w-4 h-4"
+                                                                                                    type="radio"
+                                                                                                    checked="">
+                                                                                                <span
+                                                                                                    class="ml-2 font-semibold text-gray-600">Count
+                                                                                                    workdays for
+                                                                                                    payment.</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div>
+                                                                                        <label
+                                                                                            class="inline-flex items-center">
+                                                                                            <input name="tds"
+                                                                                                type="radio"
+                                                                                                class="w-4 h-4 form-checkbox">
+                                                                                            <span
+                                                                                                class="ml-2 font-semibold text-gray-600">Disable</span>
+                                                                                        </label>
+                                                                                    </div>
+
+
+                                                                                    <button @click="showModal = true"
+                                                                                        class="p-2 font-medium text-white bg-blue-600 rounded w-36">Save</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -1043,7 +1157,8 @@
                                                                                             <span>12% Variable</span>
                                                                                         </div>
                                                                                     </label>
-                                                                                    <div class="flex flex-row flex-wrap gap-4 pt-2 pl-4">
+                                                                                    <div
+                                                                                        class="flex flex-row flex-wrap gap-4 pt-2 pl-4">
                                                                                         <label
                                                                                             class="inline-flex items-center px-2">
                                                                                             <input class="w-4 h-4"
@@ -1062,29 +1177,31 @@
                                                                                                 class="ml-2 font-semibold text-gray-600">HRA</span>
                                                                                         </label>
                                                                                         <label
-                                                                                        class="inline-flex items-center px-2">
-                                                                                        <input class="w-4 h-4"
-                                                                                            type="checkbox"
-                                                                                            checked="">
-                                                                                        <span
-                                                                                            class="ml-2 font-semibold text-gray-600">Overtime</span>
-                                                                                    </label>
-                                                                                    <label
-                                                                                    class="inline-flex items-center px-2">
-                                                                                    <input class="w-4 h-4"
-                                                                                        type="checkbox"
-                                                                                        checked="">
-                                                                                    <span
-                                                                                        class="ml-2 font-semibold text-gray-600">Special Allowance</span>
-                                                                                </label>
-                                                                                <label
-                                                                                class="inline-flex items-center px-2">
-                                                                                <input class="w-4 h-4"
-                                                                                    type="checkbox"
-                                                                                    checked="">
-                                                                                <span
-                                                                                    class="ml-2 font-semibold text-gray-600">Conveyance Allow</span>
-                                                                            </label>
+                                                                                            class="inline-flex items-center px-2">
+                                                                                            <input class="w-4 h-4"
+                                                                                                type="checkbox"
+                                                                                                checked="">
+                                                                                            <span
+                                                                                                class="ml-2 font-semibold text-gray-600">Overtime</span>
+                                                                                        </label>
+                                                                                        <label
+                                                                                            class="inline-flex items-center px-2">
+                                                                                            <input class="w-4 h-4"
+                                                                                                type="checkbox"
+                                                                                                checked="">
+                                                                                            <span
+                                                                                                class="ml-2 font-semibold text-gray-600">Special
+                                                                                                Allowance</span>
+                                                                                        </label>
+                                                                                        <label
+                                                                                            class="inline-flex items-center px-2">
+                                                                                            <input class="w-4 h-4"
+                                                                                                type="checkbox"
+                                                                                                checked="">
+                                                                                            <span
+                                                                                                class="ml-2 font-semibold text-gray-600">Conveyance
+                                                                                                Allow</span>
+                                                                                        </label>
                                                                                     </div>
                                                                                     <div class="flex items-center mt-2 ml-4"
                                                                                         x-data="{ showTextbox: false }">
@@ -1121,7 +1238,8 @@
                                                                                             <span>10% Variable</span>
                                                                                         </div>
                                                                                     </label>
-                                                                                    <div class="flex flex-row flex-wrap gap-4 pt-2 pl-4 ">
+                                                                                    <div
+                                                                                        class="flex flex-row flex-wrap gap-4 pt-2 pl-4 ">
                                                                                         <label
                                                                                             class="inline-flex items-center px-2">
                                                                                             <input class="w-4 h-4"
@@ -1231,7 +1349,8 @@
                                                                                             class="ml-2 font-semibold text-gray-600">0.75%
                                                                                             Variable</span>
                                                                                     </label>
-                                                                                    <div class="flex flex-row flex-wrap gap-4 pt-2 pl-4">
+                                                                                    <div
+                                                                                        class="flex flex-row flex-wrap gap-4 pt-2 pl-4">
                                                                                         <label
                                                                                             class="inline-flex items-center px-2">
                                                                                             <input class="w-4 h-4"
@@ -1764,7 +1883,8 @@
                                                                                             <span>Enable</span>
                                                                                         </div>
                                                                                     </label>
-                                                                                    <div class="flex flex-row flex-wrap gap-4 pt-2 pl-4 ">
+                                                                                    <div
+                                                                                        class="flex flex-row flex-wrap gap-4 pt-2 pl-4 ">
                                                                                         <label
                                                                                             class="inline-flex items-center px-2">
                                                                                             <input class="w-4 h-4"
@@ -1857,7 +1977,8 @@
                                                                                             <span>Enable</span>
                                                                                         </div>
                                                                                     </label>
-                                                                                    <div class="flex flex-row flex-wrap gap-4 pt-2 pl-4 ">
+                                                                                    <div
+                                                                                        class="flex flex-row flex-wrap gap-4 pt-2 pl-4 ">
                                                                                         <label
                                                                                             class="inline-flex items-center px-2">
                                                                                             <input class="w-4 h-4"
@@ -1950,7 +2071,8 @@
                                                                                             <span>Enable</span>
                                                                                         </div>
                                                                                     </label>
-                                                                                    <div class="flex flex-row flex-wrap gap-4 pt-2 pl-4 ">
+                                                                                    <div
+                                                                                        class="flex flex-row flex-wrap gap-4 pt-2 pl-4 ">
                                                                                         <label
                                                                                             class="inline-flex items-center px-2">
                                                                                             <input class="w-4 h-4"
@@ -2043,7 +2165,8 @@
                                                                                             <span>Enable</span>
                                                                                         </div>
                                                                                     </label>
-                                                                                    <div class="flex flex-row flex-wrap gap-4 pt-2 pl-4 ">
+                                                                                    <div
+                                                                                        class="flex flex-row flex-wrap gap-4 pt-2 pl-4 ">
                                                                                         <label
                                                                                             class="inline-flex items-center px-2">
                                                                                             <input class="w-4 h-4"
@@ -2136,7 +2259,8 @@
                                                                                             <span>Enable</span>
                                                                                         </div>
                                                                                     </label>
-                                                                                    <div class="flex flex-row flex-wrap gap-4 pt-2 pl-4 ">
+                                                                                    <div
+                                                                                        class="flex flex-row flex-wrap gap-4 pt-2 pl-4 ">
                                                                                         <label
                                                                                             class="inline-flex items-center px-2">
                                                                                             <input class="w-4 h-4"
@@ -2318,7 +2442,8 @@
                                                                                             <span>12% Variable</span>
                                                                                         </div>
                                                                                     </label>
-                                                                                    <div class="flex flex-row flex-wrap gap-4 pt-2 pl-4 ">
+                                                                                    <div
+                                                                                        class="flex flex-row flex-wrap gap-4 pt-2 pl-4 ">
                                                                                         <label
                                                                                             class="inline-flex items-center px-2">
                                                                                             <input class="w-4 h-4"
@@ -2372,7 +2497,8 @@
                                                                                             <span>10% Variable</span>
                                                                                         </div>
                                                                                     </label>
-                                                                                    <div class="flex flex-row flex-wrap gap-4 pt-2 pl-4">
+                                                                                    <div
+                                                                                        class="flex flex-row flex-wrap gap-4 pt-2 pl-4">
                                                                                         <label
                                                                                             class="inline-flex items-center px-2">
                                                                                             <input class="w-4 h-4"
@@ -2483,7 +2609,8 @@
                                                                                             class="ml-2 font-semibold text-gray-600">3.25%
                                                                                             Variable</span>
                                                                                     </label>
-                                                                                    <div class="flex flex-row flex-wrap gap-4 pt-2 pl-4">
+                                                                                    <div
+                                                                                        class="flex flex-row flex-wrap gap-4 pt-2 pl-4">
                                                                                         <label
                                                                                             class="inline-flex items-center px-2">
                                                                                             <input class="w-4 h-4"
@@ -2673,68 +2800,68 @@
         }
     }
     function deductionDropdown() {
-      return {
-        open: false,
-        search: '',
-        selectedOption: null,
-        customDeduction: '',
-        showPopup: false,
+        return {
+            open: false,
+            search: '',
+            selectedOption: null,
+            customDeduction: '',
+            showPopup: false,
 
-        // Default Deduction options
-        options: [
-        "Medical Insurance Premium",
-        "Food Deduction",
-        "Benevolent Fund",
-        "Term Insurance",
-        "Group Accidental Policy & WC",
-        "Gratuity",
-        "Statutory Bonus Deduction",
-        "Security Deposit",
-        "Uniform Deduction",
-        "Transport Charges",
-        "Miscellaneous Deduction",
-        ],
+            // Default Deduction options
+            options: [
+                "Medical Insurance Premium",
+                "Food Deduction",
+                "Benevolent Fund",
+                "Term Insurance",
+                "Group Accidental Policy & WC",
+                "Gratuity",
+                "Statutory Bonus Deduction",
+                "Security Deposit",
+                "Uniform Deduction",
+                "Transport Charges",
+                "Miscellaneous Deduction",
+            ],
 
-        // Custom names
-        customNames: [],
+            // Custom names
+            customNames: [],
 
-        // Filter options based on search input
-        get filteredOptions() {
-          return this.options.filter(option => option.toLowerCase().includes(this.search.toLowerCase()));
-        },
+            // Filter options based on search input
+            get filteredOptions() {
+                return this.options.filter(option => option.toLowerCase().includes(this.search.toLowerCase()));
+            },
 
-        // Filter custom names based on search input
-        get filteredCustomNames() {
-          return this.customNames.filter(custom => custom.toLowerCase().includes(this.search.toLowerCase()));
-        },
+            // Filter custom names based on search input
+            get filteredCustomNames() {
+                return this.customNames.filter(custom => custom.toLowerCase().includes(this.search.toLowerCase()));
+            },
 
-        // Select an option (either from default or custom names)
-        selectOption(option) {
-          this.selectedOption = option;
-          this.open = false;
-        },
+            // Select an option (either from default or custom names)
+            selectOption(option) {
+                this.selectedOption = option;
+                this.open = false;
+            },
 
-        // Open custom popup
-        openCustomPopup() {
-          this.showPopup = true;
-          this.open = false;
-        },
-         // Open custom popup
-         closeCustomPopup() {
+            // Open custom popup
+            openCustomPopup() {
+                this.showPopup = true;
+                this.open = false;
+            },
+            // Open custom popup
+            closeCustomPopup() {
                 this.showPopup = false;
                 this.open = true;
             },
 
-        // Save custom deduction
-        saveCustomDeduction() {
-          if (this.customDeduction.trim() !== '') {
-            this.customNames.push(this.customDeduction.trim()); // Add custom name to custom list
-            this.selectedOption = this.customDeduction.trim();
-            this.customDeduction = '';
-          }
-          this.showPopup = false;
+            // Save custom deduction
+            saveCustomDeduction() {
+                if (this.customDeduction.trim() !== '') {
+                    this.customNames.push(this.customDeduction.trim()); // Add custom name to custom list
+                    this.selectedOption = this.customDeduction.trim();
+                    this.customDeduction = '';
+                }
+                this.showPopup = false;
+            }
         }
-      }
     }
 </script>
 
