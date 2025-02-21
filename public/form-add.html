@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Form</title>
     <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.5/cdn.js"
         integrity="sha512-8IPRU0MPrge2KfSxkAtO8pIkaMzThW/MBSvPqcyVisSymLWC986buo27pKAt5mWXmt58dT6jIsw7h8NNugtRwg=="
@@ -42,6 +43,29 @@
                                     <input type="text" placeholder="Task Name" 
                                         class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                 </div>
+                                <div class="pt-4">
+                                    <label id="listbox-label" class="block font-semibold text-gray-600">
+                                        Status
+                                    </label>
+                                    <div class="flex gap-4 mt-2 text-gray-600">
+                                        <span>Inactive</span>
+                                        <div class="mx-3" x-data="{toggle: false}">
+                                            <div class="relative w-12 h-6 transition duration-200 ease-linear rounded-full"
+                                                :class="[toggle ? 'bg-green-600' : 'bg-gray-400']">
+                
+                                                <label for="toggle"
+                                                    class="absolute drop-shadow-lg left-1 bg-white mt-[2px] w-5 h-5 rounded-full transition transform duration-100 ease-linear cursor-pointer"
+                                                    :class="[toggle ? 'translate-x-full border-black' : 'translate-x-0 border-gray-400']">
+                                                </label>
+                
+                                                <input type="checkbox" id="toggle" name="toggle" x-model="toggle"
+                                                    class="w-full h-full appearance-none active:outline-none focus:outline-none" />
+                                            </div>
+                                        </div>
+                                        <span>Active</span>
+                                    </div>
+                                </div>
+                                
                             </div>
                             <h2 class="text-lg font-bold">Default Fields</h2>
                             <div class="grid grid-cols-1 gap-4 lg:grid-cols-4">
