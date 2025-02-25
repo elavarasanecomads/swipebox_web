@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unprocessed Logs</title>
+    <title>OT Unprocessed Logs</title>
     <link href="output.css" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
@@ -20,14 +20,14 @@
             <div class="mx-0 my-4 lg:m-4">
                 <div class="h-full p-4 bg-white border rounded-md lg:p-8">
                     <div class="flex items-center justify-between">
-                        <a href="daily-attendance-2.html" class="flex items-center gap-1 text-sm text-gray-600">
+                        <a href="unprocessed-log.html" class="flex items-center gap-1 text-sm text-gray-600">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                 class="w-5 h-5">
                                 <path fill-rule="evenodd"
                                     d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
                                     clip-rule="evenodd"></path>
                             </svg>
-                            <p class="text-2xl font-bold text-gray-900">Unprocessed Logs</p>
+                            <p class="text-2xl font-bold text-gray-900">OT Unprocessed Logs</p>
                         </a>
                     </div>
                     <div class="w-full pt-6">                        
@@ -59,16 +59,6 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <div class="text-left">
-                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                            class="block w-full px-3 py-2 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                            <option>All</option>
-                                            <option>Missed Punch-In</option>
-                                            <option>Missed Punch-Out</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div>
                                     <span class="inline-block w-full rounded shadow-sm">
                                         <button
                                             class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-72 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
@@ -96,7 +86,6 @@
                                             <tr class="py-4 divide-x">
                                                 <!-- Equal width classes applied -->
                                                 <th scope="col" class="sticky left-0 z-0 w-1/3 p-4 bg-blue-600">Form Name</th>
-                                                <th scope="col" class="w-1/3 p-4">Status</th>
                                                 <th scope="col" class="w-1/3 p-4">Action</th>
                                             </tr>
                                         </thead>
@@ -114,10 +103,6 @@
                                                             <p class="text-xs text-gray-600">NA1011</p>
                                                         </div>
                                                     </div>
-                                                </td>
-                                                <td class="w-1/3 p-4">
-                                                    <p><span>OUT : </span>05-12-2024 09:53</p>
-                                                    <p><span>OUT : </span>05-12-2024 11:53</p>
                                                 </td>
                                                 <td class="flex items-center w-1/3 gap-4 p-4">
                                                     <div x-data="modalComponent()">
@@ -164,7 +149,6 @@
                                                                             <thead class="text-sm text-left text-gray-700 uppercase bg-gray-100">
                                                                                 <tr>
                                                                                     <th class="px-4 py-2 border-b border-gray-300">Date</th>
-                                                                                    <th class="px-4 py-2 border-b border-gray-300">Time</th>
                                                                                     <th class="px-4 py-2 border-b border-gray-300">Action</th>
                                                                                 </tr>
                                                                             </thead>
@@ -207,14 +191,10 @@
                                                             src="https://randomuser.me/api/portraits/men/11.jpg" alt="">
                                                         <div>
                                                             <a href="employee-detail.html"
-                                                                class="font-medium text-blue-600">ATHEESWAR MANICKAM</a>
-                                                            <p class="text-xs text-gray-600">NA1011</p>
+                                                                class="font-medium text-blue-600">Kaviya</a>
+                                                            <p class="text-xs text-gray-600">NA1012</p>
                                                         </div>
                                                     </div>
-                                                </td>
-                                                <td class="w-1/3 p-4">
-                                                    <p><span>OUT : </span>05-12-2024 09:53</p>
-                                                    <p><span>IN : </span>05-12-2024 11:53</p>
                                                 </td>
                                                 <td class="flex items-center w-1/3 gap-4 p-4">
                                                     <div x-data="modalComponent()">
