@@ -185,7 +185,7 @@
                                                                 <!-- content -->
                                                                 <div class="w-full mt-4 overflow-y-scroll h-96">
                                                                     <div class="grid grid-cols-2 gap-4 lg:grid-cols-2">
-                                                                        <div class="col-span-1">
+                                                                        <!-- <div class="col-span-1">
                                                                             <p class="text-sm font-semibold">Captured Time</p>
                                                                             <p>In : 23-02-2024 10:10 AM</p>
                                                                         </div>
@@ -196,35 +196,74 @@
                                                                         <div class="col-span-2">
                                                                             <p class="text-sm font-semibold">Location</p>
                                                                             <p class="whitespace-normal">9QP2+75, 9QP2+75, , , Tamil Nadu, 638008 India</p>
-                                                                        </div>                                                                        
+                                                                        </div>                                                                         -->
                                                                     </div>
-                                                                    <div class="w-full p-4 mt-4 space-y-4 bg-gray-100 rounded-md">
-                                                                        <h3 class="text-xl font-bold">Logs</h3>
-                                                                        <div class="w-full space-y-2">
-                                                                            <div>
-                                                                                <p class="font-semibold">Leave 2
-                                                                                    Approved</p>
-                                                                                <p class="text-sm text-gray-600">
-                                                                                    <span>Premkumar</span> |
-                                                                                    <span>24-02-2024 11:00</span>
-                                                                                </p>
-                                                                            </div>
-                                                                            <div>
-                                                                                <p class="font-semibold">Level 1
-                                                                                    Approved</p>
-                                                                                <p class="text-sm text-gray-600">
-                                                                                    <span>Elavarasan</span> |
-                                                                                    <span>24-02-2024 09:00</span>
-                                                                                </p>
-                                                                            </div>
-                                                                            <div>
-                                                                                <p class="font-semibold">Attendance Approval Created</p>
-                                                                                <p class="text-sm text-gray-600">
-                                                                                    <span>ATHEESWAR MANICKAM</span> |
-                                                                                    <span>23-02-2024 18:00</span>
-                                                                                </p>
-                                                                            </div>
-                                                                        </div>
+                                                                    <div>
+                                                                        <table class="min-w-full overflow-hidden border border-collapse border-gray-300 rounded-md">
+                                                                            <thead class="text-sm text-left text-gray-700 uppercase bg-gray-100">
+                                                                                <tr>
+                                                                                    <th class="px-4 py-2 border-b border-gray-300">Date</th>
+                                                                                    <th class="px-4 py-2 border-b border-gray-300">Time</th>
+                                                                                    <th class="px-4 py-2 border-b border-gray-300">Type</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody class="text-sm text-gray-900">
+                                                                                
+                                                                                <tr class="bg-red-100">
+                                                                                        <td class="px-4 py-2 border-b border-gray-300">
+                                                                                            <label for="">Captured</label>
+                                                                                            <input type="date" value="25-02-2025" class="w-full p-1 border border-gray-300 rounded">
+                                                                                            
+                                                                                        </td>
+                                                                                        <td class="px-4 py-2 border-b border-gray-300">
+                                                                                            <input type="time" value="09:55" class="w-full p-1 border border-gray-300 rounded">
+                                                                                        </td>
+                                                                                        <td class="px-4 py-2 border-b border-gray-300">
+                                                                                            <p>In</p>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr class="bg-green-100">
+                                                                                        <td class="px-4 py-2 border-b border-gray-300">
+                                                                                            <label for="">Requested</label>
+                                                                                            <input type="date" value="25-02-2025" class="w-full p-1 border border-gray-300 rounded">
+                                                                                        </td>
+                                                                                        <td class="px-4 py-2 border-b border-gray-300">
+                                                                                            <input type="time" value="09:00" class="w-full p-1 border border-gray-300 rounded">
+                                                                                        </td>
+                                                                                        <td class="px-4 py-2 border-b border-gray-300">
+                                                                                            <p>-</p>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr class="even:bg-gray-50 hover:bg-gray-100">
+                                                                                        <td class="px-4 py-2 border-b border-gray-300">
+                                                                                            <label for=""></label>
+                                                                                            <input type="date" value="25-02-2025" class="w-full p-1 border border-gray-300 rounded">
+                                                                                        </td>
+                                                                                        <td class="px-4 py-2 border-b border-gray-300">
+                                                                                            <input type="time" value="13:00" class="w-full p-1 border border-gray-300 rounded">
+                                                                                        </td>
+                                                                                        <td class="px-4 py-2 border-b border-gray-300">
+                                                                                            <p>OUT</p>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr class="even:bg-gray-50 hover:bg-gray-100">
+                                                                                        <td class="px-4 py-2 border-b border-gray-300">
+                                                                                            <label for=""></label>
+                                                                                            <input type="date" value="25-02-2025" class="w-full p-1 border border-gray-300 rounded">
+                                                                                        </td>
+                                                                                        <td class="px-4 py-2 border-b border-gray-300">
+                                                                                            <input type="time" value="14:00" class="w-full p-1 border border-gray-300 rounded">
+                                                                                        </td>
+                                                                                        <td class="px-4 py-2 border-b border-gray-300">
+                                                                                            <p>IN</p>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                    <div class="pt-4">
+                                                                        <button class="p-2 font-semibold text-white bg-blue-600 rounded">Approve</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
