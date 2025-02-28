@@ -206,7 +206,24 @@
                         </div>
                         <div>
                             <div class="flex flex-col gap-6 pt-2 pb-2 md:flex-row md:items-center md:justify-between">
-                                <div x-data="{ showModal: false, selectedAction: '' }" class="pb-4">
+                               
+                                <div x-data="{ showModal: false, selectedAction: '' }" class="flex items-start justify-center gap-4">
+                                    <div class="mt-1" x-data="{ allSelected: false }">
+                                        <!-- Select all 344 records button -->
+                                        <div class="px-2 py-1 text-blue-600 bg-blue-100 rounded-sm" x-show="!allSelected">
+                                            <button @click="allSelected = true" class="text-sm font-semibold">Select all 344 records</button>
+                                        </div>
+                                
+                                        <!-- 344 records selected and Clear button -->
+                                        <div class="flex items-center gap-2" x-show="allSelected" style="display: none;">
+                                            <div class="px-2 py-1 text-white bg-blue-600 rounded-sm">
+                                                <button class="text-sm font-semibold">344 records selected</button>
+                                            </div>
+                                            <div class="px-2 py-1 text-gray-900 bg-gray-200 rounded-sm">
+                                                <button @click="allSelected = false" class="text-sm font-semibold">Clear All</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <!-- Dropdown & Apply Button -->
                                     <div class="flex items-center gap-2">
                                         <select id="jobtype" name="jobtype" x-model="selectedAction"
