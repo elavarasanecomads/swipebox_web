@@ -1,0 +1,288 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missed Punches</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.5/cdn.js"
+        integrity="sha512-8IPRU0MPrge2KfSxkAtO8pIkaMzThW/MBSvPqcyVisSymLWC986buo27pKAt5mWXmt58dT6jIsw7h8NNugtRwg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="h-full p-4 bg-white border rounded-md lg:p-8">
+                    <div>
+                        <div class="flex items-center gap-4 pb-6">
+                            <p class="text-xl font-bold">Biodata Builder</p>
+                        </div>
+                        <div x-data="{
+                            showChooseFields: false,
+                            selectedFields: [],
+                            fields: {
+                                'Company Details': ['Company Logo', 'Company Name', 'Address', 'Mobile No.','Email', 'GST Number'],
+                            },
+                            toggleField(field) {
+                                if (this.selectedFields.includes(field)) {
+                                    this.selectedFields = this.selectedFields.filter(f => f !== field);
+                                } else {
+                                    this.selectedFields.push(field);
+                                }
+                            },
+                            removeField(field) {
+                                this.selectedFields = this.selectedFields.filter(f => f !== field);
+                            },
+                            saveFields() {
+                                this.showChooseFields = false;
+                                this.initSortable(); // Reinitialize Sortable after saving fields
+                            },
+                            initSortable() {
+                                new Sortable(this.$refs.selectedFields, {
+                                    animation: 150,
+                                    onEnd: (evt) => {
+                                        const item = this.selectedFields.splice(evt.oldIndex, 1)[0];
+                                        this.selectedFields.splice(evt.newIndex, 0, item);
+                                    }
+                                });
+                            }
+                        }" x-init="initSortable()">
+                            <div class="flex items-center gap-4 px-4 py-2 bg-gray-200 border border-gray-300 rounded-t-lg">
+                                <p class="font-bold">Header</p>
+                                <button @click="showChooseFields = !showChooseFields" class="text-sm font-semibold text-blue-600">Choose
+                                    Fields</button>
+                            </div>
+                            <div class="p-4 space-y-4 border border-gray-300 rounded-b-lg">
+                    
+                                <!-- Choose Fields Section -->
+                                <div x-show="showChooseFields">
+                                    <template x-for="(fieldList, category) in fields" :key="category">
+                                        <div class="py-2">
+                                            <p class="font-bold" x-text="category"></p>
+                                            <div class="grid grid-cols-2 gap-4 pt-2 lg:grid-cols-6">
+                                                <template x-for="field in fieldList" :key="field">
+                                                    <div class="inline-flex items-center">
+                                                        <input :id="field" type="checkbox" class="w-4 h-4 form-checkbox"
+                                                            @change="toggleField(field)" :checked="selectedFields.includes(field)">
+                                                        <label :for="field" class="ml-2 font-semibold" x-text="field"></label>
+                                                    </div>
+                                                </template>
+                                            </div>
+                                        </div>
+                                    </template>
+                                    <button @click="saveFields"
+                                        class="px-4 py-2 mt-4 font-semibold text-white bg-blue-600 rounded w-36">Save</button>
+                                </div>
+                    
+                                <!-- Selected Fields Section -->
+                                <div x-show="!showChooseFields">
+                                    <div x-show="selectedFields.length === 0" class="text-gray-600">No Records Added</div>
+                                    <div id="selected-fields" x-ref="selectedFields" x-show="selectedFields.length > 0"
+                                        class="flex flex-wrap gap-2">
+                                        <template x-for="field in selectedFields" :key="field">
+                                            <div class="flex items-center px-4 py-1 border rounded">
+                                                <span class="font-semibold" x-text="field"></span>
+                                                <button @click="removeField(field)" class="ml-2 text-red-600"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                                        fill="currentColor">
+                                                        <path fill-rule="evenodd"
+                                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                            clip-rule="evenodd" />
+                                                    </svg></button>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div x-data="formCustomizer()">
+                            <div class="space-y-4">
+                                <template x-for="(section, index) in sections" :key="index">
+                                    <div class="">
+                                        <div
+                                            class="flex items-center justify-between px-4 py-2 bg-gray-200 border border-gray-300 rounded-t-lg">
+                                            <!-- Section Name Edit -->
+                                            <div class="flex items-center gap-6">
+                                                <div class="flex items-center gap-2">
+                                                    <template x-if="section.isEditing">
+                                                        <input x-model="section.name" type="text" class="p-1 border rounded">
+                                                    </template>
+                                                    <template x-if="!section.isEditing">
+                                                        <p class="font-bold" x-text="section.name"></p>
+                                                    </template>
+                                                    <button @click="toggleEdit(section)" class="text-sm font-semibold text-blue-600"
+                                                        x-text="section.isEditing ? 'Save' : 'Edit'"></button>
+                                                </div>
+                    
+                                                <!-- Choose Fields & Edit Fields Button -->
+                                                <button @click="toggleChooseFields(index)" class="text-sm font-semibold text-blue-600"
+                                                    x-show="!section.showChooseFields && section.selectedFields.length === 0">Choose
+                                                    Fields</button>
+                                                <button @click="toggleChooseFields(index)" class="text-sm font-semibold text-blue-600"
+                                                    x-show="!section.showChooseFields && section.selectedFields.length > 0">Edit Selected
+                                                    Fields</button>
+                                            </div>
+                    
+                                            <!-- Single or Double Column View -->
+                                            <div>
+                                                <button @click="toggleColumn(index, 'single')"
+                                                    :class="{'bg-blue-600 text-white': section.columnView === 'single'}"
+                                                    class="px-2 py-0.5 font-semibold rounded">Single</button>
+                                                <button @click="toggleColumn(index, 'double')"
+                                                    :class="{'bg-blue-600 text-white': section.columnView === 'double'}"
+                                                    class="px-2 py-0.5 font-semibold rounded">Double</button>
+                                            </div>
+                                        </div>
+                                        <div class="p-4 border border-gray-300 rounded-b-lg">
+                                            <!-- Choose Fields Section -->
+                                            <div x-show="section.showChooseFields">
+                                                <p class="text-lg font-bold">Choose Fields</p>
+                                                <div class="grid grid-cols-2 gap-4 pt-4 lg:grid-cols-4">
+                                                    <template x-for="field in getAvailableFields(section.selectedFields)" :key="field">
+                                                        <div class="inline-flex items-center">
+                                                            <input type="checkbox" :value="field" x-model="section.selectedFields"
+                                                                class="w-4 h-4 form-checkbox">
+                                                            <span class="ml-2 font-semibold" x-text="field"></span>
+                                                        </div>
+                                                    </template>
+                                                </div>
+                                                <button @click="saveFields(section)"
+                                                    class="px-4 py-2 mt-4 font-semibold text-white bg-blue-600 rounded w-36">Save</button>
+                                            </div>
+                    
+                                            <!-- Selected Fields Section -->
+                                            <div x-show="!section.showChooseFields">
+                    
+                                                <ul
+                                                    :class="{'grid grid-cols-1 gap-2': section.columnView === 'single', 'grid grid-cols-2 gap-4': section.columnView === 'double'}">
+                                                    <template x-for="field in section.selectedFields" :key="field">
+                                                        <li class="flex items-center justify-between px-4 py-1 border rounded">
+                                                            <p x-text="field" class="font-semibold"></p>
+                                                            <button @click="removeField(section, field)" class="text-sm text-red-600"><svg
+                                                                    xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                                                    fill="currentColor">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                                        clip-rule="evenodd" />
+                                                                </svg></button>
+                                                        </li>
+                                                    </template>
+                                                </ul>
+                                            </div>
+                                        </div>
+                    
+                                    </div>
+                                </template>
+                            </div>
+                    
+                            <!-- Add Section Button -->
+                            <div class="mt-4">
+                                <button @click="addSection()" class="p-2 text-sm font-semibold text-blue-600 bg-blue-100 rounded">Add
+                                    Section</button>
+                            </div>
+                        </div>
+                    
+                        <div>
+                            <div class="flex items-center gap-4 px-4 py-2 mt-4 bg-gray-200 border border-gray-300 rounded-t-lg">
+                                <p class="text-lg font-bold">Message</p>
+                            </div>
+                            <div class="p-4 space-y-4 border border-gray-300 rounded-b-lg">
+                                <div>
+                                    <textarea rows="3"
+                                        class="relative block w-full p-2 px-3 py-3 mt-1 text-gray-900 placeholder-gray-400 border rounded shadow-sm appearance-none focus:outline-none focus:ring-blue-600 focus:border-blue-600 focus:z-10"
+                                        name="" id=""></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="px-4 py-2 mt-4 font-semibold text-white bg-blue-600 rounded w-36">Save</button>
+                        </div>
+                    </div>
+                    <script>
+                        function formCustomizer() {
+                            return {
+                                sections: [
+                                    {
+                                        name: 'Section 1',
+                                        isEditing: false,
+                                        columnView: 'single',
+                                        showChooseFields: false,
+                                        selectedFields: []
+                                    }
+                                ],
+                
+                                allFields: ['Name', 'Mobile', 'Email', 'Date of Birth', 'Branch', 'Department', 'Shift', 'Category'],
+                
+                                getUsedFields() {
+                                    return this.sections.flatMap(sec => sec.selectedFields);
+                                },
+                
+                                getAvailableFields(currentFields) {
+                                    let usedFields = this.getUsedFields().filter(field => !currentFields.includes(field));
+                                    return this.allFields.filter(field => !usedFields.includes(field) || currentFields.includes(field));
+                                },
+                
+                                toggleEdit(section) {
+                                    section.isEditing = !section.isEditing;
+                                },
+                
+                                toggleColumn(index, columnType) {
+                                    this.sections[index].columnView = columnType;
+                                },
+                
+                                toggleChooseFields(index) {
+                                    this.sections.forEach((sec, i) => {
+                                        if (i !== index) sec.showChooseFields = false;
+                                    });
+                                    this.sections[index].showChooseFields = !this.sections[index].showChooseFields;
+                                },
+                
+                                saveFields(section) {
+                                    section.showChooseFields = false;
+                                },
+                
+                                removeField(section, field) {
+                                    section.selectedFields = section.selectedFields.filter(f => f !== field);
+                                },
+                
+                                addSection() {
+                                    let availableFields = this.getAvailableFields([]);
+                
+                                    if (availableFields.length === 0) {
+                                        alert('No more fields available to add.');
+                                        return;
+                                    }
+                
+                                    this.sections.push({
+                                        name: `Section ${this.sections.length + 1}`,
+                                        isEditing: false,
+                                        columnView: 'single',
+                                        showChooseFields: false,
+                                        selectedFields: []
+                                    });
+                                },
+                            };
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+</html>
