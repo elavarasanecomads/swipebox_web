@@ -116,13 +116,14 @@
                                   </svg>
                                 </button>
                                 <ul x-show="isOpen" @click.away="isOpen = false" class="absolute right-0 z-40 py-1 mt-2 overflow-hidden font-normal bg-white border rounded shadow w-72">
-                                  
-                                <li class="px-2 py-2">
-                                    <button>L1 View</button>
-                                </li>
-                                <li class="px-2 py-2">
-                                    <button>L2 View</button>
-                                </li>
+                                    <li class="flex items-center justify-between px-2 py-2">
+                                        <button>L1 View</button>
+                                        <button class="text-red-600">Delete</button>
+                                    </li>  
+                                    <li class="flex items-center justify-between px-2 py-2">
+                                        <button>L2 View</button>
+                                        <button class="text-red-600">Delete</button>
+                                    </li>  
                                 </ul>
                               </div>
                         </div>
@@ -188,9 +189,10 @@
                                             </button>
                                             <ul x-show="isOpen" @click.away="isOpen = false" class="absolute right-0 z-40 py-1 mt-2 overflow-hidden font-normal bg-white border rounded shadow w-72">
                                               
-                                            <li class="px-2 py-2">
+                                            <li class="flex items-center justify-between px-2 py-2">
                                                 <button>Branch Filter</button>
-                                            </li>
+                                                <button class="text-red-600">Delete</button>
+                                            </li>  
                                             <li class="flex items-center justify-between px-2 py-2">
                                                 <button>Present Forgotout Filter</button>
                                                 <button class="text-red-600">Delete</button>
