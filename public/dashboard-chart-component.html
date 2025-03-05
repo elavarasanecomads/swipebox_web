@@ -1,0 +1,87 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="p-4 bg-white border rounded-md lg:p-8">
+                    <!-- <div>
+                        <div class="inline-block text-sm border divide-x rounded-lg">
+                            <button class="px-2 py-1 font-semibold rounded-l-lg">Present</button>
+                            <button class="px-2 py-1 font-semibold">Not In</button>
+                            <button class="px-2 py-1 font-semibold">Leave</button>
+                            <button class="px-2 py-1 font-semibold">Weekoff</button>
+                            
+                            <button class="px-2 py-1 font-semibold text-white bg-blue-600 rounded-r-lg">Public Holiday</button>
+                        </div>
+                    </div> -->
+                    <div id="chart"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var options = {
+            series: [
+                { name: "Present", data: [20, 22, 19, 18, 21, 23, 24] },
+                { name: "Not In", data: [2, 3, 2, 3, 2, 1, 2] },
+                { name: "Leave", data: [1, 2, 1,2, 2, 1, 2] },
+                { name: "Week Off", data: [1, 1, 1, 2, 1, 1, 1] },
+                { name: "Public Holiday", data: [0, 0, 0,2, 0, 0, 0] }
+            ],
+            chart: {
+                type: 'bar',
+                height: 400,
+                stacked: true
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: '45%'
+                }
+            },
+            xaxis: {
+                categories: ["2024-03-01", "2024-03-02", "2024-03-03", "2024-03-04", "2024-03-05", "2024-03-06", "2024-03-07"],
+                type: 'datetime'
+            },
+            colors: ['#34c38f', '#f46a6a', '#f1b44c', '#556ee6', '#6c757d'],
+            dataLabels: {
+            enabled: true, // Enables count display without hovering
+            style: {
+                fontSize: '12px',
+                colors: ['#fff'] // Ensures text is visible
+            },
+            formatter: function (val) {
+                return val > 0 ? val : ''; // Show only non-zero values
+            }
+        },
+            legend: {
+                position: 'top'
+            }
+        };
+    
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+    </script>
+    
+</body>
+<script>
+    $(function () {
+      $("#navigation").load("nav.html");
+      $("#aside").load("aside.html");
+    });
+  </script>
+</html>

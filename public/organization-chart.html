@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organization Chart</title>
+    <script src="https://balkan.app/js/orgchart.js"></script>
+    <style>
+        #tree-container {
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="tree-container"></div>
+
+<script>
+    var chart = new OrgChart(document.getElementById("tree-container"), {
+        template: "luba",
+        nodeBinding: {
+            field_0: "name",
+            field_1: "designation",
+            field_2: "empCode",
+            img_0: "image"
+        },
+        nodes: [
+            { id: 1, name: "CEO", designation: "Chief Executive Officer", empCode: "EMP001", image: "https://via.placeholder.com/50" },
+            { id: 2, pid: 1, name: "Manager A", designation: "Department Head", empCode: "EMP002", image: "https://via.placeholder.com/50" },
+            { id: 3, pid: 2, name: "Lead A1", designation: "Team Lead", empCode: "EMP003", image: "https://via.placeholder.com/50" },
+            { id: 4, pid: 3, name: "Employee A1.1", designation: "Developer", empCode: "EMP004", image: "https://via.placeholder.com/50" },
+            { id: 5, pid: 2, name: "Lead A2", designation: "Team Lead", empCode: "EMP005", image: "https://via.placeholder.com/50" },
+            { id: 6, pid: 5, name: "Employee A2.1", designation: "Developer", empCode: "EMP006", image: "https://via.placeholder.com/50" },
+            { id: 7, pid: 1, name: "Manager B", designation: "Department Head", empCode: "EMP007", image: "https://via.placeholder.com/50" },
+            { id: 8, pid: 7, name: "Lead B1", designation: "Team Lead", empCode: "EMP008", image: "https://via.placeholder.com/50" },
+            { id: 9, pid: 8, name: "Employee B1.1", designation: "Developer", empCode: "EMP009", image: "https://via.placeholder.com/50" }
+        ]
+    });
+</script>
+
+</body>
+</html>
