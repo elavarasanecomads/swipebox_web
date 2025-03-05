@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proforma Invoice</title>
+</head>
+<body style="font-size: 14px; border: 1px solid #000;">
+    <div style="border-bottom: 1px solid #000">
+        <table style="width: 100%;">
+            <tr>
+                <td style="width: 150px;">
+                    <img style="height: 7rem; width: 7rem;" src="https://swipebox-web.netlify.app/img/nithra-logo-new.png"
+                        alt="{{ $invoiceData->company_name }}">
+                </td>
+                <td>
+                    <h1 style="text-transform: uppercase; font-weight: bold; font-size: 1.25rem; margin: 0px;">
+                        {{ $invoiceData->company_name }}</h1>
+                    <p style="margin: 0px;">{{ $invoiceData->street_address }}</p>
+                    <p style="margin: 0px;">GSTIN : <span>{{ $invoiceData->gst_number }}</span></p>
+                </td>
+            </tr>
+        </table>
+        <h3 style="width: 100%; padding-bottom: 10px; text-align:center; margin: 0px">PROFORMA INVOICE</h3>
+    </div>
+    <div style="border-bottom: 1px solid #000">
+        <table style="width: 100%;">
+            <tr style="margin: 0px;">
+                <td style="width: 50%; padding: 10px; margin: 0px; border-right: 1px solid #000">
+                    <p style="margin: 0px; font-weight: 600;">Billing Address</p>
+                    <p style="margin: 0px; padding-top: 0.5rem; font-weight: bold; text-transform: uppercase;">
+                        {{ $billData->user->oc_company_name }}</p>
+                    <p style="margin: 0px;">{{ $billData->user->oc_address }},
+                        <br> {{ $billData->user->oc_city . ',' . $billData->user->oc_pincode }}.
+                    </p>
+                    <p style="margin: 0px; padding-top: 2px">GSTIN :  
+                        <span>{{ isset(gstDetail($billData->user->id)->gst_number) ? gstDetail($billData->user->id)->gst_number : '' }}</span>
+                    </p>
+                    <p style="margin: 0px; padding-top: 2px">STC :  
+                        <span>{{ isset(gstDetail($billData->user->id)->gst_number) ? substr(gstDetail($billData->user->id)->gst_number, 0, 2) : '' }}</span> - <span>{{ $billData->user->States->name??'' }}</span>
+                    </p>
+                </td>
+                <td style="width: 50%; padding: 10px; vertical-align: top;">
+                    <p style="margin: 0px; font-weight: 400;">Invoice No :
+                        <strong>{{ isset($billData->proforma_number) ? $billData->proforma_number : $billData->transaction_id }}</strong>
+                    </p>
+                    <p style="margin: 0px; font-weight: 400;">Invoice Date :
+                        <strong>{{ date('d-m-Y', strtotime($billData->trans_created_at)) }}</strong>
+                    </p>
+                    <p style="margin: 0px; font-weight: 400;">Place of supply :
+                        <strong>{{ $billData->user->States->name??'-' }}</strong>
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <table style="width: 100%; padding-top: 10px; padding-left: 10px; padding-bottom: 10px; border-spacing: 0 10px; font-size: 13px; border-bottom: 1px solid #000">
+            <thead style="border: 1px solid #000">
+                <tr >
+                    <th scope="col" style="width: 3%; text-align: left;"> # </th>
+                    <th scope="col" style="width: 21%; text-align: left;"> Item Name </th>
+                    <th scope="col" style="width: 14%; text-align: left;"> Item Type </th>
+                    <th scope="col" style="width: 14%; text-align: left;"> HSN/SAC </br>Code </th>
+                    <th scope="col" style="width: 6%; text-align: left;"> Qty </th>
+                    <th scope="col" style="width: 14%; text-align: left;"> Amount </th>
+                    <th scope="col" style="width: 14%; text-align: left;"> Discount </br><span style="font-size: 10px; font-weight: 600;">(%/RS)</span></th>
+                    <th scope="col" style="width: 18%; text-align: left;"> Total </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="width: 3%;">1</td>
+                    <td style="width: 21%;">{{ $billData->plan->name }}</td>
+                    <td style="width: 14%;">Service</td>
+                    <td style="width: 14%;">{{ $invoiceData->hsn }}</td>
+                    <td style="width: 6%;">1</td>
+                    <td style="width: 14%;">₹ {{ $billData->amount }}</td>
+                    <td style="width: 14%;">₹ 0.00</td>
+                    <td style="width: 14%;">₹ {{ $billData->amount }}</td>
+                </tr>
+                <tr style="margin-top: 10px;">
+                    <td style="width: 3%;">2</td>
+                    <td style="width: 21%;">Additional User Purchase</td>
+                    <td style="width: 14%;">Service</td>
+                    <td style="width: 14%;">{{ $invoiceData->hsn }}</td>
+                    <td style="width: 6%;">{{ $billData->additional_user }}</td>
+                    <td style="width: 14%;">₹ {{ $billData->plan->price_per_addit_user }}</td>
+                    <td style="width: 14%;">₹ 0.00</td>
+                    <td style="width: 14%;">₹ {{ $billData->plan->price_per_addit_user * $billData->additional_user }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="">
+        <table style="width: 100%;">
+            <tr style="margin: 0px;">
+                <td style="width: 50%; padding: 10px; margin: 0px; vertical-align: top; border-bottom: #000 solid 1px;">
+                    <p style="margin: 0px;">Total amount in words</p>
+                    <p style="text-transform: capitalize; margin: 0px; font-weight: 600; margin-top: 2px;">
+                        {{ ucfirst(numberToWords($billData->grand_total)) }}.</p>
+                </td>
+                <td style="width: 50%; padding: 10px; border-left: #000 solid 1px; border-bottom: #000 solid 1px;">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td>
+                                <p style="margin: 0px; font-weight: 400; text-align:right;">Sub Total</p>
+                            </td>
+                            <td>
+                                <p style="margin: 0px; font-weight: 400; text-align:right;">₹ {{ $billData->grand_total - ($billData->cgst + $billData->sgst + $billData->igst) }}
+                                </p>
+                            </td>
+                        </tr>
+                        @if ($billData->cgst != 0)
+                            <tr>
+                                <td>
+                                    <p style="margin: 0px; font-weight: 400; text-align:right;">CGST (9%)</p>
+                                </td>
+                                <td>
+                                    <p style="margin: 0px; font-weight: 400; text-align:right;">₹ {{ $billData->cgst }}</p>
+                                </td>
+                            </tr>
+                            @endif
+                            @if ($billData->sgst != 0)
+                            <tr>
+                                <td>
+                                    <p style="margin: 0px; font-weight: 400; text-align:right;">SGST (9%)</p>
+                                </td>
+                                <td>
+                                    <p style="margin: 0px; font-weight: 400; text-align:right;">₹ {{ $billData->sgst }}</p>
+                                </td>
+                            </tr>
+                            @endif
+                        @if ($billData->igst != 0)
+                            <tr>
+                                <td>
+                                    <p style="margin: 0px; font-weight: 400; text-align:right;">IGST (18%)</p>
+                                </td>
+                                <td>
+                                    <p style="margin: 0px; font-weight: 400; text-align:right;">₹ {{ $billData->igst }}</p>
+                                </td>
+                            </tr>
+                            @endif
+                        <tr>
+                            <td>
+                                <p style="margin: 0px; font-weight: 600; text-align:right;">Total Amount</p>
+                            </td>
+                            <td>
+                                <p style="margin: 0px; font-weight: 600; text-align:right;">₹ {{ $billData->grand_total }}</p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div style="margin-top: 10px; padding: 10px;">
+        <h3 style="margin-bottom: 5px">Bank Details</h3>
+        <table style="width: 100%;">
+            <tr>
+                <td style="width: 55%;">
+                    <div style="display: flex; gap: 5px; margin: 0;">
+                        <p style="font-weight: 300; margin: 0;">Bank Name:</p>
+                        <p style="margin: 0;">Axis Bank Ltd</p>
+                    </div>
+                    <div style="display: flex; gap: 5px; margin: 0; padding-top: 5px;">
+                        <p style="font-weight: 300; margin: 0;">Account Name:</p>
+                        <p style="margin: 0;">Nithra Apps India Private Limited</p>
+                    </div>
+                    <div style="display: flex; gap: 5px; margin: 0; padding-top: 5px;">
+                        <p style="font-weight: 300; margin: 0;">IFSC Code:</p>
+                        <p style="margin: 0;">UTIB0000690</p>
+                    </div>
+                    <div style="display: flex; gap: 5px; margin: 0; padding-top: 5px;">
+                        <p style="font-weight: 300; margin: 0;">Branch Name:</p>
+                        <p style="margin: 0;">Tiruchengode</p>
+                    </div>
+                </td>
+                <td style="width: 45%; vertical-align: top;">
+                    <div style="display: flex; gap: 5px; margin: 0;">
+                        <p style="font-weight: 300; margin: 0;">Account Number:</p>
+                        <p style="margin: 0;">915020045062042</p>
+                    </div>
+                    <div style="display: flex; gap: 5px; margin: 0;  padding-top: 5px;">
+                        <p style="font-weight: 300; margin: 0;">SWIFT Code:</p>
+                        <p style="margin: 0;">AXISINBB118</p>
+                    </div>
+                </td>
+            </tr>
+            
+            
+        </table>
+    </div>
+    <div style="margin-top: 24px;">
+        <p style="text-align: center">Thanks for your business!</p>
+    </div>
+    <div style="margin-top: 11rem; padding-left: 10px;">
+        <p>* This is a computer-generated invoice and therefore does not require any signature.</p>
+    </div>
+</body>
+
+</html>
