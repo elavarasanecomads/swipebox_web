@@ -35,27 +35,13 @@
                         </div>
 
                     </div>
-                    <div x-data="dropdownHandler()" class="w-full pt-6 space-y-4 lg:w-1/2">
-                        <div>
+                    <div x-data="dropdownHandler()" class="w-full pt-6 space-y-4">
+                        <div class="lg:w-1/2">
                             <label for="" class="font-semibold text-gray-600">Enter Name <span class="text-red-600">*</span></label>
                             <input type="text" placeholder=""
                                 class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                         </div>
-                        <div>
-                            <label for="" class="font-semibold text-gray-600">Enter Group <span class="text-red-600">*</span></label>
-                            <select
-                                class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                <option value="">Select Type</option>
-                                <option value="">Profile Details</option>
-                                <option value="">Payroll Details</option>
-                                <option value="">Personal Details</option>
-                                <option value="">Employment Details</option>
-                                <option value="">Work Details</option>
-                                <option value="">Bank Details</option>
-                                <option value="">Others</option>
-                            </select>
-                        </div>
-                        <div class="space-y-4">
+                       <div class="space-y-4 lg:w-1/2">
                             <div>
                                 <label for="type" class="font-semibold text-gray-600">Enter Type <span class="text-red-600">*</span></label>
                                 <select x-model="selectedType"
@@ -67,9 +53,11 @@
                                     <option value="phone">Phone Number</option>
                                     <option value="email">Email</option>
                                     <option value="number">Number</option>
+                                    <option value="tabular">Tabular</option>
                                 </select>
                             </div>
                     
+                        </div>
                             <!-- Add Options Section -->
                             <div x-show="selectedType === 'dropdown'" x-data="addOptions()" class="p-4 space-y-4 border-2 border-gray-400 border-dashed rounded bg-gray-50">
                                 <p class="font-bold">Add Options</p>
@@ -132,12 +120,176 @@
                                     </template>
                                 </div>
                             </div>
-                        </div>
+
+                            <!-- Add Options Section -->
+                            <div x-show="selectedType === 'tabular'" class="p-4 space-y-4 border-2 border-gray-400 border-dashed rounded bg-gray-50">
+                                <h2 class="text-lg font-bold">Tabular Fields</h2>
+                                <div class="space-y-4">
+                                    <div x-data="{ 
+                                        fieldType: '', 
+                                        dropdownOptions: [], 
+                                        newOption: '', 
+                                        addOption() {
+                                            const trimmedOption = this.newOption.trim();
+                                            // Check for duplicates before adding
+                                            if (trimmedOption &amp;&amp; !this.dropdownOptions.includes(trimmedOption)) {
+                                                this.dropdownOptions.push(trimmedOption);
+                                                this.newOption = ''; // Reset input after adding
+                                            } else {
+                                                alert('Option already exists or is empty.'); // Alert for duplicates or empty option
+                                            }
+                                        }
+                                    }" class="grid grid-cols-1 gap-4 lg:grid-cols-4">
+                                
+                                    <!-- Name Field -->
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600">Label 1 <span class="text-red-600">*</span></label>
+                                        <input type="text" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                    </div>
+                                
+                                    <!-- Type Field -->
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600">Type <span class="text-red-600">*</span></label>
+                                        <select x-model="fieldType" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            <option value="">Select Type</option>
+                                            <option value="Text">Text</option>
+                                            <option value="Dropdown">Dropdown</option>
+                                            <option value="Date">Date</option>
+                                            <option value="Phone Number">Phone Number</option>
+                                            <option value="Email">Email</option>
+                                            <option value="Number">Number</option>
+                                        </select>
+                                    </div>
+                                
+                                    <!-- Add Options Field (Only visible for Dropdown type) -->
+                                    <div x-show="fieldType === 'Dropdown'" class="space-y-2" style="display: none;">   
+                                        <div>
+                                            <label class="text-sm font-semibold text-gray-600">Add Options <span class="text-red-600">*</span></label>
+                                            <!-- Dynamically Generated Dropdown Options -->
+                                            <select class="block w-full px-3 py-3 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                <template x-for="(option, index) in dropdownOptions" :key="index">
+                                                    <option :value="option" x-text="option"></option>
+                                                </template>
+                                            </select>
+                                        </div>                            
+                                       
+                                        <div class="flex space-x-2">
+                                            <input type="text" x-model="newOption" placeholder="Enter option" class="block w-full px-3 py-3 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            <button type="button" @click="addOption" class="px-4 py-2 text-white bg-green-600 rounded-md">Add</button>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-4">
+                                         <!-- Mandatory Field Checkbox -->
+                                    <div class="lg:pt-5">
+                                        <label class="inline-flex items-center px-2">
+                                            <input class="w-4 h-4" type="checkbox">
+                                            <span class="ml-2 font-semibold text-gray-600">Mandatory Field</span>
+                                        </label>
+                                        
+                                    </div>
+                                        <div class="flex items-center gap-4 pt-5">
+                                            <div>
+                                                <button class="text-red-600"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+                                                  </svg>
+                                                  </button>
+                                            </div>
+                                            <div>
+                                                <button class="text-blue-600"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
+                                                  </svg>
+                                                  </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                <div x-data="{ 
+                                    fieldType: '', 
+                                    dropdownOptions: [], 
+                                    newOption: '', 
+                                    addOption() {
+                                        const trimmedOption = this.newOption.trim();
+                                        // Check for duplicates before adding
+                                        if (trimmedOption &amp;&amp; !this.dropdownOptions.includes(trimmedOption)) {
+                                            this.dropdownOptions.push(trimmedOption);
+                                            this.newOption = ''; // Reset input after adding
+                                        } else {
+                                            alert('Option already exists or is empty.'); // Alert for duplicates or empty option
+                                        }
+                                    }
+                                }" class="grid grid-cols-1 gap-4 lg:grid-cols-4">
+                            
+                                <!-- Name Field -->
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600">Label 2 <span class="text-red-600">*</span></label>
+                                    <input type="text" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                </div>
+                            
+                                <!-- Type Field -->
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600">Type <span class="text-red-600">*</span></label>
+                                    <select x-model="fieldType" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        <option value="">Select Type</option>
+                                        <option value="Text">Text</option>
+                                        <option value="Dropdown">Dropdown</option>
+                                        <option value="Date">Date</option>
+                                        <option value="Phone Number">Phone Number</option>
+                                        <option value="Email">Email</option>
+                                        <option value="Number">Number</option>
+                                    </select>
+                                </div>
+                            
+                                <!-- Add Options Field (Only visible for Dropdown type) -->
+                                <div x-show="fieldType === 'Dropdown'" class="space-y-2" style="display: none;">   
+                                    <div>
+                                        <label class="text-sm font-semibold text-gray-600">Add Options <span class="text-red-600">*</span></label>
+                                        <!-- Dynamically Generated Dropdown Options -->
+                                        <select class="block w-full px-3 py-3 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            <template x-for="(option, index) in dropdownOptions" :key="index">
+                                                <option :value="option" x-text="option"></option>
+                                            </template>
+                                        </select>
+                                    </div>                            
+                                   
+                                    <div class="flex space-x-2">
+                                        <input type="text" x-model="newOption" placeholder="Enter option" class="block w-full px-3 py-3 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                        <button type="button" @click="addOption" class="px-4 py-2 text-white bg-green-600 rounded-md">Add</button>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                     <!-- Mandatory Field Checkbox -->
+                                <div class="lg:pt-5">
+                                    <label class="inline-flex items-center px-2">
+                                        <input class="w-4 h-4" type="checkbox">
+                                        <span class="ml-2 font-semibold text-gray-600">Mandatory Field</span>
+                                    </label>
+                                    
+                                </div>
+                                    <div class="flex items-center gap-4 pt-5">
+                                        <div>
+                                            <button class="text-red-600"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+                                              </svg>
+                                              </button>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                                </div>
+                            </div>
                     
-                        <div>
+                        <div x-show="selectedType != 'tabular'">
                             <label class="inline-flex items-center px-2">
                                 <input class="w-4 h-4" type="checkbox">
                                 <span class="ml-2 font-semibold text-gray-600">Add Mandatory Field</span>
+                            </label>
+                        </div>
+                        <div x-show="selectedType === 'tabular'">
+                            <label class="inline-flex items-center px-2">
+                                <input class="w-4 h-4" type="checkbox">
+                                <span class="ml-2 font-semibold text-gray-600">Add Multiple Times</span>
                             </label>
                         </div>
                         <div x-show="selectedType === 'dropdown'">
