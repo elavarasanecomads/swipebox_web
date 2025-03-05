@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Form Customizer</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js" defer></script>
+    <style>
+        .sortable-chosen { background: #f0f0f0; }
+        .sortable-ghost { opacity: 0.5; }
+    </style>
+</head>
+<body>
+    <div x-data="customizer" class="grid grid-cols-1 gap-4 p-4 lg:grid-cols-3">
+        <!-- Available Fields -->
+        <div x-show="!isPreview">
+            <div>
+                <p class="py-4 font-bold">Header Fields</p>
+                <ul class="grid grid-cols-1 gap-4 p-4 text-sm font-semibold bg-gray-100 rounded-md lg:grid-cols-2">
+                    <template x-for="(field, index) in headerFields" :key="index">
+                        <li class="flex items-center gap-2">
+                            <input class="w-4 h-4" type="checkbox" x-model="field.selected">
+                            <p x-text="field.name"></p>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+            <div>
+                <p class="py-4 font-bold">Available Fields</p>
+                <div id="availableFields" class="grid grid-cols-2 gap-2 p-4 bg-gray-100 rounded-md"
+                    x-ref="availableFields"
+                    @drop="dropField($event, 'available')"
+                    @dragover.prevent
+                    @dragenter.prevent>
+                    <template x-for="field in availableFields" :key="field">
+                        <button class="w-full px-2 py-1 text-sm font-semibold bg-white border cursor-grab"
+                            draggable="true"
+                            @dragstart="dragField($event, field)"
+                            x-text="field"></button>
+                    </template>
+                </div>
+            </div>           
+        </div>
+
+        <!-- Customize Sections -->
+        <div class="col-span-2">
+            <div class="flex items-center w-full gap-4 px-4 py-2 bg-gray-100">
+                <p class="font-bold">Customize</p>
+                <button class="text-blue-600" @click="togglePreview()" x-text="isPreview ? 'Close Preview' : 'Preview'"></button>
+            </div>
+
+            <!-- Sections -->
+            <template x-for="(section, index) in sections" :key="index">
+                <div :class="isPreview ? 'bg-transparent' : 'border p-4 mt-4 bg-white shadow-md'">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <template x-if="!section.isEditing">
+                                <p class="font-bold" x-text="section.name"></p>
+                            </template>
+                            <template x-if="section.isEditing">
+                                <input type="text" class="px-2 py-1 border" x-model="section.name">
+                            </template>
+                            <button class="text-blue-600" x-show="!isPreview" @click="toggleEdit(index)">
+                                <span x-show="!section.isEditing">Edit</span>
+                                <span x-show="section.isEditing">✔</span>
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-4" x-show="!isPreview">
+                            <button class="text-blue-600" @click="toggleLayout(index)">Single</button>
+                            <button class="text-blue-600" @click="toggleLayout(index, true)">Double</button>
+                            <button class="text-red-600" @click="removeSection(index)">Delete</button>
+                        </div>
+                    </div>
+
+                    <div :class="[section.layout === 'double' ? 'grid grid-cols-2 gap-2' : 'grid grid-cols-1 gap-2']"
+                        class="mt-2 p-2 min-h-[50px] border bg-gray-50"
+                        @dragover.prevent="setDraggingOver(index, true)"
+                        @dragenter.prevent="setDraggingOver(index, true)"
+                        @dragleave="setDraggingOver(index, false)"
+                        @drop="dropField($event, index)"
+                        x-ref="sortableSection"
+                        x-init="Sortable.create($refs.sortableSection, {
+                            animation: 150,
+                            onEnd: (evt) => {
+                                let movedField = sections[index].fields.splice(evt.oldIndex, 1)[0];
+                                sections[index].fields.splice(evt.newIndex, 0, movedField);
+                            }
+                        })">
+                        <template x-for="field in section.fields" :key="field">
+                            <div class="flex items-center justify-between p-2 bg-white border cursor-grab">
+                                <p x-text="field"></p>
+                                <button class="text-red-600" @click="removeField(index, field)" x-show="!isPreview">✖</button>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Add Section Button -->
+            <div class="mt-4" x-show="!isPreview">
+                <button @click="addSection()" class="px-4 py-2 text-xs font-semibold text-blue-600 bg-blue-100 border-blue-600 rounded-md">Add Section</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("alpine:init", () => {
+            Alpine.data("customizer", () => ({
+                headerFields: [
+                    { name: "Company Logo", selected: false },
+                    { name: "Company Name", selected: false },
+                    { name: "Address", selected: false },
+                    { name: "Mobile No.", selected: false },
+                    { name: "Email", selected: false },
+                    { name: "GST Number", selected: false }
+                ],
+                availableFields: [
+                    "Employee ID", "First Name", "Last Name", "Email", "Mobile", "Date of Birth", "Gender", "Address",
+                    "City", "State", "Postal Code", "Country", "Department", "Designation", "Joining Date", "Salary",
+                    "Employment Type", "Work Shift", "Reporting Manager", "Status"
+                ],
+                sections: [],
+                isPreview: false,
+                togglePreview() {
+                    this.isPreview = !this.isPreview;
+                },
+                toggleEdit(index) {
+                    this.sections[index].isEditing = !this.sections[index].isEditing;
+                },
+                addSection() {
+                    this.sections.push({
+                        name: `Section ${this.sections.length + 1}`,
+                        isEditing: false,
+                        layout: "single",
+                        fields: []
+                    });
+                },
+                removeSection(index) {
+                    this.sections[index].fields.forEach(field => this.restoreField(field));
+                    this.sections.splice(index, 1);
+                },
+                removeField(sectionIndex, field) {
+                    this.restoreField(field);
+                    this.sections[sectionIndex].fields = this.sections[sectionIndex].fields.filter(f => f !== field);
+                },
+                toggleLayout(index, double = false) {
+                    this.sections[index].layout = double ? "double" : "single";
+                },
+                dragField(event, field) {
+                    event.dataTransfer.setData("text/plain", field.trim());
+                },
+                dropField(event, target) {
+                    if (this.isPreview) return;
+                    let field = event.dataTransfer.getData("text/plain").trim();
+                    if (target !== "available") {
+                        this.sections[target].fields.push(field);
+                        this.availableFields = this.availableFields.filter(f => f !== field);
+                    }
+                },
+                restoreField(field) {
+                    this.availableFields.push(field);
+                }
+            }));
+        });
+    </script>
+</body>
+</html>
