@@ -1,0 +1,385 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="output.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+  <div class="flex w-full">
+    <div id="aside"></div>
+    <div class="w-full">
+      <div id="navigation"></div>
+      <div x-data="{ 'showModal': false }" @keydown.escape="showModal = true">
+        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+          x-show="showModal" style="display: none;">
+          <!-- Modal inner -->
+          <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl"
+            @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300"
+            x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+            <!-- Title / Close-->
+            <div class="flex items-center justify-between">
+              <p class="font-bold text-gray-900">
+                Choose Organization
+              </p>
+              <span @click="showModal = false">
+                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </span>
+            </div>
+            <!-- content -->
+            <div class="w-full mt-4">
+              <div class="pb-4 space-y-4">
+                <div>
+                  <a href="employee-detail.html">
+                    <div class="p-4 border border-l-4 rounded-md border-l-yellow-600">
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                          <div>
+                            <img class="w-12 h-12 rounded-full"
+                              src="https://www.adobe.com/content/dam/offers-homepage/us/en/homepage/twitter_adobe.png"
+                              alt="">
+                          </div>
+                          <div>
+                            <p class="font-medium">Adobe Corporation</p>
+                            <span class="text-xs text-gray-600">Id : 687676EB89</span>
+                          </div>
+                        </div>
+                        <div>
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                          </svg>
+
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div>
+                  <a href="employee-detail.html">
+                    <div class="p-4 border border-l-4 rounded-md border-l-yellow-600">
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                          <div>
+                            <img class="w-12 h-12 rounded-full"
+                              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png"
+                              alt="">
+                          </div>
+                          <div>
+                            <p class="font-medium">Google INC</p>
+                            <span class="text-xs text-gray-600">Id : 687676EB90</span>
+                          </div>
+                        </div>
+                        <div>
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                          </svg>
+
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mx-0 my-4 lg:m-4">
+        <div>
+          <div class="grid grid-cols-1 gap-4 lg:grid-cols-4">
+            <div class="p-4 bg-white border rounded-md lg:col-span-2">
+              <div class="flex items-center gap-4">
+                <div class="w-3/4 space-y-2">
+                  <p class="text-2xl font-semibold">Hi, Welcome</p>
+                  <p class="text-sm text-gray-600">Lorem ipsum is a dummy or placeholder text commonly used in graphic
+                    design, publishing, and web development.</p>
+                  <div class="flex items-center gap-4">
+                    <div class="inline-block p-2 border rounded-full">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-5 h-5 text-blue-600">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 0 1-1.44-4.282m3.102.069a18.03 18.03 0 0 1-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 0 1 8.835 2.535M10.34 6.66a23.847 23.847 0 0 0 8.835-2.535m0 0A23.74 23.74 0 0 0 18.795 3m.38 1.125a23.91 23.91 0 0 1 1.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 0 0 1.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 0 1 0 3.46" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p class="text-sm"><span class="font-bold">Today 13 Feb 2025</span> | Running Shifts : 5</p>
+                      <p class="text-xs text-gray-600">Last Refreshed : 30 Mins Ago</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center justify-center w-1/4">
+                  <div id="radial-chart" class="max-w-fit"></div>
+                </div>
+              </div>
+              <div class="grid grid-cols-4 gap-4">
+                <div class="w-full pl-4 border-l-2 border-blue-600">
+                  <p class="text-3xl font-bold">1000</p>
+                  <p class="pt-1 text-sm font-semibold text-gray-600">Total Headcount</p>
+                </div>
+                <div class="w-full pl-4 border-l-2 border-green-600">
+                  <p class="text-3xl font-bold">600 <span
+                      class="text-sm font-semibold rounded-md text-green-600 bg-green-100 py-0.5 px-2">60%</span></p>
+                  <p class="pt-1 text-sm font-semibold text-gray-600">Total Present</p>
+                </div>
+                <div class="w-full pl-4 border-l-2 border-red-600">
+                  <p class="text-3xl font-bold">50 <span
+                      class="text-sm font-semibold rounded-md text-red-600 bg-red-100 py-0.5 px-2">5 %</span></p>
+                  <p class="pt-1 text-sm font-semibold text-gray-600">Total Not In</p>
+                </div>
+                <div class="w-full pl-4 border-l-2 border-orange-600">
+                  <p class="text-3xl font-bold">25 <span
+                      class="text-sm font-semibold text-orange-600 rounded-md bg-orange-100 py-0.5 px-2">2.5 %</span></p>
+                  <p class="pt-1 text-sm font-semibold text-gray-600">Total Leave</p>
+                </div>
+              </div>
+              <div class="grid grid-cols-4 gap-4 pt-4">
+                <div class="flex items-center gap-2">
+                  <div class="inline-block p-3 bg-yellow-100 rounded-md">                    
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-yellow-600" stroke-width="2">
+                      <path d="M20.986 12.502a9 9 0 1 0 -5.973 7.98"></path>
+                      <path d="M12 7v5l3 3"></path>
+                      <path d="M19 16v3"></path>
+                      <path d="M19 22v.01"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-bold">10 <span class="pl-2 text-sm font-semibold text-yellow-600">0.10 %</span></p>
+                    <p class="text-xs font-semibold">Late Entry</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <div class="inline-block p-3 bg-teal-100 rounded-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-teal-600" stroke-width="2">
+                      <path d="M20.984 12.535a9 9 0 1 0 -8.431 8.448"></path>
+                      <path d="M12 7v5l3 3"></path>
+                      <path d="M19 16v6"></path>
+                      <path d="M22 19l-3 3l-3 -3"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-bold">20 <span class="pl-2 text-sm font-semibold text-teal-600">20 %</span></p>
+                    <p class="text-xs font-semibold">Early Out</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <div class="inline-block p-3 bg-indigo-100 rounded-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-indigo-600" stroke-width="2">
+                      <path d="M20.975 11.33a9 9 0 1 0 -5.717 9.06"></path>
+                      <path d="M12 7v5l2 2"></path>
+                      <path d="M19 22v.01"></path>
+                      <path d="M19 19a2.003 2.003 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-bold">30<span class="pl-2 text-sm font-semibold text-indigo-600">0.30 %</span></p>
+                    <p class="text-xs font-semibold">WH Penalty</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <div class="inline-block p-3 bg-pink-100 rounded-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-pink-600" stroke-width="2">
+                      <path d="M21 12.3a9 9 0 1 0 -8.683 8.694"></path>
+                      <path d="M12 7v5l2 2"></path>
+                      <path d="M19 19m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-bold">10 <span class="pl-2 text-sm font-semibold text-pink-600">10 %</span></p>
+                    <p class="text-xs font-semibold">Short Hours</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 lg:col-span-1">
+              <div class="p-4 bg-white border rounded">
+                <div class="inline-block p-3 bg-green-100 rounded-md">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-green-600" stroke-width="2">
+                    <path d="M20.942 13.021a9 9 0 1 0 -9.407 7.967"></path>
+                    <path d="M12 7v5l3 3"></path>
+                    <path d="M15 19l2 2l4 -4"></path>
+                  </svg>
+                </div>
+                <div class="pt-8">
+                  <p class="font-bold">54 <span class="pl-2 text-sm font-semibold text-green-600">+ 12</span></p>
+                  <p class="text-sm font-semibold">Early Check</p>
+                </div>
+
+              </div>
+              <div class="p-4 bg-white border rounded">
+                <div class="inline-block p-3 bg-green-100 rounded-md">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-green-600" stroke-width="2">
+                    <path d="M20.942 13.021a9 9 0 1 0 -9.407 7.967"></path>
+                    <path d="M12 7v5l3 3"></path>
+                    <path d="M15 19l2 2l4 -4"></path>
+                  </svg>
+                </div>
+                <div class="pt-8">
+                  <p class="font-bold">54 <span class="pl-2 text-sm font-semibold text-green-600">+ 12</span></p>
+                  <p class="text-sm font-semibold">Early Check</p>
+                </div>
+              </div>
+              <div class="p-4 bg-white border rounded">
+                <div class="inline-block p-3 bg-green-100 rounded-md">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-green-600" stroke-width="2">
+                    <path d="M20.942 13.021a9 9 0 1 0 -9.407 7.967"></path>
+                    <path d="M12 7v5l3 3"></path>
+                    <path d="M15 19l2 2l4 -4"></path>
+                  </svg>
+                </div>
+                <div class="pt-8">
+                  <p class="font-bold">54 <span class="pl-2 text-sm font-semibold text-green-600">+ 12</span></p>
+                  <p class="text-sm font-semibold">Early Check</p>
+                </div>
+              </div>
+              <div class="p-4 bg-white border rounded">
+                <div class="inline-block p-3 bg-green-100 rounded-md">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-green-600" stroke-width="2">
+                    <path d="M20.942 13.021a9 9 0 1 0 -9.407 7.967"></path>
+                    <path d="M12 7v5l3 3"></path>
+                    <path d="M15 19l2 2l4 -4"></path>
+                  </svg>
+                </div>
+                <div class="pt-8">
+                  <p class="font-bold">54 <span class="pl-2 text-sm font-semibold text-green-600">+ 12</span></p>
+                  <p class="text-sm font-semibold">Early Check</p>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 bg-white border rounded-md lg:col-span-1">
+              <div id="pie-chart"></div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  const getChartOptions = () => {
+    return {
+      series: [90], // Percentage value
+      colors: ["#1C64F2"],
+      chart: {
+        height: 150, // Fixed height
+        width: "100%", // Responsive width
+        type: "radialBar",
+      },
+      plotOptions: {
+        radialBar: {
+          track: { background: '#E5E7EB' },
+          dataLabels: {
+            name: {
+              show: true,
+              fontSize: '14px',
+              fontWeight: 'bold',
+              color: '#374151',
+              offsetY: 0,
+              formatter: () => "Present",
+            },
+            value: {
+              show: true,
+              fontSize: '20px',
+              fontWeight: 'bold',
+              color: '#1C64F2',
+              offsetY: 10,
+              formatter: (val) => val + '%',
+            }
+          },
+          hollow: {
+            margin: 0,
+            size: "65%",
+          }
+        },
+      },
+      tooltip: { enabled: true },
+    };
+  };
+
+  if (document.getElementById("radial-chart") && typeof ApexCharts !== 'undefined') {
+    const chart = new ApexCharts(document.querySelector("#radial-chart"), getChartOptions());
+    chart.render();
+  }
+</script>
+<script>
+  const getChartOptions1 = () => {
+    return {
+      series: [52, 26, 20, 15, 10, 8], // Example values for multiple labels
+      colors: ["#1C64F2", "#16BDCA", "#9061F9", "#F59E0B", "#10B981", "#EF4444"], // Dynamic colors
+      chart: {
+        height: 240,
+        width: "75%",
+        type: "pie",
+      },
+      stroke: {
+        colors: ["white"],
+      },
+      plotOptions: {
+        pie: {
+          size: "100%",
+          dataLabels: {
+            offset: -25
+          }
+        },
+      },
+      labels: ["Direct", "Organic Search", "Referrals", "Social Media", "Paid Ads", "Others"], // Dynamic labels
+      dataLabels: {
+        enabled: true,
+        style: {
+          fontFamily: "Inter, sans-serif",
+        },
+      },
+      legend: {
+        show: true,
+        position: "bottom",
+        fontFamily: "Inter, sans-serif",
+        fontSize: "14px",
+        horizontalAlign: "left",
+        floating: false,
+        width: 300, // Controls legend width for multiple columns
+        itemMargin: { horizontal: 10, vertical: 5 }, // Proper spacing
+        markers: { width: 12, height: 12 }
+      },
+      yaxis: {
+        labels: {
+          formatter: (value) => value + "%"
+        },
+      },
+      xaxis: {
+        labels: {
+          formatter: (value) => value + "%"
+        },
+        axisTicks: { show: false },
+        axisBorder: { show: false },
+      },
+    };
+  };
+
+  if (document.getElementById("pie-chart") && typeof ApexCharts !== 'undefined') {
+    const chart = new ApexCharts(document.getElementById("pie-chart"), getChartOptions1());
+    chart.render();
+  }
+</script>
+<script>
+  $(function () {
+    $("#navigation").load("nav.html");
+    $("#aside").load("aside.html");
+  });
+</script>
+
+</html>
