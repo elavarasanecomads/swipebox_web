@@ -71,12 +71,12 @@
                                             <div class="w-full mt-4 overflow-y-scroll h-96">
                                                 <div class="w-full space-y-4">
                                                     <div class="relative">
-                                                        <label class="text-sm font-semibold text-gray-600" for="businessname">Date</label>
+                                                        <label class="text-sm font-semibold text-gray-600" for="businessname">Date <span class="text-red-600">*</span></label>
                                                         <input type="date" name="" id="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                     </div>
                                                     <div class="flex flex-col">
                                                         <label for="" class="block text-sm font-medium text-gray-700">Choose
-                                                            Employee</label>
+                                                            Employee <span class="text-red-600">*</span></label>
                                                         <div class="relative mt-1">
                                                             <div class="absolute top-0 left-0 inline-flex items-center justify-center w-10 h-full text-gray-400">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -88,7 +88,7 @@
                                                     </div>
                                                     <div class="flex flex-col">
                                                         <label for="" class="block text-sm font-medium text-gray-700">Item
-                                                            Name</label>
+                                                            Name <span class="text-red-600">*</span></label>
                                                         <div class="relative mt-1">
                                                             <div class="absolute top-0 left-0 inline-flex items-center justify-center w-10 h-full text-gray-400">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -98,20 +98,20 @@
                                                             <input name="fromdate" class="w-full py-3 pl-10 pr-4 placeholder-gray-500 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600" placeholder="Search Items">
                                                         </div>
                                                     </div>
-                                                    <div class="flex items-center gap-4">
-                                                        <div class="w-1/2">
-                                                            <label class="text-sm font-semibold text-gray-600" for="notes">Work
-                                                                Rate</label>
-                                                            <input type="text" name="notes" id="notes" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                        </div>
+                                                    <div class="flex items-center gap-4">                                                        
                                                         <div class="w-1/2">
                                                             <label class="text-sm font-semibold text-gray-600" for="notes">No of
-                                                                Units</label>
+                                                                Units <span class="text-red-600">*</span></label>
                                                             <input type="text" name="notes" id="notes" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                         </div>
                                                         <div class="w-1/2">
-                                                            <label class="text-sm font-semibold text-gray-600" for="notes">Total Amount</label>
-                                                            <input type="text" name="notes" id="notes" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                            <label class="text-sm font-semibold text-gray-600" for="notes">Work
+                                                                Rate <span class="text-red-600">*</span></label>
+                                                            <input type="text" name="notes" id="notes" autocomplete="title" disabled placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                        </div>
+                                                        <div class="w-1/2">
+                                                            <label class="text-sm font-semibold text-gray-600" for="notes">Total Amount <span class="text-red-600">*</span></label>
+                                                            <input type="text" name="notes" id="notes" autocomplete="title" disabled placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                         </div>
                                                     </div>
         
@@ -264,11 +264,11 @@
                                                                 x-transition:enter-end="opacity-100 scale-100">
                                                                 <!-- Title / Close-->
                                                                 <div class="flex items-center justify-between">
-                                                                    <div class="flex items-center gap-2">
+                                                                    <div class="flex items-center gap-2 w-max">
+                                                                        <img class="w-8 h-8 rounded-full" src="https://randomuser.me/api/portraits/men/11.jpg" alt="">
                                                                         <div>
-                                                                            <p class="font-bold">Shirt Stitching</p>
-                                                                            <p class="text-sm text-gray-600">
-                                                                                23-02-2024 18:00</p>
+                                                                            <a href="employee-detail.html" class="font-medium text-blue-600">ATHEESWAR MANICKAM</a>
+                                                                            <p class="text-xs text-gray-600">12-02-2024 16:00</p>
                                                                         </div>
                                                                     </div>
                                                                     <span @click="showModal = false">
@@ -286,6 +286,14 @@
                                                                 <div class="w-full mt-4 overflow-y-scroll h-96">
                                                                     <div class="grid grid-cols-2 gap-4 lg:grid-cols-3">
                                                                         <div class="col-span-1">
+                                                                            <p class="text-sm font-semibold">Date</p>
+                                                                            <p>25-03-2025</p>
+                                                                        </div>
+                                                                        <div class="col-span-2">
+                                                                            <p class="text-sm font-semibold">Item Name</p>
+                                                                            <p>Shirt Stitching</p>
+                                                                        </div>
+                                                                        <div class="col-span-1">
                                                                             <p class="text-sm font-semibold">Units</p>
                                                                             <p>25</p>
                                                                         </div>
@@ -298,43 +306,13 @@
                                                                             <p>₹ 250</p>
                                                                         </div>
                                                                         <div class="col-span-1 lg:col-span-3">
-                                                                            <p class="text-sm font-semibold">Assigned To</p>
-                                                                            <p>Bindhu</p>
-                                                                        </div>
-                                                                        <div class="col-span-1 lg:col-span-3">
                                                                             <p class="text-sm font-semibold">Description</p>
                                                                             <p class="whitespace-normal">Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.</p>
                                                                         </div>
                                                                         <div class="col-span-1 lg:col-span-3">
                                                                             <p class="text-sm font-semibold">Attachment</p>
-                                                                            <p class="text-blue-600">images.png</p>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="w-full p-4 mt-4 space-y-4 bg-gray-100 rounded-md">
-                                                                        <h3 class="text-xl font-bold">Logs</h3>
-                                                                        <div class="w-full space-y-2">
                                                                             <div>
-                                                                                <p class="font-semibold">Level 2
-                                                                                    Approved</p>
-                                                                                <p class="text-sm text-gray-600">
-                                                                                    <span>Premkumar</span> |
-                                                                                    <span>24-02-2024 11:00</span>
-                                                                                </p>
-                                                                            </div>
-                                                                            <div>
-                                                                                <p class="font-semibold">Level 1
-                                                                                    Approved</p>
-                                                                                <p class="text-sm text-gray-600">
-                                                                                    <span>Elavarasan</span> |
-                                                                                    <span>24-02-2024 09:00</span>
-                                                                                </p>
-                                                                            </div>
-                                                                            <div>
-                                                                                <p class="font-semibold">Pay Per Work Created</p>
-                                                                                <p class="text-sm text-gray-600">
-                                                                                    <span>ATHEESWAR MANICKAM</span> |
-                                                                                    <span>23-02-2024 18:00</span>
-                                                                                </p>
+                                                                                <img src="https://images.unsplash.com/photo-1579353977828-2a4eab540b9a" alt="">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -381,12 +359,12 @@
                                                                 <div class="w-full mt-4 overflow-y-scroll h-96">
                                                                     <div class="w-full space-y-4">
                                                                         <div class="relative">
-                                                                            <label class="text-sm font-semibold text-gray-600" for="businessname">Date</label>
+                                                                            <label class="text-sm font-semibold text-gray-600" for="businessname">Date <span class="text-red-600">*</span></label>
                                                                             <input type="date" name="" id="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                                         </div>
                                                                         <div class="flex flex-col">
                                                                             <label for="" class="block text-sm font-medium text-gray-700">Choose
-                                                                                Employee</label>
+                                                                                Employee <span class="text-red-600">*</span></label>
                                                                             <div class="relative mt-1">
                                                                                 <div class="absolute top-0 left-0 inline-flex items-center justify-center w-10 h-full text-gray-400">
                                                                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -398,7 +376,7 @@
                                                                         </div>
                                                                         <div class="flex flex-col">
                                                                             <label for="" class="block text-sm font-medium text-gray-700">Item
-                                                                                Name</label>
+                                                                                Name <span class="text-red-600">*</span></label>
                                                                             <div class="relative mt-1">
                                                                                 <div class="absolute top-0 left-0 inline-flex items-center justify-center w-10 h-full text-gray-400">
                                                                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -410,18 +388,18 @@
                                                                         </div>
                                                                         <div class="flex items-center gap-4">
                                                                             <div class="w-1/2">
-                                                                                <label class="text-sm font-semibold text-gray-600" for="notes">Work
-                                                                                    Rate</label>
-                                                                                <input type="text" name="notes" id="notes" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                                            </div>
-                                                                            <div class="w-1/2">
                                                                                 <label class="text-sm font-semibold text-gray-600" for="notes">No of
-                                                                                    Units</label>
+                                                                                    Units <span class="text-red-600">*</span></label>
                                                                                 <input type="text" name="notes" id="notes" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                                             </div>
                                                                             <div class="w-1/2">
-                                                                                <label class="text-sm font-semibold text-gray-600" for="notes">Total Amount</label>
-                                                                                <input type="text" name="notes" id="notes" autocomplete="title" placeholder="" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                                <label class="text-sm font-semibold text-gray-600" for="notes">Work
+                                                                                    Rate <span class="text-red-600">*</span></label>
+                                                                                <input type="text" name="notes" id="notes" autocomplete="title" placeholder="" disabled class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                                            </div>
+                                                                            <div class="w-1/2">
+                                                                                <label class="text-sm font-semibold text-gray-600" for="notes">Total Amount <span class="text-red-600">*</span></label>
+                                                                                <input type="text" name="notes" id="notes" autocomplete="title" placeholder="" disabled class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                                             </div>
                                                                         </div>
                             
