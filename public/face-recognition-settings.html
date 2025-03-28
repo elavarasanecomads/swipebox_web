@@ -17,8 +17,8 @@
             <div id="navigation"></div>
             <div class="mx-0 my-4 lg:m-4">
                 <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
-                    <!--Brudcrumb-->
-                    <div>
+                    <!--Brudcrumb-->                    
+                    <div class="flex items-center gap-4 pt-4">
                         <a href="settings-2.html">
                             <button class="flex items-center gap-1 text-sm text-gray-600">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
@@ -27,87 +27,43 @@
                                         d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
                                         clip-rule="evenodd"></path>
                                 </svg>
-                                <span>Back</span>
                             </button>
                         </a>
-                    </div>
-                    <div class="flex items-center gap-4 pt-4">
                         <h1 class="text-2xl font-bold">Selfie Attendance Settings</h1>
                     </div>
-                    <div>
-                        <div x-data="{ selectedOption: null }" class="p-2 pt-4 space-y-4">
-                            <div>
-                                <label class="inline-flex items-center">
-                                    <input x-model="selectedOption" name="selfie" type="radio"
-                                        class="w-4 h-4 form-checkbox">
-                                    <span class="ml-2 font-semibold">Selfie with Geo-location</span>
-                                </label>
-                            </div>
-                            <!--show section-->
-                            <div class="space-y-4" x-show="selectedOption" x-cloak>
-                                <div>
-                                    <label class="inline-flex items-center ml-8">
-                                        <input name="" type="checkbox" class="w-4 h-4 form-checkbox">
-                                        <span class="ml-2">Enable Geo-fencing</span>
-                                    </label>
-                                </div>
-
-                            </div>
-
+                    <div class="pt-6">
+                        <div>
+                            <label class="inline-flex items-center">
+                                <input name="settingtype" type="radio" class="w-4 h-4 form-checkbox selfie" checked="" data-check="geo-2" data-block="geo-1" value="1">
+                                <span class="ml-2 font-semibold">Selfie with Geo-location</span>
+                            </label>
                         </div>
-                        <div x-data="{ selectedOption: null }" class="p-2 pt-4 space-y-4">
-                            <div class="flex items-center gap-4">
-                                <label class="inline-flex items-center">
-                                    <input x-model="selectedOption" name="selfie" type="radio"
-                                        class="w-4 h-4 form-checkbox">
-                                    <span class="ml-2 font-semibold">Selfie with Geo-location and Photo compare</span>
+                        <div class="pt-4 space-y-4">
+                            <div>
+                                <label class="inline-flex items-center ml-8">
+                                    <input name="geofencing" value="1" type="checkbox" class="w-4 h-4 form-checkbox" checked="">
+                                    <span class="ml-2">Enable Geo-fencing</span>
                                 </label>
-                                <div x-data="{ 'showModal': false }">
-                                    <button @click="showModal = true" class="flex items-center text-gray-600">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
-                                          </svg>
-                                          
-                                    </button>
-                                   <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none">
-                                            <!-- Modal inner -->
-                                            <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-sm" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
-                                                        <!-- Title / Close-->
-                                                        <div class="flex items-center justify-between">
-                                                            <div class="flex items-center gap-2">
-                                                                
-                                                            </div>
-                                                            <span @click="showModal = false">
-                                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                                                                    </path>
-                                                                </svg>
-                                                            </span>
-                                                        </div>
-                                                        <!-- content -->
-                                                        <div class="flex flex-col items-center justify-center w-full mt-4">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-gray-400">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
-                                                              </svg>
-                                                              
-                                                            <p>sdsds</p>
-                                                        </div>
-                                                    </div>
-                                        </div>
-                                </div>
                             </div>
-                            <!--show section-->
-                            <div class="space-y-4" x-show="selectedOption" x-cloak>
-                                <div>
-                                    <label class="inline-flex items-center ml-8">
-                                        <input name="" type="checkbox" class="w-4 h-4 form-checkbox">
-                                        <span class="ml-2">Enable Geo-fencing</span>
-                                    </label>
-                                </div>
+                            <div>
+                                <label class="inline-flex items-center ml-8">
+                                    <input name="face_compare" value="1" type="checkbox" class="w-4 h-4 form-checkbox">
+                                    <span class="ml-2">Enable Face Compare</span>
+                                </label>
                             </div>
-
+                            <div>
+                                <label class="inline-flex items-center ml-8">
+                                    <input name="attendance_approval" value="1" type="checkbox" class="w-4 h-4 form-checkbox">
+                                    <span class="ml-2">Enable Attendance Approval</span>
+                                    <a href="manage-attendance-permission.html" class ="ml-4 font-semibold text-blue-600">Manage Employees</a>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="pt-6">
+                            <button class="p-3 font-semibold text-center text-white bg-blue-600 rounded-md w-44" id="addBtn" type="submit">SAVE</button>
                         </div>
                     </div>
+                    
                     <div>
 
                     </div>

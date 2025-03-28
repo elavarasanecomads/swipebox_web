@@ -760,14 +760,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin: 4rem;
 }
 
-.m-2\.5 {
-  margin: 0.625rem;
-}
-
-.m-2 {
-  margin: 0.5rem;
-}
-
 .mx-0 {
   margin-left: 0px;
   margin-right: 0px;
@@ -1293,6 +1285,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 5rem;
 }
 
+.w-1\/3 {
+  width: 33.333333%;
+}
+
 .w-24 {
   width: 6rem;
 }
@@ -1315,10 +1311,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-60 {
   width: 15rem;
-}
-
-.w-1\/3 {
-  width: 33.333333%;
 }
 
 .w-\[10\%\] {
@@ -1399,12 +1391,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   max-width: fit-content;
 }
 
-.max-w-md {
-  max-width: 28rem;
-}
-
 .max-w-full {
   max-width: 100%;
+}
+
+.max-w-md {
+  max-width: 28rem;
 }
 
 .max-w-6xl {
@@ -1427,8 +1419,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   max-width: 32rem;
 }
 
-.max-w-\[70\%\] {
-  max-width: 70%;
+.max-w-\[1\/3\] {
+  max-width: 1 / 3;
 }
 
 .flex-1 {
@@ -1829,11 +1821,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-color: rgb(107 114 128 / var(--tw-divide-opacity));
 }
 
-.divide-gray-100 > :not([hidden]) ~ :not([hidden]) {
-  --tw-divide-opacity: 1;
-  border-color: rgb(243 244 246 / var(--tw-divide-opacity));
-}
-
 .overflow-auto {
   overflow: auto;
 }
@@ -1878,6 +1865,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .whitespace-nowrap {
   white-space: nowrap;
+}
+
+.break-words {
+  overflow-wrap: break-word;
 }
 
 .rounded-md {
@@ -2564,12 +2555,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   fill: #2563eb;
 }
 
-.fill-current {
-  fill: currentColor;
-}
-
 .fill-gray-500 {
   fill: #6b7280;
+}
+
+.fill-current {
+  fill: currentColor;
 }
 
 .object-contain {
@@ -4138,11 +4129,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(59 130 246 / var(--tw-text-opacity));
 }
 
-[dir="rtl"] .rtl\:rotate-180 {
-  --tw-rotate: 180deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
 [dir="rtl"] .rtl\:text-right {
   text-align: right;
 }
@@ -4187,11 +4173,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   .dark\:bg-blue-800 {
     --tw-bg-opacity: 1;
     background-color: rgb(30 64 175 / var(--tw-bg-opacity));
-  }
-
-  .dark\:bg-green-900 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(20 83 45 / var(--tw-bg-opacity));
   }
 
   .dark\:fill-gray-400 {
@@ -4243,16 +4224,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     color: rgb(239 68 68 / var(--tw-text-opacity));
   }
 
-  .dark\:text-green-300 {
-    --tw-text-opacity: 1;
-    color: rgb(134 239 172 / var(--tw-text-opacity));
-  }
-
-  .dark\:text-gray-200 {
-    --tw-text-opacity: 1;
-    color: rgb(229 231 235 / var(--tw-text-opacity));
-  }
-
   .dark\:ring-offset-gray-800 {
     --tw-ring-offset-color: #1f2937;
   }
@@ -4274,29 +4245,14 @@ Ensure the default browser behavior of the `hidden` attribute.
     background-color: rgb(75 85 99 / var(--tw-bg-opacity));
   }
 
-  .dark\:hover\:bg-gray-700:hover {
-    --tw-bg-opacity: 1;
-    background-color: rgb(55 65 81 / var(--tw-bg-opacity));
-  }
-
   .dark\:hover\:text-white:hover {
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity));
   }
 
-  .dark\:hover\:text-blue-500:hover {
-    --tw-text-opacity: 1;
-    color: rgb(59 130 246 / var(--tw-text-opacity));
-  }
-
   .dark\:focus\:ring-blue-600:focus {
     --tw-ring-opacity: 1;
     --tw-ring-color: rgb(37 99 235 / var(--tw-ring-opacity));
-  }
-
-  .dark\:focus\:ring-gray-700:focus {
-    --tw-ring-opacity: 1;
-    --tw-ring-color: rgb(55 65 81 / var(--tw-ring-opacity));
   }
 
   .dark\:focus\:ring-offset-gray-800:focus {
@@ -4480,10 +4436,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:overflow-x-hidden {
     overflow-x: hidden;
-  }
-
-  .md\:p-6 {
-    padding: 1.5rem;
   }
 
   .md\:px-24 {
