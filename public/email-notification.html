@@ -298,6 +298,50 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div x-data="{ 'showModal': false }">
+                                                            <button @click="showModal = true" class="flex items-center text-red-600"><span><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                                                                        </path>
+                                                                    </svg></span></button>
+                                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
+                                                                <!-- Modal inner -->
+                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                                    <!-- Title / Close-->
+                                                                    <div class="flex items-center justify-between">
+                                                                        <p class="font-bold text-gray-900">
+
+                                                                        </p>
+                                                                        <span @click="showModal = false">
+                                                                            <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                                                                                </path>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </div>
+                                                                    <!-- content -->
+                                                                    <div class="w-full mt-4 space-y-4">
+                                                                        <div class="flex flex-col items-center justify-center gap-2">
+                                                                            <div>
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-red-500" viewBox="0 0 20 20" fill="currentColor">
+                                                                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd">
+                                                                                    </path>
+                                                                                </svg>
+                                                                            </div>
+                                                                            <p class="font-bold">Delete This
+                                                                                Email ID
+                                                                            </p>
+                                                                            <p class="text-gray-600">Do you wish
+                                                                                to delete
+                                                                                this Email ID?</p>
+                                                                        </div>
+                                                                        <div class="grid grid-cols-2 gap-4">
+                                                                            <button class="w-full p-3 font-semibold text-center text-gray-900 bg-gray-200 rounded-md">Cancel</button>
+                                                                            <button class="w-full p-3 font-semibold text-center text-white bg-red-600 rounded-md">Delete</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -312,6 +356,7 @@
                                                             <p class="px-2 py-0.5 text-center font-semibold text-xs text-white bg-gray-600 rounded-full inline-block">
                                                                 Not Verified</p>
                                                             <button class="text-sm font-semibold text-blue-600">Resend Mail</button>
+                                                            
                                                         </div>                                                       
                                                     </td>
                                                     <td
@@ -442,6 +487,50 @@
                                                                                         class="w-full p-2 font-semibold text-white bg-blue-600 rounded-md">Save</button>
                                                                                 </div>
                                                                             </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div x-data="{ 'showModal': false }">
+                                                            <button @click="showModal = true" class="flex items-center text-red-600"><span><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                                                                        </path>
+                                                                    </svg></span></button>
+                                                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
+                                                                <!-- Modal inner -->
+                                                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                                    <!-- Title / Close-->
+                                                                    <div class="flex items-center justify-between">
+                                                                        <p class="font-bold text-gray-900">
+
+                                                                        </p>
+                                                                        <span @click="showModal = false">
+                                                                            <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                                                                                </path>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </div>
+                                                                    <!-- content -->
+                                                                    <div class="w-full mt-4 space-y-4">
+                                                                        <div class="flex flex-col items-center justify-center gap-2">
+                                                                            <div>
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-red-500" viewBox="0 0 20 20" fill="currentColor">
+                                                                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd">
+                                                                                    </path>
+                                                                                </svg>
+                                                                            </div>
+                                                                            <p class="font-bold">Delete This
+                                                                                Email ID
+                                                                            </p>
+                                                                            <p class="text-gray-600">Do you wish
+                                                                                to delete
+                                                                                this Email ID?</p>
+                                                                        </div>
+                                                                        <div class="grid grid-cols-2 gap-4">
+                                                                            <button class="w-full p-3 font-semibold text-center text-gray-900 bg-gray-200 rounded-md">Cancel</button>
+                                                                            <button class="w-full p-3 font-semibold text-center text-white bg-red-600 rounded-md">Delete</button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
