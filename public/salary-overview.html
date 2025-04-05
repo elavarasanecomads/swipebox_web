@@ -1,0 +1,265 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Overview</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="relative min-h-screen bg-gray-100 scroll-smooth">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full min-w-0 grow">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
+                    <!--Brudcrumb-->
+                    <p class="flex items-center gap-2 text-2xl font-bold">
+                        <a href="employee-detail.html" class="flex items-center gap-1 text-sm text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                <path fill-rule="evenodd"
+                                    d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        Salary Overview</p>
+
+                        <div class="pt-6 space-y-4">
+                            <div x-data="{ show: false }" class="p-4 border border-gray-300 rounded-md" @click="show = !show">
+                                <!-- Clickable Section -->
+                                <div class="flex items-center justify-between cursor-pointer">
+                                    <div>
+                                        <p class="text-lg font-bold">Mar 2025</p>
+                                        <p class="text-sm text-gray-600">26-02-2025 to 25-03-2025</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-lg font-bold">₹ 15000</p>
+                                    </div>
+                                    <div>
+                                        <button class="px-3 py-2 font-semibold text-white bg-blue-600 rounded-md">Salaryslip</button>
+                                    </div>
+                                </div>
+                                <!-- View Section -->
+                                <div x-show="show" class="mt-4 border-gray-300">
+                                    <div>
+                                        <div class="grid grid-cols-1 lg:grid-cols-2">
+                                            <div>
+                                                <div class="flex items-center justify-between p-2 px-4 bg-gray-200 rounded-tl-lg">
+                                                    <p class="font-bold">Earnings</p>
+                                                    <p class="font-bold">Amount</p>
+                                                </div>
+                                                <ul class="p-4 space-y-2 text-gray-600 border rounded-bl-lg">
+                                                    <li class="flex items-center justify-between">
+                                                        <p>Basic</p>
+                                                        <p>₹ 3,000</p>
+                                                    </li>
+                                                    <li class="flex items-center justify-between">
+                                                        <p>HRA</p>
+                                                        <p>₹ 2,000</p>
+                                                    </li>
+                                                    <li class="flex items-center justify-between font-bold">
+                                                        <p>Total Earnings</p>
+                                                        <p>₹ 5,000</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <div class="flex items-center justify-between p-2 px-4 bg-gray-200 rounded-tr-lg">
+                                                    <p class="font-bold">Deduction</p>
+                                                    <p class="font-bold">Amount</p>
+                                                </div>
+                                                <ul class="p-4 space-y-2 text-gray-600 border rounded-br-lg">
+                                                    <li class="flex items-center justify-between">
+                                                        <p>Deduction</p>
+                                                        <p>₹ 300</p>
+                                                    </li>
+                                                    <li class="flex items-center justify-between">
+                                                        <p>Advance</p>
+                                                        <p>₹ 1,000</p>
+                                                    </li>
+                                                    <li class="flex items-center justify-between font-bold">
+                                                        <p>Total Deduction</p>
+                                                        <p>₹ 1,300</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between px-4 pt-4">
+                                        <div>
+                                            <p class="font-bold">Net Payable Amount</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold">5 Days <span class="text-sm font-base">(Payable Days)</span></p>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold">₹ 15000</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div x-data="{ show: false }" class="p-4 border border-gray-300 rounded-md" @click="show = !show">
+                                <!-- Clickable Section -->
+                                <div class="flex items-center justify-between cursor-pointer">
+                                    <div>
+                                        <p class="text-lg font-bold">Feb 2025</p>
+                                        <p class="text-sm text-gray-600">26-01-2025 to 25-02-2025</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-lg font-bold">₹ 15000</p>
+                                    </div>
+                                    <div>
+                                        <button class="px-3 py-2 font-semibold text-white bg-blue-600 rounded-md">Salaryslip</button>
+                                    </div>
+                                </div>
+                                <!-- View Section -->
+                                <div x-show="show" class="mt-4 border-gray-300">
+                                    <div>
+                                        <div class="grid grid-cols-1 lg:grid-cols-2">
+                                            <div>
+                                                <div class="flex items-center justify-between p-2 px-4 bg-gray-200 rounded-tl-lg">
+                                                    <p class="font-bold">Earnings</p>
+                                                    <p class="font-bold">Amount</p>
+                                                </div>
+                                                <ul class="p-4 space-y-2 text-gray-600 border rounded-bl-lg">
+                                                    <li class="flex items-center justify-between">
+                                                        <p>Basic</p>
+                                                        <p>₹ 3,000</p>
+                                                    </li>
+                                                    <li class="flex items-center justify-between">
+                                                        <p>HRA</p>
+                                                        <p>₹ 2,000</p>
+                                                    </li>
+                                                    <li class="flex items-center justify-between font-bold">
+                                                        <p>Total Earnings</p>
+                                                        <p>₹ 5,000</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <div class="flex items-center justify-between p-2 px-4 bg-gray-200 rounded-tr-lg">
+                                                    <p class="font-bold">Deduction</p>
+                                                    <p class="font-bold">Amount</p>
+                                                </div>
+                                                <ul class="p-4 space-y-2 text-gray-600 border rounded-br-lg">
+                                                    <li class="flex items-center justify-between">
+                                                        <p>Deduction</p>
+                                                        <p>₹ 300</p>
+                                                    </li>
+                                                    <li class="flex items-center justify-between">
+                                                        <p>Advance</p>
+                                                        <p>₹ 1,000</p>
+                                                    </li>
+                                                    <li class="flex items-center justify-between font-bold">
+                                                        <p>Total Deduction</p>
+                                                        <p>₹ 1,300</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between px-4 pt-4">
+                                        <div>
+                                            <p class="font-bold">Net Payable Amount</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold">5 Days <span class="text-sm font-base">(Payable Days)</span></p>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold">₹ 15000</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div x-data="{ show: false }" class="p-4 border border-gray-300 rounded-md" @click="show = !show">
+                                <!-- Clickable Section -->
+                                <div class="flex items-center justify-between cursor-pointer">
+                                    <div>
+                                        <p class="text-lg font-bold">Jan 2025</p>
+                                        <p class="text-sm text-gray-600">26-12-2024 to 25-01-2025</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-lg font-bold">₹ 15000</p>
+                                    </div>
+                                    <div>
+                                        <button class="px-3 py-2 font-semibold text-white bg-blue-600 rounded-md">Salaryslip</button>
+                                    </div>
+                                </div>
+                                <!-- View Section -->
+                                <div x-show="show" class="mt-4 border-gray-300">
+                                    <div>
+                                        <div class="grid grid-cols-1 lg:grid-cols-2">
+                                            <div>
+                                                <div class="flex items-center justify-between p-2 px-4 bg-gray-200 rounded-tl-lg">
+                                                    <p class="font-bold">Earnings</p>
+                                                    <p class="font-bold">Amount</p>
+                                                </div>
+                                                <ul class="p-4 space-y-2 text-gray-600 border rounded-bl-lg">
+                                                    <li class="flex items-center justify-between">
+                                                        <p>Basic</p>
+                                                        <p>₹ 3,000</p>
+                                                    </li>
+                                                    <li class="flex items-center justify-between">
+                                                        <p>HRA</p>
+                                                        <p>₹ 2,000</p>
+                                                    </li>
+                                                    <li class="flex items-center justify-between font-bold">
+                                                        <p>Total Earnings</p>
+                                                        <p>₹ 5,000</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <div class="flex items-center justify-between p-2 px-4 bg-gray-200 rounded-tr-lg">
+                                                    <p class="font-bold">Deduction</p>
+                                                    <p class="font-bold">Amount</p>
+                                                </div>
+                                                <ul class="p-4 space-y-2 text-gray-600 border rounded-br-lg">
+                                                    <li class="flex items-center justify-between">
+                                                        <p>Deduction</p>
+                                                        <p>₹ 300</p>
+                                                    </li>
+                                                    <li class="flex items-center justify-between">
+                                                        <p>Advance</p>
+                                                        <p>₹ 1,000</p>
+                                                    </li>
+                                                    <li class="flex items-center justify-between font-bold">
+                                                        <p>Total Deduction</p>
+                                                        <p>₹ 1,300</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between px-4 pt-4">
+                                        <div>
+                                            <p class="font-bold">Net Payable Amount</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold">5 Days <span class="text-sm font-base">(Payable Days)</span></p>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold">₹ 15000</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                   
+
+                </div>
+            </div>
+        </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+</html>
