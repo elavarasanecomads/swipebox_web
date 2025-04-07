@@ -63,6 +63,17 @@
                                             calculate and process prorated salaries at a scheduled time</p>
                                         <div class="pt-4 space-y-4">
                                             <div>
+                                                <label class="font-semibold text-gray-600" for="">Scheduled Day</label>
+                                                <select
+                                                    class="block w-full p-3 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600 valid"
+                                                    name="time" aria-invalid="false">
+                                                    <option value="">Previous Day</option>
+                                                    <option value="">Current Day</option>
+                                                    <option value="">Payroll Start Date to Previous Day</option>
+                                                    <option value="">Payroll Start Date to Current Day</option>                                                    
+                                                </select>
+                                            </div>
+                                            <div>
                                                 <label class="font-semibold text-gray-600" for="">Scheduled Time</label>
                                                 <select
                                                     class="block w-full p-3 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600 valid"
@@ -100,24 +111,7 @@
                                                     <span class="ml-2 font-semibold text-gray-600">Scheduled run on next day</span>
                                                 </label>
                                             </div>
-                                            <div>
-                                                <p class="font-bold">Notification Type</p>
-                                                <div class="grid grid-cols-2 gap-4 pt-4">
-                                                    <div>
-                                                        <label class="inline-flex items-center">
-                                                            <input class="w-4 h-4" type="checkbox" checked="">
-                                                            <span class="ml-2 font-semibold text-gray-600">Whatsapp</span>
-                                                        </label>
-                                                    </div>
-                                                    <div>
-                                                        <label class="inline-flex items-center">
-                                                            <input class="w-4 h-4" type="checkbox" checked="">
-                                                            <span class="ml-2 font-semibold text-gray-600">Email</span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-    
+                                           
                                             <div class="grid grid-cols-2 gap-4">
                                                 <button
                                                     class="w-full p-3 font-semibold text-center text-gray-900 bg-gray-200 rounded-md">Cancel</button>
