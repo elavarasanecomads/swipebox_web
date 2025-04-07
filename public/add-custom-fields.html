@@ -125,21 +125,7 @@
                             <div x-show="selectedType === 'tabular'" class="p-4 space-y-4 border-2 border-gray-400 border-dashed rounded bg-gray-50">
                                 <h2 class="text-lg font-bold">Tabular Fields</h2>
                                 <div class="space-y-4">
-                                    <div x-data="{ 
-                                        fieldType: '', 
-                                        dropdownOptions: [], 
-                                        newOption: '', 
-                                        addOption() {
-                                            const trimmedOption = this.newOption.trim();
-                                            // Check for duplicates before adding
-                                            if (trimmedOption &amp;&amp; !this.dropdownOptions.includes(trimmedOption)) {
-                                                this.dropdownOptions.push(trimmedOption);
-                                                this.newOption = ''; // Reset input after adding
-                                            } else {
-                                                alert('Option already exists or is empty.'); // Alert for duplicates or empty option
-                                            }
-                                        }
-                                    }" class="grid grid-cols-1 gap-4 lg:grid-cols-4">
+                                    <div class="grid grid-cols-1 gap-4 lg:grid-cols-4">
                                 
                                     <!-- Name Field -->
                                     <div>
@@ -153,7 +139,6 @@
                                         <select x-model="fieldType" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                             <option value="">Select Type</option>
                                             <option value="Text">Text</option>
-                                            <option value="Dropdown">Dropdown</option>
                                             <option value="Date">Date</option>
                                             <option value="Phone Number">Phone Number</option>
                                             <option value="Email">Email</option>
@@ -161,23 +146,7 @@
                                         </select>
                                     </div>
                                 
-                                    <!-- Add Options Field (Only visible for Dropdown type) -->
-                                    <div x-show="fieldType === 'Dropdown'" class="space-y-2" style="display: none;">   
-                                        <div>
-                                            <label class="text-sm font-semibold text-gray-600">Add Options <span class="text-red-600">*</span></label>
-                                            <!-- Dynamically Generated Dropdown Options -->
-                                            <select class="block w-full px-3 py-3 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                <template x-for="(option, index) in dropdownOptions" :key="index">
-                                                    <option :value="option" x-text="option"></option>
-                                                </template>
-                                            </select>
-                                        </div>                            
-                                       
-                                        <div class="flex space-x-2">
-                                            <input type="text" x-model="newOption" placeholder="Enter option" class="block w-full px-3 py-3 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                            <button type="button" @click="addOption" class="px-4 py-2 text-white bg-green-600 rounded-md">Add</button>
-                                        </div>
-                                    </div>
+                                
                                     <div class="flex items-center gap-4">
                                          <!-- Mandatory Field Checkbox -->
                                     <div class="lg:pt-5">
@@ -204,21 +173,7 @@
                                     </div>
                                    
                                 </div>
-                                <div x-data="{ 
-                                    fieldType: '', 
-                                    dropdownOptions: [], 
-                                    newOption: '', 
-                                    addOption() {
-                                        const trimmedOption = this.newOption.trim();
-                                        // Check for duplicates before adding
-                                        if (trimmedOption &amp;&amp; !this.dropdownOptions.includes(trimmedOption)) {
-                                            this.dropdownOptions.push(trimmedOption);
-                                            this.newOption = ''; // Reset input after adding
-                                        } else {
-                                            alert('Option already exists or is empty.'); // Alert for duplicates or empty option
-                                        }
-                                    }
-                                }" class="grid grid-cols-1 gap-4 lg:grid-cols-4">
+                                <div class="grid grid-cols-1 gap-4 lg:grid-cols-4">
                             
                                 <!-- Name Field -->
                                 <div>
@@ -232,7 +187,6 @@
                                     <select x-model="fieldType" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                         <option value="">Select Type</option>
                                         <option value="Text">Text</option>
-                                        <option value="Dropdown">Dropdown</option>
                                         <option value="Date">Date</option>
                                         <option value="Phone Number">Phone Number</option>
                                         <option value="Email">Email</option>
@@ -240,23 +194,7 @@
                                     </select>
                                 </div>
                             
-                                <!-- Add Options Field (Only visible for Dropdown type) -->
-                                <div x-show="fieldType === 'Dropdown'" class="space-y-2" style="display: none;">   
-                                    <div>
-                                        <label class="text-sm font-semibold text-gray-600">Add Options <span class="text-red-600">*</span></label>
-                                        <!-- Dynamically Generated Dropdown Options -->
-                                        <select class="block w-full px-3 py-3 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                            <template x-for="(option, index) in dropdownOptions" :key="index">
-                                                <option :value="option" x-text="option"></option>
-                                            </template>
-                                        </select>
-                                    </div>                            
-                                   
-                                    <div class="flex space-x-2">
-                                        <input type="text" x-model="newOption" placeholder="Enter option" class="block w-full px-3 py-3 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                        <button type="button" @click="addOption" class="px-4 py-2 text-white bg-green-600 rounded-md">Add</button>
-                                    </div>
-                                </div>
+                                
                                 <div class="flex items-center gap-4">
                                      <!-- Mandatory Field Checkbox -->
                                 <div class="lg:pt-5">
