@@ -1123,8 +1123,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 15rem;
 }
 
+.h-\[420px\] {
+  height: 420px;
+}
+
 .h-3\.5 {
   height: 0.875rem;
+}
+
+.h-\[480px\] {
+  height: 480px;
 }
 
 .max-h-\[90\%\] {
@@ -1437,10 +1445,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .shrink-0 {
   flex-shrink: 0;
-}
-
-.flex-grow {
-  flex-grow: 1;
 }
 
 .grow {
