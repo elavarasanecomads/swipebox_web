@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organization Chart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leader-line/2.1.1/leader-line.min.js"></script>
+    <style>
+        .org-card {
+            transition: transform 0.2s;
+        }
+        .org-card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div x-data="orgChart" class="container p-4 mx-auto">
+        <div class="flex flex-col items-center">
+            <!-- CEO -->
+            <div class="mb-8">
+                <div class="w-64 p-4 text-center bg-white border border-gray-200 rounded-lg shadow-lg org-card">
+                    <h3 class="text-lg font-semibold text-gray-800">John Doe</h3>
+                    <p class="text-sm text-gray-600">EMP001</p>
+                    <p class="text-sm font-medium text-blue-600">CEO</p>
+                </div>
+            </div>
+
+            <!-- CTO and CFO -->
+            <div class="flex justify-center mb-8 space-x-16">
+                <div>
+                    <div class="w-64 p-4 text-center bg-white border border-gray-200 rounded-lg shadow-lg org-card" id="cto-card">
+                        <h3 class="text-lg font-semibold text-gray-800">Jane Smith</h3>
+                        <p class="text-sm text-gray-600">EMP002</p>
+                        <p class="text-sm font-medium text-blue-600">CTO</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="w-64 p-4 text-center bg-white border border-gray-200 rounded-lg shadow-lg org-card" id="cfo-card">
+                        <h3 class="text-lg font-semibold text-gray-800">Michael Brown</h3>
+                        <p class="text-sm text-gray-600">EMP003</p>
+                        <p class="text-sm font-medium text-blue-600">CFO</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Lead and Finance Manager -->
+            <div class="flex justify-center space-x-16">
+                <div>
+                    <div class="w-64 p-4 text-center bg-white border border-gray-200 rounded-lg shadow-lg org-card" id="tech-lead-card">
+                        <h3 class="text-lg font-semibold text-gray-800">Alice Johnson</h3>
+                        <p class="text-sm text-gray-600">EMP004</p>
+                        <p class="text-sm font-medium text-blue-600">Technical Lead</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="w-64 p-4 text-center bg-white border border-gray-200 rounded-lg shadow-lg org-card" id="finance-manager-card">
+                        <h3 class="text-lg font-semibold text-gray-800">Robert Wilson</h3>
+                        <p class="text-sm text-gray-600">EMP005</p>
+                        <p class="text-sm font-medium text-blue-600">Finance Manager</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('orgChart', () => ({
+                init() {
+                    // Draw lines using LeaderLine
+                    new LeaderLine(
+                        document.querySelector('.org-card:nth-child(1)'),
+                        document.querySelector('#cto-card'),
+                        { color: '#4b5563', size: 2, path: 'grid', endPlug: 'arrow' }
+                    );
+                    new LeaderLine(
+                        document.querySelector('.org-card:nth-child(1)'),
+                        document.querySelector('#cfo-card'),
+                        { color: '#4b5563', size: 2, path: 'grid', endPlug: 'arrow' }
+                    );
+                    new LeaderLine(
+                        document.querySelector('#cto-card'),
+                        document.querySelector('#tech-lead-card'),
+                        { color: '#4b5563', size: 2, path: 'grid', endPlug: 'arrow' }
+                    );
+                    new LeaderLine(
+                        document.querySelector('#cfo-card'),
+                        document.querySelector('#finance-manager-card'),
+                        { color: '#4b5563', size: 2, path: 'grid', endPlug: 'arrow' }
+                    );
+                }
+            }));
+        });
+    </script>
+</body>
+</html>
