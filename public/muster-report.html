@@ -1,0 +1,264 @@
+<html>
+
+<head>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            font-size: 8px;
+            table-layout: fixed;
+            border: 1px solid black;
+            /* Solid border for the whole table */
+        }
+
+        /* Solid border for thead */
+        thead {
+            border: 1px solid black;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            border: 1px solid black;
+            /* Solid border for header cells */
+        }
+
+        /* Dotted border for tbody rows and cells */
+        tbody td {
+            border: 1px dotted #666666;
+        }
+
+        /* Header column (first column) gets more space */
+        th:first-child,
+        td:first-child {
+            width: 5%;
+        }
+
+        /* Remaining 31 columns share equal width */
+        th:not(:first-child),
+        td:not(:first-child) {
+            width: calc(95% / 31);
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        div {
+            display: flex;
+            width: 100%;
+        }
+
+        p {
+            font-size: 10px;
+            font-family: Arial, sans-serif;
+            font-weight: 600;
+            padding-bottom: 2px;
+            margin: 0;
+            /* Removes default margin */
+        }
+        .spaced-paragraphs p {
+            margin-right: 10px; /* Adjust the value as needed */
+        }
+    </style>
+</head>
+
+<body>
+    <div>        
+        <p style="width: 30%;">EMP CODE: EMP10988</p>
+        <p style="width: 30%;">EMP NAME: ELAVARASAN RAJAN</p>
+        <div style="width: 30%;">
+            <div class="spaced-paragraphs">
+                <p>Total : 31</p>
+                <p>P : 22</p>
+                <p>NI : 1</p>
+                <p>PL : 1</p>
+                <p>UPL : 1</p>
+                <p>WO : 1</p>
+                <p>PH : 1</p>
+            </div>
+        </div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Date/Day</th>
+                <th>1 M</th>
+                <th>2 T</th>
+                <th>3 W</th>
+                <th>4 T</th>
+                <th>5 F</th>
+                <th>6 S</th>
+                <th>7 S</th>
+                <th>8 M</th>
+                <th>9 T</th>
+                <th>10 W</th>
+                <th>11 T</th>
+                <th>12 F</th>
+                <th>13 S</th>
+                <th>14 S</th>
+                <th>15 M</th>
+                <th>16 T</th>
+                <th>17 W</th>
+                <th>18 T</th>
+                <th>19 F</th>
+                <th>20 S</th>
+                <th>21 S</th>
+                <th>22 M</th>
+                <th>23 T</th>
+                <th>24 W</th>
+                <th>25 T</th>
+                <th>26 F</th>
+                <th>27 S</th>
+                <th>28 S</th>
+                <th>29 M</th>
+                <th>30 T</th>
+                <th>31 W</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Status</td>
+                <td>P</td>
+                <td>A</td>
+                <td>PL</td>
+                <td>P</td>
+                <td>P</td>
+                <td>WO</td>
+                <td>H</td>
+                <td>P</td>
+                <td>UPL</td>
+                <td>P</td>
+                <td>A</td>
+                <td>P</td>
+                <td>PL</td>
+                <td>P</td>
+                <td>P</td>
+                <td>A</td>
+                <td>WO</td>
+                <td>P</td>
+                <td>UPL</td>
+                <td>P</td>
+                <td>A</td>
+                <td>PL</td>
+                <td>P</td>
+                <td>WO</td>
+                <td>H</td>
+                <td>P</td>
+                <td>A</td>
+                <td>PL</td>
+                <td>P</td>
+                <td>P</td>
+                <td>A</td>
+            </tr>
+
+            <tr>
+                <td>In Time</td>
+                <td>09:00</td>
+                <td></td>
+                <td></td>
+                <td>09:10</td>
+                <td>09:05</td>
+                <td></td>
+                <td></td>
+                <td>09:20</td>
+                <td></td>
+                <td>09:15</td>
+                <td></td>
+                <td>09:00</td>
+                <td></td>
+                <td>09:12</td>
+                <td>09:08</td>
+                <td></td>
+                <td></td>
+                <td>09:25</td>
+                <td></td>
+                <td>09:00</td>
+                <td></td>
+                <td></td>
+                <td>09:05</td>
+                <td></td>
+                <td></td>
+                <td>09:18</td>
+                <td></td>
+                <td></td>
+                <td>09:07</td>
+                <td>09:10</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Out Time</td>
+                <td>18:00</td>
+                <td></td>
+                <td></td>
+                <td>18:10</td>
+                <td>18:05</td>
+                <td></td>
+                <td></td>
+                <td>18:20</td>
+                <td></td>
+                <td>18:15</td>
+                <td></td>
+                <td>18:00</td>
+                <td></td>
+                <td>18:12</td>
+                <td>18:08</td>
+                <td></td>
+                <td></td>
+                <td>18:25</td>
+                <td></td>
+                <td>18:00</td>
+                <td></td>
+                <td></td>
+                <td>18:05</td>
+                <td></td>
+                <td></td>
+                <td>18:18</td>
+                <td></td>
+                <td></td>
+                <td>18:07</td>
+                <td>18:10</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>WH</td>
+                <td>09:00</td>
+                <td></td>
+                <td></td>
+                <td>09:00</td>
+                <td>09:00</td>
+                <td></td>
+                <td></td>
+                <td>09:00</td>
+                <td></td>
+                <td>09:00</td>
+                <td></td>
+                <td>09:00</td>
+                <td></td>
+                <td>09:00</td>
+                <td>09:00</td>
+                <td></td>
+                <td></td>
+                <td>09:00</td>
+                <td></td>
+                <td>09:00</td>
+                <td></td>
+                <td></td>
+                <td>09:00</td>
+                <td></td>
+                <td></td>
+                <td>09:00</td>
+                <td></td>
+                <td></td>
+                <td>09:00</td>
+                <td>09:00</td>
+                <td></td>
+            </tr>
+
+        </tbody>
+    </table>
+</body>
+
+</html>
