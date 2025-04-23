@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Penalty Management</title>
+    <title>Overtime Management</title>
     <link href="output.css" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/anchor@3.13.5/dist/cdn.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.5/cdn.js"
@@ -26,7 +26,7 @@
                 <div class="min-h-screen p-4 bg-white border rounded-md lg:p-8">
                     <!--Brudcrumb-->
                     <div class="flex items-center gap-2">
-                        <a href="settings-2.html">
+                        <a href="dashboard.html">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                 class="w-5 h-5">
                                 <path fill-rule="evenodd"
@@ -35,7 +35,7 @@
                             </svg>
                         </a>
                         <div class="flex items-center gap-4">
-                            <h1 class="text-2xl font-bold">Penalty Management</h1>
+                            <h1 class="text-2xl font-bold">Overtime Management</h1>
                         </div>
                     </div>
                     <div>
@@ -123,11 +123,14 @@
                                     <div class="flex flex-col items-start">
                                         <select
                                             class="w-40 p-1 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
-                                            <option>Fine Type</option>
+                                            <option>OT Type</option>
                                             <option>Fixed</option>
                                             <option>Halfday</option>
                                             <option>Fullday</option>
-                                            <option>Forgive</option>
+                                            <option>1.5X Salary</option>
+                                            <option>2X Salary</option>
+                                            <option>3X Salary</option>
+                                            <option>None</option>
                                         </select>
                                     </div>
                                     <div>
@@ -185,7 +188,7 @@
                                             <p class="text-sm">
                                                 03:00
                                             </p>
-                                            <p class="text-sm font-semibold text-gray-600">Penalties</p>
+                                            <p class="text-sm font-semibold text-gray-600">Overtime</p>
                                         </div>
                                     </div>
                                     <div class="pt-6 pl-10 space-y-4">
@@ -197,13 +200,13 @@
                                             </div>
                                             <div class="flex flex-col items-start">
                                                 <label class="text-sm font-medium text-gray-600">
-                                                    Late Entry Hours</label>
+                                                    Overtime Hours</label>
                                                 <input id="" value="01:00" type="time"
                                                     class="w-40 p-2 border border-gray-400 rounded shadow-sm cursor-default disabled:cursor-not-allowed disabled:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
                                             </div>
                                             <div class="flex flex-col items-start">
                                                 <label class="text-sm font-medium text-gray-600">
-                                                    Fine Type</label>
+                                                    OT Type</label>
                                                 <div class="w-40" x-data="{ isOpen: false }" @click.away="isOpen = false">
                                                     <div
                                                         class="flex items-center justify-between px-2 py-2 border border-gray-400 rounded-md">
@@ -241,11 +244,19 @@
                                                         </li>
                                                         <li>
                                                             <button
-                                                                class="w-full px-2 py-2 text-left hover:bg-gray-100">Forgive</button>
+                                                                class="w-full px-2 py-2 text-left hover:bg-gray-100">1.5X Salary</button>
+                                                        </li>
+                                                        <li>
+                                                            <button
+                                                                class="w-full px-2 py-2 text-left hover:bg-gray-100">2X Salary</button>
+                                                        </li>
+                                                        <li>
+                                                            <button
+                                                                class="w-full px-2 py-2 text-left hover:bg-gray-100">None</button>
                                                         </li>
                                                         <li
                                                             class="flex items-center justify-between px-2 py-2 hover:bg-gray-100">
-                                                            <button class="w-full text-left">1.5X Time</button>
+                                                            <button class="w-full text-left">2.5X Salary</button>
                                                             <button class="text-red-600">Delete</button>
                                                         </li>
                                                         <li class="px-2 py-2">
@@ -287,9 +298,12 @@
                                                                             <div class="pt-2">
                                                                                 <div class="space-y-4">
                                                                                     <p class="text-sm text-gray-600">The
-                                                                                        Fine Rate is calculated as {2.5}
+                                                                                        OT Rate is calculated as {2.5}
                                                                                         times
-                                                                                        each staff member's fine.
+                                                                                        each staff member's salary.
+                                                                                        Please note that any change in
+                                                                                        salary will
+                                                                                        directly affect the OT Rate.
                                                                                     </p>
                                                                                     <button class="flex items-center">
                                                                                         <!-- Input box hidden when Fixed Amount is selected -->
@@ -297,7 +311,7 @@
                                                                                             class="block w-24 px-3 py-2 border border-gray-400 no-spinner focus:outline-none focus:ring-blue-600 focus:border-blue-600">
                                                                                         <span
                                                                                             class="px-3 py-2 border border-gray-400">
-                                                                                            <p>X Times</p>
+                                                                                            <p>X Salary</p>
                                                                                         </span>
                                                                                     </button>
                                                                                     <button
@@ -317,161 +331,19 @@
                                             </div>
                                             <div class="flex flex-col items-start">
                                                 <label class="text-sm font-medium text-gray-600">
-                                                    Late Entry Penalties</label>
+                                                    Overtime Actual</label>
                                                 <input id="" value="01:00" disabled
                                                     class="w-40 p-2 border border-gray-400 rounded shadow-sm cursor-default disabled:cursor-not-allowed disabled:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
                                             </div>
                                             <div class="flex flex-col items-start">
                                                 <label class="text-sm font-medium text-gray-600">
-                                                    Late Entry Fixed Amount</label>
+                                                    Overtime Amount</label>
                                                 <input id=""
                                                     class="w-40 p-2 border border-gray-400 rounded shadow-sm cursor-default disabled:cursor-not-allowed disabled:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
                                             </div>
                                             <div>
                                                 <button
                                                     class="w-24 px-3 py-2 mt-4 font-semibold text-gray-100 bg-blue-600 rounded">Save</button>
-                                            </div>
-                                        </div>
-                                        <div class="flex items-center gap-4 whitespace-nowrap">
-                                            <div class="pt-4">
-                                                <input id="candidates" name="candidates" type="checkbox"
-                                                    class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                            </div>
-                                            <div class="flex flex-col items-start">
-                                                <label class="text-sm font-medium text-gray-600">
-                                                    Earlyout Hours</label>
-                                                <input id="" value="01:00" disabled
-                                                    class="w-40 p-2 border border-gray-400 rounded shadow-sm cursor-default disabled:cursor-not-allowed disabled:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
-                                            </div>
-                                            <div class="flex flex-col items-start">
-                                                <label class="text-sm font-medium text-gray-600">
-                                                    Fine Type</label>
-                                                <select
-                                                    class="w-40 p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
-                                                    <option>Fixed</option>
-                                                    <option>Halfday</option>
-                                                    <option>Fullday</option>
-                                                    <option>Forgive</option>
-                                                </select>
-                                            </div>
-                                            <div class="flex flex-col items-start">
-                                                <label class="text-sm font-medium text-gray-600">
-                                                    Earlyout Penalties</label>
-                                                <input id="" value="01:00" disabled
-                                                    class="w-40 p-2 border border-gray-400 rounded shadow-sm cursor-default disabled:cursor-not-allowed disabled:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
-                                            </div>
-                                            <div>
-                                                <button
-                                                    class="w-24 px-3 py-2 mt-4 font-semibold text-gray-100 bg-green-600 rounded">Update</button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="p-4 border rounded">
-                                <div class="overflow-x-auto ">
-                                    <div class="flex items-center gap-8">
-                                        <div class="flex items-center gap-4">
-                                            <!-- select all in that employee -->
-                                            <input id="candidates" name="candidates" type="checkbox"
-                                                class="w-4 h-4 text-indigo-600 border-2 border-white">
-                                            <div class="flex items-center gap-2 w-max">
-                                                <img class="w-8 h-8 rounded-full"
-                                                    src="https://randomuser.me/api/portraits/men/12.jpg" alt="">
-                                                <div>
-                                                    <a href="employee-detail.html"
-                                                        class="font-medium text-blue-600">Santhosh</a>
-                                                    <p class="text-xs text-gray-600">NA_1111</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <p class="text-sm whitespace-nowrap">
-                                                09:00 AM
-                                            </p>
-                                            <p class="text-sm font-semibold text-gray-600 whitespace-nowrap">In Time</p>
-                                        </div>
-                                        <div>
-                                            <p class="text-sm whitespace-nowrap">
-                                                05:00 PM
-                                            </p>
-                                            <p class="text-sm font-semibold text-gray-600 whitespace-nowrap">Out Time
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <p class="text-sm">
-                                                03:00
-                                            </p>
-                                            <p class="text-sm font-semibold text-gray-600">Penalties</p>
-                                        </div>
-                                    </div>
-                                    <div class="pt-6 pl-10 space-y-4">
-                                        <div class="flex items-center gap-4 whitespace-nowrap">
-                                            <div class="pt-4">
-                                                <!-- sigle select  -->
-                                                <input id="candidates" name="candidates" type="checkbox"
-                                                    class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                            </div>
-                                            <div class="flex flex-col items-start">
-                                                <label class="text-sm font-medium text-gray-600">
-                                                    Break Hours</label>
-                                                <input id="" value="01:00" disabled
-                                                    class="w-40 p-2 border border-gray-400 rounded shadow-sm cursor-default disabled:cursor-not-allowed disabled:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
-                                            </div>
-                                            <div class="flex flex-col items-start">
-                                                <label class="text-sm font-medium text-gray-600">
-                                                    Fine Type</label>
-                                                <select
-                                                    class="w-40 p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
-                                                    <option>Fixed</option>
-                                                    <option>Halfday</option>
-                                                    <option>Fullday</option>
-                                                    <option>Forgive</option>
-                                                </select>
-                                            </div>
-                                            <div class="flex flex-col items-start">
-                                                <label class="text-sm font-medium text-gray-600">
-                                                    Break Hours Penalties</label>
-                                                <input id="" value="01:00" disabled
-                                                    class="w-40 p-2 border border-gray-400 rounded shadow-sm cursor-default disabled:cursor-not-allowed disabled:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
-                                            </div>
-                                            <div>
-                                                <button
-                                                    class="w-24 px-3 py-2 mt-4 font-semibold text-gray-100 bg-green-600 rounded">Update</button>
-                                            </div>
-                                        </div>
-                                        <div class="flex items-center gap-4 whitespace-nowrap">
-                                            <div class="pt-4">
-                                                <input id="candidates" name="candidates" type="checkbox"
-                                                    class="w-4 h-4 text-indigo-600 border-2 border-white rounded">
-                                            </div>
-                                            <div class="flex flex-col items-start">
-                                                <label class="text-sm font-medium text-gray-600">
-                                                    Working Hours</label>
-                                                <input id="" value="01:00" disabled
-                                                    class="w-40 p-2 border border-gray-400 rounded shadow-sm cursor-default disabled:cursor-not-allowed disabled:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
-                                            </div>
-                                            <div class="flex flex-col items-start">
-                                                <label class="text-sm font-medium text-gray-600">
-                                                    Fine Type</label>
-                                                <select
-                                                    class="w-40 p-2 border border-gray-400 rounded shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
-                                                    <option>Fixed</option>
-                                                    <option>Halfday</option>
-                                                    <option>Fullday</option>
-                                                    <option>Forgive</option>
-                                                </select>
-                                            </div>
-                                            <div class="flex flex-col items-start">
-                                                <label class="text-sm font-medium text-gray-600">
-                                                    Working Hours Penalties</label>
-                                                <input id="" value="01:00" disabled
-                                                    class="w-40 p-2 border border-gray-400 rounded shadow-sm cursor-default disabled:cursor-not-allowed disabled:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
-                                            </div>
-                                            <div>
-                                                <button
-                                                    class="w-24 px-3 py-2 mt-4 font-semibold text-gray-100 bg-green-600 rounded">Update</button>
                                             </div>
                                         </div>
                                     </div>

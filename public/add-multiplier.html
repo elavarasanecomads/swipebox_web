@@ -1,0 +1,133 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link href="output.css" rel="stylesheet" />
+
+    <!-- ✅ Alpine.js (only once) -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.5/cdn.min.js"></script>
+  
+    <!-- ✅ Optional: jQuery (only if you *really* need it) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="flex items-center justify-center ">
+    <div>
+        <div class="flex items-center gap-4 whitespace-nowrap" x-data="fineTypeLogic()">
+            <!-- Late Entry Hours -->
+            <div class="flex flex-col items-start">
+                <label class="text-sm font-medium text-gray-600">Late Entry Hours</label>
+                <input type="time" x-model="lateEntryHours" class="w-40 p-2 border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
+            </div>
+        
+            <!-- Fine Type Dropdown -->
+            <div class="flex flex-col items-start">
+                <label class="text-sm font-medium text-gray-600">Fine Type</label>
+                <div class="relative w-40" @click.away="isOpen = false">
+                    <div class="flex items-center justify-between px-2 py-2 border border-gray-400 rounded-md">
+                        <button class="w-full text-left" @click="isOpen = !isOpen" x-text="selected"></button>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <ul x-show="isOpen" class="absolute z-40 py-1 mt-2 font-normal bg-white border rounded shadow-lg w-60">
+                        <template x-for="type in fineTypes" :key="type">
+                            <li>
+                                <button @click="selectType(type)" class="w-full px-2 py-2 text-left hover:bg-gray-100" x-text="type"></button>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+            </div>
+        
+            <!-- Late Entry Penalties (Hidden for Fixed Amount) -->
+            <div class="flex flex-col items-start" x-show="selected !== 'Fixed Amount'">
+                <label class="text-sm font-medium text-gray-600">Late Entry Penalties</label>
+                <input type="text" x-model="penaltyValue" class="w-40 p-2 border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600" readonly>
+            </div>
+        
+            <!-- Late Entry Fixed Amount (only for Fixed Amount) -->
+            <div class="flex flex-col items-start" x-show="selected === 'Fixed Amount'">
+                <label class="text-sm font-medium text-gray-600">Late Entry Fixed Amount</label>
+                <input type="number" x-model="fixedAmount" class="w-40 p-2 border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
+            </div>
+        
+            <div>
+                <button class="w-24 px-3 py-2 mt-4 font-semibold text-white bg-blue-600 rounded">Save</button>
+            </div>
+        </div>
+        
+        <script>
+        function fineTypeLogic() {
+            return {
+                isOpen: false,
+                selected: 'Select',
+                fineTypes: ['Fixed Time', 'Fixed Amount', 'Halfday', 'Fullday', 'Forgive', '1.5X Salary'],
+                lateEntryHours: '01:00',
+                fixedAmount: '',
+                penaltyValue: '',
+        
+                selectType(type) {
+                    this.selected = type;
+                    this.isOpen = false;
+                    this.updatePenalty();
+                },
+        
+                updatePenalty() {
+                    const [hours, minutes] = this.lateEntryHours.split(':').map(Number);
+                    const totalHours = hours + minutes / 60;
+        
+                    switch (this.selected) {
+                        case 'Fixed Time':
+                            this.penaltyValue = this.lateEntryHours;
+                            break;
+                        case 'Halfday':
+                            this.penaltyValue = '04:00';
+                            break;
+                        case 'Fullday':
+                            this.penaltyValue = '08:00';
+                            break;
+                        case 'Forgive':
+                            this.penaltyValue = '00:00';
+                            break;
+                        case 'Fixed Amount':
+                            this.penaltyValue = '';
+                            break;
+                        case '1.5X Salary':
+                            let newHours = totalHours * 1.5;
+                            let h = Math.floor(newHours).toString().padStart(2, '0');
+                            let m = Math.round((newHours % 1) * 60).toString().padStart(2, '0');
+                            this.penaltyValue = `${h}:${m}`;
+                            break;
+                        default:
+                            this.penaltyValue = '';
+                    }
+                },
+            };
+        }
+        </script>
+    </div>
+    
+    
+    
+</body>
+<style>
+    /* For Chrome, Safari, Edge, Opera */
+    .no-spinner::-webkit-outer-spin-button,
+    .no-spinner::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* For Firefox */
+    .no-spinner {
+        -moz-appearance: textfield;
+    }
+</style>
+
+</html>
