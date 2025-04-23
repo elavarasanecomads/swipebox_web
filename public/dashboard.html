@@ -7,7 +7,7 @@
   <title>Document</title>
   <link href="output.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
@@ -97,6 +97,85 @@
       </div>
       <div class="mx-0 my-4 lg:m-4">        
         <div class="h-full p-4 space-y-6 bg-white border rounded-md lg:p-8">
+          <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+            <div class="p-4 space-y-2 border rounded-md">
+              <div id="chart"></div>
+              <script>
+                var options = {
+                    series: [
+                        { name: "Present", data: [20, 22, 19, 18, 21, 23, 24] },
+                        { name: "Not In", data: [2, 3, 2, 3, 2, 1, 2] },
+                        { name: "Leave", data: [1, 2, 1,2, 2, 1, 2] },
+                        { name: "Week Off", data: [1, 1, 1, 2, 1, 1, 1] },
+                        { name: "Public Holiday", data: [0, 0, 0,2, 0, 0, 0] }
+                    ],
+                    chart: {
+                        type: 'bar',
+                        height: 200,
+                        stacked: true
+                    },
+                    plotOptions: {
+                        bar: {
+                            horizontal: false,
+                            columnWidth: '45%'
+                        }
+                    },
+                    xaxis: {
+                        categories: ["2024-03-01", "2024-03-02", "2024-03-03", "2024-03-04", "2024-03-05", "2024-03-06", "2024-03-07"],
+                        type: 'datetime'
+                    },
+                    colors: ['#34c38f', '#f46a6a', '#f1b44c', '#556ee6', '#6c757d'],
+                    dataLabels: {
+                    enabled: true, // Enables count display without hovering
+                    style: {
+                        fontSize: '12px',
+                        colors: ['#fff'] // Ensures text is visible
+                    },
+                    formatter: function (val) {
+                        return val > 0 ? val : ''; // Show only non-zero values
+                    }
+                },
+                    legend: {
+                        position: 'top'
+                    }
+                };
+            
+                var chart = new ApexCharts(document.querySelector("#chart"), options);
+                chart.render();
+            </script>
+            </div>
+            <div class="p-4 space-y-2 border rounded-md">
+              <p class="font-bold">Employee Analytics</p>
+              <div class="flex items-center gap-2">              
+                <p class="font-semibold">Present Details</p>
+                <p class="inline-block w-10 py-0.5 text-sm text-center font-semibold text-white bg-green-600 rounded">200</p>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="flex items-center gap-2">
+                  <p class="inline-block w-10 py-0.5 text-sm text-center font-semibold text-white bg-blue-600 rounded">200</p>
+                  <p class="text-sm font-semibold">Late Entry</p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <p class="inline-block w-10 py-0.5 text-sm text-center font-semibold text-white bg-blue-600 rounded">20</p>
+                  <p class="text-sm font-semibold">Earlyout</p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <p class="inline-block w-10 py-0.5 text-sm text-center font-semibold text-white bg-blue-600 rounded">5</p>
+                  <p class="text-sm font-semibold">Paid Halfday Leave</p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <p class="inline-block w-10 py-0.5 text-sm text-center font-semibold text-white bg-blue-600 rounded">5</p>
+                  <p class="text-sm font-semibold">Unpaid Halfday Leave</p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <p class="inline-block w-10 py-0.5 text-sm text-center font-semibold text-white bg-blue-600 rounded">5</p>
+                  <p class="text-sm font-semibold">Break Hours</p>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+         
            <!-- change the classes for below div -->
           <div class="p-4 border rounded">
             <h3 class="text-2xl font-bold">My Attendance</h3>

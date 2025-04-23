@@ -1,0 +1,477 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Muster</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="h-full p-4 space-y-6 bg-white border rounded-md lg:p-8">
+                    <div class="flex items-center justify-between">
+                        <a href="dashboard.html" class="flex items-center gap-1 text-sm text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5">
+                                <path fill-rule="evenodd"
+                                    d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Back</span>
+                        </a>
+
+                        <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                            <button class="text-sm font-semibold text-blue-600" @click="showModal = true">
+                                Customize
+                            </button>
+                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                x-show="showModal" style="display: none;">
+                                <!-- Modal inner -->
+                                <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-lg"
+                                    @click.away="showModal = false"
+                                    x-transition:enter="motion-safe:ease-out duration-300"
+                                    x-transition:enter-start="opacity-0 scale-90"
+                                    x-transition:enter-end="opacity-100 scale-100">
+                                    <!-- Title / Close-->
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-bold text-gray-900">
+                                            Customize fields
+                                        </p>
+                                        <span @click="showModal = false">
+                                            <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M6 18L18 6M6 6l12 12"></path>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <!-- content -->
+                                    <div class="w-full mt-4 space-y-4">
+                                        <ul class="grid grid-cols-2 gap-4 md:grid-cols-2 lg:grid-cols-2">
+                                            <li class="flex items-center gap-2">
+                                                <input class="w-4 h-4" checked disabled type="checkbox">
+                                                <p>Not Punched</p>
+                                            </li>
+                                            <li class="flex items-center gap-2">
+                                                <input class="w-4 h-4" checked disabled type="checkbox">
+                                                <p>Present</p>
+                                            </li>
+                                            <li class="flex items-center gap-2">
+                                                <input class="w-4 h-4" checked type="checkbox">
+                                                <p>Absent</p>
+                                            </li>
+                                            <li class="flex items-center gap-2">
+                                                <input class="w-4 h-4" checked type="checkbox">
+                                                <p>Halfday</p>
+                                            </li>
+                                            <li class="flex items-center gap-2">
+                                                <input class="w-4 h-4" checked type="checkbox">
+                                                <p>Late Entry</p>
+                                            </li>
+                                            <li class="flex items-center gap-2">
+                                                <input class="w-4 h-4" checked type="checkbox">
+                                                <p>Paid Leave</p>
+                                            </li>
+                                            <li class="flex items-center gap-2">
+                                                <input class="w-4 h-4" checked type="checkbox">
+                                                <p>Paid Halfday Leave</p>
+                                            </li>
+                                            <li class="flex items-center gap-2">
+                                                <input class="w-4 h-4" checked type="checkbox">
+                                                <p>Unpaid Leave</p>
+                                            </li>
+                                            <li class="flex items-center gap-2">
+                                                <input class="w-4 h-4" checked type="checkbox">
+                                                <p>Unpaid Halfday Leave</p>
+                                            </li>
+                                            <li class="flex items-center gap-2">
+                                                <input class="w-4 h-4" checked disabled type="checkbox">
+                                                <p>Public Holiday</p>
+                                            </li>
+                                            <li class="flex items-center gap-2">
+                                                <input class="w-4 h-4" checked disabled type="checkbox">
+                                                <p>Weekoff</p>
+                                            </li>
+                                            <li class="flex items-center gap-2">
+                                                <input class="w-4 h-4" checked type="checkbox">
+                                                <p>Forgot Out</p>
+                                            </li>
+                                            <li class="flex items-center gap-2">
+                                                <input class="w-4 h-4" checked type="checkbox">
+                                                <p>Earlyout</p>
+                                            </li>
+                                            <li class="flex items-center gap-2">
+                                                <input class="w-4 h-4 checked" type="checkbox">
+                                                <p>Short Hours</p>
+                                            </li>
+                                            <li class="flex items-center gap-2">
+                                                <input class="w-4 h-4" checked type="checkbox">
+                                                <p>1.5X Present</p>
+                                            </li>
+                                            <li class="flex items-center gap-2">
+                                                <input class="w-4 h-4" checked type="checkbox">
+                                                <p>2X Present</p>
+                                            </li>
+
+                                        </ul>
+                                        <button
+                                            class="px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded w-36">Save
+                                            Fields</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-row items-center gap-8 pt-2 overflow-x-auto border-b whitespace-nowrap">
+                        <div class="col-span-1">
+                            <a href="daily-attendance-detail.html">
+                            <button
+                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600">Summary</button></a>
+                        </div>
+                        <div class="col-span-1">
+                            <a href="branch-summary.html">
+                            <button
+                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600">Branch</button></a>
+                        </div>
+                        <div class="col-span-1">
+                            <a href="department-summary.html">
+                            <button
+                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600">Department</button></a>
+                        </div>
+                        <div class="col-span-1">
+                            <a href="shift-summary.html">
+                            <button
+                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600">Shift</button></a>
+                        </div>
+                        <div class="col-span-1">
+                            <a href="employee-category-summary.html">
+                            <button
+                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600">Category</button></a>
+                        </div>
+                        <div class="col-span-1">
+                            <a href="employee-designation-summary.html">
+                            <button
+                                class="w-full pb-2 font-semibold hover:border-b-2 hover:border-blue-600 hover:text-blue-600">Designation</button></a>
+                        </div>
+                        <div class="col-span-1">
+                            <a href="#">
+                            <button
+                                class="w-full pb-2 font-semibold text-blue-600 border-b-2 border-blue-600">Muster</button></a>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-2xl font-bold">Attendance Muster</p>
+                    </div>
+                    <div class="w-full">
+                        <div>
+                            <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+
+                                <div class="flex items-center gap-4">
+                                    <div>
+                                        <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                            class="block w-full px-2 py-2 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                            <option>Dec 2023</option>
+                                            <option>Nov 2023</option>
+                                            <option>Oct 2023</option>
+                                        </select>
+                                    </div>
+                                    <div class="relative text-gray-600" x-data="{ isOpen: false }">
+                                        <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
+                                            class="flex items-center gap-2 px-3 py-2 font-semibold text-gray-100 bg-blue-600 rounded">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
+                                            </svg>
+                                            <span class="hidden text-sm lg:block">Filter</span>
+                                        </button>
+                                        <div x-show="isOpen" @click.away="isOpen = false"
+                                            class="absolute right-0 z-20 w-64 p-4 mt-2 space-y-4 overflow-hidden text-sm font-normal bg-white border rounded shadow"
+                                            style="display: none;">
+                                            <div>
+                                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                    class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                    <option>All Branches</option>
+                                                    <option>Ecomads Pvt Ltd, Covai</option>
+                                                    <option>Ecomads Pvt Ltd, Tiruchengode</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                    class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                    <option>All Departments</option>
+                                                    <option>Sales</option>
+                                                    <option>Purchase</option>
+                                                </select>
+                                            </div>
+                                            <div class="w-32 space-y-4">
+                                                <button
+                                                    class="w-full px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded searchFilter">Apply
+                                                    Filters</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="relative text-gray-600" x-data="{ isOpen: false }">
+                                        <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
+                                            class="flex items-center gap-2 px-3 py-2 font-semibold text-gray-100 bg-blue-600 rounded">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                                            </svg>
+                                            <span class="hidden text-sm lg:block">Download</span>
+                                        </button>
+                                        <ul x-show="isOpen" @click.away="isOpen = false"
+                                            class="absolute right-0 z-20 py-1 mt-2 overflow-hidden text-sm font-normal bg-white border divide-y rounded shadow w-36"
+                                            style="display: none;">
+                                            <li>
+                                                <button class="p-2">Download as CSV</button>
+                                            </li>
+                                            <li>
+                                                <button class="p-2">Download as PDF</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span class="inline-block w-full rounded shadow-sm">
+                                        <button
+                                            class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-72 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                            type="button" aria-haspopup="listbox" aria-expanded="true"
+                                            aria-label="search" aria-checked="false">
+                                            <input id="search" type="text" placeholder="Search by name"
+                                                class="w-full h-full form-control focus:outline-none searchdata">
+                                            <span
+                                                class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="pt-6 space-y-4">
+                                <!-- Summary Grid -->
+                                <div class="grid grid-cols-9 gap-4" style="width: 100%; ">
+                                  <div class="col-span-3">
+                                    <p class="font-bold">Name</p>
+                                  </div>
+                                  <div class="col-span-1">
+                                    <p class="font-bold">Present</p>
+                                  </div>
+                                  <div class="col-span-1">
+                                    <p class="font-bold">Not In</p>
+                                  </div>
+                                  <div class="col-span-1">
+                                    <p class="font-bold">Paid Leave</p>
+                                  </div>
+                                  <div class="col-span-1">
+                                    <p class="font-bold">Unpaid Leave</p>
+                                  </div>
+                                  <div class="col-span-1">
+                                    <p class="font-bold">Weekoff</p>
+                                  </div>
+                                  <div class="col-span-1">
+                                    <p class="font-bold">Public Holiday</p>
+                                  </div>
+                                </div>
+                              
+                                <!-- Employee Row -->
+                                <div class="grid grid-cols-10 gap-4" style="width: 100%;">
+                                  <div class="col-span-4">
+                                    <p>Elavarasan Rajan</p>
+                                  </div>
+                                  <div class="col-span-1">
+                                    <p class="text-left">24</p>
+                                  </div>
+                                  <div class="col-span-1">
+                                    <p>2</p>
+                                  </div>
+                                  <div class="col-span-1">
+                                    <p>1</p>
+                                  </div>
+                                  <div class="col-span-1">
+                                    <p>1</p>
+                                  </div>
+                                  <div class="col-span-1">
+                                    <p>1</p>
+                                  </div>
+                                  <div class="col-span-1">
+                                    <p>1</p>
+                                  </div>
+                                </div>
+                              
+                                <!-- Scrollable Table Container -->
+                                <div class="overflow-x-auto" style="width: 100%; max-width: 1200px;">
+                                  <table class="text-sm border border-gray-300 table-fixed" style="width: 100%;">
+                                    <thead class="bg-gray-100">
+                                      <tr>
+                                        <th class="w-[96px] px-2 py-1 border border-gray-300">Date/Day</th>
+                                        <!-- Repeat for each day with fixed width -->
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">1 M</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">2 T</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">3 W</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">4 T</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">5 F</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">6 S</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">7 S</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">8 M</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">9 T</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">10 W</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">11 T</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">12 F</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">13 S</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">14 S</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">15 M</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">16 T</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">17 W</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">18 T</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">19 F</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">20 S</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">21 S</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">22 M</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">23 T</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">24 W</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">25 T</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">26 F</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">27 S</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">28 S</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">29 M</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">30 T</th>
+                                        <th class="w-[80px] px-2 py-1 border border-gray-300">31 W</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td class="px-2 py-1 border border-gray-300">Status</td>
+                                        <td class="px-2 py-1 border border-gray-300">P</td>
+                                        <td class="px-2 py-1 border border-gray-300">P</td>
+                                        <td class="px-2 py-1 border border-gray-300">A</td>
+                                        <td class="px-2 py-1 border border-gray-300">P</td>
+                                        <td class="px-2 py-1 border border-gray-300">P</td>
+                                        <td class="px-2 py-1 border border-gray-300">WO</td>
+                                        <td class="px-2 py-1 border border-gray-300">H</td>
+                                        <td class="px-2 py-1 border border-gray-300">P</td>
+                                        <td class="px-2 py-1 border border-gray-300">PL</td>
+                                        <td class="px-2 py-1 border border-gray-300">P</td>
+                                        <td class="px-2 py-1 border border-gray-300">A</td>
+                                        <td class="px-2 py-1 border border-gray-300">P</td>
+                                        <td class="px-2 py-1 border border-gray-300">PL</td>
+                                        <td class="px-2 py-1 border border-gray-300">WO</td>
+                                        <td class="px-2 py-1 border border-gray-300">H</td>
+                                        <td class="px-2 py-1 border border-gray-300">P</td>
+                                        <td class="px-2 py-1 border border-gray-300">A</td>
+                                        <td class="px-2 py-1 border border-gray-300">P</td>
+                                        <td class="px-2 py-1 border border-gray-300">UPL</td>
+                                        <td class="px-2 py-1 border border-gray-300">P</td>
+                                        <td class="px-2 py-1 border border-gray-300">WO</td>
+                                        <td class="px-2 py-1 border border-gray-300">H</td>
+                                        <td class="px-2 py-1 border border-gray-300">P</td>
+                                        <td class="px-2 py-1 border border-gray-300">A</td>
+                                        <td class="px-2 py-1 border border-gray-300">P</td>
+                                        <td class="px-2 py-1 border border-gray-300">P</td>
+                                        <td class="px-2 py-1 border border-gray-300">PL</td>
+                                        <td class="px-2 py-1 border border-gray-300">P</td>
+                                        <td class="px-2 py-1 border border-gray-300">P</td>
+                                        <td class="px-2 py-1 border border-gray-300">UPL</td>
+                                        <td class="px-2 py-1 border border-gray-300">P</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                              
+                              
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+<script>
+    function datePicker() {
+        return {
+            currentDate: new Date(),
+            formattedDate: '',
+
+            init() {
+                this.updateFormattedDate();
+            },
+
+            updateFormattedDate() {
+                const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+                this.formattedDate = this.currentDate.toLocaleDateString('en-GB', options);
+            },
+
+            updateDate() {
+                const selectedDate = new Date(this.formattedDate);
+                if (!isNaN(selectedDate.getTime())) {
+                    this.currentDate = selectedDate;
+                }
+            },
+
+            openCalendar() {
+                // Make the input visible temporarily
+                this.$refs.dateInput.classList.remove('hidden');
+                // Trigger input click to open the calendar
+                this.$refs.dateInput.click();
+                // Hide the input again after a short delay
+                setTimeout(() => {
+                    this.$refs.dateInput.classList.add('hidden');
+                }, 100);
+            },
+
+            prevDay() {
+                this.currentDate.setDate(this.currentDate.getDate() - 1);
+                this.updateFormattedDate();
+            },
+
+            nextDay() {
+                const tomorrow = new Date(this.currentDate);
+                tomorrow.setDate(this.currentDate.getDate() + 1);
+
+                // Check if tomorrow is not in the future
+                if (tomorrow <= new Date()) {
+                    this.currentDate = tomorrow;
+                    this.updateFormattedDate();
+                }
+            },
+
+            get isFutureDate() {
+                const tomorrow = new Date(this.currentDate);
+                tomorrow.setDate(this.currentDate.getDate() + 1);
+                return tomorrow > new Date();
+            },
+        };
+    }
+</script>
+
+
+
+</html>
