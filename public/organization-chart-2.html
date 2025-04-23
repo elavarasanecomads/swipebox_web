@@ -6,91 +6,149 @@
     <title>Organization Chart</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leader-line/2.1.1/leader-line.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsplumb@2.15.6/dist/js/jsplumb.min.js"></script>
     <style>
         .org-card {
             transition: transform 0.2s;
+            position: relative;
+            background-color: #f5e7d4;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            width: 12rem;
+            text-align: center;
         }
         .org-card:hover {
             transform: scale(1.05);
         }
+        .org-image {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            margin: 0 auto 0.5rem;
+            background-color: #e0e0e0;
+        }
+        .level-container {
+            display: flex;
+            justify-content: center;
+            gap: 3rem; /* Increased gap for better line routing */
+            margin-bottom: 4rem; /* More space between levels */
+        }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen bg-gray-100">
-    <div x-data="orgChart" class="container p-4 mx-auto">
-        <div class="flex flex-col items-center">
-            <!-- CEO -->
-            <div class="mb-8">
-                <div class="w-64 p-4 text-center bg-white border border-gray-200 rounded-lg shadow-lg org-card">
-                    <h3 class="text-lg font-semibold text-gray-800">John Doe</h3>
-                    <p class="text-sm text-gray-600">EMP001</p>
-                    <p class="text-sm font-medium text-blue-600">CEO</p>
-                </div>
-            </div>
+<body class="min-h-screen p-4 bg-gray-100">
+    <div x-data="orgChart" x-init="init()" class="container mx-auto">
+        <h1 class="mb-8 text-2xl font-bold text-center">COMPANY ORGANIZATION CHART</h1>
 
-            <!-- CTO and CFO -->
-            <div class="flex justify-center mb-8 space-x-16">
-                <div>
-                    <div class="w-64 p-4 text-center bg-white border border-gray-200 rounded-lg shadow-lg org-card" id="cto-card">
-                        <h3 class="text-lg font-semibold text-gray-800">Jane Smith</h3>
-                        <p class="text-sm text-gray-600">EMP002</p>
-                        <p class="text-sm font-medium text-blue-600">CTO</p>
-                    </div>
+        <!-- Level 1: Owners -->
+        <div class="level-container">
+            <template x-for="employee in employees.filter(e => e.level === 1)" :key="employee.index">
+                <div class="org-card" :id="'employee-' + employee.index">
+                    <div class="org-image"></div>
+                    <h3 class="text-sm font-semibold text-gray-800" x-text="employee.name"></h3>
+                    <p class="text-xs font-medium text-gray-600" x-text="employee.role"></p>
                 </div>
-                <div>
-                    <div class="w-64 p-4 text-center bg-white border border-gray-200 rounded-lg shadow-lg org-card" id="cfo-card">
-                        <h3 class="text-lg font-semibold text-gray-800">Michael Brown</h3>
-                        <p class="text-sm text-gray-600">EMP003</p>
-                        <p class="text-sm font-medium text-blue-600">CFO</p>
-                    </div>
-                </div>
-            </div>
+            </template>
+        </div>
 
-            <!-- Technical Lead and Finance Manager -->
-            <div class="flex justify-center space-x-16">
-                <div>
-                    <div class="w-64 p-4 text-center bg-white border border-gray-200 rounded-lg shadow-lg org-card" id="tech-lead-card">
-                        <h3 class="text-lg font-semibold text-gray-800">Alice Johnson</h3>
-                        <p class="text-sm text-gray-600">EMP004</p>
-                        <p class="text-sm font-medium text-blue-600">Technical Lead</p>
-                    </div>
+        <!-- Level 2: CEO -->
+        <div class="level-container">
+            <template x-for="employee in employees.filter(e => e.level === 2)" :key="employee.index">
+                <div class="org-card" :id="'employee-' + employee.index">
+                    <div class="org-image"></div>
+                    <h3 class="text-sm font-semibold text-gray-800" x-text="employee.name"></h3>
+                    <p class="text-xs font-medium text-gray-600" x-text="employee.role"></p>
                 </div>
-                <div>
-                    <div class="w-64 p-4 text-center bg-white border border-gray-200 rounded-lg shadow-lg org-card" id="finance-manager-card">
-                        <h3 class="text-lg font-semibold text-gray-800">Robert Wilson</h3>
-                        <p class="text-sm text-gray-600">EMP005</p>
-                        <p class="text-sm font-medium text-blue-600">Finance Manager</p>
-                    </div>
+            </template>
+        </div>
+
+        <!-- Level 3: Managers -->
+        <div class="level-container">
+            <template x-for="employee in employees.filter(e => e.level === 3)" :key="employee.index">
+                <div class="org-card" :id="'employee-' + employee.index">
+                    <div class="org-image"></div>
+                    <h3 class="text-sm font-semibold text-gray-800" x-text="employee.name"></h3>
+                    <p class="text-xs font-medium text-gray-600" x-text="employee.role"></p>
                 </div>
-            </div>
+            </template>
+        </div>
+
+        <!-- Level 4: Employees -->
+        <div class="level-container">
+            <template x-for="employee in employees.filter(e => e.level === 4)" :key="employee.index">
+                <div class="org-card" :id="'employee-' + employee.index">
+                    <div class="org-image"></div>
+                    <h3 class="text-sm font-semibold text-gray-800" x-text="employee.name"></h3>
+                    <p class="text-xs font-medium text-gray-600" x-text="employee.role"></p>
+                </div>
+            </template>
         </div>
     </div>
 
     <script>
         document.addEventListener('alpine:init', () => {
             Alpine.data('orgChart', () => ({
+                employees: [
+                    { index: 1, name: 'Daniel Gallego', role: 'OWNER', level: 1, reportsTo: null },
+                    { index: 2, name: 'Adora Montminy', role: 'OWNER', level: 1, reportsTo: null },
+                    { index: 3, name: 'Chad Gibbons', role: 'CEO', level: 2, reportsTo: [1, 2] },
+                    { index: 4, name: 'Estelle Darcy', role: 'MANAGER', level: 3, reportsTo: 3 },
+                    { index: 5, name: 'Marceline Anderson', role: 'MANAGER', level: 3, reportsTo: 3 },
+                    { index: 6, name: 'Francis Mercer', role: 'MANAGER', level: 3, reportsTo: 3 },
+                    { index: 7, name: 'Richard Sanchez', role: 'MANAGER', level: 3, reportsTo: 3 },
+                    { index: 8, name: 'Brigitte Schwartz', role: 'EMPLOYEE', level: 4, reportsTo: 4 },
+                    { index: 9, name: 'Bailey Dupont', role: 'EMPLOYEE', level: 4, reportsTo: 4 },
+                    { index: 10, name: 'Lars Peeters', role: 'EMPLOYEE', level: 4, reportsTo: 5 },
+                    { index: 11, name: 'Sacha Dubois', role: 'EMPLOYEE', level: 4, reportsTo: 6 },
+                    { index: 12, name: 'Hannah Paquet', role: 'EMPLOYEE', level: 4, reportsTo: 6 },
+                    { index: 13, name: 'Takehiro Kanegi', role: 'EMPLOYEE', level: 4, reportsTo: 7 }
+                ],
                 init() {
-                    // Draw lines using LeaderLine
-                    new LeaderLine(
-                        document.querySelector('.org-card:nth-child(1)'),
-                        document.querySelector('#cto-card'),
-                        { color: '#4b5563', size: 2, path: 'grid', endPlug: 'arrow' }
-                    );
-                    new LeaderLine(
-                        document.querySelector('.org-card:nth-child(1)'),
-                        document.querySelector('#cfo-card'),
-                        { color: '#4b5563', size: 2, path: 'grid', endPlug: 'arrow' }
-                    );
-                    new LeaderLine(
-                        document.querySelector('#cto-card'),
-                        document.querySelector('#tech-lead-card'),
-                        { color: '#4b5563', size: 2, path: 'grid', endPlug: 'arrow' }
-                    );
-                    new LeaderLine(
-                        document.querySelector('#cfo-card'),
-                        document.querySelector('#finance-manager-card'),
-                        { color: '#4b5563', size: 2, path: 'grid', endPlug: 'arrow' }
-                    );
+                    window.addEventListener('load', () => {
+                        try {
+                            jsPlumb.ready(() => {
+                                jsPlumb.setContainer(document.body);
+                                const connectorStyle = {
+                                    stroke: '#000',
+                                    strokeWidth: 1
+                                };
+                                const endpointStyle = {
+                                    endpoint: 'Blank',
+                                    anchor: ['BottomCenter', 'TopCenter'] // Center anchors for cleaner lines
+                                };
+
+                                // Draw connections based on reportsTo
+                                this.employees.forEach(emp => {
+                                    if (emp.reportsTo) {
+                                        if (Array.isArray(emp.reportsTo)) {
+                                            emp.reportsTo.forEach(reportToIndex => {
+                                                jsPlumb.connect({
+                                                    source: `employee-${reportToIndex}`,
+                                                    target: `employee-${emp.index}`,
+                                                    connector: ['Flowchart', { cornerRadius: 10, stub: 30 }], // Orthogonal lines with rounded corners
+                                                    paintStyle: connectorStyle,
+                                                    ...endpointStyle
+                                                });
+                                            });
+                                        } else {
+                                            jsPlumb.connect({
+                                                source: `employee-${emp.reportsTo}`,
+                                                target: `employee-${emp.index}`,
+                                                connector: ['Flowchart', { cornerRadius: 10, stub: 30 }],
+                                                paintStyle: connectorStyle,
+                                                ...endpointStyle
+                                            });
+                                        }
+                                    }
+                                });
+
+                                // Repaint on resize or scroll
+                                window.addEventListener('resize', () => jsPlumb.repaintEverything());
+                                window.addEventListener('scroll', () => jsPlumb.repaintEverything());
+                            });
+                        } catch (error) {
+                            console.error('Error drawing lines with jsPlumb:', error);
+                        }
+                    });
                 }
             }));
         });
