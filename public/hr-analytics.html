@@ -1,0 +1,409 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Analytics</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.46.0/dist/apexcharts.min.js"></script>
+
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="p-4 bg-white border rounded-md lg:p-8">
+                    <h1 class="text-2xl font-bold">HR Analytics</h1>
+                    <div class="pt-4">
+                        <div class="p-4 space-y-4 border rounded-md">
+                            <p class="text-xl font-bold">Staff Report</p>
+                            <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+                                <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                                    <select name=""
+                                    class="block w-full p-2 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                    <option>Select</option>
+                                    <option>Branch</option>
+                                    <option>Department</option>
+                                    <option>Category</option>
+                                    <option>Designation</option>
+                                    <option>Shift</option>
+                                </select>
+                                <select name=""
+                                    class="block w-full p-2 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                    <option>All</option>
+                                    <option>Branch 1</option>
+                                    <option>Branch 2</option>
+                                    <option>Branch 3</option>
+                                    <option>Branch 4</option>
+                                    <option>Branch 5</option>
+                                </select>
+                                </div>
+                                
+                            </div>
+                            <div>
+                                <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+                                  <!-- Pie Chart (Gender) -->
+                                  <div class="p-4 bg-white border rounded-md">
+                                    <div class="flex items-center justify-between">
+                                      <h3 class="text-xl font-bold">Gender</h3>
+                                    </div>
+                                    <div class="pt-4">
+                                      <div class="w-full h-64">
+                                        <div id="pie-chart" class="w-full h-full"></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                              
+                                  <!-- Bar Chart (Age) -->
+                                  <div class="p-4 bg-white border rounded-md">
+                                    <div class="flex items-center justify-between">
+                                      <h3 class="text-xl font-bold">Age</h3>
+                                    </div>
+                                    <div class="w-full h-64">
+                                      <div id="column-chart" class="w-full h-full"></div>
+                                    </div>
+                                  </div>
+                              
+                                  <!-- Bar Chart (Experience) -->
+                                  <div class="p-4 bg-white border rounded-md">
+                                    <div>
+                                      <h3 class="text-xl font-bold">Experience</h3>
+                                    </div>
+                                    <div class="w-full h-64">
+                                      <div id="experience-chart" class="w-full h-full"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              
+                                <!-- Scripts -->
+                                <script>
+                                  // Pie Chart (Gender)
+                                  const getChartOptions = () => {
+                                    return {
+                                      series: [52.8, 26.8, 20.4],
+                                      colors: ["#1C64F2", "#16BDCA", "#9061F9"],
+                                      chart: {
+                                        height: "100%", // Fill container height
+                                        width: "100%", // Fill container width
+                                        type: "pie",
+                                      },
+                                      stroke: {
+                                        colors: ["white"],
+                                      },
+                                      plotOptions: {
+                                        pie: {
+                                          dataLabels: {
+                                            offset: -25,
+                                          },
+                                        },
+                                      },
+                                      labels: ["Male", "Female", "Others"],
+                                      dataLabels: {
+                                        enabled: true,
+                                        style: {
+                                          fontFamily: "Inter, sans-serif",
+                                        },
+                                      },
+                                      legend: {
+                                        position: "bottom",
+                                        fontFamily: "Inter, sans-serif",
+                                      },
+                                      yaxis: {
+                                        labels: {
+                                          formatter: function (value) {
+                                            return value + "%";
+                                          },
+                                        },
+                                      },
+                                      xaxis: {
+                                        labels: {
+                                          formatter: function (value) {
+                                            return value + "%";
+                                          },
+                                        },
+                                        axisTicks: {
+                                          show: false,
+                                        },
+                                        axisBorder: {
+                                          show: false,
+                                        },
+                                      },
+                                      responsive: [
+                                        {
+                                          breakpoint: 1024,
+                                          options: {
+                                            chart: {
+                                              height: "100%",
+                                            },
+                                            legend: {
+                                              fontSize: "12px",
+                                            },
+                                          },
+                                        },
+                                      ],
+                                    };
+                                  };
+                              
+                                  if (document.getElementById("pie-chart") && typeof ApexCharts !== "undefined") {
+                                    const chart = new ApexCharts(document.getElementById("pie-chart"), getChartOptions());
+                                    chart.render();
+                                  }
+                              
+                                  // Bar Chart (Age)
+                                  const options = {
+                                    colors: ["#1A56DB", "#FDBA8C"],
+                                    series: [
+                                      {
+                                        name: "Age",
+                                        color: "#1A56DB",
+                                        data: [
+                                          { x: "18 Below", y: 231 },
+                                          { x: "18-25", y: 122 },
+                                          { x: "26-35", y: 63 },
+                                          { x: "36-40", y: 421 },
+                                          { x: "41-45", y: 122 },
+                                          { x: "46-50", y: 323 },
+                                          { x: "50 Above", y: 111 },
+                                        ],
+                                      },
+                                    ],
+                                    chart: {
+                                      type: "bar",
+                                      height: "100%", // Fill container height
+                                      width: "100%", // Fill container width
+                                      fontFamily: "Inter, sans-serif",
+                                      toolbar: {
+                                        show: false,
+                                      },
+                                    },
+                                    plotOptions: {
+                                      bar: {
+                                        horizontal: false,
+                                        columnWidth: "50%",
+                                        borderRadiusApplication: "end",
+                                        borderRadius: 8,
+                                      },
+                                    },
+                                    tooltip: {
+                                      shared: true,
+                                      intersect: false,
+                                      style: {
+                                        fontFamily: "Inter, sans-serif",
+                                      },
+                                    },
+                                    states: {
+                                      hover: {
+                                        filter: {
+                                          type: "darken",
+                                          value: 1,
+                                        },
+                                      },
+                                    },
+                                    stroke: {
+                                      show: true,
+                                      width: 0,
+                                      colors: ["transparent"],
+                                    },
+                                    grid: {
+                                      show: false,
+                                      strokeDashArray: 4,
+                                      padding: {
+                                        left: 2,
+                                        right: 2,
+                                        top: -14,
+                                      },
+                                    },
+                                    dataLabels: {
+                                      enabled: false,
+                                    },
+                                    legend: {
+                                      show: false,
+                                    },
+                                    xaxis: {
+                                      labels: {
+                                        style: {
+                                          fontFamily: "Inter, sans-serif",
+                                          cssClass: "text-xs font-normal fill-gray-500 dark:fill-gray-400",
+                                        },
+                                      },
+                                      axisBorder: {
+                                        show: false,
+                                      },
+                                      axisTicks: {
+                                        show: false,
+                                      },
+                                    },
+                                    yaxis: {
+                                      show: false,
+                                    },
+                                    fill: {
+                                      opacity: 1,
+                                    },
+                                    responsive: [
+                                      {
+                                        breakpoint: 1024,
+                                        options: {
+                                          plotOptions: {
+                                            bar: {
+                                              columnWidth: "60%",
+                                            },
+                                          },
+                                          xaxis: {
+                                            labels: {
+                                              style: {
+                                                fontSize: "10px",
+                                              },
+                                            },
+                                          },
+                                        },
+                                      },
+                                      {
+                                        breakpoint: 768,
+                                        options: {
+                                          plotOptions: {
+                                            bar: {
+                                              columnWidth: "50%",
+                                            },
+                                          },
+                                        },
+                                      },
+                                    ],
+                                  };
+                              
+                                  if (document.getElementById("column-chart") && typeof ApexCharts !== "undefined") {
+                                    const chart = new ApexCharts(document.getElementById("column-chart"), options);
+                                    chart.render();
+                                  }
+                              
+                                  // Bar Chart (Experience)
+                                  const experienceOptions = {
+                                    colors: ["#10B981"],
+                                    series: [
+                                      {
+                                        name: "Experience",
+                                        data: [
+                                          { x: "0-1 Yr", y: 50 },
+                                          { x: "1-3 Yrs", y: 120 },
+                                          { x: "3-5 Yrs", y: 180 },
+                                          { x: "5-10 Yrs", y: 90 },
+                                          { x: "10+ Yrs", y: 45 },
+                                        ],
+                                      },
+                                    ],
+                                    chart: {
+                                      type: "bar",
+                                      height: "100%", // Fill container height
+                                      width: "80%", // Fill container width
+                                      fontFamily: "Inter, sans-serif",
+                                      toolbar: { show: false },
+                                    },
+                                    plotOptions: {
+                                      bar: {
+                                        horizontal: false,
+                                        columnWidth: "50%",
+                                        borderRadiusApplication: "end",
+                                        borderRadius: 8,
+                                      },
+                                    },
+                                    tooltip: {
+                                      shared: true,
+                                      intersect: false,
+                                      style: {
+                                        fontFamily: "Inter, sans-serif",
+                                      },
+                                    },
+                                    stroke: {
+                                      show: true,
+                                      width: 0,
+                                      colors: ["transparent"],
+                                    },
+                                    grid: {
+                                      show: false,
+                                      strokeDashArray: 4,
+                                      padding: {
+                                        left: 2,
+                                        right: 2,
+                                        top: -14,
+                                      },
+                                    },
+                                    dataLabels: {
+                                      enabled: false,
+                                    },
+                                    legend: {
+                                      show: false,
+                                    },
+                                    xaxis: {
+                                      labels: {
+                                        style: {
+                                          fontFamily: "Inter, sans-serif",
+                                          cssClass: "text-xs font-normal fill-gray-500 dark:fill-gray-400",
+                                        },
+                                      },
+                                      axisBorder: { show: false },
+                                      axisTicks: { show: false },
+                                    },
+                                    yaxis: { show: false },
+                                    fill: {
+                                      opacity: 1,
+                                    },
+                                    responsive: [
+                                      {
+                                        breakpoint: 1024,
+                                        options: {
+                                          plotOptions: {
+                                            bar: {
+                                              columnWidth: "50%",
+                                            },
+                                          },
+                                          xaxis: {
+                                            labels: {
+                                              style: {
+                                                fontSize: "10px",
+                                              },
+                                            },
+                                          },
+                                        },
+                                      },
+                                      {
+                                        breakpoint: 768,
+                                        options: {
+                                          plotOptions: {
+                                            bar: {
+                                              columnWidth: "40%",
+                                            },
+                                          },
+                                        },
+                                      },
+                                    ],
+                                  };
+                              
+                                  if (document.getElementById("experience-chart") && typeof ApexCharts !== "undefined") {
+                                    const experienceChart = new ApexCharts(document.getElementById("experience-chart"), experienceOptions);
+                                    experienceChart.render();
+                                  }
+                                </script>
+                              </div>
+                           
+                        </div>
+                    </div>
+
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+</html>
