@@ -1,0 +1,451 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organization Chart</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://code.jscharting.com/latest/jscharting.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="h-full p-4 bg-white border rounded-md lg:p-8">
+                    <div class="flex items-center justify-between">
+                        <a href="unprocessed-log.html" class="flex items-center gap-1 text-sm text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5">
+                                <path fill-rule="evenodd"
+                                    d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <p class="text-2xl font-bold text-gray-900">Organization Chart</p>
+                        </a>
+                    </div>
+                    <div id="chartDiv" style="width: 1200px; height: 800px; margin: 0px auto; overflow: hidden"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+    .tooltipBox {
+        background-color: #666666;
+        color: white;
+        border-radius: 4px;
+        padding: 4px;
+    }
+    .personAnnotation {
+        background-color: #fff3e0;
+        color: #1f2937;
+        padding: 16px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .personAnnotation img {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        margin-bottom: 0px;
+    }
+    .personAnnotation .name {
+        font-weight: 700;
+        margin-bottom: 0px;
+    }
+    .personAnnotation .position {
+        color: #4b5563;
+    }
+</style>
+<script>
+var chart;
+
+const orgData = [
+    {
+        name: "Devlin Cowins",
+        position: "Managing director",
+        photo: "https://randomuser.me/api/portraits/men/43.jpg",
+        phone: "+86 (452) 988-6713",
+        address: "483 Clyde Gallagher Plaza",
+        email: "dcowins0@example.com",
+        id: "md",
+        parent: "",
+        work_quality: 5,
+        initiative: 5,
+        cooperative: 5
+    },
+    {
+        name: "Frasco Hatchell",
+        position: "Secretary",
+        photo: "https://randomuser.me/api/portraits/men/44.jpg",
+        phone: "+55 (958) 156-6342",
+        address: "13 School Court",
+        email: "fhatchell4@reddit.com",
+        id: "s",
+        parent: "md",
+        work_quality: 5,
+        initiative: 3,
+        cooperative: 5
+    },
+    {
+        name: "Dorthea Duffit",
+        position: "Sales and managing director",
+        photo: "https://randomuser.me/api/portraits/women/45.jpg",
+        phone: "+237 (116) 938-0593",
+        address: "0 Caliangt Hill",
+        email: "dduffit1@auda.org.au",
+        id: "smd",
+        parent: "md",
+        work_quality: 5,
+        initiative: 5,
+        cooperative: 5
+    },
+    {
+        name: "Stanislas Pickersail",
+        position: "Production director",
+        photo: "https://randomuser.me/api/portraits/men/46.jpg",
+        phone: "+62 (951) 772-6189",
+        address: "18 Macpherson Lane",
+        email: "spickersail5@biblegateway.com",
+        id: "pd",
+        parent: "md",
+        work_quality: 5,
+        initiative: 5,
+        cooperative: 4
+    },
+    {
+        name: "Rachel Steinhammer",
+        position: "Human resources director",
+        photo: "https://randomuser.me/api/portraits/women/47.jpg",
+        phone: "+62 (372) 366-4281",
+        address: "365 Springview Crossing",
+        email: "rsteinhammer2@reverbnation.com",
+        id: "hrd",
+        parent: "md",
+        work_quality: 5,
+        initiative: 4,
+        cooperative: 5
+    },
+    {
+        name: "Coreen Ambrozik",
+        position: "Finance director",
+        photo: "https://randomuser.me/api/portraits/women/48.jpg",
+        phone: "+387 (831) 655-8093",
+        address: "9 Orin Avenue",
+        email: "cambrozik3@ucsd.edu",
+        id: "fd",
+        parent: "md",
+        work_quality: 5,
+        initiative: 4,
+        cooperative: 5
+    },
+    {
+        name: "Lydia Hartwell",
+        position: "IT director",
+        photo: "https://randomuser.me/api/portraits/women/53.jpg",
+        phone: "+81 (345) 678-9012",
+        address: "72 Tech Lane",
+        email: "lhartwell@techcorp.com",
+        id: "itd",
+        parent: "md",
+        work_quality: 5,
+        initiative: 5,
+        cooperative: 4
+    },
+    {
+        name: "Julian Harper",
+        position: "Sales manager",
+        photo: "https://randomuser.me/api/portraits/men/64.jpg",
+        phone: "+46 (234) 567-8901",
+        address: "12 Market Street",
+        email: "jharper@sales.com",
+        id: "sm",
+        parent: "smd",
+        work_quality: 5,
+        initiative: 4,
+        cooperative: 5
+    },
+    {
+        name: "Marianne Holt",
+        position: "Marketing manager",
+        photo: "https://randomuser.me/api/portraits/women/65.jpg",
+        phone: "+34 (678) 901-2345",
+        address: "56 Brand Avenue",
+        email: "mholt@marketing.com",
+        id: "mm",
+        parent: "smd",
+        work_quality: 4,
+        initiative: 5,
+        cooperative: 4
+    },
+    {
+        name: "Oscar Vernon",
+        position: "Customer relations manager",
+        photo: "https://randomuser.me/api/portraits/men/66.jpg",
+        phone: "+48 (123) 456-7890",
+        address: "89 Client Road",
+        email: "overnon@support.com",
+        id: "crm",
+        parent: "smd",
+        work_quality: 5,
+        initiative: 4,
+        cooperative: 5
+    },
+    {
+        name: "Dorothee Weavers",
+        position: "Factory manager",
+        photo: "https://randomuser.me/api/portraits/women/49.jpg",
+        phone: "+63 (623) 830-0091",
+        address: "6587 Arizona Drive",
+        email: "dweavers8@timesonline.co.uk",
+        id: "fm",
+        parent: "pd",
+        work_quality: 4,
+        initiative: 4,
+        cooperative: 4
+    },
+    {
+        name: "Jaime Loughlan",
+        position: "Quality control manager",
+        photo: "https://randomuser.me/api/portraits/men/50.jpg",
+        phone: "+51 (272) 196-7234",
+        address: "1497 Birchwood Circle",
+        email: "jloughlan7@prweb.com",
+        id: "qcm",
+        parent: "pd",
+        work_quality: 5,
+        initiative: 5,
+        cooperative: 3
+    },
+    {
+        name: "Marcus Brent",
+        position: "Operations manager",
+        photo: "https://randomuser.me/api/portraits/men/54.jpg",
+        phone: "+44 (789) 123-4567",
+        address: "45 Industrial Road",
+        email: "mbrent@company.com",
+        id: "om",
+        parent: "pd",
+        work_quality: 4,
+        initiative: 4,
+        cooperative: 5
+    },
+    {
+        name: "Eliza Thornton",
+        position: "Logistics manager",
+        photo: "https://randomuser.me/api/portraits/women/55.jpg",
+        phone: "+33 (456) 789-0123",
+        address: "88 Supply Chain Way",
+        email: "ethornton@logistics.com",
+        id: "lm",
+        parent: "pd",
+        work_quality: 5,
+        initiative: 4,
+        cooperative: 4
+    },
+    {
+        name: "Bell Finden",
+        position: "Management accountant",
+        photo: "https://randomuser.me/api/portraits/women/51.jpg",
+        phone: "+7 (218) 895-1228",
+        address: "22152 Dakota Lane",
+        email: "bfinden9@jigsy.com",
+        id: "ma",
+        parent: "fd",
+        work_quality: 5,
+        initiative: 4,
+        cooperative: 4
+    },
+    {
+        name: "Cobbie Gerbl",
+        position: "Financial accountant",
+        photo: "https://randomuser.me/api/portraits/men/52.jpg",
+        phone: "+420 (875) 172-6994",
+        address: "01306 Trailsway Junction",
+        email: "cgerbl6@arizona.edu",
+        id: "fa",
+        parent: "fd",
+        work_quality: 4,
+        initiative: 5,
+        cooperative: 4
+    },
+    {
+        name: "Simon Caldwell",
+        position: "Tax manager",
+        photo: "https://randomuser.me/api/portraits/men/56.jpg",
+        phone: "+61 (234) 567-8901",
+        address: "19 Tax Avenue",
+        email: "scaldwell@finance.com",
+        id: "tm",
+        parent: "fd",
+        work_quality: 4,
+        initiative: 4,
+        cooperative: 5
+    },
+    {
+        name: "Clara Winston",
+        position: "Budget analyst",
+        photo: "https://randomuser.me/api/portraits/women/57.jpg",
+        phone: "+27 (678) 901-2345",
+        address: "33 Budget Street",
+        email: "cwinston@finance.com",
+        id: "ba",
+        parent: "fd",
+        work_quality: 5,
+        initiative: 3,
+        cooperative: 4
+    },
+    {
+        name: "Victor Ramsey",
+        position: "Production team lead",
+        photo: "https://randomuser.me/api/portraits/men/58.jpg",
+        phone: "+49 (123) 456-7890",
+        address: "77 Factory Lane",
+        email: "vramsey@production.com",
+        id: "ptl",
+        parent: "fm",
+        work_quality: 4,
+        initiative: 4,
+        cooperative: 4
+    },
+    {
+        name: "Sophie Granger",
+        position: "QC analyst",
+        photo: "https://randomuser.me/api/portraits/women/59.jpg",
+        phone: "+39 (890) 123-4567",
+        address: "22 Quality Road",
+        email: "sgranger@quality.com",
+        id: "qca",
+        parent: "qcm",
+        work_quality: 5,
+        initiative: 4,
+        cooperative: 3
+    },
+    {
+        name: "Nathan Blake",
+        position: "Accounting specialist",
+        photo: "https://randomuser.me/api/portraits/men/60.jpg",
+        phone: "+86 (567) 890-1234",
+        address: "55 Ledger Lane",
+        email: "nblake@finance.com",
+        id: "as",
+        parent: "ma",
+        work_quality: 4,
+        initiative: 4,
+        cooperative: 5
+    },
+    {
+        name: "Amelia Foster",
+        position: "Production staff",
+        photo: "https://randomuser.me/api/portraits/women/61.jpg",
+        phone: "+55 (234) 567-8901",
+        address: "99 Assembly Line",
+        email: "afoster@production.com",
+        id: "ps1",
+        parent: "ptl",
+        work_quality: 4,
+        initiative: 3,
+        cooperative: 4
+    },
+    {
+        name: "Ethan Caldwell",
+        position: "QC technician",
+        photo: "https://randomuser.me/api/portraits/men/62.jpg",
+        phone: "+47 (678) 901-2345",
+        address: "11 Inspection Way",
+        email: "ecaldwell@quality.com",
+        id: "qct1",
+        parent: "qca",
+        work_quality: 5,
+        initiative: 4,
+        cooperative: 3
+    },
+    {
+        name: "Isabella Reed",
+        position: "Accounting clerk",
+        photo: "https://randomuser.me/api/portraits/women/63.jpg",
+        phone: "+31 (123) 456-7890",
+        address: "44 Bookkeeping Street",
+        email: "ireed@finance.com",
+        id: "ac1",
+        parent: "as",
+        work_quality: 4,
+        initiative: 4,
+        cooperative: 4
+    }
+];
+
+chart = renderChart(makeSeries(orgData));
+
+function renderChart(series) {
+    return JSC.chart('chartDiv', {
+        type: 'organizational down',
+        boxFit: 'fit',
+        chartArea: { margin: 'auto' },
+        defaultTooltip: {
+            asHTML: true,
+            outline: 'none',
+            zIndex: 10
+        },
+        defaultPoint: {
+            focusGlow: false,
+            connectorLine: {
+                width: 1,
+                color: '#000000'
+            },
+            tooltip: '<div class="tooltipBox">Phone: <b>%phone</b><br>Email: <b>%email</b><br>Address: <b>%address</b></div>',
+            annotation: {
+                padding: 3,
+                asHTML: true,
+                margin: [12, 2],
+                label: {
+                    text: '<div class="personAnnotation"><img src="%photo" alt=""><p class="name">%name</p><p class="position">%position</p></div>',
+                    autoWrap: false
+                }
+            },
+            outline_width: 0,
+            color: '#333333'
+        },
+        series: series
+    });
+}
+
+function makeSeries(data) {
+    return [{
+        points: data.map(function(item) {
+            return {
+                name: item.name,
+                id: item.id,
+                parent: item.parent,
+                attributes: {
+                    position: item.position,
+                    phone: item.phone,
+                    address: item.address,
+                    email: item.email,
+                    photo: item.photo
+                }
+            };
+        })
+    }];
+}
+</script>
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+</html>
