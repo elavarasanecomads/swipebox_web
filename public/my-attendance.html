@@ -635,6 +635,14 @@
                             
                             <div class="flex flex-col items-start justify-between gap-2 pt-2 lg:space-y-0 lg:flex-row lg:items-center">
                                 <div class="flex items-center gap-4">
+                                    <div>
+                                        <button x-data="{usedKeyboard: false}"
+                                            @keydown.window.tab="usedKeyboard = true" role=button
+                                            @click="$dispatch('open-menu', { open: true })"
+                                            :class="{'focus:outline-none': !usedKeyboard}"
+                                            class="text-sm font-semibold text-blue-600">View
+                                            Details</button>
+                                    </div>
                                     <div x-data="{ isPopupOpen: false, isMapPopupOpen: false }">
                                         <template x-teleport="body">
                                             <!-- Initial popup -->
