@@ -1,0 +1,303 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Late Entry Policy</title>
+    <link href="output.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="h-full p-4 bg-white border rounded-md lg:p-8">
+                    <div class="flex items-center gap-2">
+                        <a href="policies-2.html" class="text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5">
+                                <path fill-rule="evenodd"
+                                    d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <p class="text-2xl font-bold text-gray-900">Late Entry Policy</p>
+                    </div>
+
+                    <div class="mt-6 space-y-4">
+                        <div class="border rounded-md">
+                            <div class="flex flex-wrap items-center gap-4 p-2 px-4 bg-gray-100 rounded-t-md">
+                                <p class="font-semibold">Calculate late entry penalty based on conditions</p>
+                                <button class="p-2 text-sm font-semibold text-white bg-blue-600 rounded-md">Add
+                                    Condition</button>
+                            </div>
+                            <div class="grid grid-cols-1 gap-4 p-4 lg:grid-cols-3">
+                                <div class="space-y-4 lg:col-span-2">
+                                    <div class="space-y-1">
+                                        <div class="flex gap-4">
+                                            <div>
+                                                <label class="text-sm font-medium text-gray-600" for="branch">Select
+                                                    Time (HH:MM)</label>
+                                                <input type="time"
+                                                    class="block w-36 p-1 mt-0.5 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            </div>
+    
+                                            <div>
+                                                <label class="text-sm font-medium text-gray-600" for="branch">Fine
+                                                    Type</label>
+                                                <select
+                                                    class="block p-1.5 mt-0.5 text-sm bg-white border border-gray-400 rounded-md shadow-sm w-44 focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                    <option>Fixed Time</option>
+                                                    <option>Fixed Amount</option>
+                                                    <option>1.5X Time</option>
+                                                    <option>2X Time</option>
+                                                    <option class="text-sm">Add Custom Multiplier</option>
+                                                </select>
+                                            </div>
+                                            <div class="flex items-center justify-center mt-8">
+                                                <button class="text-red-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="w-5 h-5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M6 18 18 6M6 6l12 12" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <p class="text-xs text-gray-600">No Late Entry Penalty for 0 mins</p>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <div class="flex gap-4">
+                                            <div>
+                                                <label class="text-sm font-medium text-gray-600" for="branch">Select
+                                                    Time (HH:MM)</label>
+                                                <input type="time"
+                                                    class="block w-36 p-1 mt-0.5 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            </div>
+    
+                                            <div>
+                                                <label class="text-sm font-medium text-gray-600" for="branch">Fine
+                                                    Type</label>
+                                                <select
+                                                    class="block p-1.5 mt-0.5 text-sm bg-white border border-gray-400 rounded-md shadow-sm w-44 focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                    <option>Fixed Time</option>
+                                                    <option>Fixed Amount</option>
+                                                    <option>1.5X Time</option>
+                                                    <option>2X Time</option>
+                                                    <option class="text-sm">Add Custom Multiplier</option>
+                                                </select>
+                                            </div>
+                                            <div class="flex items-center justify-center mt-8">
+                                                <button class="text-red-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="w-5 h-5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M6 18 18 6M6 6l12 12" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <p class="text-xs text-gray-600">No Late Entry Penalty for 0 mins</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex space-y-2 lg:col-span-1">
+                                    <div class="flex items-center gap-2">
+                                        <p>Forgive upto</p>
+                                        <div class="flex items-center">
+                                            <input type="number"
+                                            class="block w-20 p-1 px-2 text-sm bg-white border border-gray-400 shadow-sm rounded-l-md focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <p class="p-0.5 lg:p-1 px-4 bg-gray-100 border border-gray-400 rounded-r-md">Count</p>
+                                        </div>
+                                        <p>in month</p>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border rounded-md">
+                            <div class="flex items-center gap-4 p-2 px-4 bg-gray-100 rounded-t-md">
+                                <p class="font-semibold">Calculate Halfday late entry penalty</p>
+                            </div>
+                            <div class="grid grid-cols-1 gap-4 p-4 lg:grid-cols-3">
+                                <div class="space-y-1 lg:col-span-2">
+                                    <div class="flex gap-4">
+                                        <div>
+                                            <label class="text-sm font-medium text-gray-600" for="branch">Select
+                                                Time (HH:MM)</label>
+                                            <input type="time"
+                                                class="block w-36 p-1 mt-0.5 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        </div>
+                                    </div>
+                                    <p class="text-xs text-gray-600">No Halfday Late Entry Penalty for 0 mins</p>
+                                </div>
+                                <div class="flex space-y-2 lg:col-span-1">
+                                    <div class="flex items-center gap-2">
+                                        <p>Forgive upto</p>
+                                        <div class="flex items-center">
+                                            <input type="number"
+                                            class="block w-20 p-1 px-2 text-sm bg-white border border-gray-400 shadow-sm rounded-l-md focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <p class="px-4 py-0.5 bg-gray-100 border border-gray-400 lg:p-1 rounded-r-md">Count</p>
+                                        </div>
+                                        <p>in month</p>
+                                    </div>
+                                   
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="border rounded-md">
+                            <div class="flex items-center gap-4 p-2 px-4 bg-gray-100 rounded-t-md">
+                                <p class="font-semibold">Calculate Fullday late entry penalty</p>
+                            </div>
+                            <div class="grid grid-cols-1 gap-4 p-4 lg:grid-cols-3">
+                                <div class="space-y-1 lg:col-span-2">
+                                    <div class="flex gap-4">
+                                        <div>
+                                            <label class="text-sm font-medium text-gray-600" for="branch">Select
+                                                Time (HH:MM)</label>
+                                            <input type="time"
+                                                class="block w-36 p-1 mt-0.5 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        </div>
+                                    </div>
+                                    <p class="text-xs text-gray-600">No Halfday Late Entry Penalty for 0 mins</p>
+                                </div>
+                                <div class="flex space-y-2 lg:col-span-1">
+                                    <div class="flex items-center gap-2">
+                                        <p>Forgive upto</p>
+                                        <div class="flex items-center">
+                                            <input type="number"
+                                            class="block w-20 p-1 px-2 text-sm bg-white border border-gray-400 shadow-sm rounded-l-md focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <p class="p-0.5 lg:p-1 px-4 bg-gray-100 border border-gray-400 rounded-r-md">Count</p>
+                                        </div>
+                                        <p>in month</p>
+                                    </div>
+                                   
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="border rounded-md">
+                            <div class="flex items-center gap-4 p-2 px-4 bg-gray-100 rounded-t-md">
+                                <p class="font-semibold">Calculate Halfday/Fullday late entry penalty X times in a Month</p>
+                            </div>
+                            <div class="p-4 space-y-4">
+                                <div class="space-y-1">
+                                    <div class="flex flex-wrap items-center lg:gap-4">
+                                        <div>
+                                            <div class="flex items-center gap-4">
+                                                <div>
+                                                    <label class="text-sm font-medium text-gray-600" for="branch">X Times</label>
+                                                    <input type="number"
+                                                        class="block w-36 p-1.5 lg:p-1 mt-0.5 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                </div>
+                                                <div>
+                                                    <label class="text-sm font-medium text-gray-600" for="branch">Fine Type</label>
+                                                    <select
+                                                        class="block p-1.5 mt-0.5 text-sm bg-white border border-gray-400 rounded-md shadow-sm w-44 focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                        <option>Halfday</option>
+                                                        <option>Fullday</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <p class="text-xs text-gray-600">No Late Entry Penalty for 0 mins</p>
+                                        </div>
+                                        
+                                        <div class="flex items-center gap-2 pt-4">
+                                            <input class="w-4 h-4" type="checkbox">
+                                            <p>Start a new count.</p>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+    
+                        </div>
+                        <div class="border rounded-md">
+                            <div class="flex items-center gap-4 p-2 px-4 bg-gray-100 rounded-t-md">
+                                <p class="font-semibold">Assign To</p>
+                            </div>
+                            <div class="w-full p-4 space-y-4 lg:w-1/2">
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-600" for="branch">Choose
+                                        Branch</label>
+                                    <select id="branch" name="branch" autocomplete="branch" class="block w-full px-3 py-2 mt-0.5 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>All
+                                        </option>
+                                        <option>Ecomads
+                                            Pvt Ltd,
+                                            Coimbatore
+                                        </option>
+                                        <option>Ecomads
+                                            Pvt Ltd,
+                                            Tiruchengode
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="flex flex-col items-center gap-4 lg:flex-row">
+                                    <!--use multi select dropdown-->
+                                    <div class="w-full lg:w-1/2">
+                                        <label class="text-sm font-semibold text-gray-600" for="department">Apply
+                                            Policy
+                                            On</label>
+                                        <select id="department" name="department" autocomplete="department" class="block w-full px-3 py-2 mt-0.5 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>
+                                                Select
+                                            </option>
+                                            <option>
+                                                Department
+                                                Level
+                                            </option>
+                                            <option>
+                                                Shift
+                                                Level
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <!--use multi select dropdown / Based on apply policy level value was change and also label was change-->
+                                    <div class="w-full lg:w-1/2">
+                                        <label class="text-sm font-semibold text-gray-600" for="department">Shift
+                                            Level</label>
+                                        <select id="department" name="department" autocomplete="department" class="block w-full px-3 py-2 mt-0.5 text-sm bg-white border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                            <option>All
+                                            </option>
+                                            <option>
+                                                Morning
+                                                Shift
+                                            </option>
+                                            <option>
+                                                Evening
+                                                Shift
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>                                
+                            </div>                            
+                        </div>
+                        <div class="w-full pt-6 lg:w-1/4">
+                            <button class="w-full p-3 font-semibold text-center text-white bg-blue-600 rounded-md">SAVE</button>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+
+</html>
