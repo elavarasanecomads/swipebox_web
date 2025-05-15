@@ -51,143 +51,198 @@
                         </ol>
                     </nav>
                     <h1 class="py-4 text-2xl font-bold">Reports</h1>
-                    <div x-data="{ selectedOption: 'select' }" class="grid grid-cols-1 gap-4 lg:grid-cols-3">
-                        <div class="col-start-1">
-                            <label class="text-sm font-medium text-gray-600" for="businessname">Report Type <span
-                                    class="text-red-600">*</span></label>
-                            <select x-model="selectedOption" id="jobtype" name="jobtype" autocomplete="jobtype"
-                                class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                <option value="select">Select</option>
-                                <option value="attendance">Attendance Reports</option>
-                                <option value="ot_late">OT & Fine Reports</option>
-                                <option value="leave">Leave Reports</option>
-                                <option value="payroll">Payroll Reports</option>
-                                <option value="compliance">Compliance</option>
-                                <option value="employee">Employee Details</option>
-                            </select>
-                        </div>
-                        <div x-show="selectedOption === 'attendance'">
-                            <label class="text-sm font-medium text-gray-600" for="businessname">Type <span
-                                    class="text-red-600">*</span></label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                <option value="">Attendance Summary Report</option>
-                                <option value="">Branch & Department Summary Report</option>
-                                <option value="">Attendance Detailed Report</option>
-                                <option value="">Attendance Summary Report - 2</option>
-                                <option value="">Attendance Shift Report</option>
-                                <option value="">Attendance Muster Report</option>
-                                <option value="">Multiple In & OUT Report</option>
-                                <option value="">Attendance Detailed Report - List View </option>
-                            </select>
-                        </div>
-                        <div x-show="selectedOption === 'ot_late'">
-                            <label class="text-sm font-medium text-gray-600" for="businessname">Type <span
-                                    class="text-red-600">*</span></label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                <option>Over Time Report</option>
-                                <option>Late Entry Penalty Report</option>
-                                <option>Early Exit Penalty Report</option>
-                                <option>Break Hour Penalty Report</option>
-                                <option>Working Hour Penalty Report</option>
-                                <option>Short Hours Report</option>
-                            </select>
-                        </div>
-                        <div x-show="selectedOption === 'leave'">
-                            <label class="text-sm font-medium text-gray-600" for="businessname">Type <span
-                                    class="text-red-600">*</span></label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                <option>Leave Report</option>
-                                <option>Leave Balance Report</option>
-                                <option>Yearly Leave Report</option>
-                            </select>
-                        </div>
-                        <div x-show="selectedOption === 'payroll'">
-                            <label class="text-sm font-medium text-gray-600" for="businessname">Type <span
-                                    class="text-red-600">*</span></label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                <option>Staff Payroll Report</option>
-                                <option>Allowance Report</option>
-                                <option>Bonus Report</option>
-                                <option>Deduction Report</option>
-                                <option>Loan Summary Report</option>
-                                <option>Advance Summary Report</option>
-                                <option>Bulk Salary Slip</option>
-                            </select>
-                        </div>
-                        <div x-show="selectedOption === 'compliance'">
-                            <label class="text-sm font-medium text-gray-600" for="businessname">Type <span
-                                    class="text-red-600">*</span></label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                <option>ESI Report</option>
-                                <option>PF Report</option>
-                                <option>PT Report</option>
-                                <option>TDS Report</option>
-                            </select>
-                        </div>
-                        <div class="col-start-1">
-                            <label class="text-sm font-medium text-gray-600" for="businessname">Select Branch</label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
-                                <option>All</option>
-                                <option>Ecomads Pvt Ltd, Covai</option>
-                                <option>Ecomads Pvt Ltd, Tiruchengode</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="text-sm font-medium text-gray-600" for="businessname">Select
-                                Departments</label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
-                                <option>All</option>
-                                <option>Ecomads Pvt Ltd, Covai</option>
-                                <option>Ecomads Pvt Ltd, Tiruchengode</option>
-                            </select>
-                        </div>
-                        <div class="col-start-1">
-                            <label class="text-sm font-medium text-gray-600" for="businessname">Select
-                                Shift</label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
-                                <option>All</option>
-                                <option>Shift A</option>
-                                <option>Shift B</option>
-                            </select>
-                        </div>
-                        <div>                            
-                            <label class="text-sm font-medium text-gray-600" for="businessname">
-                                Employee Status</label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
-                                <option>All</option>
-                                <option>Active</option>
-                                <option>Inactive</option>
-                            </select>
-                        </div>
-                        <div class="col-start-1">
-                            <label class="text-sm font-medium text-gray-600" for="businessname">Select Period <span
-                                    class="text-red-600">*</span></label>
-                            <div id="reportrange"
-                                style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
-                                <span></span>
+
+                    <div x-data="{ selectedOption: 'select' }">
+                        <div class="grid w-full grid-cols-1 gap-4 lg:w-2/3 lg:grid-cols-2">
+                            <div>
+                                <label class="text-sm font-medium text-gray-600" for="businessname">Report Type <span
+                                        class="text-red-600">*</span></label>
+                                <select x-model="selectedOption" id="jobtype" name="jobtype" autocomplete="jobtype"
+                                    class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                    <option value="select">Select</option>
+                                    <option value="attendance">Attendance Reports</option>
+                                    <option value="ot_late">OT & Fine Reports</option>
+                                    <option value="leave">Leave Reports</option>
+                                    <option value="payroll">Payroll Reports</option>
+                                    <option value="compliance">Compliance</option>
+                                    <option value="employee">Employee Details</option>
+                                    <option value="comparison">Payroll Comparison</option>
+                                </select>
+                            </div>
+                            <div>
+                                <div x-show="selectedOption === 'attendance'">
+                                    <label class="text-sm font-medium text-gray-600" for="businessname">Type <span
+                                            class="text-red-600">*</span></label>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option value="">Attendance Summary Report</option>
+                                        <option value="">Branch & Department Summary Report</option>
+                                        <option value="">Attendance Detailed Report</option>
+                                        <option value="">Attendance Summary Report - 2</option>
+                                        <option value="">Attendance Shift Report</option>
+                                        <option value="">Attendance Muster Report</option>
+                                        <option value="">Multiple In & OUT Report</option>
+                                        <option value="">Attendance Detailed Report - List View </option>
+                                    </select>
+                                </div>
+                                <div x-show="selectedOption === 'ot_late'">
+                                    <label class="text-sm font-medium text-gray-600" for="businessname">Type <span
+                                            class="text-red-600">*</span></label>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>Over Time Report</option>
+                                        <option>Late Entry Penalty Report</option>
+                                        <option>Early Exit Penalty Report</option>
+                                        <option>Break Hour Penalty Report</option>
+                                        <option>Working Hour Penalty Report</option>
+                                        <option>Short Hours Report</option>
+                                    </select>
+                                </div>
+                                <div x-show="selectedOption === 'leave'">
+                                    <label class="text-sm font-medium text-gray-600" for="businessname">Type <span
+                                            class="text-red-600">*</span></label>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>Leave Report</option>
+                                        <option>Leave Balance Report</option>
+                                        <option>Yearly Leave Report</option>
+                                    </select>
+                                </div>
+                                <div x-show="selectedOption === 'payroll'">
+                                    <label class="text-sm font-medium text-gray-600" for="businessname">Type <span
+                                            class="text-red-600">*</span></label>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>Staff Payroll Report</option>
+                                        <option>Allowance Report</option>
+                                        <option>Bonus Report</option>
+                                        <option>Deduction Report</option>
+                                        <option>Loan Summary Report</option>
+                                        <option>Advance Summary Report</option>
+                                        <option>Bulk Salary Slip</option>
+                                    </select>
+                                </div>
+                                <div x-show="selectedOption === 'compliance'">
+                                    <label class="text-sm font-medium text-gray-600" for="businessname">Type <span
+                                            class="text-red-600">*</span></label>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>ESI Report</option>
+                                        <option>PF Report</option>
+                                        <option>PT Report</option>
+                                        <option>TDS Report</option>
+                                    </select>
+                                </div>
+                                <div x-show="selectedOption === 'comparison'">
+                                    <label class="text-sm font-medium text-gray-600" for="businessname">Type <span
+                                            class="text-red-600">*</span></label>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                        class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>Select</option>
+                                        <option>Branch Level</option>
+                                        <option>Department Level</option>
+                                        <option>Employee Level</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                        <div>
-                            <label class="text-sm font-medium text-gray-600" for="businessname">Select Format <span
-                                    class="text-red-600">*</span></label>
-                            <select id="jobtype" name="jobtype" autocomplete="jobtype"
-                                class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                <option>CSV</option>
-                            </select>
-                        </div>
-                        <div class="col-start-1 space-y-4">
-                            <button class="p-3 font-semibold text-center text-white bg-blue-600 rounded w-36">Generate
-                                Report</button>
-                        </div>
+                         <!-- Shown for all reports except 'comparison' -->
+                            <div class="grid w-full grid-cols-1 gap-4 pt-4 lg:w-2/3 lg:grid-cols-2"
+                                x-show="selectedOption !== 'comparison'">
+                                <div>
+                                    <label class="text-sm font-medium text-gray-600" for="branch">Select Branch</label>
+                                    <select id="branch" name="branch"
+                                        class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                        <option>All</option>
+                                        <option>Ecomads Pvt Ltd, Covai</option>
+                                        <option>Ecomads Pvt Ltd, Tiruchengode</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="text-sm font-medium text-gray-600" for="department">Select
+                                        Departments</label>
+                                    <select id="department" name="department"
+                                        class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                        <option>All</option>
+                                        <option>Purchase</option>
+                                        <option>Sales</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="text-sm font-medium text-gray-600" for="shift">Select Shift</label>
+                                    <select id="shift" name="shift"
+                                        class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                        <option>All</option>
+                                        <option>Shift A</option>
+                                        <option>Shift B</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="text-sm font-medium text-gray-600" for="status">Employee
+                                        Status</label>
+                                    <select id="status" name="status"
+                                        class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                        <option>All</option>
+                                        <option>Active</option>
+                                        <option>Inactive</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="text-sm font-medium text-gray-600" for="period">Select Period <span
+                                            class="text-red-600">*</span></label>
+                                    <div id="reportrange"
+                                        style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Only shown for 'comparison' -->
+                            <div class="grid w-full grid-cols-1 gap-4 pt-4 lg:w-2/3 lg:grid-cols-2"
+                                x-show="selectedOption === 'comparison'">
+                                <div>
+                                    <label class="text-sm font-medium text-gray-600" for="month1">Month 1</label>
+                                    <select id="month1" name="month1"
+                                        class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                        <option>All</option>
+                                        <option>May 2025</option>
+                                        <option>April 2025</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="text-sm font-medium text-gray-600" for="month2">Month 2</label>
+                                    <select id="month2" name="month2"
+                                        class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 sm:text-base">
+                                        <option>All</option>
+                                        <option>May 2025</option>
+                                        <option>April 2025</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Always shown -->
+                            <div class="grid w-full grid-cols-1 gap-4 pt-4 lg:w-1/3">
+                                <div>
+                                    <label class="text-sm font-medium text-gray-600" for="format">Select Format <span
+                                            class="text-red-600">*</span></label>
+                                    <select id="format" name="format"
+                                        class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>CSV</option>
+                                        <option>PDF</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-start-1 space-y-4">
+                                    <button
+                                        class="p-3 font-semibold text-center text-white bg-blue-600 rounded w-36">Generate
+                                        Report</button>
+                                </div>
+                            </div>
                     </div>
                     <div class="flex items-center gap-2 py-4">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -319,12 +374,15 @@
                                                                                         fill="currentColor">
                                                                                         <path fill-rule="evenodd"
                                                                                             d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                                                                                            clip-rule="evenodd"></path>
+                                                                                            clip-rule="evenodd">
+                                                                                        </path>
                                                                                     </svg>
                                                                                 </div>
-                                                                                <p class="font-bold">Delete This Record
+                                                                                <p class="font-bold">Delete This
+                                                                                    Record
                                                                                 </p>
-                                                                                <p class="text-gray-600">Do you wish to
+                                                                                <p class="text-gray-600">Do you wish
+                                                                                    to
                                                                                     delete this record?</p>
                                                                             </div>
                                                                             <div
@@ -419,12 +477,15 @@
                                                                                         fill="currentColor">
                                                                                         <path fill-rule="evenodd"
                                                                                             d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                                                                                            clip-rule="evenodd"></path>
+                                                                                            clip-rule="evenodd">
+                                                                                        </path>
                                                                                     </svg>
                                                                                 </div>
-                                                                                <p class="font-bold">Delete This Record
+                                                                                <p class="font-bold">Delete This
+                                                                                    Record
                                                                                 </p>
-                                                                                <p class="text-gray-600">Do you wish to
+                                                                                <p class="text-gray-600">Do you wish
+                                                                                    to
                                                                                     delete this record?</p>
                                                                             </div>
                                                                             <div
@@ -458,7 +519,8 @@
                                     d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
                             </svg>
                             <p class="text-sm text-gray-500">
-                                We kept last 10 records only. More than 10 records automatically it will be deleted.</p>
+                                We kept last 10 records only. More than 10 records automatically it will be deleted.
+                            </p>
                         </div>
                     </div>
                 </div>
