@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Movement Report</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      margin: 20px;
+    }
+    .text-center {
+      text-align: center;
+    }
+    .font-bold {
+      font-weight: bold;
+    }
+    .heading {
+      margin: 10px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+    table, th, td {
+      border: 1px solid #333;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+    .section {
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Report Heading -->
+  <h2 class="font-bold text-center heading">Employee Moving Report</h2>
+  <h3 class="font-bold text-center heading">Branch Wise Report</h3>
+  <h4 class="font-bold text-center heading">Period : 01-05-2025 to 20-05-2025</h4>
+
+  <!-- First Section: Summary -->
+  <div class="section">
+    <h3 class="font-bold heading">Branch Wise Summary</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Branch</th>
+          <th>Employees Joined</th>
+          <th>Left Joined</th>
+          <th>Total Employees</th>
+          <th>Movement %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Dynamic rows go here -->
+        <tr>
+          <td>CHB Colony</td>
+          <td>5</td>
+          <td>2</td>
+          <td>50</td>
+          <td>14%</td>
+        </tr>
+        <tr>
+          <td>AV Plaza</td>
+          <td>5</td>
+          <td>2</td>
+          <td>50</td>
+          <td>14%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Second Section: Detail -->
+  <div class="section">
+    <h3 class="font-bold heading">Branch Wise Detail</h3>
+
+    <!-- Detailed Movement Table -->
+<table>
+  <thead>
+    <!-- Summary row spanning all columns -->
+    <tr>
+      <td colspan="6" class="font-bold">
+        Branch: Head Office | Joined: 5 | Left: 2 | Total Employees: 50 | Movement %: 14%
+      </td>
+    </tr>
+    <!-- Column headers -->
+    <tr>
+      <th>Name</th>
+      <th>Department</th>
+      <th>Date</th>
+      <th>Status</th>
+      <th>Reason</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>John Doe</td>
+      <td>HR</td>
+      <td>02-05-2025</td>
+      <td>Joined</td>
+      <td>New Hire</td>
+    </tr>
+    <tr>
+      <td>Jane Smith</td>
+      <td>Finance</td>
+      <td>10-05-2025</td>
+      <td>Left</td>
+      <td>Resigned</td>
+    </tr>
+    <!-- Add more rows as needed -->
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <!-- Summary row spanning all columns -->
+    <tr>
+      <td colspan="6" class="font-bold">
+        Branch: AV Plaza | Joined: 5 | Left: 2 | Total Employees: 50 | Movement %: 14%
+      </td>
+    </tr>
+    <!-- Column headers -->
+    <tr>
+      <th>Name</th>
+      <th>Department</th>
+      <th>Date</th>
+      <th>Status</th>
+      <th>Reason</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>John Doe</td>
+      <td>HR</td>
+      <td>02-05-2025</td>
+      <td>Joined</td>
+      <td>New Hire</td>
+    </tr>
+    <tr>
+      <td>Jane Smith</td>
+      <td>Finance</td>
+      <td>10-05-2025</td>
+      <td>Left</td>
+      <td>Resigned</td>
+    </tr>
+    <!-- Add more rows as needed -->
+  </tbody>
+</table>
+  </div>
+
+</body>
+</html>
