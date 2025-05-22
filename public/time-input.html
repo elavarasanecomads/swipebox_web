@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Time Picker</title>
+
+  <!-- Tailwind CSS and Alpine.js -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+  <!-- Custom Scrollbar Style -->
+  <style>
+    .custom-scrollbar {
+      scrollbar-width: thin;
+      scrollbar-color: #cbd5e0 transparent;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background-color: #cbd5e0; /* Tailwind gray-400 */
+      border-radius: 9999px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-button {
+      display: none;
+      height: 0;
+      width: 0;
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+
+  <div x-data="timePicker()" class="relative w-40">
+    <!-- Display Input -->
+    <input
+      type="text"
+      readonly
+      x-model="formattedTime"
+      @click="open = !open"
+      class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded-md shadow-sm cursor-pointer focus:outline-none focus:ring-blue-600 focus:border-blue-600"
+      placeholder="Select Time (HH:MM)"
+    />
+
+    <!-- Dropdown Popover -->
+    <div
+      x-show="open"
+      @click.outside="open = false"
+      x-transition
+      class="absolute z-50 w-full mt-1 text-sm bg-white border border-gray-300 rounded-md shadow-lg"
+    >
+      <div class="flex p-3 divide-x">
+        <!-- Hours Scroll List -->
+        <div class="w-1/2 overflow-y-auto max-h-60 custom-scrollbar">
+          <template x-for="h in 24" :key="h">
+            <div
+              @click="hour = String(h - 1).padStart(2, '0'); updateFormattedTime();"
+              class="block px-3 py-1 text-center cursor-pointer hover:bg-blue-100"
+              :class="{ 'bg-blue-200 font-semibold': hour === String(h - 1).padStart(2, '0') }"
+            >
+              <span x-text="String(h - 1).padStart(2, '0')"></span>
+            </div>
+          </template>
+        </div>
+
+        <!-- Minutes Scroll List -->
+        <div class="w-1/2 overflow-y-auto max-h-60 custom-scrollbar">
+          <template x-for="m in 60" :key="m">
+            <div
+              @click="minute = String(m - 1).padStart(2, '0'); updateFormattedTime();"
+              class="block px-3 py-1 text-center cursor-pointer hover:bg-blue-100"
+              :class="{ 'bg-blue-200 font-semibold': minute === String(m - 1).padStart(2, '0') }"
+            >
+              <span x-text="String(m - 1).padStart(2, '0')"></span>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden input for form submission -->
+    <input type="hidden" name="time" :value="formattedTime" />
+  </div>
+
+  <script>
+    function timePicker() {
+      return {
+        open: false,
+        hour: '00',
+        minute: '00',
+        get formattedTime() {
+          return this.hour + ':' + this.minute;
+        },
+        updateFormattedTime() {
+          // Optional: auto-close after selection
+          // this.open = false;
+        }
+      };
+    }
+  </script>
+</body>
+</html>
