@@ -1,0 +1,368 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Muster</title>
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-full">
+        <div id="aside"></div>
+        <div class="w-full">
+            <div id="navigation"></div>
+            <div class="mx-0 my-4 lg:m-4">
+                <div class="h-full p-4 space-y-6 bg-white border rounded-md lg:p-8">
+                    <div class="flex items-center gap-2">
+                        <a href="dashboard.html" class="text-sm text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5">
+                                <path fill-rule="evenodd"
+                                    d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <span class="text-2xl font-bold text-gray-900">Detailed Attendance Muster</span>
+
+                    </div>
+                    <div class="w-full">
+                        <div>
+                            <div class="flex flex-col gap-6 md:flex-row md:items-center">
+
+                                <div class="flex items-center gap-4">
+                                    <div>
+                                    <div id="reportrange"
+                                        style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                                        <span></span>
+                                    </div>
+                                </div>                                                                       
+                                <div>
+                                    <span class="inline-block w-full rounded shadow-sm">
+                                        <button
+                                            class="relative z-0 w-full py-3 pl-10 pr-3 text-left transition duration-150 ease-in-out bg-white border border-gray-400 rounded shadow-sm cursor-default lg:py-2 lg:w-72 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                                            type="button" aria-haspopup="listbox" aria-expanded="true"
+                                            aria-label="search" aria-checked="false">
+                                            <input id="search" type="text" placeholder="Search by name"
+                                                class="w-full h-full form-control focus:outline-none searchdata">
+                                            <span
+                                                class="absolute inset-y-0 flex items-center pr-2 pointer-events-none left-2">
+                                                <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </span>
+                                </div>
+                                 <div class="relative text-gray-600" x-data="{ isOpen: false }">
+                                        <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
+                                            class="flex items-center gap-2 px-3 py-2 font-semibold text-gray-100 bg-blue-600 rounded">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
+                                            </svg>
+                                            <span class="hidden text-sm lg:block">Filter</span>
+                                        </button>
+                                        <div x-show="isOpen" @click.away="isOpen = false"
+                                            class="absolute right-0 z-20 w-64 p-4 mt-2 space-y-4 overflow-hidden text-sm font-normal bg-white border rounded shadow"
+                                            style="display: none;">
+                                            <div>
+                                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                    class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                    <option>All Branches</option>
+                                                    <option>Ecomads Pvt Ltd, Covai</option>
+                                                    <option>Ecomads Pvt Ltd, Tiruchengode</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <select id="jobtype" name="jobtype" autocomplete="jobtype"
+                                                    class="block w-full px-2 py-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                                    <option>All Departments</option>
+                                                    <option>Sales</option>
+                                                    <option>Purchase</option>
+                                                </select>
+                                            </div>
+                                            <div class="w-32 space-y-4">
+                                                <button
+                                                    class="w-full px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded searchFilter">Apply
+                                                    Filters</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="relative text-gray-600" x-data="{ isOpen: false }">
+                                        <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
+                                            class="flex items-center gap-2 px-3 py-2 font-semibold text-gray-100 bg-blue-600 rounded">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                                            </svg>
+                                            <span class="hidden text-sm lg:block">Download</span>
+                                        </button>
+                                        <ul x-show="isOpen" @click.away="isOpen = false"
+                                            class="absolute right-0 z-20 py-1 mt-2 overflow-hidden text-sm font-normal bg-white border divide-y rounded shadow w-36"
+                                            style="display: none;">
+                                            <li>
+                                                <button class="p-2">Download as CSV</button>
+                                            </li>
+                                            <li>
+                                                <button class="p-2">Download as PDF</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pt-6 space-y-4">
+                                <div class="w-full overflow-x-auto">
+                                    <table class="table-fixed text-sm border border-gray-300 min-w-[2200px] w-full">
+                                        <thead class="bg-gray-100">
+                                            <tr class="text-left">
+                                                <th
+                                                    class="w-[200px] px-2 py-1 border border-gray-300 text-left sticky left-0 bg-gray-100 z-10">
+                                                    Name</th>
+                                                <!-- Days -->
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">1 M</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">2 T</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">3 W</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">4 T</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">5 F</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">6 S</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">7 S</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">8 M</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">9 T</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">10 W</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">11 T</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">12 F</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">13 S</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">14 S</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">15 M</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">16 T</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">17 W</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">18 T</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">19 F</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">20 S</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">21 S</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">22 M</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">23 T</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">24 W</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">25 T</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">26 F</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">27 S</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">28 S</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">29 M</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">30 T</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">31 W</th>
+                                                <!-- Summary/Status Columns -->
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">P</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">NI</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">H</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">WO</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">PH</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">PL</th>
+                                                <th class="w-[50px] px-2 py-1 border border-gray-300">UPL</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="odd:bg-white even:bg-gray-100">
+                                                <td
+                                                    class="w-[200px] px-2 py-1 border border-gray-300 text-left bg-white break-words sticky left-0 odd:bg-white even:bg-gray-100 z-0">
+                                                    <p class="text-sm font-semibold">Elavarasan [NA1013]</p>
+                                                    <!-- designation, branch -->
+                                                    <p class="text-xs text-blue-600">Accountant, CHB Colony</p>
+                                                </td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300 bg-red-100">A</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300 bg-yellow-100">H <br> <span class="text-xs">PHL</span></td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">A</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">A</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">A</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">A</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">A</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">A</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">A</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">A</td>
+                                                <!-- Repeat remaining <td> for dates + status -->
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td> <!-- 31 -->
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">16</td> <!-- P -->
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">2</td> <!-- NI -->
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">1</td> <!-- H -->
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">4</td> <!-- WO -->
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">0</td> <!-- PH -->
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">2</td> <!-- PL -->
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">1</td>
+                                                <!-- UPL -->
+                                            </tr>
+                                            <!-- Add more rows with same format -->
+                                            <tr class="odd:bg-white even:bg-gray-100">
+                                                <td
+                                                    class="w-[200px] px-2 py-1 border border-gray-300 text-left break-words bg-white sticky left-0 z-0">
+                                                    <p class="text-sm font-semibold">Vinoth [NA1013]</p>
+                                                    <!-- designation, branch -->
+                                                    <p class="text-xs text-blue-600">Accountant, CHB Colony</p>
+                                                </td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300 bg-red-100">
+                                                    A <br> <span class="text-xs">UPHL</span> </td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">A</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">A</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">A</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">A</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">A</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">A</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">A</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">A</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td>
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">A</td>
+                                                <!-- Repeat remaining <td> for dates + status -->
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">P</td> <!-- 31 -->
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">16</td> <!-- P -->
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">2</td> <!-- NI -->
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">1</td> <!-- H -->
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">4</td> <!-- WO -->
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">0</td> <!-- PH -->
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">2</td> <!-- PL -->
+                                                <td class="w-[50px] px-2 py-1 border border-gray-300">1</td>
+                                                <!-- UPL -->
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="flex flex-col items-center justify-center gap-4 lg:flex-row lg:justify-between">
+                                <div class="flex items-center">
+                                    <p class="pr-2 text-sm font-medium">Rows per page</p>
+                                    <select id="jobtype" name="jobtype" autocomplete="jobtype" class="block w-16 p-1 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
+                                        <option>10</option>
+                                        <option>25</option>
+                                        <option>50</option>
+                                        <option>100</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <nav class="relative z-0 inline-flex -space-x-px shadow-sm" aria-label="Pagination">
+                                        <a href="#" class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-blue-100">
+                                            <span class="sr-only">Previous</span>
+                                            <!-- Heroicon name: chevron-left -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                                <path fill-rule="evenodd" d="M4.72 9.47a.75.75 0 0 0 0 1.06l4.25 4.25a.75.75 0 1 0 1.06-1.06L6.31 10l3.72-3.72a.75.75 0 1 0-1.06-1.06L4.72 9.47Zm9.25-4.25L9.72 9.47a.75.75 0 0 0 0 1.06l4.25 4.25a.75.75 0 1 0 1.06-1.06L11.31 10l3.72-3.72a.75.75 0 0 0-1.06-1.06Z" clip-rule="evenodd"></path>
+                                            </svg>
+
+                                        </a>
+                                        <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                                <path fill-rule="evenodd" d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"></path>
+                                            </svg>
+
+                                        </a>
+                                        <a href="#" class="relative items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                            3 </a>
+                                        <a href="#" class="relative inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 hover:bg-blue-100">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                                <path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"></path>
+                                            </svg>
+
+                                        </a>
+                                        <a href="#" class="relative inline-flex items-center px-2 py-2 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-blue-100">
+                                            <span class="sr-only">Next</span>
+                                            <!-- Heroicon name: chevron-right -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                                <path fill-rule="evenodd" d="M15.28 9.47a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 1 1-1.06-1.06L13.69 10 9.97 6.28a.75.75 0 0 1 1.06-1.06l4.25 4.25ZM6.03 5.22l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L8.69 10 4.97 6.28a.75.75 0 0 1 1.06-1.06Z" clip-rule="evenodd"></path>
+                                            </svg>
+
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    $(function () {
+        $("#navigation").load("nav.html");
+        $("#aside").load("aside.html");
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+
+        var start = moment().subtract(29, 'days');
+        var end = moment();
+
+        function cb(start, end) {
+            $('#reportrange span').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
+        }
+
+        $('#reportrange').daterangepicker({
+            startDate: start,
+            endDate: end,
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            }
+        }, cb);
+
+        cb(start, end);
+
+    });
+</script>
+
+
+
+</html>
