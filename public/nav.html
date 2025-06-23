@@ -449,6 +449,16 @@
                 </div>
               </li>
               <li class="border-t group hover:bg-indigo-100">
+                <a href="change-password.html" class="flex items-center px-3 py-3 group-hover:text-indigo-800">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3 text-gray-600 group-hover:text-indigo-800"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                  Change Password
+                </a>
+              </li>
+              <li class="border-t group hover:bg-indigo-100">
                 <a href="logout.html" class="flex items-center px-3 py-3 group-hover:text-indigo-800">
                   <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                     class="mr-3 text-gray-600 text-blue-600 group-hover:text-indigo-800">
@@ -631,75 +641,60 @@
     </div>
   </div>
 
-  <div x-data="{ activePage: window.location.pathname.split('/').pop() || 'ft-dashboard.html' }" class="bg-white rounded">
+  <div x-data="{ activePage: window.location.pathname.split('/').pop() || 'ft-dashboard.html' }"
+    class="bg-white rounded">
     <div class="px-3 py-3 mx-auto max-w-7xl">
       <ul class="flex flex-row flex-wrap items-center gap-4">
         <!-- Static Links -->
         <li>
-          <a 
-            :class="activePage === 'ft-dashboard.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
-            class="p-2 px-4 font-semibold rounded-full hover:bg-blue-100 hover:text-blue-600" 
-            href="ft-dashboard.html" 
+          <a :class="activePage === 'ft-dashboard.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'"
+            class="p-2 px-4 font-semibold rounded-full hover:bg-blue-100 hover:text-blue-600" href="ft-dashboard.html"
             @click="activePage = 'ft-dashboard.html'">
             Dashboard
           </a>
         </li>
         <li>
-          <a 
-            :class="activePage === 'live-location.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
-            class="p-2 px-4 font-semibold rounded-full hover:bg-blue-100 hover:text-blue-600" 
-            href="live-location.html" 
+          <a :class="activePage === 'live-location.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'"
+            class="p-2 px-4 font-semibold rounded-full hover:bg-blue-100 hover:text-blue-600" href="live-location.html"
             @click="activePage = 'live-location.html'">
             Live Location
           </a>
         </li>
         <li>
-          <a 
-            :class="activePage === 'timeline.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
-            class="p-2 px-4 font-semibold rounded-full hover:bg-blue-100 hover:text-blue-600" 
-            href="timeline.html" 
+          <a :class="activePage === 'timeline.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'"
+            class="p-2 px-4 font-semibold rounded-full hover:bg-blue-100 hover:text-blue-600" href="timeline.html"
             @click="activePage = 'timeline.html'">
             Timeline
           </a>
-        </li>        
-  
+        </li>
+
         <!-- Customers Dropdown -->
         <li>
           <div x-data="{ isOpen: false }" class="relative">
-            <button 
-              @click="isOpen = !isOpen" 
-              @keydown.escape="isOpen = false"
+            <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
               class="flex items-center font-semibold focus:outline-none"
               :class="activePage.startsWith('customers') ? 'bg-blue-100 text-blue-600 p-2 px-4 rounded-full' : 'text-gray-900'">
               Customers
             </button>
-            <ul 
-              x-show="isOpen" 
-              @click.away="isOpen = false"
+            <ul x-show="isOpen" @click.away="isOpen = false"
               class="absolute left-0 z-20 py-1 mt-2 overflow-hidden font-normal bg-white border rounded shadow w-60">
               <li>
-                <a 
-                  :class="activePage === 'customers.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
-                  class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" 
-                  href="customers.html" 
+                <a :class="activePage === 'customers.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'"
+                  class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" href="customers.html"
                   @click="activePage = 'customers.html'">
                   All Customers
                 </a>
               </li>
               <li>
-                <a 
-                  :class="activePage === 'customers-custom-fields.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
-                  class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" 
-                  href="customers-custom-fields.html" 
+                <a :class="activePage === 'customers-custom-fields.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'"
+                  class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" href="customers-custom-fields.html"
                   @click="activePage = 'customers-custom-fields.html'">
                   Customer Custom Field
                 </a>
               </li>
               <li>
-                <a 
-                  :class="activePage === 'customers-add-permission.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
-                  class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" 
-                  href="customers-add-permission.html" 
+                <a :class="activePage === 'customers-add-permission.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'"
+                  class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" href="customers-add-permission.html"
                   @click="activePage = 'customers-add-permission.html'">
                   Add Permissions
                 </a>
@@ -707,44 +702,34 @@
             </ul>
           </div>
         </li>
-  
+
         <!-- Tasks Dropdown -->
         <li>
           <div x-data="{ isOpen: false }" class="relative">
-            <button 
-              @click="isOpen = !isOpen" 
-              @keydown.escape="isOpen = false"
+            <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
               class="flex items-center font-semibold focus:outline-none"
               :class="activePage.startsWith('tasks') ? 'bg-blue-100 text-blue-600 p-2 px-4 rounded-full' : 'text-gray-900'">
               Tasks
             </button>
-            <ul 
-              x-show="isOpen" 
-              @click.away="isOpen = false"
+            <ul x-show="isOpen" @click.away="isOpen = false"
               class="absolute left-0 z-20 py-1 mt-2 overflow-hidden font-normal bg-white border rounded shadow w-60">
               <li>
-                <a 
-                  :class="activePage === 'tasks.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
-                  class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" 
-                  href="tasks.html" 
+                <a :class="activePage === 'tasks.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'"
+                  class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" href="tasks.html"
                   @click="activePage = 'tasks.html'">
                   All Tasks
                 </a>
               </li>
               <li>
-                <a 
-                  :class="activePage === 'task-custom-fields.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
-                  class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" 
-                  href="task-custom-fields.html" 
+                <a :class="activePage === 'task-custom-fields.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'"
+                  class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" href="task-custom-fields.html"
                   @click="activePage = 'task-custom-fields.html'">
                   Task Custom Field
                 </a>
               </li>
               <li>
-                <a 
-                  :class="activePage === 'task-settings.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
-                  class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" 
-                  href="task-settings.html" 
+                <a :class="activePage === 'task-settings.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'"
+                  class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" href="task-settings.html"
                   @click="activePage = 'task-settings.html'">
                   Task Settings
                 </a>
@@ -752,35 +737,27 @@
             </ul>
           </div>
         </li>
-  
+
         <!-- Forms Dropdown -->
         <li>
           <div x-data="{ isOpen: false }" class="relative">
-            <button 
-              @click="isOpen = !isOpen" 
-              @keydown.escape="isOpen = false"
+            <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
               class="flex items-center font-semibold focus:outline-none"
               :class="activePage.startsWith('form') ? 'bg-blue-100 text-blue-600 p-2 px-4 rounded-full' : 'text-gray-900'">
               Forms
             </button>
-            <ul 
-              x-show="isOpen" 
-              @click.away="isOpen = false"
+            <ul x-show="isOpen" @click.away="isOpen = false"
               class="absolute left-0 z-20 py-1 mt-2 overflow-hidden font-normal bg-white border rounded shadow w-60">
               <li>
-                <a 
-                  :class="activePage === 'form-details.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
-                  class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" 
-                  href="form-details.html" 
+                <a :class="activePage === 'form-details.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'"
+                  class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" href="form-details.html"
                   @click="activePage = 'form-details.html'">
                   Form Response
                 </a>
               </li>
               <li>
-                <a 
-                  :class="activePage === 'form-settings.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
-                  class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" 
-                  href="form-settings.html" 
+                <a :class="activePage === 'form-settings.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'"
+                  class="block w-full p-2 hover:bg-blue-100 hover:text-blue-600" href="form-settings.html"
                   @click="activePage = 'form-settings.html'">
                   Form Settings
                 </a>
@@ -789,10 +766,8 @@
           </div>
         </li>
         <li>
-          <a 
-            :class="activePage === 'users.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'" 
-            class="p-2 px-4 font-semibold rounded-full hover:bg-blue-100 hover:text-blue-600" 
-            href="users.html" 
+          <a :class="activePage === 'users.html' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'"
+            class="p-2 px-4 font-semibold rounded-full hover:bg-blue-100 hover:text-blue-600" href="users.html"
             @click="activePage = 'users.html'">
             Users
           </a>
@@ -800,13 +775,14 @@
       </ul>
     </div>
   </div>
-  
-  
-  
-  
-  
+
+
+
+
+
   </div>
 </body>
 
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
 </html>
