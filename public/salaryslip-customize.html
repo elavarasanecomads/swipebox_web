@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="output.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
-    
+    <link href="output.css" rel="stylesheet">    
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         /* Add some custom styles for the dragged element */
@@ -146,10 +145,10 @@
                                     <div  x-data="newfieldsManager()" x-init="init()">
                                         <div>
                                             <h3 class="pt-6 text-xl font-bold">Company Header Details</h3>
-                                        <ul id="headerFields" class="grid grid-cols-1 gap-4 mt-4 space-y-2 lg:grid-cols-3">
+                                        <ul id="headerFields" class="flex flex-wrap gap-4 mt-4">
                                             <template x-for="field in headerFields" :key="field.id">
-                                                <li class="flex items-center gap-2">
-                                                    <input class="w-4 h-4" type="checkbox">
+                                                <li class="flex items-center w-full gap-2 lg:w-1/3">
+                                                    <input class="w-4 h-4" type="checkbox" :checked="isChecked(selectedHeader, field.id)" @change="toggleSelection(selectedHeader, field.id)">
                                                     <p x-text="field.name"></p>
                                                 </li>
                                             </template>
@@ -157,10 +156,10 @@
                                         </div>
                                         <div>
                                             <h3 class="pt-6 text-xl font-bold">Employee Details</h3>
-                                        <ul id="employeeFields" class="grid grid-cols-1 gap-4 mt-4 space-y-2 lg:grid-cols-3">
+                                        <ul id="employeeFields" class="flex flex-wrap gap-4 mt-4">
                                             <template x-for="field in employeeFields" :key="field.id">
-                                                <li class="flex items-center gap-2">
-                                                    <input class="w-4 h-4" type="checkbox">
+                                                <li class="flex items-center w-full gap-2 lg:w-1/3">
+                                                    <input class="w-4 h-4" type="checkbox" :checked="isChecked(selectedEmployee, field.id)" @change="toggleSelection(selectedEmployee, field.id)">
                                                     <p x-text="field.name"></p>
                                                 </li>
                                             </template>
@@ -168,10 +167,10 @@
                                         </div>
                                         <div>
                                             <h3 class="pt-6 text-xl font-bold">Attendance Details</h3>
-                                        <ul id="attendanceFields" class="grid grid-cols-1 gap-4 mt-4 space-y-2 lg:grid-cols-3">
+                                        <ul id="attendanceFields" class="flex flex-wrap gap-4 mt-4">
                                             <template x-for="field in attendanceFields" :key="field.id">
-                                                <li class="flex items-center gap-2">
-                                                    <input class="w-4 h-4" type="checkbox">
+                                                <li class="flex items-center w-full gap-2 lg:w-1/3">
+                                                    <input class="w-4 h-4" type="checkbox" :checked="isChecked(selectedAttendance, field.id)" @change="toggleSelection(selectedAttendance, field.id)">
                                                     <p x-text="field.name"></p>
                                                 </li>
                                             </template>
@@ -230,6 +229,10 @@
                 { id: 19, name: 'Account Number' },
                 { id: 20, name: 'IFSC Code' },
                 { id: 21, name: 'UPI ID' },
+                { id: 21, name: 'Salary' },
+                { id: 22, name: 'Total Days' },
+                { id: 23, name: 'Payable Days' },
+                { id: 24, name: 'LOP Days' },
             ],
             selectedFields: [],
             draggingFieldIndex: null,
@@ -277,42 +280,60 @@
         return {
             headerFields: [
             { id: 1, name: 'Company Logo' },
-            { id: 1, name: 'Company Name' },
-            { id: 1, name: 'Company Address' },
-            { id: 1, name: 'Email' },
-            { id: 1, name: 'Mobile Number' },           
-            { id: 1, name: 'GST Number' },
-            { id: 1, name: 'PAN Number' },
-            { id: 1, name: 'ESI Number' },
-            { id: 1, name: 'PF Number' },
+            { id: 2, name: 'Company Name' },
+            { id: 3, name: 'Company Address' },
+            { id: 4, name: 'Email' },
+            { id: 5, name: 'Mobile Number' },
+            { id: 6, name: 'GST Number' },
+            { id: 7, name: 'PAN Number' },
+            { id: 8, name: 'ESI Number' },
+            { id: 9, name: 'PF Number' },
             ],
             employeeFields: [
-            { id: 1, name: 'Name' },
-            { id: 16, name: 'Employee Id' },
-                { id: 2, name: 'Phone Number' },
-                { id: 3, name: 'Email Id' },
-                { id: 15, name: 'Designation' },
-                { id: 12, name: 'Branch' },
-                { id: 13, name: 'Department' },
+            { id: 10, name: 'Name' },
+            { id: 11, name: 'Employee Id' },
+                { id: 12, name: 'Phone Number' },
+                { id: 13, name: 'Email Id' },
+                { id: 14, name: 'Designation' },
+                { id: 15, name: 'Branch' },
+                { id: 16, name: 'Department' },
                 { id: 17, name: 'Date of Joining' },
-                { id: 10, name: 'UAN Number' },
-                { id: 11, name: 'ESI Number' },                
-                { id: 4, name: 'Postal Address' },
-                { id: 5, name: 'State' },
-                { id: 6, name: 'Date of Birth' },
-                { id: 7, name: 'Gender' },
-                { id: 8, name: 'Aadhar Number' },
-                { id: 9, name: 'PAN Number' },               
-                { id: 14, name: 'Staff Category' },
-                { id: 18, name: 'Role' },
-                { id: 19, name: 'Account Number' },
-                { id: 20, name: 'IFSC Code' },
-                { id: 21, name: 'UPI ID' },
+                { id: 18, name: 'UAN Number' },
+                { id: 19, name: 'ESI Number' },                
+                { id: 20, name: 'Postal Address' },
+                { id: 21, name: 'State' },
+                { id: 22, name: 'Date of Birth' },
+                { id: 23, name: 'Gender' },
+                { id: 24, name: 'Aadhar Number' },
+                { id: 25, name: 'PAN Number' },               
+                { id: 26, name: 'Staff Category' },
+                { id: 27, name: 'Role' },
+                { id: 28, name: 'Account Number' },
+                { id: 29, name: 'IFSC Code' },
+                { id: 30, name: 'UPI ID' },
+                { id: 31, name: 'Salary' },
+                { id: 32, name: 'Total Days' },
+                { id: 33, name: 'Payable Days' },
+                { id: 34, name: 'LOP Days' }
+
             ],
             attendanceFields: [
-            { id: 1, name: 'Attendance Summary' },
+            { id: 40, name: 'Attendance Summary' },
+            { id: 41, name: 'Penalty with Hours' },
+            { id: 42, name: 'OT with Hours' },
+             { id: 43, name: 'Penalty' }
             ],
-            
+            selectedHeader: [],
+            selectedEmployee: [],
+            selectedAttendance: [],
+            toggleSelection(arr, id) {
+                const idx = arr.indexOf(id);
+                if (idx === -1) arr.push(id);
+                else arr.splice(idx, 1);
+            },
+            isChecked(arr, id) {
+                return arr.includes(id);
+            },
             init() {
                 // Initialization code
             }

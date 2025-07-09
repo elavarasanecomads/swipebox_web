@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Slip</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .a4-sheet {
+            width: 210mm;
+            height: 297mm;
+            margin: 0 auto;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .salary-slip {
+            box-sizing: border-box;
+            width: 95%;
+            padding: 16px 0px;
+            margin: 0;
+            font-size: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            page-break-inside: avoid;
+        }
+        .section1 {
+            margin-top: 60px;
+            height: 50%;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .info-row {
+            border-top: 1px solid #4b5563;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            padding: 16px 16px;
+        }
+
+        .info-col {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .section {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            padding: 8px 16px;
+            border-top: 1px solid #4b5563;
+        }
+
+        .half-width {
+            width: 50%;
+        }
+
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .item-row { 
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0;
+            padding-top: 2px;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            padding: 16px 16px;
+        }
+
+        .total {
+            display: flex;
+            justify-content: space-between;
+            width: 50%;
+        }
+
+        .netpay {
+            padding: 16px 16px;
+            font-weight: bold;
+        }
+
+        @media print {
+            body,
+            html {
+                width: 210mm;
+                height: 297mm;
+            }
+
+            .a4-sheet {
+                page-break-after: always;
+            }
+
+            .salary-slip {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="a4-sheet">
+        <section class="salary-slip section1">
+            <p class="title">Salary Slip for 01-06-2025 to 30-06-2025</p>
+
+            <div class="info-row">
+                <div class="info-col">
+                    <p>Name: <strong>Elavarasan</strong></p>
+                    <p>Emp Code: <strong>EMP001</strong></p>
+                    <p>Department: Sales</p>
+                </div>
+                <div class="info-col">
+                    <p>Salary: ₹ 250</p>
+                    <p>Payable Days: 20</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="half-width">
+                    <p class="section-title">Earnings</p>
+                    <div class="item-row">
+                        <p>Basic + DA</p>
+                        <p>₹ 400</p>
+                    </div>
+                    <div class="item-row">
+                        <p>Overtime (12:00 Hrs)</p>
+                        <p>₹ 400</p>
+                    </div>
+                </div>
+                <div class="half-width">
+                    <p class="section-title">Deductions</p>
+                    <div class="item-row">
+                        <p>Penalty (12:39 Hrs)</p>
+                        <p>₹ 400</p>
+                    </div>
+                    <div class="item-row">
+                        <p>Deduction</p>
+                        <p>₹ 400</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="total-row">
+                <div class="total">
+                    <p class="section-title">Total Earnings</p>
+                    <p class="section-title">₹ 400</p>
+                </div>
+                <div class="total">
+                    <p class="section-title">Total Deductions</p>
+                    <p class="section-title">₹ 400</p>
+                </div>
+            </div>
+
+            <div class="netpay">
+                <p>NETPAY : ₹ 10000 <span style="font-weight: 400;">( Ten Thousand Rupees Only. )</span></p>
+            </div>
+        </section>
+        <section class="salary-slip section1">
+            <p class="title">Salary Slip for 01-06-2025 to 30-06-2025</p>
+
+            <div class="info-row">
+                <div class="info-col">
+                    <p>Name: <strong>Elavarasan</strong></p>
+                    <p>Emp Code: <strong>EMP001</strong></p>
+                    <p>Department: Sales</p>
+                </div>
+                <div class="info-col">
+                    <p>Salary: ₹ 250</p>
+                    <p>Payable Days: 20</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="half-width">
+                    <p class="section-title">Earnings</p>
+                    <div class="item-row">
+                        <p>Basic + DA</p>
+                        <p>₹ 400</p>
+                    </div>
+                    <div class="item-row">
+                        <p>Overtime (12:00 Hrs)</p>
+                        <p>₹ 400</p>
+                    </div>
+                </div>
+                <div class="half-width">
+                    <p class="section-title">Deductions</p>
+                    <div class="item-row">
+                        <p>Penalty (12:39 Hrs)</p>
+                        <p>₹ 400</p>
+                    </div>
+                    <div class="item-row">
+                        <p>Deduction</p>
+                        <p>₹ 400</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="total-row">
+                <div class="total">
+                    <p class="section-title">Total Earnings</p>
+                    <p class="section-title">₹ 400</p>
+                </div>
+                <div class="total">
+                    <p class="section-title">Total Deductions</p>
+                    <p class="section-title">₹ 400</p>
+                </div>
+            </div>
+
+            <div class="netpay">
+                <p>NETPAY : ₹ 10000 <span style="font-weight: 400;">( Ten Thousand Rupees Only. )</span></p>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
