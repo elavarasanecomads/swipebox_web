@@ -1,266 +1,170 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" x-data="formComponent()" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dynamic Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
-<body class="space-y-4">
-  <div x-data="{ step: 1 }">
-    <div x-show="step === 1" class="flex items-center justify-around gap-4">
-        <div class="pt-5">
-            <button class="p-4 bg-gray-100 rounded-md">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                  </svg>                                      
-            </button>
-        </div>
-        <div class="flex items-center w-full pt-6">
-            <div class="w-1/6">
-                <p class="text=sm text-gray-600">All</p>
-                <p class="text-lg font-bold">320</p>
-            </div>
-            <div class="w-1/6">
-                <p class="text=sm text-gray-600">Present</p>
-                <p class="text-lg font-bold">320</p>
-            </div>
-            <div class="w-1/6">
-                <p class="text=sm text-gray-600">Absent</p>
-                <p class="text-lg font-bold">320</p>
-            </div>
-            <div class="w-1/6">
-                <p class="text=sm text-gray-600">Late Entry</p>
-                <p class="text-lg font-bold">320</p>
-            </div>
-            <div class="w-1/6">
-                <p class="text=sm text-gray-600">Halfday</p>
-                <p class="text-lg font-bold">320</p>
-            </div>
-            <div class="w-1/6">
-                <p class="text=sm text-gray-600">Not Punched</p>
-                <p class="text-lg font-bold">320</p>
-            </div>
-        </div>
-        <div class="pt-5">
-            <button @click="step = 2" class="p-4 bg-gray-100 rounded-md">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                  </svg>                                      
-            </button>
-        </div>
-    </div>
-    <div x-show="step === 2" class="flex items-center justify-around gap-4">
-        <div class="pt-5">
-            <button @click="step = 1" class="p-4 bg-gray-100 rounded-md">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                  </svg>                                      
-            </button>
-        </div>
-        <div class="flex items-center w-full pt-6">
-            <div class="w-1/6">
-                <p class="text=sm text-gray-600">Paid Leave</p>
-                <p class="text-lg font-bold">320</p>
-            </div>
-            <div class="w-1/6">
-                <p class="text=sm text-gray-600 truncate">Paid Halfday Leave</p>
-                <p class="text-lg font-bold">320</p>
-            </div>
-            <div class="w-1/6">
-                <p class="text=sm text-gray-600">Unpaid Leave</p>
-                <p class="text-lg font-bold">320</p>
-            </div>
-            <div class="w-1/6">
-                <p class="text=sm text-gray-600 truncate">Unpaid Halfday Leave</p>
-                <p class="text-lg font-bold">320</p>
-            </div>
-            <div class="w-1/6">
-                <p class="text=sm text-gray-600">Weekoff</p>
-                <p class="text-lg font-bold">320</p>
-            </div>
-            <div class="w-1/6">
-                <p class="text=sm text-gray-600">Public Holiday</p>
-                <p class="text-lg font-bold">320</p>
-            </div>
-        </div>
-        <div class="pt-5">
-            <button @click="step = 3" class="p-4 bg-gray-100 rounded-md">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                  </svg>                                      
-            </button>
-        </div>
-    </div>
-    <div x-show="step === 3" class="flex items-center justify-around gap-4">
-        <div class="pt-5">
-            <button @click="step = 2" class="p-4 bg-gray-100 rounded-md">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                  </svg>                                      
-            </button>
-        </div>
-        <div class="flex items-center w-full pt-6">
-            <div class="w-1/6">
-                <p class="text=sm text-gray-600">Forgot Out</p>
-                <p class="text-lg font-bold">320</p>
-            </div>
-            <div class="w-1/6">
-                <p class="text=sm text-gray-600">Early Out</p>
-                <p class="text-lg font-bold">320</p>
-            </div>
-            <div class="w-1/6">
-                <p class="text=sm text-gray-600">Short Hours</p>
-                <p class="text-lg font-bold">320</p>
-            </div>
-            <div class="w-1/6">
-                <p class="text=sm text-gray-600">1.5X Present</p>
-                <p class="text-lg font-bold">320</p>
-            </div>
-            <div class="w-1/6">
-                <p class="text=sm text-gray-600">2X present</p>
-                <p class="text-lg font-bold">320</p>
-            </div>
-            <div class="w-1/6">
-                
-            </div>
-        </div>
-        <div class="pt-5">
-            <button class="p-4 bg-gray-100 rounded-md">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                  </svg>                                      
-            </button>
-        </div>
-    </div>
-</div>
-    <div x-data="{ showModal: false, showConfirmationModal: false }">
-        <button @click="showModal = true" class="p-2 bg-gray-100 border border-gray-400 rounded w-44">
-          Open Popup
-        </button>
-      
-        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
-          x-show="showModal" @keydown.escape="showModal = false">
-          <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-lg"
-            x-show="!showConfirmationModal">
-            <div class="flex items-center justify-between">
-              <div>
-                <p class="font-bold">
-                  Popup Title
-                </p>
-              </div>
-              <span @click="showModal = false">
-                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none"
-                  viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M6 18L18 6M6 6l12 12">
-                  </path>
-                </svg>
-              </span>
-            </div>
-      
-            <div class="pt-1 text-sm text-gray-600">
-              Popup content
-            </div>
-      
-            <div class="mt-4 space-x-2">
-              <button @click="showModal = false" class="p-2 text-blue-600 border border-blue-600 rounded-md">
-                Cancel
-              </button>
-              <button @click="showConfirmationModal = true" class="p-3 font-semibold text-white bg-blue-600 rounded-md">
-                Continue
-              </button>
-            </div>
-          </div>
-      
-          <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-lg"
-            x-show="showConfirmationModal">
-            <div class="flex items-center justify-between">
-              <div>
-                <p class="font-bold">
-                  Confirmation Popup Title
-                </p>
-              </div>
-              <span @click="showModal = false">
-                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none"
-                  viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M6 18L18 6M6 6l12 12">
-                  </path>
-                </svg>
-              </span>
-            </div>
-      
-            <div class="pt-1 text-sm text-gray-600">
-              Confirmation Popup content
-            </div>
-      
-            <div class="mt-4 space-x-2">
-              <button @click="showConfirmationModal = false" class="p-2 text-blue-600 border border-blue-600 rounded-md">
-                Cancel
-              </button>
-              <button @click="showModal = false; showConfirmationModal = false" class="p-3 font-semibold text-white bg-blue-600 rounded-md">
-                Confirm
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
+<body class="m-8">
+  <div class="space-y-6">
 
-      <div x-data="{ openMap: false, latitude: 0, longitude: 0 }">
-        <button @click="openMap = true">View Map</button>
-    
-        <div x-show="openMap">
-            <iframe
-                x-bind:src="'https://maps.google.com/maps?q=' + latitude + ',' + longitude + '&hl=en&z=14&amp;output=embed'"
-                width="100%"
-                height="450"
-                frameborder="0"
-                style="border:0"
-                allowfullscreen
-            ></iframe>
-        </div>
+    <!-- Form Name -->
+    <div>
+      <label class="block mb-1 font-medium text-gray-700">Form Name</label>
+      <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded" required>
     </div>
-    
-    <div x-data="{ isPopupOpen: false, isMapPopupOpen: false }">
+    <div>
+      <label class="block mb-1 font-medium text-gray-700">Form Description</label>
+      <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded" required>
+    </div>
 
-      <!-- Initial popup -->
-      <div x-show="isPopupOpen" class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50">
-        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md">
-          <h2 class="mb-4 text-2xl">Initial Popup</h2>
-          <button @click="isMapPopupOpen = true">Open Map</button>
-        </div>
-      </div>
-    
-      <!-- Second popup (Map popup) -->
-      <div x-show="isMapPopupOpen" class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50">
-        <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-2xl h-4/5">
-          <h2 class="mb-4 text-2xl">Map Popup</h2>
-          <!-- Add your embedded map code here -->
+    <div>
+      <label class="block mb-1 font-medium text-gray-700">Reviewer</label>
+      <select class="w-full px-3 py-2 border border-gray-300 rounded" required>
+        <option value="">Select Reviewer</option>
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="block mb-1 font-medium text-gray-700">Appraisal Manager</label>
+      <select class="w-full px-3 py-2 border border-gray-300 rounded" required>
+        <option value="">Select Appraisal Manager</option>
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="block mb-1 font-medium text-gray-700">Form Type</label>
+      <select class="w-full px-3 py-2 border border-gray-300 rounded" required>
+        <option value="">Select Form Type</option>
+        <option value="A">Type A</option>
+        <option value="B">Type B</option>
+      </select>
+    </div>
+
+    <!-- Form Period -->
+    <div>
+      <label class="block mb-1 font-medium text-gray-700">Form Period</label>
+      <select class="w-full px-3 py-2 border border-gray-300 rounded" x-model="formPeriod">
+        <option value="">Select Period</option>
+        <option value="Yearly">Yearly</option>
+        <option value="Half_yearly">Half Yearly</option>
+        <option value="Quarterly">Quarterly</option>
+      </select>
+    </div>
+
+    <!-- Enable Fields -->
+    <div class="p-4 bg-gray-100 rounded-lg">
+      <label class="block mb-1 font-medium text-gray-700">Enable Fields</label>
+      <div class="grid grid-cols-2 gap-4 mt-4 lg:grid-cols-4">
+        <template x-for="field in allFields" :key="field.key">
           <div>
-            <iframe src="http://maps.google.com/maps?q=11.3785089,77.8953063&z=16&output=embed" height="80%" width="600"></iframe>
+            <input type="checkbox" :id="field.key" :value="field.key" x-model="enabledFields">
+            <label class="font-semibold" :for="field.key" x-text="field.label"></label>
           </div>
-          <!-- Add more content or adjust the map content here -->
-          <button @click="isMapPopupOpen = false">Close Map</button>
+        </template>
+      </div>
+    </div>
+
+    <!-- Period Dates (Based on Period + Target) -->
+    <div x-show="formPeriod" class="space-y-4">
+      <template x-for="i in getPeriodCount()" :key="i">
+        <div class="grid grid-cols-1 gap-4 p-4 border rounded lg:grid-cols-4">
+          <template x-if="enabledFields.includes('target')">
+            <div class="grid grid-cols-1 col-span-2 gap-4 lg:grid-cols-2">
+              <div>
+                <label class="block mb-1 text-gray-700" x-text="'Period ' + i + ' - Target Start Date'"></label>
+                <input type="date" class="w-full px-3 py-2 border border-gray-300 rounded" required>
+              </div>
+              <div>
+                <label class="block mb-1 text-gray-700" x-text="'Period ' + i + ' - Target End Date'"></label>
+                <input type="date" class="w-full px-3 py-2 border border-gray-300 rounded" required>
+              </div>
+            </div>
+          </template>
+          <div class="grid grid-cols-1 col-span-2 gap-4 lg:grid-cols-2">
+            <div>
+              <label class="block mb-1 text-gray-700" x-text="'Period ' + i + ' - Review Start Date'"></label>
+              <input type="date" class="w-full px-3 py-2 border border-gray-300 rounded" required>
+            </div>
+            <div>
+              <label class="block mb-1 text-gray-700" x-text="'Period ' + i + ' - Review End Date'"></label>
+              <input type="date" class="w-full px-3 py-2 border border-gray-300 rounded" required>
+            </div>
+          </div>
         </div>
-      </div>
-    
-      <!-- Trigger button -->
-      <button @click="isPopupOpen = true" class="mt-8 ml-8">Open Popup</button>
-      </div>
+      </template>
+    </div>
 
-      
+    <!-- Questions -->
+    <div>
+      <p class="text-xl font-bold">Questions</p>
+      <template x-for="(q, index) in questions" :key="index">
+        <div class="grid items-end grid-cols-1 gap-4 mt-4 lg:grid-cols-3">
+          <div class="lg:col-span-2">
+            <label class="block mb-1 font-medium text-gray-700">Question</label>
+            <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded" x-model="q.text" required>
+          </div>
+          <div class="flex items-center gap-2">
+            <div>
+              <label class="block mb-1 font-medium text-gray-700">Weightage</label>
+              <input type="number" class="w-24 px-3 py-2 border border-gray-300 rounded" x-model="q.weight" required>
+            </div>
+            <button @click="questions.splice(index, 1)" type="button" class="mt-5 text-red-600 hover:text-red-800">
+              Delete
+            </button>
+          </div>
+        </div>
+      </template>
 
-    </body>
-    <script defer>
-      document.addEventListener('DOMContentLoaded', function () {
-          // Your additional JavaScript code can go here
-      });
+      <div class="pt-4">
+        <button type="button" @click="questions.push({ text: '', weight: '' })" class="p-2 text-white bg-indigo-600 rounded">Add Question</button>
+      </div>
+    </div>
+
+    <!-- Save Button -->
+    <button type="submit" class="px-4 py-2 font-semibold text-white bg-indigo-600 rounded hover:bg-indigo-700">Save Form</button>
+  </div>
+
+  <script>
+    function formComponent() {
+      return {
+        formPeriod: '',
+        enabledFields: [],
+        allFields: [
+          { key: 'target', label: 'Target' },
+          { key: 'self_rating', label: 'Self Rating' },
+          { key: 'answer', label: 'Answer' },
+          { key: 'reviewer_rating', label: 'Reviewer Rating' },
+          { key: 'reviewer_answer', label: 'Reviewer Answer' },
+          { key: 'appraisal_manager_rating', label: 'Appraisal Manager Rating' },
+          { key: 'appraisal_manager_answer', label: 'Appraisal Manager Answer' },
+        ],
+        questions: [
+          { text: '', weight: '' }
+        ],
+        getPeriodCount() {
+          switch (this.formPeriod) {
+            case 'Yearly':
+              return 1;
+            case 'Half_yearly':
+              return 2;
+            case 'Quarterly':
+              return 4;
+            default:
+              return 0;
+          }
+        }
+      }
+    }
   </script>
-
+</body>
 
 </html>

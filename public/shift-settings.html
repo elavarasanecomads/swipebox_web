@@ -257,16 +257,17 @@
                                 </div>
                             </div> -->
                         </div>
-                        
+
                     </div>
                     <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
                         <div class="p-4 space-y-2 bg-white border shadow">
                             <div class="flex items-center gap-2">
                                 <p class="font-bold">Morning Shift</p>
-                                <p class="px-2 py-0.5 text-center font-semibold text-xs text-white bg-green-600 rounded-full inline-block">
+                                <p
+                                    class="px-2 py-0.5 text-center font-semibold text-xs text-white bg-green-600 rounded-full inline-block">
                                     Fixed Shift</p>
                             </div>
-                            
+
                             <div class="flex items-center gap-8 text-gray-600">
                                 <div>
                                     <p class="font-semibold">Start Time</p>
@@ -312,7 +313,7 @@
                                                     </svg>
                                                 </span>
                                             </div>
-                                            
+
                                             <div class="w-full">
                                                 <div class="pt-4 space-y-4 ">
                                                     <div>
@@ -426,13 +427,17 @@
                                 </div>
                                 <div>
                                     <a href="edit-shift.html" target="_blank">
-                                        <button @click="showModal = true" class="flex items-center font-semibold text-green-600">
-                                            <span>                                            
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="flex-shrink-0 w-5 h-5 mr-1">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.501 19.795l.75-1.3m7.5-12.99l.75-1.3m-6.063 16.658l.26-1.477m2.605-14.772l.26-1.477m0 17.726l-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205L12 12m6.894 5.785l-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864l-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495" />
-                                              </svg>
-                                        </span>
-                                        <span class="font-semibold">Manage Employees</span></button>
+                                        <button @click="showModal = true"
+                                            class="flex items-center font-semibold text-green-600">
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke-width="2" stroke="currentColor"
+                                                    class="flex-shrink-0 w-5 h-5 mr-1">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.501 19.795l.75-1.3m7.5-12.99l.75-1.3m-6.063 16.658l.26-1.477m2.605-14.772l.26-1.477m0 17.726l-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205L12 12m6.894 5.785l-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864l-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495" />
+                                                </svg>
+                                            </span>
+                                            <span class="font-semibold">Manage Employees</span></button>
                                     </a>
                                 </div>
                                 <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
@@ -460,156 +465,118 @@
                                                     </svg>
                                                 </span>
                                             </div>
-                                            
+
                                             <div class="w-full">
                                                 <div class="pt-4 space-y-4 overflow-y-scroll h-[480px]">
-                                                    <div class="grid grid-cols-2 gap-4">
-                                                        <div>
-                                                            <label class="font-semibold text-gray-600"
-                                                                for="">In Time</label>
-                                                            <input type="text" name="" id="" autocomplete="" placeholder=""
-                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                    <div class="space-y-4">
+                                                        <div class="flex items-center gap-4">
+                                                            <div>
+                                                                <label class="font-semibold text-gray-600" for="">In
+                                                                    Time</label>
+                                                                <input type="time" name="" id="" autocomplete=""
+                                                                    placeholder=""
+                                                                    class="block px-2 py-1 mt-1 border border-gray-400 rounded-md w-36 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                            </div>
+                                                            <div>
+                                                                <label class="font-semibold text-gray-600" for="">To
+                                                                    Time</label>
+                                                                <input type="time" name="" id="" autocomplete=""
+                                                                    placeholder=""
+                                                                    class="block px-2 py-1 mt-1 border border-gray-400 rounded-md w-36 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                            </div>
                                                         </div>
-                                                        <div>
-                                                            <label class="font-semibold text-gray-600"
-                                                                for="">To Mins</label>
-                                                            <input type="text" name="" id="" autocomplete="" placeholder=""
-                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                        <div x-data="{ punchSections: [] }">
+    <button
+        class="p-2 text-xs font-semibold text-white bg-green-600 rounded-md"
+        @click="punchSections.push({})">
+        Add Between Punch
+    </button>
+
+    <template x-for="(section, index) in punchSections" :key="index">
+        <div x-transition class="pt-4 mt-4 space-y-2 border-t border-gray-300">
+            <div class="flex items-center gap-4">
+                <div>
+                    <label class="font-semibold text-gray-600">Out Time</label>
+                    <input type="time"
+                        class="block px-2 py-1 mt-1 border border-gray-400 rounded-md w-36 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                </div>
+                <div>
+                    <label class="font-semibold text-gray-600">To Time</label>
+                    <input type="time"
+                        class="block px-2 py-1 mt-1 border border-gray-400 rounded-md w-36 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                </div>
+                <div class="flex items-center gap-2">
+                    <input type="checkbox" class="w-4 h-4">
+                    <label class="font-semibold text-gray-600">Halfday Out time</label>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div>
+                    <label class="font-semibold text-gray-600">In Time</label>
+                    <input type="time"
+                        class="block px-2 py-1 mt-1 border border-gray-400 rounded-md w-36 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                </div>
+                <div>
+                    <label class="font-semibold text-gray-600">To Time</label>
+                    <input type="time"
+                        class="block px-2 py-1 mt-1 border border-gray-400 rounded-md w-36 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                </div>
+            </div>
+        </div>
+    </template>
+</div>
+
+                                                        <div class="flex items-center gap-4">
+                                                            <div>
+                                                                <label class="font-semibold text-gray-600" for="">Out
+                                                                    Time</label>
+                                                                <input type="time" name="" id="" autocomplete=""
+                                                                    placeholder=""
+                                                                    class="block px-2 py-1 mt-1 border border-gray-400 rounded-md w-36 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                            </div>
+                                                            <div>
+                                                                <label class="font-semibold text-gray-600" for="">To
+                                                                    Time</label>
+                                                                <input type="time" name="" id="" autocomplete=""
+                                                                    placeholder=""
+                                                                    class="block px-2 py-1 mt-1 border border-gray-400 rounded-md w-36 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                            </div>
                                                         </div>
-                                                        <div>
-                                                            <label class="font-semibold text-gray-600"
-                                                                for="">1st Lunch Out</label>
-                                                            <input type="text" name="" id="" autocomplete="" placeholder=""
-                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+
+                                                        <div class="flex items-center gap-4">
+                                                            <div>
+                                                                <label class="font-semibold text-gray-600" for="">OT In
+                                                                    Time</label>
+                                                                <input type="time" name="" id="" autocomplete=""
+                                                                    placeholder=""
+                                                                    class="block px-2 py-1 mt-1 border border-gray-400 rounded-md w-36 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                            </div>
+                                                            <div>
+                                                                <label class="font-semibold text-gray-600" for="">To
+                                                                    Time</label>
+                                                                <input type="time" name="" id="" autocomplete=""
+                                                                    placeholder=""
+                                                                    class="block px-2 py-1 mt-1 border border-gray-400 rounded-md w-36 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                            </div>
                                                         </div>
-                                                        <div>
-                                                            <label class="font-semibold text-gray-600"
-                                                                for="">To Mins</label>
-                                                            <input type="text" name="" id="" autocomplete="" placeholder=""
-                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                        </div>
-                                                        <div>
-                                                            <label class="font-semibold text-gray-600"
-                                                                for="">1st Lunch In</label>
-                                                            <input type="text" name="" id="" autocomplete="" placeholder=""
-                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                        </div>
-                                                        <div>
-                                                            <label class="font-semibold text-gray-600"
-                                                                for="">To Mins</label>
-                                                            <input type="text" name="" id="" autocomplete="" placeholder=""
-                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                        </div>
-                                                        <div>
-                                                            <label class="font-semibold text-gray-600"
-                                                                for="">Break 1 Out</label>
-                                                            <input type="text" name="" id="" autocomplete="" placeholder=""
-                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                        </div>
-                                                        <div>
-                                                            <label class="font-semibold text-gray-600"
-                                                                for="">To Mins</label>
-                                                            <input type="text" name="" id="" autocomplete="" placeholder=""
-                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                        </div>
-                                                        <div>
-                                                            <label class="font-semibold text-gray-600"
-                                                                for="">Break 1 In</label>
-                                                            <input type="text" name="" id="" autocomplete="" placeholder=""
-                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                        </div>
-                                                        <div>
-                                                            <label class="font-semibold text-gray-600"
-                                                                for="">To Mins</label>
-                                                            <input type="text" name="" id="" autocomplete="" placeholder=""
-                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                        </div>
-                                                        <div>
-                                                            <label class="font-semibold text-gray-600"
-                                                                for="">2nd Lunch Out</label>
-                                                            <input type="text" name="" id="" autocomplete="" placeholder=""
-                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                        </div>
-                                                        <div>
-                                                            <label class="font-semibold text-gray-600"
-                                                                for="">To Mins</label>
-                                                            <input type="text" name="" id="" autocomplete="" placeholder=""
-                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                        </div>
-                                                        <div>
-                                                            <label class="font-semibold text-gray-600"
-                                                                for="">2nd Lunch In</label>
-                                                            <input type="text" name="" id="" autocomplete="" placeholder=""
-                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                        </div>
-                                                        <div>
-                                                            <label class="font-semibold text-gray-600"
-                                                                for="">To Mins</label>
-                                                            <input type="text" name="" id="" autocomplete="" placeholder=""
-                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                        </div>
-                                                        <div>
-                                                            <label class="font-semibold text-gray-600"
-                                                                for="">Break 2 Out</label>
-                                                            <input type="text" name="" id="" autocomplete="" placeholder=""
-                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                        </div>
-                                                        <div>
-                                                            <label class="font-semibold text-gray-600"
-                                                                for="">To Mins</label>
-                                                            <input type="text" name="" id="" autocomplete="" placeholder=""
-                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                        </div>
-                                                        <div>
-                                                            <label class="font-semibold text-gray-600"
-                                                                for="">Break 2 In</label>
-                                                            <input type="text" name="" id="" autocomplete="" placeholder=""
-                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                        </div>
-                                                        <div>
-                                                            <label class="font-semibold text-gray-600"
-                                                                for="">To Mins</label>
-                                                            <input type="text" name="" id="" autocomplete="" placeholder=""
-                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                        </div>
-                                                        <div>
-                                                            <label class="font-semibold text-gray-600"
-                                                                for="">Out Time</label>
-                                                            <input type="text" name="" id="" autocomplete="" placeholder=""
-                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                        </div>
-                                                        <div>
-                                                            <label class="font-semibold text-gray-600"
-                                                                for="">To Mins</label>
-                                                            <input type="text" name="" id="" autocomplete="" placeholder=""
-                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                        </div>
-                                                        <div>
-                                                            <label class="font-semibold text-gray-600"
-                                                                for="">OT In Time</label>
-                                                            <input type="text" name="" id="" autocomplete="" placeholder=""
-                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                        </div>
-                                                        <div>
-                                                            <label class="font-semibold text-gray-600"
-                                                                for="">To Mins</label>
-                                                            <input type="text" name="" id="" autocomplete="" placeholder=""
-                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                        </div>
-                                                        <div>
-                                                            <label class="font-semibold text-gray-600"
-                                                                for="">OT Out Time</label>
-                                                            <input type="text" name="" id="" autocomplete="" placeholder=""
-                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
-                                                        </div>
-                                                        <div>
-                                                            <label class="font-semibold text-gray-600"
-                                                                for="">To Mins</label>
-                                                            <input type="text" name="" id="" autocomplete="" placeholder=""
-                                                                class="block w-full px-3 py-2 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                        <div class="flex items-center gap-4">
+                                                            <div>
+                                                                <label class="font-semibold text-gray-600" for="">OT Out
+                                                                    Time</label>
+                                                                <input type="time" name="" id="" autocomplete=""
+                                                                    placeholder=""
+                                                                    class="block px-2 py-1 mt-1 border border-gray-400 rounded-md w-36 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                            </div>
+                                                            <div>
+                                                                <label class="font-semibold text-gray-600" for="">To
+                                                                    Time</label>
+                                                                <input type="time" name="" id="" autocomplete=""
+                                                                    placeholder=""
+                                                                    class="block px-2 py-1 mt-1 border border-gray-400 rounded-md w-36 focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    
+
                                                     <div class="flex items-center w-full gap-4 pt-4">
                                                         <div class="w-1/2">
                                                             <button
@@ -630,14 +597,15 @@
                         <div class="p-4 space-y-2 bg-white border shadow">
                             <div class="flex items-center gap-2">
                                 <p class="font-bold">Morning Shift</p>
-                                <p class="px-2 py-0.5 text-center font-semibold text-xs text-white bg-yellow-600 rounded-full inline-block">
+                                <p
+                                    class="px-2 py-0.5 text-center font-semibold text-xs text-white bg-yellow-600 rounded-full inline-block">
                                     Open Shift</p>
                             </div>
                             <div class="flex items-center gap-8 text-gray-600">
                                 <div>
                                     <p class="font-semibold">Shift Hours</p>
                                     <p>08:00 Hrs</p>
-                                </div>                                
+                                </div>
                             </div>
                             <div class="flex items-center gap-4">
                                 <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
@@ -784,13 +752,17 @@
                                 </div>
                                 <div>
                                     <a href="edit-shift.html" target="_blank">
-                                        <button @click="showModal = true" class="flex items-center font-semibold text-green-600">
-                                            <span>                                            
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="flex-shrink-0 w-5 h-5 mr-1">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.501 19.795l.75-1.3m7.5-12.99l.75-1.3m-6.063 16.658l.26-1.477m2.605-14.772l.26-1.477m0 17.726l-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205L12 12m6.894 5.785l-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864l-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495" />
-                                              </svg>
-                                        </span>
-                                        <span class="font-semibold">Manage Employees</span></button>
+                                        <button @click="showModal = true"
+                                            class="flex items-center font-semibold text-green-600">
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke-width="2" stroke="currentColor"
+                                                    class="flex-shrink-0 w-5 h-5 mr-1">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.501 19.795l.75-1.3m7.5-12.99l.75-1.3m-6.063 16.658l.26-1.477m2.605-14.772l.26-1.477m0 17.726l-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205L12 12m6.894 5.785l-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864l-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495" />
+                                                </svg>
+                                            </span>
+                                            <span class="font-semibold">Manage Employees</span></button>
                                     </a>
                                 </div>
                             </div>
@@ -798,7 +770,8 @@
                         <div class="p-4 space-y-2 bg-white border shadow">
                             <div class="flex items-center gap-2">
                                 <p class="font-bold">Cleaning Staff Shift</p>
-                                <p class="px-2 py-0.5 text-center font-semibold text-xs text-white bg-blue-600 rounded-full inline-block">
+                                <p
+                                    class="px-2 py-0.5 text-center font-semibold text-xs text-white bg-blue-600 rounded-full inline-block">
                                     Multiple Shift</p>
                             </div>
                             <div class="py-2 space-y-1 text-sm text-gray-600">
@@ -808,13 +781,14 @@
                             <div class="flex items-center gap-4">
                                 <div>
                                     <a href="create-shift.html">
-                                    <button class="flex items-center font-semibold text-blue-600"><span><svg
-                                                xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                            </svg></span><span class="font-semibold">Edit</span></button>
-                                        </a>
+                                        <button class="flex items-center font-semibold text-blue-600"><span><svg
+                                                    xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                                </svg></span><span class="font-semibold">Edit</span></button>
+                                    </a>
                                 </div>
                                 <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
                                     <button @click="showModal = true"
@@ -879,13 +853,17 @@
                                 </div>
                                 <div>
                                     <a href="edit-shift.html" target="_blank">
-                                        <button @click="showModal = true" class="flex items-center font-semibold text-green-600">
-                                            <span>                                            
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="flex-shrink-0 w-5 h-5 mr-1">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.501 19.795l.75-1.3m7.5-12.99l.75-1.3m-6.063 16.658l.26-1.477m2.605-14.772l.26-1.477m0 17.726l-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205L12 12m6.894 5.785l-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864l-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495" />
-                                              </svg>
-                                        </span>
-                                        <span class="font-semibold">Manage Employees</span></button>
+                                        <button @click="showModal = true"
+                                            class="flex items-center font-semibold text-green-600">
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke-width="2" stroke="currentColor"
+                                                    class="flex-shrink-0 w-5 h-5 mr-1">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.501 19.795l.75-1.3m7.5-12.99l.75-1.3m-6.063 16.658l.26-1.477m2.605-14.772l.26-1.477m0 17.726l-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205L12 12m6.894 5.785l-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864l-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495" />
+                                                </svg>
+                                            </span>
+                                            <span class="font-semibold">Manage Employees</span></button>
                                     </a>
                                 </div>
                             </div>

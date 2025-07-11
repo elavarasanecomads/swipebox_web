@@ -1,156 +1,184 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="h-full" x-data="app()" x-init="init">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layouts</title>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Sidebar Layout</title>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
+<body class="h-full text-gray-800 bg-gray-100">
 
-<body class="bg-gray-100">
-    <div class="flex h-screen overflow-hidden" x-data="{ activeMenu: 'dashboard', activeLink: null, sidebarOpen: true, mobileMenuOpen: false }">
-        
-        <!-- Mobile Header -->
-        <!-- Mobile Header -->
-<div class="fixed top-0 left-0 z-30 flex items-center justify-between w-full h-16 p-4 bg-green-800">
-    <div class="text-lg text-white">Logo</div>
-    <div @click="mobileMenuOpen = !mobileMenuOpen" class="text-white cursor-pointer">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 6h18M3 12h18m-7 6h7" />
-        </svg>
+  <!-- Top bar for Mobile -->
+  <div class="flex items-center justify-between px-4 py-3 text-white bg-gray-800 md:hidden">
+    <div class="text-lg font-semibold">My App</div>
+    <button @click="sidebarOpen = true">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+           viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Sidebar Overlay -->
+  <div class="fixed inset-0 z-40 flex md:hidden" x-show="sidebarOpen"
+       x-transition:enter="transition transform duration-300"
+       x-transition:enter-start="-translate-x-full"
+       x-transition:enter-end="translate-x-0"
+       x-transition:leave="transition transform duration-300"
+       x-transition:leave-start="translate-x-0"
+       x-transition:leave-end="-translate-x-full"
+       style="display: none;">
+
+    <!-- Overlay -->
+    <div class="fixed inset-0 bg-black bg-opacity-50" @click="sidebarOpen = false"></div>
+
+    <!-- Sidebar -->
+    <div class="relative z-50 flex w-64 bg-white">
+      <!-- Main Sidebar -->
+      <div class="flex flex-col items-center w-16 py-4 space-y-4 text-white bg-gray-800">
+        <template x-for="item in menus" :key="item.id">
+          <button @click="setActive(item.id)" class="focus:outline-none"
+                  :class="active === item.id ? 'text-blue-400' : ''">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                 viewBox="0 0 24 24">
+              <template x-if="item.id === 'dashboard'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M3 6h18M3 18h18" />
+              </template>
+              <template x-if="item.id === 'settings'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+              </template>
+              <template x-if="item.id === 'users'">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M5.121 17.804A10.953 10.953 0 0112 15c2.485 0 4.779.802 6.879 2.152M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </template>
+            </svg>
+          </button>
+        </template>
+      </div>
+
+      <!-- Secondary Sidebar -->
+      <div class="flex-1 p-4 bg-gray-100 border-r border-gray-300">
+        <template x-if="active === 'dashboard'">
+          <ul class="space-y-2">
+            <li><button @click="setSub('Overview')" class="w-full text-left" :class="activeSubMenu === 'Overview' ? 'font-semibold text-blue-600' : ''">Overview</button></li>
+            <li><button @click="setSub('Stats')" class="w-full text-left" :class="activeSubMenu === 'Stats' ? 'font-semibold text-blue-600' : ''">Stats</button></li>
+            <li><button @click="setSub('Reports')" class="w-full text-left" :class="activeSubMenu === 'Reports' ? 'font-semibold text-blue-600' : ''">Reports</button></li>
+          </ul>
+        </template>
+
+        <template x-if="active === 'settings'">
+          <ul class="space-y-2">
+            <li><button @click="setSub('General')" class="w-full text-left" :class="activeSubMenu === 'General' ? 'font-semibold text-blue-600' : ''">General</button></li>
+            <li><button @click="setSub('Security')" class="w-full text-left" :class="activeSubMenu === 'Security' ? 'font-semibold text-blue-600' : ''">Security</button></li>
+            <li><button @click="setSub('Integrations')" class="w-full text-left" :class="activeSubMenu === 'Integrations' ? 'font-semibold text-blue-600' : ''">Integrations</button></li>
+          </ul>
+        </template>
+
+        <template x-if="active === 'users'">
+          <ul class="space-y-2">
+            <li><button @click="setSub('User List')" class="w-full text-left" :class="activeSubMenu === 'User List' ? 'font-semibold text-blue-600' : ''">User List</button></li>
+            <li><button @click="setSub('Roles')" class="w-full text-left" :class="activeSubMenu === 'Roles' ? 'font-semibold text-blue-600' : ''">Roles</button></li>
+            <li><button @click="setSub('Permissions')" class="w-full text-left" :class="activeSubMenu === 'Permissions' ? 'font-semibold text-blue-600' : ''">Permissions</button></li>
+          </ul>
+        </template>
+      </div>
     </div>
-</div>
-        <!-- Primary Menu (Sticky) -->
-        <div class="relative flex-col hidden w-16 h-full p-2 space-y-4 bg-green-800 lg:flex">
-            <!-- Sidebar Toggle Button -->
-            <div @click="sidebarOpen = !sidebarOpen" class="flex items-center justify-center w-12 h-12 p-2 text-white rounded-md cursor-pointer hover:bg-green-100 hover:text-green-800">
-                <template x-if="sidebarOpen">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </template>
-                <template x-if="!sidebarOpen">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18m-6 6 6-6-6-6" />
-                    </svg>
-                </template>
-            </div>
+  </div>
 
-            <!-- Dashboard Icon -->
-            <div @click="activeMenu = 'dashboard'; activeLink = null; sidebarOpen = true" :class="activeMenu === 'dashboard' ? 'bg-green-100 text-green-800' : 'text-white'" class="flex items-center justify-center w-12 h-12 p-2 rounded-md cursor-pointer hover:bg-green-100 hover:text-green-800">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-                </svg>
-            </div>
-        </div>
+  <!-- Mobile Main Content (only shown when sidebar is closed) -->
+  <div class="p-6 md:hidden" x-show="!sidebarOpen">
+    <h1 class="text-2xl font-bold" x-text="activeSubMenu || 'Welcome'"></h1>
+    <p class="mt-2 text-gray-600" x-show="activeSubMenu">You're viewing the <span class="font-semibold" x-text="activeSubMenu"></span> section.</p>
+  </div>
 
-        <!-- Sidebar Content (Sticky) -->
-        <div class="relative sticky top-0 z-10 hidden h-full transition-all duration-300 ease-in-out transform bg-green-700 lg:flex" :class="sidebarOpen ? 'w-48' : 'w-0 overflow-hidden'">
-            <div class="px-4 py-4" x-show="sidebarOpen" x-transition>
-                <!-- Dashboard Links -->
-                <div x-show="activeMenu === 'dashboard'" x-cloak x-transition>
-                    <p class="px-2 font-semibold text-green-100 uppercase">Dashboard</p>
-                    <ul class="pt-4 space-y-2">
-                        <li class="w-full">
-                            <a @click="activeLink = 'dashboard1'" :class="activeLink === 'dashboard1' ? 'bg-green-100 text-green-800' : 'text-green-100'" href="#" class="block w-full p-2 px-4 text-sm rounded-md hover:bg-green-100 hover:text-green-800">Dashboard Link 1</a>
-                        </li>
-                        <li class="w-full">
-                            <a @click="activeLink = 'dashboard2'" :class="activeLink === 'dashboard2' ? 'bg-green-100 text-green-800' : 'text-green-100'" href="#" class="block w-full p-2 px-4 text-sm rounded-md hover:bg-green-100 hover:text-green-800">Dashboard Link 2</a>
-                        </li>
-                        <li class="w-full">
-                            <a @click="activeLink = 'dashboard3'" :class="activeLink === 'dashboard3' ? 'bg-green-100 text-green-800' : 'text-green-100'" href="#" class="block w-full p-2 px-4 text-sm rounded-md hover:bg-green-100 hover:text-green-800">Dashboard Link 3</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-       <!-- Mobile Menu (Overlay) -->
-       <div class="fixed inset-0 z-20 flex flex-col transition-transform transform bg-green-800" :class="mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'" style="height: calc(100vh - 64px); top: 64px;">
-        <div class="flex-1 overflow-y-auto">
-            <ul class="p-4 space-y-2">
-                <li><a @click="activeMenu = 'dashboard'; mobileMenuOpen = false" class="block p-2 text-white rounded hover:bg-green-700">Dashboard</a></li>
-                <li><a @click="activeMenu = 'attendance'; mobileMenuOpen = false" class="block p-2 text-white rounded hover:bg-green-700">Attendance</a></li>
-                <!-- Add more menu items here -->
-            </ul>
-        </div>
+  <!-- Desktop Layout -->
+  <div class="hidden h-full md:flex">
+    <!-- Main Sidebar -->
+    <div class="flex flex-col items-center w-16 py-4 space-y-4 text-white bg-gray-800">
+      <template x-for="item in menus" :key="item.id">
+        <button @click="setActive(item.id)" class="focus:outline-none"
+                :class="active === item.id ? 'text-blue-400' : ''">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24">
+            <template x-if="item.id === 'dashboard'">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M3 6h18M3 18h18" />
+            </template>
+            <template x-if="item.id === 'settings'">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+            </template>
+            <template x-if="item.id === 'users'">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M5.121 17.804A10.953 10.953 0 0112 15c2.485 0 4.779.802 6.879 2.152M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </template>
+          </svg>
+        </button>
+      </template>
     </div>
 
-        <!-- Main Content (Scrollable) -->
-        <div class="flex-1 p-8 overflow-y-auto transition-all duration-300 lg:pl-16" :class="mobileMenuOpen ? 'lg:pl-0' : ''">
-            <h1 class="text-2xl font-semibold">Main Content</h1>
-            <div x-data="{ showModal: false }" @keydown.escape="showModal = false">
-                <button @click="showModal = true" class="px-3 py-2 font-semibold text-white bg-blue-600 rounded-md">Add New</button>
-            
-                <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" style="display: none;">
-                    <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-xl" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
-                        <div class="flex items-center justify-between">
-                            <p class="font-bold text-gray-900">Add Department</p>
-                            <span @click="showModal = false">
-                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                                </svg>
-                            </span>
-                        </div>
-            
-                        <div class="w-full">
-                            <form action="https://web1.nithrapeople.com/staff/departmentStore" method="POST" id="departmentStore">
-                                <input type="hidden" name="_token" value="RQp8P5D5l3IcAnmjGollfvP10XMC7ghoTMExZsju">
-                                <div class="pt-4 space-y-4">
-                                    <div>
-                                        <label class="text-sm font-semibold text-gray-600" for="name">Department Name</label>
-                                        <span class="text-red-600">*</span>
-                                        <input type="text" name="name" id="name" autocomplete="title" class="block w-full px-3 py-3 mt-1 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600" onkeypress="return validateInputalphanumeric(event);">
-                                    </div>
-                                    <div>
-                                        <label class="text-sm font-semibold text-gray-600" for="branch">Branch</label>
-                                        <span class="text-red-600">*</span>
-                                        <select id="branch" name="branch" class="block w-full px-3 py-3 mt-1 text-sm bg-white border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
-                                            <option value="">Select Branch</option>
-                                            <option value="1457">Auto_AnnularTechnoTest1</option>
-                                            <option value="1456">Auto_AnnularTechnoTest2</option>
-                                            <option value="1432">Auto_AnnularTechno62</option>
-                                            <option value="1426">Auto_AnnularTechno</option>
-                                            <option value="1419">Auto_Annular1</option>
-                                            <option value="1119">Ecomads</option>
-                                            <option value="1008">Test Branch</option>
-                                            <option value="942">Coimbatore</option>
-                                            <option value="142">Tiruchengode</option>
-                                        </select>
-                                    </div>
-                                    <span id="branch_err"></span>
-                                    <div class="flex items-center w-full gap-4 pt-4">
-                                        <div class="w-1/2">
-                                            <button @click="showModal = false" class="w-full p-2 text-blue-600 border border-blue-600 rounded-md" type="button">Cancel</button>
-                                        </div>
-                                        <div class="w-1/2">
-                                            <button class="w-full p-3 font-semibold text-center text-white bg-blue-600 rounded-md">Submit</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <p class="mt-4 text-gray-600">This is where the main content goes.</p>
+    <!-- Secondary Sidebar -->
+    <div class="w-48 p-4 bg-gray-100 border-r border-gray-300">
+      <template x-if="active === 'dashboard'">
+        <ul class="space-y-2">
+          <li><button @click="setSub('Overview')" class="w-full text-left" :class="activeSubMenu === 'Overview' ? 'font-semibold text-blue-600' : ''">Overview</button></li>
+          <li><button @click="setSub('Stats')" class="w-full text-left" :class="activeSubMenu === 'Stats' ? 'font-semibold text-blue-600' : ''">Stats</button></li>
+          <li><button @click="setSub('Reports')" class="w-full text-left" :class="activeSubMenu === 'Reports' ? 'font-semibold text-blue-600' : ''">Reports</button></li>
+        </ul>
+      </template>
 
-            <!-- Add more content to demonstrate scrolling -->
-            <div class="mt-10 space-y-4">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
-            </div>
-        </div>
+      <template x-if="active === 'settings'">
+        <ul class="space-y-2">
+          <li><button @click="setSub('General')" class="w-full text-left" :class="activeSubMenu === 'General' ? 'font-semibold text-blue-600' : ''">General</button></li>
+          <li><button @click="setSub('Security')" class="w-full text-left" :class="activeSubMenu === 'Security' ? 'font-semibold text-blue-600' : ''">Security</button></li>
+          <li><button @click="setSub('Integrations')" class="w-full text-left" :class="activeSubMenu === 'Integrations' ? 'font-semibold text-blue-600' : ''">Integrations</button></li>
+        </ul>
+      </template>
+
+      <template x-if="active === 'users'">
+        <ul class="space-y-2">
+          <li><button @click="setSub('User List')" class="w-full text-left" :class="activeSubMenu === 'User List' ? 'font-semibold text-blue-600' : ''">User List</button></li>
+          <li><button @click="setSub('Roles')" class="w-full text-left" :class="activeSubMenu === 'Roles' ? 'font-semibold text-blue-600' : ''">Roles</button></li>
+          <li><button @click="setSub('Permissions')" class="w-full text-left" :class="activeSubMenu === 'Permissions' ? 'font-semibold text-blue-600' : ''">Permissions</button></li>
+        </ul>
+      </template>
     </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 p-6">
+      <h1 class="text-2xl font-bold" x-text="activeSubMenu || 'Welcome'"></h1>
+      <p class="mt-2 text-gray-600" x-show="activeSubMenu">You're viewing the <span class="font-semibold" x-text="activeSubMenu"></span> section.</p>
+    </div>
+  </div>
+
+  <script>
+    function app() {
+      return {
+        sidebarOpen: false,
+        active: 'dashboard',
+        activeSubMenu: 'Overview',
+        menus: [
+          { id: 'dashboard' },
+          { id: 'settings' },
+          { id: 'users' }
+        ],
+        setActive(menu) {
+          this.active = menu;
+          // Set default submenu based on selected menu
+          if (menu === 'dashboard') this.activeSubMenu = 'Overview';
+          else if (menu === 'settings') this.activeSubMenu = 'General';
+          else if (menu === 'users') this.activeSubMenu = 'User List';
+        },
+        setSub(submenu) {
+          this.activeSubMenu = submenu;
+          this.sidebarOpen = false; // Close on mobile
+        },
+        init() {
+          this.setActive(this.active);
+        }
+      }
+    }
+  </script>
+
 </body>
-
 </html>

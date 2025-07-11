@@ -82,6 +82,17 @@
                 </div>
             </template>
         </div>
+
+        <!-- Level 5: Employees -->
+        <div class="level-container">
+            <template x-for="employee in employees.filter(e => e.level === 5)" :key="employee.index">
+                <div class="org-card" :id="'employee-' + employee.index">
+                    <div class="org-image"></div>
+                    <h3 class="text-sm font-semibold text-gray-800" x-text="employee.name"></h3>
+                    <p class="text-xs font-medium text-gray-600" x-text="employee.role"></p>
+                </div>
+            </template>
+        </div>
     </div>
 
     <script>
@@ -100,7 +111,13 @@
                     { index: 10, name: 'Lars Peeters', role: 'EMPLOYEE', level: 4, reportsTo: 5 },
                     { index: 11, name: 'Sacha Dubois', role: 'EMPLOYEE', level: 4, reportsTo: 6 },
                     { index: 12, name: 'Hannah Paquet', role: 'EMPLOYEE', level: 4, reportsTo: 6 },
-                    { index: 13, name: 'Takehiro Kanegi', role: 'EMPLOYEE', level: 4, reportsTo: 7 }
+                    { index: 13, name: 'Takehiro Kanegi', role: 'EMPLOYEE', level: 4, reportsTo: 7 },
+                    { index: 14, name: 'Elavarasan', role: 'EMPLOYEE', level: 5, reportsTo: 13 },
+                    { index: 15, name: 'Ragupathi', role: 'EMPLOYEE', level: 5, reportsTo: 13 },
+                    { index: 16, name: 'Vignesh', role: 'EMPLOYEE', level: 5, reportsTo: 13 },
+                    { index: 17, name: 'Elavarasan1', role: 'EMPLOYEE', level: 5, reportsTo: 12 },
+                    { index: 18, name: 'Ragupathi1', role: 'EMPLOYEE', level: 5, reportsTo: 12},
+                    { index: 19, name: 'Vignesh1', role: 'EMPLOYEE', level: 5, reportsTo: 12 }
                 ],
                 init() {
                     window.addEventListener('load', () => {
