@@ -36,12 +36,13 @@
                         <div x-data="{ 'showModal': false }">
                             <button @click="showModal = true"
                                 class="px-3 py-2 font-semibold text-white bg-blue-600 rounded-md">Auto Run</button>
-    
+
                             <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
                                 x-show="showModal" style="display: none;">
                                 <!-- Modal inner -->
                                 <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-md"
-                                    @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300"
+                                    @click.away="showModal = false"
+                                    x-transition:enter="motion-safe:ease-out duration-300"
                                     x-transition:enter-start="opacity-0 scale-90"
                                     x-transition:enter-end="opacity-100 scale-100">
                                     <!-- Title / Close-->
@@ -70,7 +71,7 @@
                                                     <option value="">Previous Day</option>
                                                     <option value="">Current Day</option>
                                                     <option value="">Payroll Start Date to Previous Day</option>
-                                                    <option value="">Payroll Start Date to Current Day</option>                                                    
+                                                    <option value="">Payroll Start Date to Current Day</option>
                                                 </select>
                                             </div>
                                             <div>
@@ -108,10 +109,11 @@
                                             <div>
                                                 <label class="inline-flex items-center">
                                                     <input class="w-4 h-4" type="checkbox" checked="">
-                                                    <span class="ml-2 font-semibold text-gray-600">Scheduled run on next day</span>
+                                                    <span class="ml-2 font-semibold text-gray-600">Scheduled run on next
+                                                        day</span>
                                                 </label>
                                             </div>
-                                           
+
                                             <div class="grid grid-cols-2 gap-4">
                                                 <button
                                                     class="w-full p-3 font-semibold text-center text-gray-900 bg-gray-200 rounded-md">Cancel</button>
@@ -124,7 +126,7 @@
                             </div>
                         </div>
                     </div>
-                   
+
                     <div class="grid grid-cols-1 gap-4 pb-8 lg:grid-cols-4">
                         <select id="jobtype" name="jobtype" autocomplete="jobtype"
                             class="block w-full px-3 py-2 mt-1 text-sm bg-white border border-gray-400 rounded shadow-sm disabled:cursor-not-allowed focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-base">
@@ -244,6 +246,264 @@
                                                 <button class="p-2">Download as PDF</button>
                                             </li>
                                         </ul>
+                                    </div>
+                                    <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                                        <button class="text-sm font-semibold text-blue-600" @click="showModal = true">
+                                            Customize
+                                        </button>
+                                        <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+                                            x-show="showModal" style="display: none;">
+                                            <!-- Modal inner -->
+                                            <div class="w-11/12 px-6 py-4 mx-auto text-left bg-white rounded shadow-lg md:max-w-2xl"
+                                                @click.away="showModal = false"
+                                                x-transition:enter="motion-safe:ease-out duration-300"
+                                                x-transition:enter-start="opacity-0 scale-90"
+                                                x-transition:enter-end="opacity-100 scale-100">
+                                                <!-- Title / Close-->
+                                                <div class="flex items-center justify-between">
+                                                    <p class="font-bold text-gray-900">
+                                                        Customize fields
+                                                    </p>
+                                                    <span @click="showModal = false">
+                                                        <svg class="w-5 h-5 text-gray-900"
+                                                            xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <!-- content -->
+                                                <div class="w-full mt-4 space-y-4">
+                                                    <ul class="grid grid-cols-2 gap-4 md:grid-cols-2 lg:grid-cols-4">
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" checked="" disabled=""
+                                                                type="checkbox">
+                                                            <p>Employee ID</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" checked="" disabled=""
+                                                                type="checkbox">
+                                                            <p>Staff Name</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" checked="" type="checkbox">
+                                                            <p>Mobile Number</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" checked="" type="checkbox">
+                                                            <p>Branch Name</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" checked="" type="checkbox">
+                                                            <p>Department</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" checked="" type="checkbox">
+                                                            <p>Designation</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" checked="" type="checkbox">
+                                                            <p>Shift</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" checked="" type="checkbox">
+                                                            <p>Salary Type</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" checked="" type="checkbox">
+                                                            <p>Payshedule</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" checked="" disabled=""
+                                                                type="checkbox">
+                                                            <p>Salary</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" checked="" disabled=""
+                                                                type="checkbox">
+                                                            <p>Total Days</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" checked="" type="checkbox">
+                                                            <p>Payable Days</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" checked="" type="checkbox">
+                                                            <p>Loss of Pay</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4 checked" type="checkbox">
+                                                            <p>Additional Days</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" checked="" type="checkbox">
+                                                            <p>Over Time (HH:MM)</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" checked="" type="checkbox">
+                                                            <p>Late Entry Penalties (HH:MM)</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Early Exit Penalties (HH:MM)</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Break Hour Penalties (HH:MM)</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Working Hour Penalty (HH:MM)</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Short Hour Penalty (HH:MM)</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Forgout Hour Penalty (HH:MM)</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Basic + DA</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Washing Allowance</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>HRA</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Bonus</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Allowance</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Over Time [OT]</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Pay Per Work</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Leave Encash</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Additional Pay</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Total Earnings</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>TDS</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>PF</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>ESI</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Professional Tax</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Labor Welfare Fund</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Total Statutory Deductions</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Deductions</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Loan</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Salary Advance</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Late Entry Penalties</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Break Hour Penalties</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Early Exit Penalties</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Working Hour Penalty</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Short Hour Penalty</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Forgout Penalty</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Not In Penalty</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Total Common Deductions</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>NETPAY</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>PF - Employer's Contribution</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>ESI - Employer's Contribution</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Labor Welfare Fund - Employer's Contribution</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Total Employer's Contribution</p>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <input class="w-4 h-4" type="checkbox">
+                                                            <p>Total CTC</p>
+                                                        </li>
+
+                                                    </ul>
+                                                    <button
+                                                        class="px-3 py-2 font-semibold text-center text-white bg-blue-600 rounded w-36">Save
+                                                        Fields</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

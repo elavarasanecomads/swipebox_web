@@ -98,6 +98,50 @@
                       type="text"></span>minutes per permission.</p>
               </div>
             </div>
+             <div x-data="{toggle: false}">
+              <div class="flex items-start gap-4">
+                <!--Toogle enable / disable-->
+                <div class="relative flex-shrink-0 w-12 h-6 transition duration-200 ease-linear rounded-full"
+                  :class="[toggle ? 'bg-green-600' : 'bg-gray-400']">
+
+                  <label for="toggle"
+                    class="absolute drop-shadow-lg left-1 bg-white mt-[2px] w-5 h-5 rounded-full transition transform duration-100 ease-linear cursor-pointer"
+                    :class="[toggle ? 'translate-x-full border-black' : 'translate-x-0 border-gray-400']">
+                  </label>
+
+                  <input type="checkbox" id="toggle" name="toggle" x-model="toggle"
+                    class="w-full h-full appearance-none active:outline-none focus:outline-none" />
+                </div>
+                <p class="text-gray-800">Set a maximum monthly permission limit of X minutes, and automatically deduct from penalties.</p>
+
+              </div>
+              <div class="pt-2" id="toggleOn" x-show="toggle">
+                  <div class="w-full p-4 space-y-4 bg-green-100 rounded-md lg:w-1/2">
+                                         <div class="w-full">
+                                            <p class="text-sm">Employees are provided with a monthly allowance of X minutes as permission time. This allowance will be automatically deduct from penalties. If the total penalty time is within the allowed limit, it will be forgiven.</p>
+                                            <div class="pt-2 space-y-2">
+                                                <div>
+<label class="text-sm font-semibold text-gray-600" for="">Max Permission Minutes<span class="text-red-600">*</span></label>
+                                                    <input type="text" class="block w-32 px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                </div>
+                                                <div>
+                                                    <label class="text-sm font-semibold text-gray-600" for="">Penalty Type<span class="text-red-600">*</span></label>
+                                                    <select class="block w-full px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-blue-600 focus:border-blue-600">
+                                                        <option>Select a types</option>
+                                                        <option>Late Entry Penalty</option>
+                                                        <option>Earlyout Penalty</option>
+                                                        <option>Short Hour Penalty</option>
+                                                        <option>Working Hour Penalty</option>                                                        
+                                                        <option>Break Hour Penalty</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                        </div>                                    
+                                    </div>
+              </div>
+            </div>
             <button class="w-1/2 p-3 font-semibold text-center text-white bg-blue-600 rounded-md lg:w-1/4">SAVE</button>
           </div>
         </div>
